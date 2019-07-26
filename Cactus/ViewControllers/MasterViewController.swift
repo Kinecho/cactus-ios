@@ -7,17 +7,46 @@
 //
 
 import UIKit
-
+import Firebase
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var objects = [Any]()
+    var sentPrompts = [SentPrompt]()
 
-
+    var promptListener:ListenerRegistration?
+    
+    @objc func logout(sender: Any) {
+        print("Attempting to log out")
+        AuthService.sharedInstance.logOut()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         navigationItem.leftBarButtonItem = editButtonItem
+        
+        let logoutItem = UIBarButtonItem(
+            title: "Log Out",
+            style: .plain,
+            target: self,
+            action:  #selector(self.logout(sender:))
+        )
+
+        navigationItem.leftBarButtonItem = logoutItem
+        
+        CactusMemberService.sharedInstance.getCurrentMember { (member: CactusMember?, error:Any?) in
+            guard let member = member else {
+                print("No cactus member found")
+                return
+            }
+            print("Got current cactus member \(member.email ?? "No Email found" ) - \(member.id ?? "not found")")
+            
+            self.promptListener = SentPromptService.sharedInstance.observeSentPrompts(member: member, { (prompts, error) in
+                print("Got sent prompts \(prompts?.count)")
+                self.sentPrompts = prompts ?? []
+                self.tableView.reloadData()
+            })
+        }
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
         navigationItem.rightBarButtonItem = addButton
@@ -34,9 +63,9 @@ class MasterViewController: UITableViewController {
 
     @objc
     func insertNewObject(_ sender: Any) {
-        objects.insert(NSDate(), at: 0)
-        let indexPath = IndexPath(row: 0, section: 0)
-        tableView.insertRows(at: [indexPath], with: .automatic)
+//        objects.insert(NSDate(), at: 0)
+//        let indexPath = IndexPath(row: 0, section: 0)
+//        tableView.insertRows(at: [indexPath], with: .automatic)
     }
 
     // MARK: - Segues
@@ -44,7 +73,7 @@ class MasterViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row] as! NSDate
+                let object = sentPrompts[indexPath.row]
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
@@ -60,14 +89,14 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        return sentPrompts.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        let object = objects[indexPath.row] as! NSDate
-        cell.textLabel!.text = object.description
+        let object = sentPrompts[indexPath.row]
+        cell.textLabel!.text = "\(indexPath.row): \(object.promptId ?? "unknown")"
         return cell
     }
 
@@ -78,7 +107,7 @@ class MasterViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            objects.remove(at: indexPath.row)
+            sentPrompts.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.

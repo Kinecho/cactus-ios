@@ -17,7 +17,7 @@ class DetailViewController: UIViewController {
         // Update the user interface for the detail item.
         if let detail = detailItem {
             if let label = detailDescriptionLabel {
-                label.text = detail.description
+                label.text = "\(String(describing: detail.id)) - \(detail.memberEmail ?? "No email")"
             }
         }
     }
@@ -28,7 +28,7 @@ class DetailViewController: UIViewController {
         configureView()
     }
 
-    var detailItem: NSDate? {
+    var detailItem: SentPrompt? {
         didSet {
             // Update the view.
             configureView()
