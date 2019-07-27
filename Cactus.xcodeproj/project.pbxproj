@@ -7,6 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
+		30934F9322EBE7DF007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
+		30934F9622EBF146007C4E6C /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9522EBF146007C4E6C /* RoundedButton.swift */; };
+		30934F9722EBF146007C4E6C /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9522EBF146007C4E6C /* RoundedButton.swift */; };
+		30934F9922EBF235007C4E6C /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9822EBF235007C4E6C /* BorderedButton.swift */; };
+		30934F9A22EBF235007C4E6C /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9822EBF235007C4E6C /* BorderedButton.swift */; };
+		30934F9C22EBF2AB007C4E6C /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9B22EBF2AB007C4E6C /* ColorExtensions.swift */; };
+		30934F9D22EBF2AC007C4E6C /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9B22EBF2AB007C4E6C /* ColorExtensions.swift */; };
+		30934F9F22EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9E22EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift */; };
+		30934FA022EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9E22EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift */; };
+		30934FA322EBF4E6007C4E6C /* FormatUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FA222EBF4E6007C4E6C /* FormatUtils.swift */; };
+		30934FA422EBF4E6007C4E6C /* FormatUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FA222EBF4E6007C4E6C /* FormatUtils.swift */; };
+		30934FA622EBFF27007C4E6C /* ReflectionPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FA522EBFF27007C4E6C /* ReflectionPrompt.swift */; };
+		30934FA722EBFF27007C4E6C /* ReflectionPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FA522EBFF27007C4E6C /* ReflectionPrompt.swift */; };
+		30934FA922EC0001007C4E6C /* ReflectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FA822EC0001007C4E6C /* ReflectionResponse.swift */; };
+		30934FAA22EC0001007C4E6C /* ReflectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FA822EC0001007C4E6C /* ReflectionResponse.swift */; };
+		30934FAC22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FAB22EC02A6007C4E6C /* ReflectionPromptService.swift */; };
+		30934FAD22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FAB22EC02A6007C4E6C /* ReflectionPromptService.swift */; };
+		30934FAF22EC0558007C4E6C /* ReflectionResponseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FAE22EC0558007C4E6C /* ReflectionResponseService.swift */; };
+		30934FB022EC0558007C4E6C /* ReflectionResponseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FAE22EC0558007C4E6C /* ReflectionResponseService.swift */; };
 		30A281DA22EA61A30041158E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA7222EA5A9F00443E46 /* DetailViewController.swift */; };
 		30A281DB22EA61A30041158E /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA7022EA5A9F00443E46 /* MasterViewController.swift */; };
 		30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */; };
@@ -52,6 +72,16 @@
 
 /* Begin PBXFileReference section */
 		0CDE23A24E34875606036179 /* Pods-Cactus Stage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus Stage.release.xcconfig"; path = "Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage.release.xcconfig"; sourceTree = "<group>"; };
+		30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFeedCollectionViewController.swift; sourceTree = "<group>"; };
+		30934F9522EBF146007C4E6C /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		30934F9822EBF235007C4E6C /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
+		30934F9B22EBF2AB007C4E6C /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
+		30934F9E22EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryCollectionViewCell.swift; sourceTree = "<group>"; };
+		30934FA222EBF4E6007C4E6C /* FormatUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatUtils.swift; sourceTree = "<group>"; };
+		30934FA522EBFF27007C4E6C /* ReflectionPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionPrompt.swift; sourceTree = "<group>"; };
+		30934FA822EC0001007C4E6C /* ReflectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionResponse.swift; sourceTree = "<group>"; };
+		30934FAB22EC02A6007C4E6C /* ReflectionPromptService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionPromptService.swift; sourceTree = "<group>"; };
+		30934FAE22EC0558007C4E6C /* ReflectionResponseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionResponseService.swift; sourceTree = "<group>"; };
 		30A281E722EA61A30041158E /* Cactus Prod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cactus Prod.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A281E922EA61EB0041158E /* StageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = StageAssets.xcassets; sourceTree = "<group>"; };
 		30A281EB22EA61FA0041158E /* ProdAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ProdAssets.xcassets; sourceTree = "<group>"; };
@@ -107,6 +137,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30934F9422EBF12D007C4E6C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				30934F9522EBF146007C4E6C /* RoundedButton.swift */,
+				30934F9822EBF235007C4E6C /* BorderedButton.swift */,
+				30934F9E22EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		30934FA122EBF4CF007C4E6C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				30934FA222EBF4E6007C4E6C /* FormatUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		30A281D322EA610E0041158E /* ConfigProd */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +206,8 @@
 		30B6EA6D22EA5A9F00443E46 /* Cactus */ = {
 			isa = PBXGroup;
 			children = (
+				30934FA122EBF4CF007C4E6C /* Utils */,
+				30934F9422EBF12D007C4E6C /* Views */,
 				30E9B0B122EADE12005B25FD /* Extensions */,
 				30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */,
 				30A281D322EA610E0041158E /* ConfigProd */,
@@ -179,6 +229,8 @@
 				30E9B0A222EAC204005B25FD /* AuthService.swift */,
 				30E9B09F22EABFBD005B25FD /* CactusMemberService.swift */,
 				30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */,
+				30934FAB22EC02A6007C4E6C /* ReflectionPromptService.swift */,
+				30934FAE22EC0558007C4E6C /* ReflectionResponseService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -189,6 +241,8 @@
 				30E9B09822EA6A81005B25FD /* BaseModel.swift */,
 				30E9B09C22EA7FC3005B25FD /* CactusMember.swift */,
 				30E9B0B922EAF153005B25FD /* SentPrompt.swift */,
+				30934FA522EBFF27007C4E6C /* ReflectionPrompt.swift */,
+				30934FA822EC0001007C4E6C /* ReflectionResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -201,6 +255,7 @@
 				30E9B0A822EAD68B005B25FD /* AppMainViewController.swift */,
 				30E9B0AE22EADD04005B25FD /* LoginViewController.swift */,
 				30E9B0B622EADF75005B25FD /* HomeViewController.swift */,
+				30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -209,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				30E9B0B222EADE2D005B25FD /* CGExtensions.swift */,
+				30934F9B22EBF2AB007C4E6C /* ColorExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -570,20 +626,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30934FB022EC0558007C4E6C /* ReflectionResponseService.swift in Sources */,
+				30934F9D22EBF2AC007C4E6C /* ColorExtensions.swift in Sources */,
 				30E9B0AA22EAD68B005B25FD /* AppMainViewController.swift in Sources */,
+				30934FA722EBFF27007C4E6C /* ReflectionPrompt.swift in Sources */,
 				30E9B0AD22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
+				30934FA022EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift in Sources */,
+				30934F9A22EBF235007C4E6C /* BorderedButton.swift in Sources */,
+				30934FAD22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */,
 				30A281DA22EA61A30041158E /* DetailViewController.swift in Sources */,
+				30934FA422EBF4E6007C4E6C /* FormatUtils.swift in Sources */,
 				30E9B0B422EADE2D005B25FD /* CGExtensions.swift in Sources */,
 				30E9B0BE22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
 				30E9B0A122EABFBD005B25FD /* CactusMemberService.swift in Sources */,
 				30E9B09B22EA6A84005B25FD /* FirestoreService.swift in Sources */,
+				30934FAA22EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
 				30E9B09E22EA7FC3005B25FD /* CactusMember.swift in Sources */,
 				30E9B0A422EAC204005B25FD /* AuthService.swift in Sources */,
 				30A281DB22EA61A30041158E /* MasterViewController.swift in Sources */,
 				30E9B09A22EA6A81005B25FD /* BaseModel.swift in Sources */,
+				30934F9722EBF146007C4E6C /* RoundedButton.swift in Sources */,
 				30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */,
 				30E9B0B822EADF75005B25FD /* HomeViewController.swift in Sources */,
 				30E9B0B022EADD04005B25FD /* LoginViewController.swift in Sources */,
+				30934F9322EBE7DF007C4E6C /* JournalFeedCollectionViewController.swift in Sources */,
 				30E9B0BB22EAF153005B25FD /* SentPrompt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -592,20 +658,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30934FAF22EC0558007C4E6C /* ReflectionResponseService.swift in Sources */,
+				30934F9C22EBF2AB007C4E6C /* ColorExtensions.swift in Sources */,
 				30E9B0A922EAD68B005B25FD /* AppMainViewController.swift in Sources */,
+				30934FA622EBFF27007C4E6C /* ReflectionPrompt.swift in Sources */,
 				30E9B0AC22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
+				30934F9F22EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift in Sources */,
+				30934F9922EBF235007C4E6C /* BorderedButton.swift in Sources */,
+				30934FAC22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */,
 				30B6EA7322EA5A9F00443E46 /* DetailViewController.swift in Sources */,
+				30934FA322EBF4E6007C4E6C /* FormatUtils.swift in Sources */,
 				30E9B0B322EADE2D005B25FD /* CGExtensions.swift in Sources */,
 				30E9B0BD22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
 				30E9B0A022EABFBD005B25FD /* CactusMemberService.swift in Sources */,
 				30E9B09622EA68AC005B25FD /* FirestoreService.swift in Sources */,
+				30934FA922EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
 				30E9B09D22EA7FC3005B25FD /* CactusMember.swift in Sources */,
 				30E9B0A322EAC204005B25FD /* AuthService.swift in Sources */,
 				30B6EA7122EA5A9F00443E46 /* MasterViewController.swift in Sources */,
 				30B6EA6F22EA5A9F00443E46 /* AppDelegate.swift in Sources */,
+				30934F9622EBF146007C4E6C /* RoundedButton.swift in Sources */,
 				30E9B09922EA6A81005B25FD /* BaseModel.swift in Sources */,
 				30E9B0B722EADF75005B25FD /* HomeViewController.swift in Sources */,
 				30E9B0AF22EADD04005B25FD /* LoginViewController.swift in Sources */,
+				30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */,
 				30E9B0BA22EAF153005B25FD /* SentPrompt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

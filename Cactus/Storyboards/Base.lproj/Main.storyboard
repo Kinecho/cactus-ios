@@ -81,8 +81,8 @@
                 <splitViewController storyboardIdentifier="Home" id="H1p-Uh-vWS" customClass="HomeViewController" customModule="Cactus_Prod" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <connections>
-                        <segue destination="RMx-3f-FxP" kind="relationship" relationship="masterViewController" id="BlO-5A-QYV"/>
                         <segue destination="vC3-pB-5Vb" kind="relationship" relationship="detailViewController" id="Tll-UG-LXB"/>
+                        <segue destination="z3q-a2-H8V" kind="relationship" relationship="masterViewController" id="r4i-VT-wEL"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZU-Oi-B1e" sceneMemberID="firstResponder"/>
@@ -132,6 +132,95 @@
             </objects>
             <point key="canvasLocation" x="709" y="-630"/>
         </scene>
+        <!--Journal Feed Collection View Controller-->
+        <scene sceneID="Gr6-KQ-PFf">
+            <objects>
+                <collectionViewController id="GWJ-to-hjF" customClass="JournalFeedCollectionViewController" customModule="Cactus_Prod" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" id="c64-uC-Gae">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.4183132946" green="0.56906837219999995" blue="0.98025351760000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CAX-zL-tXF">
+                            <size key="itemSize" width="402" height="185"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="JournalEntryCell" id="hi3-X9-dKc" customClass="JournalEntryCollectionViewCell" customModule="Cactus_Prod" customModuleProvider="target">
+                                <rect key="frame" x="12" y="0.0" width="390" height="220"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="220"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="May 14, 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOB-lq-qx1">
+                                            <rect key="frame" x="24" y="24" width="102" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What makes you feel happy each morning when you wake up?" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ud-An-1HM">
+                                            <rect key="frame" x="20" y="63" width="346" height="41"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XST-lP-ejb">
+                                            <rect key="frame" x="24" y="114" width="342" height="81.5"/>
+                                            <string key="text">This is my really great and awesoem answer that kinda keeps giong and going like the energizer bunny. But what if it was even more, still? What woudl we do then? I guess we'd have to keep updating until it works...</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLH-Hu-Fx0" customClass="BorderedButton" customModule="Cactus_Prod" customModuleProvider="target">
+                                            <rect key="frame" x="336" y="24" width="30" height="30"/>
+                                            <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
+                                            <state key="normal" title=". . ."/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
+                                                    <real key="value" value="20"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
+                                    </subviews>
+                                </view>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="XST-lP-ejb" firstAttribute="top" secondItem="0ud-An-1HM" secondAttribute="bottom" constant="10" id="3en-bg-db9"/>
+                                    <constraint firstItem="xLH-Hu-Fx0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XOB-lq-qx1" secondAttribute="trailing" constant="24" id="91B-oU-YXY"/>
+                                    <constraint firstItem="0ud-An-1HM" firstAttribute="top" secondItem="XOB-lq-qx1" secondAttribute="bottom" constant="18" id="LXY-MB-Vc6"/>
+                                    <constraint firstItem="XST-lP-ejb" firstAttribute="leading" secondItem="hi3-X9-dKc" secondAttribute="leading" constant="24" id="M42-CE-L6o"/>
+                                    <constraint firstItem="0ud-An-1HM" firstAttribute="leading" secondItem="hi3-X9-dKc" secondAttribute="leading" constant="20" id="O5X-YX-sUj"/>
+                                    <constraint firstAttribute="trailing" secondItem="XST-lP-ejb" secondAttribute="trailing" constant="24" id="RHo-G0-Ad6"/>
+                                    <constraint firstItem="XOB-lq-qx1" firstAttribute="top" secondItem="hi3-X9-dKc" secondAttribute="top" constant="24" id="Rni-n7-Csb"/>
+                                    <constraint firstAttribute="trailing" secondItem="xLH-Hu-Fx0" secondAttribute="trailing" constant="24" id="eho-4o-3TD"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="XST-lP-ejb" secondAttribute="bottom" constant="24" id="igx-EP-5n8"/>
+                                    <constraint firstAttribute="trailing" secondItem="0ud-An-1HM" secondAttribute="trailing" constant="24" id="ih9-8x-CsM"/>
+                                    <constraint firstItem="xLH-Hu-Fx0" firstAttribute="top" secondItem="hi3-X9-dKc" secondAttribute="top" constant="24" id="oXE-GH-0UM"/>
+                                    <constraint firstItem="XOB-lq-qx1" firstAttribute="leading" secondItem="hi3-X9-dKc" secondAttribute="leading" constant="24" id="q2p-pS-Zrw"/>
+                                </constraints>
+                                <size key="customSize" width="390" height="220"/>
+                                <connections>
+                                    <outlet property="dateLabel" destination="XOB-lq-qx1" id="Apq-GM-yLb"/>
+                                    <outlet property="moreButton" destination="xLH-Hu-Fx0" id="tcN-fN-sEr"/>
+                                    <outlet property="questionLabel" destination="0ud-An-1HM" id="Jv0-cx-mwF"/>
+                                    <outlet property="responseLabel" destination="XST-lP-ejb" id="iea-EP-ew9"/>
+                                    <segue destination="vC3-pB-5Vb" kind="showDetail" id="zJn-E0-qnI"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="GWJ-to-hjF" id="TUj-4B-lxt"/>
+                            <outlet property="delegate" destination="GWJ-to-hjF" id="tSb-2n-uyb"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="hob-sU-0F9"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PGe-PA-TCt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2915.9420289855075" y="-1172.5446428571429"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="atD-QB-cj1">
             <objects>
@@ -141,19 +230,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create An Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dt5-xk-ofP">
-                                <rect key="frame" x="82" y="108" width="250" height="37"/>
+                                <rect key="frame" x="82" y="64" width="250" height="37"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start with a happier mindset today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afq-L6-2C3">
-                                <rect key="frame" x="75.5" y="165" width="263" height="21"/>
+                                <rect key="frame" x="75.5" y="121" width="263" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7x3-lF-lM2">
-                                <rect key="frame" x="0.0" y="213" width="414" height="649"/>
+                                <rect key="frame" x="0.0" y="169" width="414" height="693"/>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Nx-Ds-HR5">
                                 <rect key="frame" x="177" y="782" width="60" height="30"/>
@@ -211,10 +300,9 @@
         <!--Navigation Controller-->
         <scene sceneID="Vqa-JK-efD">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rVx-Db-QTW" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="rVx-Db-QTW" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yy4-4D-RcY">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -226,8 +314,26 @@
             </objects>
             <point key="canvasLocation" x="-1004.3478260869566" y="618.75"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7Lk-bR-mMH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="z3q-a2-H8V" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="p5z-mi-2wn">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="GWJ-to-hjF" kind="relationship" relationship="rootViewController" id="kZp-iz-Llc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z2A-jv-mzK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2005.7971014492755" y="-1172.5446428571429"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6S0-TO-JiA"/>
+        <segue reference="zJn-E0-qnI"/>
     </inferredMetricsTieBreakers>
 </document>

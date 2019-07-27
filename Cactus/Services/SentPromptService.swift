@@ -37,7 +37,10 @@ class SentPromptService {
             return nil
         }
         
-        let query = self.getCollectionRef().whereField(SentPrompt.Field.cactusMemberId, isEqualTo: memberId)
+        let query = self.getCollectionRef()
+            .whereField(SentPrompt.Field.cactusMemberId, isEqualTo: memberId)
+            .order(by: SentPrompt.Field.firstSentAt, descending: true)
+        
         return self.firestoreService.addListener(query, { (sentPrompts, error) in
             onData(sentPrompts, error)
         })

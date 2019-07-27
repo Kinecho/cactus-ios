@@ -41,11 +41,11 @@ class AppMainViewController: UIViewController {
     
     
     func setupAuth(){
-        Auth.auth().addStateDidChangeListener(){auth, user in
-            if user == nil {                
+        _ = CactusMemberService.sharedInstance.observeCurrentMember { (member, error) in
+            if member == nil {
                 self.showScreen(ScreenID.Login, wrapInNav: true)
                 self.hasUser = false
-//            } else if !self.authHasLoaded  {
+                //            } else if !self.authHasLoaded  {
             } else {
                 self.showScreen(ScreenID.Home)
                 self.hasUser = true

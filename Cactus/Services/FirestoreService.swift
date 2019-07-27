@@ -36,11 +36,21 @@ class FirestoreService {
         
     }
     
+    func observeById<T:FirestoreIdentifiable>(_ id: String, _ onData: @escaping (T? , Any?) -> Void) -> ListenerRegistration {
+        let collection = getCollection(T.self.collectionName)
+        return collection.document(id).addSnapshotListener({ (snapshot, error) in
+            let model = try? snapshot?.decode(as: T.self)
+            onData(model, error)
+        })
+    }
+    
     func getDocuments<T:FirestoreIdentifiable>(_ query: Query, _ onData: @escaping ([T]?, Any?) -> Void) -> Void{
         query.getDocuments(completion: self.snapshotListener(onData))
     }
     
     func addListener<T:FirestoreIdentifiable>(_ query: Query, _ onData: @escaping ([T]?, Any?) -> Void) -> ListenerRegistration{
+        let query = query.whereField(BaseModelField.deleted, isEqualTo: false)        
+        
         let listener = query.addSnapshotListener(self.snapshotListener(onData))
         
         return listener

@@ -19,15 +19,40 @@ class AuthService {
     
     func getCurrentUser() -> User? {
         return Auth.auth().currentUser
-
+        
     }
     
-    func logOut() {
-        do {
-            try Auth.auth().signOut()
-        } catch {
-            print("Error signing out", error)
+    func logOut(_ vc: UIViewController) {
+        
+        let title = "Log Out?"
+        
+        var  message = "Are you sure you want to log out?"
+        if let user = getCurrentUser(), (user.displayName != nil || user.email != nil) {
+            var name = user.email
+            if name == nil {
+                name = user.displayName
+            }
+            if name != nil {
+                message = "Are you sure you want to log out of \(name!)?"
+            }
         }
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Log Out", style: .destructive){ _ in
+            do{
+                try Auth.auth().signOut()
+                vc.dismiss(animated: false, completion: nil)
+            } catch {
+                print("error signing out", error)
+                let alert = UIAlertController(title: "Error Logging Out", message: "An unexpected error occurred while logging out. \n\n\(error)", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                vc.present(alert, animated: true)
+            }
+        })
+        
+        vc.present(alert, animated: true)
+        
     }
     
     func getAuthStateChangeHandler(completion: @escaping (Auth, User?) -> Void) -> AuthStateDidChangeListenerHandle {

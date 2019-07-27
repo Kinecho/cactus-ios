@@ -14,6 +14,7 @@ public enum FirestoreCollectionName:String {
     case users
     case reflectionPrompt
     case sentPrompts
+    case reflectionResponses
 }
 
 

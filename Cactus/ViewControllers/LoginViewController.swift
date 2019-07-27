@@ -27,20 +27,15 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.configureUI()
-        self.navigationController?.title = "Welcome"
-        
-        //        self.authHandler = AuthService.shared.getAuthStateChangeHandler { (auth, user) in
-        //            self.configureUI(user)
-        //        }
-        // Do any additional setup after loading the view.
+        self.authHandler = AuthService.sharedInstance.getAuthStateChangeHandler { (auth, user) in
+            self.configureUI(user)
+        }
     }
     
     deinit {
         AuthService.sharedInstance.removeAuthStateChangeListener(self.authHandler)
     }
-    
     
     func configureUI(_ user: User?=AuthService.sharedInstance.getCurrentUser()){
         self.configureAuth(user)
@@ -123,7 +118,13 @@ class LoginViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     @IBAction func signOut(_ sender: Any) {
@@ -144,7 +145,6 @@ class LoginViewController: UIViewController {
             do{
                 try self.authUI.signOut()
                 self.dismiss(animated: false, completion: nil)
-                //                self.configureUI()
             } catch {
                 print("error signing out", error)
                 let alert = UIAlertController(title: "Error Logging Out", message: "An unexpected error occurred while logging out. \n\n\(error)", preferredStyle: .alert)
@@ -179,10 +179,6 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
             //            FUITwitterAuth(),
 //            FUIPhoneAuth(authUI:authUI),
         ]
-        
-        if user == nil {
-//            providers.append(FUIAnonymousAuth())
-        }
         
         authUI.providers = providers
         
@@ -289,13 +285,14 @@ class CustomAuthPickerViewController: FUIAuthPickerViewController {
         let pickerView = scrollView?.subviews.first
         pickerView?.backgroundColor = .clear
         
-        
+//        self.navigationController?.navigationBar.isHidden = false
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isHidden = true
-        self.title = "Hello!!"
+//        self.navigationController?.isNavigationBarHidden = false
+//        self.navigationController?.navigationBar.isHidden = false
+//        self.title = "Hello!!"
     }
     /*
      // MARK: - Navigation

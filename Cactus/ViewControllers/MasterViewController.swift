@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseFirestore
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
@@ -17,7 +17,7 @@ class MasterViewController: UITableViewController {
     
     @objc func logout(sender: Any) {
         print("Attempting to log out")
-        AuthService.sharedInstance.logOut()
+        AuthService.sharedInstance.logOut(self)
     }
     
     override func viewDidLoad() {
@@ -34,20 +34,18 @@ class MasterViewController: UITableViewController {
 
         navigationItem.leftBarButtonItem = logoutItem
         
-        CactusMemberService.sharedInstance.getCurrentMember { (member: CactusMember?, error:Any?) in
-            guard let member = member else {
-                print("No cactus member found")
-                return
-            }
-            print("Got current cactus member \(member.email ?? "No Email found" ) - \(member.id ?? "not found")")
-            
-            self.promptListener = SentPromptService.sharedInstance.observeSentPrompts(member: member, { (prompts, error) in
-                print("Got sent prompts \(prompts?.count)")
-                self.sentPrompts = prompts ?? []
-                self.tableView.reloadData()
-            })
+        guard let member = CactusMemberService.sharedInstance.getCurrentMember() else {
+            print("No cactus member found")
+            return
         }
-
+        print("Got current cactus member \(member.email ?? "No Email found" ) - \(member.id ?? "not found")")
+        
+        self.promptListener = SentPromptService.sharedInstance.observeSentPrompts(member: member, { (prompts, error) in
+            print("Got sent prompts \(prompts?.count ?? 0)")
+            self.sentPrompts = prompts ?? []
+            self.tableView.reloadData()
+        })
+    
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
         navigationItem.rightBarButtonItem = addButton
         if let split = splitViewController {
