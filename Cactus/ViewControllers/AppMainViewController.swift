@@ -49,6 +49,7 @@ class AppMainViewController: UIViewController {
                 self.showScreen(ScreenID.JournalFeed, wrapInNav: true)
                 let nav = self.current as! UINavigationController
                 nav.viewControllers.insert(self.getScreen(ScreenID.MemberProfile), at: 0)
+                
                 self.hasUser = true
             }
             self.authHasLoaded = true

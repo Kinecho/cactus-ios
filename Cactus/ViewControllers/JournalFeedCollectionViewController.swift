@@ -29,7 +29,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     
     var promptObserversById = [String: PromptData]()
     var responseObserversByPromptId = [String: ResponseData]()
-    
+    var currentMember:CactusMember?
     
     private let itemsPerRow:CGFloat = 1
     private let reuseIdentifier = "JournalEntryCell"
@@ -49,41 +49,73 @@ class JournalFeedCollectionViewController: UICollectionViewController {
 //        self.collectionView!.register(JournalEntryCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
+       
         
-        guard let member = CactusMemberService.sharedInstance.getCurrentMember() else {
-            print("No cactus member found")
-            return
-        }
-        print("Got current cactus member \(member.email ?? "No Email found" ) - \(member.id ?? "not found")")
         
-        self.promptListener = SentPromptService.sharedInstance.observeSentPrompts(member: member, { (prompts, error) in
-            print("Got sent prompts \(prompts?.count ?? 0)")
-            self.sentPrompts = prompts ?? []
-            self.hasLoaded = true
-            self.collectionView.reloadData()
+//        guard let member = CactusMemberService.sharedInstance.getCurrentMember() else {
+//            print("No cactus member found")
+//            return
+//        }
+        
+        
+        _ = CactusMemberService.sharedInstance.observeCurrentMember({ (member, error) in
             
-            self.updateObservers();
+            
+            if self.currentMember != member {
+                self.resetData()
+            }
+            
+            self.currentMember = member
+            if let member = member {
+                print("Got current cactus member \(member.email ?? "No Email found" ) - \(member.id ?? "not found")")
+                self.promptListener = SentPromptService.sharedInstance.observeSentPrompts(member: member, { (prompts, error) in
+                    print("Got sent prompts \(prompts?.count ?? 0)")
+                    self.sentPrompts = prompts ?? []
+                    self.hasLoaded = true
+                    self.collectionView.reloadData()
+                    
+                    self.updateObservers();
+                })
+                
+            }
         })
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+       
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
     }
     
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            
-            if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= keyboardSize.height
-            }
+    func resetData() {
+        self.promptListener?.remove()
+        self.sentPrompts.removeAll()
+        self.promptObserversById.values.forEach { observer in
+            observer.unsubscriber?.remove()
         }
+        self.promptObserversById.removeAll();
+        
+        self.responseObserversByPromptId.values.forEach { (observer) in
+            observer.unsubscriber?.remove()
+        }
+        self.responseObserversByPromptId.removeAll();
+        
+        self.collectionView.reloadData()
     }
     
-    @objc func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
-        }
-    }
+//    @objc func keyboardWillShow(notification: NSNotification) {
+//        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+//
+//            if self.view.frame.origin.y == 0 {
+//                self.view.frame.origin.y -= keyboardSize.height
+//            }
+//        }
+//    }
+//
+//    @objc func keyboardWillHide(notification: NSNotification) {
+//        if self.view.frame.origin.y != 0 {
+//            self.view.frame.origin.y = 0
+//        }
+//    }
 
     
     

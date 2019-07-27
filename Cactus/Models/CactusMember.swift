@@ -31,7 +31,7 @@ class CactusMember:FirestoreIdentifiable, Hashable {
     var deletedAt: Date?
     var createdAt: Date?
     var updatedAt: Date?
-    
+    var fcmTokens: [String]?
     var mailchimpListMember: ListMember?
     
     static func == (lhs: CactusMember, rhs: CactusMember) -> Bool {

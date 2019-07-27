@@ -34,7 +34,7 @@ class MemberProfileViewController: UIViewController {
             NotificationService.sharedInstance.requestPushPermissions{ hasPermission in
                 DispatchQueue.main.async {
                     self.refreshPermissionsToggle(animated: true)
-                }                
+                }
             }
         } else {
             let message = "Notification settings are managed in the App's Settings."
@@ -88,11 +88,9 @@ class MemberProfileViewController: UIViewController {
         }
     }
     
-    private var observer: NSObjectProtocol?
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        observer = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [unowned self] notification in
+        NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [unowned self] notification in
             DispatchQueue.main.async {
                 self.refreshPermissionsToggle()
             }

@@ -104,7 +104,7 @@ class FirestoreService {
         
         do {
             let json = try object.toFirestoreData() //note: this ignores the ID string by default
-            ref.setData(json, merge: false) { (error) in
+            ref.setData(json, merge: true) { (error) in
                 var savedObject = object
                 savedObject.id = ref.documentID
                 print("Saved Document. IsNew = \(isNew)")
