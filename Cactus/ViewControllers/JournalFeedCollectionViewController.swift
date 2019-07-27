@@ -10,11 +10,26 @@ import UIKit
 import FirebaseFirestore
 private let reuseIdentifier = "Cell"
 
+
+struct PromptData {
+    var unsubscriber: ListenerRegistration?
+    var prompt: ReflectionPrompt?
+}
+
+struct ResponseData {
+    var unsubscriber: ListenerRegistration?
+    var responses = [ReflectionResponse]()
+}
+
 class JournalFeedCollectionViewController: UICollectionViewController {
 
     var promptListener:ListenerRegistration?
     var sentPrompts = [SentPrompt]()
     var hasLoaded = false
+    
+    var promptObserversById = [String: PromptData]()
+    var responseObserversByPromptId = [String: ResponseData]()
+    
     
     private let itemsPerRow:CGFloat = 1
     private let reuseIdentifier = "JournalEntryCell"
@@ -47,11 +62,66 @@ class JournalFeedCollectionViewController: UICollectionViewController {
             self.hasLoaded = true
             self.collectionView.reloadData()
             
+            self.updateObservers();
         })
+    }
     
-
+    func updateObservers() {
+        self.sentPrompts.forEach { (sentPrompt) in
+            guard let promptId = sentPrompt.promptId else {
+                return
+            }
+            self.setupPromptObserver(promptId)
+            self.setupResponseObserver(promptId)
+        }
+    }
+    
+    func setupPromptObserver(_ promptId:String){
+        if self.promptObserversById[promptId] != nil {
+            return
+        }
+        var data = PromptData()
+        data.unsubscriber = ReflectionPromptService.sharedInstance.observeById(id: promptId, { (prompt, error) in
+            if let error = error {
+                print("An error occurred while fetching ReflectionPromt ID = \(promptId)", error)
+            }
+            
+            data.prompt = prompt
+            self.promptObserversById[promptId] = data
+            print("Got Reflection prompt for PromptId \(promptId), \(prompt?.question ?? "No Question Found")")
+            self.updateForPromptId(promptId)
+            
+        })
+    }
+    
+    func setupResponseObserver(_ promptId: String){
+        if self.responseObserversByPromptId[promptId] != nil {
+            return
+        }
+        var data = ResponseData()
+        data.unsubscriber = ReflectionResponseService.sharedInstance.observeForPromptId(id: promptId, { (responses, error) in
+            if let error = error {
+                print("An error occurred while fetching ReflectionPromt ID = \(promptId)", error)
+            }
+            print("Got Responses for PromptId \(promptId) size: \(responses?.count ?? 0)")
+            data.responses = responses ?? []
+            self.responseObserversByPromptId[promptId] = data
+            self.updateForPromptId(promptId)
+        })
     }
 
+    func updateForPromptId(_ promptId:String){
+        let foundIndex = self.sentPrompts.firstIndex { (prompt) -> Bool in
+            prompt.promptId == promptId
+        }
+        guard let index = foundIndex else {
+            return
+        }
+        
+        let indexPath = IndexPath(row: index, section: 0)
+        self.collectionView.reloadItems(at: [indexPath])
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -79,6 +149,14 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         // Configure the cell
         let sentPrompt = sentPrompts[indexPath.row]
         cell.sentPrompt = sentPrompt
+        if let promptId = sentPrompt.promptId  {
+            cell.responses = self.responseObserversByPromptId[promptId]?.responses
+            cell.prompt = self.promptObserversById[promptId]?.prompt
+        } else {
+            cell.responses = nil
+            cell.prompt = nil
+        }
+        
         cell.updateView()
         
 //        cell.dateLabel =  sentPrompt.lastSentAt

@@ -16,6 +16,8 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var moreButton: UIButton!
     
     var sentPrompt:SentPrompt?;
+    var responses: [ReflectionResponse]?
+    var prompt: ReflectionPrompt?
     
 //    func willRend
     
@@ -28,7 +30,10 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
             self.dateLabel.text = nil
         }
         
-        self.questionLabel.text = sentPrompt?.id ?? nil
-        self.responseLabel.text = "UserID = \(sentPrompt?.cactusMemberId ?? "None")\nEmail = \(sentPrompt?.memberEmail ?? "None")"
+        self.questionLabel.text = self.prompt?.question ?? "Not Found"
+        
+        let responseText =  self.responses?.map {$0.content.text ?? ""}.joined(separator: "\n\n")
+        
+        self.responseLabel.text = responseText
     }
 }

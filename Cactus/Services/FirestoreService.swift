@@ -40,12 +40,16 @@ class FirestoreService {
         let collection = getCollection(T.self.collectionName)
         return collection.document(id).addSnapshotListener({ (snapshot, error) in
             let model = try? snapshot?.decode(as: T.self)
-            onData(model, error)
+            if let deleted = model?.deleted, deleted {
+                onData(nil, error)                
+            } else {
+                onData(model, error)
+            }
         })
     }
     
     func getDocuments<T:FirestoreIdentifiable>(_ query: Query, _ onData: @escaping ([T]?, Any?) -> Void) -> Void{
-        query.getDocuments(completion: self.snapshotListener(onData))
+        query.whereField(BaseModelField.deleted, isEqualTo: false).getDocuments(completion: self.snapshotListener(onData))
     }
     
     func addListener<T:FirestoreIdentifiable>(_ query: Query, _ onData: @escaping ([T]?, Any?) -> Void) -> ListenerRegistration{

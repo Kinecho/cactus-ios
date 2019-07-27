@@ -32,7 +32,7 @@ class ReflectionResponseService {
             onData([], "No cactus member")
             return nil
         }
-        let query = self.getCollectionRef().whereField(ReflectionResponse.Field.cactusMemberId, isEqualTo: memberId)
+        let query = self.getCollectionRef().whereField(ReflectionResponse.Field.cactusMemberId, isEqualTo: memberId).whereField(ReflectionResponseField.promptId, isEqualTo: id)
     
         return self.firestoreService.addListener(query, onData)
         

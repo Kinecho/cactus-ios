@@ -27,6 +27,8 @@
 		30934FAD22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FAB22EC02A6007C4E6C /* ReflectionPromptService.swift */; };
 		30934FAF22EC0558007C4E6C /* ReflectionResponseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FAE22EC0558007C4E6C /* ReflectionResponseService.swift */; };
 		30934FB022EC0558007C4E6C /* ReflectionResponseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FAE22EC0558007C4E6C /* ReflectionResponseService.swift */; };
+		30934FB222EC0EC3007C4E6C /* JournalEntryDataLoadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FB122EC0EC3007C4E6C /* JournalEntryDataLoadOperation.swift */; };
+		30934FB322EC0EC3007C4E6C /* JournalEntryDataLoadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FB122EC0EC3007C4E6C /* JournalEntryDataLoadOperation.swift */; };
 		30A281DA22EA61A30041158E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA7222EA5A9F00443E46 /* DetailViewController.swift */; };
 		30A281DB22EA61A30041158E /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA7022EA5A9F00443E46 /* MasterViewController.swift */; };
 		30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */; };
@@ -82,6 +84,7 @@
 		30934FA822EC0001007C4E6C /* ReflectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionResponse.swift; sourceTree = "<group>"; };
 		30934FAB22EC02A6007C4E6C /* ReflectionPromptService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionPromptService.swift; sourceTree = "<group>"; };
 		30934FAE22EC0558007C4E6C /* ReflectionResponseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionResponseService.swift; sourceTree = "<group>"; };
+		30934FB122EC0EC3007C4E6C /* JournalEntryDataLoadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryDataLoadOperation.swift; sourceTree = "<group>"; };
 		30A281E722EA61A30041158E /* Cactus Prod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cactus Prod.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A281E922EA61EB0041158E /* StageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = StageAssets.xcassets; sourceTree = "<group>"; };
 		30A281EB22EA61FA0041158E /* ProdAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ProdAssets.xcassets; sourceTree = "<group>"; };
@@ -231,6 +234,7 @@
 				30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */,
 				30934FAB22EC02A6007C4E6C /* ReflectionPromptService.swift */,
 				30934FAE22EC0558007C4E6C /* ReflectionResponseService.swift */,
+				30934FB122EC0EC3007C4E6C /* JournalEntryDataLoadOperation.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -640,6 +644,7 @@
 				30E9B0BE22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
 				30E9B0A122EABFBD005B25FD /* CactusMemberService.swift in Sources */,
 				30E9B09B22EA6A84005B25FD /* FirestoreService.swift in Sources */,
+				30934FB322EC0EC3007C4E6C /* JournalEntryDataLoadOperation.swift in Sources */,
 				30934FAA22EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
 				30E9B09E22EA7FC3005B25FD /* CactusMember.swift in Sources */,
 				30E9B0A422EAC204005B25FD /* AuthService.swift in Sources */,
@@ -672,6 +677,7 @@
 				30E9B0BD22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
 				30E9B0A022EABFBD005B25FD /* CactusMemberService.swift in Sources */,
 				30E9B09622EA68AC005B25FD /* FirestoreService.swift in Sources */,
+				30934FB222EC0EC3007C4E6C /* JournalEntryDataLoadOperation.swift in Sources */,
 				30934FA922EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
 				30E9B09D22EA7FC3005B25FD /* CactusMember.swift in Sources */,
 				30E9B0A322EAC204005B25FD /* AuthService.swift in Sources */,
