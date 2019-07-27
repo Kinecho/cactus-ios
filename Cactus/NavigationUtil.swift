@@ -13,6 +13,8 @@ enum ScreenID:String {
     case Home
     case Login
     case LaunchScreen
+    case MemberProfile
+    case JournalFeed
     
     var name: String {
         get {            

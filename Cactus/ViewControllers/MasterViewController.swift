@@ -20,19 +20,26 @@ class MasterViewController: UITableViewController {
         AuthService.sharedInstance.logOut(self)
     }
     
+    
+    @objc func showAccountPage(sender: Any){
+        AppDelegate.shared.rootViewController.showScreen(ScreenID.MemberProfile, wrapInNav: true)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         navigationItem.leftBarButtonItem = editButtonItem
         
-        let logoutItem = UIBarButtonItem(
-            title: "Log Out",
+        let showAccountItem = UIBarButtonItem(
+            title: "Account",
             style: .plain,
             target: self,
-            action:  #selector(self.logout(sender:))
+            action:  #selector(self.showAccountPage(sender:))
         )
-
-        navigationItem.leftBarButtonItem = logoutItem
+        
+        navigationItem.leftBarButtonItem = showAccountItem
+//        navigationController.navigationItem.leftBarButtonItem = showAccountItem
         
         guard let member = CactusMemberService.sharedInstance.getCurrentMember() else {
             print("No cactus member found")

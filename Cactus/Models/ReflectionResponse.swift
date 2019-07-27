@@ -32,6 +32,7 @@ public enum ResponseMedium:String, Codable{
     case EMAIL
     case JOURNAL_WEB
     case JOURNAL_IOS
+    case JOURNAL_ANDROID
 }
 
 struct ReflectionContent:Codable {

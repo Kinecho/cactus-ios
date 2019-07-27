@@ -32,6 +32,8 @@ class CactusMember:FirestoreIdentifiable, Hashable {
     var createdAt: Date?
     var updatedAt: Date?
     
+    var mailchimpListMember: ListMember?
+    
     static func == (lhs: CactusMember, rhs: CactusMember) -> Bool {
         return lhs.id != nil && rhs.id != nil && lhs.id == rhs.id
     }

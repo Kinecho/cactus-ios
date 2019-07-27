@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3023FE2D22ECB47800F753A7 /* MemberProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */; };
+		3023FE2E22ECB47800F753A7 /* MemberProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */; };
+		308446F122ECAE0100FB0683 /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
 		30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
 		30934F9322EBE7DF007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
 		30934F9622EBF146007C4E6C /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9522EBF146007C4E6C /* RoundedButton.swift */; };
@@ -76,6 +79,10 @@
 
 /* Begin PBXFileReference section */
 		0CDE23A24E34875606036179 /* Pods-Cactus Stage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus Stage.release.xcconfig"; path = "Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage.release.xcconfig"; sourceTree = "<group>"; };
+		3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberProfileViewController.swift; sourceTree = "<group>"; };
+		308446F022ECAE0100FB0683 /* MailchimpModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailchimpModels.swift; sourceTree = "<group>"; };
+		308446F222ECB23B00FB0683 /* Cactus Stage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cactus Stage.entitlements"; sourceTree = "<group>"; };
+		308446F322ECB24F00FB0683 /* Cactus Prod.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cactus Prod.entitlements"; sourceTree = "<group>"; };
 		30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFeedCollectionViewController.swift; sourceTree = "<group>"; };
 		30934F9522EBF146007C4E6C /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		30934F9822EBF235007C4E6C /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
@@ -195,6 +202,8 @@
 		30B6EA6222EA5A9F00443E46 = {
 			isa = PBXGroup;
 			children = (
+				308446F322ECB24F00FB0683 /* Cactus Prod.entitlements */,
+				308446F222ECB23B00FB0683 /* Cactus Stage.entitlements */,
 				30B6EA6D22EA5A9F00443E46 /* Cactus */,
 				30B6EA6C22EA5A9F00443E46 /* Products */,
 				7D73091CC55662ADF17682E8 /* Pods */,
@@ -252,6 +261,7 @@
 				30E9B0B922EAF153005B25FD /* SentPrompt.swift */,
 				30934FA522EBFF27007C4E6C /* ReflectionPrompt.swift */,
 				30934FA822EC0001007C4E6C /* ReflectionResponse.swift */,
+				308446F022ECAE0100FB0683 /* MailchimpModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -265,6 +275,7 @@
 				30E9B0AE22EADD04005B25FD /* LoginViewController.swift */,
 				30E9B0B622EADF75005B25FD /* HomeViewController.swift */,
 				30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */,
+				3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -354,8 +365,20 @@
 				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = Cactus;
 				TargetAttributes = {
+					30A281D722EA61A30041158E = {
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
+					};
 					30B6EA6A22EA5A9F00443E46 = {
 						CreatedOnToolsVersion = 10.3;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -654,6 +677,7 @@
 				30934FAA22EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
 				30E9B09E22EA7FC3005B25FD /* CactusMember.swift in Sources */,
 				30E9B0A422EAC204005B25FD /* AuthService.swift in Sources */,
+				3023FE2E22ECB47800F753A7 /* MemberProfileViewController.swift in Sources */,
 				30A281DB22EA61A30041158E /* MasterViewController.swift in Sources */,
 				30E9B09A22EA6A81005B25FD /* BaseModel.swift in Sources */,
 				30934F9722EBF146007C4E6C /* RoundedButton.swift in Sources */,
@@ -687,10 +711,12 @@
 				30E9B09622EA68AC005B25FD /* FirestoreService.swift in Sources */,
 				30934FB222EC0EC3007C4E6C /* JournalEntryDataLoadOperation.swift in Sources */,
 				30934FA922EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
+				3023FE2D22ECB47800F753A7 /* MemberProfileViewController.swift in Sources */,
 				30E9B09D22EA7FC3005B25FD /* CactusMember.swift in Sources */,
 				30E9B0A322EAC204005B25FD /* AuthService.swift in Sources */,
 				30B6EA7122EA5A9F00443E46 /* MasterViewController.swift in Sources */,
 				30B6EA6F22EA5A9F00443E46 /* AppDelegate.swift in Sources */,
+				308446F122ECAE0100FB0683 /* MailchimpModels.swift in Sources */,
 				30934F9622EBF146007C4E6C /* RoundedButton.swift in Sources */,
 				30E9B09922EA6A81005B25FD /* BaseModel.swift in Sources */,
 				30E9B0B722EADF75005B25FD /* HomeViewController.swift in Sources */,
@@ -727,6 +753,7 @@
 			baseConfigurationReference = C3E046B63B11B822B81B4488 /* Pods-Cactus Prod.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Cactus Prod.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Cactus/ConfigProd/Info.plist";
@@ -747,6 +774,7 @@
 			baseConfigurationReference = 51FA2299E4EF911289E2FA7A /* Pods-Cactus Prod.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Cactus Prod.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Cactus/ConfigProd/Info.plist";
@@ -883,6 +911,7 @@
 			baseConfigurationReference = 6B3C4B258F2887824928A3DF /* Pods-Cactus Stage.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Cactus Stage.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Cactus/ConfigStage/Info.plist";
@@ -903,6 +932,7 @@
 			baseConfigurationReference = 0CDE23A24E34875606036179 /* Pods-Cactus Stage.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Cactus Stage.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Cactus/ConfigStage/Info.plist";

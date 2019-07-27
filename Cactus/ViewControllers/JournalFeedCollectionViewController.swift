@@ -64,7 +64,51 @@ class JournalFeedCollectionViewController: UICollectionViewController {
             
             self.updateObservers();
         })
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
     }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+
+    
+    @objc func logout(sender: Any) {
+        print("Attempting to log out")
+        AuthService.sharedInstance.logOut(self)
+    }
+    
+    
+    @objc func showAccountPage(sender: Any){
+        AppDelegate.shared.rootViewController.pushScreen(ScreenID.MemberProfile, wrapInNav: true)
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        let showAccountItem = UIBarButtonItem(
+            title: "Account",
+            style: .plain,
+            target: self,
+            action:  #selector(self.showAccountPage(sender:))
+        )
+        
+        navigationItem.leftBarButtonItem = showAccountItem
+    }
+    
     
     func updateObservers() {
         self.sentPrompts.forEach { (sentPrompt) in
@@ -88,7 +132,6 @@ class JournalFeedCollectionViewController: UICollectionViewController {
             
             data.prompt = prompt
             self.promptObserversById[promptId] = data
-            print("Got Reflection prompt for PromptId \(promptId), \(prompt?.question ?? "No Question Found")")
             self.updateForPromptId(promptId)
             
         })
@@ -103,7 +146,6 @@ class JournalFeedCollectionViewController: UICollectionViewController {
             if let error = error {
                 print("An error occurred while fetching ReflectionPromt ID = \(promptId)", error)
             }
-            print("Got Responses for PromptId \(promptId) size: \(responses?.count ?? 0)")
             data.responses = responses ?? []
             self.responseObserversByPromptId[promptId] = data
             self.updateForPromptId(promptId)
@@ -131,7 +173,6 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         // Pass the selected object to the new view controller.
         
         let cell = sender as! JournalEntryCollectionViewCell
-
         
         switch (segue.identifier){
         case "JournalEntryDetail":
@@ -241,4 +282,6 @@ extension JournalFeedCollectionViewController : UICollectionViewDelegateFlowLayo
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
     }
+    
 }
+

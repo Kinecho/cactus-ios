@@ -17,7 +17,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var responseLabel: UILabel!
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var editTextView: UITextView!
-    
+        
     var sentPrompt:SentPrompt?;
     var responses: [ReflectionResponse]?
     var prompt: ReflectionPrompt?
@@ -50,9 +50,9 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    
     func startEdit() {
         self.isEditing = true
+    
         
         editTextView.text = responseLabel.text
         
@@ -85,12 +85,13 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         responseLabel.isHidden = false
         self.contentView.backgroundColor = .clear
         var response = self.responses?.first
-        if response == nil {
-            response = ReflectionResponse()
-            response?.promptId = self.sentPrompt?.promptId
-            response?.createdAt = Date()
-            response?.deleted = false
-            response?.responseMedium = .JOURNAL_IOS
+        if response == nil, let promptId = self.sentPrompt?.promptId {
+            response = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: self.prompt?.question)
+//            response = ReflectionResponse()
+//            response?.promptId = self.sentPrompt?.promptId
+//            response?.createdAt = Date()
+//            response?.deleted = false
+//            response?.responseMedium = .JOURNAL_IOS
         }
         
         response?.content.text = self.editTextView.text

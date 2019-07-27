@@ -22,12 +22,8 @@ class JournalEntryDetailViewController: UIViewController {
         
         self.view.dismissKeyboard()
         
-        if response == nil {
-            response = ReflectionResponse()
-            response?.promptId = self.sentPrompt?.promptId
-            response?.createdAt = Date()
-            response?.deleted = false
-            response?.responseMedium = .JOURNAL_IOS
+        if response == nil, let promptId = self.prompt?.id {
+            response = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: self.prompt?.question)
         }
         
         response?.content.text = self.responseTextView.text
@@ -69,10 +65,11 @@ class JournalEntryDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         configureView()
         self.view.setupKeyboardDismissRecognizer()
+        
+        
     }
 
     
-
 
 }
 

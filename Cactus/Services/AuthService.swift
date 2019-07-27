@@ -24,8 +24,6 @@ class AuthService {
     
     func logOut(_ vc: UIViewController) {
         
-        let title = "Log Out?"
-        
         var  message = "Are you sure you want to log out?"
         if let user = getCurrentUser(), (user.displayName != nil || user.email != nil) {
             var name = user.email
@@ -37,7 +35,7 @@ class AuthService {
             }
         }
         
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Log Out", style: .destructive){ _ in
             do{

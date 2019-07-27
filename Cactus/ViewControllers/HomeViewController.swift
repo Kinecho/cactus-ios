@@ -10,13 +10,36 @@ import UIKit
 
 class HomeViewController: UISplitViewController, UISplitViewControllerDelegate {
 
+    @objc func logout(sender: Any) {
+        print("Attempting to log out")
+        AuthService.sharedInstance.logOut(self)
+    }
+    
+    @objc func showAccountPage(sender: Any){
+        AppDelegate.shared.rootViewController.showScreen(ScreenID.MemberProfile, wrapInNav: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let splitViewController = self
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
+//        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
         splitViewController.delegate = self
+        
+        
+        
+//        navigationItem.leftBarButtonItem = editButtonItem
+        
+        let showAccountItem = UIBarButtonItem(
+            title: "Account",
+            style: .plain,
+            target: self,
+            action:  #selector(self.showAccountPage(sender:))
+        )
+        
+        navigationItem.leftBarButtonItem = showAccountItem
+//        navigationController.navigationItem.leftBarButtonItem = showAccountItem
 
         
         // Do any additional setup after loading the view.

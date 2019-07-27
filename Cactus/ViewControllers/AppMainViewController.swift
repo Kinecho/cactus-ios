@@ -47,7 +47,7 @@ class AppMainViewController: UIViewController {
                 self.hasUser = false
                 //            } else if !self.authHasLoaded  {
             } else {
-                self.showScreen(ScreenID.Home)
+                self.showScreen(ScreenID.JournalFeed, wrapInNav: true)
                 self.hasUser = true
             }
             self.authHasLoaded = true
@@ -80,6 +80,36 @@ class AppMainViewController: UIViewController {
         current = new
     
         return new
+    }
+    
+    func pushScreen(_ screenId: ScreenID, wrapInNav: Bool=false) -> Void{
+        let screen = getScreen(screenId)
+        
+        var new = screen
+        if wrapInNav {
+            new = UINavigationController(rootViewController: screen)
+        }
+        
+        
+        
+        
+//        addChild(new)                    // 2
+//        new.view.frame = view.bounds                   // 3
+//        self.view.addSubview(new.view)                      // 4
+//        new.didMove(toParent: self)      // 5
+//        current.willMove(toParent: nil)  // 6
+//        current.view.removeFromSuperview()            // 7
+//        current.removeFromParent()       // 8
+//        current = new
+        if  self.current.navigationController != nil {
+            print("Pushing view controller")
+            self.current.navigationController?.pushViewController(new, animated: true)
+        } else {
+            print("Presenting view controller")
+            self.current.present(new, animated: true)
+        }
+        
+//        return new
     }
     
     

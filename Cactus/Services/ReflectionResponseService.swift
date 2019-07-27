@@ -45,4 +45,25 @@ class ReflectionResponseService {
     func delete(_ response: ReflectionResponse, _ onData: @escaping (_ error: Any?) -> Void){
         self.firestoreService.delete(response, onComplete: onData)
     }
+    
+    func createReflectionResponse(_ promptId: String, promptQuestion:String?) -> ReflectionResponse? {
+        guard let member = CactusMemberService.sharedInstance.currentMember else {
+            return nil
+        }
+        
+        let response = ReflectionResponse()
+        response.promptId = promptId
+        response.cactusMemberId = member.id
+        response.promptQuestion = promptQuestion
+        response.userId = member.userId
+        response.memberEmail = member.email
+        response.responseMedium = ResponseMedium.JOURNAL_IOS
+
+        if let listMember = member.mailchimpListMember {
+            response.mailchimpMemberId = listMember.id
+            response.mailchimpUniqueEmailId = listMember.unique_email_id
+        }
+        
+        return response
+    }
 }

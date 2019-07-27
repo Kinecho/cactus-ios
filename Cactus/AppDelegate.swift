@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDynamicLinks
 import FirebaseUI
+import FirebaseMessaging
 import Fabric
 import Crashlytics
 
@@ -17,6 +18,7 @@ import Crashlytics
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var fcmToken: String?
     var window: UIWindow?
     private var currentUser:User?
     let gcmMessageIDKey = "gcm.message_id"
@@ -164,7 +166,7 @@ extension AppDelegate : MessagingDelegate {
     // [START refresh_token]
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         print("Firebase registration token: \(fcmToken)")
-        
+        self.fcmToken = fcmToken
         let dataDict:[String: String] = ["token": fcmToken]
         NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
         // TODO: If necessary send token to application server.

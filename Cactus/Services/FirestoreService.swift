@@ -95,9 +95,10 @@ class FirestoreService {
             ownable.updatedByUserId = currentUserId
             object = ownable as! T
         }
-        
+        var isNew = false
         if (object.id == nil){
             object.createdAt = Date()
+            isNew = true
         }
         object.updatedAt = Date()
         
@@ -106,6 +107,9 @@ class FirestoreService {
             ref.setData(json, merge: false) { (error) in
                 var savedObject = object
                 savedObject.id = ref.documentID
+                print("Saved Document. IsNew = \(isNew)")
+                
+                
                 if let error = error {
                     print("Failed to save document", error)
                 }
