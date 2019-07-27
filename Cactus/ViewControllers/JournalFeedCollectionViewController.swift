@@ -34,9 +34,9 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     private let itemsPerRow:CGFloat = 1
     private let reuseIdentifier = "JournalEntryCell"
     private let sectionInsets = UIEdgeInsets(top: 15.0,
-                                             left: 10.0,
+                                             left: 20.0,
                                              bottom: 15.0,
-                                             right: 10.0)
+                                             right: 20.0)
     
     
     override func viewDidLoad() {
@@ -122,15 +122,32 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         self.collectionView.reloadItems(at: [indexPath])
     }
     
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        
+        let cell = sender as! JournalEntryCollectionViewCell
+
+        
+        switch (segue.identifier){
+        case "JournalEntryDetail":
+            let navWrapper = segue.destination as? UINavigationController
+            let detailController = navWrapper?.topViewController as? JournalEntryDetailViewController
+            detailController?.prompt = cell.prompt
+            detailController?.responses = cell.responses
+            detailController?.sentPrompt = cell.sentPrompt
+            
+            break;
+        default:
+            break;
+        }
+        
     }
-    */
+
 
     // MARK: UICollectionViewDataSource
 

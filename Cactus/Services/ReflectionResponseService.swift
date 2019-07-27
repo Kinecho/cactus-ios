@@ -37,4 +37,12 @@ class ReflectionResponseService {
         return self.firestoreService.addListener(query, onData)
         
     }
+    
+    func save(_ response: ReflectionResponse, _ onData: @escaping (ReflectionResponse?, Any?) -> Void) -> Void {
+        self.firestoreService.save(response, onComplete: onData)
+    }
+    
+    func delete(_ response: ReflectionResponse, _ onData: @escaping (_ error: Any?) -> Void){
+        self.firestoreService.delete(response, onComplete: onData)
+    }
 }

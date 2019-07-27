@@ -40,20 +40,3 @@ extension CGVector {
         self.init(dx:dx, dy:dy)
     }
 }
-
-
-
-extension UIView {
-    func setupKeyboardDismissRecognizer(){
-        let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(
-            target: self,
-            action: #selector(self.dismissKeyboard))
-        tapRecognizer.cancelsTouchesInView = false
-        self.addGestureRecognizer(tapRecognizer)
-    }
-    
-    @objc func dismissKeyboard()
-    {
-        self.endEditing(true)
-    }
-}

@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 class BorderedButton: UIButton {
     /*
      // Only override draw() if you perform custom drawing.
@@ -17,109 +18,78 @@ class BorderedButton: UIButton {
      }
      */
     
-    var ringColor = UIColor.black
-    
-    
-    
-    var ringThickness: CGFloat = 2
-    
-    //    @IBInspectable
-    var score:Int?=1 {
-        didSet {
-            print("set score \(String(self.score ?? -1))")
-            self.updateScore()
-        }
-    }
-    
-    private var scoreLabel:UILabel?
-    var shapeLayer:CAShapeLayer?
-    var borderLayer:CAShapeLayer?
-    //initWithFrame to init view from code
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupView()
+        sharedInit()
     }
     
-    //initWithCode to init view from xib or storyboard
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        setupView()
+        sharedInit()
     }
     
     override func prepareForInterfaceBuilder() {
-        self.setupView()
-//        self.updateImage()
-    }
-    
-    func updateScore(){
-        self.scoreLabel?.text = self.score != nil ? String(self.score!) : ""
-        self.updateColors()
-    }
-//
-//    func updateImage(){
-//        self.metricImage?.image = getMetricImage()
-//
-//
-//    }
-//
-    //common func to init our view
-    private func setupView() {
-        
-        self.makeCircle()
-        self.drawRingFittingInsideView(rect: self.bounds)
-        
-//        let radius = min(self.bounds.size.height, self.bounds.size.width)
-//        let imageView = UIImageView(frame: self.bounds.insetBy(dx: radius/8 + ringThickness/2, dy: radius/8 + ringThickness/2))
-//        self.metricImage = imageView
-//        imageView.image = getMetricImage()
-        
-//        addSubview(imageView)
-        
+        sharedInit()
     }
     
     
-    func getMainColor() -> UIColor {
-        return .clear
+    override func awakeFromNib() {
+        super.awakeFromNib()
+                self.sharedInit()
     }
     
-    func getBorderColor() -> UIColor {
-        return self.getMainColor().darker(by: 20.0) ?? UIColor.clear
+    @IBInspectable var imageWidth: CGFloat = 25
+    @IBInspectable var imageHeight: CGFloat = 25
+    
+    
+    @IBInspectable var borderColor : UIColor? {
+        get {
+            if (self.layer.borderColor != nil)  {
+                return UIColor.init(cgColor: self.layer.borderColor!)
+            }
+            return nil
+        }
+        set {
+            self.layer.borderColor = newValue?.cgColor
+        }
     }
     
-    func getImageColor() -> UIColor {
-        return self.getMainColor().darker(by: 15)!
+    @IBInspectable var borderWidth : CGFloat {
+        get {
+            return self.layer.borderWidth
+        }
+        set {
+            self.layer.borderWidth = newValue
+        }
     }
     
-    func updateColors(){
-        self.shapeLayer?.fillColor = getMainColor().cgColor
-        self.borderLayer?.strokeColor = getBorderColor().cgColor
-//        self.metricImage?.tintColor = getImageColor()
+    @IBInspectable var borderRadius : CGFloat {
+        get {
+            return self.layer.cornerRadius
+        }
+        set {
+            self.layer.cornerRadius = newValue
+        }
+    }
+    
+    func sharedInit(){
+        self.clipsToBounds = true
+        self.layoutSubviews()
+        if let imageView = self.imageView{
+            self.bringSubviewToFront(imageView)
+        }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.layer.borderColor = self.borderColor?.cgColor
+        self.layer.cornerRadius = self.borderRadius
+        if let imageView = self.imageView {
+            imageView.contentMode = .scaleAspectFit
+            imageView.bounds.size.width = imageWidth
+            imageView.bounds.size.height = imageHeight
+        }
     }
     
     
-    func makeCircle()
-    {
-        let dotPath = UIBezierPath(ovalIn: self.bounds)
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.path = dotPath.cgPath
-        self.shapeLayer = shapeLayer
-        shapeLayer.fillColor = getMainColor().cgColor
-        layer.addSublayer(shapeLayer)
-    }
-    
-    internal func drawRingFittingInsideView(rect: CGRect)->()
-    {
-        let hw:CGFloat = ringThickness/2
-        let circlePath = UIBezierPath(ovalIn: rect.insetBy(dx: hw, dy: hw))
-        
-        let shapeLayer = CAShapeLayer()
-        self.borderLayer = shapeLayer
-        shapeLayer.path = circlePath.cgPath
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.strokeColor = getBorderColor().cgColor
-        shapeLayer.lineWidth = ringThickness
-        layer.addSublayer(shapeLayer)
-    }
-    
-    //    override func layoutSubviews(){ layer.cornerRadius = bounds.size.width/2; }
 }
