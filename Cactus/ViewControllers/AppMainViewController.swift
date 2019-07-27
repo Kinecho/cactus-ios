@@ -45,9 +45,10 @@ class AppMainViewController: UIViewController {
             if member == nil {
                 self.showScreen(ScreenID.Login, wrapInNav: true)
                 self.hasUser = false
-                //            } else if !self.authHasLoaded  {
             } else {
                 self.showScreen(ScreenID.JournalFeed, wrapInNav: true)
+                let nav = self.current as! UINavigationController
+                nav.viewControllers.insert(self.getScreen(ScreenID.MemberProfile), at: 0)
                 self.hasUser = true
             }
             self.authHasLoaded = true
@@ -82,31 +83,15 @@ class AppMainViewController: UIViewController {
         return new
     }
     
-    func pushScreen(_ screenId: ScreenID, wrapInNav: Bool=false) -> Void{
+    func pushScreen(_ screenId: ScreenID, animate: Bool=true) -> Void{
         let screen = getScreen(screenId)
-        
-        var new = screen
-        if wrapInNav {
-            new = UINavigationController(rootViewController: screen)
-        }
-        
-        
-        
-        
-//        addChild(new)                    // 2
-//        new.view.frame = view.bounds                   // 3
-//        self.view.addSubview(new.view)                      // 4
-//        new.didMove(toParent: self)      // 5
-//        current.willMove(toParent: nil)  // 6
-//        current.view.removeFromSuperview()            // 7
-//        current.removeFromParent()       // 8
-//        current = new
-        if  self.current.navigationController != nil {
+
+        if  let nav = self.current as? UINavigationController {
             print("Pushing view controller")
-            self.current.navigationController?.pushViewController(new, animated: true)
+            nav.pushViewController(screen, animated: animate)
         } else {
             print("Presenting view controller")
-            self.current.present(new, animated: true)
+            self.current.present(screen, animated: animate)
         }
         
 //        return new

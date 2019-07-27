@@ -86,27 +86,24 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     }
 
     
-    @objc func logout(sender: Any) {
-        print("Attempting to log out")
-        AuthService.sharedInstance.logOut(self)
-    }
+    
     
     
     @objc func showAccountPage(sender: Any){
-        AppDelegate.shared.rootViewController.pushScreen(ScreenID.MemberProfile, wrapInNav: true)
+        AppDelegate.shared.rootViewController.pushScreen(ScreenID.MemberProfile, animate: true)
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         
-        let showAccountItem = UIBarButtonItem(
-            title: "Account",
-            style: .plain,
-            target: self,
-            action:  #selector(self.showAccountPage(sender:))
-        )
-        
-        navigationItem.leftBarButtonItem = showAccountItem
+//        let showAccountItem = UIBarButtonItem(
+//            title: "Account",
+//            style: .plain,
+//            target: self,
+//            action:  #selector(self.showAccountPage(sender:))
+//        )
+//
+//        navigationItem.leftBarButtonItem = showAccountItem
     }
     
     
@@ -176,8 +173,8 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         
         switch (segue.identifier){
         case "JournalEntryDetail":
-            let navWrapper = segue.destination as? UINavigationController
-            let detailController = navWrapper?.topViewController as? JournalEntryDetailViewController
+//            let navWrapper = segue.destination as? UINavigationController
+            let detailController = segue.destination as? JournalEntryDetailViewController
             detailController?.prompt = cell.prompt
             detailController?.responses = cell.responses
             detailController?.sentPrompt = cell.sentPrompt

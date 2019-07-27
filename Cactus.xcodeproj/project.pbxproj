@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		3023FE2D22ECB47800F753A7 /* MemberProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */; };
 		3023FE2E22ECB47800F753A7 /* MemberProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */; };
+		3023FE3022ECD0A300F753A7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2F22ECD0A300F753A7 /* NotificationService.swift */; };
+		3023FE3122ECD0A300F753A7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2F22ECD0A300F753A7 /* NotificationService.swift */; };
+		3023FE3422ECF06E00F753A7 /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
+		3023FE3522ECF0A800F753A7 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3322EC299300A2EA95 /* ViewExtensions.swift */; };
+		3023FE3622ECF0AE00F753A7 /* CactusColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */; };
 		308446F122ECAE0100FB0683 /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
 		30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
 		30934F9322EBE7DF007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
@@ -30,10 +35,9 @@
 		30934FAD22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FAB22EC02A6007C4E6C /* ReflectionPromptService.swift */; };
 		30934FAF22EC0558007C4E6C /* ReflectionResponseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FAE22EC0558007C4E6C /* ReflectionResponseService.swift */; };
 		30934FB022EC0558007C4E6C /* ReflectionResponseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FAE22EC0558007C4E6C /* ReflectionResponseService.swift */; };
-		30934FB222EC0EC3007C4E6C /* JournalEntryDataLoadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FB122EC0EC3007C4E6C /* JournalEntryDataLoadOperation.swift */; };
-		30934FB322EC0EC3007C4E6C /* JournalEntryDataLoadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FB122EC0EC3007C4E6C /* JournalEntryDataLoadOperation.swift */; };
+		3095619A22ECF1CD009357BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3095619922ECF1CD009357BD /* GoogleService-Info.plist */; };
+		3095619C22ECF214009357BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3095619B22ECF214009357BD /* GoogleService-Info.plist */; };
 		30A281DA22EA61A30041158E /* JournalEntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA7222EA5A9F00443E46 /* JournalEntryDetailViewController.swift */; };
-		30A281DB22EA61A30041158E /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA7022EA5A9F00443E46 /* MasterViewController.swift */; };
 		30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */; };
 		30A281E222EA61A30041158E /* SharedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */; };
 		30A281E322EA61A30041158E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7422EA5A9F00443E46 /* Main.storyboard */; };
@@ -41,7 +45,6 @@
 		30A281F022EA62650041158E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30A281EF22EA62650041158E /* LaunchScreen.storyboard */; };
 		30A281F222EA627D0041158E /* ProdAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30A281EB22EA61FA0041158E /* ProdAssets.xcassets */; };
 		30B6EA6F22EA5A9F00443E46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */; };
-		30B6EA7122EA5A9F00443E46 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA7022EA5A9F00443E46 /* MasterViewController.swift */; };
 		30B6EA7322EA5A9F00443E46 /* JournalEntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA7222EA5A9F00443E46 /* JournalEntryDetailViewController.swift */; };
 		30B6EA7622EA5A9F00443E46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7422EA5A9F00443E46 /* Main.storyboard */; };
 		30B6EA7822EA5AA100443E46 /* SharedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */; };
@@ -58,7 +61,6 @@
 		30E9B0A122EABFBD005B25FD /* CactusMemberService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B09F22EABFBD005B25FD /* CactusMemberService.swift */; };
 		30E9B0A322EAC204005B25FD /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0A222EAC204005B25FD /* AuthService.swift */; };
 		30E9B0A422EAC204005B25FD /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0A222EAC204005B25FD /* AuthService.swift */; };
-		30E9B0A622EAD484005B25FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30E9B0A522EAD484005B25FD /* GoogleService-Info.plist */; };
 		30E9B0A922EAD68B005B25FD /* AppMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0A822EAD68B005B25FD /* AppMainViewController.swift */; };
 		30E9B0AA22EAD68B005B25FD /* AppMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0A822EAD68B005B25FD /* AppMainViewController.swift */; };
 		30E9B0AC22EAD6EC005B25FD /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0AB22EAD6EC005B25FD /* NavigationUtil.swift */; };
@@ -80,6 +82,7 @@
 /* Begin PBXFileReference section */
 		0CDE23A24E34875606036179 /* Pods-Cactus Stage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus Stage.release.xcconfig"; path = "Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage.release.xcconfig"; sourceTree = "<group>"; };
 		3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberProfileViewController.swift; sourceTree = "<group>"; };
+		3023FE2F22ECD0A300F753A7 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		308446F022ECAE0100FB0683 /* MailchimpModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailchimpModels.swift; sourceTree = "<group>"; };
 		308446F222ECB23B00FB0683 /* Cactus Stage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cactus Stage.entitlements"; sourceTree = "<group>"; };
 		308446F322ECB24F00FB0683 /* Cactus Prod.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cactus Prod.entitlements"; sourceTree = "<group>"; };
@@ -93,7 +96,8 @@
 		30934FA822EC0001007C4E6C /* ReflectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionResponse.swift; sourceTree = "<group>"; };
 		30934FAB22EC02A6007C4E6C /* ReflectionPromptService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionPromptService.swift; sourceTree = "<group>"; };
 		30934FAE22EC0558007C4E6C /* ReflectionResponseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionResponseService.swift; sourceTree = "<group>"; };
-		30934FB122EC0EC3007C4E6C /* JournalEntryDataLoadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryDataLoadOperation.swift; sourceTree = "<group>"; };
+		3095619922ECF1CD009357BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3095619B22ECF214009357BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		30A281E722EA61A30041158E /* Cactus Prod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cactus Prod.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A281E922EA61EB0041158E /* StageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = StageAssets.xcassets; sourceTree = "<group>"; };
 		30A281EB22EA61FA0041158E /* ProdAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ProdAssets.xcassets; sourceTree = "<group>"; };
@@ -101,7 +105,6 @@
 		30A281F722EA65EC0041158E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30B6EA6B22EA5A9F00443E46 /* Cactus Stage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cactus Stage.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		30B6EA7022EA5A9F00443E46 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		30B6EA7222EA5A9F00443E46 /* JournalEntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryDetailViewController.swift; sourceTree = "<group>"; };
 		30B6EA7522EA5A9F00443E46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SharedAssets.xcassets; sourceTree = "<group>"; };
@@ -114,7 +117,6 @@
 		30E9B09C22EA7FC3005B25FD /* CactusMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusMember.swift; sourceTree = "<group>"; };
 		30E9B09F22EABFBD005B25FD /* CactusMemberService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusMemberService.swift; sourceTree = "<group>"; };
 		30E9B0A222EAC204005B25FD /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		30E9B0A522EAD484005B25FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		30E9B0A822EAD68B005B25FD /* AppMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMainViewController.swift; sourceTree = "<group>"; };
 		30E9B0AB22EAD6EC005B25FD /* NavigationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUtil.swift; sourceTree = "<group>"; };
 		30E9B0AE22EADD04005B25FD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				30A281F722EA65EC0041158E /* Info.plist */,
+				3095619922ECF1CD009357BD /* GoogleService-Info.plist */,
 				30A281EF22EA62650041158E /* LaunchScreen.storyboard */,
 				30A281EB22EA61FA0041158E /* ProdAssets.xcassets */,
 			);
@@ -183,7 +186,7 @@
 		30A281D422EA61260041158E /* ConfigStage */ = {
 			isa = PBXGroup;
 			children = (
-				30E9B0A522EAD484005B25FD /* GoogleService-Info.plist */,
+				3095619B22ECF214009357BD /* GoogleService-Info.plist */,
 				30A281E922EA61EB0041158E /* StageAssets.xcassets */,
 				30B6EA7C22EA5AA100443E46 /* Info.plist */,
 				30B6EA7922EA5AA100443E46 /* LaunchScreen.storyboard */,
@@ -248,7 +251,7 @@
 				30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */,
 				30934FAB22EC02A6007C4E6C /* ReflectionPromptService.swift */,
 				30934FAE22EC0558007C4E6C /* ReflectionResponseService.swift */,
-				30934FB122EC0EC3007C4E6C /* JournalEntryDataLoadOperation.swift */,
+				3023FE2F22ECD0A300F753A7 /* NotificationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -270,7 +273,6 @@
 			isa = PBXGroup;
 			children = (
 				30B6EA7222EA5A9F00443E46 /* JournalEntryDetailViewController.swift */,
-				30B6EA7022EA5A9F00443E46 /* MasterViewController.swift */,
 				30E9B0A822EAD68B005B25FD /* AppMainViewController.swift */,
 				30E9B0AE22EADD04005B25FD /* LoginViewController.swift */,
 				30E9B0B622EADF75005B25FD /* HomeViewController.swift */,
@@ -370,12 +372,18 @@
 							com.apple.Push = {
 								enabled = 1;
 							};
+							com.apple.SafariKeychain = {
+								enabled = 1;
+							};
 						};
 					};
 					30B6EA6A22EA5A9F00443E46 = {
 						CreatedOnToolsVersion = 10.3;
 						SystemCapabilities = {
 							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.SafariKeychain = {
 								enabled = 1;
 							};
 						};
@@ -407,6 +415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30A281E222EA61A30041158E /* SharedAssets.xcassets in Resources */,
+				3095619A22ECF1CD009357BD /* GoogleService-Info.plist in Resources */,
 				30A281F022EA62650041158E /* LaunchScreen.storyboard in Resources */,
 				30A281E322EA61A30041158E /* Main.storyboard in Resources */,
 				30A281F222EA627D0041158E /* ProdAssets.xcassets in Resources */,
@@ -418,9 +427,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				30B6EA7B22EA5AA100443E46 /* LaunchScreen.storyboard in Resources */,
+				3095619C22ECF214009357BD /* GoogleService-Info.plist in Resources */,
 				30A281EA22EA61EB0041158E /* StageAssets.xcassets in Resources */,
 				30B6EA7822EA5AA100443E46 /* SharedAssets.xcassets in Resources */,
-				30E9B0A622EAD484005B25FD /* GoogleService-Info.plist in Resources */,
 				30B6EA7622EA5A9F00443E46 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -663,9 +672,11 @@
 				30934F9D22EBF2AC007C4E6C /* ColorExtensions.swift in Sources */,
 				30E9B0AA22EAD68B005B25FD /* AppMainViewController.swift in Sources */,
 				30934FA722EBFF27007C4E6C /* ReflectionPrompt.swift in Sources */,
+				3023FE3122ECD0A300F753A7 /* NotificationService.swift in Sources */,
 				30E9B0AD22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
 				30934FA022EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift in Sources */,
 				30934F9A22EBF235007C4E6C /* BorderedButton.swift in Sources */,
+				3023FE3622ECF0AE00F753A7 /* CactusColor.swift in Sources */,
 				30934FAD22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */,
 				30A281DA22EA61A30041158E /* JournalEntryDetailViewController.swift in Sources */,
 				30934FA422EBF4E6007C4E6C /* FormatUtils.swift in Sources */,
@@ -673,14 +684,14 @@
 				30E9B0BE22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
 				30E9B0A122EABFBD005B25FD /* CactusMemberService.swift in Sources */,
 				30E9B09B22EA6A84005B25FD /* FirestoreService.swift in Sources */,
-				30934FB322EC0EC3007C4E6C /* JournalEntryDataLoadOperation.swift in Sources */,
 				30934FAA22EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
 				30E9B09E22EA7FC3005B25FD /* CactusMember.swift in Sources */,
 				30E9B0A422EAC204005B25FD /* AuthService.swift in Sources */,
 				3023FE2E22ECB47800F753A7 /* MemberProfileViewController.swift in Sources */,
-				30A281DB22EA61A30041158E /* MasterViewController.swift in Sources */,
 				30E9B09A22EA6A81005B25FD /* BaseModel.swift in Sources */,
 				30934F9722EBF146007C4E6C /* RoundedButton.swift in Sources */,
+				3023FE3422ECF06E00F753A7 /* MailchimpModels.swift in Sources */,
+				3023FE3522ECF0A800F753A7 /* ViewExtensions.swift in Sources */,
 				30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */,
 				30E9B0B822EADF75005B25FD /* HomeViewController.swift in Sources */,
 				30E9B0B022EADD04005B25FD /* LoginViewController.swift in Sources */,
@@ -709,12 +720,10 @@
 				30C49D3422EC299300A2EA95 /* ViewExtensions.swift in Sources */,
 				30C49D3822EC2D4C00A2EA95 /* CactusColor.swift in Sources */,
 				30E9B09622EA68AC005B25FD /* FirestoreService.swift in Sources */,
-				30934FB222EC0EC3007C4E6C /* JournalEntryDataLoadOperation.swift in Sources */,
 				30934FA922EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
 				3023FE2D22ECB47800F753A7 /* MemberProfileViewController.swift in Sources */,
 				30E9B09D22EA7FC3005B25FD /* CactusMember.swift in Sources */,
 				30E9B0A322EAC204005B25FD /* AuthService.swift in Sources */,
-				30B6EA7122EA5A9F00443E46 /* MasterViewController.swift in Sources */,
 				30B6EA6F22EA5A9F00443E46 /* AppDelegate.swift in Sources */,
 				308446F122ECAE0100FB0683 /* MailchimpModels.swift in Sources */,
 				30934F9622EBF146007C4E6C /* RoundedButton.swift in Sources */,
@@ -722,6 +731,7 @@
 				30E9B0B722EADF75005B25FD /* HomeViewController.swift in Sources */,
 				30E9B0AF22EADD04005B25FD /* LoginViewController.swift in Sources */,
 				30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */,
+				3023FE3022ECD0A300F753A7 /* NotificationService.swift in Sources */,
 				30E9B0BA22EAF153005B25FD /* SentPrompt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

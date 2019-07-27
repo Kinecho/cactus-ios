@@ -50,6 +50,7 @@
 	<key>FirebaseDynamicLinksCustomDomains</key>
 	<array>
 		<string>https://cactusstage.page.link</string>
+		<string>https://cactusstage.page.link</string>
 	</array>
 	<key>LSApplicationCategoryType</key>
 	<string></string>

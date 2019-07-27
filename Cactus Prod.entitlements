@@ -4,5 +4,11 @@
 <dict>
 	<key>aps-environment</key>
 	<string>development</string>
+	<key>com.apple.developer.associated-domains</key>
+	<array>
+		<string>applinks:cactus.app</string>
+		<string>applinks:cactus-app-prod.web.app</string>
+		<string>applinks:cactus-app-prod.firebaseapp.com</string>
+	</array>
 </dict>
 </plist>
