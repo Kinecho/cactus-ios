@@ -12,9 +12,6 @@ import Firebase
 
 class MemberProfileViewController: UIViewController {
     
-    @IBOutlet weak var fcmTokenLabel: UITextView!
-    @IBOutlet weak var userIdLabel: UITextView!
-    @IBOutlet weak var cactusMemberIdLabel: UITextView!
     @IBOutlet weak var emailLabel: UITextView!
     
     @IBOutlet weak var permissionSettingErrorLabel: UILabel!
@@ -96,18 +93,12 @@ class MemberProfileViewController: UIViewController {
             }
         }
 
-        fcmTokenLabel.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0);
-        userIdLabel.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0);
-        cactusMemberIdLabel.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0);
         emailLabel.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0);
         
-        self.fcmTokenLabel.text = AppDelegate.shared.fcmToken
         // Do any additional setup after loading the view.
         
         let member = CactusMemberService.sharedInstance.getCurrentMember()
-        self.cactusMemberIdLabel.text = member?.id
         self.emailLabel.text = member?.email
-        self.userIdLabel.text = member?.userId
         
         let journalItem = UIBarButtonItem(title: "Journal", style: .plain, target: self, action: #selector(self.showJournal(sender:)))
         
@@ -119,7 +110,7 @@ class MemberProfileViewController: UIViewController {
             if let error = error {
                 print("Error fetching remote instance ID: \(error)")
             } else if let result = result {
-                self.fcmTokenLabel.text  = result.token
+                //we used to get the FCM token and display it for testing purposes.
             }
         }
         

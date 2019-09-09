@@ -14,8 +14,8 @@ class LoginViewController: UIViewController {
     var authUI: FUIAuth!
     var loggedOutTitle = "Sign In"
     var anonymousUserTitle = "Create an Account"
-    var anonymousSubtitle = "To save your work, please sign in."
-    var loggedOutSubtitle = "To save your work, please sign in."
+    var anonymousSubtitle = "Start with a happier mindset toady."
+    var loggedOutSubtitle = "Start with a happier mindset today."
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subTextLabel: UILabel!
@@ -130,16 +130,10 @@ class LoginViewController: UIViewController {
     @IBAction func signOut(_ sender: Any) {
         print("attempting ot sign out")
         let user = AuthService.sharedInstance.getCurrentUser()
-        let isAnonymous = user?.isAnonymous ?? false
         
-        var message = "Log out of your account"
-        var title = "Are you sure?"
-        if isAnonymous {
-            title = "Are you sure?"
-            message = "Any books you have created or saved will be lost by logging out. If you'd like to save your work, please create a permanent account."
-        }
-        
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        let title = "Are you sure yoyu wan to sign out?"
+    
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Log Out", style: .destructive){ _ in
             do{
@@ -169,14 +163,14 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
         
         
         let actionCodeSettings = ActionCodeSettings()
-        actionCodeSettings.url = URL(string: "https://cactus-app-stage.web.app")
+        actionCodeSettings.url = URL(string: "https://cactus-app-stage.web.app")    
         actionCodeSettings.handleCodeInApp = true
         
         let providers: [FUIAuthProvider] = [
             FUIEmailAuth(authAuthUI: authUI, signInMethod: EmailLinkAuthSignInMethod, forceSameDevice: false, allowNewEmailAccounts: true, actionCodeSetting: actionCodeSettings),
             FUIFacebookAuth(),
             FUIGoogleAuth(),
-            //            FUITwitterAuth(),
+            FUITwitterAuth(),
 //            FUIPhoneAuth(authUI:authUI),
         ]
         
@@ -266,8 +260,6 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
                 "screen": ScreenID.Login.name
                 ])
         }
-        
-        
     }
 
 
@@ -277,7 +269,6 @@ class CustomAuthPickerViewController: FUIAuthPickerViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         let scrollView = view.subviews.first
         scrollView?.backgroundColor = .clear

@@ -13,14 +13,14 @@ import FirebaseUI
 import FirebaseMessaging
 import Fabric
 import Crashlytics
-
+import Sentry
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var fcmToken: String?
     var window: UIWindow?
-    private var currentUser:User?
+    private var currentUser:FirebaseAuth.User?
     let gcmMessageIDKey = "gcm.message_id"
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -32,12 +32,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         Fabric.with([Crashlytics.self])
+        
+        // Create a Sentry client and start crash handler
+        do {
+            Client.shared = try Client(dsn: "https://728bdc63f41d4c93a6ce0884a01b58ea@sentry.io/1515431")
+            try Client.shared?.startCrashHandler()
+        } catch let error {
+            print("\(error)")
+        }
+        
+        
         // Override point for customization after application launch.
         Auth.auth().addStateDidChangeListener(){auth, user in
             Analytics.logEvent("auth_state_changed", parameters: ["userId": user?.uid ?? "", "previousUserId": self.currentUser?.uid ?? ""])
             Crashlytics.sharedInstance().setUserEmail(user?.email)
             Crashlytics.sharedInstance().setUserIdentifier(user?.uid)
             Crashlytics.sharedInstance().setUserName(user?.displayName)
+            
+            
         }
 
         
@@ -76,7 +88,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL,
                      options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
         let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String?
+        print("Starting application open url method (line 79)")
         if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
+            print("Handled by firebase auth ui")
             return true
         }
         // other URL handling goes here.

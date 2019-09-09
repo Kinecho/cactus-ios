@@ -37,6 +37,10 @@
 		30934FB022EC0558007C4E6C /* ReflectionResponseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FAE22EC0558007C4E6C /* ReflectionResponseService.swift */; };
 		3095619A22ECF1CD009357BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3095619922ECF1CD009357BD /* GoogleService-Info.plist */; };
 		3095619C22ECF214009357BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3095619B22ECF214009357BD /* GoogleService-Info.plist */; };
+		309561A022EE16B5009357BD /* CactusConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3095619F22EE16B5009357BD /* CactusConfig.swift */; };
+		309561A222EE16C3009357BD /* CactusConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309561A122EE16C3009357BD /* CactusConfig.swift */; };
+		309561A422EE16D7009357BD /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309561A322EE16D7009357BD /* AppConfig.swift */; };
+		309561A522EE172B009357BD /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309561A322EE16D7009357BD /* AppConfig.swift */; };
 		30A281DA22EA61A30041158E /* JournalEntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA7222EA5A9F00443E46 /* JournalEntryDetailViewController.swift */; };
 		30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */; };
 		30A281E222EA61A30041158E /* SharedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */; };
@@ -98,6 +102,9 @@
 		30934FAE22EC0558007C4E6C /* ReflectionResponseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionResponseService.swift; sourceTree = "<group>"; };
 		3095619922ECF1CD009357BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3095619B22ECF214009357BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3095619F22EE16B5009357BD /* CactusConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusConfig.swift; sourceTree = "<group>"; };
+		309561A122EE16C3009357BD /* CactusConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusConfig.swift; sourceTree = "<group>"; };
+		309561A322EE16D7009357BD /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		30A281E722EA61A30041158E /* Cactus Prod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cactus Prod.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A281E922EA61EB0041158E /* StageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = StageAssets.xcassets; sourceTree = "<group>"; };
 		30A281EB22EA61FA0041158E /* ProdAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ProdAssets.xcassets; sourceTree = "<group>"; };
@@ -168,6 +175,7 @@
 			children = (
 				30934FA222EBF4E6007C4E6C /* FormatUtils.swift */,
 				30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */,
+				309561A322EE16D7009357BD /* AppConfig.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -179,6 +187,7 @@
 				3095619922ECF1CD009357BD /* GoogleService-Info.plist */,
 				30A281EF22EA62650041158E /* LaunchScreen.storyboard */,
 				30A281EB22EA61FA0041158E /* ProdAssets.xcassets */,
+				3095619F22EE16B5009357BD /* CactusConfig.swift */,
 			);
 			path = ConfigProd;
 			sourceTree = "<group>";
@@ -190,6 +199,7 @@
 				30A281E922EA61EB0041158E /* StageAssets.xcassets */,
 				30B6EA7C22EA5AA100443E46 /* Info.plist */,
 				30B6EA7922EA5AA100443E46 /* LaunchScreen.storyboard */,
+				309561A122EE16C3009357BD /* CactusConfig.swift */,
 			);
 			path = ConfigStage;
 			sourceTree = "<group>";
@@ -327,6 +337,7 @@
 				30A281DF22EA61A30041158E /* Resources */,
 				793974A88DA9CA2D62088F94 /* [CP] Embed Pods Frameworks */,
 				8472FB4C28F16FD183F57EED /* [CP] Copy Pods Resources */,
+				3095619E22EE0CEF009357BD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -347,6 +358,7 @@
 				30B6EA6922EA5A9F00443E46 /* Resources */,
 				51D348274B485C7516299B74 /* [CP] Embed Pods Frameworks */,
 				4A9682F8D7AC49DCE1E81D28 /* [CP] Copy Pods Resources */,
+				3095619D22EE07F9009357BD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -459,6 +471,40 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3095619D22EE07F9009357BD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which sentry-cli >/dev/null; then\nexport SENTRY_ORG=kinecho\nexport SENTRY_PROJECT=cactus-ios\nexport SENTRY_AUTH_TOKEN=$(npx firebase functions:config:get sentry.api_token -P cactus-app-prod | sed -e 's/^\"//' -e 's/\"$//' ) \nERROR=$(sentry-cli upload-dif \"$DWARF_DSYM_FOLDER_PATH\" 2>&1 >/dev/null)\nif [ ! $? -eq 0 ]; then\necho \"warning: sentry-cli - $ERROR\"\nfi\nelse\necho \"warning: sentry-cli not installed, download from https://github.com/getsentry/sentry-cli/releases\"\nfi\n";
+		};
+		3095619E22EE0CEF009357BD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which sentry-cli >/dev/null; then\nexport SENTRY_ORG=kinecho\nexport SENTRY_PROJECT=cactus-ios\nexport SENTRY_AUTH_TOKEN=$(npx firebase functions:config:get sentry.api_token -P cactus-app-prod | sed -e 's/^\"//' -e 's/\"$//' ) \nERROR=$(sentry-cli upload-dif \"$DWARF_DSYM_FOLDER_PATH\" 2>&1 >/dev/null)\nif [ ! $? -eq 0 ]; then\necho \"warning: sentry-cli - $ERROR\"\nfi\nelse\necho \"warning: sentry-cli not installed, download from https://github.com/getsentry/sentry-cli/releases\"\nfi\n";
+		};
 		30A281D822EA61A30041158E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -538,6 +584,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Sentry/Sentry.framework",
 				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
 				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
@@ -559,6 +606,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sentry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
@@ -590,6 +638,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Sentry/Sentry.framework",
 				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
 				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
@@ -611,6 +660,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sentry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
@@ -668,6 +718,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				309561A022EE16B5009357BD /* CactusConfig.swift in Sources */,
 				30934FB022EC0558007C4E6C /* ReflectionResponseService.swift in Sources */,
 				30934F9D22EBF2AC007C4E6C /* ColorExtensions.swift in Sources */,
 				30E9B0AA22EAD68B005B25FD /* AppMainViewController.swift in Sources */,
@@ -685,6 +736,7 @@
 				30E9B0A122EABFBD005B25FD /* CactusMemberService.swift in Sources */,
 				30E9B09B22EA6A84005B25FD /* FirestoreService.swift in Sources */,
 				30934FAA22EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
+				309561A522EE172B009357BD /* AppConfig.swift in Sources */,
 				30E9B09E22EA7FC3005B25FD /* CactusMember.swift in Sources */,
 				30E9B0A422EAC204005B25FD /* AuthService.swift in Sources */,
 				3023FE2E22ECB47800F753A7 /* MemberProfileViewController.swift in Sources */,
@@ -704,6 +756,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				309561A222EE16C3009357BD /* CactusConfig.swift in Sources */,
 				30934FAF22EC0558007C4E6C /* ReflectionResponseService.swift in Sources */,
 				30934F9C22EBF2AB007C4E6C /* ColorExtensions.swift in Sources */,
 				30E9B0A922EAD68B005B25FD /* AppMainViewController.swift in Sources */,
@@ -721,6 +774,7 @@
 				30C49D3822EC2D4C00A2EA95 /* CactusColor.swift in Sources */,
 				30E9B09622EA68AC005B25FD /* FirestoreService.swift in Sources */,
 				30934FA922EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
+				309561A422EE16D7009357BD /* AppConfig.swift in Sources */,
 				3023FE2D22ECB47800F753A7 /* MemberProfileViewController.swift in Sources */,
 				30E9B09D22EA7FC3005B25FD /* CactusMember.swift in Sources */,
 				30E9B0A322EAC204005B25FD /* AuthService.swift in Sources */,
