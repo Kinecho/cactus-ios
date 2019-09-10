@@ -106,13 +106,13 @@ class MemberProfileViewController: UIViewController {
         
         
         
-        InstanceID.instanceID().instanceID { (result, error) in
-            if let error = error {
-                print("Error fetching remote instance ID: \(error)")
-            } else if let result = result {
-                //we used to get the FCM token and display it for testing purposes.
-            }
-        }
+//        InstanceID.instanceID().instanceID { (result, error) in
+//            if let error = error {
+//                print("Error fetching remote instance ID: \(error)")
+//            } else if let result = result {
+//                //we used to get the FCM token and display it for testing purposes.
+//            }
+//        }
         
     }
     

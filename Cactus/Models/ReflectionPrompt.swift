@@ -40,6 +40,7 @@ class ReflectionPrompt:FirestoreIdentifiable, Hashable {
     var contentPath:String?
     var sendDate:Date?
     var topic:String?
+    var promptContentEntryId:String?
     
     static func == (lhs: ReflectionPrompt, rhs: ReflectionPrompt) -> Bool {
         return lhs.id != nil && rhs.id != nil && lhs.id == rhs.id

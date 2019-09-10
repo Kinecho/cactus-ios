@@ -8,6 +8,11 @@
 
 import Foundation
 
+struct FlamelinkConfig {
+    var environmentId:String = "production"
+}
+
 protocol AppConfig {
-    var webDomain: String {get}
+    static var webDomain: String {get}
+    static var flamelink: FlamelinkConfig{get}
 }

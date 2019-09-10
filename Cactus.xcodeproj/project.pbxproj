@@ -53,6 +53,14 @@
 		30B6EA7622EA5A9F00443E46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7422EA5A9F00443E46 /* Main.storyboard */; };
 		30B6EA7822EA5AA100443E46 /* SharedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */; };
 		30B6EA7B22EA5AA100443E46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7922EA5AA100443E46 /* LaunchScreen.storyboard */; };
+		30BF2E0B232816CC00A49EB6 /* PromptContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0A232816CC00A49EB6 /* PromptContentService.swift */; };
+		30BF2E0D2328171200A49EB6 /* PromptContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0C2328171200A49EB6 /* PromptContent.swift */; };
+		30BF2E0F23281CAA00A49EB6 /* FlamelinkTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0E23281CAA00A49EB6 /* FlamelinkTypes.swift */; };
+		30BF2E11232822E600A49EB6 /* FirebaseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E10232822E600A49EB6 /* FirebaseExtensions.swift */; };
+		30BF2E122328230E00A49EB6 /* FirebaseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E10232822E600A49EB6 /* FirebaseExtensions.swift */; };
+		30BF2E14232824AB00A49EB6 /* FlamelinkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E13232824AB00A49EB6 /* FlamelinkService.swift */; };
+		30BF2E1523282BD600A49EB6 /* PromptContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0A232816CC00A49EB6 /* PromptContentService.swift */; };
+		30BF2E1623282BDA00A49EB6 /* FlamelinkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E13232824AB00A49EB6 /* FlamelinkService.swift */; };
 		30C49D3422EC299300A2EA95 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3322EC299300A2EA95 /* ViewExtensions.swift */; };
 		30C49D3822EC2D4C00A2EA95 /* CactusColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */; };
 		30E9B09622EA68AC005B25FD /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B09522EA68AC005B25FD /* FirestoreService.swift */; };
@@ -117,6 +125,11 @@
 		30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SharedAssets.xcassets; sourceTree = "<group>"; };
 		30B6EA7A22EA5AA100443E46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30B6EA7C22EA5AA100443E46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30BF2E0A232816CC00A49EB6 /* PromptContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptContentService.swift; sourceTree = "<group>"; };
+		30BF2E0C2328171200A49EB6 /* PromptContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptContent.swift; sourceTree = "<group>"; };
+		30BF2E0E23281CAA00A49EB6 /* FlamelinkTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlamelinkTypes.swift; sourceTree = "<group>"; };
+		30BF2E10232822E600A49EB6 /* FirebaseExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseExtensions.swift; sourceTree = "<group>"; };
+		30BF2E13232824AB00A49EB6 /* FlamelinkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlamelinkService.swift; sourceTree = "<group>"; };
 		30C49D3322EC299300A2EA95 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusColor.swift; sourceTree = "<group>"; };
 		30E9B09522EA68AC005B25FD /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
@@ -256,12 +269,14 @@
 			isa = PBXGroup;
 			children = (
 				30E9B09522EA68AC005B25FD /* FirestoreService.swift */,
+				30BF2E13232824AB00A49EB6 /* FlamelinkService.swift */,
 				30E9B0A222EAC204005B25FD /* AuthService.swift */,
 				30E9B09F22EABFBD005B25FD /* CactusMemberService.swift */,
 				30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */,
 				30934FAB22EC02A6007C4E6C /* ReflectionPromptService.swift */,
 				30934FAE22EC0558007C4E6C /* ReflectionResponseService.swift */,
 				3023FE2F22ECD0A300F753A7 /* NotificationService.swift */,
+				30BF2E0A232816CC00A49EB6 /* PromptContentService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -270,8 +285,10 @@
 			isa = PBXGroup;
 			children = (
 				30E9B09822EA6A81005B25FD /* BaseModel.swift */,
+				30BF2E0E23281CAA00A49EB6 /* FlamelinkTypes.swift */,
 				30E9B09C22EA7FC3005B25FD /* CactusMember.swift */,
 				30E9B0B922EAF153005B25FD /* SentPrompt.swift */,
+				30BF2E0C2328171200A49EB6 /* PromptContent.swift */,
 				30934FA522EBFF27007C4E6C /* ReflectionPrompt.swift */,
 				30934FA822EC0001007C4E6C /* ReflectionResponse.swift */,
 				308446F022ECAE0100FB0683 /* MailchimpModels.swift */,
@@ -298,6 +315,7 @@
 				30E9B0B222EADE2D005B25FD /* CGExtensions.swift */,
 				30934F9B22EBF2AB007C4E6C /* ColorExtensions.swift */,
 				30C49D3322EC299300A2EA95 /* ViewExtensions.swift */,
+				30BF2E10232822E600A49EB6 /* FirebaseExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -722,6 +740,7 @@
 				30934FB022EC0558007C4E6C /* ReflectionResponseService.swift in Sources */,
 				30934F9D22EBF2AC007C4E6C /* ColorExtensions.swift in Sources */,
 				30E9B0AA22EAD68B005B25FD /* AppMainViewController.swift in Sources */,
+				30BF2E122328230E00A49EB6 /* FirebaseExtensions.swift in Sources */,
 				30934FA722EBFF27007C4E6C /* ReflectionPrompt.swift in Sources */,
 				3023FE3122ECD0A300F753A7 /* NotificationService.swift in Sources */,
 				30E9B0AD22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
@@ -734,6 +753,7 @@
 				30E9B0B422EADE2D005B25FD /* CGExtensions.swift in Sources */,
 				30E9B0BE22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
 				30E9B0A122EABFBD005B25FD /* CactusMemberService.swift in Sources */,
+				30BF2E1523282BD600A49EB6 /* PromptContentService.swift in Sources */,
 				30E9B09B22EA6A84005B25FD /* FirestoreService.swift in Sources */,
 				30934FAA22EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
 				309561A522EE172B009357BD /* AppConfig.swift in Sources */,
@@ -743,6 +763,7 @@
 				30E9B09A22EA6A81005B25FD /* BaseModel.swift in Sources */,
 				30934F9722EBF146007C4E6C /* RoundedButton.swift in Sources */,
 				3023FE3422ECF06E00F753A7 /* MailchimpModels.swift in Sources */,
+				30BF2E1623282BDA00A49EB6 /* FlamelinkService.swift in Sources */,
 				3023FE3522ECF0A800F753A7 /* ViewExtensions.swift in Sources */,
 				30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */,
 				30E9B0B822EADF75005B25FD /* HomeViewController.swift in Sources */,
@@ -759,6 +780,7 @@
 				309561A222EE16C3009357BD /* CactusConfig.swift in Sources */,
 				30934FAF22EC0558007C4E6C /* ReflectionResponseService.swift in Sources */,
 				30934F9C22EBF2AB007C4E6C /* ColorExtensions.swift in Sources */,
+				30BF2E0B232816CC00A49EB6 /* PromptContentService.swift in Sources */,
 				30E9B0A922EAD68B005B25FD /* AppMainViewController.swift in Sources */,
 				30934FA622EBFF27007C4E6C /* ReflectionPrompt.swift in Sources */,
 				30E9B0AC22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
@@ -767,11 +789,14 @@
 				30934FAC22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */,
 				30B6EA7322EA5A9F00443E46 /* JournalEntryDetailViewController.swift in Sources */,
 				30934FA322EBF4E6007C4E6C /* FormatUtils.swift in Sources */,
+				30BF2E0D2328171200A49EB6 /* PromptContent.swift in Sources */,
 				30E9B0B322EADE2D005B25FD /* CGExtensions.swift in Sources */,
 				30E9B0BD22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
+				30BF2E0F23281CAA00A49EB6 /* FlamelinkTypes.swift in Sources */,
 				30E9B0A022EABFBD005B25FD /* CactusMemberService.swift in Sources */,
 				30C49D3422EC299300A2EA95 /* ViewExtensions.swift in Sources */,
 				30C49D3822EC2D4C00A2EA95 /* CactusColor.swift in Sources */,
+				30BF2E11232822E600A49EB6 /* FirebaseExtensions.swift in Sources */,
 				30E9B09622EA68AC005B25FD /* FirestoreService.swift in Sources */,
 				30934FA922EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
 				309561A422EE16D7009357BD /* AppConfig.swift in Sources */,
@@ -785,6 +810,7 @@
 				30E9B0B722EADF75005B25FD /* HomeViewController.swift in Sources */,
 				30E9B0AF22EADD04005B25FD /* LoginViewController.swift in Sources */,
 				30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */,
+				30BF2E14232824AB00A49EB6 /* FlamelinkService.swift in Sources */,
 				3023FE3022ECD0A300F753A7 /* NotificationService.swift in Sources */,
 				30E9B0BA22EAF153005B25FD /* SentPrompt.swift in Sources */,
 			);

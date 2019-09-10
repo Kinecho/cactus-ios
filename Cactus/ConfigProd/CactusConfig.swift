@@ -8,6 +8,8 @@
 
 import Foundation
 
+
 struct CactusConfig:AppConfig {
-    let webDomain = "https://cactus.app"
+    static let webDomain = "https://cactus.app"
+    static let flamelink = FlamelinkConfig()
 }

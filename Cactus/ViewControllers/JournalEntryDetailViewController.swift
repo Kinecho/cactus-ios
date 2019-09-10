@@ -12,8 +12,12 @@ class JournalEntryDetailViewController: UIViewController {
     var sentPrompt:SentPrompt?
     var responses: [ReflectionResponse]?
     var prompt: ReflectionPrompt?
+    var contentLoading: Bool = false
+    var promptContent: PromptContent?;
     
+    @IBOutlet weak var promptContentEntryIdLabel: UILabel!
     @IBOutlet weak var responseTextView: UITextView!
+    @IBOutlet weak var promptContentText: UITextView!
     
     @IBOutlet weak var questionLabel: UILabel!
     
@@ -58,6 +62,18 @@ class JournalEntryDetailViewController: UIViewController {
         self.responseTextView.layer.borderColor = CactusColor.borderLight.cgColor
         self.responseTextView.layer.borderWidth = 1
         self.responseTextView.layer.cornerRadius = 6
+        
+        
+        self.promptContentEntryIdLabel.text = self.prompt?.promptContentEntryId ?? "No Content"
+        
+        if self.contentLoading {
+            self.promptContentText.text = "Loading Prompt Content..."
+        }
+        
+        if let promptContent = self.promptContent {
+            self.promptContentText.text = "Fetched prompt content!! \(promptContent.content.first?.text ?? "no id found")"
+        }
+        
     }
 
     override func viewDidLoad() {
@@ -65,6 +81,18 @@ class JournalEntryDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         configureView()
         self.view.setupKeyboardDismissRecognizer()
+        
+        
+        if let prompt = self.prompt, let entryId = prompt.promptContentEntryId {
+            self.contentLoading = true
+            PromptContentService.sharedInstance.getByEntryId(id: entryId) { (content, error) in
+                print("Fetched prompt content from journal detail page!")
+                self.contentLoading = false;
+                self.promptContent = content;
+                
+                self.configureView();
+            }
+        }
         
         
     }

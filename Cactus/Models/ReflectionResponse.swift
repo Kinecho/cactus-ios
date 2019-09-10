@@ -26,6 +26,7 @@ class ReflectionResponseField:BaseModelField {
     static let content = "content"
     static let promptId = "promptId"
     static let promptQuestion = "promptQuestion"
+    static let promptContentEntryId = "promptContentEntryId"
 }
 
 public enum ResponseMedium:String, Codable{
@@ -33,6 +34,9 @@ public enum ResponseMedium:String, Codable{
     case JOURNAL_WEB
     case JOURNAL_IOS
     case JOURNAL_ANDROID
+    case PROMPT_WEB
+    case PROMPT_IOS
+    case PROMPT_ANDROID
 }
 
 struct ReflectionContent:Codable {
@@ -59,11 +63,11 @@ class ReflectionResponse:FirestoreIdentifiable, Hashable {
     var content = ReflectionContent()
     var promptId:String?
     var promptQuestion: String?
+    var promptContentEntryId:String?
     
     static func == (lhs: ReflectionResponse, rhs: ReflectionResponse) -> Bool {
         return lhs.id != nil && rhs.id != nil && lhs.id == rhs.id
     }
-    
     
     func hash(into hasher: inout Hasher){
         id.hash(into: &hasher)
