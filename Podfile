@@ -15,8 +15,8 @@ def app_pods
   pod 'FirebaseUI'
   pod 'FirebaseUI/Storage'
   pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '4.3.1'
-  pod 'Down' #markdown library
   pod 'MarkdownKit'
+  pod 'Cloudinary', '~> 2.0'
 
 end
 

@@ -41,6 +41,7 @@
 		309561A222EE16C3009357BD /* CactusConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309561A122EE16C3009357BD /* CactusConfig.swift */; };
 		309561A422EE16D7009357BD /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309561A322EE16D7009357BD /* AppConfig.swift */; };
 		309561A522EE172B009357BD /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309561A322EE16D7009357BD /* AppConfig.swift */; };
+		30A266DA2329BB73003C708E /* config.yml in Resources */ = {isa = PBXBuildFile; fileRef = 30A266D92329BB73003C708E /* config.yml */; };
 		30A281DA22EA61A30041158E /* JournalEntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA7222EA5A9F00443E46 /* JournalEntryDetailViewController.swift */; };
 		30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */; };
 		30A281E222EA61A30041158E /* SharedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */; };
@@ -71,6 +72,8 @@
 		30BF2E302328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E2E2328A8AD00A49EB6 /* ViewControllerExtensions.swift */; };
 		30BF2E322328C7AD00A49EB6 /* MarkdownTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E312328C7AD00A49EB6 /* MarkdownTypes.swift */; };
 		30BF2E332328C7AD00A49EB6 /* MarkdownTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E312328C7AD00A49EB6 /* MarkdownTypes.swift */; };
+		30BF2E342328D91B00A49EB6 /* PromptContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0C2328171200A49EB6 /* PromptContent.swift */; };
+		30BF2E35232964CD00A49EB6 /* FlamelinkTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0E23281CAA00A49EB6 /* FlamelinkTypes.swift */; };
 		30C49D3422EC299300A2EA95 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3322EC299300A2EA95 /* ViewExtensions.swift */; };
 		30C49D3822EC2D4C00A2EA95 /* CactusColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */; };
 		30E9B09622EA68AC005B25FD /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B09522EA68AC005B25FD /* FirestoreService.swift */; };
@@ -123,6 +126,7 @@
 		3095619F22EE16B5009357BD /* CactusConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusConfig.swift; sourceTree = "<group>"; };
 		309561A122EE16C3009357BD /* CactusConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusConfig.swift; sourceTree = "<group>"; };
 		309561A322EE16D7009357BD /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		30A266D92329BB73003C708E /* config.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.yml; sourceTree = "<group>"; };
 		30A281E722EA61A30041158E /* Cactus Prod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cactus Prod.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A281E922EA61EB0041158E /* StageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = StageAssets.xcassets; sourceTree = "<group>"; };
 		30A281EB22EA61FA0041158E /* ProdAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ProdAssets.xcassets; sourceTree = "<group>"; };
@@ -209,6 +213,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		30A266D82329BB73003C708E /* .circleci */ = {
+			isa = PBXGroup;
+			children = (
+				30A266D92329BB73003C708E /* config.yml */,
+			);
+			path = .circleci;
+			sourceTree = "<group>";
+		};
 		30A281D322EA610E0041158E /* ConfigProd */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +256,7 @@
 		30B6EA6222EA5A9F00443E46 = {
 			isa = PBXGroup;
 			children = (
+				30A266D82329BB73003C708E /* .circleci */,
 				308446F322ECB24F00FB0683 /* Cactus Prod.entitlements */,
 				308446F222ECB23B00FB0683 /* Cactus Stage.entitlements */,
 				30B6EA6D22EA5A9F00443E46 /* Cactus */,
@@ -383,7 +396,8 @@
 				30A281DF22EA61A30041158E /* Resources */,
 				793974A88DA9CA2D62088F94 /* [CP] Embed Pods Frameworks */,
 				8472FB4C28F16FD183F57EED /* [CP] Copy Pods Resources */,
-				3095619E22EE0CEF009357BD /* ShellScript */,
+				3095619E22EE0CEF009357BD /* Install Sentry */,
+				30BF2E37232993C200A49EB6 /* Install Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -404,7 +418,8 @@
 				30B6EA6922EA5A9F00443E46 /* Resources */,
 				51D348274B485C7516299B74 /* [CP] Embed Pods Frameworks */,
 				4A9682F8D7AC49DCE1E81D28 /* [CP] Copy Pods Resources */,
-				3095619D22EE07F9009357BD /* ShellScript */,
+				3095619D22EE07F9009357BD /* Install Sentry */,
+				30BF2E362329930500A49EB6 /* Install Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -491,6 +506,7 @@
 				30A281EA22EA61EB0041158E /* StageAssets.xcassets in Resources */,
 				30B6EA7822EA5AA100443E46 /* SharedAssets.xcassets in Resources */,
 				30B6EA7622EA5A9F00443E46 /* Main.storyboard in Resources */,
+				30A266DA2329BB73003C708E /* config.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,37 +535,41 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3095619D22EE07F9009357BD /* ShellScript */ = {
+		3095619D22EE07F9009357BD /* Install Sentry */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
 			);
+			name = "Install Sentry";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which sentry-cli >/dev/null; then\nexport SENTRY_ORG=kinecho\nexport SENTRY_PROJECT=cactus-ios\nexport SENTRY_AUTH_TOKEN=$(npx firebase functions:config:get sentry.api_token -P cactus-app-prod | sed -e 's/^\"//' -e 's/\"$//' ) \nERROR=$(sentry-cli upload-dif \"$DWARF_DSYM_FOLDER_PATH\" 2>&1 >/dev/null)\nif [ ! $? -eq 0 ]; then\necho \"warning: sentry-cli - $ERROR\"\nfi\nelse\necho \"warning: sentry-cli not installed, download from https://github.com/getsentry/sentry-cli/releases\"\nfi\n";
 		};
-		3095619E22EE0CEF009357BD /* ShellScript */ = {
+		3095619E22EE0CEF009357BD /* Install Sentry */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}\n",
 			);
+			name = "Install Sentry";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which sentry-cli >/dev/null; then\nexport SENTRY_ORG=kinecho\nexport SENTRY_PROJECT=cactus-ios\nexport SENTRY_AUTH_TOKEN=$(npx firebase functions:config:get sentry.api_token -P cactus-app-prod | sed -e 's/^\"//' -e 's/\"$//' ) \nERROR=$(sentry-cli upload-dif \"$DWARF_DSYM_FOLDER_PATH\" 2>&1 >/dev/null)\nif [ ! $? -eq 0 ]; then\necho \"warning: sentry-cli - $ERROR\"\nfi\nelse\necho \"warning: sentry-cli not installed, download from https://github.com/getsentry/sentry-cli/releases\"\nfi\n";
 		};
@@ -574,6 +594,42 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		30BF2E362329930500A49EB6 /* Install Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Install Crashlytics";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\" f92d423e6318610dec15544656c1d5c4183b6688 c3810717415bb49c6fc273d83e31562ce3f085d5cbeafd0e193e935f72fab7c6\n";
+		};
+		30BF2E37232993C200A49EB6 /* Install Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Install Crashlytics";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\" f92d423e6318610dec15544656c1d5c4183b6688 c3810717415bb49c6fc273d83e31562ce3f085d5cbeafd0e193e935f72fab7c6\n";
 		};
 		4A9682F8D7AC49DCE1E81D28 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -622,10 +678,11 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/Cloudinary/Cloudinary.framework",
 				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
-				"${BUILT_PRODUCTS_DIR}/Down/Down.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
@@ -646,10 +703,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cloudinary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Down.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
@@ -680,10 +738,11 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/Cloudinary/Cloudinary.framework",
 				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
-				"${BUILT_PRODUCTS_DIR}/Down/Down.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
@@ -704,10 +763,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cloudinary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Down.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
@@ -781,6 +841,7 @@
 				30BF2E122328230E00A49EB6 /* FirebaseExtensions.swift in Sources */,
 				30BF2E2B23289F9F00A49EB6 /* TextContentViewController.swift in Sources */,
 				30934FA722EBFF27007C4E6C /* ReflectionPrompt.swift in Sources */,
+				30BF2E35232964CD00A49EB6 /* FlamelinkTypes.swift in Sources */,
 				3023FE3122ECD0A300F753A7 /* NotificationService.swift in Sources */,
 				30E9B0AD22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
 				30934FA022EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift in Sources */,
@@ -810,6 +871,7 @@
 				30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */,
 				30E9B0B822EADF75005B25FD /* HomeViewController.swift in Sources */,
 				30E9B0B022EADD04005B25FD /* LoginViewController.swift in Sources */,
+				30BF2E342328D91B00A49EB6 /* PromptContent.swift in Sources */,
 				30934F9322EBE7DF007C4E6C /* JournalFeedCollectionViewController.swift in Sources */,
 				30E9B0BB22EAF153005B25FD /* SentPrompt.swift in Sources */,
 			);
@@ -891,6 +953,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Cactus Prod.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Cactus/ConfigProd/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -912,6 +975,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Cactus Prod.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Cactus/ConfigProd/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -960,7 +1024,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

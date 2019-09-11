@@ -93,7 +93,7 @@ class JournalEntryDetailViewController: UIViewController {
             self.contentLoading = true
             self.promptContentText.text = "Loading Prompt Content..."
             PromptContentService.sharedInstance.getByEntryId(id: entryId) { (content, error) in
-                print("Fetched prompt content from journal detail page!")
+                print("Fetched prompt content from journal detail page!", String(describing: content))
                 self.contentLoading = false;
                 self.promptContent = content;
                 

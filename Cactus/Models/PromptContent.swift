@@ -89,7 +89,7 @@ class Content:Codable {
     var contentType: ContentType;
     var quote: Quote?;
     var text: String?;
-    var text_md: String;
+    var text_md: String?;
     var backgroundImage: ContentBackgroundImage?;
     var label: String?;
     var title: String?;

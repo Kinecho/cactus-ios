@@ -15,6 +15,8 @@ import Fabric
 import Crashlytics
 import Sentry
 
+typealias SentryUser = Sentry.User
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -30,13 +32,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
 
         Fabric.with([Crashlytics.self])
         
         // Create a Sentry client and start crash handler
         do {
             Client.shared = try Client(dsn: "https://728bdc63f41d4c93a6ce0884a01b58ea@sentry.io/1515431")
+            
             try Client.shared?.startCrashHandler()
+            Client.shared?.environment = CactusConfig.envirnoment.rawValue
+            let testEvent = Sentry.Event(level: .info)
+            testEvent.message = "App Starting"
+            testEvent.environment = CactusConfig.envirnoment.rawValue
+            testEvent.extra = ["ios": true]
+            
+            Client.shared?.send(event: testEvent)
         } catch let error {
             print("\(error)")
         }
@@ -48,8 +59,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Crashlytics.sharedInstance().setUserEmail(user?.email)
             Crashlytics.sharedInstance().setUserIdentifier(user?.uid)
             Crashlytics.sharedInstance().setUserName(user?.displayName)
-            
-            
+            if let user = user {
+                let sentryUser = SentryUser(userId: user.uid)
+                sentryUser.email = user.email
+                Client.shared?.user = sentryUser;
+                let loginEvent = Sentry.Event(level: .info);
+                loginEvent.message = "\(user.email ?? user.uid) has logged in"
+                Client.shared?.send(event: loginEvent)
+            } else {
+                
+                if let currentUser = self.currentUser {
+                    let logoutEvent = Sentry.Event(level: .info);
+                    logoutEvent.message = "\(currentUser.email ?? currentUser.uid) has logged out of the app"
+                    Client.shared?.send(event: logoutEvent)
+                }
+                Client.shared?.user = nil
+            }
+            self.currentUser = user;
         }
 
         

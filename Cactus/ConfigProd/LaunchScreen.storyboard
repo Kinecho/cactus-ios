@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,24 +19,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cactus Prod" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgp-8u-fXF">
-                                <rect key="frame" x="159.5" y="437.5" width="95" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cactusLogo" translatesAutoresizingMaskIntoConstraints="NO" id="cA1-9x-8rs">
+                                <rect key="frame" x="87" y="144" width="240" height="409"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="Pink"/>
                         <constraints>
-                            <constraint firstItem="Tgp-8u-fXF" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="BvI-aJ-aCA"/>
-                            <constraint firstItem="Tgp-8u-fXF" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="JzO-Pg-EU2"/>
+                            <constraint firstItem="cA1-9x-8rs" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="Pm5-aY-GWh"/>
+                            <constraint firstItem="cA1-9x-8rs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="Y5T-84-p1j"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cA1-9x-8rs" secondAttribute="trailing" constant="87" id="e5r-fW-EUp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="centerY" secondItem="cA1-9x-8rs" secondAttribute="bottom" constant="-100" id="uBM-Hc-wXC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cactusLogo" width="1410" height="696"/>
+        <namedColor name="Pink">
+            <color red="1" green="0.83921568627450982" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

@@ -8,6 +8,11 @@
 
 import Foundation
 
+enum AppEnviornment:String,Codable {
+    case prod
+    case stage
+}
+
 struct FlamelinkConfig {
     var environmentId:String = "production"
 }
@@ -15,4 +20,5 @@ struct FlamelinkConfig {
 protocol AppConfig {
     static var webDomain: String {get}
     static var flamelink: FlamelinkConfig{get}
+    static var envirnoment: AppEnviornment {get}
 }

@@ -64,12 +64,12 @@ protocol BaseModelProtocol:Codable {
 
 struct FlamelinkMeta:Codable {
    var createdBy: String
-   var createdDate: Date
+//   var createdDate: Date
    var docId: String
    var env: String
    var fl_id: String
    var lastModifiedBy: String
-   var lastModifiedDate: Date
+//   var lastModifiedDate: Date
    var locale: String?
    var schema: FlamelinkSchema
 //   var schemaRef: any,
