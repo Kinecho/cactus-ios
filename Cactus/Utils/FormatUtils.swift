@@ -27,6 +27,15 @@ struct FormatUtils {
         }
         return dateString
     }
+    
+    static func centeredAttributedString(_ aText: NSAttributedString) -> NSAttributedString {
+        let mText = NSMutableAttributedString.init(attributedString: aText)
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.alignment = .center
+        mText.addAttributes([NSAttributedString.Key.paragraphStyle : paragraph], range: NSMakeRange(0, aText.length - 1))
+        //            aText.attribute(.paragraphStyle, at: 0, longestEffectiveRange: NSRangePointer.(0, 10), in: NSMakeRange(0, 10))
+        return mText.attributedSubstring(from: NSMakeRange(0, mText.length - 1))
+    }
 }
 
 struct FontSize {

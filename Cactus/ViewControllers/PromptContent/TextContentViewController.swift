@@ -34,13 +34,13 @@ class TextContentViewController: UIViewController {
             let markdownParser = MarkdownParser(font: CactusFont.Large);
 //            markdownParser.font.paragr
             
-            let aText = markdownParser.parse(textString)
-            let mText = NSMutableAttributedString.init(attributedString: aText)
-            let paragraph = NSMutableParagraphStyle()
-            paragraph.alignment = .center
-            mText.addAttributes([NSAttributedString.Key.paragraphStyle : paragraph], range: NSMakeRange(0, aText.length - 1))
+//            let aText =
+//            let mText = NSMutableAttributedString.init(attributedString: aText)
+//            let paragraph = NSMutableParagraphStyle()
+//            paragraph.alignment = .center
+//            mText.addAttributes([NSAttributedString.Key.paragraphStyle : paragraph], range: NSMakeRange(0, aText.length - 1))
 //            aText.attribute(.paragraphStyle, at: 0, longestEffectiveRange: NSRangePointer.(0, 10), in: NSMakeRange(0, 10))
-            self.text.attributedText = mText.attributedSubstring(from: NSMakeRange(0, mText.length - 1))
+            self.text.attributedText = FormatUtils.centeredAttributedString(markdownParser.parse(textString))
             
             
             

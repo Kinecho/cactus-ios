@@ -10,8 +10,34 @@ import Foundation
 import UIKit
 
 struct CactusColor {
+    static let lightest: UIColor = UIColor(hex: "F1EBE7")
+    
+    static let lightText: UIColor = UIColor(hex: "757575")
+    static let darkText: UIColor = UIColor(hex: "444")
+    
+    static let lightGray: UIColor = UIColor(hex: "E2E2E2")
+    
+    static let lightPink: UIColor = UIColor(hex: "FFE4DA")
     static let pink:UIColor = UIColor(hex: "FFE4DA");
+    static let darkPink: UIColor = UIColor(hex: "FDBCA3")
+    static let darkestPink: UIColor = UIColor(hex: "FDBCA3")
+    
+    static let lightGreen: UIColor = UIColor(hex: "B9EFE9")
+    static let green:UIColor = UIColor(hex: "33CCAB");
+    static let darkGreen: UIColor = UIColor(hex: "29A389")
+    static let darkestGreen: UIColor = UIColor(hex: "07454C")
+    
+    static let yellow:UIColor = UIColor(hex: "F9EB91");
+    static let darkYellow:UIColor = UIColor(hex: "F4DD48");
+    static let darkestYellow:UIColor = UIColor(hex: "F4DD48");
+    
+    static let lightBlue:UIColor = UIColor(hex: "e6f9f7");
+    
     static let borderLight:UIColor = UIColor(hex: "f1ebe7")
+    
+    static let facebook:UIColor = UIColor(hex: "3b5998")
+    static let twitter:UIColor = UIColor(hex: "1da1f2")
+    
 }
 
 
