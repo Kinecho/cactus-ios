@@ -22,11 +22,23 @@ class FlamelinkFile:Codable {
         }
     }
     
+    enum CodingKeys: String, CodingKey {
+        case fileIds
+    }
+    
     public required init(from decoder: Decoder) throws {
-        let fileIdString = try? decoder.singleValueContainer().decode(String.self)
+        let container = try decoder.container(keyedBy:  CodingKeys.self)
+        
+        let idArray = try? container.decode([String].self, forKey: CodingKeys.fileIds)
+        
+        if let ids = idArray {
+            self.fileIds = ids;
+            return
+        }
+        let fileIdString = try? container.decode(String.self, forKey: .fileIds)
         if let fileId = fileIdString, !fileId.isEmpty {
             self.fileIds.append(fileId)
-        }
+        }       
     }
 }
 

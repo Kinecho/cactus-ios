@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum ScreenID:String {
     case AppMain
@@ -21,12 +22,29 @@ enum ScreenID:String {
             return self.rawValue
         }
     }
+}
+
+enum NibName:String {
+    case TextContent = "TextContentViewController"
     
+    var name: String {
+        get {
+            return self.rawValue
+        }
+    }
 }
 
 enum StoryboardID:String {
     case LaunchScreen
     case Main
+    
+    var name:String {
+        get {return self.rawValue}
+    }
+}
+
+enum SegueID:String {
+    case ShowPromptContentModal
     
     var name:String {
         get {return self.rawValue}

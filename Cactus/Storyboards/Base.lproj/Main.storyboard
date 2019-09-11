@@ -67,8 +67,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kqa-Xw-bvS" userLabel="Prompt Text Area">
-                                <rect key="frame" x="53" y="632" width="320" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Some useful data here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kqa-Xw-bvS" userLabel="Prompt Text Area">
+                                <rect key="frame" x="20" y="615.5" width="374" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="pQQ-4V-Pem"/>
@@ -76,22 +76,32 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nPa-Rh-NgV">
+                                <rect key="frame" x="30" y="412" width="49" height="30"/>
+                                <state key="normal" title="Reflect"/>
+                                <connections>
+                                    <segue destination="e7K-2Y-xsh" kind="show" identifier="ShowPromptContentModal" id="3OM-UU-9N2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="0M3-a2-yA5" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="24" id="0E6-L4-mK8"/>
                             <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="0XM-y9-sOw" secondAttribute="trailing" constant="24" id="4vM-Dj-eMg"/>
                             <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="SAU-lX-enM" secondAttribute="trailing" constant="34" id="6NE-WP-fss"/>
-                            <constraint firstItem="Kqa-Xw-bvS" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="53" id="6Zx-gU-RLh"/>
+                            <constraint firstItem="Kqa-Xw-bvS" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="20" id="6Zx-gU-RLh"/>
+                            <constraint firstItem="nPa-Rh-NgV" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="30" id="6ev-Kg-ip4"/>
                             <constraint firstItem="0XM-y9-sOw" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="24" id="BuA-L1-kHh"/>
                             <constraint firstItem="0M3-a2-yA5" firstAttribute="top" secondItem="SAU-lX-enM" secondAttribute="bottom" constant="140" id="EC6-1D-AOu"/>
                             <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="N66-ae-VLO" secondAttribute="trailing" constant="24" id="LoY-VI-5z2"/>
+                            <constraint firstItem="nPa-Rh-NgV" firstAttribute="centerY" secondItem="SAU-lX-enM" secondAttribute="centerY" id="MrJ-1X-2n5"/>
                             <constraint firstItem="N66-ae-VLO" firstAttribute="top" secondItem="0XM-y9-sOw" secondAttribute="bottom" constant="40" id="NeO-fW-h4b"/>
                             <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="Kqa-Xw-bvS" secondAttribute="trailing" constant="20" id="RB7-AC-4zN"/>
                             <constraint firstItem="N66-ae-VLO" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="24" id="TGz-ea-EJf"/>
                             <constraint firstItem="SAU-lX-enM" firstAttribute="top" secondItem="N66-ae-VLO" secondAttribute="bottom" constant="24" id="Vwc-jp-kmn"/>
                             <constraint firstItem="Kqa-Xw-bvS" firstAttribute="top" secondItem="0M3-a2-yA5" secondAttribute="bottom" constant="8" id="ak8-6X-O8S"/>
                             <constraint firstItem="0XM-y9-sOw" firstAttribute="top" secondItem="VUw-jc-0yf" secondAttribute="top" constant="20" id="hyI-wm-yel"/>
+                            <constraint firstItem="SAU-lX-enM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nPa-Rh-NgV" secondAttribute="trailing" constant="20" id="j7M-h4-c3m"/>
                             <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="0M3-a2-yA5" secondAttribute="trailing" constant="20" id="mTD-nj-0ci"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VUw-jc-0yf"/>
@@ -102,6 +112,7 @@
                         <outlet property="promptContentEntryIdLabel" destination="0M3-a2-yA5" id="xLg-5S-pwY"/>
                         <outlet property="promptContentText" destination="Kqa-Xw-bvS" id="43z-Ni-MCG"/>
                         <outlet property="questionLabel" destination="0XM-y9-sOw" id="TKM-sP-N8u"/>
+                        <outlet property="reflectButton" destination="nPa-Rh-NgV" id="1vz-9c-TxK"/>
                         <outlet property="responseTextView" destination="N66-ae-VLO" id="2q1-AX-oaA"/>
                     </connections>
                 </viewController>
@@ -440,6 +451,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rhS-nQ-So6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1930.4347826086957" y="-666.29464285714278"/>
+        </scene>
+        <!--Prompt Content Page View Controller-->
+        <scene sceneID="ebg-Xv-86K">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="e7K-2Y-xsh" customClass="PromptContentPageViewController" customModule="Cactus_Prod" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5pv-po-RJA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2858" y="129"/>
         </scene>
     </scenes>
     <resources>

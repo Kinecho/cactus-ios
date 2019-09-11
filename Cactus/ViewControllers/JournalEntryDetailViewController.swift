@@ -19,6 +19,7 @@ class JournalEntryDetailViewController: UIViewController {
     @IBOutlet weak var responseTextView: UITextView!
     @IBOutlet weak var promptContentText: UITextView!
     
+    @IBOutlet weak var reflectButton: UIButton!
     @IBOutlet weak var questionLabel: UILabel!
     
     @IBAction func saveResponses(_ sender: Any) {
@@ -71,7 +72,12 @@ class JournalEntryDetailViewController: UIViewController {
         }
         
         if let promptContent = self.promptContent {
-            self.promptContentText.text = "Fetched prompt content!! \(promptContent.content.first?.text ?? "no id found")"
+            self.reflectButton.isHidden = false
+            let videoIds = promptContent.content.first?.video?.fileIds.joined(separator: ", ")
+            let videoId =  promptContent.content.first?.video?.fileId
+            self.promptContentText.text = "Fetched prompt content!! \(promptContent.content.first?.text ?? "no id found") \nFileIds: \(videoIds ?? "no video Ids")\nVideo File ID (computed) \(videoId ?? "none")"
+        } else {
+            self.reflectButton.isHidden = true
         }
         
     }
@@ -85,6 +91,7 @@ class JournalEntryDetailViewController: UIViewController {
         
         if let prompt = self.prompt, let entryId = prompt.promptContentEntryId {
             self.contentLoading = true
+            self.promptContentText.text = "Loading Prompt Content..."
             PromptContentService.sharedInstance.getByEntryId(id: entryId) { (content, error) in
                 print("Fetched prompt content from journal detail page!")
                 self.contentLoading = false;
@@ -95,6 +102,19 @@ class JournalEntryDetailViewController: UIViewController {
         }
         
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let segueId = segue.identifier;
+        
+        switch segueId {
+        case SegueID.ShowPromptContentModal.name:
+            let vc = segue.destination as! PromptContentPageViewController;
+            vc.promptContent = self.promptContent
+            break;
+        default:
+            print("No segue handled")
+        }
     }
 
     

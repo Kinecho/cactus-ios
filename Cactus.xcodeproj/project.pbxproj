@@ -61,6 +61,14 @@
 		30BF2E14232824AB00A49EB6 /* FlamelinkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E13232824AB00A49EB6 /* FlamelinkService.swift */; };
 		30BF2E1523282BD600A49EB6 /* PromptContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0A232816CC00A49EB6 /* PromptContentService.swift */; };
 		30BF2E1623282BDA00A49EB6 /* FlamelinkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E13232824AB00A49EB6 /* FlamelinkService.swift */; };
+		30BF2E1823289D1200A49EB6 /* PromptContentPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E1723289D1200A49EB6 /* PromptContentPageViewController.swift */; };
+		30BF2E1923289D1200A49EB6 /* PromptContentPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E1723289D1200A49EB6 /* PromptContentPageViewController.swift */; };
+		30BF2E2A23289F9F00A49EB6 /* TextContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E2823289F9F00A49EB6 /* TextContentViewController.swift */; };
+		30BF2E2B23289F9F00A49EB6 /* TextContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E2823289F9F00A49EB6 /* TextContentViewController.swift */; };
+		30BF2E2C23289F9F00A49EB6 /* TextContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30BF2E2923289F9F00A49EB6 /* TextContentViewController.xib */; };
+		30BF2E2D23289F9F00A49EB6 /* TextContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30BF2E2923289F9F00A49EB6 /* TextContentViewController.xib */; };
+		30BF2E2F2328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E2E2328A8AD00A49EB6 /* ViewControllerExtensions.swift */; };
+		30BF2E302328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E2E2328A8AD00A49EB6 /* ViewControllerExtensions.swift */; };
 		30C49D3422EC299300A2EA95 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3322EC299300A2EA95 /* ViewExtensions.swift */; };
 		30C49D3822EC2D4C00A2EA95 /* CactusColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */; };
 		30E9B09622EA68AC005B25FD /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B09522EA68AC005B25FD /* FirestoreService.swift */; };
@@ -130,6 +138,10 @@
 		30BF2E0E23281CAA00A49EB6 /* FlamelinkTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlamelinkTypes.swift; sourceTree = "<group>"; };
 		30BF2E10232822E600A49EB6 /* FirebaseExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseExtensions.swift; sourceTree = "<group>"; };
 		30BF2E13232824AB00A49EB6 /* FlamelinkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlamelinkService.swift; sourceTree = "<group>"; };
+		30BF2E1723289D1200A49EB6 /* PromptContentPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptContentPageViewController.swift; sourceTree = "<group>"; };
+		30BF2E2823289F9F00A49EB6 /* TextContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextContentViewController.swift; sourceTree = "<group>"; };
+		30BF2E2923289F9F00A49EB6 /* TextContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextContentViewController.xib; sourceTree = "<group>"; };
+		30BF2E2E2328A8AD00A49EB6 /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
 		30C49D3322EC299300A2EA95 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusColor.swift; sourceTree = "<group>"; };
 		30E9B09522EA68AC005B25FD /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
@@ -265,6 +277,15 @@
 			path = Cactus;
 			sourceTree = "<group>";
 		};
+		30BF2E2123289E1E00A49EB6 /* PromptContent */ = {
+			isa = PBXGroup;
+			children = (
+				30BF2E2823289F9F00A49EB6 /* TextContentViewController.swift */,
+				30BF2E2923289F9F00A49EB6 /* TextContentViewController.xib */,
+			);
+			path = PromptContent;
+			sourceTree = "<group>";
+		};
 		30E9B09422EA688D005B25FD /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,12 +320,14 @@
 		30E9B0A722EAD618005B25FD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				30BF2E2123289E1E00A49EB6 /* PromptContent */,
 				30B6EA7222EA5A9F00443E46 /* JournalEntryDetailViewController.swift */,
 				30E9B0A822EAD68B005B25FD /* AppMainViewController.swift */,
 				30E9B0AE22EADD04005B25FD /* LoginViewController.swift */,
 				30E9B0B622EADF75005B25FD /* HomeViewController.swift */,
 				30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */,
 				3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */,
+				30BF2E1723289D1200A49EB6 /* PromptContentPageViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -316,6 +339,7 @@
 				30934F9B22EBF2AB007C4E6C /* ColorExtensions.swift */,
 				30C49D3322EC299300A2EA95 /* ViewExtensions.swift */,
 				30BF2E10232822E600A49EB6 /* FirebaseExtensions.swift */,
+				30BF2E2E2328A8AD00A49EB6 /* ViewControllerExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -445,6 +469,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30A281E222EA61A30041158E /* SharedAssets.xcassets in Resources */,
+				30BF2E2D23289F9F00A49EB6 /* TextContentViewController.xib in Resources */,
 				3095619A22ECF1CD009357BD /* GoogleService-Info.plist in Resources */,
 				30A281F022EA62650041158E /* LaunchScreen.storyboard in Resources */,
 				30A281E322EA61A30041158E /* Main.storyboard in Resources */,
@@ -457,6 +482,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30B6EA7B22EA5AA100443E46 /* LaunchScreen.storyboard in Resources */,
+				30BF2E2C23289F9F00A49EB6 /* TextContentViewController.xib in Resources */,
 				3095619C22ECF214009357BD /* GoogleService-Info.plist in Resources */,
 				30A281EA22EA61EB0041158E /* StageAssets.xcassets in Resources */,
 				30B6EA7822EA5AA100443E46 /* SharedAssets.xcassets in Resources */,
@@ -741,6 +767,7 @@
 				30934F9D22EBF2AC007C4E6C /* ColorExtensions.swift in Sources */,
 				30E9B0AA22EAD68B005B25FD /* AppMainViewController.swift in Sources */,
 				30BF2E122328230E00A49EB6 /* FirebaseExtensions.swift in Sources */,
+				30BF2E2B23289F9F00A49EB6 /* TextContentViewController.swift in Sources */,
 				30934FA722EBFF27007C4E6C /* ReflectionPrompt.swift in Sources */,
 				3023FE3122ECD0A300F753A7 /* NotificationService.swift in Sources */,
 				30E9B0AD22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
@@ -756,11 +783,13 @@
 				30BF2E1523282BD600A49EB6 /* PromptContentService.swift in Sources */,
 				30E9B09B22EA6A84005B25FD /* FirestoreService.swift in Sources */,
 				30934FAA22EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
+				30BF2E1923289D1200A49EB6 /* PromptContentPageViewController.swift in Sources */,
 				309561A522EE172B009357BD /* AppConfig.swift in Sources */,
 				30E9B09E22EA7FC3005B25FD /* CactusMember.swift in Sources */,
 				30E9B0A422EAC204005B25FD /* AuthService.swift in Sources */,
 				3023FE2E22ECB47800F753A7 /* MemberProfileViewController.swift in Sources */,
 				30E9B09A22EA6A81005B25FD /* BaseModel.swift in Sources */,
+				30BF2E302328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */,
 				30934F9722EBF146007C4E6C /* RoundedButton.swift in Sources */,
 				3023FE3422ECF06E00F753A7 /* MailchimpModels.swift in Sources */,
 				30BF2E1623282BDA00A49EB6 /* FlamelinkService.swift in Sources */,
@@ -791,7 +820,9 @@
 				30934FA322EBF4E6007C4E6C /* FormatUtils.swift in Sources */,
 				30BF2E0D2328171200A49EB6 /* PromptContent.swift in Sources */,
 				30E9B0B322EADE2D005B25FD /* CGExtensions.swift in Sources */,
+				30BF2E1823289D1200A49EB6 /* PromptContentPageViewController.swift in Sources */,
 				30E9B0BD22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
+				30BF2E2F2328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */,
 				30BF2E0F23281CAA00A49EB6 /* FlamelinkTypes.swift in Sources */,
 				30E9B0A022EABFBD005B25FD /* CactusMemberService.swift in Sources */,
 				30C49D3422EC299300A2EA95 /* ViewExtensions.swift in Sources */,
@@ -799,6 +830,7 @@
 				30BF2E11232822E600A49EB6 /* FirebaseExtensions.swift in Sources */,
 				30E9B09622EA68AC005B25FD /* FirestoreService.swift in Sources */,
 				30934FA922EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
+				30BF2E2A23289F9F00A49EB6 /* TextContentViewController.swift in Sources */,
 				309561A422EE16D7009357BD /* AppConfig.swift in Sources */,
 				3023FE2D22ECB47800F753A7 /* MemberProfileViewController.swift in Sources */,
 				30E9B09D22EA7FC3005B25FD /* CactusMember.swift in Sources */,
