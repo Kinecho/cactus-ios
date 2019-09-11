@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 struct FormatUtils {
     static func formatDate(_ date: Date?, currentYearFormat: String="MMMM d", previousYearFormat: String="MMM d, yyyy") -> String?{
@@ -28,3 +28,12 @@ struct FormatUtils {
         return dateString
     }
 }
+
+struct FontSize {
+    static let large:CGFloat = 28
+}
+
+struct CactusFont {
+    static let Large = UIFont.systemFont(ofSize: FontSize.large)
+}
+

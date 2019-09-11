@@ -21,12 +21,9 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="What does music mean to you?" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vdy-jl-RMz">
-                    <rect key="frame" x="30" y="164" width="354" height="150"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="What does music mean to you? What happens is there is areallyreallyreallyreallyreally long word" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vdy-jl-RMz">
+                    <rect key="frame" x="30" y="164" width="354" height="678"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="150" id="OuR-sT-ybI"/>
-                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="32"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
@@ -34,6 +31,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vdy-jl-RMz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="HA8-XC-j05"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="vdy-jl-RMz" secondAttribute="bottom" constant="20" id="UD7-MF-Aeu"/>
                 <constraint firstItem="vdy-jl-RMz" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="120" id="kqb-eT-8QG"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vdy-jl-RMz" secondAttribute="trailing" constant="30" id="w5c-Og-rs9"/>
             </constraints>

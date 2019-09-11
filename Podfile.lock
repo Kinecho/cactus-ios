@@ -14,6 +14,7 @@ PODS:
   - CodableFirebase (0.2.1)
   - Crashlytics (3.12.0):
     - Fabric (~> 1.9.0)
+  - Down (0.6.5)
   - Fabric (1.9.0)
   - FBSDKCoreKit (4.44.0):
     - Bolts (~> 1.9)
@@ -222,6 +223,7 @@ PODS:
   - gRPC-Core/Interface (1.17.0)
   - GTMSessionFetcher/Core (1.2.1)
   - leveldb-library (1.20)
+  - MarkdownKit (1.5)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
@@ -241,6 +243,7 @@ PODS:
 DEPENDENCIES:
   - CodableFirebase
   - Crashlytics
+  - Down
   - Fabric
   - Firebase/Auth
   - Firebase/Core
@@ -251,6 +254,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - FirebaseUI
   - FirebaseUI/Storage
+  - MarkdownKit
   - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `4.3.1`)
 
 SPEC REPOS:
@@ -259,6 +263,7 @@ SPEC REPOS:
     - BoringSSL-GRPC
     - CodableFirebase
     - Crashlytics
+    - Down
     - Fabric
     - FBSDKCoreKit
     - FBSDKLoginKit
@@ -286,6 +291,7 @@ SPEC REPOS:
     - gRPC-Core
     - GTMSessionFetcher
     - leveldb-library
+    - MarkdownKit
     - nanopb
     - Protobuf
     - SDWebImage
@@ -307,6 +313,7 @@ SPEC CHECKSUMS:
   BoringSSL-GRPC: 2a230d9cd93e7ce39916044f645cebb31f37dde6
   CodableFirebase: 0bf201991eeec35eb9fcd987d271ea463cf34a80
   Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
+  Down: b91ef4869bf342eb3094e6ce0c68dbadb0029f7f
   Fabric: f988e33c97f08930a413e08123064d2e5f68d655
   FBSDKCoreKit: 8bcd4503afe43f28823c2175a6142a7f50f1bf28
   FBSDKLoginKit: 93c5a407ab1a6a17b1b38cff57e89991f714d878
@@ -334,6 +341,7 @@ SPEC CHECKSUMS:
   gRPC-Core: 4028031ed2c5267cca0d846c876d8046b1ecb9b6
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
+  MarkdownKit: 379028e9cd3ebf05ccac87205cd9aead446159d4
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
@@ -341,6 +349,6 @@ SPEC CHECKSUMS:
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
 
-PODFILE CHECKSUM: c99babeaab24e372d34b0865de75fb47aad0eda5
+PODFILE CHECKSUM: c167c6e9ac660793a8681ece57618f3f7af54d3b
 
 COCOAPODS: 1.6.1
