@@ -14,6 +14,7 @@
 		3023FE3422ECF06E00F753A7 /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
 		3023FE3522ECF0A800F753A7 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3322EC299300A2EA95 /* ViewExtensions.swift */; };
 		3023FE3622ECF0AE00F753A7 /* CactusColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */; };
+		303BF744232A986A00164539 /* Cactus_UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303BF743232A986A00164539 /* Cactus_UnitTests.swift */; };
 		308446F122ECAE0100FB0683 /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
 		30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
 		30934F9322EBE7DF007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
@@ -104,10 +105,30 @@
 		AF8661F1C0FF256ABCAB0CD5 /* Pods_Cactus_Stage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 360D0FDE16C2298128226AF2 /* Pods_Cactus_Stage.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		303BF746232A986A00164539 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 30B6EA6322EA5A9F00443E46 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 30A281D722EA61A30041158E;
+			remoteInfo = "Cactus Prod";
+		};
+		303BF74B232ABA7F00164539 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 30B6EA6322EA5A9F00443E46 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 30B6EA6A22EA5A9F00443E46;
+			remoteInfo = "Cactus Stage";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0CDE23A24E34875606036179 /* Pods-Cactus Stage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus Stage.release.xcconfig"; path = "Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage.release.xcconfig"; sourceTree = "<group>"; };
 		3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberProfileViewController.swift; sourceTree = "<group>"; };
 		3023FE2F22ECD0A300F753A7 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		303BF741232A986A00164539 /* Cactus UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cactus UnitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		303BF743232A986A00164539 /* Cactus_UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cactus_UnitTests.swift; sourceTree = "<group>"; };
+		303BF745232A986A00164539 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		308446F022ECAE0100FB0683 /* MailchimpModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailchimpModels.swift; sourceTree = "<group>"; };
 		308446F222ECB23B00FB0683 /* Cactus Stage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cactus Stage.entitlements"; sourceTree = "<group>"; };
 		308446F322ECB24F00FB0683 /* Cactus Prod.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cactus Prod.entitlements"; sourceTree = "<group>"; };
@@ -173,6 +194,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		303BF73E232A986A00164539 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		30A281DD22EA61A30041158E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -192,6 +220,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		303BF742232A986A00164539 /* Cactus UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				303BF743232A986A00164539 /* Cactus_UnitTests.swift */,
+				303BF745232A986A00164539 /* Info.plist */,
+			);
+			path = "Cactus UnitTests";
+			sourceTree = "<group>";
+		};
 		30934F9422EBF12D007C4E6C /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +297,7 @@
 				308446F322ECB24F00FB0683 /* Cactus Prod.entitlements */,
 				308446F222ECB23B00FB0683 /* Cactus Stage.entitlements */,
 				30B6EA6D22EA5A9F00443E46 /* Cactus */,
+				303BF742232A986A00164539 /* Cactus UnitTests */,
 				30B6EA6C22EA5A9F00443E46 /* Products */,
 				7D73091CC55662ADF17682E8 /* Pods */,
 				F40F662D9608046D0B754960 /* Frameworks */,
@@ -271,6 +309,7 @@
 			children = (
 				30B6EA6B22EA5A9F00443E46 /* Cactus Stage.app */,
 				30A281E722EA61A30041158E /* Cactus Prod.app */,
+				303BF741232A986A00164539 /* Cactus UnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -278,18 +317,18 @@
 		30B6EA6D22EA5A9F00443E46 /* Cactus */ = {
 			isa = PBXGroup;
 			children = (
-				30934FA122EBF4CF007C4E6C /* Utils */,
-				30934F9422EBF12D007C4E6C /* Views */,
-				30E9B0B122EADE12005B25FD /* Extensions */,
-				30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */,
 				30A281D322EA610E0041158E /* ConfigProd */,
 				30A281D422EA61260041158E /* ConfigStage */,
+				30E9B0B122EADE12005B25FD /* Extensions */,
 				30E9B09722EA6A66005B25FD /* Models */,
+				30E9B0AB22EAD6EC005B25FD /* NavigationUtil.swift */,
 				30E9B09422EA688D005B25FD /* Services */,
 				30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */,
 				30A281ED22EA621E0041158E /* Storyboards */,
+				30934FA122EBF4CF007C4E6C /* Utils */,
 				30E9B0A722EAD618005B25FD /* ViewControllers */,
-				30E9B0AB22EAD6EC005B25FD /* NavigationUtil.swift */,
+				30934F9422EBF12D007C4E6C /* Views */,
+				30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */,
 			);
 			path = Cactus;
 			sourceTree = "<group>";
@@ -386,6 +425,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		303BF740232A986A00164539 /* Cactus UnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 303BF748232A986A00164539 /* Build configuration list for PBXNativeTarget "Cactus UnitTests" */;
+			buildPhases = (
+				303BF73D232A986A00164539 /* Sources */,
+				303BF73E232A986A00164539 /* Frameworks */,
+				303BF73F232A986A00164539 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				303BF74C232ABA7F00164539 /* PBXTargetDependency */,
+				303BF747232A986A00164539 /* PBXTargetDependency */,
+			);
+			name = "Cactus UnitTests";
+			productName = "Cactus UnitTests";
+			productReference = 303BF741232A986A00164539 /* Cactus UnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		30A281D722EA61A30041158E /* Cactus Prod */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 30A281E422EA61A30041158E /* Build configuration list for PBXNativeTarget "Cactus Prod" */;
@@ -440,6 +498,9 @@
 				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = Cactus;
 				TargetAttributes = {
+					303BF740232A986A00164539 = {
+						CreatedOnToolsVersion = 10.3;
+					};
 					30A281D722EA61A30041158E = {
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -478,11 +539,19 @@
 			targets = (
 				30B6EA6A22EA5A9F00443E46 /* Cactus Stage */,
 				30A281D722EA61A30041158E /* Cactus Prod */,
+				303BF740232A986A00164539 /* Cactus UnitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		303BF73F232A986A00164539 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		30A281DF22EA61A30041158E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -830,6 +899,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		303BF73D232A986A00164539 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				303BF744232A986A00164539 /* Cactus_UnitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		30A281D922EA61A30041158E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -926,6 +1003,19 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		303BF747232A986A00164539 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 30A281D722EA61A30041158E /* Cactus Prod */;
+			targetProxy = 303BF746232A986A00164539 /* PBXContainerItemProxy */;
+		};
+		303BF74C232ABA7F00164539 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 30B6EA6A22EA5A9F00443E46 /* Cactus Stage */;
+			targetProxy = 303BF74B232ABA7F00164539 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		30B6EA7422EA5A9F00443E46 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -946,6 +1036,45 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		303BF749232A986A00164539 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
+				INFOPLIST_FILE = "Cactus UnitTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cactus.Cactus-UnitTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		303BF74A232A986A00164539 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
+				INFOPLIST_FILE = "Cactus UnitTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cactus.Cactus-UnitTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		30A281E522EA61A30041158E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C3E046B63B11B822B81B4488 /* Pods-Cactus Prod.debug.xcconfig */;
@@ -1112,6 +1241,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Cactus Stage.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Cactus/ConfigStage/Info.plist";
@@ -1122,6 +1252,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cactus.StageCactus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1133,6 +1264,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Cactus Stage.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Cactus/ConfigStage/Info.plist";
@@ -1143,6 +1275,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cactus.StageCactus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1151,6 +1284,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		303BF748232A986A00164539 /* Build configuration list for PBXNativeTarget "Cactus UnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				303BF749232A986A00164539 /* Debug */,
+				303BF74A232A986A00164539 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		30A281E422EA61A30041158E /* Build configuration list for PBXNativeTarget "Cactus Prod" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
