@@ -20,5 +20,5 @@ struct FlamelinkConfig {
 protocol AppConfig {
     static var webDomain: String {get}
     static var flamelink: FlamelinkConfig{get}
-    static var envirnoment: AppEnvironment {get}
+    static var environment: AppEnvironment {get}
 }

@@ -41,10 +41,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Client.shared = try Client(dsn: "https://728bdc63f41d4c93a6ce0884a01b58ea@sentry.io/1515431")
             
             try Client.shared?.startCrashHandler()
-            Client.shared?.environment = CactusConfig.envirnoment.rawValue
+            Client.shared?.environment = CactusConfig.environment.rawValue
             let testEvent = Sentry.Event(level: .info)
             testEvent.message = "App Starting"
-            testEvent.environment = CactusConfig.envirnoment.rawValue
+            testEvent.environment = CactusConfig.environment.rawValue
             testEvent.extra = ["ios": true]
             
             Client.shared?.send(event: testEvent)
