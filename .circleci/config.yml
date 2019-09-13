@@ -22,7 +22,7 @@ commands:
   install: 
     steps: 
       - install-ruby
-       - run:
+      - run:
           name: Fetch CocoaPods Specs
           command: |
             curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
@@ -101,7 +101,7 @@ workflows:
           name: &finalize-release-approval "Finalze Release"
           requires: 
             - *testflight_name
-      - testflight-finalize-release
+      - testflight-finalize-release:
           name: "Upload Symbols to Sentry & Create Release"
           requires: 
             - *finalize-release-approval
