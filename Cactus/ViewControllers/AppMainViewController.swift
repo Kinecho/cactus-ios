@@ -15,15 +15,15 @@ class AppMainViewController: UIViewController {
     var hasUser = false
     var authHasLoaded = false
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?){
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         let launchStoryboard = UIStoryboard(name: StoryboardID.LaunchScreen.name, bundle: nil)
-        self.current = launchStoryboard.instantiateViewController(withIdentifier: ScreenID.LaunchScreen.name)
+        self.current = launchStoryboard.instantiateViewController(withIdentifier: ScreenID.launchScreen.name)
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
     required init?(coder aDecoder: NSCoder) {
         let launchStoryboard = UIStoryboard(name: StoryboardID.LaunchScreen.name, bundle: nil)
-        self.current = launchStoryboard.instantiateViewController(withIdentifier: ScreenID.LaunchScreen.name)
+        self.current = launchStoryboard.instantiateViewController(withIdentifier: ScreenID.launchScreen.name)
         super.init(coder: aDecoder)
     }
     
@@ -39,16 +39,15 @@ class AppMainViewController: UIViewController {
         self.setupAuth()
     }
     
-    
-    func setupAuth(){
-        _ = CactusMemberService.sharedInstance.observeCurrentMember { (member, error) in
+    func setupAuth() {
+        _ = CactusMemberService.sharedInstance.observeCurrentMember { (member, _) in
             if member == nil {
-                self.showScreen(ScreenID.Login, wrapInNav: true)
+                self.showScreen(ScreenID.login, wrapInNav: true)
                 self.hasUser = false
-            } else {
-                self.showScreen(ScreenID.JournalFeed, wrapInNav: true)
-                let nav = self.current as! UINavigationController
-                nav.viewControllers.insert(self.getScreen(ScreenID.MemberProfile), at: 0)
+            } else if let nav = self.current as? UINavigationController {
+                self.showScreen(ScreenID.journalFeed, wrapInNav: true)
+//                let nav = self.current as! UINavigationController
+                nav.viewControllers.insert(self.getScreen(ScreenID.memberProfile), at: 0)
                 
                 self.hasUser = true
             }
@@ -60,17 +59,16 @@ class AppMainViewController: UIViewController {
         return storyboard!.instantiateViewController(withIdentifier: screen.name)
     }
    
-    func showScreen(_ screenId: ScreenID, wrapInNav: Bool=false, animate: ((_ new: UIViewController, _ completion: (() -> Void)?) -> Void)? = nil){
+    func showScreen(_ screenId: ScreenID, wrapInNav: Bool=false, animate: ((_ new: UIViewController, _ completion: (() -> Void)?) -> Void)? = nil) {
         let screen = getScreen(screenId)
         _ = showScreen(screen, wrapInNav: wrapInNav)
     }
     
-    func showScreen(_ screen: UIViewController, wrapInNav: Bool=false) -> UIViewController{
+    func showScreen(_ screen: UIViewController, wrapInNav: Bool=false) -> UIViewController {
         var new = screen
         if wrapInNav {
             new = UINavigationController(rootViewController: screen)
         }
-        
         
         addChild(new)                    // 2
         new.view.frame = view.bounds                   // 3
@@ -84,7 +82,7 @@ class AppMainViewController: UIViewController {
         return new
     }
     
-    func pushScreen(_ screenId: ScreenID, animate: Bool=true) -> Void{
+    func pushScreen(_ screenId: ScreenID, animate: Bool=true) {
         let screen = getScreen(screenId)
 
         if  let nav = self.current as? UINavigationController {
@@ -97,6 +95,5 @@ class AppMainViewController: UIViewController {
         
 //        return new
     }
-    
     
 }

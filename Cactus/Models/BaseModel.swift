@@ -8,8 +8,7 @@
 
 import Foundation
 
-
-public enum FirestoreCollectionName:String {
+public enum FirestoreCollectionName: String {
     case members
     case users
     case reflectionPrompt
@@ -18,8 +17,7 @@ public enum FirestoreCollectionName:String {
     case fl_content
 }
 
-
-public enum FlamelinkSchema:String,Codable {
+public enum FlamelinkSchema: String, Codable {
     case promptContent
 }
 
@@ -49,20 +47,18 @@ public enum BaseModelEnum {
 }
 
 protocol FirestoreIdentifiable: BaseModelProtocol {
-    static var collectionName : FirestoreCollectionName {get}
+    static var collectionName: FirestoreCollectionName {get}
 }
 
-
-protocol BaseModelProtocol:Codable {
-    var id : String? {get set}
+protocol BaseModelProtocol: Codable {
+    var id: String? {get set}
     var deleted: Bool {get set}
     var deletedAt: Date? {get set}
     var createdAt: Date? {get set}
     var updatedAt: Date? {get set}
 }
 
-
-struct FlamelinkMeta:Codable {
+struct FlamelinkMeta: Codable {
    var createdBy: String
 //   var createdDate: Date
    var docId: String
@@ -76,18 +72,15 @@ struct FlamelinkMeta:Codable {
    var schemaType: String?
 }
 
-protocol FlamelinkBaseModelProtocol:Codable {
-    var _fl_meta_: FlamelinkMeta? {get set};
-    var order: Int? {get set};
-    var documentId: String? {get set};
-    var entryId: String? {get set};
+protocol FlamelinkBaseModelProtocol: Codable {
+    var _fl_meta_: FlamelinkMeta? {get set}
+    var order: Int? {get set}
+    var documentId: String? {get set}
+    var entryId: String? {get set}
     
 }
 
-
-
-
-protocol FlamelinkIdentifiable:FlamelinkBaseModelProtocol {
+protocol FlamelinkIdentifiable: FlamelinkBaseModelProtocol {
     static var schema: FlamelinkSchema {get}
 }
 

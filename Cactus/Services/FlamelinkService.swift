@@ -12,9 +12,9 @@ import FirebaseFirestore
 class FlamelinkService {
     let firestoreService: FirestoreService
     
-    static let sharedInstance = FlamelinkService();
+    static let sharedInstance = FlamelinkService()
     
-    private init(){
+    private init() {
         self.firestoreService = FirestoreService.sharedInstance
     }
     
@@ -41,7 +41,7 @@ class FlamelinkService {
 //        })
 //    }
     
-    func getQuery(_ schema:FlamelinkSchema) -> Query {
+    func getQuery(_ schema: FlamelinkSchema) -> Query {
         return getContentQuery().whereField("_fl_meta_.schema", isEqualTo: schema.rawValue)
     }
     
@@ -49,15 +49,15 @@ class FlamelinkService {
         return getQuery(schema).whereField("_fl_meta_.fl_id", isEqualTo: id)
     }
     
-    func getByEntryId<T:FlamelinkIdentifiable>(_ id: String, schema: FlamelinkSchema, _ onData: @escaping (_ object: T?, _ error: Any?) -> Void) -> Void {
-        let query = getEntryIdQuery(id, schema: schema);
+    func getByEntryId<T: FlamelinkIdentifiable>(_ id: String, schema: FlamelinkSchema, _ onData: @escaping (_ object: T?, _ error: Any?) -> Void) {
+        let query = getEntryIdQuery(id, schema: schema)
         
         query.getDocuments { docs, error in
             guard let doc = docs?.documents.first else {
                 return onData(nil, error)
             }
-            let data = doc.data();
-            print("data is \(data)");
+            let data = doc.data()
+            print("data is \(data)")
             let object = try? doc.decode(as: T.self, includingId: false)
             onData(object, error)
         }

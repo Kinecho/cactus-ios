@@ -13,13 +13,13 @@ class CactusMemberService {
     
     let firestoreService: FirestoreService
     var memberListener: (() -> Void)?
-    var currentMember:CactusMember?
-    static let sharedInstance = CactusMemberService();
+    var currentMember: CactusMember?
+    static let sharedInstance = CactusMemberService()
     
-    private init(){
+    private init() {
         self.firestoreService = FirestoreService.sharedInstance
         
-        self.memberListener = self.observeCurrentMember { (member, error) in
+        self.memberListener = self.observeCurrentMember { (member, _) in
             
             if let member = member, member != self.currentMember {
                 DispatchQueue.main.async {
@@ -34,7 +34,7 @@ class CactusMemberService {
         return self.firestoreService.getCollection(FirestoreCollectionName.members)
     }
     
-    func removeFCMToken(onCompleted: @escaping (_ error: Any?) -> Void){
+    func removeFCMToken(onCompleted: @escaping (_ error: Any?) -> Void) {
         guard let member = self.currentMember else {
             onCompleted(nil)
             return
@@ -66,8 +66,7 @@ class CactusMemberService {
         }
     }
     
-    
-    func addFCMToken(member:CactusMember){
+    func addFCMToken(member: CactusMember) {
         InstanceID.instanceID().instanceID { (result, error) in
             if let error = error {
                 print("Error fetching remote instance ID: \(error)")
@@ -80,7 +79,7 @@ class CactusMemberService {
                 }
                 tokens.append(token)
                 member.fcmTokens = tokens
-                self.firestoreService.save(member, onComplete: { (savedMember, error) in
+                self.firestoreService.save(member, onComplete: { (_, error) in
                     if let error = error {
                         print("Failed to set FCM Tokens on Cactus Member \(member.id ?? "unknown member id")", error)
                     } else {
@@ -94,7 +93,7 @@ class CactusMemberService {
     
     func observeCurrentMember( _ onData: @escaping (CactusMember?, Any?) -> Void) -> (() -> Void) {
         var memberUnsub: ListenerRegistration?
-        let authUnsub = AuthService.sharedInstance.getAuthStateChangeHandler { (auth, user) in
+        let authUnsub = AuthService.sharedInstance.getAuthStateChangeHandler { (_, user) in
             _ = memberUnsub?.remove()
             if let user = user {
                 let query = self.getCollectionRef().whereField(CactusMember.Field.userId, isEqualTo: user.uid).limit(to: 1)
@@ -117,7 +116,7 @@ class CactusMemberService {
         return self.currentMember
     }
     
-    func getById(id:String) {
+    func getById(id: String) {
         
     }
 }

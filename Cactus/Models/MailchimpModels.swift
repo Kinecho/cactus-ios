@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ListMember:Codable {
+struct ListMember: Codable {
     var id: String?
     var unique_email_id: String?
     var email_address: String?

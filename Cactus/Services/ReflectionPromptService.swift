@@ -12,9 +12,9 @@ class ReflectionPromptService {
     
     let firestoreService: FirestoreService
     
-    static let sharedInstance = ReflectionPromptService();
+    static let sharedInstance = ReflectionPromptService()
     
-    private init(){
+    private init() {
         self.firestoreService = FirestoreService.sharedInstance
     }
     
@@ -22,7 +22,7 @@ class ReflectionPromptService {
         return self.firestoreService.getCollection(FirestoreCollectionName.reflectionPrompt)
     }
     
-    func observeById(id:String, _ onData: @escaping (ReflectionPrompt?, Any?) -> Void) -> ListenerRegistration? {
+    func observeById(id: String, _ onData: @escaping (ReflectionPrompt?, Any?) -> Void) -> ListenerRegistration? {
         return self.firestoreService.observeById(id, onData)
     }
 }

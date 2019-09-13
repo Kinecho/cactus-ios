@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum ContentType:String,Codable {
+enum ContentType: String, Codable {
     case text
     case quote
     case video
@@ -22,7 +22,7 @@ enum ContentType:String,Codable {
     }
 }
 
-enum ContentAction:String,Codable {
+enum ContentAction: String, Codable {
     case next
     case previous
     case complete
@@ -33,7 +33,7 @@ enum ContentAction:String,Codable {
     }
 }
 
-enum LinkTarget:String,Codable {
+enum LinkTarget: String, Codable {
     case _blank
     case _self
     case _parent
@@ -44,7 +44,7 @@ enum LinkTarget:String,Codable {
     }
 }
 
-enum LinkStyle:String,Codable {
+enum LinkStyle: String, Codable {
     case buttonPrimary
     case buttonSecondary
     case fancyLink
@@ -55,53 +55,53 @@ enum LinkStyle:String,Codable {
     }
 }
 
-class Quote:Codable {
-    var text:String?
-    var authorName:String?
-    var authorTitle:String?
-    var authorAvatar:ImageFile?
+class Quote: Codable {
+    var text: String?
+    var authorName: String?
+    var authorTitle: String?
+    var authorAvatar: ImageFile?
 }
 
-class ContentLink:Codable {
-    var linkLabel: String?;
-    var destinationHref: String?;
-    var linkTarget: LinkTarget?;
-    var linkStyle:LinkStyle?;
+class ContentLink: Codable {
+    var linkLabel: String?
+    var destinationHref: String?
+    var linkTarget: LinkTarget?
+    var linkStyle: LinkStyle?
     
 }
 
-class ActionButton:Codable {
-    var action: ContentAction;
-    var label: String;
+class ActionButton: Codable {
+    var action: ContentAction
+    var label: String
 }
 
-enum ImagePosition:String,Codable {
+enum ImagePosition: String, Codable {
     case top
     case bottom
     case center
 }
 
-class ContentBackgroundImage:ImageFile {
-    var position: ImagePosition?;
+class ContentBackgroundImage: ImageFile {
+    var position: ImagePosition?
 }
 
-class Content:Codable {
-    var contentType: ContentType;
-    var quote: Quote?;
-    var text: String?;
-    var text_md: String?;
-    var backgroundImage: ContentBackgroundImage?;
-    var label: String?;
-    var title: String?;
-    var video: VideoFile?;
-    var photo: ImageFile?;
-    var audio: AudioFile?;
-    var link: ContentLink?;
-    var actionButton: ActionButton?;
+class Content: Codable {
+    var contentType: ContentType
+    var quote: Quote?
+    var text: String?
+    var text_md: String?
+    var backgroundImage: ContentBackgroundImage?
+    var label: String?
+    var title: String?
+    var video: VideoFile?
+    var photo: ImageFile?
+    var audio: AudioFile?
+    var link: ContentLink?
+    var actionButton: ActionButton?
     
 }
 
-class PromptContent:FlamelinkIdentifiable {
+class PromptContent: FlamelinkIdentifiable {
     static var schema = FlamelinkSchema.promptContent
     var _fl_meta_: FlamelinkMeta?
     var documentId: String?
@@ -110,7 +110,7 @@ class PromptContent:FlamelinkIdentifiable {
     var content: [Content] = []
     
     var promptId: String?
-    var subjectLine: String?;
-    var topic: String?;
-    var shareReflectionCopy_md: String?;
+    var subjectLine: String?
+    var topic: String?
+    var shareReflectionCopy_md: String?
 }

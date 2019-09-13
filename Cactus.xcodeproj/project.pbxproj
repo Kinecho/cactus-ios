@@ -14,7 +14,7 @@
 		3023FE3422ECF06E00F753A7 /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
 		3023FE3522ECF0A800F753A7 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3322EC299300A2EA95 /* ViewExtensions.swift */; };
 		3023FE3622ECF0AE00F753A7 /* CactusColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */; };
-		303BF744232A986A00164539 /* Cactus_UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303BF743232A986A00164539 /* Cactus_UnitTests.swift */; };
+		303BF744232A986A00164539 /* CactusUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303BF743232A986A00164539 /* CactusUnitTests.swift */; };
 		308446F122ECAE0100FB0683 /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
 		30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
 		30934F9322EBE7DF007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
@@ -127,7 +127,7 @@
 		3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberProfileViewController.swift; sourceTree = "<group>"; };
 		3023FE2F22ECD0A300F753A7 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		303BF741232A986A00164539 /* Cactus UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cactus UnitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		303BF743232A986A00164539 /* Cactus_UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cactus_UnitTests.swift; sourceTree = "<group>"; };
+		303BF743232A986A00164539 /* CactusUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusUnitTests.swift; sourceTree = "<group>"; };
 		303BF745232A986A00164539 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		308446F022ECAE0100FB0683 /* MailchimpModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailchimpModels.swift; sourceTree = "<group>"; };
 		308446F222ECB23B00FB0683 /* Cactus Stage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cactus Stage.entitlements"; sourceTree = "<group>"; };
@@ -223,7 +223,7 @@
 		303BF742232A986A00164539 /* Cactus UnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				303BF743232A986A00164539 /* Cactus_UnitTests.swift */,
+				303BF743232A986A00164539 /* CactusUnitTests.swift */,
 				303BF745232A986A00164539 /* Info.plist */,
 			);
 			path = "Cactus UnitTests";
@@ -454,7 +454,6 @@
 				30A281DF22EA61A30041158E /* Resources */,
 				793974A88DA9CA2D62088F94 /* [CP] Embed Pods Frameworks */,
 				8472FB4C28F16FD183F57EED /* [CP] Copy Pods Resources */,
-				3095619E22EE0CEF009357BD /* Install Sentry */,
 				30BF2E37232993C200A49EB6 /* Install Crashlytics */,
 			);
 			buildRules = (
@@ -471,12 +470,12 @@
 			buildConfigurationList = 30B6EA7F22EA5AA100443E46 /* Build configuration list for PBXNativeTarget "Cactus Stage" */;
 			buildPhases = (
 				0735E6ABCFC0723D5AFB6E5B /* [CP] Check Pods Manifest.lock */,
+				303BF74D232C1F9600164539 /* SwiftLint */,
 				30B6EA6722EA5A9F00443E46 /* Sources */,
 				30B6EA6822EA5A9F00443E46 /* Frameworks */,
 				30B6EA6922EA5A9F00443E46 /* Resources */,
 				51D348274B485C7516299B74 /* [CP] Embed Pods Frameworks */,
 				4A9682F8D7AC49DCE1E81D28 /* [CP] Copy Pods Resources */,
-				3095619D22EE07F9009357BD /* Install Sentry */,
 				30BF2E362329930500A49EB6 /* Install Crashlytics */,
 			);
 			buildRules = (
@@ -604,43 +603,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3095619D22EE07F9009357BD /* Install Sentry */ = {
+		303BF74D232C1F9600164539 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
 			);
-			name = "Install Sentry";
+			name = SwiftLint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which sentry-cli >/dev/null; then\nexport SENTRY_ORG=kinecho\nexport SENTRY_PROJECT=cactus-ios\nexport SENTRY_AUTH_TOKEN=$(npx firebase functions:config:get sentry.api_token -P cactus-app-prod | sed -e 's/^\"//' -e 's/\"$//' ) \nERROR=$(sentry-cli upload-dif \"$DWARF_DSYM_FOLDER_PATH\" 2>&1 >/dev/null)\nif [ ! $? -eq 0 ]; then\necho \"warning: sentry-cli - $ERROR\"\nfi\nelse\necho \"warning: sentry-cli not installed, download from https://github.com/getsentry/sentry-cli/releases\"\nfi\n";
-		};
-		3095619E22EE0CEF009357BD /* Install Sentry */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}\n",
-			);
-			name = "Install Sentry";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which sentry-cli >/dev/null; then\nexport SENTRY_ORG=kinecho\nexport SENTRY_PROJECT=cactus-ios\nexport SENTRY_AUTH_TOKEN=$(npx firebase functions:config:get sentry.api_token -P cactus-app-prod | sed -e 's/^\"//' -e 's/\"$//' ) \nERROR=$(sentry-cli upload-dif \"$DWARF_DSYM_FOLDER_PATH\" 2>&1 >/dev/null)\nif [ ! $? -eq 0 ]; then\necho \"warning: sentry-cli - $ERROR\"\nfi\nelse\necho \"warning: sentry-cli not installed, download from https://github.com/getsentry/sentry-cli/releases\"\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
 		30A281D822EA61A30041158E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -903,7 +882,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				303BF744232A986A00164539 /* Cactus_UnitTests.swift in Sources */,
+				303BF744232A986A00164539 /* CactusUnitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

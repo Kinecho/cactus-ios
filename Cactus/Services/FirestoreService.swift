@@ -6,7 +6,6 @@
 //  Copyright © 2019 Cactus. All rights reserved.
 //
 
-
 import FirebaseFirestore
 import FirebaseStorage
 import FirebaseAuth
@@ -14,17 +13,17 @@ import Foundation
 import CodableFirebase
 
 class FirestoreService {
-    let db: Firestore;
+    let db: Firestore
     
-    static let sharedInstance = FirestoreService();
+    static let sharedInstance = FirestoreService()
     
-    private init(){
-        let firestoreSettings = FirestoreSettings();
-        firestoreSettings.isPersistenceEnabled = true;
-        self.db = Firestore.firestore();
+    private init() {
+        let firestoreSettings = FirestoreSettings()
+        firestoreSettings.isPersistenceEnabled = true
+        self.db = Firestore.firestore()
     }
     
-    func getFirst<T:FirestoreIdentifiable>(_ query: Query, _ onData: @escaping (T?, Any?) -> Void) -> Void{
+    func getFirst<T: FirestoreIdentifiable>(_ query: Query, _ onData: @escaping (T?, Any?) -> Void) {
         query.getDocuments { docs, error in
             guard let doc = docs?.documents.first else {
                 return onData(nil, error)
@@ -36,7 +35,7 @@ class FirestoreService {
         
     }
     
-    func observeById<T:FirestoreIdentifiable>(_ id: String, _ onData: @escaping (T? , Any?) -> Void) -> ListenerRegistration {
+    func observeById<T: FirestoreIdentifiable>(_ id: String, _ onData: @escaping (T?, Any?) -> Void) -> ListenerRegistration {
         let collection = getCollection(T.self.collectionName)
         return collection.document(id).addSnapshotListener({ (snapshot, error) in
             let model = try? snapshot?.decode(as: T.self)
@@ -48,11 +47,11 @@ class FirestoreService {
         })
     }
     
-    func getDocuments<T:FirestoreIdentifiable>(_ query: Query, _ onData: @escaping ([T]?, Any?) -> Void) -> Void{
+    func getDocuments<T: FirestoreIdentifiable>(_ query: Query, _ onData: @escaping ([T]?, Any?) -> Void) {
         query.whereField(BaseModelField.deleted, isEqualTo: false).getDocuments(completion: self.snapshotListener(onData))
     }
     
-    func addListener<T:FirestoreIdentifiable>(_ query: Query, _ onData: @escaping ([T]?, Any?) -> Void) -> ListenerRegistration{
+    func addListener<T: FirestoreIdentifiable>(_ query: Query, _ onData: @escaping ([T]?, Any?) -> Void) -> ListenerRegistration {
         let query = query.whereField(BaseModelField.deleted, isEqualTo: false)        
         
         let listener = query.addSnapshotListener(self.snapshotListener(onData))
@@ -60,12 +59,12 @@ class FirestoreService {
         return listener
     }
     
-    private func snapshotListener<T:FirestoreIdentifiable>( _ onData: @escaping ([T]?, Any?) -> Void) -> FIRQuerySnapshotBlock{
+    private func snapshotListener<T: FirestoreIdentifiable>( _ onData: @escaping ([T]?, Any?) -> Void) -> FIRQuerySnapshotBlock {
         func handler (_ snapshot: QuerySnapshot?, _ error: Error?) {
             if let error = error {
                 return onData(nil, error)
             }
-            guard let documents = snapshot?.documents else  {
+            guard let documents = snapshot?.documents else {
                 return onData(nil, "Unable to get documents")
             }
             var results = [T]()
@@ -93,10 +92,12 @@ class FirestoreService {
                 ownable.createdByUserId = currentUserId
             }
             ownable.updatedByUserId = currentUserId
-            object = ownable as! T
+            if let obj = ownable as? T {
+                object = obj
+            }
         }
         var isNew = false
-        if (object.id == nil){
+        if object.id == nil {
             object.createdAt = Date()
             isNew = true
         }
@@ -109,7 +110,6 @@ class FirestoreService {
                 savedObject.id = ref.documentID
                 print("Saved Document. IsNew = \(isNew)")
                 
-                
                 if let error = error {
                     print("Failed to save document", error)
                 }
@@ -121,7 +121,7 @@ class FirestoreService {
         }
     }
     
-    func getById<T:FirestoreIdentifiable>(_ id: String, from collectionName: FirestoreCollectionName, completion: @escaping (_ object: T?, _ error: Any?) -> Void) -> Void {
+    func getById<T: FirestoreIdentifiable>(_ id: String, from collectionName: FirestoreCollectionName, completion: @escaping (_ object: T?, _ error: Any?) -> Void) {
         guard let ref = getDocumentRef(id, in: collectionName) else {return completion(nil, "Unable to get document ref")}
         
         ref.getDocument { (documemntSnapshot, error) in
@@ -138,12 +138,12 @@ class FirestoreService {
         }
     }
     
-    func delete<T:FirestoreIdentifiable>(_ object: T, onComplete: @escaping (_ error: Any?) -> Void) {
+    func delete<T: FirestoreIdentifiable>(_ object: T, onComplete: @escaping (_ error: Any?) -> Void) {
         let ref = getDocumentRef(object)
         ref.updateData([
             BaseModelField.deleted: true,
             BaseModelField.deletedAt: Timestamp()
-        ]){ err in
+        ]) { err in
             if let err = err {
                 print("Failed to delete document", err)
             }
@@ -154,12 +154,12 @@ class FirestoreService {
     /*
      Delete via query
      */
-    func delete(from collectionName: FirestoreCollectionName, where fieldName: String, isEqualTo: Any, completion: @escaping (Int?, Any?) -> Void ){
+    func delete(from collectionName: FirestoreCollectionName, where fieldName: String, isEqualTo: Any, completion: @escaping (Int?, Any?) -> Void ) {
         let collection = getCollection(collectionName)
         let query = collection.whereField(fieldName, isEqualTo: isEqualTo)
         let batch = db.batch()
         var deletedCount = 0
-        query.getDocuments(){ snapshot, error in
+        query.getDocuments { snapshot, _ in
             snapshot?.documents.forEach({ (doc) in
                 batch.updateData([
                     BaseModelField.deleted: true,
@@ -169,12 +169,11 @@ class FirestoreService {
                 
             })
             
-            batch.commit(){ err in
+            batch.commit { err in
                 if let err = err {
                     print("failed to delete documents", err)
                     return completion(nil, err)
-                }
-                else {
+                } else {
                     print("deleted batch successfully")
                     return completion(deletedCount, nil)
                 }
@@ -183,9 +182,7 @@ class FirestoreService {
         
     }
     
-    
-    
-    func getCollection<T: FirestoreIdentifiable>(_ obj: T) -> CollectionReference{
+    func getCollection<T: FirestoreIdentifiable>(_ obj: T) -> CollectionReference {
         return getCollection(type(of: obj).collectionName)
     }
     
@@ -199,16 +196,14 @@ class FirestoreService {
         return getCollection(collectionName).document(id)
     }
     
-    func getDocumentRef<T:FirestoreIdentifiable>(_ obj: T) -> DocumentReference {
+    func getDocumentRef<T: FirestoreIdentifiable>(_ obj: T) -> DocumentReference {
         let collection = getCollection(obj)
         
         if let id = obj.id {
             return collection.document(id)
-        }
-        else {
+        } else {
             return collection.document()
         }
     }
     
 }
-

@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 struct FormatUtils {
-    static func formatDate(_ date: Date?, currentYearFormat: String="MMMM d", previousYearFormat: String="MMM d, yyyy") -> String?{
-        var dateString:String?
+    static func formatDate(_ date: Date?, currentYearFormat: String="MMMM d", previousYearFormat: String="MMM d, yyyy") -> String? {
+        var dateString: String?
         if let date = date {
             let df = DateFormatter()
             let calendar = Calendar.current
@@ -32,17 +32,16 @@ struct FormatUtils {
         let mText = NSMutableAttributedString.init(attributedString: aText)
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .center
-        mText.addAttributes([NSAttributedString.Key.paragraphStyle : paragraph], range: NSMakeRange(0, aText.length - 1))
+        mText.addAttributes([NSAttributedString.Key.paragraphStyle: paragraph], range: NSRange(location: 0, length: aText.length - 1))
         //            aText.attribute(.paragraphStyle, at: 0, longestEffectiveRange: NSRangePointer.(0, 10), in: NSMakeRange(0, 10))
-        return mText.attributedSubstring(from: NSMakeRange(0, mText.length - 1))
+        return mText.attributedSubstring(from: NSRange(location: 0, length: mText.length - 1))
     }
 }
 
 struct FontSize {
-    static let large:CGFloat = 28
+    static let large: CGFloat = 28
 }
 
 struct CactusFont {
     static let Large = UIFont.systemFont(ofSize: FontSize.large)
 }
-

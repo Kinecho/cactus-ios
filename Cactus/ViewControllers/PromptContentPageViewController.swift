@@ -12,14 +12,14 @@ class PromptContentPageViewController: UIPageViewController {
 
     var promptContent: PromptContent!
     var activeIndex: Int = 0
-    var pageControl:UIPageControl?
+    var pageControl: UIPageControl?
     
-    fileprivate lazy var screens: [UIViewController] = [];
+    fileprivate lazy var screens: [UIViewController] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.dataSource = self;
-        self.delegate = self;
+        self.dataSource = self
+        self.delegate = self
         self.configureScreens()
         
         // Do any additional setup after loading the view.
@@ -30,13 +30,13 @@ class PromptContentPageViewController: UIPageViewController {
         self.configureScreens()
     }
     
-    func configureScreens(){
-        let screens = self.promptContent.content.map({ (content) -> UIViewController? in
-            return self.getContentViewController(content)
-        }).filter { (vc) -> Bool in
-            return vc !== nil
-        } as! [UIViewController];
-        
+    func configureScreens() {
+        var screens: [UIViewController] = []
+        self.promptContent.content.forEach({ (content) in
+            if let screen = self.getContentViewController(content) {
+                screens.append(screen)
+            }
+        })
         self.screens = screens
         
         if let firstVC = self.screens.first {
@@ -45,34 +45,32 @@ class PromptContentPageViewController: UIPageViewController {
         self.configurePageControl()
     }
     
-    func getContentViewController(_ content:Content) -> UIViewController? {
-        var viewController:UIViewController? = nil
+    func getContentViewController(_ content: Content) -> UIViewController? {
+        var viewController: UIViewController?
         switch content.contentType {
         case .text:
             let textViewController = TextContentViewController.loadFromNib()
             textViewController.content = content
             textViewController.promptContent = self.promptContent
             viewController = textViewController
-            break;
         default:
             print("PromptContentPageViewController: ContentType not handled: \(content.contentType)")
-            break;
         }
         
         return viewController
     }
     
     override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews();
+        super.viewDidLayoutSubviews()
         if let pageControl = self.pageControl {
             pageControl.translatesAutoresizingMaskIntoConstraints = false
             let bottomConstraint = pageControl.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
-            let left = pageControl.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 20);
-            let right = pageControl.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -20);
+            let left = pageControl.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 20)
+            let right = pageControl.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -20)
             
             bottomConstraint.isActive = true
-            left.isActive = true;
-            right.isActive = true;
+            left.isActive = true
+            right.isActive = true
             view.addConstraints([bottomConstraint, left, right])
         }
     
@@ -90,8 +88,6 @@ class PromptContentPageViewController: UIPageViewController {
         pageControl.tintColor = CactusColor.darkestPink
         pageControl.pageIndicatorTintColor = CactusColor.pink
         pageControl.currentPageIndicatorTintColor = CactusColor.darkestPink
-        
-        
         
         self.pageControl = pageControl
         self.view.addSubview(pageControl)
@@ -137,7 +133,7 @@ extension PromptContentPageViewController: UIPageViewControllerDataSource {
     }
 }
 
-extension PromptContentPageViewController:  UIPageViewControllerDelegate {
+extension PromptContentPageViewController: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController,
                             didFinishAnimating finished: Bool,
                             previousViewControllers: [UIViewController],
@@ -150,4 +146,3 @@ extension PromptContentPageViewController:  UIPageViewControllerDelegate {
         }
     }
 }
-

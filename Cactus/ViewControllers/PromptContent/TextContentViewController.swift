@@ -12,8 +12,8 @@ import MarkdownKit
 class TextContentViewController: UIViewController {
 
     @IBOutlet weak var text: UITextView!
-    var content: Content!;
-    var promptContent: PromptContent!;
+    var content: Content!
+    var promptContent: PromptContent!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ class TextContentViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    func configureView(){
+    func configureView() {
         self.text.text = self.content.text
         
         var textString: String? = self.content.text_md
@@ -31,7 +31,7 @@ class TextContentViewController: UIViewController {
         }
         
         if let textString = textString, !textString.isEmpty {
-            let markdownParser = MarkdownParser(font: CactusFont.Large);
+            let markdownParser = MarkdownParser(font: CactusFont.Large)
             self.text.attributedText = FormatUtils.centeredAttributedString(markdownParser.parse(textString))
         }
     }

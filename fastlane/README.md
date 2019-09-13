@@ -31,6 +31,16 @@ fastlane ios test
 fastlane ios certificates
 ```
 
+### ios upload_symbols
+```
+fastlane ios upload_symbols
+```
+
+### ios create_release
+```
+fastlane ios create_release
+```
+
 
 ----
 

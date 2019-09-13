@@ -7,23 +7,15 @@
 //
 
 import Foundation
-//
-//  CactusMemberService.swift
-//  Cactus
-//
-//  Created by Neil Poulin on 7/25/19.
-//  Copyright © 2019 Cactus. All rights reserved.
-//
-
-import Foundation
 import FirebaseFirestore
+
 class SentPromptService {
     
     let firestoreService: FirestoreService
     
-    static let sharedInstance = SentPromptService();
+    static let sharedInstance = SentPromptService()
     
-    private init(){
+    private init() {
         self.firestoreService = FirestoreService.sharedInstance
     }
     
@@ -46,7 +38,7 @@ class SentPromptService {
         })
     }
     
-    func getById(id:String) {
+    func getById(id: String) {
         
     }
 }

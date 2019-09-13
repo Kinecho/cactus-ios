@@ -8,9 +8,9 @@
 
 import Foundation
 
-class FlamelinkFile:Codable {
-    var fileIds: [String] = [];
-    var fileId:String? {
+class FlamelinkFile: Codable {
+    var fileIds: [String] = []
+    var fileId: String? {
         get {
             return fileIds.first
         }
@@ -27,12 +27,12 @@ class FlamelinkFile:Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy:  CodingKeys.self)
+        let container = try decoder.container(keyedBy: CodingKeys.self)
         
         let idArray = try? container.decode([String].self, forKey: CodingKeys.fileIds)
         
         if let ids = idArray {
-            self.fileIds = ids;
+            self.fileIds = ids
             return
         }
         let fileIdString = try? container.decode(String.self, forKey: .fileIds)
@@ -42,16 +42,16 @@ class FlamelinkFile:Codable {
     }
 }
 
-class VideoFile:FlamelinkFile {
+class VideoFile: FlamelinkFile {
     var youtubeVideoId: String?
     var url: String?
 }
 
-class AudioFile:FlamelinkFile {
-    var url: String?;
+class AudioFile: FlamelinkFile {
+    var url: String?
 }
 
-class ImageFile:FlamelinkFile {
-    var url:String?;
-    var storageUrl:String?;
+class ImageFile: FlamelinkFile {
+    var url: String?
+    var storageUrl: String?
 }

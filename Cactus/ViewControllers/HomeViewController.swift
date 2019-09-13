@@ -15,19 +15,17 @@ class HomeViewController: UISplitViewController, UISplitViewControllerDelegate {
         AuthService.sharedInstance.logOut(self)
     }
     
-    @objc func showAccountPage(sender: Any){
-        AppDelegate.shared.rootViewController.showScreen(ScreenID.MemberProfile, wrapInNav: true)
+    @objc func showAccountPage(sender: Any) {
+        AppDelegate.shared.rootViewController.showScreen(ScreenID.memberProfile, wrapInNav: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let splitViewController = self
-        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
+//        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
 //        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
         splitViewController.delegate = self
-        
-        
         
 //        navigationItem.leftBarButtonItem = editButtonItem
         
@@ -35,19 +33,16 @@ class HomeViewController: UISplitViewController, UISplitViewControllerDelegate {
             title: "Account",
             style: .plain,
             target: self,
-            action:  #selector(self.showAccountPage(sender:))
+            action: #selector(self.showAccountPage(sender:))
         )
         
         navigationItem.leftBarButtonItem = showAccountItem
 //        navigationController.navigationItem.leftBarButtonItem = showAccountItem
-
         
         // Do any additional setup after loading the view.
     }
     
-    
-    
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
         guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
         guard let topAsDetailController = secondaryAsNavController.topViewController as? JournalEntryDetailViewController else { return false }
         if topAsDetailController.sentPrompt == nil {
@@ -56,7 +51,6 @@ class HomeViewController: UISplitViewController, UISplitViewControllerDelegate {
         }
         return false
     }
-    
 
     /*
     // MARK: - Navigation

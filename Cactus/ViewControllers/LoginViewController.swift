@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureUI()
-        self.authHandler = AuthService.sharedInstance.getAuthStateChangeHandler { (auth, user) in
+        self.authHandler = AuthService.sharedInstance.getAuthStateChangeHandler { (_, user) in
             self.configureUI(user)
         }
     }
@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
         AuthService.sharedInstance.removeAuthStateChangeListener(self.authHandler)
     }
     
-    func configureUI(_ user: User?=AuthService.sharedInstance.getCurrentUser()){
+    func configureUI(_ user: User?=AuthService.sharedInstance.getCurrentUser()) {
         self.configureAuth(user)
         if let user = user {
             if !user.isAnonymous {
@@ -52,7 +52,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    func showAnonymousUserUI(_ user: User){
+    func showAnonymousUserUI(_ user: User) {
         self.titleLabel.text = anonymousUserTitle
         self.subTextLabel.text = anonymousSubtitle
         self.signOutButton.isHidden = true
@@ -61,7 +61,7 @@ class LoginViewController: UIViewController {
         self.configureAuthView()
     }
     
-    func showLoggedOutUI(){
+    func showLoggedOutUI() {
         self.titleLabel.text = loggedOutTitle
         self.subTextLabel.text = loggedOutSubtitle
         self.signOutButton.isHidden = true
@@ -70,14 +70,14 @@ class LoginViewController: UIViewController {
         self.configureAuthView()
     }
     
-    func showLoggedInUI(_ user: User){
+    func showLoggedInUI(_ user: User) {
         self.removeAuthViewController()
         self.titleLabel.text = user.email
         self.subTextLabel.isHidden = true
         self.signOutButton.isHidden = false
     }
     
-    func configureAuthView(){
+    func configureAuthView() {
         if self.authViewController == nil {
             self.authViewController = CustomAuthPickerViewController(authUI: self.authUI)
         } else {
@@ -93,7 +93,7 @@ class LoginViewController: UIViewController {
         authViewController.didMove(toParent: self)
     }
     
-    func addSubviewInParent(_ subView: UIView, in parent: UIView, at: Int=0){
+    func addSubviewInParent(_ subView: UIView, in parent: UIView, at: Int=0) {
         subView.translatesAutoresizingMaskIntoConstraints = false
         subView.frame = parent.bounds
         subView.center = parent.bounds.center
@@ -107,7 +107,7 @@ class LoginViewController: UIViewController {
         parent.layoutIfNeeded()
     }
     
-    func removeAuthViewController(){
+    func removeAuthViewController() {
         guard let authViewController = self.authViewController else {return}
         
         let authView = authViewController.view
@@ -129,14 +129,14 @@ class LoginViewController: UIViewController {
     
     @IBAction func signOut(_ sender: Any) {
         print("attempting ot sign out")
-        let user = AuthService.sharedInstance.getCurrentUser()
+//        let user = AuthService.sharedInstance.getCurrentUser()
         
         let title = "Are you sure yoyu wan to sign out?"
     
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Log Out", style: .destructive){ _ in
-            do{
+        alert.addAction(UIAlertAction(title: "Log Out", style: .destructive) { _ in
+            do {
                 try self.authUI.signOut()
                 self.dismiss(animated: false, completion: nil)
             } catch {
@@ -152,15 +152,13 @@ class LoginViewController: UIViewController {
     }
 }
 
-
 extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
     
-    func configureAuth(_ user: User?=AuthService.sharedInstance.getCurrentUser()){
+    func configureAuth(_ user: User?=AuthService.sharedInstance.getCurrentUser()) {
         guard let authUI = FUIAuth.defaultAuthUI() else {fatalError("unable to configure auth")}
         
         authUI.delegate = self
         authUI.shouldAutoUpgradeAnonymousUsers = true
-        
         
         let actionCodeSettings = ActionCodeSettings()
         actionCodeSettings.url = URL(string: "https://cactus-app-stage.web.app")    
@@ -170,7 +168,7 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
             FUIEmailAuth(authAuthUI: authUI, signInMethod: EmailLinkAuthSignInMethod, forceSameDevice: false, allowNewEmailAccounts: true, actionCodeSetting: actionCodeSettings),
             FUIFacebookAuth(),
             FUIGoogleAuth(),
-            FUITwitterAuth(),
+            FUITwitterAuth()
 //            FUIPhoneAuth(authUI:authUI),
         ]
         
@@ -188,7 +186,6 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
     //        return CustomEmailEntryViewController(authUI: authUI)
     //    }
     
-    
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
         print("AUTHDATA RESULT")
         
@@ -197,7 +194,6 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
         if let error = error as NSError?,
             error.code == FUIAuthErrorCode.mergeConflict.rawValue {
             print("there was an error logging in... handing different cases" )
-            
             
             // Merge conflict error, discard the anonymous user and login as the existing
             // non-anonymous user.
@@ -221,18 +217,17 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
                     
                     Analytics.logEvent(AnalyticsEventSignUp, parameters: [
                         AnalyticsParameterMethod: dataResult?.additionalUserInfo?.providerID ?? "unknown",
-                        "screen": ScreenID.Login.name,
+                        "screen": ScreenID.login.name,
                         "anonyomousUpgrade": true
                         ])
                 } else {
                     print("logged in with provider", dataResult?.additionalUserInfo?.providerID ?? "unknown")
                     Analytics.logEvent(AnalyticsEventLogin, parameters: [
                         AnalyticsParameterMethod: dataResult?.additionalUserInfo?.providerID ?? "unknown",
-                        "screen": ScreenID.Login.name,
+                        "screen": ScreenID.login.name,
                         "anonyomousUpgrade": true
                         ])
                 }
-                
                 
             }
         } else if let error = error {
@@ -251,17 +246,16 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
             
             Analytics.logEvent(AnalyticsEventSignUp, parameters: [
                 AnalyticsParameterMethod: authDataResult?.additionalUserInfo?.providerID ?? "unknown",
-                "screen": ScreenID.Login.name
+                "screen": ScreenID.login.name
                 ])
         } else {
             print("logged in with provider", authDataResult?.additionalUserInfo?.providerID ?? "unknown")
             Analytics.logEvent(AnalyticsEventLogin, parameters: [
                 AnalyticsParameterMethod: authDataResult?.additionalUserInfo?.providerID ?? "unknown",
-                "screen": ScreenID.Login.name
+                "screen": ScreenID.login.name
                 ])
         }
     }
-
 
 }
 

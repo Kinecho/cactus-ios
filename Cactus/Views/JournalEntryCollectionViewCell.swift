@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 @IBDesignable
 class JournalEntryCollectionViewCell: UICollectionViewCell {
     
@@ -18,7 +17,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var editTextView: UITextView!
         
-    var sentPrompt:SentPrompt?;
+    var sentPrompt: SentPrompt?
     var responses: [ReflectionResponse]?
     var prompt: ReflectionPrompt?
     
@@ -32,7 +31,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Edit Reflection", style: .default){ _ in
+        alert.addAction(UIAlertAction(title: "Edit Reflection", style: .default) { _ in
             print("Edit reflection tapped")
             self.startEdit()
         })
@@ -41,7 +40,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
 
     }
     
-    @IBInspectable var borderRadius : CGFloat {
+    @IBInspectable var borderRadius: CGFloat {
         get {
             return self.layer.cornerRadius
         }
@@ -52,15 +51,12 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     
     func startEdit() {
         self.isEditing = true
-    
         
         editTextView.text = responseLabel.text
         
         editTextView.isHidden = false
         responseLabel.isHidden = true
 //        editTextView.isFocused = true
-        
-        
         
         let bar = UIToolbar()
         let save = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(self.saveEdit))
@@ -75,7 +71,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         
     }
     
-    @objc func saveEdit(_ sender: Any?){
+    @objc func saveEdit(_ sender: Any?) {
         self.isEditing = false
         
         self.contentView.dismissKeyboard()
@@ -96,13 +92,12 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         
         response?.content.text = self.editTextView.text
         
-        self.responses?.forEach{ r in
+        self.responses?.forEach { r in
             if r.id != response?.id {
                 ReflectionResponseService.sharedInstance.delete(r, { (error) in
                     if let error = error {
                         print("failed to delete reflection response \(r.id ?? "id unknown")", error)
-                    }
-                    else {
+                    } else {
                         print("Successfully deleted reflection response")
                     }
                 })
@@ -113,14 +108,13 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
             print("No response found while trying to save... exiting")
             return
         }
-        ReflectionResponseService.sharedInstance.save(toSave) { (saved, error) in
+        ReflectionResponseService.sharedInstance.save(toSave) { (saved, _) in
             print("Saved the response! \(saved?.id ?? "no id found")")
         }
         
-        
     }
     
-    @objc func cancelEdit(_ sender: Any?){
+    @objc func cancelEdit(_ sender: Any?) {
         self.isEditing = false
         editTextView.isHidden = true
         responseLabel.isHidden = false
@@ -129,7 +123,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         
     }
     
-    func updateView(){
+    func updateView() {
         
         if let sentDate = self.sentPrompt?.firstSentAt {
             let dateString = FormatUtils.formatDate(sentDate)
@@ -159,7 +153,6 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         self.layer.borderWidth = 1
 
     }
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()

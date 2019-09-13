@@ -12,8 +12,7 @@ import FirebaseAuth
 import Foundation
 import CodableFirebase
 
-
-enum EncodableExtensionError:Error {
+enum EncodableExtensionError: Error {
     case encodingError
 }
 
@@ -32,7 +31,7 @@ extension FirestoreIdentifiable {
         
         let encoder = FirestoreEncoder()
         
-        var docData = try! encoder.encode(self)
+        var docData = try encoder.encode(self)
         
         for key in excludedKeys {
             docData.removeValue(forKey: key)
@@ -47,7 +46,7 @@ extension FlamelinkIdentifiable {
         
         let encoder = FirestoreEncoder()
         
-        var docData = try! encoder.encode(self)
+        var docData = try encoder.encode(self)
         
         for key in excludedKeys {
             docData.removeValue(forKey: key)
@@ -57,22 +56,20 @@ extension FlamelinkIdentifiable {
     }
 }
 
-enum DocumentSnapshotExtensionError:Error {
+enum DocumentSnapshotExtensionError: Error {
     case decodingError
 }
 
-
 extension DocumentSnapshot {
-    func convertTimestamp(_ value:Any) -> Any {
+    func convertTimestamp(_ value: Any) -> Any {
         var changed = value
-        switch value{
+        switch value {
         case _ as DocumentReference:
             break
         case let ts as Timestamp: //convert timestamp to date value
             let date = ts.dateValue()
             let jsonValue = Int((date.timeIntervalSince1970 * 1000).rounded())
             changed = jsonValue
-            break
         default:
             break
         }
@@ -80,32 +77,28 @@ extension DocumentSnapshot {
     }
     
     func transformValue(_ value: Any) -> Any {
-        if value is Array<Any>
-        {
-            let values = (value as! Array).map(transformValue)
+        switch value {
+        case let array as [Any]:
+            let values = array.map(transformValue)
             return values
-        }
-        else if value is [String: Any] {
-            return transformJson(value as! [String: Any])
-        } else {
+        case let map as [String: Any]:
+            return transformJson(map)
+        default:
             return convertTimestamp(value)
         }
     }
     
-    func transformJson(_ documentJson:[String: Any] ) -> [String: Any]{
+    func transformJson(_ documentJson: [String: Any] ) -> [String: Any] {
         var documentJson = documentJson
         documentJson.forEach { (key: String, value: Any) in
-            switch value{
+            switch value {
             case _ as DocumentReference:
                 documentJson.removeValue(forKey: key)
-                break
             default:
-                documentJson[key] = transformValue(value);
-                break
+                documentJson[key] = transformValue(value)
             }
             
         }
-        
         return documentJson
     }
     

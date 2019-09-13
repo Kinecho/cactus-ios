@@ -13,16 +13,14 @@ class CenteredText: MarkdownStyle {
     var font: MarkdownFont?
     
     var color: MarkdownColor?
-
     
-    var attributes: [NSAttributedString.Key : AnyObject] = [
+    var attributes: [NSAttributedString.Key: AnyObject] = [
         NSAttributedString.Key.paragraphStyle: getParagraphStyle()
     ]
-
     
     static func getParagraphStyle() -> NSMutableParagraphStyle {
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .center
-        return paragraph;
+        return paragraph
     }
 }

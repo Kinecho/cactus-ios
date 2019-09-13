@@ -3,6 +3,7 @@ build/
 DerivedData/
 .idea
 xcuserdata/
+.sentryclirc
 
 # fastlane specific
 **/fastlane/report.xml
