@@ -1,8 +1,0 @@
-app_identifier("com.cactus.CactusApp") # The bundle identifier of your app
-apple_id("neil.j.poulin@gmail.com") # Your Apple email address
-
-itc_team_id("1266362") # App Store Connect Team ID
-team_id("3ZKVS4B79Q") # Developer Portal Team ID
-
-# For more information about the Appfile, see:
-#     https://docs.fastlane.tools/advanced/#appfile
