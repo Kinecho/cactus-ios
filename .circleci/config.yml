@@ -69,12 +69,12 @@ workflows:
   build-and-test:
     jobs:
       - build-and-test
-      - testflight_approval
+      - testflight_approval:
         type: approval
         name: &testflight_approval_name "TestFlight Approval"
         requires: 
             - build-and-test
-      - testflight 
+      - testflight :
         name: &testflight_name "Deploy to Testflight"
         requires: 
           - *testflight_approval_name
