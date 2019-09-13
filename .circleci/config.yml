@@ -21,6 +21,7 @@ commands:
             - vendor/bundle
   install: 
     steps: 
+      - checkout
       - install-ruby
       - run:
           name: Fetch CocoaPods Specs
@@ -48,6 +49,7 @@ jobs:
     executor: cactus-ios    
     shell: /bin/bash --login -o pipefail
     steps:
+      - checkout
       - install
       - run:
           name: Build and run tests
