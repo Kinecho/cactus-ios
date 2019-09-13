@@ -36,11 +36,13 @@ jobs:
       - image: dantoml/swiftlint:latest
     steps:
       - checkout
-      - run: swiftlint lint --reporter junit | tee swiftlint/result.xml
+      - run: swiftlint lint --reporter junit | tee result.xml
       - store_artifacts:
-          path: swiftlint/result.xml
+          path: result.xml
+          destination: swiftlint
       - store_test_results:
-          path: swiftlint/result.xml
+          path: result.xml
+          destination: swiftlint
   build-and-test:
     executor: cactus-ios    
     shell: /bin/bash --login -o pipefail
