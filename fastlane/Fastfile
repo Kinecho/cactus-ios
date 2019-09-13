@@ -38,7 +38,8 @@ platform :ios do
   end
 
   lane :test do 
-  	scan	
+  	# swiftlint(mode: :lint, output_file: "reports/swiftlint/result.xml", reporter: "junit")
+  	scan
   end
 
   lane :certificates do

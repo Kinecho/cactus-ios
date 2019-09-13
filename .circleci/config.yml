@@ -36,7 +36,8 @@ jobs:
       - image: dantoml/swiftlint:latest
     steps:
       - checkout
-      - run: swiftlint lint --reporter junit | tee "reports/swiftlint/results.xml"
+      - run: |
+          mkdir reports ; mkdir reports/swiftlint ; swiftlint lint --reporter junit | tee reports/swiftlint/results.xml                
       - store_artifacts:
           path: reports/swiftlint
           # destination: test-results/swiftlint
