@@ -71,7 +71,11 @@ workflows:
       - build-and-test
       - testflight_approval
         type: approval
-        name: &testflight_approval_name "Upload to TestFlight"
+        name: &testflight_approval_name "TestFlight Approval"
         requires: 
             - build-and-test
+      - testflight 
+        name: &testflight_name "Deploy to Testflight"
+        requires: 
+          - *testflight_approval_name
 
