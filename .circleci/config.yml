@@ -1,5 +1,5 @@
 # .circleci/config.yml
-version: 2
+version: 2.1
 executors: 
   cactus-ios: 
     working_directory: ~/project
@@ -65,17 +65,17 @@ jobs:
 
 
 workflows:
-  version: 2
+  version: 2.1
   build-and-test:
     jobs:
       - build-and-test
       - testflight_approval:
-        type: approval
-        name: &testflight_approval_name "TestFlight Approval"
-        requires: 
+          type: approval
+          name: &testflight_approval_name "TestFlight Approval"
+          requires: 
             - build-and-test
-      - testflight :
-        name: &testflight_name "Deploy to Testflight"
-        requires: 
-          - *testflight_approval_name
+      - testflight:
+          name: &testflight_name "Deploy to Testflight"
+          requires: 
+            - *testflight_approval_name
 
