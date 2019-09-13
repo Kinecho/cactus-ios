@@ -39,10 +39,10 @@ jobs:
       - run: |
           mkdir reports ; mkdir reports/swiftlint ; swiftlint lint --reporter junit | tee reports/swiftlint/results.xml                
       - store_artifacts:
-          path: reports/swiftlint
+          path: reports
           # destination: test-results/swiftlint
       - store_test_results:
-          path: reports/swiftlint
+          path: reports
           # destination: test-results/swiftlint
   build-and-test:
     executor: cactus-ios    
