@@ -36,17 +36,13 @@ jobs:
       - image: dantoml/swiftlint:latest
     steps:
       - checkout
-      - run: swiftlint lint --reporter junit | tee result.xml
+      - run: swiftlint lint --reporter junit | tee swiftlint/result.xml
       - store_artifacts:
-          path: result.xml
+          path: swiftlint/result.xml
       - store_test_results:
-          path: result.xml
+          path: swiftlint/result.xml
   build-and-test:
-    executor: cactus-ios
-    # macos:
-    #   xcode: "10.3.0"
-    # environment:
-    #   FL_OUTPUT_DIR: output
+    executor: cactus-ios    
     shell: /bin/bash --login -o pipefail
     steps:
       - install
@@ -73,8 +69,7 @@ jobs:
   testflight-finalize-release: 
     executor: cactus-ios
     steps: 
-      - checkout
-      # - install
+      - install-ruby
       - run:
           name: Finalize Release & upload symbols
           command: bundle exec fastlane finalize_release
