@@ -16,11 +16,29 @@
 default_platform(:ios)
 
 platform :ios do
+
+  before_all do
+    setup_circle_ci
+  end
+
   desc "Push a new beta build to TestFlight"
   lane :beta do
+  	ensure_git_status_clean
+	match(type: "appstore", readonly: is_ci)
+	sync_code_signing(type: "appstore")
     increment_build_number(xcodeproj: "Cactus.xcodeproj")
+    commit_version_bump(xcodeproj: "Cactus.xcodeproj")
+    add_git_tag
+    push_to_git_remote
     build_app(workspace: "Cactus.xcworkspace", scheme: "Cactus Prod")
+    changelog_from_git_commits
+    slack(message: "A new build has been created. Next step: upload to test flight.", slack_url: "https://hooks.slack.com/services/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")
     upload_to_testflight
+    slack(message: "Successfully uploaded new build to TestFlight", slack_url: "https://hooks.slack.com/services/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")
+  end
+
+  lane :test do 
+	slack(message: "This is a test slack message", slack_url: "https://hooks.slack.com/services/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")
   end
 
   lane :certificates do
