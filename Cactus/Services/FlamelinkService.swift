@@ -45,10 +45,6 @@ class FlamelinkService {
         return getContentQuery().whereField("_fl_meta_.schema", isEqualTo: schema.rawValue)
     }
     
-    
-    
-    
-    
     func getEntryIdQuery(_ id: String, schema: FlamelinkSchema) -> Query {
         return getQuery(schema).whereField("_fl_meta_.fl_id", isEqualTo: id)
     }
