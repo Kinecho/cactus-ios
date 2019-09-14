@@ -47,12 +47,19 @@ class PromptContentPageViewController: UIPageViewController {
     
     func getContentViewController(_ content: Content) -> UIViewController? {
         var viewController: UIViewController?
+        print("content type is \(content.contentType)")
         switch content.contentType {
         case .text:
             let textViewController = TextContentViewController.loadFromNib()
             textViewController.content = content
             textViewController.promptContent = self.promptContent
             viewController = textViewController
+        case .quote:
+            print("Setting up quote view controller")
+            let quoteViewController = QuoteContentViewController.loadFromNib()
+            quoteViewController.content = content
+            quoteViewController.promptContent = promptContent
+            viewController = quoteViewController
         default:
             print("PromptContentPageViewController: ContentType not handled: \(content.contentType)")
         }

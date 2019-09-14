@@ -82,7 +82,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     }
     
     @objc func showAccountPage(sender: Any) {
-        AppDelegate.shared.rootViewController.pushScreen(ScreenID.memberProfile, animate: true)
+        AppDelegate.shared.rootViewController.pushScreen(ScreenID.MemberProfile, animate: true)
     }
 
     override func viewWillAppear(_ animated: Bool) { }

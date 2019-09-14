@@ -96,11 +96,14 @@ class CactusMemberService {
         let authUnsub = AuthService.sharedInstance.getAuthStateChangeHandler { (_, user) in
             _ = memberUnsub?.remove()
             if let user = user {
+                print("observeCurrentMember: got user")
                 let query = self.getCollectionRef().whereField(CactusMember.Field.userId, isEqualTo: user.uid).limit(to: 1)
                 memberUnsub = self.firestoreService.addListener(query) { (members: [CactusMember]?, error) in
+                    print("observeCurrentMember: got member? \(members?.first?.email ?? "no email")")
                     onData(members?.first, error)
                 }
             } else {
+                print("observeCurrentMember: no user found")
                 onData(nil, nil)
             }
         }

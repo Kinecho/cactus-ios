@@ -15,6 +15,10 @@
 		3023FE3522ECF0A800F753A7 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3322EC299300A2EA95 /* ViewExtensions.swift */; };
 		3023FE3622ECF0AE00F753A7 /* CactusColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */; };
 		303BF744232A986A00164539 /* CactusUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303BF743232A986A00164539 /* CactusUnitTests.swift */; };
+		303BF750232D289A00164539 /* QuoteContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303BF74E232D289A00164539 /* QuoteContentViewController.swift */; };
+		303BF751232D289A00164539 /* QuoteContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303BF74E232D289A00164539 /* QuoteContentViewController.swift */; };
+		303BF752232D289A00164539 /* QuoteContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303BF74F232D289A00164539 /* QuoteContentViewController.xib */; };
+		303BF753232D289A00164539 /* QuoteContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303BF74F232D289A00164539 /* QuoteContentViewController.xib */; };
 		308446F122ECAE0100FB0683 /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
 		30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
 		30934F9322EBE7DF007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
@@ -129,6 +133,8 @@
 		303BF741232A986A00164539 /* Cactus UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cactus UnitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		303BF743232A986A00164539 /* CactusUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusUnitTests.swift; sourceTree = "<group>"; };
 		303BF745232A986A00164539 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		303BF74E232D289A00164539 /* QuoteContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteContentViewController.swift; sourceTree = "<group>"; };
+		303BF74F232D289A00164539 /* QuoteContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteContentViewController.xib; sourceTree = "<group>"; };
 		308446F022ECAE0100FB0683 /* MailchimpModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailchimpModels.swift; sourceTree = "<group>"; };
 		308446F222ECB23B00FB0683 /* Cactus Stage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cactus Stage.entitlements"; sourceTree = "<group>"; };
 		308446F322ECB24F00FB0683 /* Cactus Prod.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cactus Prod.entitlements"; sourceTree = "<group>"; };
@@ -338,6 +344,8 @@
 			children = (
 				30BF2E2823289F9F00A49EB6 /* TextContentViewController.swift */,
 				30BF2E2923289F9F00A49EB6 /* TextContentViewController.xib */,
+				303BF74E232D289A00164539 /* QuoteContentViewController.swift */,
+				303BF74F232D289A00164539 /* QuoteContentViewController.xib */,
 			);
 			path = PromptContent;
 			sourceTree = "<group>";
@@ -560,6 +568,7 @@
 				3095619A22ECF1CD009357BD /* GoogleService-Info.plist in Resources */,
 				30A281F022EA62650041158E /* LaunchScreen.storyboard in Resources */,
 				30A281E322EA61A30041158E /* Main.storyboard in Resources */,
+				303BF753232D289A00164539 /* QuoteContentViewController.xib in Resources */,
 				30A281F222EA627D0041158E /* ProdAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -575,6 +584,7 @@
 				30B6EA7822EA5AA100443E46 /* SharedAssets.xcassets in Resources */,
 				30B6EA7622EA5A9F00443E46 /* Main.storyboard in Resources */,
 				30A266DA2329BB73003C708E /* config.yml in Resources */,
+				303BF752232D289A00164539 /* QuoteContentViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -925,6 +935,7 @@
 				30BF2E1623282BDA00A49EB6 /* FlamelinkService.swift in Sources */,
 				3023FE3522ECF0A800F753A7 /* ViewExtensions.swift in Sources */,
 				30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */,
+				303BF751232D289A00164539 /* QuoteContentViewController.swift in Sources */,
 				30E9B0B822EADF75005B25FD /* HomeViewController.swift in Sources */,
 				30E9B0B022EADD04005B25FD /* LoginViewController.swift in Sources */,
 				30BF2E342328D91B00A49EB6 /* PromptContent.swift in Sources */,
@@ -972,6 +983,7 @@
 				30934F9622EBF146007C4E6C /* RoundedButton.swift in Sources */,
 				30E9B09922EA6A81005B25FD /* BaseModel.swift in Sources */,
 				30E9B0B722EADF75005B25FD /* HomeViewController.swift in Sources */,
+				303BF750232D289A00164539 /* QuoteContentViewController.swift in Sources */,
 				30E9B0AF22EADD04005B25FD /* LoginViewController.swift in Sources */,
 				30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */,
 				30BF2E14232824AB00A49EB6 /* FlamelinkService.swift in Sources */,

@@ -17,13 +17,13 @@ class AppMainViewController: UIViewController {
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         let launchStoryboard = UIStoryboard(name: StoryboardID.LaunchScreen.name, bundle: nil)
-        self.current = launchStoryboard.instantiateViewController(withIdentifier: ScreenID.launchScreen.name)
+        self.current = launchStoryboard.instantiateViewController(withIdentifier: ScreenID.LaunchScreen.name)
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
     required init?(coder aDecoder: NSCoder) {
         let launchStoryboard = UIStoryboard(name: StoryboardID.LaunchScreen.name, bundle: nil)
-        self.current = launchStoryboard.instantiateViewController(withIdentifier: ScreenID.launchScreen.name)
+        self.current = launchStoryboard.instantiateViewController(withIdentifier: ScreenID.LaunchScreen.name)
         super.init(coder: aDecoder)
     }
     
@@ -35,19 +35,24 @@ class AppMainViewController: UIViewController {
         view.addSubview(current.view)                 // 3
         current.didMove(toParent: self) // 4
         // Do any additional setup after loading the view.
-        
+        print("***** setting up auth*****")
         self.setupAuth()
     }
     
     func setupAuth() {
         _ = CactusMemberService.sharedInstance.observeCurrentMember { (member, _) in
+            print("setup auth onData", member?.email ?? "no email")
             if member == nil {
-                self.showScreen(ScreenID.login, wrapInNav: true)
+                print("found member, is null. showing loign screen.")
+                self.showScreen(ScreenID.Login, wrapInNav: true)
                 self.hasUser = false
-            } else if let nav = self.current as? UINavigationController {
-                self.showScreen(ScreenID.journalFeed, wrapInNav: true)
+            } else {
+                print("Found member, not null. showing journal feed")
+                self.showScreen(ScreenID.JournalFeed, wrapInNav: true)
 //                let nav = self.current as! UINavigationController
-                nav.viewControllers.insert(self.getScreen(ScreenID.memberProfile), at: 0)
+                if let nav = self.current as? UINavigationController {
+                    nav.viewControllers.insert(self.getScreen(ScreenID.MemberProfile), at: 0)
+                }
                 
                 self.hasUser = true
             }
@@ -78,7 +83,7 @@ class AppMainViewController: UIViewController {
         current.view.removeFromSuperview()            // 7
         current.removeFromParent()       // 8
         current = new
-    
+        print("showScreen...")
         return new
     }
     

@@ -127,13 +127,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return true
         }
         // other URL handling goes here.
-        print("handing custom link scheme", url )
+        print("handling custom link scheme", url )
         if let dynamicLink = DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: url) {
             // Handle the deep link. For example, show the deep-linked content or
             // apply a promotional offer to the user's account.
             // ...
             print("handling dynamic link", dynamicLink)
-            return true
+            return false
         }
         
         if let scheme = url.scheme,

@@ -10,12 +10,12 @@ import Foundation
 import UIKit
 
 enum ScreenID: String {
-    case appMain
-    case home
-    case login
-    case launchScreen
-    case memberProfile
-    case journalFeed
+    case AppMain = "AppMain"
+    case Home = "Home"
+    case Login = "Login"
+    case LaunchScreen = "LaunchScreen"
+    case MemberProfile = "MemberProfile"
+    case JournalFeed
 
     var name: String {
         return self.rawValue

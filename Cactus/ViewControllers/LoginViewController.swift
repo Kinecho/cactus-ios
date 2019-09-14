@@ -217,14 +217,14 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
                     
                     Analytics.logEvent(AnalyticsEventSignUp, parameters: [
                         AnalyticsParameterMethod: dataResult?.additionalUserInfo?.providerID ?? "unknown",
-                        "screen": ScreenID.login.name,
+                        "screen": ScreenID.Login.name,
                         "anonyomousUpgrade": true
                         ])
                 } else {
                     print("logged in with provider", dataResult?.additionalUserInfo?.providerID ?? "unknown")
                     Analytics.logEvent(AnalyticsEventLogin, parameters: [
                         AnalyticsParameterMethod: dataResult?.additionalUserInfo?.providerID ?? "unknown",
-                        "screen": ScreenID.login.name,
+                        "screen": ScreenID.Login.name,
                         "anonyomousUpgrade": true
                         ])
                 }
@@ -246,13 +246,13 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
             
             Analytics.logEvent(AnalyticsEventSignUp, parameters: [
                 AnalyticsParameterMethod: authDataResult?.additionalUserInfo?.providerID ?? "unknown",
-                "screen": ScreenID.login.name
+                "screen": ScreenID.Login.name
                 ])
         } else {
             print("logged in with provider", authDataResult?.additionalUserInfo?.providerID ?? "unknown")
             Analytics.logEvent(AnalyticsEventLogin, parameters: [
                 AnalyticsParameterMethod: authDataResult?.additionalUserInfo?.providerID ?? "unknown",
-                "screen": ScreenID.login.name
+                "screen": ScreenID.Login.name
                 ])
         }
     }
