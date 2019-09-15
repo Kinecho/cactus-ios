@@ -11,7 +11,6 @@ executors:
 commands: 
   install-ruby: 
     steps: 
-      - checkout
       - restore_cache:
           key: 1-gems-{{ checksum "Gemfile.lock" }}
       - run: bundle check || bundle install --path vendor/bundle
@@ -31,26 +30,15 @@ commands:
           name: Install CocoaPods
           command: bundle exec pod install --verbose
 
-jobs:
-  swiftlint:
-    docker:
-      - image: dantoml/swiftlint:latest
-    steps:
-      - checkout
-      - run: |
-          mkdir reports ; mkdir reports/swiftlint ; swiftlint lint --reporter junit | tee reports/swiftlint/results.xml                
-      - store_artifacts:
-          path: reports
-          # destination: test-results/swiftlint
-      - store_test_results:
-          path: reports
-          # destination: test-results/swiftlint
+jobs:  
   build-and-test:
     executor: cactus-ios    
     shell: /bin/bash --login -o pipefail
     steps:
-      - checkout
       - install
+      - run: 
+          name: SwiftLint lane
+          command: bundle exec fastlane lint
       - run:
           name: Build and run tests
           command: bundle exec fastlane test
@@ -85,7 +73,6 @@ workflows:
   version: 2.1
   build-and-test:
     jobs:
-      - swiftlint
       - build-and-test
       - testflight_approval:
           type: approval

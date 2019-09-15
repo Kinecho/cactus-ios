@@ -26,6 +26,11 @@ Push a new beta build to TestFlight
 fastlane ios test
 ```
 
+### ios lint
+```
+fastlane ios lint
+```
+
 ### ios certificates
 ```
 fastlane ios certificates
