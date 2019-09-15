@@ -9,6 +9,12 @@ executors:
       FL_OUTPUT_DIR: fl_output
 
 commands: 
+  restore-caches:
+    steps:
+      - restore_cache:
+          key: 1-gems-{{ checksum "Gemfile.lock" }}
+      - restore_cache:
+          key: 1-pods-{{ checksum "Podfile.lock" }}
   install-ruby: 
     steps: 
       - restore_cache:
@@ -29,6 +35,10 @@ commands:
       - run:
           name: Install CocoaPods
           command: bundle exec pod install --verbose
+      - save_cache:
+          key: 1-pods-{{ checksum "Podfile.lock" }}
+          paths:
+            - Pods
 
 jobs:  
   build-and-test:
@@ -58,7 +68,7 @@ jobs:
     executor: cactus-ios
     steps: 
       - checkout
-      - install
+      - restore-caches
       - run:
           name: Deploy to TestFlight
           command: bundle exec fastlane beta                
