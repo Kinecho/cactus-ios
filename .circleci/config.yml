@@ -6,7 +6,7 @@ executors:
     macos:
       xcode: "10.3.0"
     environment:
-      FL_OUTPUT_DIR: output
+      FL_OUTPUT_DIR: fl_output
 
 commands: 
   install-ruby: 
@@ -50,9 +50,9 @@ jobs:
       - store_artifacts:
           path: reports
       - store_test_results:
-          path: output/scan
+          path: fl_output/scan
       - store_artifacts:
-          path: output
+          path: fl_output
       
   testflight-upload: 
     executor: cactus-ios
@@ -63,7 +63,7 @@ jobs:
           name: Deploy to TestFlight
           command: bundle exec fastlane beta                
       - store_artifacts:
-          path: output
+          path: fl_output
   testflight-finalize-release: 
     executor: cactus-ios
     steps: 
@@ -72,7 +72,7 @@ jobs:
           name: Finalize Release & upload symbols
           command: bundle exec fastlane finalize_release
       - store_artifacts:
-          path: output
+          path: fl_output
 
 workflows:
   version: 2.1
