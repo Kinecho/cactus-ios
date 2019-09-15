@@ -24,9 +24,10 @@ commands:
           key: 1-gems-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
+            - vendor
+            - .bundle
   install: 
-    steps: 
-      - checkout
+    steps:       
       - install-ruby
       - run:
           name: Fetch CocoaPods Specs
@@ -45,6 +46,7 @@ jobs:
     executor: cactus-ios    
     shell: /bin/bash --login -o pipefail
     steps:
+      - checkout
       - install
       - run: 
           name: SwiftLint lane
