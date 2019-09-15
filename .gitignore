@@ -18,4 +18,6 @@ xcuserdata/
 **/fastlane/test_output
 
 reports/
-output/
+fl_output/
+.bundle/
+vendor/
