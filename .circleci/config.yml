@@ -46,9 +46,14 @@ jobs:
             SCAN_DEVICE: iPhone 8
             SCAN_SCHEME: Cactus Prod
       - store_test_results:
+          path: reports
+      - store_artifacts:
+          path: reports
+      - store_test_results:
           path: output/scan
       - store_artifacts:
           path: output
+      
   testflight-upload: 
     executor: cactus-ios
     steps: 
