@@ -126,7 +126,7 @@ workflows:
   version: 2.1
   build-and-test:
     jobs:
-      - version_bump
+      - version-bump
       - build-and-test
       - testflight_approval:
           type: approval
