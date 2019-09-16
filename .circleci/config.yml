@@ -81,12 +81,17 @@ jobs:
           path: fl_output/scan
       - store_artifacts:
           path: fl_output
+      - persist_to_workspace:
+          root: /.
+          paths: 
+            - build/*
       
   testflight-upload: 
     executor: cactus-ios
     steps: 
       - checkout
-
+      - attach_workspace: 
+          at: .
       - install-ruby
       - restore-pods-cache
       - add_ssh_keys:
