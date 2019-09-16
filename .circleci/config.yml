@@ -73,6 +73,9 @@ jobs:
           environment:
             SCAN_DEVICE: iPhone 8
             SCAN_SCHEME: Cactus Prod
+      - run:
+          name: "Print files in directory"
+          command: ls -la 
       - store_test_results:
           path: reports
       - store_artifacts:
@@ -80,18 +83,11 @@ jobs:
       - store_test_results:
           path: fl_output/scan
       - store_artifacts:
-          path: fl_output
-      - persist_to_workspace:
-          root: /.
-          paths: 
-            - build/*
-      
+          path: fl_output            
   testflight-upload: 
     executor: cactus-ios
     steps: 
-      - checkout
-      - attach_workspace: 
-          at: .
+      - checkout      
       - install-ruby
       - restore-pods-cache
       - add_ssh_keys:
