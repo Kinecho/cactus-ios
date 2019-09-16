@@ -53,6 +53,11 @@ commands:
             - Pods
 
 jobs:  
+  key-test: 
+    executor: cactus-ios
+    steps: 
+      - checkout
+
   build-and-test:
     executor: cactus-ios    
     shell: /bin/bash --login -o pipefail
@@ -106,11 +111,22 @@ jobs:
           command: bundle exec fastlane finalize_release
       - store_artifacts:
           path: fl_output
-
+  version-bump:
+    executor: cactus-ios
+    steps: 
+      - checkout
+      - install-ruby
+      - add_ssh_keys:
+          fingerprints:            
+            - *cactus-ios-read-write-fingerprint
+      - run:
+          name: "Fastlane Version Bump"
+          command: bundle exec fastlane version_bump
 workflows:
   version: 2.1
   build-and-test:
     jobs:
+      - version_bump
       - build-and-test
       - testflight_approval:
           type: approval

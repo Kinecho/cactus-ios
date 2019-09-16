@@ -21,7 +21,7 @@ platform :ios do
     setup_circle_ci
   end
 
-  lane :key_test do 
+  lane :version_bump do 
  #  	increment_version_number_in_plist(
 	#   # specify specific version number (optional, omitting it increments patch version number)
 	#   # version_number: '2.1.1',   
@@ -43,10 +43,10 @@ platform :ios do
   	# ensure_git_status_clean
 	match(type: "appstore", readonly: is_ci)
 	sync_code_signing(type: "appstore")
-    increment_build_number(xcodeproj: "Cactus.xcodeproj")
-    commit_version_bump(xcodeproj: "Cactus.xcodeproj")
-    add_git_tag
-    push_to_git_remote
+    # increment_build_number(xcodeproj: "Cactus.xcodeproj")
+    # commit_version_bump(xcodeproj: "Cactus.xcodeproj")
+    # add_git_tag
+    # push_to_git_remote
     build_app(workspace: "Cactus.xcworkspace", scheme: "Cactus Prod")
     changelog_from_git_commits
     slack(message: "A new build has been created. Next step: upload to test flight.", slack_url: "https://hooks.slack.com/services/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")
