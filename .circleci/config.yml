@@ -7,7 +7,7 @@ executors:
       xcode: "10.3.0"
     environment:
       FL_OUTPUT_DIR: fl_output
-commands: 
+commands:
   restore-caches:
     steps:
       - restore_cache:
@@ -69,6 +69,7 @@ jobs:
     executor: cactus-ios
     steps: 
       - checkout
+      - install-ruby
       - restore-caches
       - run:
           name: Deploy to TestFlight
