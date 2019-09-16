@@ -27,7 +27,7 @@ platform :ios do
 	  # version_number: '2.1.1',   
 	  # (optional, you must specify the path to your main Xcode project if it is not in the project root directory
 	  # or if you have multiple xcodeproj's in the root directory)
-	  xcodeproj: 'Cactus.xcodeproj'  
+	  xcodeproj: 'Cactus.xcodeproj',
 	  # (optional)
 	  target: 'Cactus Stage' # or `scheme`
 	)
