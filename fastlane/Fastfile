@@ -32,7 +32,7 @@ platform :ios do
 	#   target: 'Cactus Stage' # or `scheme`
 	# )
 	increment_build_number(xcodeproj: "Cactus.xcodeproj")
-    commit_version_bump(xcodeproj: "Cactus.xcodeproj")
+    commit_version_bump(xcodeproj: "Cactus.xcodeproj", message: "Version Bump [ci skip]")
     # add_git_tag
     push_to_git_remote
   end
