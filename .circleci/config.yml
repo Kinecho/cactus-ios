@@ -7,21 +7,20 @@ executors:
       xcode: "10.3.0"
     environment:
       FL_OUTPUT_DIR: fl_output
-
 commands: 
   restore-caches:
     steps:
       - restore_cache:
-          key: 1-gems-{{ checksum "Gemfile.lock" }}
+          key: 2-gems-{{ checksum "Gemfile.lock" }}
       - restore_cache:
           key: 1-pods-{{ checksum "Podfile.lock" }}
   install-ruby: 
     steps: 
       - restore_cache:
-          key: 1-gems-{{ checksum "Gemfile.lock" }}
+          key: 2-gems-{{ checksum "Gemfile.lock" }}
       - run: bundle check || bundle install --path vendor/bundle
       - save_cache:
-          key: 1-gems-{{ checksum "Gemfile.lock" }}
+          key: 2-gems-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
             - vendor
