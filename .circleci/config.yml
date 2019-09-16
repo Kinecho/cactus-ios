@@ -86,6 +86,7 @@ jobs:
     executor: cactus-ios
     steps: 
       - checkout
+
       - install-ruby
       - restore-pods-cache
       - add_ssh_keys:
@@ -126,17 +127,21 @@ workflows:
   version: 2.1
   build-and-test:
     jobs:
-      - version-bump
       - build-and-test
       - testflight_approval:
           type: approval
           name: &testflight_approval_name "TestFlight Approval"
           requires: 
             - build-and-test
+      - version-bump:
+          name: &version_bump_name "Bump Build Version"
+          requires: 
+            - *testflight_approval_name
       - testflight-upload:
           name: &testflight_name "Deploy to Testflight"
           requires: 
-            - *testflight_approval_name
+            - *testflight_approval_name      
+            - *version_bump_name
       - finalize-release-approval: 
           type: approval
           name: &finalize-release-approval "Finalze Release"
