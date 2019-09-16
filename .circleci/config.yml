@@ -81,7 +81,11 @@ jobs:
     steps: 
       - checkout
       - install-ruby
-      - restore-caches
+      - restore-pods-cache
+      - add_ssh_keys:
+          name: "Add Fastlane Match SSH Key"
+          fingerprints:
+            - *match-ssh-fingerprint
       - run:
           name: Deploy to TestFlight
           command: bundle exec fastlane beta                
