@@ -87,6 +87,7 @@ jobs:
           name: "Add Fastlane Match SSH Key"
           fingerprints:
             - *match-ssh-fingerprint
+            - *cactus-ios-read-write-fingerprint
       - run:
           name: Deploy to TestFlight
           command: bundle exec fastlane beta                
