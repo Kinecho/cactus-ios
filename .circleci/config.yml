@@ -8,18 +8,24 @@ executors:
     environment:
       FL_OUTPUT_DIR: fl_output
 commands:
+  restore-pods-cache: 
+    - restore_cache:
+          name: Restore Pods Cache
+          key: 1-pods-{{ checksum "Podfile.lock" }}
   restore-caches:
     steps:
+      - restore-pods-cache
       - restore_cache:
-          key: 2-gems-{{ checksum "Gemfile.lock" }}
-      - restore_cache:
-          key: 1-pods-{{ checksum "Podfile.lock" }}
+          name: Restore Ruby Cache
+          key: 2-gems-{{ checksum "Gemfile.lock" }}      
   install-ruby: 
     steps: 
       - restore_cache:
+          name: Restore Ruby Cache
           key: 2-gems-{{ checksum "Gemfile.lock" }}
       - run: bundle check || bundle install --path vendor/bundle
       - save_cache:
+          name: Save Ruby Cache
           key: 2-gems-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
@@ -32,10 +38,12 @@ commands:
           name: Fetch CocoaPods Specs
           command: |
             curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
+      - restore-pods-cache
       - run:
           name: Install CocoaPods
           command: bundle exec pod install --verbose
       - save_cache:
+          name: Save Pods Cache
           key: 1-pods-{{ checksum "Podfile.lock" }}
           paths:
             - Pods
