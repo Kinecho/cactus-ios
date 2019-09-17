@@ -9,6 +9,7 @@
 import Foundation
 import FirebaseFirestore
 import Firebase
+
 class CactusMemberService {
     
     let firestoreService: FirestoreService
@@ -18,7 +19,6 @@ class CactusMemberService {
     
     private init() {
         self.firestoreService = FirestoreService.sharedInstance
-        
         self.memberListener = self.observeCurrentMember { (member, _) in
             
             if let member = member, member != self.currentMember {
@@ -38,7 +38,8 @@ class CactusMemberService {
         guard let member = self.currentMember else {
             onCompleted(nil)
             return
-        }                
+        }
+
         InstanceID.instanceID().instanceID { (result, error) in
             if let error = error {
                 print("Error fetching remote instance ID: \(error)")

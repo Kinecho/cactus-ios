@@ -26,22 +26,15 @@ struct FormatUtils {
             dateString = df.string(from: date)
         }
         return dateString
-    }
-    
-    static func centeredAttributedString(_ aText: NSAttributedString) -> NSAttributedString {
-        let mText = NSMutableAttributedString.init(attributedString: aText)
-        let paragraph = NSMutableParagraphStyle()
-        paragraph.alignment = .center
-        mText.addAttributes([NSAttributedString.Key.paragraphStyle: paragraph], range: NSRange(location: 0, length: aText.length - 1))
-        //            aText.attribute(.paragraphStyle, at: 0, longestEffectiveRange: NSRangePointer.(0, 10), in: NSMakeRange(0, 10))
-        return mText.attributedSubstring(from: NSRange(location: 0, length: mText.length - 1))
-    }
+    }        
 }
 
 struct FontSize {
     static let large: CGFloat = 28
+    static let normal: CGFloat = 16
 }
 
-struct CactusFont {
-    static let Large = UIFont.systemFont(ofSize: FontSize.large)
+struct CactusFont {    
+    static let large = UIFont.systemFont(ofSize: FontSize.large)
+    static let normal = UIFont.systemFont(ofSize: FontSize.normal)
 }

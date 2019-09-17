@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MarkdownKit
+
 class QuoteContentViewController: UIViewController {
     @IBOutlet weak var quoteText: UITextView!
     @IBOutlet weak var authorNameText: UILabel!
@@ -25,9 +25,9 @@ class QuoteContentViewController: UIViewController {
 
     func configureView() {
         if let quote = content.quote, let textString = quote.text {
-            let markdownParser = MarkdownParser(font: CactusFont.Large)
-            self.quoteText.attributedText = FormatUtils.centeredAttributedString(markdownParser.parse(textString))
-            
+            if let mdText = MarkdownUtil.centeredMarkdown(textString, font: CactusFont.large) {
+                self.quoteText.attributedText = mdText
+            }
             self.authorNameText.text = quote.authorName
             self.authorTitle.text = quote.authorTitle
             

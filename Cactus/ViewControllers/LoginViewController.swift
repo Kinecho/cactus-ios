@@ -164,12 +164,21 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
         actionCodeSettings.url = URL(string: "https://cactus-app-stage.web.app")    
         actionCodeSettings.handleCodeInApp = true
         
+//        let twitterImage = UIImage(named: "Twitter")
+//        let twitterProvider = FUIOAuth(authUI: authUI,
+//                                                  providerID: "twitter.com",
+//                                                  buttonLabelText: "Sign in with Twitter",
+//                                                  shortName: "Twitter",
+//                                                  buttonColor: CactusColor.twitter,
+//                                                  iconImage: twitterImage!,
+//                                                  scopes: ["user.readwrite"],
+//                                                  customParameters: ["prompt" : "consent"],
+//                                                  loginHintKey: nil)
+        
         let providers: [FUIAuthProvider] = [
             FUIEmailAuth(authAuthUI: authUI, signInMethod: EmailLinkAuthSignInMethod, forceSameDevice: false, allowNewEmailAccounts: true, actionCodeSetting: actionCodeSettings),
             FUIFacebookAuth(),
             FUIGoogleAuth(),
-            FUITwitterAuth()
-//            FUIPhoneAuth(authUI:authUI),
         ]
         
         authUI.providers = providers
@@ -202,7 +211,7 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
                 return
             }
             
-            Auth.auth().signInAndRetrieveData(with: credential) { (dataResult, error) in
+            Auth.auth().signIn(with: credential) { (dataResult, error) in
                 print("completed signinandretrievedata method")
                 if let error = error as NSError? {
                     print("Failed to re-login: \(error)")

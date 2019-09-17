@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MarkdownKit
 
 class TextContentViewController: UIViewController {
 
@@ -30,10 +29,9 @@ class TextContentViewController: UIViewController {
             textString = self.content.text
         }
         
-        if let textString = textString, !textString.isEmpty {
-            let markdownParser = MarkdownParser(font: CactusFont.Large)
-            self.text.attributedText = FormatUtils.centeredAttributedString(markdownParser.parse(textString))
-        }
+        if let mdText = MarkdownUtil.centeredMarkdown(textString, font: CactusFont.large) {
+            self.text.attributedText = mdText
+        }                       
     }
 
     /*

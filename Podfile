@@ -27,6 +27,7 @@ target 'Cactus Stage' do
   inhibit_all_warnings!
   
   app_pods
+  
 end
 
 target 'Cactus Prod' do
