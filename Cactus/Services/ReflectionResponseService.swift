@@ -46,6 +46,27 @@ class ReflectionResponseService {
         self.firestoreService.delete(response, onComplete: onData)
     }
     
+    func createReflectionResponse(_ prompt: ReflectionPrompt, medium: ResponseMedium = .JOURNAL_IOS) -> ReflectionResponse {
+        let response = ReflectionResponse()
+        response.promptId = prompt.id
+        response.promptQuestion = prompt.question
+        
+        response.responseMedium = medium
+        if let member = CactusMemberService.sharedInstance.currentMember {
+            response.cactusMemberId = member.id
+            response.userId = member.userId
+            response.memberEmail = member.email
+            if let listMember = member.mailchimpListMember {
+                response.mailchimpMemberId = listMember.id
+                response.mailchimpUniqueEmailId = listMember.unique_email_id
+            }
+        } else {
+            print("Warning: no cactus member was found")
+        }
+        
+        return response
+    }
+    
     func createReflectionResponse(_ promptId: String, promptQuestion: String?) -> ReflectionResponse? {
         guard let member = CactusMemberService.sharedInstance.currentMember else {
             return nil

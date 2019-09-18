@@ -13,6 +13,8 @@ class PromptContentPageViewController: UIPageViewController {
     var promptContent: PromptContent!
     var activeIndex: Int = 0
     var pageControl: UIPageControl?
+    var prompt: ReflectionPrompt?
+    var reflectionResponse: ReflectionResponse?
     
     fileprivate lazy var screens: [UIViewController] = []
     
@@ -71,6 +73,7 @@ class PromptContentPageViewController: UIPageViewController {
             let reflectionViewController = ReflectContentViewController.loadFromNib()
             reflectionViewController.content = content
             reflectionViewController.promptContent = promptContent
+            reflectionViewController.reflectionResponse = self.reflectionResponse
             viewController = reflectionViewController
         default:
             print("PromptContentPageViewController: ContentType not handled: \(content.contentType)")

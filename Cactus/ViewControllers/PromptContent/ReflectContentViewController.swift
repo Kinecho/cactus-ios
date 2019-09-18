@@ -10,8 +10,12 @@ import UIKit
 
 class ReflectContentViewController: UIViewController {
 
+    let padding: CGFloat = 8
+    
     var content: Content!
     var promptContent: PromptContent!
+    
+    @IBOutlet weak var doneButton: RoundedButton!
     var reflectionResponse: ReflectionResponse?
     
 //    @IBOutlet weak var inputToolbar: UIView!
@@ -19,7 +23,7 @@ class ReflectContentViewController: UIViewController {
     var inputToolbar: UIView!
     var textView: GrowingTextView!
     private var textViewBottomConstraint: NSLayoutConstraint!
-
+    private var doneButtonBottomConstraint: NSLayoutConstraint!
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
@@ -36,11 +40,75 @@ class ReflectContentViewController: UIViewController {
             self.textView.text = response.content.text
         } else {
             self.textView.text = nil
-        }    
+        }
     }
 
-    func createInputView() {
+    func configureDoneButton() {
+        self.doneButton = RoundedButton()
+        self.doneButton.borderRadius = 18
+        self.doneButton.contentEdgeInsets = UIEdgeInsets(top: 6, left: 12, bottom: 6, right: 12)
+
+        doneButton.backgroundColor = CactusColor.darkGreen
         
+        doneButton.translatesAutoresizingMaskIntoConstraints = false
+        doneButton.showsTouchWhenHighlighted = true
+        doneButton.addTarget(self, action: #selector(self.doneAction(_:)), for: .primaryActionTriggered)
+        doneButton.setTitle("Done", for: .normal)
+        doneButton.setTitleColor(.white, for: .normal)
+        doneButton.backgroundColor = CactusColor.green
+        doneButton.isEnabled = true
+        doneButton.isUserInteractionEnabled = true
+        
+        self.view.addSubview(doneButton)
+
+        self.doneButtonBottomConstraint = doneButton.bottomAnchor.constraint(equalTo: inputToolbar.safeAreaLayoutGuide.topAnchor, constant: -padding)
+        let doneButtonRightConstraint = doneButton.rightAnchor.constraint(equalTo: inputToolbar.safeAreaLayoutGuide.rightAnchor, constant: -2 * padding)
+        let doneButtonLeftConstraint = doneButton.leftAnchor.constraint(greaterThanOrEqualTo: inputToolbar.safeAreaLayoutGuide.leftAnchor, constant: padding)
+        NSLayoutConstraint.activate([
+            doneButtonBottomConstraint,
+            doneButtonRightConstraint,
+            doneButtonLeftConstraint,
+            ])
+        
+    }
+    @objc func doneAction(_ sender: Any) {
+        print("Done button tapped")
+        self.saveResponse()
+        view.endEditing(true)
+        
+    }
+    
+    func setSaving(_ isSaving: Bool) {
+        if isSaving {
+            doneButton.setTitle("Saving...", for: .disabled)
+            doneButton.backgroundColor = CactusColor.lightGray
+            doneButton.isEnabled = false
+        } else {
+            doneButton.backgroundColor = CactusColor.green
+            doneButton.isEnabled = true
+        }
+    }
+    
+    func saveResponse() {
+        print("saving response...")
+        guard let response = self.reflectionResponse else {
+            return
+        }
+        
+        let text = self.textView.text
+        response.content.text = text
+        self.setSaving(true)
+        ReflectionResponseService.sharedInstance.save(response) { (_, error) in
+            if let error = error {
+                print("Error saving reflection response", error)
+            }
+            
+            self.setSaving(false)
+            
+        }
+    }
+    
+    func createInputView() {
         // *** Create Toolbar
         self.inputToolbar = UIView()
         inputToolbar.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
@@ -60,29 +128,31 @@ class ReflectContentViewController: UIViewController {
         textView.translatesAutoresizingMaskIntoConstraints = false
         inputToolbar.addSubview(textView)
         
+        self.configureDoneButton()
+        
         // *** Autolayout ***
-        let topConstraint = textView.topAnchor.constraint(equalTo: inputToolbar.topAnchor, constant: 8)
+        let topConstraint = textView.topAnchor.constraint(equalTo: inputToolbar.topAnchor, constant: padding)
         topConstraint.priority = UILayoutPriority(999)
         NSLayoutConstraint.activate([
             inputToolbar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             inputToolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             inputToolbar.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
-            topConstraint
+            topConstraint,
             ])
         
         if #available(iOS 11, *) {
             textViewBottomConstraint = textView.bottomAnchor.constraint(equalTo: inputToolbar.safeAreaLayoutGuide.bottomAnchor, constant: -8)
             NSLayoutConstraint.activate([
-                textView.leadingAnchor.constraint(equalTo: inputToolbar.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-                textView.trailingAnchor.constraint(equalTo: inputToolbar.safeAreaLayoutGuide.trailingAnchor, constant: -8),
-                textViewBottomConstraint
+                textView.leadingAnchor.constraint(equalTo: inputToolbar.safeAreaLayoutGuide.leadingAnchor, constant: padding),
+                textView.trailingAnchor.constraint(equalTo: inputToolbar.safeAreaLayoutGuide.trailingAnchor, constant: -padding),
+                textViewBottomConstraint,
                 ])
         } else {
-            textViewBottomConstraint = textView.bottomAnchor.constraint(equalTo: inputToolbar.bottomAnchor, constant: -8)
+            textViewBottomConstraint = textView.bottomAnchor.constraint(equalTo: inputToolbar.bottomAnchor, constant: -padding)
             NSLayoutConstraint.activate([
-                textView.leadingAnchor.constraint(equalTo: inputToolbar.leadingAnchor, constant: 8),
-                textView.trailingAnchor.constraint(equalTo: inputToolbar.trailingAnchor, constant: -8),
-                textViewBottomConstraint
+                textView.leadingAnchor.constraint(equalTo: inputToolbar.leadingAnchor, constant: padding),
+                textView.trailingAnchor.constraint(equalTo: inputToolbar.trailingAnchor, constant: -padding),
+                textViewBottomConstraint,
                 ])
         }
         
@@ -90,8 +160,9 @@ class ReflectContentViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillChangeFrame), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
         // *** Hide keyboard when tapping outside ***
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapGestureHandler))
-        view.addGestureRecognizer(tapGesture)
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapGestureHandler))
+//        tapGesture.end
+//        view.addGestureRecognizer(tapGesture)
     }
     
     func configureView() {
@@ -107,7 +178,8 @@ class ReflectContentViewController: UIViewController {
                     keyboardHeight -= view.safeAreaInsets.bottom
                 }
             }
-            textViewBottomConstraint.constant = -keyboardHeight - 8
+            textViewBottomConstraint.constant = -keyboardHeight - padding
+//            doneButtonBottomConstraint.constant = -keyboardHeight - padding
             view.layoutIfNeeded()
         }
     }

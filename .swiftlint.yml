@@ -5,6 +5,7 @@ disabled_rules:
   - redundant_string_enum_value
   - valid_ibinspectable
   - for_where
+  - trailing_comma
 
 included: 
   - Cactus

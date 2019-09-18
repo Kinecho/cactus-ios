@@ -115,6 +115,12 @@ class JournalEntryDetailViewController: UIViewController {
         case SegueID.ShowPromptContentModal.name:
             if let vc = segue.destination as? PromptContentPageViewController {
                 vc.promptContent = self.promptContent
+                vc.prompt = self.prompt
+                var response = self.responses?.first
+                if response == nil, let prompt = self.prompt {
+                    response = ReflectionResponseService.sharedInstance.createReflectionResponse(prompt, medium: .PROMPT_IOS)
+                }
+                vc.reflectionResponse = response
             }
         default:
             print("No segue handled")
