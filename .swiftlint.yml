@@ -3,6 +3,8 @@ disabled_rules:
   - trailing_whitespace
   - todo
   - redundant_string_enum_value
+  - valid_ibinspectable
+  - for_where
 
 included: 
   - Cactus

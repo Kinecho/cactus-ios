@@ -11,7 +11,6 @@ import UIKit
 
 public struct FileUtils {
     
-    
     static func isGif(_ urlString: String? ) -> Bool {
         guard let urlString = urlString, !FormatUtils.isBlank(urlString) else {
             return false

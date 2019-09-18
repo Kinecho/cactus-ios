@@ -55,13 +55,11 @@ class ImageFile: FlamelinkFile {
     var url: String?
     var storageUrl: String?
     
-    
     enum ImageCodingKeys: String, CodingKey {
         case fileIds
         case url
         case storageUrl
     }
-    
     
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder)

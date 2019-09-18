@@ -32,7 +32,6 @@ class QuoteContentViewController: UIViewController {
             self.authorNameText.text = quote.authorName
             self.authorTitle.text = quote.authorTitle
             
-            
             ImageService.shared.setPhoto(self.avatarImageView, photo: quote.authorAvatar)
             
         } else {

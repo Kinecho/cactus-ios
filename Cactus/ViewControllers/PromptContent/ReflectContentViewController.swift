@@ -29,17 +29,14 @@ class ReflectContentViewController: UIViewController {
         
         //TODO: Get the reflection response, either here or in the parent
         
-        
         self.createInputView()
         self.configureView()
         
         if let response = self.reflectionResponse {
-//                        self.textView.text = response.content.text
+            self.textView.text = response.content.text
         } else {
-//                        self.textView.text = ""
-        }
-        
-        // Do any additional setup after loading the view.
+            self.textView.text = nil
+        }    
     }
 
     func createInputView() {
@@ -97,11 +94,7 @@ class ReflectContentViewController: UIViewController {
         view.addGestureRecognizer(tapGesture)
     }
     
-    func configureView(){
-//        self.resizeTextView(self.inputTextView)
-//        self.textView.translatesAutoresizingMaskIntoConstraints = false
-        
-        
+    func configureView() {
         let questionText = !FormatUtils.isBlank(content.text_md) ? content.text_md : content.text
         self.questionTextView.attributedText = MarkdownUtil.centeredMarkdown(questionText, font: CactusFont.large)
     }
@@ -111,7 +104,7 @@ class ReflectContentViewController: UIViewController {
             var keyboardHeight = UIScreen.main.bounds.height - endFrame.origin.y
             if #available(iOS 11, *) {
                 if keyboardHeight > 0 {
-                    keyboardHeight = keyboardHeight - view.safeAreaInsets.bottom
+                    keyboardHeight -= view.safeAreaInsets.bottom
                 }
             }
             textViewBottomConstraint.constant = -keyboardHeight - 8
@@ -126,12 +119,11 @@ class ReflectContentViewController: UIViewController {
 }
 
 extension ReflectContentViewController: GrowingTextViewDelegate {
-    func textViewDidChangeHeight(_ textView: GrowingTextView, height: CGFloat){
+    func textViewDidChangeHeight(_ textView: GrowingTextView, height: CGFloat) {
         print("text view did change height")
         UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: [.curveLinear], animations: { () -> Void in
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
-    
     
 }

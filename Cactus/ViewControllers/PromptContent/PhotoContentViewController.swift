@@ -14,8 +14,6 @@ class PhotoContentViewController: UIViewController {
     var content: Content!
     var promptContent: PromptContent!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,14 +21,12 @@ class PhotoContentViewController: UIViewController {
         configureView()
     }
 
-
     func configureView() {
         if let photo = content.photo {
             self.configurePhoto(photo)
         } else {
             self.imageView.isHidden = true
         }
-        
         
         if let mdText = MarkdownUtil.centeredMarkdown(content.text, font: CactusFont.large) {
             self.textView.attributedText = mdText
@@ -40,7 +36,7 @@ class PhotoContentViewController: UIViewController {
         }
     }
     
-    func configurePhoto(_ photo: ImageFile){
+    func configurePhoto(_ photo: ImageFile) {
 //        self.imageView.isHidden = true
         self.imageView.setImageFile(photo)
     }

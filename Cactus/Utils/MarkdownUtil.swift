@@ -10,9 +10,6 @@ import Foundation
 import MarkdownKit
 import UIKit
 
-
-
-
 public class MarkdownUtil {
     
     static func centered(_ aText: NSAttributedString?) -> NSAttributedString? {
@@ -40,7 +37,7 @@ public class MarkdownUtil {
             return nil
         }
         
-        let markdownParser = MarkdownParser(font:font)
+        let markdownParser = MarkdownParser(font: font)
         return markdownParser.parse(input)
     }
 }

@@ -94,7 +94,7 @@ class PromptContentPageViewController: UIPageViewController {
             view.addConstraints([
                 topConstraint,
                 left,
-                right,
+                right
 //                bottomConstraint
                 ])
         }

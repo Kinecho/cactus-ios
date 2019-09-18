@@ -13,21 +13,19 @@ import SwiftyGif
 class ImageService {
     static var shared = ImageService()
     
-    let cloudinary:CLDCloudinary;
-    init(){
+    let cloudinary: CLDCloudinary
+    init() {
         let config = CLDConfiguration(cloudName: "cactus-app", secure: true)
         self.cloudinary = CLDCloudinary(configuration: config)
     }
     
-    
-    
-    func setStorageUrl(_ imageView: UIImageView, url: String){
+    func setStorageUrl(_ imageView: UIImageView, url: String) {
         guard let _url = cloudinary.createUrl().setType(.fetch).setFormat("png").generate(url) else {
             imageView.isHidden = true
             return
         }
         
-        if FileUtils.isGif(url){
+        if FileUtils.isGif(url) {
             setGif(imageView, url)
         } else {
             imageView.cldSetImage(_url, cloudinary: self.cloudinary)
@@ -35,7 +33,7 @@ class ImageService {
         }
     }
     
-    func setGif(_ imageView: UIImageView, _ gifUrl: String){
+    func setGif(_ imageView: UIImageView, _ gifUrl: String) {
         guard FileUtils.isGif(gifUrl), let url = URL(string: gifUrl) else {
             imageView.isHidden = true
             return
@@ -47,8 +45,8 @@ class ImageService {
         imageView.isHidden = false
     }
     
-    func setFromUrl(_ imageView: UIImageView, url: String){
-        if (FileUtils.isGif(url)){
+    func setFromUrl(_ imageView: UIImageView, url: String) {
+        if FileUtils.isGif(url) {
             setGif(imageView, url)
         } else {
             imageView.cldSetImage(url, cloudinary: self.cloudinary)

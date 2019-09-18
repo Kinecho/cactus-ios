@@ -178,7 +178,7 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
         let providers: [FUIAuthProvider] = [
             FUIEmailAuth(authAuthUI: authUI, signInMethod: EmailLinkAuthSignInMethod, forceSameDevice: false, allowNewEmailAccounts: true, actionCodeSetting: actionCodeSettings),
             FUIFacebookAuth(),
-            FUIGoogleAuth(),
+            FUIGoogleAuth()
         ]
         
         authUI.providers = providers

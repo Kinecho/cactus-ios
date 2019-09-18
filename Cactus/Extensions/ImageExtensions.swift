@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension UIImageView {
-    func setImageFile(_ image: ImageFile?){
+    func setImageFile(_ image: ImageFile?) {
         guard let image = image else {
             self.isHidden = true
             return
@@ -19,4 +19,3 @@ extension UIImageView {
         ImageService.shared.setPhoto(self, photo: image)
     }
 }
-
