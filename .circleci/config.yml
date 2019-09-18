@@ -59,13 +59,15 @@ jobs:
     executor: cactus-ios
     steps: 
       - checkout
-
   build-and-test:
     executor: cactus-ios    
     shell: /bin/bash --login -o pipefail
     steps:
       - checkout
       - install-ruby
+      - run: 
+          name: Install Swiftlint via homebrew
+          command: HOMEBREW_NO_AUTO_UPDATE=1 brew install swiftlint
       - run: 
           name: SwiftLint lane
           command: bundle exec fastlane lint
