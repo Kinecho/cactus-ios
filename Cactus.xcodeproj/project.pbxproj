@@ -21,6 +21,29 @@
 		303BF753232D289A00164539 /* QuoteContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303BF74F232D289A00164539 /* QuoteContentViewController.xib */; };
 		3054B5BD23313EAA00AA7272 /* MarkdownUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */; };
 		3054B5BE2331424000AA7272 /* MarkdownUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */; };
+		305B1863233175DC003E1561 /* PhotoContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1861233175DC003E1561 /* PhotoContentViewController.swift */; };
+		305B1864233175DC003E1561 /* PhotoContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1861233175DC003E1561 /* PhotoContentViewController.swift */; };
+		305B1865233175DC003E1561 /* PhotoContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 305B1862233175DC003E1561 /* PhotoContentViewController.xib */; };
+		305B1866233175DC003E1561 /* PhotoContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 305B1862233175DC003E1561 /* PhotoContentViewController.xib */; };
+		305B1868233178A8003E1561 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1867233178A8003E1561 /* ImageService.swift */; };
+		305B1869233178A8003E1561 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1867233178A8003E1561 /* ImageService.swift */; };
+		305B186B23319A72003E1561 /* ImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B186A23319A72003E1561 /* ImageExtensions.swift */; };
+		305B186C23319A72003E1561 /* ImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B186A23319A72003E1561 /* ImageExtensions.swift */; };
+		305B186E23319E09003E1561 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B186D23319E09003E1561 /* FileUtils.swift */; };
+		305B186F23319E09003E1561 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B186D23319E09003E1561 /* FileUtils.swift */; };
+		305B187123319F42003E1561 /* FileUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B187023319F42003E1561 /* FileUtilsTest.swift */; };
+		305B18722331A843003E1561 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B186D23319E09003E1561 /* FileUtils.swift */; };
+		305B18732331A8E8003E1561 /* FormatUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FA222EBF4E6007C4E6C /* FormatUtils.swift */; };
+		305B18742331A8F0003E1561 /* MarkdownUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */; };
+		305B18752331A8F5003E1561 /* CactusColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */; };
+		305B18762331A906003E1561 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B09822EA6A81005B25FD /* BaseModel.swift */; };
+		305B18772331A906003E1561 /* FlamelinkTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0E23281CAA00A49EB6 /* FlamelinkTypes.swift */; };
+		305B18782331A906003E1561 /* CactusMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B09C22EA7FC3005B25FD /* CactusMember.swift */; };
+		305B18792331A906003E1561 /* SentPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0B922EAF153005B25FD /* SentPrompt.swift */; };
+		305B187A2331A906003E1561 /* PromptContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0C2328171200A49EB6 /* PromptContent.swift */; };
+		305B187B2331A906003E1561 /* ReflectionPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FA522EBFF27007C4E6C /* ReflectionPrompt.swift */; };
+		305B187C2331A906003E1561 /* ReflectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FA822EC0001007C4E6C /* ReflectionResponse.swift */; };
+		305B187D2331A906003E1561 /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
 		308446F122ECAE0100FB0683 /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
 		30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
 		30934F9322EBE7DF007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
@@ -109,16 +132,10 @@
 		30E9B0BE22EAF2FC005B25FD /* SentPromptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */; };
 		76F23F2602ADC65094F1CF3B /* Pods_Cactus_Prod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E8C1EB665F6286E3CD0BE5 /* Pods_Cactus_Prod.framework */; };
 		95087B85A8F99A3282E6AE87 /* Pods_Cactus_Stage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 518BD147DF40E10B6D005DB2 /* Pods_Cactus_Stage.framework */; };
+		D8C077334F20A3457E624C00 /* Pods_Cactus_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A9FFC5346620C8FAA15187B /* Pods_Cactus_UnitTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		303BF746232A986A00164539 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 30B6EA6322EA5A9F00443E46 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 30A281D722EA61A30041158E;
-			remoteInfo = "Cactus Prod";
-		};
 		303BF74B232ABA7F00164539 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 30B6EA6322EA5A9F00443E46 /* Project object */;
@@ -138,6 +155,12 @@
 		303BF74E232D289A00164539 /* QuoteContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteContentViewController.swift; sourceTree = "<group>"; };
 		303BF74F232D289A00164539 /* QuoteContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteContentViewController.xib; sourceTree = "<group>"; };
 		3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownUtil.swift; sourceTree = "<group>"; };
+		305B1861233175DC003E1561 /* PhotoContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoContentViewController.swift; sourceTree = "<group>"; };
+		305B1862233175DC003E1561 /* PhotoContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoContentViewController.xib; sourceTree = "<group>"; };
+		305B1867233178A8003E1561 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		305B186A23319A72003E1561 /* ImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtensions.swift; sourceTree = "<group>"; };
+		305B186D23319E09003E1561 /* FileUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
+		305B187023319F42003E1561 /* FileUtilsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtilsTest.swift; sourceTree = "<group>"; };
 		308446F022ECAE0100FB0683 /* MailchimpModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailchimpModels.swift; sourceTree = "<group>"; };
 		308446F222ECB23B00FB0683 /* Cactus Stage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cactus Stage.entitlements"; sourceTree = "<group>"; };
 		308446F322ECB24F00FB0683 /* Cactus Prod.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cactus Prod.entitlements"; sourceTree = "<group>"; };
@@ -195,9 +218,12 @@
 		30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentPromptService.swift; sourceTree = "<group>"; };
 		4367361CF4B35F9E8F97DC27 /* Pods-Cactus Stage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus Stage.debug.xcconfig"; path = "Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage.debug.xcconfig"; sourceTree = "<group>"; };
 		518BD147DF40E10B6D005DB2 /* Pods_Cactus_Stage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cactus_Stage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A9FFC5346620C8FAA15187B /* Pods_Cactus_UnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cactus_UnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F7497B6D87D04BF0ED03305 /* Pods-Cactus Prod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus Prod.release.xcconfig"; path = "Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod.release.xcconfig"; sourceTree = "<group>"; };
 		74F3C20610CFC85363610D59 /* Pods-Cactus Stage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus Stage.release.xcconfig"; path = "Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage.release.xcconfig"; sourceTree = "<group>"; };
 		86D6B8A9F7309EC3280399A0 /* Pods-Cactus Prod.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus Prod.debug.xcconfig"; path = "Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod.debug.xcconfig"; sourceTree = "<group>"; };
+		AA14FEC6B72B3AE2B74A1CAA /* Pods-Cactus UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus UnitTests.release.xcconfig"; path = "Target Support Files/Pods-Cactus UnitTests/Pods-Cactus UnitTests.release.xcconfig"; sourceTree = "<group>"; };
+		DCC1E9602C00EDA73D829630 /* Pods-Cactus UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus UnitTests.debug.xcconfig"; path = "Target Support Files/Pods-Cactus UnitTests/Pods-Cactus UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +231,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8C077334F20A3457E624C00 /* Pods_Cactus_UnitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +259,7 @@
 			children = (
 				05E8C1EB665F6286E3CD0BE5 /* Pods_Cactus_Prod.framework */,
 				518BD147DF40E10B6D005DB2 /* Pods_Cactus_Stage.framework */,
+				5A9FFC5346620C8FAA15187B /* Pods_Cactus_UnitTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -241,6 +269,7 @@
 			children = (
 				303BF743232A986A00164539 /* CactusUnitTests.swift */,
 				303BF745232A986A00164539 /* Info.plist */,
+				305B187023319F42003E1561 /* FileUtilsTest.swift */,
 			);
 			path = "Cactus UnitTests";
 			sourceTree = "<group>";
@@ -263,6 +292,7 @@
 				30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */,
 				309561A322EE16D7009357BD /* AppConfig.swift */,
 				3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */,
+				305B186D23319E09003E1561 /* FileUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -357,6 +387,8 @@
 				30BF2E2923289F9F00A49EB6 /* TextContentViewController.xib */,
 				303BF74E232D289A00164539 /* QuoteContentViewController.swift */,
 				303BF74F232D289A00164539 /* QuoteContentViewController.xib */,
+				305B1861233175DC003E1561 /* PhotoContentViewController.swift */,
+				305B1862233175DC003E1561 /* PhotoContentViewController.xib */,
 			);
 			path = PromptContent;
 			sourceTree = "<group>";
@@ -373,6 +405,7 @@
 				30934FAE22EC0558007C4E6C /* ReflectionResponseService.swift */,
 				3023FE2F22ECD0A300F753A7 /* NotificationService.swift */,
 				30BF2E0A232816CC00A49EB6 /* PromptContentService.swift */,
+				305B1867233178A8003E1561 /* ImageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -415,6 +448,7 @@
 				30C49D3322EC299300A2EA95 /* ViewExtensions.swift */,
 				30BF2E10232822E600A49EB6 /* FirebaseExtensions.swift */,
 				30BF2E2E2328A8AD00A49EB6 /* ViewControllerExtensions.swift */,
+				305B186A23319A72003E1561 /* ImageExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -426,6 +460,8 @@
 				5F7497B6D87D04BF0ED03305 /* Pods-Cactus Prod.release.xcconfig */,
 				4367361CF4B35F9E8F97DC27 /* Pods-Cactus Stage.debug.xcconfig */,
 				74F3C20610CFC85363610D59 /* Pods-Cactus Stage.release.xcconfig */,
+				DCC1E9602C00EDA73D829630 /* Pods-Cactus UnitTests.debug.xcconfig */,
+				AA14FEC6B72B3AE2B74A1CAA /* Pods-Cactus UnitTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -437,15 +473,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 303BF748232A986A00164539 /* Build configuration list for PBXNativeTarget "Cactus UnitTests" */;
 			buildPhases = (
+				A9FA509078B3FBDA6C659252 /* [CP] Check Pods Manifest.lock */,
 				303BF73D232A986A00164539 /* Sources */,
 				303BF73E232A986A00164539 /* Frameworks */,
 				303BF73F232A986A00164539 /* Resources */,
+				69DDC115566BE31F7F7A3E59 /* [CP] Embed Pods Frameworks */,
+				F5DFEBD28AB989B1FE0833B3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				303BF74C232ABA7F00164539 /* PBXTargetDependency */,
-				303BF747232A986A00164539 /* PBXTargetDependency */,
 			);
 			name = "Cactus UnitTests";
 			productName = "Cactus UnitTests";
@@ -567,6 +605,7 @@
 				30A281E222EA61A30041158E /* SharedAssets.xcassets in Resources */,
 				30BF2E2D23289F9F00A49EB6 /* TextContentViewController.xib in Resources */,
 				3095619A22ECF1CD009357BD /* GoogleService-Info.plist in Resources */,
+				305B1866233175DC003E1561 /* PhotoContentViewController.xib in Resources */,
 				30A281F022EA62650041158E /* LaunchScreen.storyboard in Resources */,
 				30A281E322EA61A30041158E /* Main.storyboard in Resources */,
 				303BF753232D289A00164539 /* QuoteContentViewController.xib in Resources */,
@@ -585,6 +624,7 @@
 				30B6EA7822EA5AA100443E46 /* SharedAssets.xcassets in Resources */,
 				30B6EA7622EA5A9F00443E46 /* Main.storyboard in Resources */,
 				30A266DA2329BB73003C708E /* config.yml in Resources */,
+				305B1865233175DC003E1561 /* PhotoContentViewController.xib in Resources */,
 				303BF752232D289A00164539 /* QuoteContentViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -673,12 +713,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAnonymousAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseEmailAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseFacebookAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebasePhoneAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS11.0/FirebaseAnonymousAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS11.0/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS11.0/FirebaseEmailAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS11.0/FirebaseFacebookAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS11.0/FirebaseGoogleAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS11.0/FirebasePhoneAuthUI.bundle",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -696,6 +736,66 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		69DDC115566BE31F7F7A3E59 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cactus UnitTests/Pods-Cactus UnitTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire-iOS12.4/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AppAuth-iOS12.4/AppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC-iOS12.4/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/Cloudinary-iOS12.4/Cloudinary.framework",
+				"${BUILT_PRODUCTS_DIR}/CodableFirebase-iOS12.4/CodableFirebase.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit-iOS12.4/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit-iOS12.4/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMAppAuth-iOS12.4/GTMAppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher-iOS12.4/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac-iOS12.4/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS12.4/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/MarkdownKit-iOS12.4/MarkdownKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf-iOS12.4/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage-iOS12.4/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Sentry-iOS12.4/Sentry.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyGif-iOS12.4/SwiftyGif.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++-iOS12.4/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core-iOS12.4/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library-iOS12.4/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb-iOS12.4/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cloudinary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMAppAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarkdownKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sentry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyGif.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cactus UnitTests/Pods-Cactus UnitTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		94E6ABEF1163C08E11A34C1D /* [CP] Check Pods Manifest.lock */ = {
@@ -729,25 +829,26 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/Cloudinary/Cloudinary.framework",
-				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/MarkdownKit/MarkdownKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/Sentry/Sentry.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire-iOS11.0/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AppAuth-iOS11.0/AppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC-iOS11.0/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/Cloudinary-iOS11.0/Cloudinary.framework",
+				"${BUILT_PRODUCTS_DIR}/CodableFirebase-iOS11.0/CodableFirebase.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit-iOS11.0/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit-iOS11.0/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMAppAuth-iOS11.0/GTMAppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher-iOS11.0/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac-iOS11.0/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS11.0/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/MarkdownKit-iOS11.0/MarkdownKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf-iOS11.0/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage-iOS11.0/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Sentry-iOS11.0/Sentry.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyGif-iOS11.0/SwiftyGif.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++-iOS11.0/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core-iOS11.0/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library-iOS11.0/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb-iOS11.0/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -768,6 +869,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sentry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyGif.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -776,6 +878,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9FA509078B3FBDA6C659252 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cactus UnitTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DA5DF682C8A5FDF934F3ADC4 /* [CP] Check Pods Manifest.lock */ = {
@@ -809,25 +933,26 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/Cloudinary/Cloudinary.framework",
-				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/MarkdownKit/MarkdownKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/Sentry/Sentry.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire-iOS11.0/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AppAuth-iOS11.0/AppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC-iOS11.0/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/Cloudinary-iOS11.0/Cloudinary.framework",
+				"${BUILT_PRODUCTS_DIR}/CodableFirebase-iOS11.0/CodableFirebase.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit-iOS11.0/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit-iOS11.0/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMAppAuth-iOS11.0/GTMAppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher-iOS11.0/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac-iOS11.0/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS11.0/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/MarkdownKit-iOS11.0/MarkdownKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf-iOS11.0/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage-iOS11.0/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Sentry-iOS11.0/Sentry.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyGif-iOS11.0/SwiftyGif.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++-iOS11.0/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core-iOS11.0/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library-iOS11.0/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb-iOS11.0/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -848,6 +973,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sentry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyGif.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -856,6 +982,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5DFEBD28AB989B1FE0833B3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cactus UnitTests/Pods-Cactus UnitTests-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS12.4/FirebaseAnonymousAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS12.4/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS12.4/FirebaseEmailAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS12.4/FirebaseFacebookAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS12.4/FirebaseGoogleAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS12.4/FirebasePhoneAuthUI.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAnonymousAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseEmailAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseFacebookAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebasePhoneAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cactus UnitTests/Pods-Cactus UnitTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F6AF55A24C38A4812F1A7688 /* [CP] Copy Pods Resources */ = {
@@ -867,12 +1027,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAnonymousAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseEmailAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseFacebookAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebasePhoneAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS11.0/FirebaseAnonymousAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS11.0/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS11.0/FirebaseEmailAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS11.0/FirebaseFacebookAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS11.0/FirebaseGoogleAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS11.0/FirebasePhoneAuthUI.bundle",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -899,7 +1059,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				305B187C2331A906003E1561 /* ReflectionResponse.swift in Sources */,
+				305B18752331A8F5003E1561 /* CactusColor.swift in Sources */,
+				305B187A2331A906003E1561 /* PromptContent.swift in Sources */,
+				305B18722331A843003E1561 /* FileUtils.swift in Sources */,
+				305B18762331A906003E1561 /* BaseModel.swift in Sources */,
 				303BF744232A986A00164539 /* CactusUnitTests.swift in Sources */,
+				305B187D2331A906003E1561 /* MailchimpModels.swift in Sources */,
+				305B18742331A8F0003E1561 /* MarkdownUtil.swift in Sources */,
+				305B18732331A8E8003E1561 /* FormatUtils.swift in Sources */,
+				305B187123319F42003E1561 /* FileUtilsTest.swift in Sources */,
+				305B18772331A906003E1561 /* FlamelinkTypes.swift in Sources */,
+				305B18782331A906003E1561 /* CactusMember.swift in Sources */,
+				305B187B2331A906003E1561 /* ReflectionPrompt.swift in Sources */,
+				305B18792331A906003E1561 /* SentPrompt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -918,10 +1091,12 @@
 				3023FE3122ECD0A300F753A7 /* NotificationService.swift in Sources */,
 				30E9B0AD22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
 				30934FA022EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift in Sources */,
+				305B186F23319E09003E1561 /* FileUtils.swift in Sources */,
 				30934F9A22EBF235007C4E6C /* BorderedButton.swift in Sources */,
 				3023FE3622ECF0AE00F753A7 /* CactusColor.swift in Sources */,
 				30934FAD22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */,
 				30A281DA22EA61A30041158E /* JournalEntryDetailViewController.swift in Sources */,
+				305B186C23319A72003E1561 /* ImageExtensions.swift in Sources */,
 				30BF2E332328C7AD00A49EB6 /* MarkdownTypes.swift in Sources */,
 				30934FA422EBF4E6007C4E6C /* FormatUtils.swift in Sources */,
 				30E9B0B422EADE2D005B25FD /* CGExtensions.swift in Sources */,
@@ -938,6 +1113,7 @@
 				3023FE2E22ECB47800F753A7 /* MemberProfileViewController.swift in Sources */,
 				30E9B09A22EA6A81005B25FD /* BaseModel.swift in Sources */,
 				30BF2E302328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */,
+				305B1864233175DC003E1561 /* PhotoContentViewController.swift in Sources */,
 				30934F9722EBF146007C4E6C /* RoundedButton.swift in Sources */,
 				3023FE3422ECF06E00F753A7 /* MailchimpModels.swift in Sources */,
 				30BF2E1623282BDA00A49EB6 /* FlamelinkService.swift in Sources */,
@@ -947,6 +1123,7 @@
 				30E9B0B822EADF75005B25FD /* HomeViewController.swift in Sources */,
 				30E9B0B022EADD04005B25FD /* LoginViewController.swift in Sources */,
 				30BF2E342328D91B00A49EB6 /* PromptContent.swift in Sources */,
+				305B1869233178A8003E1561 /* ImageService.swift in Sources */,
 				30934F9322EBE7DF007C4E6C /* JournalFeedCollectionViewController.swift in Sources */,
 				30E9B0BB22EAF153005B25FD /* SentPrompt.swift in Sources */,
 			);
@@ -967,10 +1144,12 @@
 				30934F9922EBF235007C4E6C /* BorderedButton.swift in Sources */,
 				30934FAC22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */,
 				30B6EA7322EA5A9F00443E46 /* JournalEntryDetailViewController.swift in Sources */,
+				305B186E23319E09003E1561 /* FileUtils.swift in Sources */,
 				30934FA322EBF4E6007C4E6C /* FormatUtils.swift in Sources */,
 				30BF2E0D2328171200A49EB6 /* PromptContent.swift in Sources */,
 				30E9B0B322EADE2D005B25FD /* CGExtensions.swift in Sources */,
 				30BF2E1823289D1200A49EB6 /* PromptContentPageViewController.swift in Sources */,
+				305B186B23319A72003E1561 /* ImageExtensions.swift in Sources */,
 				30E9B0BD22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
 				30BF2E2F2328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */,
 				30BF2E0F23281CAA00A49EB6 /* FlamelinkTypes.swift in Sources */,
@@ -987,6 +1166,7 @@
 				30E9B09D22EA7FC3005B25FD /* CactusMember.swift in Sources */,
 				30E9B0A322EAC204005B25FD /* AuthService.swift in Sources */,
 				30B6EA6F22EA5A9F00443E46 /* AppDelegate.swift in Sources */,
+				305B1863233175DC003E1561 /* PhotoContentViewController.swift in Sources */,
 				30BF2E322328C7AD00A49EB6 /* MarkdownTypes.swift in Sources */,
 				308446F122ECAE0100FB0683 /* MailchimpModels.swift in Sources */,
 				30934F9622EBF146007C4E6C /* RoundedButton.swift in Sources */,
@@ -996,6 +1176,7 @@
 				30E9B0AF22EADD04005B25FD /* LoginViewController.swift in Sources */,
 				30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */,
 				30BF2E14232824AB00A49EB6 /* FlamelinkService.swift in Sources */,
+				305B1868233178A8003E1561 /* ImageService.swift in Sources */,
 				3023FE3022ECD0A300F753A7 /* NotificationService.swift in Sources */,
 				30E9B0BA22EAF153005B25FD /* SentPrompt.swift in Sources */,
 			);
@@ -1004,11 +1185,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		303BF747232A986A00164539 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 30A281D722EA61A30041158E /* Cactus Prod */;
-			targetProxy = 303BF746232A986A00164539 /* PBXContainerItemProxy */;
-		};
 		303BF74C232ABA7F00164539 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 30B6EA6A22EA5A9F00443E46 /* Cactus Stage */;
@@ -1038,10 +1214,12 @@
 /* Begin XCBuildConfiguration section */
 		303BF749232A986A00164539 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCC1E9602C00EDA73D829630 /* Pods-Cactus UnitTests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
+				HEADER_SEARCH_PATHS = "${PODS_ROOT}/Firebase/Core/Sources";
 				INFOPLIST_FILE = "Cactus UnitTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1058,9 +1236,11 @@
 		};
 		303BF74A232A986A00164539 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA14FEC6B72B3AE2B74A1CAA /* Pods-Cactus UnitTests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
+				HEADER_SEARCH_PATHS = "${PODS_ROOT}/Firebase/Core/Sources";
 				INFOPLIST_FILE = "Cactus UnitTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1157,6 +1337,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1218,6 +1399,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1246,6 +1428,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cactus Stage.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Cactus/ConfigStage/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1269,7 +1452,9 @@
 				CODE_SIGN_ENTITLEMENTS = "Cactus Stage.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
+				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Cactus/ConfigStage/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

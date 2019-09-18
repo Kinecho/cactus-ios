@@ -26,7 +26,19 @@ struct FormatUtils {
             dateString = df.string(from: date)
         }
         return dateString
-    }        
+    }
+    
+    static func isBlank(_ input: String?) -> Bool {
+        guard let input = input else {
+            return true
+        }
+        
+        if input.isEmpty {
+            return true
+        }
+        
+        return false
+    }
 }
 
 struct FontSize {

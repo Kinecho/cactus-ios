@@ -29,7 +29,7 @@ public class MarkdownUtil {
     }
     
     static func centeredMarkdown(_ input: String?, font: UIFont = CactusFont.normal) -> NSAttributedString? {
-        guard let md = MarkdownUtil.toMarkdown(input)  else {
+        guard let md = MarkdownUtil.toMarkdown(input, font: font)  else {
             return nil
         }        
         return MarkdownUtil.centered(md)

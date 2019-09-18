@@ -12,6 +12,7 @@ class QuoteContentViewController: UIViewController {
     @IBOutlet weak var quoteText: UITextView!
     @IBOutlet weak var authorNameText: UILabel!
     @IBOutlet weak var authorTitle: UILabel!
+    @IBOutlet weak var avatarImageView: UIImageView!
     
     var content: Content!
     var promptContent: PromptContent!
@@ -30,6 +31,9 @@ class QuoteContentViewController: UIViewController {
             }
             self.authorNameText.text = quote.authorName
             self.authorTitle.text = quote.authorTitle
+            
+            
+            ImageService.shared.setPhoto(self.avatarImageView, photo: quote.authorAvatar)
             
         } else {
             self.quoteText.text = nil

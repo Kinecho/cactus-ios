@@ -18,6 +18,7 @@ def app_pods
   pod 'MarkdownKit'
   pod 'Cloudinary', '~> 2.0'
   pod 'SwiftLint'
+  pod 'SwiftyGif'
 end
 
 
@@ -35,5 +36,11 @@ target 'Cactus Prod' do
   use_frameworks!
   inhibit_all_warnings!
 
+  app_pods
+end
+
+target 'Cactus UnitTests' do
+  use_frameworks!
+  inhibit_all_warnings!
   app_pods
 end

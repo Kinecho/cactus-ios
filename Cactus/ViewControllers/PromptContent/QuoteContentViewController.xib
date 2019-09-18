@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="authorNameText" destination="ges-Vi-yiQ" id="hXO-dy-N9i"/>
                 <outlet property="authorTitle" destination="ESs-3R-TcD" id="P2I-fk-J6m"/>
+                <outlet property="avatarImageView" destination="fQk-Kf-hA6" id="0qx-Ko-dQQ"/>
                 <outlet property="quoteText" destination="UuU-rg-2RG" id="6j7-ha-aDS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -33,15 +34,22 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ges-Vi-yiQ">
-                    <rect key="frame" x="30" y="264" width="354" height="21"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fQk-Kf-hA6">
+                    <rect key="frame" x="167" y="254" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="obC-35-e7u"/>
+                        <constraint firstAttribute="width" constant="80" id="qR6-Aa-xMd"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="author title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ESs-3R-TcD">
+                    <rect key="frame" x="30" y="385" width="354" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="author title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ESs-3R-TcD">
-                    <rect key="frame" x="30" y="295" width="354" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ges-Vi-yiQ">
+                    <rect key="frame" x="30" y="354" width="354" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -51,12 +59,14 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ges-Vi-yiQ" secondAttribute="trailing" constant="30" id="8Zl-8q-0Zn"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UuU-rg-2RG" secondAttribute="trailing" constant="30" id="Ayi-bh-spu"/>
                 <constraint firstItem="UuU-rg-2RG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="E4L-0S-htu"/>
+                <constraint firstItem="fQk-Kf-hA6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="G1D-wE-Hzl"/>
                 <constraint firstItem="ESs-3R-TcD" firstAttribute="top" secondItem="ges-Vi-yiQ" secondAttribute="bottom" constant="10" id="MVN-Te-vKR"/>
-                <constraint firstItem="ges-Vi-yiQ" firstAttribute="top" secondItem="UuU-rg-2RG" secondAttribute="bottom" constant="50" id="SNz-LI-VDA"/>
                 <constraint firstItem="ges-Vi-yiQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="URE-0A-1ky"/>
                 <constraint firstItem="ESs-3R-TcD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="WGf-D7-h78"/>
+                <constraint firstItem="fQk-Kf-hA6" firstAttribute="bottom" secondItem="ges-Vi-yiQ" secondAttribute="top" constant="-20" id="dzu-vd-xeS"/>
                 <constraint firstItem="UuU-rg-2RG" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="hRf-pc-Oow"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ESs-3R-TcD" secondAttribute="trailing" constant="30" id="laO-1a-ynS"/>
+                <constraint firstItem="fQk-Kf-hA6" firstAttribute="top" secondItem="UuU-rg-2RG" secondAttribute="bottom" constant="40" id="lsE-Fd-vX1"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="47.826086956521742" y="67.633928571428569"/>

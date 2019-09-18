@@ -43,7 +43,7 @@ class PromptContentPageViewController: UIPageViewController {
             setViewControllers([firstVC], direction: .forward, animated: false, completion: nil)
         }
         self.configurePageControl()
-    }
+    }        
     
     func getContentViewController(_ content: Content) -> UIViewController? {
         var viewController: UIViewController?
@@ -60,6 +60,12 @@ class PromptContentPageViewController: UIPageViewController {
             quoteViewController.content = content
             quoteViewController.promptContent = promptContent
             viewController = quoteViewController
+        case .photo:
+            print("Setting up photo view controller")
+            let photoViewController = PhotoContentViewController.loadFromNib()
+            photoViewController.content = content
+            photoViewController.promptContent = promptContent
+            viewController = photoViewController
         default:
             print("PromptContentPageViewController: ContentType not handled: \(content.contentType)")
         }

@@ -54,4 +54,20 @@ class AudioFile: FlamelinkFile {
 class ImageFile: FlamelinkFile {
     var url: String?
     var storageUrl: String?
+    
+    
+    enum ImageCodingKeys: String, CodingKey {
+        case fileIds
+        case url
+        case storageUrl
+    }
+    
+    
+    public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+        let container = try decoder.container(keyedBy: ImageCodingKeys.self)
+        self.url = try? container.decode(String.self, forKey: ImageCodingKeys.url)
+        self.storageUrl = try? container.decode(String.self, forKey: ImageCodingKeys.storageUrl)
+    }
+    
 }

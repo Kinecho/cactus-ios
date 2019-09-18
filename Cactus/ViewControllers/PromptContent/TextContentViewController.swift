@@ -14,6 +14,7 @@ class TextContentViewController: UIViewController {
     var content: Content!
     var promptContent: PromptContent!
     
+    @IBOutlet weak var backgroundImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,7 +32,9 @@ class TextContentViewController: UIViewController {
         
         if let mdText = MarkdownUtil.centeredMarkdown(textString, font: CactusFont.large) {
             self.text.attributedText = mdText
-        }                       
+        }
+        
+        self.backgroundImageView.setImageFile(self.content.backgroundImage)
     }
 
     /*
