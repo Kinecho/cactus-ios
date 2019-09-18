@@ -16,9 +16,9 @@ or alternatively using `brew cask install fastlane`
 
 # Available Actions
 ## iOS
-### ios key_test
+### ios version_bump
 ```
-fastlane ios key_test
+fastlane ios version_bump
 ```
 
 ### ios beta
