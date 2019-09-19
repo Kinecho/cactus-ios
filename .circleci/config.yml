@@ -93,8 +93,9 @@ jobs:
     executor: cactus-ios
     steps: 
       - checkout      
-      - install-ruby
-      - restore-pods-cache
+      - install
+      # - install-ruby
+      # - restore-pods-cache
       - add_ssh_keys:
           name: "Add Fastlane Match SSH Key"
           fingerprints:

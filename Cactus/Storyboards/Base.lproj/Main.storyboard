@@ -344,6 +344,99 @@
                                     <segue destination="JEX-9P-axG" kind="show" identifier="JournalEntryDetail" id="tsx-Vm-3Jh"/>
                                 </connections>
                             </collectionViewCell>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="JournalEntryCell" id="1kd-uC-zxB" customClass="JournalEntryCollectionViewCell" customModule="Cactus_Prod" customModuleProvider="target">
+                                <rect key="frame" x="12" y="0.0" width="390" height="220"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="220"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="May 14, 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vnp-wF-H3L">
+                                            <rect key="frame" x="24" y="24" width="102" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" name="GreenDarkest"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What makes you feel happy each morning when you wake up?" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nw3-bl-hDo">
+                                            <rect key="frame" x="20" y="63" width="346" height="41"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" name="GreenDarkest"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9o-Bh-EaK">
+                                            <rect key="frame" x="24" y="114" width="342" height="81.5"/>
+                                            <string key="text">This is my really great and awesoem answer that kinda keeps giong and going like the energizer bunny. But what if it was even more, still? What woudl we do then? I guess we'd have to keep updating until it works...</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" name="GreenDarkest"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2p-YK-kqm" customClass="BorderedButton" customModule="Cactus_Prod" customModuleProvider="target">
+                                            <rect key="frame" x="336" y="16.5" width="36" height="36"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="36" id="6le-sk-qbC"/>
+                                                <constraint firstAttribute="width" constant="36" id="7kZ-Uz-W9v"/>
+                                            </constraints>
+                                            <color key="tintColor" name="GreenDark"/>
+                                            <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
+                                            <state key="normal" title=". . ."/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
+                                                    <integer key="value" value="18"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" name="GreenLight"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="moreButtonTapped:" destination="1kd-uC-zxB" eventType="primaryActionTriggered" id="L7l-jU-0RS"/>
+                                            </connections>
+                                        </button>
+                                        <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="V5w-JS-nE7">
+                                            <rect key="frame" x="24" y="116" width="342" height="92"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                </view>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="nw3-bl-hDo" secondAttribute="trailing" constant="24" id="0UC-UF-5aY"/>
+                                    <constraint firstItem="e2p-YK-kqm" firstAttribute="centerY" secondItem="Vnp-wF-H3L" secondAttribute="centerY" id="12N-vf-Kxi"/>
+                                    <constraint firstAttribute="trailing" secondItem="o9o-Bh-EaK" secondAttribute="trailing" constant="24" id="A9D-ap-w3d"/>
+                                    <constraint firstItem="e2p-YK-kqm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Vnp-wF-H3L" secondAttribute="trailing" constant="24" id="Ibz-TX-3cy"/>
+                                    <constraint firstItem="nw3-bl-hDo" firstAttribute="top" secondItem="Vnp-wF-H3L" secondAttribute="bottom" constant="18" id="M6f-qe-Ctl"/>
+                                    <constraint firstItem="V5w-JS-nE7" firstAttribute="leading" secondItem="1kd-uC-zxB" secondAttribute="leading" constant="24" id="Pdh-W1-Sm4"/>
+                                    <constraint firstAttribute="trailing" secondItem="V5w-JS-nE7" secondAttribute="trailing" constant="24" id="RJ5-WI-xVK"/>
+                                    <constraint firstItem="Vnp-wF-H3L" firstAttribute="top" secondItem="1kd-uC-zxB" secondAttribute="top" constant="24" id="VsT-Lf-e6E"/>
+                                    <constraint firstItem="o9o-Bh-EaK" firstAttribute="top" secondItem="nw3-bl-hDo" secondAttribute="bottom" constant="10" id="ZS6-oi-UQL"/>
+                                    <constraint firstItem="Vnp-wF-H3L" firstAttribute="leading" secondItem="1kd-uC-zxB" secondAttribute="leading" constant="24" id="cxD-S9-17A"/>
+                                    <constraint firstItem="nw3-bl-hDo" firstAttribute="leading" secondItem="1kd-uC-zxB" secondAttribute="leading" constant="20" id="jaA-Th-IkB"/>
+                                    <constraint firstItem="V5w-JS-nE7" firstAttribute="top" secondItem="nw3-bl-hDo" secondAttribute="bottom" constant="12" id="oEX-CS-4kH"/>
+                                    <constraint firstAttribute="bottom" secondItem="V5w-JS-nE7" secondAttribute="bottom" constant="12" id="p6q-Hd-BY2"/>
+                                    <constraint firstAttribute="trailing" secondItem="e2p-YK-kqm" secondAttribute="trailing" constant="18" id="u1a-Qe-o79"/>
+                                    <constraint firstItem="o9o-Bh-EaK" firstAttribute="leading" secondItem="1kd-uC-zxB" secondAttribute="leading" constant="24" id="xcI-y2-7Q7"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="o9o-Bh-EaK" secondAttribute="bottom" constant="24" id="xcu-LA-Dny"/>
+                                </constraints>
+                                <size key="customSize" width="390" height="220"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="dateLabel" destination="Vnp-wF-H3L" id="RBE-ra-NtV"/>
+                                    <outlet property="editTextView" destination="V5w-JS-nE7" id="JMZ-KO-5x1"/>
+                                    <outlet property="moreButton" destination="e2p-YK-kqm" id="4sM-lK-Vx7"/>
+                                    <outlet property="questionLabel" destination="nw3-bl-hDo" id="Q6m-fz-Awx"/>
+                                    <outlet property="responseLabel" destination="o9o-Bh-EaK" id="TjQ-Cw-uVa"/>
+                                </connections>
+                            </collectionViewCell>
                         </cells>
                         <connections>
                             <outlet property="dataSource" destination="GWJ-to-hjF" id="TUj-4B-lxt"/>
