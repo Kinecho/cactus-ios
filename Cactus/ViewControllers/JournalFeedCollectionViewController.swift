@@ -30,7 +30,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     var currentMember: CactusMember?
     
     private let itemsPerRow: CGFloat = 1
-    private let reuseIdentifier = "JournalEntryCell"
+    private let reuseIdentifier = ReuseIdentifier.JournalEntryCell.rawValue
     private let sectionInsets = UIEdgeInsets(top: 15.0,
                                              left: 20.0,
                                              bottom: 15.0,

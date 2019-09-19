@@ -22,6 +22,10 @@ enum ScreenID: String {
     }
 }
 
+enum ReuseIdentifier: String {
+    case JournalEntryCell
+}
+
 enum NibName: String {
     case TextContent = "TextContentViewController"
 
