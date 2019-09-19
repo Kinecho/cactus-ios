@@ -15,7 +15,7 @@ commands:
     steps: 
       - restore_cache:
           name: "Restore Pods Cache"
-          key: 1-pods-{{ checksum "Podfile.lock" }}
+          key: 2-pods-{{ checksum "Podfile.lock" }}
   restore-caches:
     steps:
       - restore-pods-cache
@@ -47,7 +47,7 @@ commands:
           command: bundle exec pod install --verbose
       - save_cache:
           name: "Save Pods Cache"
-          key: 1-pods-{{ checksum "Podfile.lock" }}
+          key: 2-pods-{{ checksum "Podfile.lock" }}
           paths:
             - Pods
   install: 
