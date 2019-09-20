@@ -17,7 +17,7 @@ aliases:
   - &match-ssh-fingerprint "4b:a2:6f:21:f5:6a:c2:26:05:b4:10:29:01:17:7c:51"
   - &cactus-ios-read-write-fingerprint "ca:4b:99:13:a3:ba:7c:8e:9b:2a:f5:2a:e9:95:9e:a8"
   - &webhook-url
-      webhook: "${SLACK_URL}"
+      webhook: "${SLACK_ENGINEERING_APPS_CI_URL}"
 
 commands:  
   get-repo-link:
