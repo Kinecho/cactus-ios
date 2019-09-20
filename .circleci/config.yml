@@ -222,7 +222,9 @@ workflows:
   version: 2.1
   build-and-test:
     jobs:
-      - notify-branch-workflow-started
+      - notify-branch-workflow-started:
+          name: &workflow_name iOS Branch Pipeline
+          workflow_name: *workflow_name
       - build-and-test
       # - testflight_approval:
       #     type: approval
