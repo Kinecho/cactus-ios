@@ -42,5 +42,5 @@ end
 target 'Cactus UnitTests' do
   use_frameworks!
   inhibit_all_warnings!
-  # app_pods
+  app_pods  
 end
