@@ -66,6 +66,8 @@
 		<string>https://cactusstage.page.link</string>
 		<string>https://cactusstage.page.link</string>
 	</array>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>

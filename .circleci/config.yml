@@ -1,5 +1,7 @@
 # .circleci/config.yml
 version: 2.1
+orbs:
+  slack: circleci/slack@3.2.0 #https://github.com/CircleCI-Public/slack-orb
 executors: 
   cactus-ios: 
     working_directory: /Users/distiller/project
@@ -10,6 +12,9 @@ executors:
 aliases: 
   - &match-ssh-fingerprint "4b:a2:6f:21:f5:6a:c2:26:05:b4:10:29:01:17:7c:51"
   - &cactus-ios-read-write-fingerprint "ca:4b:99:13:a3:ba:7c:8e:9b:2a:f5:2a:e9:95:9e:a8"
+  - &webhook-url
+      webhook: "${SLACK_URL}"
+
 commands:
   restore-pods-cache: 
     steps: 
@@ -41,15 +46,15 @@ commands:
           name: Fetch CocoaPods Specs
           command: |
             curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
-      - restore-pods-cache
+      # - restore-pods-cache
       - run:
           name: "Install CocoaPods"
           command: bundle exec pod install --verbose
-      - save_cache:
-          name: "Save Pods Cache"
-          key: 2-pods-{{ checksum "Podfile.lock" }}
-          paths:
-            - Pods
+      # - save_cache:
+      #     name: "Save Pods Cache"
+      #     key: 2-pods-{{ checksum "Podfile.lock" }}
+      #     paths:
+      #       - Pods
   install: 
     steps:       
       - install-ruby
@@ -81,6 +86,25 @@ jobs:
       - run:
           name: "Print files in directory"
           command: ls -la 
+      - add_ssh_keys:
+          name: "Add Fastlane Match SSH Key"
+          fingerprints:
+            - *match-ssh-fingerprint
+            - *cactus-ios-read-write-fingerprint
+      - run:
+          name: Deploy to TestFlight
+          command: bundle exec fastlane beta                
+      - run:
+          name: "Fastlane Version Bump"
+          command: bundle exec fastlane version_bump
+      - slack/notify:
+          <<: *webhook-url
+          color: 'good'
+          include_job_number_field: false
+          include_visit_job_action: false
+          include_project_field: false
+          ts: "$(date +%s)"
+          message: "A new iOS build has been uploaded to testflight. <https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID|View CI workflow>"          
       - store_test_results:
           path: reports
       - store_artifacts:
@@ -88,7 +112,7 @@ jobs:
       - store_test_results:
           path: fl_output/scan
       - store_artifacts:
-          path: fl_output            
+          path: fl_output      
   testflight-upload: 
     executor: cactus-ios
     steps: 
@@ -106,9 +130,18 @@ jobs:
           command: bundle exec fastlane beta                
       - store_artifacts:
           path: fl_output
+      - slack/notify:
+          <<: *webhook-url
+          color: 'good'
+          include_job_number_field: false
+          include_visit_job_action: false
+          include_project_field: false
+          ts: "$(date +%s)"
+          message: "A new iOS build has been uploaded to testflight. <https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID|View CI workflow>"
   testflight-finalize-release: 
     executor: cactus-ios
     steps: 
+      - checkout
       - install-ruby
       - add_ssh_keys:
           fingerprints:
@@ -140,20 +173,20 @@ workflows:
           name: &testflight_approval_name "TestFlight Approval"
           requires: 
             - build-and-test
-      - version-bump:
-          name: &version_bump_name "Bump Build Version"
-          requires: 
-            - *testflight_approval_name
-      - testflight-upload:
-          name: &testflight_name "Deploy to Testflight"
-          requires: 
-            - *testflight_approval_name      
-            - *version_bump_name
+      # - version-bump:
+      #     name: &version_bump_name "Bump Build Version"
+      #     requires: 
+      #       - *testflight_approval_name
+      # - testflight-upload:
+      #     name: &testflight_name "Deploy to Testflight"
+      #     requires: 
+      #       - *testflight_approval_name      
+      #       - *version_bump_name
       - finalize-release-approval: 
           type: approval
-          name: &finalize-release-approval "Finalze Release"
+          name: &finalize-release-approval "Finalize Release - Build finished Processing"
           requires: 
-            - *testflight_name
+            - build-and-test
       - testflight-finalize-release:
           name: "Upload Symbols to Sentry & Create Release"
           requires: 
