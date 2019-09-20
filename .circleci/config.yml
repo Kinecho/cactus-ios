@@ -16,6 +16,44 @@ aliases:
       webhook: "${SLACK_URL}"
 
 commands:
+  notify-branch-workflow-started:
+    description: "Notify slack that a branch workflow has started and provide a link"
+    resource_class: small
+    parameters:
+      workflow_name:
+        type: string
+        default: "DEFAULT"
+        description: "The message to send to slack"
+    executor: cactus-web
+    steps:
+      - get-repo-link
+      - slack/notify:
+          <<: *webhook-engineering-ci
+          include_job_number_field: false
+          include_visit_job_action: false
+          include_project_field: false
+          color: "#d8d8d8"
+          ts: "$(date +%s)"
+          message: ":building_construction: Starting workflow <https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID| << parameters.workflow_name >> > \nBranch \\`${CIRCLE_BRANCH}\\`\n$(cat .slack_git_url.txt)"
+  notify-branch-workflow-finished:
+    description: "Notify slack that a branch workflow has finished and provide a link"
+    parameters:
+      workflow_name:
+        type: string
+        default: "DEFAULT"
+        description: "The message to send to slack"
+    executor: cactus-web
+    resource_class: small
+    steps:
+      - get-repo-link
+      - slack/notify:
+          <<: *webhook-engineering-ci
+          color: "good"
+          include_job_number_field: false
+          include_visit_job_action: false
+          include_project_field: false
+          ts: "$(date +%s)"
+          message: ":white_check_mark: \\`${CIRCLE_BRANCH}\\` <https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID| << parameters.workflow_name >> > completed successfully.\n$(cat .slack_git_url.txt)"
   restore-pods-cache: 
     steps: 
       - restore_cache:
@@ -167,6 +205,7 @@ workflows:
   version: 2.1
   build-and-test:
     jobs:
+      - notify-branch-workflow-finished
       - build-and-test
       - testflight_approval:
           type: approval
