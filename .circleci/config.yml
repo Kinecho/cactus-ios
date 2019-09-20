@@ -222,13 +222,13 @@ workflows:
   version: 2.1
   build-and-test:
     jobs:
-      - notify-branch-workflow-finished
+      - notify-branch-workflow-started
       - build-and-test
-      - testflight_approval:
-          type: approval
-          name: &testflight_approval_name "TestFlight Approval"
-          requires: 
-            - build-and-test
+      # - testflight_approval:
+      #     type: approval
+      #     name: &testflight_approval_name "TestFlight Approval"
+      #     requires: 
+      #       - build-and-test
       # - version-bump:
       #     name: &version_bump_name "Bump Build Version"
       #     requires: 
@@ -244,9 +244,13 @@ workflows:
           requires: 
             - build-and-test
       - testflight-finalize-release:
-          name: "Upload Symbols to Sentry & Create Release"
+          name: &finalize_name "Upload Symbols to Sentry & Create Release"
           requires: 
             - *finalize-release-approval
+      - notify-branch-workflow-finished:
+          requires:
+            - *finalize_name
+
 
 
 
