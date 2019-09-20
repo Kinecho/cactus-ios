@@ -24,10 +24,10 @@ class RoundedButton: UIButton {
         sharedInit()
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        //        self.sharedInit()
-    }
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//        //        self.sharedInit()
+//    }
     
     @IBInspectable var imageWidth: CGFloat = 25
     @IBInspectable var imageHeight: CGFloat = 25

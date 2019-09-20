@@ -15,7 +15,7 @@ class ReflectContentViewController: UIViewController {
     var content: Content!
     var promptContent: PromptContent!
     
-    @IBOutlet weak var doneButton: RoundedButton!
+    var doneButton: RoundedButton!
     var reflectionResponse: ReflectionResponse?
     
 //    @IBOutlet weak var inputToolbar: UIView!

@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 class JournalEntryDetailViewController: UIViewController {
     var sentPrompt: SentPrompt?
     var responses: [ReflectionResponse]?

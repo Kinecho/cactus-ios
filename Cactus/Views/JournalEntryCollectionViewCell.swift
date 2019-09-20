@@ -13,14 +13,14 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var responseLabel: UILabel!
+//    @IBOutlet weak var responseLabel: UILabel!
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var editTextView: UITextView!
-        
+    
     var sentPrompt: SentPrompt?
     var responses: [ReflectionResponse]?
     var prompt: ReflectionPrompt?
-    
+    var promptContent: PromptContent?
     var isEditing = false
     
     @IBAction func moreButtonTapped(_ sender: Any) {
@@ -52,10 +52,12 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     func startEdit() {
         self.isEditing = true
         
-        editTextView.text = responseLabel.text
-        
-        editTextView.isHidden = false
-        responseLabel.isHidden = true
+//        editTextView.text = responseLabel.text
+        editTextView.isEditable = true
+        editTextView.backgroundColor = .white
+        self.editTextView.layer.borderWidth = 1
+//        editTextView.isHidden = false
+//        responseLabel.isHidden = true
 //        editTextView.isFocused = true
         
         let bar = UIToolbar()
@@ -64,6 +66,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         let cancel = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.cancelEdit))
         bar.items = [cancel, spacer, save]
         bar.sizeToFit()
+        
         editTextView.inputAccessoryView = bar
         editTextView.becomeFirstResponder()
         
@@ -76,9 +79,11 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         
         self.contentView.dismissKeyboard()
         
-        responseLabel.text = editTextView.text
-        editTextView.isHidden = true
-        responseLabel.isHidden = false
+//        responseLabel.text = editTextView.text
+//        editTextView.isHidden = true
+        editTextView.isEditable = false
+        self.editTextView.layer.borderWidth = 0
+//        responseLabel.isHidden = false
         self.contentView.backgroundColor = .clear
         var response = self.responses?.first
         if response == nil, let promptId = self.sentPrompt?.promptId {
@@ -116,15 +121,18 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     
     @objc func cancelEdit(_ sender: Any?) {
         self.isEditing = false
-        editTextView.isHidden = true
-        responseLabel.isHidden = false
+        editTextView.isEditable = false
+        editTextView.backgroundColor = .clear
+        self.editTextView.layer.borderWidth = 0
+//        editTextView.isHidden = true
+//        responseLabel.isHidden = false
         self.contentView.backgroundColor = .white
         self.contentView.dismissKeyboard()
         
     }
     
     func updateView() {
-        
+        print("Updating cell view")
         if let sentDate = self.sentPrompt?.firstSentAt {
             let dateString = FormatUtils.formatDate(sentDate)
             self.dateLabel.text = dateString
@@ -136,7 +144,11 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         
         let responseText =  self.responses?.map {$0.content.text ?? ""}.joined(separator: "\n\n")
         
-        self.responseLabel.text = responseText
+        self.editTextView.text = responseText
+        
+        if !(self.promptContent?.content.isEmpty ?? true) {
+//            self.contentView.backgroundColor = CactusColor.lightGreen
+        }
     }
     
     override func prepareForInterfaceBuilder() {
@@ -145,10 +157,12 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        if self.editTextView != nil {
+            self.editTextView.layer.borderColor = CactusColor.borderLight.cgColor
+            self.editTextView.layer.borderWidth = 0
+            self.editTextView.layer.cornerRadius = 6
+        }
         
-        self.editTextView.layer.borderColor = CactusColor.borderLight.cgColor
-        self.editTextView.layer.borderWidth = 1
-        self.editTextView.layer.cornerRadius = 6
         self.layer.borderColor = CactusColor.borderLight.cgColor
         self.layer.borderWidth = 1
 

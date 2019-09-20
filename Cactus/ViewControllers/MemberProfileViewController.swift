@@ -10,6 +10,7 @@ import UIKit
 import FirebaseMessaging
 import Firebase
 
+@IBDesignable
 class MemberProfileViewController: UIViewController {
     
     @IBOutlet weak var emailLabel: UITextView!

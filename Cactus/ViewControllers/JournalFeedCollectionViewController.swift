@@ -20,6 +20,12 @@ struct ResponseData {
     var responses = [ReflectionResponse]()
 }
 
+struct ContentData {
+    var unsubscriber: ListenerRegistration?
+    var promptContent: PromptContent?
+}
+
+@IBDesignable
 class JournalFeedCollectionViewController: UICollectionViewController {
     var promptListener: ListenerRegistration?
     var sentPrompts = [SentPrompt]()
@@ -27,6 +33,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     
     var promptObserversById = [String: PromptData]()
     var responseObserversByPromptId = [String: ResponseData]()
+    var contentObserversByPromptContentEntryId = [String: ContentData]()
     var currentMember: CactusMember?
     
     private let itemsPerRow: CGFloat = 1
@@ -78,6 +85,11 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         }
         self.responseObserversByPromptId.removeAll()
         
+        self.contentObserversByPromptContentEntryId.values.forEach { (observer) in
+            observer.unsubscriber?.remove()
+        }
+        self.contentObserversByPromptContentEntryId.removeAll()
+        
         self.collectionView.reloadData()
     }
     
@@ -97,6 +109,23 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         }
     }
     
+    func setupContentObserver(_ entryId: String, promptId: String) {
+        if (self.contentObserversByPromptContentEntryId[entryId] != nil) {
+            return
+        }
+        
+        var data = ContentData()
+        PromptContentService.sharedInstance.getByEntryId(id: entryId) { (promptContent, error) in
+            if let error = error {
+                print("Failed to fetch prompt content by entryid", error)
+            }
+            
+            data.promptContent = promptContent
+            self.contentObserversByPromptContentEntryId[entryId] = data
+            self.updateForPromptId(promptId)
+        }
+    }
+    
     func setupPromptObserver(_ promptId: String) {
         if self.promptObserversById[promptId] != nil {
             return
@@ -110,6 +139,10 @@ class JournalFeedCollectionViewController: UICollectionViewController {
             data.prompt = prompt
             self.promptObserversById[promptId] = data
             self.updateForPromptId(promptId)
+            
+            if let entryId = data.prompt?.promptContentEntryId {
+                self.setupContentObserver(entryId, promptId: promptId)
+            }
             
         })
     }
@@ -141,8 +174,31 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         self.collectionView.reloadItems(at: [indexPath])
     }
 
+    @IBAction func showPromptContentCards(segue: UIStoryboardSegue) {
+        
+    }
+    
+    @IBAction func showDetail(segue: UIStoryboardSegue) {
+        
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
+        case "PromptContentCards":
+            guard let cell = sender as? JournalEntryCollectionViewCell else {
+                return
+            }
+            
+            if let vc = segue.destination as? PromptContentPageViewController {
+                vc.promptContent = cell.promptContent
+                vc.prompt = cell.prompt
+                var response = cell.responses?.first
+                if response == nil, let prompt = cell.prompt {
+                    response = ReflectionResponseService.sharedInstance.createReflectionResponse(prompt, medium: .PROMPT_IOS)
+                }
+                vc.reflectionResponse = response                
+            }
+            
         case "JournalEntryDetail":
 //            let navWrapper = segue.destination as? UINavigationController
             guard let cell = sender as? JournalEntryCollectionViewCell else {
@@ -152,6 +208,9 @@ class JournalFeedCollectionViewController: UICollectionViewController {
             detailController?.prompt = cell.prompt
             detailController?.responses = cell.responses
             detailController?.sentPrompt = cell.sentPrompt
+            if let contentEntryId = cell.prompt?.promptContentEntryId {
+                detailController?.promptContent = self.contentObserversByPromptContentEntryId[contentEntryId]?.promptContent
+            }
         default:
             break
         }
@@ -178,14 +237,33 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         if let promptId = sentPrompt.promptId {
             journalCell.responses = self.responseObserversByPromptId[promptId]?.responses
             journalCell.prompt = self.promptObserversById[promptId]?.prompt
+            if let contentEntryId = journalCell.prompt?.promptContentEntryId {
+                journalCell.promptContent = self.contentObserversByPromptContentEntryId[contentEntryId]?.promptContent
+            }
+            
         } else {
             journalCell.responses = nil
             journalCell.prompt = nil
+            journalCell.promptContent = nil
         }
         
         journalCell.updateView()
         
         return journalCell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        guard let journalCell = cell as? JournalEntryCollectionViewCell else {
+            return
+        }
+        
+        if journalCell.promptContent != nil {
+            self.performSegue(withIdentifier: "PromptContentCards", sender: cell)
+        } else {
+            self.performSegue(withIdentifier: "JournalEntryDetail", sender: cell)
+        }
+        // do stuff with image, or with other data that you need
     }
 }
 
