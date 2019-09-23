@@ -23,7 +23,7 @@ class MemberProfileViewController: UIViewController {
     var notificationObserver: NSObjectProtocol?
     
     @objc func showJournal(sender: Any?) {
-        AppDelegate.shared.rootViewController.pushScreen(ScreenID.JournalFeed)
+        AppDelegate.shared.rootViewController.pushScreen(ScreenID.JournalHome)
     }
     
     @IBAction func pushToggleTriggered(_ sender: Any) {

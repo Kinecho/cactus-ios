@@ -39,9 +39,9 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     private let itemsPerRow: CGFloat = 1
     private let reuseIdentifier = ReuseIdentifier.JournalEntryCell.rawValue
     private let sectionInsets = UIEdgeInsets(top: 15.0,
-                                             left: 20.0,
+                                             left: 15.0,
                                              bottom: 15.0,
-                                             right: 20.0)
+                                             right: 15.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -248,6 +248,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         }
         
         journalCell.updateView()
+        journalCell.addShadows()
         
         return journalCell
     }
@@ -291,7 +292,8 @@ extension JournalFeedCollectionViewController: UICollectionViewDelegateFlowLayou
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return sectionInsets.left
+//        return sectionInsets.bottom
+        return 45.0
     }
     
 }

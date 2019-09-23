@@ -16,7 +16,6 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
 //    @IBOutlet weak var responseLabel: UILabel!
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var editTextView: UITextView!
-    
     var sentPrompt: SentPrompt?
     var responses: [ReflectionResponse]?
     var prompt: ReflectionPrompt?
@@ -153,6 +152,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     
     override func prepareForInterfaceBuilder() {
         self.layoutSubviews()
+        self.addShadows()
     }
     
     override func layoutSubviews() {
@@ -163,12 +163,40 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
             self.editTextView.layer.cornerRadius = 6
         }
         
-        self.layer.borderColor = CactusColor.borderLight.cgColor
-        self.layer.borderWidth = 1
-
+        self.layer.borderColor = UIColor.clear.cgColor
+        self.layer.borderWidth = 0
+        
+        self.addShadows()
+        
+    }
+    
+    func addShadows() {
+//        guard !self.hasShadows else {
+//            return
+//        }
+        //        self.layer.shadowColor = UIColor.black.cgColor
+        //        self.layer.shadowOpacity = 1
+        //        self.layer.shadowOffset = .zero
+        //        self.layer.shadowRadius = 10
+        //        self.layer.masksToBounds = false
+        self.contentView.layer.cornerRadius = self.layer.cornerRadius
+//        self.contentView.layer.cornerRadius = 2.0
+        self.contentView.layer.borderWidth = 0.0
+        self.contentView.layer.borderColor = UIColor.clear.cgColor
+        //        self.contentView.layer.masksToBounds = true
+        
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 10.0)
+        self.layer.shadowRadius = 12.0
+        self.layer.shadowOpacity = 0.15
+        self.layer.masksToBounds = false
+        
+        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
+//        self.addShadows()
+        
     }
 }

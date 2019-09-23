@@ -48,7 +48,7 @@ class AppMainViewController: UIViewController {
                 self.hasUser = false
             } else {
                 print("Found member, not null. showing journal feed")
-                self.showScreen(ScreenID.JournalFeed, wrapInNav: true)
+                self.showScreen(ScreenID.JournalHome, wrapInNav: true)
 //                let nav = self.current as! UINavigationController
                 if let nav = self.current as? UINavigationController {
                     nav.viewControllers.insert(self.getScreen(ScreenID.MemberProfile), at: 0)

@@ -16,6 +16,7 @@ enum ScreenID: String {
     case LaunchScreen = "LaunchScreen"
     case MemberProfile = "MemberProfile"
     case JournalFeed
+    case JournalHome
 
     var name: String {
         return self.rawValue
