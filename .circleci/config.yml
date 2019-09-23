@@ -141,6 +141,9 @@ jobs:
       - run:
           name: "Print files in directory"
           command: ls -la 
+      - run:
+          name: "Fastlane Version Bump"
+          command: bundle exec fastlane version_bump
       - add_ssh_keys:
           name: "Add Fastlane Match SSH Key"
           fingerprints:
@@ -149,9 +152,6 @@ jobs:
       - run:
           name: Deploy to TestFlight
           command: bundle exec fastlane beta                
-      - run:
-          name: "Fastlane Version Bump"
-          command: bundle exec fastlane version_bump
       - slack/notify:
           <<: *webhook-url
           color: 'good'
@@ -207,17 +207,17 @@ jobs:
           command: bundle exec fastlane finalize_release
       - store_artifacts:
           path: fl_output
-  version-bump:
-    executor: cactus-ios
-    steps: 
-      - checkout
-      - install-ruby
-      - add_ssh_keys:
-          fingerprints:            
-            - *cactus-ios-read-write-fingerprint
-      - run:
-          name: "Fastlane Version Bump"
-          command: bundle exec fastlane version_bump
+  # version-bump:
+  #   executor: cactus-ios
+  #   steps: 
+  #     - checkout
+  #     - install-ruby
+  #     - add_ssh_keys:
+  #         fingerprints:            
+  #           - *cactus-ios-read-write-fingerprint
+  #     - run:
+  #         name: "Fastlane Version Bump"
+  #         command: bundle exec fastlane version_bump
 workflows:
   version: 2.1
   build-and-test:
