@@ -125,12 +125,15 @@ jobs:
     steps:
       - checkout
       - install-ruby
+      - run:
+          name: "Fastlane Version Bump"
+          command: bundle exec fastlane version_bump
       - run: 
           name: Install Swiftlint via homebrew
-          command: HOMEBREW_NO_AUTO_UPDATE=1 brew install swiftlint
+          command: HOMEBREW_NO_AUTO_UPDATE=1 brew install swiftlint      
       - run: 
           name: SwiftLint lane
-          command: bundle exec fastlane lint
+          command: bundle exec fastlane lint          
       - install-pods      
       - run:
           name: Build and run tests
@@ -140,10 +143,7 @@ jobs:
             SCAN_SCHEME: Cactus Prod
       - run:
           name: "Print files in directory"
-          command: ls -la 
-      - run:
-          name: "Fastlane Version Bump"
-          command: bundle exec fastlane version_bump
+          command: ls -la       
       - add_ssh_keys:
           name: "Add Fastlane Match SSH Key"
           fingerprints:
