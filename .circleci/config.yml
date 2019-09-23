@@ -129,10 +129,7 @@ jobs:
           name: "Add Fastlane Match SSH Key"
           fingerprints:
             - *match-ssh-fingerprint
-            - *cactus-ios-read-write-fingerprint
-      - run:
-          name: "Fastlane Version Bump"
-          command: bundle exec fastlane version_bump
+            # - *cactus-ios-read-write-fingerprint      
       - run: 
           name: Install Swiftlint via homebrew
           command: HOMEBREW_NO_AUTO_UPDATE=1 brew install swiftlint      
@@ -168,31 +165,31 @@ jobs:
           path: fl_output/scan
       - store_artifacts:
           path: fl_output      
-  testflight-upload: 
-    executor: cactus-ios
-    steps: 
-      - checkout      
-      - install
-      # - install-ruby
-      # - restore-pods-cache
-      - add_ssh_keys:
-          name: "Add Fastlane Match SSH Key"
-          fingerprints:
-            - *match-ssh-fingerprint
-            - *cactus-ios-read-write-fingerprint
-      - run:
-          name: Deploy to TestFlight
-          command: bundle exec fastlane beta                
-      - store_artifacts:
-          path: fl_output
-      - slack/notify:
-          <<: *webhook-url
-          color: 'good'
-          include_job_number_field: false
-          include_visit_job_action: false
-          include_project_field: false
-          ts: "$(date +%s)"
-          message: "A new iOS build has been uploaded to testflight. <https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID|View CI workflow>"
+  # testflight-upload: 
+  #   executor: cactus-ios
+  #   steps: 
+  #     - checkout      
+  #     - install
+  #     # - install-ruby
+  #     # - restore-pods-cache
+  #     - add_ssh_keys:
+  #         name: "Add Fastlane Match SSH Key"
+  #         fingerprints:
+  #           - *match-ssh-fingerprint
+  #           - *cactus-ios-read-write-fingerprint
+  #     - run:
+  #         name: Deploy to TestFlight
+  #         command: bundle exec fastlane beta                
+  #     - store_artifacts:
+  #         path: fl_output
+  #     - slack/notify:
+  #         <<: *webhook-url
+  #         color: 'good'
+  #         include_job_number_field: false
+  #         include_visit_job_action: false
+  #         include_project_field: false
+  #         ts: "$(date +%s)"
+  #         message: "A new iOS build has been uploaded to testflight. <https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID|View CI workflow>"
   testflight-finalize-release: 
     executor: cactus-ios
     steps: 
@@ -207,17 +204,17 @@ jobs:
           command: bundle exec fastlane finalize_release
       - store_artifacts:
           path: fl_output
-  # version-bump:
-  #   executor: cactus-ios
-  #   steps: 
-  #     - checkout
-  #     - install-ruby
-  #     - add_ssh_keys:
-  #         fingerprints:            
-  #           - *cactus-ios-read-write-fingerprint
-  #     - run:
-  #         name: "Fastlane Version Bump"
-  #         command: bundle exec fastlane version_bump
+  version-bump:
+    executor: cactus-ios
+    steps: 
+      - checkout
+      - install-ruby
+      - add_ssh_keys:
+          fingerprints:            
+            - *cactus-ios-read-write-fingerprint
+      - run:
+          name: "Fastlane Version Bump"
+          command: bundle exec fastlane version_bump
 workflows:
   version: 2.1
   build-and-test:
@@ -225,7 +222,10 @@ workflows:
       - notify-branch-workflow-started:
           name: &workflow_name iOS Branch Pipeline
           workflow_name: *workflow_name
-      - build-and-test
+      - version-bump
+      - build-and-test:
+          requires: 
+            - version-bump
       # - testflight_approval:
       #     type: approval
       #     name: &testflight_approval_name "TestFlight Approval"
