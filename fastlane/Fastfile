@@ -21,6 +21,11 @@ platform :ios do
     setup_circle_ci
   end
 
+  lane :bump_build do 
+  	increment_build_number(xcodeproj: "Cactus.xcodeproj")
+  end
+  
+
   lane :version_bump do 
  #  	increment_version_number_in_plist(
 	#   # specify specific version number (optional, omitting it increments patch version number)
