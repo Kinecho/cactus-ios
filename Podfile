@@ -19,6 +19,7 @@ def app_pods
   pod 'Cloudinary', '~> 2.0'
   pod 'SwiftLint'
   pod 'SwiftyGif'
+  pod 'SkeletonView'
 end
 
 

@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import SkeletonView
 
 @IBDesignable
 class JournalEntryCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var skeletonContainer: UIView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
 //    @IBOutlet weak var responseLabel: UILabel!
@@ -21,7 +23,17 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     var prompt: ReflectionPrompt?
     var promptContent: PromptContent?
     var isEditing = false
-    
+    var skeletonViewController = JournalEntrySkeletonViewController.loadFromNib()
+    var displaySkeleton: Bool = true {
+        didSet {
+            if self.displaySkeleton {
+                self.showSkeleton()
+            } else {
+                self.removeSkeleton()
+            }
+        }
+    }
+    let cornerRadius: CGFloat = 12
     @IBAction func moreButtonTapped(_ sender: Any) {
         
 //        let title = "Log Out?"
@@ -130,8 +142,37 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         
     }
     
+    func showSkeleton() {
+        
+        self.skeletonViewController.view.frame = self.skeletonContainer.bounds
+        self.skeletonViewController.view.layer.cornerRadius = self.cornerRadius
+        self.skeletonContainer.isHidden = false
+        self.skeletonContainer.addSubview(skeletonViewController.view)
+        self.skeletonContainer.layoutSkeletonIfNeeded()
+        self.skeletonViewController.view.layoutSkeletonIfNeeded()
+//        let left = skeletonViewController.view.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 0)
+//        let right = skeletonViewController.view.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: 0)
+//        let top = skeletonViewController.view.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 0)
+//        let bottom = skeletonViewController.view.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 0)
+//
+//        NSLayoutConstraint.activate([left, right, top, bottom])
+        
+//        self.didAddSubview(skeletonViewController.view)
+//        self.skeletonViewController.view.layoutSubviews()
+//        self.skeletonViewController.view.layoutSkeletonIfNeeded()
+    }
+    
+    func removeSkeleton() {
+//        self.willRemoveSubview(self.skeletonViewController.view)
+//        self.contentView.willRemoveSubview(self.skeletonViewController.view)
+        self.skeletonViewController.view.removeFromSuperview()
+        self.skeletonContainer.isHidden = true
+//        self.skeletonContainer.removeFromSuperview()
+    }
+    
     func updateView() {
-        print("Updating cell view")
+        self.contentView.isUserInteractionEnabled = true
+        var isLoading = false
         if let sentDate = self.sentPrompt?.firstSentAt {
             let dateString = FormatUtils.formatDate(sentDate)
             self.dateLabel.text = dateString
@@ -139,15 +180,28 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
             self.dateLabel.text = nil
         }
         
-        self.questionLabel.text = self.prompt?.question ?? "Not Found"
+        if self.prompt != nil {
+            self.questionLabel.text = self.prompt?.question ?? "Not Found"
+        } else {
+            isLoading = true
+        }
         
-        let responseText =  self.responses?.map {$0.content.text ?? ""}.joined(separator: "\n\n")
+        if self.responses != nil {
+            let responseText =  self.responses?.map {$0.content.text ?? ""}.joined(separator: "\n\n")
+            self.editTextView.text = responseText
+        } else {
+//            isLoading = true
+        }
         
-        self.editTextView.text = responseText
+        if self.prompt != nil && prompt?.promptContentEntryId != nil && self.promptContent == nil {
+            isLoading = true
+        }
         
         if !(self.promptContent?.content.isEmpty ?? true) {
 //            self.contentView.backgroundColor = CactusColor.lightGreen
         }
+        
+        self.displaySkeleton = isLoading
     }
     
     override func prepareForInterfaceBuilder() {
@@ -160,12 +214,13 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         if self.editTextView != nil {
             self.editTextView.layer.borderColor = CactusColor.borderLight.cgColor
             self.editTextView.layer.borderWidth = 0
-            self.editTextView.layer.cornerRadius = 6
+            self.editTextView.layer.cornerRadius = self.cornerRadius
         }
         
         self.layer.borderColor = UIColor.clear.cgColor
         self.layer.borderWidth = 0
-        
+        self.skeletonViewController.view.layoutSubviews()
+        self.skeletonViewController.view.layoutSkeletonIfNeeded()
         self.addShadows()
         
     }

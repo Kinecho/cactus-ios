@@ -300,7 +300,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="JournalEntryCell" id="hi3-X9-dKc" userLabel="QuestionCard" customClass="JournalEntryCollectionViewCell" customModule="Cactus_Prod" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" reuseIdentifier="JournalEntryCell" id="hi3-X9-dKc" userLabel="Question Card" customClass="JournalEntryCollectionViewCell" customModule="Cactus_Prod" customModuleProvider="target">
                                 <rect key="frame" x="6" y="0.0" width="402" height="220"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -312,12 +312,18 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" name="GreenDarkest"/>
                                             <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                            </userDefinedRuntimeAttributes>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What makes you feel happy each morning when you wake up?" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ud-An-1HM">
                                             <rect key="frame" x="20" y="63" width="358" height="41"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" name="GreenDarkest"/>
                                             <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                            </userDefinedRuntimeAttributes>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xLH-Hu-Fx0" customClass="BorderedButton" customModule="Cactus_Prod" customModuleProvider="target">
                                             <rect key="frame" x="348" y="16.5" width="36" height="36"/>
@@ -361,18 +367,29 @@
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                            </userDefinedRuntimeAttributes>
                                         </textView>
+                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ayg-pX-k1a" userLabel="SkeletonView">
+                                            <rect key="frame" x="0.0" y="0.0" width="402" height="91"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
                                     </subviews>
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ayg-pX-k1a" secondAttribute="trailing" id="4Dv-G0-2sW"/>
                                     <constraint firstItem="xLH-Hu-Fx0" firstAttribute="centerY" secondItem="XOB-lq-qx1" secondAttribute="centerY" id="4xu-nq-Ouo"/>
+                                    <constraint firstItem="ayg-pX-k1a" firstAttribute="top" secondItem="hi3-X9-dKc" secondAttribute="top" id="8Fr-j8-pVa"/>
                                     <constraint firstItem="xLH-Hu-Fx0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XOB-lq-qx1" secondAttribute="trailing" constant="24" id="91B-oU-YXY"/>
+                                    <constraint firstItem="ayg-pX-k1a" firstAttribute="leading" secondItem="hi3-X9-dKc" secondAttribute="leading" id="GcW-gD-qoe"/>
                                     <constraint firstItem="0ud-An-1HM" firstAttribute="top" secondItem="XOB-lq-qx1" secondAttribute="bottom" constant="18" id="LXY-MB-Vc6"/>
                                     <constraint firstItem="0ud-An-1HM" firstAttribute="leading" secondItem="hi3-X9-dKc" secondAttribute="leading" constant="20" id="O5X-YX-sUj"/>
                                     <constraint firstAttribute="trailing" secondItem="fIY-zE-sMO" secondAttribute="trailing" constant="24" id="OTy-gR-y7m"/>
                                     <constraint firstItem="fIY-zE-sMO" firstAttribute="top" secondItem="0ud-An-1HM" secondAttribute="bottom" constant="12" id="PPD-yi-Qce"/>
                                     <constraint firstItem="XOB-lq-qx1" firstAttribute="top" secondItem="hi3-X9-dKc" secondAttribute="top" constant="24" id="Rni-n7-Csb"/>
+                                    <constraint firstAttribute="bottom" secondItem="ayg-pX-k1a" secondAttribute="bottom" id="X1h-Ic-CpY"/>
                                     <constraint firstAttribute="trailing" secondItem="xLH-Hu-Fx0" secondAttribute="trailing" constant="18" id="eho-4o-3TD"/>
                                     <constraint firstAttribute="trailing" secondItem="0ud-An-1HM" secondAttribute="trailing" constant="24" id="ih9-8x-CsM"/>
                                     <constraint firstItem="XOB-lq-qx1" firstAttribute="leading" secondItem="hi3-X9-dKc" secondAttribute="leading" constant="24" id="q2p-pS-Zrw"/>
@@ -382,12 +399,14 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
                                         <real key="value" value="12"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dateLabel" destination="XOB-lq-qx1" id="Apq-GM-yLb"/>
                                     <outlet property="editTextView" destination="fIY-zE-sMO" id="oTV-Xo-kpv"/>
                                     <outlet property="moreButton" destination="xLH-Hu-Fx0" id="tcN-fN-sEr"/>
                                     <outlet property="questionLabel" destination="0ud-An-1HM" id="Jv0-cx-mwF"/>
+                                    <outlet property="skeletonContainer" destination="ayg-pX-k1a" id="szg-cb-Rfu"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

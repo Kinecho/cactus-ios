@@ -8,7 +8,6 @@
 
 import UIKit
 import FirebaseFirestore
-private let reuseIdentifier = "Cell"
 
 struct PromptData {
     var unsubscriber: ListenerRegistration?
@@ -53,7 +52,6 @@ class JournalFeedCollectionViewController: UICollectionViewController {
             
             self.currentMember = member
             if let member = member {
-                print("Got current cactus member \(member.email ?? "No Email found" ) - \(member.id ?? "not found")")
                 self.promptListener = SentPromptService.sharedInstance
                     .observeSentPrompts(member: member, { (prompts, error) in
                         if let error = error {
@@ -110,7 +108,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     }
     
     func setupContentObserver(_ entryId: String, promptId: String) {
-        if (self.contentObserversByPromptContentEntryId[entryId] != nil) {
+        if self.contentObserversByPromptContentEntryId[entryId] != nil {
             return
         }
         
