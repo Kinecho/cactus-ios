@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseFirestore
+import SkeletonView
 
 struct PromptData {
     var unsubscriber: ListenerRegistration?
@@ -294,4 +295,16 @@ extension JournalFeedCollectionViewController: UICollectionViewDelegateFlowLayou
         return 45.0
     }
     
+}
+
+extension JournalFeedCollectionViewController: SkeletonCollectionViewDataSource {
+//    func numSections(in collectionSkeletonView: UICollectionView) -> Int {
+//        return 1
+//    }
+//    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return 1
+//    }
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return self.reuseIdentifier
+    }
 }

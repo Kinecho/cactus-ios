@@ -16,23 +16,48 @@ class JournalEntrySkeletonViewController: UIViewController {
     @IBOutlet weak var responseBorderView: UIView!
     @IBOutlet weak var responseLabel: UILabel!
     
+//    let lineRadius: CGFloat = 6
+    let radius = 6
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureView()
         self.startSkeleton()
-        // Do any additional setup after loading the view.
+        
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+//            self.startSkeleton()
+//        }
     }
     
     func configureView() {
-        self.responseBorderView.layer.cornerRadius = 6
+        SkeletonAppearance.default.multilineCornerRadius = self.radius
+        self.view.layer.cornerRadius = 12
         self.view.clipsToBounds = true
-//        self.responseContainerView.layer.border
+        self.responseBorderView.layer.cornerRadius = 6
     }
 
     func startSkeleton() {
         self.questionLabel.showAnimatedGradientSkeleton()
+        self.questionLabel.linesCornerRadius = self.radius
+        self.questionLabel.clipsToBounds = true
+        self.questionLabel.layer.cornerRadius = CGFloat(self.radius)
+        
         self.dateLabel.showAnimatedGradientSkeleton()
+        self.dateLabel.linesCornerRadius = self.radius
+        self.dateLabel.clipsToBounds = true
+        self.dateLabel.layer.cornerRadius = CGFloat(self.radius)
+        
         self.responseLabel.showAnimatedGradientSkeleton()
+        
+        self.responseLabel.linesCornerRadius = self.radius
+        self.responseLabel.isHidden = true
+        self.responseLabel.hideSkeleton()
+//        self.responseLabel.showAnimatedGradientSkeleton()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.responseLabel.showAnimatedGradientSkeleton()
+            self.responseLabel.isHidden = false
+        }
     }
     
     /*
