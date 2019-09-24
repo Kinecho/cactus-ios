@@ -7,28 +7,47 @@
 //
 
 import Foundation
+import UIKit
 
-enum ScreenID:String {
-    case AppMain
-    case Home
-    case Login
-    case LaunchScreen
-    case MemberProfile
+enum ScreenID: String {
+    case AppMain = "AppMain"
+    case Home = "Home"
+    case Login = "Login"
+    case LaunchScreen = "LaunchScreen"
+    case MemberProfile = "MemberProfile"
     case JournalFeed
-    
+    case JournalHome
+
     var name: String {
-        get {            
-            return self.rawValue
-        }
+        return self.rawValue
     }
-    
 }
 
-enum StoryboardID:String {
+enum ReuseIdentifier: String {
+    case JournalEntryCell
+}
+
+enum NibName: String {
+    case TextContent = "TextContentViewController"
+
+    var name: String {
+        return self.rawValue
+    }
+}
+
+enum StoryboardID: String {
     case LaunchScreen
     case Main
-    
-    var name:String {
-        get {return self.rawValue}
+
+    var name: String {
+        return self.rawValue
+    }
+}
+
+enum SegueID: String {
+    case ShowPromptContentModal
+
+    var name: String {
+        return self.rawValue
     }
 }

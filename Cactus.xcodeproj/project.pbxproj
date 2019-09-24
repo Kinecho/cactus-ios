@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		300AC17C23397A77005C6555 /* JournalHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC17B23397A77005C6555 /* JournalHomeViewController.swift */; };
+		300AC17D23397A77005C6555 /* JournalHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC17B23397A77005C6555 /* JournalHomeViewController.swift */; };
+		300AC17F2339839A005C6555 /* CactusImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC17E2339839A005C6555 /* CactusImage.swift */; };
+		300AC1802339839A005C6555 /* CactusImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC17E2339839A005C6555 /* CactusImage.swift */; };
+		300AC18323398EB1005C6555 /* cactus-growing.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 300AC18223398EB1005C6555 /* cactus-growing.mp4 */; };
+		300AC18423398EB1005C6555 /* cactus-growing.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 300AC18223398EB1005C6555 /* cactus-growing.mp4 */; };
 		3023FE2D22ECB47800F753A7 /* MemberProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */; };
 		3023FE2E22ECB47800F753A7 /* MemberProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */; };
 		3023FE3022ECD0A300F753A7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2F22ECD0A300F753A7 /* NotificationService.swift */; };
@@ -14,6 +20,42 @@
 		3023FE3422ECF06E00F753A7 /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
 		3023FE3522ECF0A800F753A7 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3322EC299300A2EA95 /* ViewExtensions.swift */; };
 		3023FE3622ECF0AE00F753A7 /* CactusColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */; };
+		303BF744232A986A00164539 /* CactusUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303BF743232A986A00164539 /* CactusUnitTests.swift */; };
+		303BF750232D289A00164539 /* QuoteContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303BF74E232D289A00164539 /* QuoteContentViewController.swift */; };
+		303BF751232D289A00164539 /* QuoteContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303BF74E232D289A00164539 /* QuoteContentViewController.swift */; };
+		303BF752232D289A00164539 /* QuoteContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303BF74F232D289A00164539 /* QuoteContentViewController.xib */; };
+		303BF753232D289A00164539 /* QuoteContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303BF74F232D289A00164539 /* QuoteContentViewController.xib */; };
+		3054B5BD23313EAA00AA7272 /* MarkdownUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */; };
+		3054B5BE2331424000AA7272 /* MarkdownUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */; };
+		305B1863233175DC003E1561 /* PhotoContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1861233175DC003E1561 /* PhotoContentViewController.swift */; };
+		305B1864233175DC003E1561 /* PhotoContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1861233175DC003E1561 /* PhotoContentViewController.swift */; };
+		305B1865233175DC003E1561 /* PhotoContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 305B1862233175DC003E1561 /* PhotoContentViewController.xib */; };
+		305B1866233175DC003E1561 /* PhotoContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 305B1862233175DC003E1561 /* PhotoContentViewController.xib */; };
+		305B1868233178A8003E1561 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1867233178A8003E1561 /* ImageService.swift */; };
+		305B1869233178A8003E1561 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1867233178A8003E1561 /* ImageService.swift */; };
+		305B186B23319A72003E1561 /* ImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B186A23319A72003E1561 /* ImageExtensions.swift */; };
+		305B186C23319A72003E1561 /* ImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B186A23319A72003E1561 /* ImageExtensions.swift */; };
+		305B186E23319E09003E1561 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B186D23319E09003E1561 /* FileUtils.swift */; };
+		305B186F23319E09003E1561 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B186D23319E09003E1561 /* FileUtils.swift */; };
+		305B187123319F42003E1561 /* FileUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B187023319F42003E1561 /* FileUtilsTest.swift */; };
+		305B18722331A843003E1561 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B186D23319E09003E1561 /* FileUtils.swift */; };
+		305B18732331A8E8003E1561 /* FormatUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FA222EBF4E6007C4E6C /* FormatUtils.swift */; };
+		305B18742331A8F0003E1561 /* MarkdownUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */; };
+		305B18752331A8F5003E1561 /* CactusColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */; };
+		305B18762331A906003E1561 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B09822EA6A81005B25FD /* BaseModel.swift */; };
+		305B18772331A906003E1561 /* FlamelinkTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0E23281CAA00A49EB6 /* FlamelinkTypes.swift */; };
+		305B18782331A906003E1561 /* CactusMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B09C22EA7FC3005B25FD /* CactusMember.swift */; };
+		305B18792331A906003E1561 /* SentPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0B922EAF153005B25FD /* SentPrompt.swift */; };
+		305B187A2331A906003E1561 /* PromptContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0C2328171200A49EB6 /* PromptContent.swift */; };
+		305B187B2331A906003E1561 /* ReflectionPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FA522EBFF27007C4E6C /* ReflectionPrompt.swift */; };
+		305B187C2331A906003E1561 /* ReflectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FA822EC0001007C4E6C /* ReflectionResponse.swift */; };
+		305B187D2331A906003E1561 /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
+		305B18802331E162003E1561 /* ReflectContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B187E2331E162003E1561 /* ReflectContentViewController.swift */; };
+		305B18812331E162003E1561 /* ReflectContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B187E2331E162003E1561 /* ReflectContentViewController.swift */; };
+		305B18822331E162003E1561 /* ReflectContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 305B187F2331E162003E1561 /* ReflectContentViewController.xib */; };
+		305B18832331E162003E1561 /* ReflectContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 305B187F2331E162003E1561 /* ReflectContentViewController.xib */; };
+		305B1885233273C4003E1561 /* GrowingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1884233273C4003E1561 /* GrowingTextView.swift */; };
+		305B1886233273C4003E1561 /* GrowingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1884233273C4003E1561 /* GrowingTextView.swift */; };
 		308446F122ECAE0100FB0683 /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
 		30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
 		30934F9322EBE7DF007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
@@ -37,6 +79,11 @@
 		30934FB022EC0558007C4E6C /* ReflectionResponseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FAE22EC0558007C4E6C /* ReflectionResponseService.swift */; };
 		3095619A22ECF1CD009357BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3095619922ECF1CD009357BD /* GoogleService-Info.plist */; };
 		3095619C22ECF214009357BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3095619B22ECF214009357BD /* GoogleService-Info.plist */; };
+		309561A022EE16B5009357BD /* CactusConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3095619F22EE16B5009357BD /* CactusConfig.swift */; };
+		309561A222EE16C3009357BD /* CactusConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309561A122EE16C3009357BD /* CactusConfig.swift */; };
+		309561A422EE16D7009357BD /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309561A322EE16D7009357BD /* AppConfig.swift */; };
+		309561A522EE172B009357BD /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309561A322EE16D7009357BD /* AppConfig.swift */; };
+		30A266DA2329BB73003C708E /* config.yml in Resources */ = {isa = PBXBuildFile; fileRef = 30A266D92329BB73003C708E /* config.yml */; };
 		30A281DA22EA61A30041158E /* JournalEntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA7222EA5A9F00443E46 /* JournalEntryDetailViewController.swift */; };
 		30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */; };
 		30A281E222EA61A30041158E /* SharedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */; };
@@ -49,6 +96,26 @@
 		30B6EA7622EA5A9F00443E46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7422EA5A9F00443E46 /* Main.storyboard */; };
 		30B6EA7822EA5AA100443E46 /* SharedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */; };
 		30B6EA7B22EA5AA100443E46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7922EA5AA100443E46 /* LaunchScreen.storyboard */; };
+		30BF2E0B232816CC00A49EB6 /* PromptContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0A232816CC00A49EB6 /* PromptContentService.swift */; };
+		30BF2E0D2328171200A49EB6 /* PromptContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0C2328171200A49EB6 /* PromptContent.swift */; };
+		30BF2E0F23281CAA00A49EB6 /* FlamelinkTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0E23281CAA00A49EB6 /* FlamelinkTypes.swift */; };
+		30BF2E11232822E600A49EB6 /* FirebaseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E10232822E600A49EB6 /* FirebaseExtensions.swift */; };
+		30BF2E122328230E00A49EB6 /* FirebaseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E10232822E600A49EB6 /* FirebaseExtensions.swift */; };
+		30BF2E14232824AB00A49EB6 /* FlamelinkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E13232824AB00A49EB6 /* FlamelinkService.swift */; };
+		30BF2E1523282BD600A49EB6 /* PromptContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0A232816CC00A49EB6 /* PromptContentService.swift */; };
+		30BF2E1623282BDA00A49EB6 /* FlamelinkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E13232824AB00A49EB6 /* FlamelinkService.swift */; };
+		30BF2E1823289D1200A49EB6 /* PromptContentPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E1723289D1200A49EB6 /* PromptContentPageViewController.swift */; };
+		30BF2E1923289D1200A49EB6 /* PromptContentPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E1723289D1200A49EB6 /* PromptContentPageViewController.swift */; };
+		30BF2E2A23289F9F00A49EB6 /* TextContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E2823289F9F00A49EB6 /* TextContentViewController.swift */; };
+		30BF2E2B23289F9F00A49EB6 /* TextContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E2823289F9F00A49EB6 /* TextContentViewController.swift */; };
+		30BF2E2C23289F9F00A49EB6 /* TextContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30BF2E2923289F9F00A49EB6 /* TextContentViewController.xib */; };
+		30BF2E2D23289F9F00A49EB6 /* TextContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30BF2E2923289F9F00A49EB6 /* TextContentViewController.xib */; };
+		30BF2E2F2328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E2E2328A8AD00A49EB6 /* ViewControllerExtensions.swift */; };
+		30BF2E302328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E2E2328A8AD00A49EB6 /* ViewControllerExtensions.swift */; };
+		30BF2E322328C7AD00A49EB6 /* MarkdownTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E312328C7AD00A49EB6 /* MarkdownTypes.swift */; };
+		30BF2E332328C7AD00A49EB6 /* MarkdownTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E312328C7AD00A49EB6 /* MarkdownTypes.swift */; };
+		30BF2E342328D91B00A49EB6 /* PromptContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0C2328171200A49EB6 /* PromptContent.swift */; };
+		30BF2E35232964CD00A49EB6 /* FlamelinkTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0E23281CAA00A49EB6 /* FlamelinkTypes.swift */; };
 		30C49D3422EC299300A2EA95 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3322EC299300A2EA95 /* ViewExtensions.swift */; };
 		30C49D3822EC2D4C00A2EA95 /* CactusColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */; };
 		30E9B09622EA68AC005B25FD /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B09522EA68AC005B25FD /* FirestoreService.swift */; };
@@ -75,14 +142,43 @@
 		30E9B0BB22EAF153005B25FD /* SentPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0B922EAF153005B25FD /* SentPrompt.swift */; };
 		30E9B0BD22EAF2FC005B25FD /* SentPromptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */; };
 		30E9B0BE22EAF2FC005B25FD /* SentPromptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */; };
-		5B97B140E6E811D4CF292A08 /* Pods_Cactus_Prod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57133285BE0C6614EDD61447 /* Pods_Cactus_Prod.framework */; };
-		AF8661F1C0FF256ABCAB0CD5 /* Pods_Cactus_Stage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 360D0FDE16C2298128226AF2 /* Pods_Cactus_Stage.framework */; };
+		76F23F2602ADC65094F1CF3B /* Pods_Cactus_Prod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E8C1EB665F6286E3CD0BE5 /* Pods_Cactus_Prod.framework */; };
+		95087B85A8F99A3282E6AE87 /* Pods_Cactus_Stage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 518BD147DF40E10B6D005DB2 /* Pods_Cactus_Stage.framework */; };
+		D8C077334F20A3457E624C00 /* Pods_Cactus_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A9FFC5346620C8FAA15187B /* Pods_Cactus_UnitTests.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		303BF74B232ABA7F00164539 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 30B6EA6322EA5A9F00443E46 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 30B6EA6A22EA5A9F00443E46;
+			remoteInfo = "Cactus Stage";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		0CDE23A24E34875606036179 /* Pods-Cactus Stage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus Stage.release.xcconfig"; path = "Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage.release.xcconfig"; sourceTree = "<group>"; };
+		05E8C1EB665F6286E3CD0BE5 /* Pods_Cactus_Prod.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cactus_Prod.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		300AC17B23397A77005C6555 /* JournalHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalHomeViewController.swift; sourceTree = "<group>"; };
+		300AC17E2339839A005C6555 /* CactusImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusImage.swift; sourceTree = "<group>"; };
+		300AC18223398EB1005C6555 /* cactus-growing.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "cactus-growing.mp4"; sourceTree = "<group>"; };
 		3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberProfileViewController.swift; sourceTree = "<group>"; };
 		3023FE2F22ECD0A300F753A7 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		303BF741232A986A00164539 /* Cactus UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cactus UnitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		303BF743232A986A00164539 /* CactusUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusUnitTests.swift; sourceTree = "<group>"; };
+		303BF745232A986A00164539 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		303BF74E232D289A00164539 /* QuoteContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteContentViewController.swift; sourceTree = "<group>"; };
+		303BF74F232D289A00164539 /* QuoteContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteContentViewController.xib; sourceTree = "<group>"; };
+		3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownUtil.swift; sourceTree = "<group>"; };
+		305B1861233175DC003E1561 /* PhotoContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoContentViewController.swift; sourceTree = "<group>"; };
+		305B1862233175DC003E1561 /* PhotoContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoContentViewController.xib; sourceTree = "<group>"; };
+		305B1867233178A8003E1561 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		305B186A23319A72003E1561 /* ImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtensions.swift; sourceTree = "<group>"; };
+		305B186D23319E09003E1561 /* FileUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
+		305B187023319F42003E1561 /* FileUtilsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtilsTest.swift; sourceTree = "<group>"; };
+		305B187E2331E162003E1561 /* ReflectContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectContentViewController.swift; sourceTree = "<group>"; };
+		305B187F2331E162003E1561 /* ReflectContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReflectContentViewController.xib; sourceTree = "<group>"; };
+		305B1884233273C4003E1561 /* GrowingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowingTextView.swift; sourceTree = "<group>"; };
 		308446F022ECAE0100FB0683 /* MailchimpModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailchimpModels.swift; sourceTree = "<group>"; };
 		308446F222ECB23B00FB0683 /* Cactus Stage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cactus Stage.entitlements"; sourceTree = "<group>"; };
 		308446F322ECB24F00FB0683 /* Cactus Prod.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cactus Prod.entitlements"; sourceTree = "<group>"; };
@@ -98,6 +194,10 @@
 		30934FAE22EC0558007C4E6C /* ReflectionResponseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionResponseService.swift; sourceTree = "<group>"; };
 		3095619922ECF1CD009357BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3095619B22ECF214009357BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3095619F22EE16B5009357BD /* CactusConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusConfig.swift; sourceTree = "<group>"; };
+		309561A122EE16C3009357BD /* CactusConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusConfig.swift; sourceTree = "<group>"; };
+		309561A322EE16D7009357BD /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		30A266D92329BB73003C708E /* config.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.yml; sourceTree = "<group>"; };
 		30A281E722EA61A30041158E /* Cactus Prod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cactus Prod.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A281E922EA61EB0041158E /* StageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = StageAssets.xcassets; sourceTree = "<group>"; };
 		30A281EB22EA61FA0041158E /* ProdAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ProdAssets.xcassets; sourceTree = "<group>"; };
@@ -110,6 +210,16 @@
 		30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SharedAssets.xcassets; sourceTree = "<group>"; };
 		30B6EA7A22EA5AA100443E46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30B6EA7C22EA5AA100443E46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30BF2E0A232816CC00A49EB6 /* PromptContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptContentService.swift; sourceTree = "<group>"; };
+		30BF2E0C2328171200A49EB6 /* PromptContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptContent.swift; sourceTree = "<group>"; };
+		30BF2E0E23281CAA00A49EB6 /* FlamelinkTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlamelinkTypes.swift; sourceTree = "<group>"; };
+		30BF2E10232822E600A49EB6 /* FirebaseExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseExtensions.swift; sourceTree = "<group>"; };
+		30BF2E13232824AB00A49EB6 /* FlamelinkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlamelinkService.swift; sourceTree = "<group>"; };
+		30BF2E1723289D1200A49EB6 /* PromptContentPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptContentPageViewController.swift; sourceTree = "<group>"; };
+		30BF2E2823289F9F00A49EB6 /* TextContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextContentViewController.swift; sourceTree = "<group>"; };
+		30BF2E2923289F9F00A49EB6 /* TextContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextContentViewController.xib; sourceTree = "<group>"; };
+		30BF2E2E2328A8AD00A49EB6 /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
+		30BF2E312328C7AD00A49EB6 /* MarkdownTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownTypes.swift; sourceTree = "<group>"; };
 		30C49D3322EC299300A2EA95 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusColor.swift; sourceTree = "<group>"; };
 		30E9B09522EA68AC005B25FD /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
@@ -124,21 +234,30 @@
 		30E9B0B622EADF75005B25FD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		30E9B0B922EAF153005B25FD /* SentPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentPrompt.swift; sourceTree = "<group>"; };
 		30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentPromptService.swift; sourceTree = "<group>"; };
-		360D0FDE16C2298128226AF2 /* Pods_Cactus_Stage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cactus_Stage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		51FA2299E4EF911289E2FA7A /* Pods-Cactus Prod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus Prod.release.xcconfig"; path = "Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod.release.xcconfig"; sourceTree = "<group>"; };
-		57133285BE0C6614EDD61447 /* Pods_Cactus_Prod.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cactus_Prod.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6B3C4B258F2887824928A3DF /* Pods-Cactus Stage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus Stage.debug.xcconfig"; path = "Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage.debug.xcconfig"; sourceTree = "<group>"; };
-		9C89F30E66ED2D07C0E26D2F /* Pods-Cactus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus.debug.xcconfig"; path = "Target Support Files/Pods-Cactus/Pods-Cactus.debug.xcconfig"; sourceTree = "<group>"; };
-		AF2E43EFB156B43114D541F4 /* Pods-Cactus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus.release.xcconfig"; path = "Target Support Files/Pods-Cactus/Pods-Cactus.release.xcconfig"; sourceTree = "<group>"; };
-		C3E046B63B11B822B81B4488 /* Pods-Cactus Prod.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus Prod.debug.xcconfig"; path = "Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod.debug.xcconfig"; sourceTree = "<group>"; };
+		4367361CF4B35F9E8F97DC27 /* Pods-Cactus Stage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus Stage.debug.xcconfig"; path = "Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage.debug.xcconfig"; sourceTree = "<group>"; };
+		518BD147DF40E10B6D005DB2 /* Pods_Cactus_Stage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cactus_Stage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A9FFC5346620C8FAA15187B /* Pods_Cactus_UnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cactus_UnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F7497B6D87D04BF0ED03305 /* Pods-Cactus Prod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus Prod.release.xcconfig"; path = "Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod.release.xcconfig"; sourceTree = "<group>"; };
+		74F3C20610CFC85363610D59 /* Pods-Cactus Stage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus Stage.release.xcconfig"; path = "Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage.release.xcconfig"; sourceTree = "<group>"; };
+		86D6B8A9F7309EC3280399A0 /* Pods-Cactus Prod.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus Prod.debug.xcconfig"; path = "Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod.debug.xcconfig"; sourceTree = "<group>"; };
+		AA14FEC6B72B3AE2B74A1CAA /* Pods-Cactus UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus UnitTests.release.xcconfig"; path = "Target Support Files/Pods-Cactus UnitTests/Pods-Cactus UnitTests.release.xcconfig"; sourceTree = "<group>"; };
+		DCC1E9602C00EDA73D829630 /* Pods-Cactus UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus UnitTests.debug.xcconfig"; path = "Target Support Files/Pods-Cactus UnitTests/Pods-Cactus UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		303BF73E232A986A00164539 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8C077334F20A3457E624C00 /* Pods_Cactus_UnitTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		30A281DD22EA61A30041158E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B97B140E6E811D4CF292A08 /* Pods_Cactus_Prod.framework in Frameworks */,
+				76F23F2602ADC65094F1CF3B /* Pods_Cactus_Prod.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,19 +265,49 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF8661F1C0FF256ABCAB0CD5 /* Pods_Cactus_Stage.framework in Frameworks */,
+				95087B85A8F99A3282E6AE87 /* Pods_Cactus_Stage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19CA97E6FF714D2347BC4076 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				05E8C1EB665F6286E3CD0BE5 /* Pods_Cactus_Prod.framework */,
+				518BD147DF40E10B6D005DB2 /* Pods_Cactus_Stage.framework */,
+				5A9FFC5346620C8FAA15187B /* Pods_Cactus_UnitTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		300AC18123398E86005C6555 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				300AC18223398EB1005C6555 /* cactus-growing.mp4 */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		303BF742232A986A00164539 /* Cactus UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				303BF743232A986A00164539 /* CactusUnitTests.swift */,
+				303BF745232A986A00164539 /* Info.plist */,
+				305B187023319F42003E1561 /* FileUtilsTest.swift */,
+			);
+			path = "Cactus UnitTests";
+			sourceTree = "<group>";
+		};
 		30934F9422EBF12D007C4E6C /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				30934F9522EBF146007C4E6C /* RoundedButton.swift */,
 				30934F9822EBF235007C4E6C /* BorderedButton.swift */,
 				30934F9E22EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift */,
+				30BF2E312328C7AD00A49EB6 /* MarkdownTypes.swift */,
+				305B1884233273C4003E1561 /* GrowingTextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -168,8 +317,20 @@
 			children = (
 				30934FA222EBF4E6007C4E6C /* FormatUtils.swift */,
 				30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */,
+				309561A322EE16D7009357BD /* AppConfig.swift */,
+				3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */,
+				305B186D23319E09003E1561 /* FileUtils.swift */,
+				300AC17E2339839A005C6555 /* CactusImage.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		30A266D82329BB73003C708E /* .circleci */ = {
+			isa = PBXGroup;
+			children = (
+				30A266D92329BB73003C708E /* config.yml */,
+			);
+			path = .circleci;
 			sourceTree = "<group>";
 		};
 		30A281D322EA610E0041158E /* ConfigProd */ = {
@@ -179,6 +340,7 @@
 				3095619922ECF1CD009357BD /* GoogleService-Info.plist */,
 				30A281EF22EA62650041158E /* LaunchScreen.storyboard */,
 				30A281EB22EA61FA0041158E /* ProdAssets.xcassets */,
+				3095619F22EE16B5009357BD /* CactusConfig.swift */,
 			);
 			path = ConfigProd;
 			sourceTree = "<group>";
@@ -190,6 +352,7 @@
 				30A281E922EA61EB0041158E /* StageAssets.xcassets */,
 				30B6EA7C22EA5AA100443E46 /* Info.plist */,
 				30B6EA7922EA5AA100443E46 /* LaunchScreen.storyboard */,
+				309561A122EE16C3009357BD /* CactusConfig.swift */,
 			);
 			path = ConfigStage;
 			sourceTree = "<group>";
@@ -205,12 +368,14 @@
 		30B6EA6222EA5A9F00443E46 = {
 			isa = PBXGroup;
 			children = (
+				30A266D82329BB73003C708E /* .circleci */,
 				308446F322ECB24F00FB0683 /* Cactus Prod.entitlements */,
 				308446F222ECB23B00FB0683 /* Cactus Stage.entitlements */,
 				30B6EA6D22EA5A9F00443E46 /* Cactus */,
+				303BF742232A986A00164539 /* Cactus UnitTests */,
 				30B6EA6C22EA5A9F00443E46 /* Products */,
 				7D73091CC55662ADF17682E8 /* Pods */,
-				F40F662D9608046D0B754960 /* Frameworks */,
+				19CA97E6FF714D2347BC4076 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -219,6 +384,7 @@
 			children = (
 				30B6EA6B22EA5A9F00443E46 /* Cactus Stage.app */,
 				30A281E722EA61A30041158E /* Cactus Prod.app */,
+				303BF741232A986A00164539 /* Cactus UnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -226,32 +392,51 @@
 		30B6EA6D22EA5A9F00443E46 /* Cactus */ = {
 			isa = PBXGroup;
 			children = (
-				30934FA122EBF4CF007C4E6C /* Utils */,
-				30934F9422EBF12D007C4E6C /* Views */,
-				30E9B0B122EADE12005B25FD /* Extensions */,
-				30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */,
+				300AC18123398E86005C6555 /* Video */,
 				30A281D322EA610E0041158E /* ConfigProd */,
 				30A281D422EA61260041158E /* ConfigStage */,
+				30E9B0B122EADE12005B25FD /* Extensions */,
 				30E9B09722EA6A66005B25FD /* Models */,
+				30E9B0AB22EAD6EC005B25FD /* NavigationUtil.swift */,
 				30E9B09422EA688D005B25FD /* Services */,
 				30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */,
 				30A281ED22EA621E0041158E /* Storyboards */,
+				30934FA122EBF4CF007C4E6C /* Utils */,
 				30E9B0A722EAD618005B25FD /* ViewControllers */,
-				30E9B0AB22EAD6EC005B25FD /* NavigationUtil.swift */,
+				30934F9422EBF12D007C4E6C /* Views */,
+				30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */,
 			);
 			path = Cactus;
+			sourceTree = "<group>";
+		};
+		30BF2E2123289E1E00A49EB6 /* PromptContent */ = {
+			isa = PBXGroup;
+			children = (
+				30BF2E2823289F9F00A49EB6 /* TextContentViewController.swift */,
+				30BF2E2923289F9F00A49EB6 /* TextContentViewController.xib */,
+				303BF74E232D289A00164539 /* QuoteContentViewController.swift */,
+				303BF74F232D289A00164539 /* QuoteContentViewController.xib */,
+				305B1861233175DC003E1561 /* PhotoContentViewController.swift */,
+				305B1862233175DC003E1561 /* PhotoContentViewController.xib */,
+				305B187E2331E162003E1561 /* ReflectContentViewController.swift */,
+				305B187F2331E162003E1561 /* ReflectContentViewController.xib */,
+			);
+			path = PromptContent;
 			sourceTree = "<group>";
 		};
 		30E9B09422EA688D005B25FD /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				30E9B09522EA68AC005B25FD /* FirestoreService.swift */,
+				30BF2E13232824AB00A49EB6 /* FlamelinkService.swift */,
 				30E9B0A222EAC204005B25FD /* AuthService.swift */,
 				30E9B09F22EABFBD005B25FD /* CactusMemberService.swift */,
 				30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */,
 				30934FAB22EC02A6007C4E6C /* ReflectionPromptService.swift */,
 				30934FAE22EC0558007C4E6C /* ReflectionResponseService.swift */,
 				3023FE2F22ECD0A300F753A7 /* NotificationService.swift */,
+				30BF2E0A232816CC00A49EB6 /* PromptContentService.swift */,
+				305B1867233178A8003E1561 /* ImageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -260,8 +445,10 @@
 			isa = PBXGroup;
 			children = (
 				30E9B09822EA6A81005B25FD /* BaseModel.swift */,
+				30BF2E0E23281CAA00A49EB6 /* FlamelinkTypes.swift */,
 				30E9B09C22EA7FC3005B25FD /* CactusMember.swift */,
 				30E9B0B922EAF153005B25FD /* SentPrompt.swift */,
+				30BF2E0C2328171200A49EB6 /* PromptContent.swift */,
 				30934FA522EBFF27007C4E6C /* ReflectionPrompt.swift */,
 				30934FA822EC0001007C4E6C /* ReflectionResponse.swift */,
 				308446F022ECAE0100FB0683 /* MailchimpModels.swift */,
@@ -272,12 +459,15 @@
 		30E9B0A722EAD618005B25FD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				30BF2E2123289E1E00A49EB6 /* PromptContent */,
 				30B6EA7222EA5A9F00443E46 /* JournalEntryDetailViewController.swift */,
 				30E9B0A822EAD68B005B25FD /* AppMainViewController.swift */,
 				30E9B0AE22EADD04005B25FD /* LoginViewController.swift */,
 				30E9B0B622EADF75005B25FD /* HomeViewController.swift */,
 				30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */,
 				3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */,
+				30BF2E1723289D1200A49EB6 /* PromptContentPageViewController.swift */,
+				300AC17B23397A77005C6555 /* JournalHomeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -288,6 +478,9 @@
 				30E9B0B222EADE2D005B25FD /* CGExtensions.swift */,
 				30934F9B22EBF2AB007C4E6C /* ColorExtensions.swift */,
 				30C49D3322EC299300A2EA95 /* ViewExtensions.swift */,
+				30BF2E10232822E600A49EB6 /* FirebaseExtensions.swift */,
+				30BF2E2E2328A8AD00A49EB6 /* ViewControllerExtensions.swift */,
+				305B186A23319A72003E1561 /* ImageExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -295,38 +488,50 @@
 		7D73091CC55662ADF17682E8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9C89F30E66ED2D07C0E26D2F /* Pods-Cactus.debug.xcconfig */,
-				AF2E43EFB156B43114D541F4 /* Pods-Cactus.release.xcconfig */,
-				C3E046B63B11B822B81B4488 /* Pods-Cactus Prod.debug.xcconfig */,
-				51FA2299E4EF911289E2FA7A /* Pods-Cactus Prod.release.xcconfig */,
-				6B3C4B258F2887824928A3DF /* Pods-Cactus Stage.debug.xcconfig */,
-				0CDE23A24E34875606036179 /* Pods-Cactus Stage.release.xcconfig */,
+				86D6B8A9F7309EC3280399A0 /* Pods-Cactus Prod.debug.xcconfig */,
+				5F7497B6D87D04BF0ED03305 /* Pods-Cactus Prod.release.xcconfig */,
+				4367361CF4B35F9E8F97DC27 /* Pods-Cactus Stage.debug.xcconfig */,
+				74F3C20610CFC85363610D59 /* Pods-Cactus Stage.release.xcconfig */,
+				DCC1E9602C00EDA73D829630 /* Pods-Cactus UnitTests.debug.xcconfig */,
+				AA14FEC6B72B3AE2B74A1CAA /* Pods-Cactus UnitTests.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		F40F662D9608046D0B754960 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				57133285BE0C6614EDD61447 /* Pods_Cactus_Prod.framework */,
-				360D0FDE16C2298128226AF2 /* Pods_Cactus_Stage.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		303BF740232A986A00164539 /* Cactus UnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 303BF748232A986A00164539 /* Build configuration list for PBXNativeTarget "Cactus UnitTests" */;
+			buildPhases = (
+				A9FA509078B3FBDA6C659252 /* [CP] Check Pods Manifest.lock */,
+				303BF73D232A986A00164539 /* Sources */,
+				303BF73E232A986A00164539 /* Frameworks */,
+				303BF73F232A986A00164539 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				303BF74C232ABA7F00164539 /* PBXTargetDependency */,
+			);
+			name = "Cactus UnitTests";
+			productName = "Cactus UnitTests";
+			productReference = 303BF741232A986A00164539 /* Cactus UnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		30A281D722EA61A30041158E /* Cactus Prod */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 30A281E422EA61A30041158E /* Build configuration list for PBXNativeTarget "Cactus Prod" */;
 			buildPhases = (
-				30A281D822EA61A30041158E /* [CP] Check Pods Manifest.lock */,
+				94E6ABEF1163C08E11A34C1D /* [CP] Check Pods Manifest.lock */,
 				30A281D922EA61A30041158E /* Sources */,
+				303BF754232E958C00164539 /* Swiftlint */,
 				30A281DD22EA61A30041158E /* Frameworks */,
 				30A281DF22EA61A30041158E /* Resources */,
-				793974A88DA9CA2D62088F94 /* [CP] Embed Pods Frameworks */,
-				8472FB4C28F16FD183F57EED /* [CP] Copy Pods Resources */,
+				30BF2E37232993C200A49EB6 /* Install Crashlytics */,
+				A0481A0FD7FA5E2DFD65F1EC /* [CP] Embed Pods Frameworks */,
+				66560279FA0B87D716AD6DD3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -341,12 +546,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 30B6EA7F22EA5AA100443E46 /* Build configuration list for PBXNativeTarget "Cactus Stage" */;
 			buildPhases = (
-				0735E6ABCFC0723D5AFB6E5B /* [CP] Check Pods Manifest.lock */,
+				DA5DF682C8A5FDF934F3ADC4 /* [CP] Check Pods Manifest.lock */,
+				303BF74D232C1F9600164539 /* SwiftLint */,
 				30B6EA6722EA5A9F00443E46 /* Sources */,
 				30B6EA6822EA5A9F00443E46 /* Frameworks */,
 				30B6EA6922EA5A9F00443E46 /* Resources */,
-				51D348274B485C7516299B74 /* [CP] Embed Pods Frameworks */,
-				4A9682F8D7AC49DCE1E81D28 /* [CP] Copy Pods Resources */,
+				30BF2E362329930500A49EB6 /* Install Crashlytics */,
+				F53AA8C173963B1A418B715C /* [CP] Embed Pods Frameworks */,
+				F6AF55A24C38A4812F1A7688 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -367,6 +574,9 @@
 				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = Cactus;
 				TargetAttributes = {
+					303BF740232A986A00164539 = {
+						CreatedOnToolsVersion = 10.3;
+					};
 					30A281D722EA61A30041158E = {
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -405,19 +615,32 @@
 			targets = (
 				30B6EA6A22EA5A9F00443E46 /* Cactus Stage */,
 				30A281D722EA61A30041158E /* Cactus Prod */,
+				303BF740232A986A00164539 /* Cactus UnitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		303BF73F232A986A00164539 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		30A281DF22EA61A30041158E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				30A281E222EA61A30041158E /* SharedAssets.xcassets in Resources */,
+				30BF2E2D23289F9F00A49EB6 /* TextContentViewController.xib in Resources */,
 				3095619A22ECF1CD009357BD /* GoogleService-Info.plist in Resources */,
+				305B1866233175DC003E1561 /* PhotoContentViewController.xib in Resources */,
+				300AC18423398EB1005C6555 /* cactus-growing.mp4 in Resources */,
+				305B18832331E162003E1561 /* ReflectContentViewController.xib in Resources */,
 				30A281F022EA62650041158E /* LaunchScreen.storyboard in Resources */,
 				30A281E322EA61A30041158E /* Main.storyboard in Resources */,
+				303BF753232D289A00164539 /* QuoteContentViewController.xib in Resources */,
 				30A281F222EA627D0041158E /* ProdAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,17 +650,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				30B6EA7B22EA5AA100443E46 /* LaunchScreen.storyboard in Resources */,
+				30BF2E2C23289F9F00A49EB6 /* TextContentViewController.xib in Resources */,
 				3095619C22ECF214009357BD /* GoogleService-Info.plist in Resources */,
+				300AC18323398EB1005C6555 /* cactus-growing.mp4 in Resources */,
 				30A281EA22EA61EB0041158E /* StageAssets.xcassets in Resources */,
+				305B18822331E162003E1561 /* ReflectContentViewController.xib in Resources */,
 				30B6EA7822EA5AA100443E46 /* SharedAssets.xcassets in Resources */,
 				30B6EA7622EA5A9F00443E46 /* Main.storyboard in Resources */,
+				30A266DA2329BB73003C708E /* config.yml in Resources */,
+				305B1865233175DC003E1561 /* PhotoContentViewController.xib in Resources */,
+				303BF752232D289A00164539 /* QuoteContentViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0735E6ABCFC0723D5AFB6E5B /* [CP] Check Pods Manifest.lock */ = {
+		303BF74D232C1F9600164539 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -445,21 +674,105 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = SwiftLint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Cactus Stage-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
+		303BF754232E958C00164539 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# ${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
+		30BF2E362329930500A49EB6 /* Install Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Install Crashlytics";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\" f92d423e6318610dec15544656c1d5c4183b6688 c3810717415bb49c6fc273d83e31562ce3f085d5cbeafd0e193e935f72fab7c6\n";
+		};
+		30BF2E37232993C200A49EB6 /* Install Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Install Crashlytics";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\" f92d423e6318610dec15544656c1d5c4183b6688 c3810717415bb49c6fc273d83e31562ce3f085d5cbeafd0e193e935f72fab7c6\n";
+		};
+		66560279FA0B87D716AD6DD3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAnonymousAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseEmailAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseFacebookAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebasePhoneAuthUI.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAnonymousAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseEmailAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseFacebookAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebasePhoneAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		30A281D822EA61A30041158E /* [CP] Check Pods Manifest.lock */ = {
+		94E6ABEF1163C08E11A34C1D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -481,7 +794,171 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4A9682F8D7AC49DCE1E81D28 /* [CP] Copy Pods Resources */ = {
+		A0481A0FD7FA5E2DFD65F1EC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/Cloudinary/Cloudinary.framework",
+				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/MarkdownKit/MarkdownKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Sentry/Sentry.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cloudinary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMAppAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarkdownKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sentry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyGif.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9FA509078B3FBDA6C659252 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cactus UnitTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA5DF682C8A5FDF934F3ADC4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cactus Stage-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F53AA8C173963B1A418B715C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/Cloudinary/Cloudinary.framework",
+				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/MarkdownKit/MarkdownKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Sentry/Sentry.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cloudinary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMAppAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarkdownKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sentry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyGif.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6AF55A24C38A4812F1A7688 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -496,9 +973,7 @@
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseFacebookAuthUI.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebasePhoneAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseTwitterAuthUI.bundle",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
-				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
@@ -510,192 +985,90 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseFacebookAuthUI.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebasePhoneAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseTwitterAuthUI.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		51D348274B485C7516299B74 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
-				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		793974A88DA9CA2D62088F94 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
-				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8472FB4C28F16FD183F57EED /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAnonymousAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseEmailAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseFacebookAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebasePhoneAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseTwitterAuthUI.bundle",
-				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
-				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAnonymousAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseEmailAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseFacebookAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebasePhoneAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseTwitterAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		303BF73D232A986A00164539 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				305B187C2331A906003E1561 /* ReflectionResponse.swift in Sources */,
+				305B18752331A8F5003E1561 /* CactusColor.swift in Sources */,
+				305B187A2331A906003E1561 /* PromptContent.swift in Sources */,
+				305B18722331A843003E1561 /* FileUtils.swift in Sources */,
+				305B18762331A906003E1561 /* BaseModel.swift in Sources */,
+				303BF744232A986A00164539 /* CactusUnitTests.swift in Sources */,
+				305B187D2331A906003E1561 /* MailchimpModels.swift in Sources */,
+				305B18742331A8F0003E1561 /* MarkdownUtil.swift in Sources */,
+				305B18732331A8E8003E1561 /* FormatUtils.swift in Sources */,
+				305B187123319F42003E1561 /* FileUtilsTest.swift in Sources */,
+				305B18772331A906003E1561 /* FlamelinkTypes.swift in Sources */,
+				305B18782331A906003E1561 /* CactusMember.swift in Sources */,
+				305B187B2331A906003E1561 /* ReflectionPrompt.swift in Sources */,
+				305B18792331A906003E1561 /* SentPrompt.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		30A281D922EA61A30041158E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				309561A022EE16B5009357BD /* CactusConfig.swift in Sources */,
 				30934FB022EC0558007C4E6C /* ReflectionResponseService.swift in Sources */,
 				30934F9D22EBF2AC007C4E6C /* ColorExtensions.swift in Sources */,
 				30E9B0AA22EAD68B005B25FD /* AppMainViewController.swift in Sources */,
+				30BF2E122328230E00A49EB6 /* FirebaseExtensions.swift in Sources */,
+				30BF2E2B23289F9F00A49EB6 /* TextContentViewController.swift in Sources */,
 				30934FA722EBFF27007C4E6C /* ReflectionPrompt.swift in Sources */,
+				30BF2E35232964CD00A49EB6 /* FlamelinkTypes.swift in Sources */,
 				3023FE3122ECD0A300F753A7 /* NotificationService.swift in Sources */,
 				30E9B0AD22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
 				30934FA022EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift in Sources */,
+				305B186F23319E09003E1561 /* FileUtils.swift in Sources */,
 				30934F9A22EBF235007C4E6C /* BorderedButton.swift in Sources */,
 				3023FE3622ECF0AE00F753A7 /* CactusColor.swift in Sources */,
 				30934FAD22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */,
 				30A281DA22EA61A30041158E /* JournalEntryDetailViewController.swift in Sources */,
+				305B186C23319A72003E1561 /* ImageExtensions.swift in Sources */,
+				30BF2E332328C7AD00A49EB6 /* MarkdownTypes.swift in Sources */,
 				30934FA422EBF4E6007C4E6C /* FormatUtils.swift in Sources */,
 				30E9B0B422EADE2D005B25FD /* CGExtensions.swift in Sources */,
+				305B18812331E162003E1561 /* ReflectContentViewController.swift in Sources */,
 				30E9B0BE22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
+				300AC1802339839A005C6555 /* CactusImage.swift in Sources */,
 				30E9B0A122EABFBD005B25FD /* CactusMemberService.swift in Sources */,
+				30BF2E1523282BD600A49EB6 /* PromptContentService.swift in Sources */,
 				30E9B09B22EA6A84005B25FD /* FirestoreService.swift in Sources */,
 				30934FAA22EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
+				30BF2E1923289D1200A49EB6 /* PromptContentPageViewController.swift in Sources */,
+				309561A522EE172B009357BD /* AppConfig.swift in Sources */,
 				30E9B09E22EA7FC3005B25FD /* CactusMember.swift in Sources */,
+				3054B5BE2331424000AA7272 /* MarkdownUtil.swift in Sources */,
 				30E9B0A422EAC204005B25FD /* AuthService.swift in Sources */,
 				3023FE2E22ECB47800F753A7 /* MemberProfileViewController.swift in Sources */,
 				30E9B09A22EA6A81005B25FD /* BaseModel.swift in Sources */,
+				30BF2E302328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */,
+				305B1864233175DC003E1561 /* PhotoContentViewController.swift in Sources */,
 				30934F9722EBF146007C4E6C /* RoundedButton.swift in Sources */,
 				3023FE3422ECF06E00F753A7 /* MailchimpModels.swift in Sources */,
+				30BF2E1623282BDA00A49EB6 /* FlamelinkService.swift in Sources */,
 				3023FE3522ECF0A800F753A7 /* ViewExtensions.swift in Sources */,
 				30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */,
+				303BF751232D289A00164539 /* QuoteContentViewController.swift in Sources */,
 				30E9B0B822EADF75005B25FD /* HomeViewController.swift in Sources */,
 				30E9B0B022EADD04005B25FD /* LoginViewController.swift in Sources */,
+				30BF2E342328D91B00A49EB6 /* PromptContent.swift in Sources */,
+				305B1869233178A8003E1561 /* ImageService.swift in Sources */,
+				305B1886233273C4003E1561 /* GrowingTextView.swift in Sources */,
 				30934F9322EBE7DF007C4E6C /* JournalFeedCollectionViewController.swift in Sources */,
+				300AC17D23397A77005C6555 /* JournalHomeViewController.swift in Sources */,
 				30E9B0BB22EAF153005B25FD /* SentPrompt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -704,8 +1077,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				309561A222EE16C3009357BD /* CactusConfig.swift in Sources */,
 				30934FAF22EC0558007C4E6C /* ReflectionResponseService.swift in Sources */,
 				30934F9C22EBF2AB007C4E6C /* ColorExtensions.swift in Sources */,
+				30BF2E0B232816CC00A49EB6 /* PromptContentService.swift in Sources */,
 				30E9B0A922EAD68B005B25FD /* AppMainViewController.swift in Sources */,
 				30934FA622EBFF27007C4E6C /* ReflectionPrompt.swift in Sources */,
 				30E9B0AC22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
@@ -713,30 +1088,57 @@
 				30934F9922EBF235007C4E6C /* BorderedButton.swift in Sources */,
 				30934FAC22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */,
 				30B6EA7322EA5A9F00443E46 /* JournalEntryDetailViewController.swift in Sources */,
+				305B186E23319E09003E1561 /* FileUtils.swift in Sources */,
 				30934FA322EBF4E6007C4E6C /* FormatUtils.swift in Sources */,
+				30BF2E0D2328171200A49EB6 /* PromptContent.swift in Sources */,
 				30E9B0B322EADE2D005B25FD /* CGExtensions.swift in Sources */,
+				30BF2E1823289D1200A49EB6 /* PromptContentPageViewController.swift in Sources */,
+				305B186B23319A72003E1561 /* ImageExtensions.swift in Sources */,
 				30E9B0BD22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
+				30BF2E2F2328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */,
+				30BF2E0F23281CAA00A49EB6 /* FlamelinkTypes.swift in Sources */,
+				305B18802331E162003E1561 /* ReflectContentViewController.swift in Sources */,
 				30E9B0A022EABFBD005B25FD /* CactusMemberService.swift in Sources */,
+				300AC17F2339839A005C6555 /* CactusImage.swift in Sources */,
 				30C49D3422EC299300A2EA95 /* ViewExtensions.swift in Sources */,
 				30C49D3822EC2D4C00A2EA95 /* CactusColor.swift in Sources */,
+				30BF2E11232822E600A49EB6 /* FirebaseExtensions.swift in Sources */,
 				30E9B09622EA68AC005B25FD /* FirestoreService.swift in Sources */,
 				30934FA922EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
+				30BF2E2A23289F9F00A49EB6 /* TextContentViewController.swift in Sources */,
+				309561A422EE16D7009357BD /* AppConfig.swift in Sources */,
+				3054B5BD23313EAA00AA7272 /* MarkdownUtil.swift in Sources */,
 				3023FE2D22ECB47800F753A7 /* MemberProfileViewController.swift in Sources */,
 				30E9B09D22EA7FC3005B25FD /* CactusMember.swift in Sources */,
 				30E9B0A322EAC204005B25FD /* AuthService.swift in Sources */,
 				30B6EA6F22EA5A9F00443E46 /* AppDelegate.swift in Sources */,
+				305B1863233175DC003E1561 /* PhotoContentViewController.swift in Sources */,
+				30BF2E322328C7AD00A49EB6 /* MarkdownTypes.swift in Sources */,
 				308446F122ECAE0100FB0683 /* MailchimpModels.swift in Sources */,
 				30934F9622EBF146007C4E6C /* RoundedButton.swift in Sources */,
 				30E9B09922EA6A81005B25FD /* BaseModel.swift in Sources */,
 				30E9B0B722EADF75005B25FD /* HomeViewController.swift in Sources */,
+				303BF750232D289A00164539 /* QuoteContentViewController.swift in Sources */,
 				30E9B0AF22EADD04005B25FD /* LoginViewController.swift in Sources */,
 				30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */,
+				30BF2E14232824AB00A49EB6 /* FlamelinkService.swift in Sources */,
+				305B1868233178A8003E1561 /* ImageService.swift in Sources */,
+				305B1885233273C4003E1561 /* GrowingTextView.swift in Sources */,
 				3023FE3022ECD0A300F753A7 /* NotificationService.swift in Sources */,
+				300AC17C23397A77005C6555 /* JournalHomeViewController.swift in Sources */,
 				30E9B0BA22EAF153005B25FD /* SentPrompt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		303BF74C232ABA7F00164539 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 30B6EA6A22EA5A9F00443E46 /* Cactus Stage */;
+			targetProxy = 303BF74B232ABA7F00164539 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		30B6EA7422EA5A9F00443E46 /* Main.storyboard */ = {
@@ -758,22 +1160,68 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		303BF749232A986A00164539 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCC1E9602C00EDA73D829630 /* Pods-Cactus UnitTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
+				HEADER_SEARCH_PATHS = "${PODS_ROOT}/Firebase/Core/Sources";
+				INFOPLIST_FILE = "Cactus UnitTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cactus.Cactus-UnitTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		303BF74A232A986A00164539 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA14FEC6B72B3AE2B74A1CAA /* Pods-Cactus UnitTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
+				HEADER_SEARCH_PATHS = "${PODS_ROOT}/Firebase/Core/Sources";
+				INFOPLIST_FILE = "Cactus UnitTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cactus.Cactus-UnitTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		30A281E522EA61A30041158E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C3E046B63B11B822B81B4488 /* Pods-Cactus Prod.debug.xcconfig */;
+			baseConfigurationReference = 86D6B8A9F7309EC3280399A0 /* Pods-Cactus Prod.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Cactus Prod.entitlements";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 32;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
-				INFOPLIST_FILE = "$(SRCROOT)/Cactus/ConfigProd/Info.plist";
+				INFOPLIST_FILE = Cactus/ConfigProd/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"$(CONFIGURATION_BUILD_DIR)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cactus.CactusApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.cactus.CactusApp";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -781,20 +1229,24 @@
 		};
 		30A281E622EA61A30041158E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 51FA2299E4EF911289E2FA7A /* Pods-Cactus Prod.release.xcconfig */;
+			baseConfigurationReference = 5F7497B6D87D04BF0ED03305 /* Pods-Cactus Prod.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Cactus Prod.entitlements";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 32;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
-				INFOPLIST_FILE = "$(SRCROOT)/Cactus/ConfigProd/Info.plist";
+				INFOPLIST_FILE = Cactus/ConfigProd/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"$(CONFIGURATION_BUILD_DIR)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cactus.CactusApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.cactus.CactusApp";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -834,7 +1286,8 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -896,6 +1349,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -918,20 +1372,24 @@
 		};
 		30B6EA8022EA5AA100443E46 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6B3C4B258F2887824928A3DF /* Pods-Cactus Stage.debug.xcconfig */;
+			baseConfigurationReference = 4367361CF4B35F9E8F97DC27 /* Pods-Cactus Stage.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Cactus Stage.entitlements";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
-				INFOPLIST_FILE = "$(SRCROOT)/Cactus/ConfigStage/Info.plist";
+				INFOPLIST_FILE = Cactus/ConfigStage/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"$(CONFIGURATION_BUILD_DIR)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cactus.StageCactus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.cactus.StageCactus";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -939,20 +1397,25 @@
 		};
 		30B6EA8122EA5AA100443E46 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0CDE23A24E34875606036179 /* Pods-Cactus Stage.release.xcconfig */;
+			baseConfigurationReference = 74F3C20610CFC85363610D59 /* Pods-Cactus Stage.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Cactus Stage.entitlements";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
-				INFOPLIST_FILE = "$(SRCROOT)/Cactus/ConfigStage/Info.plist";
+				ENABLE_TESTABILITY = YES;
+				INFOPLIST_FILE = Cactus/ConfigStage/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"$(CONFIGURATION_BUILD_DIR)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cactus.StageCactus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.cactus.StageCactus";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -961,6 +1424,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		303BF748232A986A00164539 /* Build configuration list for PBXNativeTarget "Cactus UnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				303BF749232A986A00164539 /* Debug */,
+				303BF74A232A986A00164539 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		30A281E422EA61A30041158E /* Build configuration list for PBXNativeTarget "Cactus Prod" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

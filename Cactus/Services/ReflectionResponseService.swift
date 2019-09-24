@@ -13,9 +13,9 @@ class ReflectionResponseService {
     
     let firestoreService: FirestoreService
     
-    static let sharedInstance = ReflectionResponseService();
+    static let sharedInstance = ReflectionResponseService()
     
-    private init(){
+    private init() {
         self.firestoreService = FirestoreService.sharedInstance
     }
     
@@ -23,11 +23,11 @@ class ReflectionResponseService {
         return self.firestoreService.getCollection(FirestoreCollectionName.reflectionResponses)
     }
     
-    func observeById(id:String, _ onData: @escaping (ReflectionResponse?, Any?) -> Void) -> ListenerRegistration? {
+    func observeById(id: String, _ onData: @escaping (ReflectionResponse?, Any?) -> Void) -> ListenerRegistration? {
         return self.firestoreService.observeById(id, onData)
     }
     
-    func observeForPromptId(id:String, _ onData: @escaping ([ReflectionResponse]?, Any?) -> Void) -> ListenerRegistration? {
+    func observeForPromptId(id: String, _ onData: @escaping ([ReflectionResponse]?, Any?) -> Void) -> ListenerRegistration? {
         guard let currentMember = CactusMemberService.sharedInstance.getCurrentMember(), let memberId = currentMember.id else {
             onData([], "No cactus member")
             return nil
@@ -38,15 +38,36 @@ class ReflectionResponseService {
         
     }
     
-    func save(_ response: ReflectionResponse, _ onData: @escaping (ReflectionResponse?, Any?) -> Void) -> Void {
+    func save(_ response: ReflectionResponse, _ onData: @escaping (ReflectionResponse?, Any?) -> Void) {
         self.firestoreService.save(response, onComplete: onData)
     }
     
-    func delete(_ response: ReflectionResponse, _ onData: @escaping (_ error: Any?) -> Void){
+    func delete(_ response: ReflectionResponse, _ onData: @escaping (_ error: Any?) -> Void) {
         self.firestoreService.delete(response, onComplete: onData)
     }
     
-    func createReflectionResponse(_ promptId: String, promptQuestion:String?) -> ReflectionResponse? {
+    func createReflectionResponse(_ prompt: ReflectionPrompt, medium: ResponseMedium = .JOURNAL_IOS) -> ReflectionResponse {
+        let response = ReflectionResponse()
+        response.promptId = prompt.id
+        response.promptQuestion = prompt.question
+        
+        response.responseMedium = medium
+        if let member = CactusMemberService.sharedInstance.currentMember {
+            response.cactusMemberId = member.id
+            response.userId = member.userId
+            response.memberEmail = member.email
+            if let listMember = member.mailchimpListMember {
+                response.mailchimpMemberId = listMember.id
+                response.mailchimpUniqueEmailId = listMember.unique_email_id
+            }
+        } else {
+            print("Warning: no cactus member was found")
+        }
+        
+        return response
+    }
+    
+    func createReflectionResponse(_ promptId: String, promptQuestion: String?) -> ReflectionResponse? {
         guard let member = CactusMemberService.sharedInstance.currentMember else {
             return nil
         }

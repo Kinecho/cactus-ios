@@ -24,16 +24,15 @@ class RoundedButton: UIButton {
         sharedInit()
     }
     
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        //        self.sharedInit()
-    }
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//        //        self.sharedInit()
+//    }
     
     @IBInspectable var imageWidth: CGFloat = 25
     @IBInspectable var imageHeight: CGFloat = 25
     
-    @IBInspectable var borderRadius : CGFloat {
+    @IBInspectable var borderRadius: CGFloat {
         get {
             return self.layer.cornerRadius
         }
@@ -42,9 +41,9 @@ class RoundedButton: UIButton {
         }
     }
     
-    func sharedInit(){
+    func sharedInit() {
         self.clipsToBounds = true
-        if let imageView = self.imageView{
+        if let imageView = self.imageView {
             self.bringSubviewToFront(imageView)
         }
     }

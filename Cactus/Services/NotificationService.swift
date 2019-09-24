@@ -13,16 +13,15 @@ import FirebaseMessaging
 
 class NotificationService {
     
-    let firestoreService:FirestoreService;
+    let firestoreService: FirestoreService
     private init() {
         firestoreService = FirestoreService.sharedInstance
-        
         
     }
     
     public static var sharedInstance = NotificationService()
     
-    func registerForPushIfEnabled(){
+    func registerForPushIfEnabled() {
         self.hasPushPermissions { (status) in
             if status == .authorized {
                 DispatchQueue.main.async {
@@ -39,13 +38,13 @@ class NotificationService {
         }
     }
     
-    func goToSettings(){
+    func goToSettings() {
         UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
 
     }
     
-    func requestPushPermissions(onFinished: @escaping (Bool) -> Void){
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {hasPermission, error in
+    func requestPushPermissions(onFinished: @escaping (Bool) -> Void) {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {hasPermission, _ in
             print("Has permission", hasPermission)
             self.registerForPushIfEnabled()
             onFinished(hasPermission)

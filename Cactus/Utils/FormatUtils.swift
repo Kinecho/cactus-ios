@@ -7,11 +7,11 @@
 //
 
 import Foundation
-
+import UIKit
 
 struct FormatUtils {
-    static func formatDate(_ date: Date?, currentYearFormat: String="MMMM d", previousYearFormat: String="MMM d, yyyy") -> String?{
-        var dateString:String?
+    static func formatDate(_ date: Date?, currentYearFormat: String="MMMM d", previousYearFormat: String="MMM d, yyyy") -> String? {
+        var dateString: String?
         if let date = date {
             let df = DateFormatter()
             let calendar = Calendar.current
@@ -27,4 +27,26 @@ struct FormatUtils {
         }
         return dateString
     }
+    
+    static func isBlank(_ input: String?) -> Bool {
+        guard let input = input else {
+            return true
+        }
+        
+        if input.isEmpty {
+            return true
+        }
+        
+        return false
+    }
+}
+
+struct FontSize {
+    static let large: CGFloat = 28
+    static let normal: CGFloat = 16
+}
+
+struct CactusFont {    
+    static let large = UIFont.systemFont(ofSize: FontSize.large)
+    static let normal = UIFont.systemFont(ofSize: FontSize.normal)
 }

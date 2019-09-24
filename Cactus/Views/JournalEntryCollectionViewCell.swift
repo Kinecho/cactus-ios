@@ -8,20 +8,18 @@
 
 import UIKit
 
-
 @IBDesignable
 class JournalEntryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var responseLabel: UILabel!
+//    @IBOutlet weak var responseLabel: UILabel!
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var editTextView: UITextView!
-        
-    var sentPrompt:SentPrompt?;
+    var sentPrompt: SentPrompt?
     var responses: [ReflectionResponse]?
     var prompt: ReflectionPrompt?
-    
+    var promptContent: PromptContent?
     var isEditing = false
     
     @IBAction func moreButtonTapped(_ sender: Any) {
@@ -32,7 +30,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Edit Reflection", style: .default){ _ in
+        alert.addAction(UIAlertAction(title: "Edit Reflection", style: .default) { _ in
             print("Edit reflection tapped")
             self.startEdit()
         })
@@ -41,7 +39,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
 
     }
     
-    @IBInspectable var borderRadius : CGFloat {
+    @IBInspectable var borderRadius: CGFloat {
         get {
             return self.layer.cornerRadius
         }
@@ -52,15 +50,14 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     
     func startEdit() {
         self.isEditing = true
-    
         
-        editTextView.text = responseLabel.text
-        
-        editTextView.isHidden = false
-        responseLabel.isHidden = true
+//        editTextView.text = responseLabel.text
+        editTextView.isEditable = true
+        editTextView.backgroundColor = .white
+        self.editTextView.layer.borderWidth = 1
+//        editTextView.isHidden = false
+//        responseLabel.isHidden = true
 //        editTextView.isFocused = true
-        
-        
         
         let bar = UIToolbar()
         let save = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(self.saveEdit))
@@ -68,6 +65,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         let cancel = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.cancelEdit))
         bar.items = [cancel, spacer, save]
         bar.sizeToFit()
+        
         editTextView.inputAccessoryView = bar
         editTextView.becomeFirstResponder()
         
@@ -75,14 +73,16 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         
     }
     
-    @objc func saveEdit(_ sender: Any?){
+    @objc func saveEdit(_ sender: Any?) {
         self.isEditing = false
         
         self.contentView.dismissKeyboard()
         
-        responseLabel.text = editTextView.text
-        editTextView.isHidden = true
-        responseLabel.isHidden = false
+//        responseLabel.text = editTextView.text
+//        editTextView.isHidden = true
+        editTextView.isEditable = false
+        self.editTextView.layer.borderWidth = 0
+//        responseLabel.isHidden = false
         self.contentView.backgroundColor = .clear
         var response = self.responses?.first
         if response == nil, let promptId = self.sentPrompt?.promptId {
@@ -96,13 +96,12 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         
         response?.content.text = self.editTextView.text
         
-        self.responses?.forEach{ r in
+        self.responses?.forEach { r in
             if r.id != response?.id {
                 ReflectionResponseService.sharedInstance.delete(r, { (error) in
                     if let error = error {
                         print("failed to delete reflection response \(r.id ?? "id unknown")", error)
-                    }
-                    else {
+                    } else {
                         print("Successfully deleted reflection response")
                     }
                 })
@@ -113,24 +112,26 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
             print("No response found while trying to save... exiting")
             return
         }
-        ReflectionResponseService.sharedInstance.save(toSave) { (saved, error) in
+        ReflectionResponseService.sharedInstance.save(toSave) { (saved, _) in
             print("Saved the response! \(saved?.id ?? "no id found")")
         }
         
-        
     }
     
-    @objc func cancelEdit(_ sender: Any?){
+    @objc func cancelEdit(_ sender: Any?) {
         self.isEditing = false
-        editTextView.isHidden = true
-        responseLabel.isHidden = false
+        editTextView.isEditable = false
+        editTextView.backgroundColor = .clear
+        self.editTextView.layer.borderWidth = 0
+//        editTextView.isHidden = true
+//        responseLabel.isHidden = false
         self.contentView.backgroundColor = .white
         self.contentView.dismissKeyboard()
         
     }
     
-    func updateView(){
-        
+    func updateView() {
+        print("Updating cell view")
         if let sentDate = self.sentPrompt?.firstSentAt {
             let dateString = FormatUtils.formatDate(sentDate)
             self.dateLabel.text = dateString
@@ -142,26 +143,60 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         
         let responseText =  self.responses?.map {$0.content.text ?? ""}.joined(separator: "\n\n")
         
-        self.responseLabel.text = responseText
+        self.editTextView.text = responseText
+        
+        if !(self.promptContent?.content.isEmpty ?? true) {
+//            self.contentView.backgroundColor = CactusColor.lightGreen
+        }
     }
     
     override func prepareForInterfaceBuilder() {
         self.layoutSubviews()
+        self.addShadows()
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        if self.editTextView != nil {
+            self.editTextView.layer.borderColor = CactusColor.borderLight.cgColor
+            self.editTextView.layer.borderWidth = 0
+            self.editTextView.layer.cornerRadius = 6
+        }
         
-        self.editTextView.layer.borderColor = CactusColor.borderLight.cgColor
-        self.editTextView.layer.borderWidth = 1
-        self.editTextView.layer.cornerRadius = 6
-        self.layer.borderColor = CactusColor.borderLight.cgColor
-        self.layer.borderWidth = 1
-
+        self.layer.borderColor = UIColor.clear.cgColor
+        self.layer.borderWidth = 0
+        
+        self.addShadows()
+        
     }
     
+    func addShadows() {
+//        guard !self.hasShadows else {
+//            return
+//        }
+        //        self.layer.shadowColor = UIColor.black.cgColor
+        //        self.layer.shadowOpacity = 1
+        //        self.layer.shadowOffset = .zero
+        //        self.layer.shadowRadius = 10
+        //        self.layer.masksToBounds = false
+        self.contentView.layer.cornerRadius = self.layer.cornerRadius
+//        self.contentView.layer.cornerRadius = 2.0
+        self.contentView.layer.borderWidth = 0.0
+        self.contentView.layer.borderColor = UIColor.clear.cgColor
+        //        self.contentView.layer.masksToBounds = true
+        
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 10.0)
+        self.layer.shadowRadius = 12.0
+        self.layer.shadowOpacity = 0.15
+        self.layer.masksToBounds = false
+        
+        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
+//        self.addShadows()
+        
     }
 }

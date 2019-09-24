@@ -13,14 +13,16 @@ import FirebaseUI
 import FirebaseMessaging
 import Fabric
 import Crashlytics
+import Sentry
 
+typealias SentryUser = Sentry.User
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var fcmToken: String?
     var window: UIWindow?
-    private var currentUser:User?
+    private var currentUser: FirebaseAuth.User?
     let gcmMessageIDKey = "gcm.message_id"
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -30,17 +32,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+//        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
 
         Fabric.with([Crashlytics.self])
+        
+        // Create a Sentry client and start crash handler
+        do {
+            Client.shared = try Client(dsn: "https://728bdc63f41d4c93a6ce0884a01b58ea@sentry.io/1515431")
+            
+            try Client.shared?.startCrashHandler()
+            Client.shared?.environment = CactusConfig.environment.rawValue
+            let testEvent = Sentry.Event(level: .info)
+            testEvent.message = "App Starting"
+            testEvent.environment = CactusConfig.environment.rawValue
+            testEvent.extra = ["ios": true]
+            
+            Client.shared?.send(event: testEvent)
+        } catch let error {
+            print("\(error)")
+        }
+        
         // Override point for customization after application launch.
-        Auth.auth().addStateDidChangeListener(){auth, user in
+        Auth.auth().addStateDidChangeListener {_, user in
             Analytics.logEvent("auth_state_changed", parameters: ["userId": user?.uid ?? "", "previousUserId": self.currentUser?.uid ?? ""])
             Crashlytics.sharedInstance().setUserEmail(user?.email)
             Crashlytics.sharedInstance().setUserIdentifier(user?.uid)
             Crashlytics.sharedInstance().setUserName(user?.displayName)
+            if let user = user {
+                let sentryUser = SentryUser(userId: user.uid)
+                sentryUser.email = user.email
+                Client.shared?.user = sentryUser
+                let loginEvent = Sentry.Event(level: .info)
+                loginEvent.message = "\(user.email ?? user.uid) has logged in"
+                Client.shared?.send(event: loginEvent)
+            } else {
+                
+                if let currentUser = self.currentUser {
+                    let logoutEvent = Sentry.Event(level: .info)
+                    logoutEvent.message = "\(currentUser.email ?? currentUser.uid) has logged out of the app"
+                    Client.shared?.send(event: logoutEvent)
+                }
+                Client.shared?.user = nil
+            }
+            self.currentUser = user
         }
-
-        
+    
         Messaging.messaging().delegate = self
         
         NotificationService.sharedInstance.registerForPushIfEnabled()
@@ -49,13 +85,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+        // Sent when the application is about to move from active to inactive state.
+        // This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message)
+        // or when the user quits the application and it begins the transition to the background state.
+        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks.
+        // Games should use this method to pause the game.
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        // Use this method to release shared resources, save user data, invalidate timers, and store enough application
+        // state information to restore your application to its current state in case it is terminated later.
+        // If your application supports background execution, this method is called instead of applicationWillTerminate:
+        // when the user quits.
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -65,28 +106,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        // Restart any tasks that were paused (or not yet started) while the application was inactive.
+        // If the application was previously in the background, optionally refresh the user interface.
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        // Called when the application is about to terminate. Save data if appropriate.
+        // See also applicationDidEnterBackground:.
     }
         
     //handle handler for result of URL signup flows
     func application(_ app: UIApplication, open url: URL,
-                     options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
-        let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String?
+                     options: [UIApplication.OpenURLOptionsKey: Any]) -> Bool {
+        guard let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String? else {
+            return false
+        }
+        print("Starting application open url method (line 79)")
         if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
+            print("Handled by firebase auth ui")
             return true
         }
         // other URL handling goes here.
-        print("handing custom link scheme", url )
+        print("handling custom link scheme", url )
         if let dynamicLink = DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: url) {
             // Handle the deep link. For example, show the deep-linked content or
             // apply a promotional offer to the user's account.
             // ...
             print("handling dynamic link", dynamicLink)
-            return true
+            return false
         }
         
         if let scheme = url.scheme,
@@ -145,7 +192,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     //NOTE: See https://github.com/firebase/quickstart-ios/blob/master/messaging/MessagingExampleSwift/AppDelegate.swift
-    func registerForPushNotifications(_ application: UIApplication){
+    func registerForPushNotifications(_ application: UIApplication) {
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
             UNUserNotificationCenter.current().delegate = self
@@ -165,12 +212,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-extension AppDelegate : MessagingDelegate {
+extension AppDelegate: MessagingDelegate {
     // [START refresh_token]
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         print("Firebase registration token: \(fcmToken)")
         self.fcmToken = fcmToken
-        let dataDict:[String: String] = ["token": fcmToken]
+        let dataDict: [String: String] = ["token": fcmToken]
         NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
         // TODO: If necessary send token to application server.
         // Note: This callback is fired at each app startup and whenever a new token is generated.
@@ -182,12 +229,10 @@ extension AppDelegate : MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
         print("Received data message: \(remoteMessage.appData)")
     }
-    
-    
     // [END ios_10_data_message]
 }
 
-
+// swiftlint:disable force_cast
 extension AppDelegate {
     static var shared: AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
@@ -196,11 +241,11 @@ extension AppDelegate {
         return window!.rootViewController as! AppMainViewController
     }
 }
-
+// swiftlint:enable force_cast
 
 // [START ios_10_message_handling]
 @available(iOS 10, *)
-extension AppDelegate : UNUserNotificationCenterDelegate {
+extension AppDelegate: UNUserNotificationCenterDelegate {
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Unable to register for remote notifications: \(error.localizedDescription)")
     }
@@ -242,7 +287,6 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     }
     // [END receive_message]
     
-    
     // Receive displayed notifications for iOS 10 devices.
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
@@ -278,6 +322,5 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         
         completionHandler()
     }
-    
 }
 // [END ios_10_message_handling]

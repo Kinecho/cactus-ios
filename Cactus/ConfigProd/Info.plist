@@ -42,7 +42,21 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>32</string>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>f92d423e6318610dec15544656c1d5c4183b6688</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict/>
+				<key>KitName</key>
+				<string>Crashlytics</string>
+			</dict>
+		</array>
+	</dict>
 	<key>FacebookAppID</key>
 	<string>1303868239764571</string>
 	<key>FacebookDisplayName</key>
@@ -51,6 +65,8 @@
 	<array>
 		<string>https://cactus.app/p</string>
 	</array>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationWhenInUseUsageDescription</key>

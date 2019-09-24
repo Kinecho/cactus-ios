@@ -10,28 +10,51 @@ import Foundation
 import UIKit
 
 struct CactusColor {
-    static let pink:UIColor = UIColor(hex: "FFE4DA");
-    static let borderLight:UIColor = UIColor(hex: "f1ebe7")
+    static let lightest: UIColor = UIColor(hex: "F1EBE7")
+    
+    static let lightText: UIColor = UIColor(hex: "757575")
+    static let darkText: UIColor = UIColor(hex: "444")
+    
+    static let lightGray: UIColor = UIColor(hex: "E2E2E2")
+    
+    static let lightPink: UIColor = UIColor(hex: "FFE4DA")
+    static let pink: UIColor = UIColor(hex: "FFE4DA")
+    static let darkPink: UIColor = UIColor(hex: "FDBCA3")
+    static let darkestPink: UIColor = UIColor(hex: "FDBCA3")
+    
+    static let lightGreen: UIColor = UIColor(hex: "B9EFE9")
+    static let green: UIColor = UIColor(hex: "33CCAB")
+    static let darkGreen: UIColor = UIColor(hex: "29A389")
+    static let darkestGreen: UIColor = UIColor(hex: "07454C")
+    
+    static let yellow: UIColor = UIColor(hex: "F9EB91")
+    static let darkYellow: UIColor = UIColor(hex: "F4DD48")
+    static let darkestYellow: UIColor = UIColor(hex: "F4DD48")
+    
+    static let lightBlue: UIColor = UIColor(hex: "e6f9f7")
+    
+    static let borderLight: UIColor = UIColor(hex: "f1ebe7")
+    
+    static let facebook: UIColor = UIColor(hex: "3b5998")
+    static let twitter: UIColor = UIColor(hex: "1da1f2")
+    
 }
-
 
 extension UIColor {
     
-    
     convenience init(hex: String) {
-        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        var cString: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         
-        if (cString.hasPrefix("#")) {
+        if cString.hasPrefix("#") {
             cString.remove(at: cString.startIndex)
         }
         
-        
-        if ((cString.count) != 6) {
+        if (cString.count) != 6 {
             self.init()
             return
         }
         
-        var rgbValue:UInt32 = 0
+        var rgbValue: UInt32 = 0
         Scanner(string: cString).scanHexInt32(&rgbValue)
         
         self.init(
@@ -41,7 +64,6 @@ extension UIColor {
             alpha: CGFloat(1.0)
         )
     }
-    
     
     convenience init(red: Int, green: Int, blue: Int) {
         assert(red >= 0 && red <= 255, "Invalid red component")

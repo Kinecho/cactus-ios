@@ -1,0 +1,19 @@
+disabled_rules: 
+  - identifier_name
+  - trailing_whitespace
+  - todo
+  - redundant_string_enum_value
+  - valid_ibinspectable
+  - for_where
+  - trailing_comma
+
+included: 
+  - Cactus
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Carthage
+  - Pods
+  - build
+  - vendor
+
+line_length: 200

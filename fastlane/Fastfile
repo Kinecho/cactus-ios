@@ -1,0 +1,115 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+
+  before_all do
+    setup_circle_ci
+  end
+
+  lane :bump_build do 
+  	increment_build_number(xcodeproj: "Cactus.xcodeproj")
+  end
+  
+
+  lane :version_bump do 
+ #  	increment_version_number_in_plist(
+	#   # specify specific version number (optional, omitting it increments patch version number)
+	#   # version_number: '2.1.1',   
+	#   # (optional, you must specify the path to your main Xcode project if it is not in the project root directory
+	#   # or if you have multiple xcodeproj's in the root directory)
+	#   xcodeproj: 'Cactus.xcodeproj',
+	#   # (optional)
+	#   target: 'Cactus Stage' # or `scheme`
+	# )
+	
+	# commit Version bump moved to finalize release
+    # commit_version_bump(xcodeproj: "Cactus.xcodeproj", message: "[ci skip] Build Version Bump to #{lane_context[SharedValues::BUILD_NUMBER]}")
+    # add_git_tag
+    increment_build_number(xcodeproj: "Cactus.xcodeproj")
+    commit_version_bump(xcodeproj: "Cactus.xcodeproj", message: "[ci skip] Build Version Bump to #{lane_context[SharedValues::BUILD_NUMBER]}")
+    push_to_git_remote
+  end
+
+
+  desc "Push a new beta build to TestFlight"
+  lane :beta do
+  	# ensure_git_status_clean
+	match(type: "appstore", readonly: is_ci)
+	sync_code_signing(type: "appstore")
+    # increment_build_number(xcodeproj: "Cactus.xcodeproj")
+    # commit_version_bump(xcodeproj: "Cactus.xcodeproj")
+    # add_git_tag
+    # push_to_git_remote
+    # increment_build_number(xcodeproj: "Cactus.xcodeproj")
+    build_app(workspace: "Cactus.xcworkspace", scheme: "Cactus Prod", xcargs: "-UseModernBuildSystem=NO")
+    # commit_version_bump(xcodeproj: "Cactus.xcodeproj", message: "[ci skip] Build Version Bump to #{lane_context[SharedValues::BUILD_NUMBER]}")
+    changelog_from_git_commits
+    slack(message: "A new build has been created. Next step: upload to test flight.", slack_url: "https://hooks.slack.com/services/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")
+    upload_to_testflight(skip_waiting_for_build_processing: true)
+	
+    slack(message: "Successfully uploaded new build to TestFlight", slack_url: "https://hooks.slack.com/services/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")
+  end
+
+  lane :test do 
+  	# swiftlint(mode: :lint, output_file: "reports/swiftlint/result.xml", reporter: "junit")
+  	scan(output_types: "junit", scheme: "Cactus Prod", skip_build: true, output_directory: "reports/scan", output_files: "results.xml")
+  end
+
+  lane :lint do 
+  	sh("mkdir", "-p", "../reports/swiftlint")
+  	swiftlint(
+  		mode: :lint, 
+  		# executable: "Pods/SwiftLint/swiftlint", # The SwiftLint binary path (optional). Important if you've installed it via CocoaPods
+  		output_file: "reports/swiftlint/results.xml", 
+  		reporter: "junit", 
+  		config_file: ".swiftlint.yml"
+  		)
+  	
+  end
+
+  lane :certificates do
+	  match(app_identifier: ["com.cactus.StageCactus", "com.cactus.CactusApp"])
+	end
+
+  lane :upload_symbols do 
+	  download_dsyms
+	  sentry_upload_dsym(
+	    auth_token: $SENTRY_AUTH_TOKEN,
+		org_slug: 'kinecho',
+	    project_slug: 'cactus-ios',
+	  )
+	end
+
+	lane :finalize_release do 
+
+		get_version_number(xcodeproj: "Cactus.xcodeproj", target: "Cactus Prod")
+		get_build_number
+		upload_symbols
+		
+		sentry_create_release(
+		  # api_key: '...',
+		  auth_token: $SENTRY_AUTH_TOKEN,
+		  org_slug: 'kinecho',
+	      project_slug: 'cactus-ios',
+		  version: "#{lane_context[SharedValues::VERSION_NUMBER]}.#{lane_context[SharedValues::BUILD_NUMBER]}", # release version to create
+		  app_identifier: 'com.cactus.CactusApp', # pass in the bundle_identifer of your app
+		  finalize: true # Whether to finalize the release. If not provided or false, the release can be finalized using the sentry_finalize_release action
+		)
+	end
+end
+

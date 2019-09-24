@@ -9,9 +9,8 @@
 import Foundation
 import UIKit
 
-
 extension UIView {
-    func setupKeyboardDismissRecognizer(){
+    func setupKeyboardDismissRecognizer() {
         let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(
             target: self,
             action: #selector(self.dismissKeyboard))
@@ -19,8 +18,7 @@ extension UIView {
         self.addGestureRecognizer(tapRecognizer)
     }
     
-    @objc func dismissKeyboard()
-    {
+    @objc func dismissKeyboard() {
         self.endEditing(true)
     }
 }

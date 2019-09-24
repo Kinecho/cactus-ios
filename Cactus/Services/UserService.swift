@@ -11,10 +11,10 @@ import FirebaseAuth
 class AuthService {
     
     static let sharedInstance = AuthService()
-    let firestore:FirestoreService;
+    let firestore: FirestoreService
     
-    private init(){
-        self.firestore = FirestoreService.sharedInstance;
+    private init() {
+        self.firestore = FirestoreService.sharedInstance
     }
     
     func getCurrentUser() -> User? {
@@ -27,7 +27,7 @@ class AuthService {
         return handle
     }
     
-    func removeAuthStateChangeListener(_ listener: AuthStateDidChangeListenerHandle?){
+    func removeAuthStateChangeListener(_ listener: AuthStateDidChangeListenerHandle?) {
         if listener != nil {
             Auth.auth().removeStateDidChangeListener(listener!)
         }

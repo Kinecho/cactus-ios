@@ -11,10 +11,10 @@ import FirebaseAuth
 class AuthService {
     
     static let sharedInstance = AuthService()
-    let firestore:FirestoreService;
+    let firestore: FirestoreService
     
-    private init(){
-        self.firestore = FirestoreService.sharedInstance;
+    private init() {
+        self.firestore = FirestoreService.sharedInstance
     }
     
     func getCurrentUser() -> User? {
@@ -37,12 +37,12 @@ class AuthService {
         
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Log Out", style: .destructive){ _ in
+        alert.addAction(UIAlertAction(title: "Log Out", style: .destructive) { _ in
             CactusMemberService.sharedInstance.removeFCMToken(onCompleted: { (error) in
                 if error != nil {
                     print("Failed to remove tokens from Cactus User. Oh well - still logging out", error!)
                 }
-                do{
+                do {
                     try Auth.auth().signOut()
                     vc.dismiss(animated: false, completion: nil)
                 } catch {
@@ -63,7 +63,7 @@ class AuthService {
         return handle
     }
     
-    func removeAuthStateChangeListener(_ listener: AuthStateDidChangeListenerHandle?){
+    func removeAuthStateChangeListener(_ listener: AuthStateDidChangeListenerHandle?) {
         if listener != nil {
             Auth.auth().removeStateDidChangeListener(listener!)
         }

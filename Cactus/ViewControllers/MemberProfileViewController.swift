@@ -10,11 +10,9 @@ import UIKit
 import FirebaseMessaging
 import Firebase
 
+@IBDesignable
 class MemberProfileViewController: UIViewController {
     
-    @IBOutlet weak var fcmTokenLabel: UITextView!
-    @IBOutlet weak var userIdLabel: UITextView!
-    @IBOutlet weak var cactusMemberIdLabel: UITextView!
     @IBOutlet weak var emailLabel: UITextView!
     
     @IBOutlet weak var permissionSettingErrorLabel: UILabel!
@@ -22,16 +20,17 @@ class MemberProfileViewController: UIViewController {
     
     var managePermissionsInSettings = false
     
-    @objc func showJournal(sender:Any?){
-        AppDelegate.shared.rootViewController.pushScreen(ScreenID.JournalFeed)
+    var notificationObserver: NSObjectProtocol?
+    
+    @objc func showJournal(sender: Any?) {
+        AppDelegate.shared.rootViewController.pushScreen(ScreenID.JournalHome)
     }
     
     @IBAction func pushToggleTriggered(_ sender: Any) {
         let isOn = notificationSwitch.isOn
         
-        
         if !self.managePermissionsInSettings && isOn {
-            NotificationService.sharedInstance.requestPushPermissions{ hasPermission in
+            NotificationService.sharedInstance.requestPushPermissions { _ in
                 DispatchQueue.main.async {
                     self.refreshPermissionsToggle(animated: true)
                 }
@@ -40,11 +39,11 @@ class MemberProfileViewController: UIViewController {
             let message = "Notification settings are managed in the App's Settings."
             
             let alert = UIAlertController(title: "Manage Notifications", message: message, preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: "Take Me There", style: .default, handler: { (action) in
+            alert.addAction(UIAlertAction(title: "Take Me There", style: .default, handler: { (_) in
                 NotificationService.sharedInstance.goToSettings()
                 self.refreshPermissionsToggle(animated: true)
             }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {action in
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in
                 self.refreshPermissionsToggle()
             }))
             self.present(alert, animated: true)
@@ -53,9 +52,14 @@ class MemberProfileViewController: UIViewController {
         
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         self.refreshPermissionsToggle()
+    }
+    
+    deinit {
+        if let notifObserver = self.notificationObserver {
+              NotificationCenter.default.removeObserver(notifObserver)
+        }
     }
     
     func refreshPermissionsToggle(animated: Bool=false) {
@@ -68,19 +72,16 @@ class MemberProfileViewController: UIViewController {
                     self.notificationSwitch.setOn(true, animated: animated)
                     self.managePermissionsInSettings = true
                     self.permissionSettingErrorLabel.isHidden = false
-                    break
                 case .denied:
                     print("denied")
                     self.managePermissionsInSettings = true
                     self.notificationSwitch.setOn(false, animated: animated)
                     self.permissionSettingErrorLabel.isHidden = false
-                    break
                 case .notDetermined:
                     print("not determined, ask user for permission now")
                     self.managePermissionsInSettings = false
                     self.notificationSwitch.setOn(false, animated: animated)
                     self.permissionSettingErrorLabel.isHidden = true
-                    break
                 @unknown default:
                     break
                 }
@@ -90,41 +91,32 @@ class MemberProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [unowned self] notification in
+        self.notificationObserver = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [unowned self] _ in
             DispatchQueue.main.async {
                 self.refreshPermissionsToggle()
             }
         }
 
-        fcmTokenLabel.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0);
-        userIdLabel.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0);
-        cactusMemberIdLabel.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0);
-        emailLabel.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0);
+        emailLabel.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
-        self.fcmTokenLabel.text = AppDelegate.shared.fcmToken
         // Do any additional setup after loading the view.
         
         let member = CactusMemberService.sharedInstance.getCurrentMember()
-        self.cactusMemberIdLabel.text = member?.id
         self.emailLabel.text = member?.email
-        self.userIdLabel.text = member?.userId
         
         let journalItem = UIBarButtonItem(title: "Journal", style: .plain, target: self, action: #selector(self.showJournal(sender:)))
         
         self.navigationItem.rightBarButtonItem = journalItem
         
-        
-        
-        InstanceID.instanceID().instanceID { (result, error) in
-            if let error = error {
-                print("Error fetching remote instance ID: \(error)")
-            } else if let result = result {
-                self.fcmTokenLabel.text  = result.token
-            }
-        }
+//        InstanceID.instanceID().instanceID { (result, error) in
+//            if let error = error {
+//                print("Error fetching remote instance ID: \(error)")
+//            } else if let result = result {
+//                //we used to get the FCM token and display it for testing purposes.
+//            }
+//        }
         
     }
-    
     
     @IBAction func logOutTapped(_ sender: Any) {
         AuthService.sharedInstance.logOut(self)

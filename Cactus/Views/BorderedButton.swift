@@ -32,7 +32,6 @@ class BorderedButton: UIButton {
         sharedInit()
     }
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
                 self.sharedInit()
@@ -41,10 +40,9 @@ class BorderedButton: UIButton {
     @IBInspectable var imageWidth: CGFloat = 25
     @IBInspectable var imageHeight: CGFloat = 25
     
-    
-    @IBInspectable var borderColor : UIColor? {
+    @IBInspectable var borderColor: UIColor? {
         get {
-            if (self.layer.borderColor != nil)  {
+            if self.layer.borderColor != nil {
                 return UIColor.init(cgColor: self.layer.borderColor!)
             }
             return nil
@@ -54,7 +52,7 @@ class BorderedButton: UIButton {
         }
     }
     
-    @IBInspectable var borderWidth : CGFloat {
+    @IBInspectable var borderWidth: CGFloat {
         get {
             return self.layer.borderWidth
         }
@@ -63,7 +61,7 @@ class BorderedButton: UIButton {
         }
     }
     
-    @IBInspectable var borderRadius : CGFloat {
+    @IBInspectable var borderRadius: CGFloat {
         get {
             return self.layer.cornerRadius
         }
@@ -72,10 +70,10 @@ class BorderedButton: UIButton {
         }
     }
     
-    func sharedInit(){
+    func sharedInit() {
         self.clipsToBounds = true
         self.layoutSubviews()
-        if let imageView = self.imageView{
+        if let imageView = self.imageView {
             self.bringSubviewToFront(imageView)
         }
     }
@@ -90,6 +88,5 @@ class BorderedButton: UIButton {
             imageView.bounds.size.height = imageHeight
         }
     }
-    
     
 }
