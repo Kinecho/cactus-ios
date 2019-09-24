@@ -40,7 +40,7 @@ class AppMainViewController: UIViewController {
     }
     
     func setupAuth() {
-        _ = CactusMemberService.sharedInstance.observeCurrentMember { (member, _) in
+        _ = CactusMemberService.sharedInstance.observeCurrentMember { (member, _, _) in
             print("setup auth onData", member?.email ?? "no email")
             if member == nil {
                 print("found member, is null. showing loign screen.")

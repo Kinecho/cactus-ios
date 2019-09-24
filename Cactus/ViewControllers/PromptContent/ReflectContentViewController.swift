@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import AVKit
 
 class ReflectContentViewController: UIViewController {
 
     let padding: CGFloat = 8
+    @IBOutlet weak var videoView: UIView!
     
     var content: Content!
     var promptContent: PromptContent!
+    var player:AVPlayer!
     
     var doneButton: RoundedButton!
     var reflectionResponse: ReflectionResponse?
@@ -35,7 +38,7 @@ class ReflectContentViewController: UIViewController {
         
         self.createInputView()
         self.configureView()
-        
+        self.createCactusGrowingVideo()
         if let response = self.reflectionResponse {
             self.textView.text = response.content.text
         } else {
@@ -43,6 +46,27 @@ class ReflectContentViewController: UIViewController {
         }
     }
 
+    func createCactusGrowingVideo() {
+        
+        guard let path = Bundle.main.path(forResource: "cactus-growing", ofType: "mp4") else {
+            print("Video not found")
+            return
+        }
+        
+        player = AVPlayer(url: URL(fileURLWithPath: path))
+        player.play()
+        player.playImmediately(atRate: 1.0)
+        
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.player?.play()
+        
+        let videoFrame = AVMakeRect(aspectRatio: CGSize(width: 1, height: 1), insideRect: self.videoView.bounds)
+        playerLayer.frame = videoFrame
+        
+        self.videoView.clipsToBounds = true
+        self.videoView.layer.addSublayer(playerLayer)
+    }
+    
     func configureDoneButton() {
         self.doneButton = RoundedButton()
         self.doneButton.borderRadius = 18

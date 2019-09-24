@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReflectContentViewController" customModule="Cactus_Prod" customModuleProvider="target">
             <connections>
                 <outlet property="questionTextView" destination="kau-mV-hyr" id="xwz-Wa-91C"/>
+                <outlet property="videoView" destination="ggY-Bf-lGx" id="dH0-IL-rUb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,20 +23,30 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="What brings out your creative side?" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kau-mV-hyr">
-                    <rect key="frame" x="20" y="144" width="374" height="300"/>
+                    <rect key="frame" x="20" y="144" width="374" height="200"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="300" id="I7U-h3-Pci"/>
+                        <constraint firstAttribute="height" constant="200" id="I7U-h3-Pci"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="32"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <view clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggY-Bf-lGx" userLabel="VideoView">
+                    <rect key="frame" x="57" y="303" width="300" height="300"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="300" id="UMm-em-Rid"/>
+                        <constraint firstAttribute="width" constant="300" id="orc-e8-Pal"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="ggY-Bf-lGx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1R0-7k-pcb"/>
                 <constraint firstItem="kau-mV-hyr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="5Gw-u5-vSV"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kau-mV-hyr" secondAttribute="trailing" constant="20" id="SqO-Qo-o52"/>
                 <constraint firstItem="kau-mV-hyr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Vvz-B4-jqI"/>
+                <constraint firstItem="ggY-Bf-lGx" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="rAe-YA-0hd"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>

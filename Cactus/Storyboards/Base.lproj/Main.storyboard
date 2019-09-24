@@ -16,7 +16,7 @@
             <objects>
                 <viewController title="Detail" id="JEX-9P-axG" customClass="JournalEntryDetailViewController" customModule="Cactus_Prod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="svH-Pt-448">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="777"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="767"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0XM-y9-sOw">
@@ -235,29 +235,29 @@
             </objects>
             <point key="canvasLocation" x="-1020.2898550724639" y="-666.29464285714278"/>
         </scene>
-        <!--View Controller-->
+        <!--Journal Home-->
         <scene sceneID="VOd-AJ-99C">
             <objects>
-                <viewController storyboardIdentifier="JournalHome" id="TYZ-Ys-0y2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="JournalHome" id="TYZ-Ys-0y2" userLabel="Journal Home" customClass="JournalHomeViewController" customModule="Cactus_Prod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BSA-pu-uSy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z8U-Me-3LH">
-                                <rect key="frame" x="0.0" y="119" width="414" height="777"/>
+                                <rect key="frame" x="0.0" y="129" width="414" height="767"/>
                                 <connections>
                                     <segue destination="GWJ-to-hjF" kind="embed" id="S3K-6l-Z7C"/>
                                 </connections>
                             </containerView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cactusLogo" translatesAutoresizingMaskIntoConstraints="NO" id="a8S-uZ-lk2">
-                                <rect key="frame" x="20" y="44" width="120" height="75"/>
+                                <rect key="frame" x="20" y="54" width="120" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="c8q-6a-FZ3"/>
+                                    <constraint firstAttribute="height" constant="60" id="c8q-6a-FZ3"/>
                                     <constraint firstAttribute="width" constant="120" id="m0b-ib-v2I"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_cactusOG" translatesAutoresizingMaskIntoConstraints="NO" id="cWM-Up-Dm8">
-                                <rect key="frame" x="344" y="56.5" width="50" height="50"/>
+                                <rect key="frame" x="344" y="59" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="15x-gP-G9u"/>
                                     <constraint firstAttribute="width" constant="50" id="OXC-AJ-Gty"/>
@@ -266,8 +266,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="a8S-uZ-lk2" firstAttribute="top" secondItem="ZBF-X5-P48" secondAttribute="top" id="1UK-il-Axw"/>
-                            <constraint firstItem="Z8U-Me-3LH" firstAttribute="top" secondItem="a8S-uZ-lk2" secondAttribute="bottom" id="DnA-pn-r6e"/>
+                            <constraint firstItem="a8S-uZ-lk2" firstAttribute="top" secondItem="ZBF-X5-P48" secondAttribute="top" constant="10" id="1UK-il-Axw"/>
+                            <constraint firstItem="Z8U-Me-3LH" firstAttribute="top" secondItem="a8S-uZ-lk2" secondAttribute="bottom" constant="15" id="DnA-pn-r6e"/>
                             <constraint firstItem="a8S-uZ-lk2" firstAttribute="leading" secondItem="ZBF-X5-P48" secondAttribute="leading" constant="20" id="Ku5-Pa-g0f"/>
                             <constraint firstItem="ZBF-X5-P48" firstAttribute="trailing" secondItem="cWM-Up-Dm8" secondAttribute="trailing" constant="20" id="MuQ-6d-ImR"/>
                             <constraint firstItem="Z8U-Me-3LH" firstAttribute="leading" secondItem="BSA-pu-uSy" secondAttribute="leading" id="gsf-ZV-TqM"/>
@@ -277,17 +277,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZBF-X5-P48"/>
                     </view>
+                    <connections>
+                        <outlet property="profileImageView" destination="cWM-Up-Dm8" id="mwU-rO-svb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DCG-0A-NTR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="200.00000000000003" y="-676.33928571428567"/>
         </scene>
-        <!--Journal-->
+        <!--Journal Feed-->
         <scene sceneID="Gr6-KQ-PFf">
             <objects>
-                <collectionViewController storyboardIdentifier="JournalFeed" id="GWJ-to-hjF" customClass="JournalFeedCollectionViewController" customModule="Cactus_Prod" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="JournalFeed" id="GWJ-to-hjF" userLabel="Journal Feed" customClass="JournalFeedCollectionViewController" customModule="Cactus_Prod" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" id="c64-uC-Gae">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="777"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="767"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="25" id="CAX-zL-tXF">

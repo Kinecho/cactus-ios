@@ -54,6 +54,16 @@ class ImageService {
         }
     }
     
+    func setFromUrl(_ imageView: UIImageView, url: URL) {
+        let url = url.absoluteString
+        if FileUtils.isGif(url) {
+            setGif(imageView, url)
+        } else {            
+            imageView.cldSetImage(url, cloudinary: self.cloudinary)
+            imageView.isHidden = false
+        }
+    }
+    
     func setPhoto(_ imageView: UIImageView, photo: ImageFile?) {
         guard let photo = photo else {
             imageView.isHidden = true

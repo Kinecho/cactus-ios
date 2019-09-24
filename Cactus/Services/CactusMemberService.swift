@@ -19,7 +19,7 @@ class CactusMemberService {
     
     private init() {
         self.firestoreService = FirestoreService.sharedInstance
-        self.memberListener = self.observeCurrentMember { (member, _) in
+        self.memberListener = self.observeCurrentMember { (member, _, _) in
             
             if let member = member, member != self.currentMember {
                 DispatchQueue.main.async {
@@ -92,7 +92,7 @@ class CactusMemberService {
         }
     }
     
-    func observeCurrentMember( _ onData: @escaping (CactusMember?, Any?) -> Void) -> (() -> Void) {
+    func observeCurrentMember( _ onData: @escaping (CactusMember?, Any?, User?) -> Void) -> (() -> Void) {
         var memberUnsub: ListenerRegistration?
         let authUnsub = AuthService.sharedInstance.getAuthStateChangeHandler { (_, user) in
             _ = memberUnsub?.remove()
@@ -101,11 +101,11 @@ class CactusMemberService {
                 let query = self.getCollectionRef().whereField(CactusMember.Field.userId, isEqualTo: user.uid).limit(to: 1)
                 memberUnsub = self.firestoreService.addListener(query) { (members: [CactusMember]?, error) in
                     print("observeCurrentMember: got member? \(members?.first?.email ?? "no email")")
-                    onData(members?.first, error)
+                    onData(members?.first, error, user)
                 }
             } else {
                 print("observeCurrentMember: no user found")
-                onData(nil, nil)
+                onData(nil, nil, nil)
             }
         }
         

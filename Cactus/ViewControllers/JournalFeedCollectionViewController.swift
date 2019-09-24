@@ -46,7 +46,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        _ = CactusMemberService.sharedInstance.observeCurrentMember({ (member, error) in
+        _ = CactusMemberService.sharedInstance.observeCurrentMember({ (member, error, _) in
             if self.currentMember != member {
                 self.resetData()
             }

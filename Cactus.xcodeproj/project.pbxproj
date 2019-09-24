@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		300AC17C23397A77005C6555 /* JournalHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC17B23397A77005C6555 /* JournalHomeViewController.swift */; };
+		300AC17D23397A77005C6555 /* JournalHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC17B23397A77005C6555 /* JournalHomeViewController.swift */; };
+		300AC17F2339839A005C6555 /* CactusImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC17E2339839A005C6555 /* CactusImage.swift */; };
+		300AC1802339839A005C6555 /* CactusImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC17E2339839A005C6555 /* CactusImage.swift */; };
+		300AC18323398EB1005C6555 /* cactus-growing.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 300AC18223398EB1005C6555 /* cactus-growing.mp4 */; };
+		300AC18423398EB1005C6555 /* cactus-growing.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 300AC18223398EB1005C6555 /* cactus-growing.mp4 */; };
 		3023FE2D22ECB47800F753A7 /* MemberProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */; };
 		3023FE2E22ECB47800F753A7 /* MemberProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */; };
 		3023FE3022ECD0A300F753A7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2F22ECD0A300F753A7 /* NotificationService.swift */; };
@@ -153,6 +159,9 @@
 
 /* Begin PBXFileReference section */
 		05E8C1EB665F6286E3CD0BE5 /* Pods_Cactus_Prod.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cactus_Prod.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		300AC17B23397A77005C6555 /* JournalHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalHomeViewController.swift; sourceTree = "<group>"; };
+		300AC17E2339839A005C6555 /* CactusImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusImage.swift; sourceTree = "<group>"; };
+		300AC18223398EB1005C6555 /* cactus-growing.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "cactus-growing.mp4"; sourceTree = "<group>"; };
 		3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberProfileViewController.swift; sourceTree = "<group>"; };
 		3023FE2F22ECD0A300F753A7 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		303BF741232A986A00164539 /* Cactus UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cactus UnitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -273,6 +282,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		300AC18123398E86005C6555 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				300AC18223398EB1005C6555 /* cactus-growing.mp4 */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
 		303BF742232A986A00164539 /* Cactus UnitTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,6 +320,7 @@
 				309561A322EE16D7009357BD /* AppConfig.swift */,
 				3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */,
 				305B186D23319E09003E1561 /* FileUtils.swift */,
+				300AC17E2339839A005C6555 /* CactusImage.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -374,6 +392,7 @@
 		30B6EA6D22EA5A9F00443E46 /* Cactus */ = {
 			isa = PBXGroup;
 			children = (
+				300AC18123398E86005C6555 /* Video */,
 				30A281D322EA610E0041158E /* ConfigProd */,
 				30A281D422EA61260041158E /* ConfigStage */,
 				30E9B0B122EADE12005B25FD /* Extensions */,
@@ -448,6 +467,7 @@
 				30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */,
 				3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */,
 				30BF2E1723289D1200A49EB6 /* PromptContentPageViewController.swift */,
+				300AC17B23397A77005C6555 /* JournalHomeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -616,6 +636,7 @@
 				30BF2E2D23289F9F00A49EB6 /* TextContentViewController.xib in Resources */,
 				3095619A22ECF1CD009357BD /* GoogleService-Info.plist in Resources */,
 				305B1866233175DC003E1561 /* PhotoContentViewController.xib in Resources */,
+				300AC18423398EB1005C6555 /* cactus-growing.mp4 in Resources */,
 				305B18832331E162003E1561 /* ReflectContentViewController.xib in Resources */,
 				30A281F022EA62650041158E /* LaunchScreen.storyboard in Resources */,
 				30A281E322EA61A30041158E /* Main.storyboard in Resources */,
@@ -631,6 +652,7 @@
 				30B6EA7B22EA5AA100443E46 /* LaunchScreen.storyboard in Resources */,
 				30BF2E2C23289F9F00A49EB6 /* TextContentViewController.xib in Resources */,
 				3095619C22ECF214009357BD /* GoogleService-Info.plist in Resources */,
+				300AC18323398EB1005C6555 /* cactus-growing.mp4 in Resources */,
 				30A281EA22EA61EB0041158E /* StageAssets.xcassets in Resources */,
 				305B18822331E162003E1561 /* ReflectContentViewController.xib in Resources */,
 				30B6EA7822EA5AA100443E46 /* SharedAssets.xcassets in Resources */,
@@ -660,7 +682,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n${PODS_ROOT}/SwiftLint/swiftlint autocorrect\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
 		303BF754232E958C00164539 /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1020,6 +1042,7 @@
 				30E9B0B422EADE2D005B25FD /* CGExtensions.swift in Sources */,
 				305B18812331E162003E1561 /* ReflectContentViewController.swift in Sources */,
 				30E9B0BE22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
+				300AC1802339839A005C6555 /* CactusImage.swift in Sources */,
 				30E9B0A122EABFBD005B25FD /* CactusMemberService.swift in Sources */,
 				30BF2E1523282BD600A49EB6 /* PromptContentService.swift in Sources */,
 				30E9B09B22EA6A84005B25FD /* FirestoreService.swift in Sources */,
@@ -1045,6 +1068,7 @@
 				305B1869233178A8003E1561 /* ImageService.swift in Sources */,
 				305B1886233273C4003E1561 /* GrowingTextView.swift in Sources */,
 				30934F9322EBE7DF007C4E6C /* JournalFeedCollectionViewController.swift in Sources */,
+				300AC17D23397A77005C6555 /* JournalHomeViewController.swift in Sources */,
 				30E9B0BB22EAF153005B25FD /* SentPrompt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1075,6 +1099,7 @@
 				30BF2E0F23281CAA00A49EB6 /* FlamelinkTypes.swift in Sources */,
 				305B18802331E162003E1561 /* ReflectContentViewController.swift in Sources */,
 				30E9B0A022EABFBD005B25FD /* CactusMemberService.swift in Sources */,
+				300AC17F2339839A005C6555 /* CactusImage.swift in Sources */,
 				30C49D3422EC299300A2EA95 /* ViewExtensions.swift in Sources */,
 				30C49D3822EC2D4C00A2EA95 /* CactusColor.swift in Sources */,
 				30BF2E11232822E600A49EB6 /* FirebaseExtensions.swift in Sources */,
@@ -1100,6 +1125,7 @@
 				305B1868233178A8003E1561 /* ImageService.swift in Sources */,
 				305B1885233273C4003E1561 /* GrowingTextView.swift in Sources */,
 				3023FE3022ECD0A300F753A7 /* NotificationService.swift in Sources */,
+				300AC17C23397A77005C6555 /* JournalHomeViewController.swift in Sources */,
 				30E9B0BA22EAF153005B25FD /* SentPrompt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
