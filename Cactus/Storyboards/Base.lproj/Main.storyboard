@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="skj-bj-glJ">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="skj-bj-glJ">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -300,7 +298,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" reuseIdentifier="JournalEntryCell" id="hi3-X9-dKc" userLabel="Question Card" customClass="JournalEntryCollectionViewCell" customModule="Cactus_Prod" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="JournalEntryCell" id="hi3-X9-dKc" userLabel="Question Card" customClass="JournalEntryCollectionViewCell" customModule="Cactus_Prod" customModuleProvider="target">
                                 <rect key="frame" x="6" y="0.0" width="402" height="220"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -309,6 +307,9 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="May 14, 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOB-lq-qx1">
                                             <rect key="frame" x="24" y="24" width="102" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="NyH-Iq-NO7"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" name="GreenDarkest"/>
                                             <nil key="highlightedColor"/>
@@ -317,7 +318,10 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What makes you feel happy each morning when you wake up?" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ud-An-1HM">
-                                            <rect key="frame" x="20" y="63" width="358" height="41"/>
+                                            <rect key="frame" x="20" y="63" width="362" height="41"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="Yqv-sq-FDB"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" name="GreenDarkest"/>
                                             <nil key="highlightedColor"/>
@@ -359,12 +363,10 @@
                                                 <action selector="moreButtonTapped:" destination="hi3-X9-dKc" eventType="primaryActionTriggered" id="fQf-Zw-1oS"/>
                                             </connections>
                                         </button>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="my response" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fIY-zE-sMO">
-                                            <rect key="frame" x="24" y="116" width="354" height="90"/>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIY-zE-sMO" customClass="GrowingTextView" customModule="Cactus_Prod" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="116" width="362" height="94"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="90" id="3nQ-86-cjY"/>
-                                            </constraints>
+                                            <string key="text">my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response.  </string>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             <userDefinedRuntimeAttributes>
@@ -372,7 +374,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </textView>
                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ayg-pX-k1a" userLabel="SkeletonView">
-                                            <rect key="frame" x="0.0" y="0.0" width="402" height="91"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="402" height="220"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
                                     </subviews>
@@ -386,20 +388,22 @@
                                     <constraint firstItem="ayg-pX-k1a" firstAttribute="leading" secondItem="hi3-X9-dKc" secondAttribute="leading" id="GcW-gD-qoe"/>
                                     <constraint firstItem="0ud-An-1HM" firstAttribute="top" secondItem="XOB-lq-qx1" secondAttribute="bottom" constant="18" id="LXY-MB-Vc6"/>
                                     <constraint firstItem="0ud-An-1HM" firstAttribute="leading" secondItem="hi3-X9-dKc" secondAttribute="leading" constant="20" id="O5X-YX-sUj"/>
-                                    <constraint firstAttribute="trailing" secondItem="fIY-zE-sMO" secondAttribute="trailing" constant="24" id="OTy-gR-y7m"/>
+                                    <constraint firstAttribute="trailing" secondItem="fIY-zE-sMO" secondAttribute="trailing" constant="20" id="OTy-gR-y7m"/>
                                     <constraint firstItem="fIY-zE-sMO" firstAttribute="top" secondItem="0ud-An-1HM" secondAttribute="bottom" constant="12" id="PPD-yi-Qce"/>
                                     <constraint firstItem="XOB-lq-qx1" firstAttribute="top" secondItem="hi3-X9-dKc" secondAttribute="top" constant="24" id="Rni-n7-Csb"/>
                                     <constraint firstAttribute="bottom" secondItem="ayg-pX-k1a" secondAttribute="bottom" id="X1h-Ic-CpY"/>
                                     <constraint firstAttribute="trailing" secondItem="xLH-Hu-Fx0" secondAttribute="trailing" constant="18" id="eho-4o-3TD"/>
-                                    <constraint firstAttribute="trailing" secondItem="0ud-An-1HM" secondAttribute="trailing" constant="24" id="ih9-8x-CsM"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="fIY-zE-sMO" secondAttribute="bottom" constant="10" id="hJ6-3g-sIf"/>
+                                    <constraint firstAttribute="trailing" secondItem="0ud-An-1HM" secondAttribute="trailing" constant="20" id="ih9-8x-CsM"/>
                                     <constraint firstItem="XOB-lq-qx1" firstAttribute="leading" secondItem="hi3-X9-dKc" secondAttribute="leading" constant="24" id="q2p-pS-Zrw"/>
-                                    <constraint firstItem="fIY-zE-sMO" firstAttribute="leading" secondItem="hi3-X9-dKc" secondAttribute="leading" constant="24" id="rCv-85-fe9"/>
+                                    <constraint firstItem="fIY-zE-sMO" firstAttribute="leading" secondItem="hi3-X9-dKc" secondAttribute="leading" constant="20" id="rCv-85-fe9"/>
                                 </constraints>
+                                <size key="customSize" width="402" height="220"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
                                         <real key="value" value="12"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dateLabel" destination="XOB-lq-qx1" id="Apq-GM-yLb"/>

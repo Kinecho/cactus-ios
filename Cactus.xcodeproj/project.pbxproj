@@ -17,6 +17,8 @@
 		300AC188233A850B005C6555 /* JournalEntrySkeletonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC185233A850B005C6555 /* JournalEntrySkeletonViewController.swift */; };
 		300AC189233A850B005C6555 /* JournalEntrySkeletonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 300AC186233A850B005C6555 /* JournalEntrySkeletonViewController.xib */; };
 		300AC18A233A850B005C6555 /* JournalEntrySkeletonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 300AC186233A850B005C6555 /* JournalEntrySkeletonViewController.xib */; };
+		300AC18D233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */; };
+		300AC18E233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */; };
 		3023FE2D22ECB47800F753A7 /* MemberProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */; };
 		3023FE2E22ECB47800F753A7 /* MemberProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */; };
 		3023FE3022ECD0A300F753A7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2F22ECD0A300F753A7 /* NotificationService.swift */; };
@@ -168,6 +170,7 @@
 		300AC18223398EB1005C6555 /* cactus-growing.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "cactus-growing.mp4"; sourceTree = "<group>"; };
 		300AC185233A850B005C6555 /* JournalEntrySkeletonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JournalEntrySkeletonViewController.swift; path = Cactus/ViewControllers/JournalEntrySkeletonViewController.swift; sourceTree = SOURCE_ROOT; };
 		300AC186233A850B005C6555 /* JournalEntrySkeletonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = JournalEntrySkeletonViewController.xib; path = Cactus/ViewControllers/JournalEntrySkeletonViewController.xib; sourceTree = SOURCE_ROOT; };
+		300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFeedDataSource.swift; sourceTree = "<group>"; };
 		3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberProfileViewController.swift; sourceTree = "<group>"; };
 		3023FE2F22ECD0A300F753A7 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		303BF741232A986A00164539 /* Cactus UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cactus UnitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -296,6 +299,14 @@
 			path = Video;
 			sourceTree = "<group>";
 		};
+		300AC18B233AE16C005C6555 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		303BF742232A986A00164539 /* Cactus UnitTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -398,6 +409,7 @@
 		30B6EA6D22EA5A9F00443E46 /* Cactus */ = {
 			isa = PBXGroup;
 			children = (
+				300AC18B233AE16C005C6555 /* Data */,
 				300AC18123398E86005C6555 /* Video */,
 				30A281D322EA610E0041158E /* ConfigProd */,
 				30A281D422EA61260041158E /* ConfigStage */,
@@ -1152,6 +1164,7 @@
 				30BF2E332328C7AD00A49EB6 /* MarkdownTypes.swift in Sources */,
 				30934FA422EBF4E6007C4E6C /* FormatUtils.swift in Sources */,
 				30E9B0B422EADE2D005B25FD /* CGExtensions.swift in Sources */,
+				300AC18E233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */,
 				305B18812331E162003E1561 /* ReflectContentViewController.swift in Sources */,
 				30E9B0BE22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
 				300AC1802339839A005C6555 /* CactusImage.swift in Sources */,
@@ -1210,6 +1223,7 @@
 				30E9B0BD22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
 				30BF2E2F2328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */,
 				30BF2E0F23281CAA00A49EB6 /* FlamelinkTypes.swift in Sources */,
+				300AC18D233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */,
 				305B18802331E162003E1561 /* ReflectContentViewController.swift in Sources */,
 				30E9B0A022EABFBD005B25FD /* CactusMemberService.swift in Sources */,
 				300AC17F2339839A005C6555 /* CactusImage.swift in Sources */,

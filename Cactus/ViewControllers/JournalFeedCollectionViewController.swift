@@ -10,31 +10,9 @@ import UIKit
 import FirebaseFirestore
 import SkeletonView
 
-struct PromptData {
-    var unsubscriber: ListenerRegistration?
-    var prompt: ReflectionPrompt?
-}
-
-struct ResponseData {
-    var unsubscriber: ListenerRegistration?
-    var responses = [ReflectionResponse]()
-}
-
-struct ContentData {
-    var unsubscriber: ListenerRegistration?
-    var promptContent: PromptContent?
-}
-
 @IBDesignable
 class JournalFeedCollectionViewController: UICollectionViewController {
-    var promptListener: ListenerRegistration?
-    var sentPrompts = [SentPrompt]()
-    var hasLoaded = false
-    
-    var promptObserversById = [String: PromptData]()
-    var responseObserversByPromptId = [String: ResponseData]()
-    var contentObserversByPromptContentEntryId = [String: ContentData]()
-    var currentMember: CactusMember?
+    static var dataSource: JournalFeedDataSource = JournalFeedDataSource()
     
     private let itemsPerRow: CGFloat = 1
     private let reuseIdentifier = ReuseIdentifier.JournalEntryCell.rawValue
@@ -45,51 +23,12 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        JournalFeedCollectionViewController.dataSource.delegate = self
         
-        _ = CactusMemberService.sharedInstance.observeCurrentMember({ (member, error, _) in
-            if self.currentMember != member {
-                self.resetData()
-            }
-            
-            self.currentMember = member
-            if let member = member {
-                self.promptListener = SentPromptService.sharedInstance
-                    .observeSentPrompts(member: member, { (prompts, error) in
-                        if let error = error {
-                            print("Error observing prompts", error)
-                        }
-                        
-                        print("Got sent prompts \(prompts?.count ?? 0)")
-                        self.sentPrompts = prompts ?? []
-                        self.hasLoaded = true
-                        self.collectionView.reloadData()
-                        
-                        self.updateObservers()
-                })
-                
-            }
-        })
-    }
-    
-    func resetData() {
-        self.promptListener?.remove()
-        self.sentPrompts.removeAll()
-        self.promptObserversById.values.forEach { observer in
-            observer.unsubscriber?.remove()
+        if let layout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.itemSize = UICollectionViewFlowLayout.automaticSize
+            layout.estimatedItemSize = CGSize(width: self.view.bounds.size.width - sectionInsets.left - sectionInsets.right, height: 220)
         }
-        self.promptObserversById.removeAll()
-        
-        self.responseObserversByPromptId.values.forEach { (observer) in
-            observer.unsubscriber?.remove()
-        }
-        self.responseObserversByPromptId.removeAll()
-        
-        self.contentObserversByPromptContentEntryId.values.forEach { (observer) in
-            observer.unsubscriber?.remove()
-        }
-        self.contentObserversByPromptContentEntryId.removeAll()
-        
-        self.collectionView.reloadData()
     }
     
     @objc func showAccountPage(sender: Any) {
@@ -98,81 +37,6 @@ class JournalFeedCollectionViewController: UICollectionViewController {
 
     override func viewWillAppear(_ animated: Bool) { }
     
-    func updateObservers() {
-        self.sentPrompts.forEach { (sentPrompt) in
-            guard let promptId = sentPrompt.promptId else {
-                return
-            }
-            self.setupPromptObserver(promptId)
-            self.setupResponseObserver(promptId)
-        }
-    }
-    
-    func setupContentObserver(_ entryId: String, promptId: String) {
-        if self.contentObserversByPromptContentEntryId[entryId] != nil {
-            return
-        }
-        
-        var data = ContentData()
-        PromptContentService.sharedInstance.getByEntryId(id: entryId) { (promptContent, error) in
-            if let error = error {
-                print("Failed to fetch prompt content by entryid", error)
-            }
-            
-            data.promptContent = promptContent
-            self.contentObserversByPromptContentEntryId[entryId] = data
-            self.updateForPromptId(promptId)
-        }
-    }
-    
-    func setupPromptObserver(_ promptId: String) {
-        if self.promptObserversById[promptId] != nil {
-            return
-        }
-        var data = PromptData()
-        data.unsubscriber = ReflectionPromptService.sharedInstance.observeById(id: promptId, { (prompt, error) in
-            if let error = error {
-                print("An error occurred while fetching ReflectionPromt ID = \(promptId)", error)
-            }
-            
-            data.prompt = prompt
-            self.promptObserversById[promptId] = data
-            self.updateForPromptId(promptId)
-            
-            if let entryId = data.prompt?.promptContentEntryId {
-                self.setupContentObserver(entryId, promptId: promptId)
-            }
-            
-        })
-    }
-    
-    func setupResponseObserver(_ promptId: String) {
-        if self.responseObserversByPromptId[promptId] != nil {
-            return
-        }
-        var data = ResponseData()
-        data.unsubscriber = ReflectionResponseService.sharedInstance.observeForPromptId(id: promptId, { (responses, error) in
-            if let error = error {
-                print("An error occurred while fetching ReflectionPromt ID = \(promptId)", error)
-            }
-            data.responses = responses ?? []
-            self.responseObserversByPromptId[promptId] = data
-            self.updateForPromptId(promptId)
-        })
-    }
-
-    func updateForPromptId(_ promptId: String) {
-        let foundIndex = self.sentPrompts.firstIndex { (prompt) -> Bool in
-            prompt.promptId == promptId
-        }
-        guard let index = foundIndex else {
-            return
-        }
-        
-        let indexPath = IndexPath(row: index, section: 0)
-        self.collectionView.reloadItems(at: [indexPath])
-    }
-
     @IBAction func showPromptContentCards(segue: UIStoryboardSegue) {
         
     }
@@ -203,13 +67,12 @@ class JournalFeedCollectionViewController: UICollectionViewController {
             guard let cell = sender as? JournalEntryCollectionViewCell else {
                 return
             }
+            
             let detailController = segue.destination as? JournalEntryDetailViewController
             detailController?.prompt = cell.prompt
             detailController?.responses = cell.responses
             detailController?.sentPrompt = cell.sentPrompt
-            if let contentEntryId = cell.prompt?.promptContentEntryId {
-                detailController?.promptContent = self.contentObserversByPromptContentEntryId[contentEntryId]?.promptContent
-            }
+            detailController?.promptContent = cell.promptContent
         default:
             break
         }
@@ -220,7 +83,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.sentPrompts.count
+        return JournalFeedCollectionViewController.dataSource.count
     }
 
     override func collectionView(_ collectionView: UICollectionView,
@@ -229,25 +92,16 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         guard let journalCell = cell as? JournalEntryCollectionViewCell else {
             return cell
         }
-        
+                
+        let journalEntry = JournalFeedCollectionViewController.dataSource.get(at: indexPath.row)
         // Configure the cell
-        let sentPrompt = sentPrompts[indexPath.row]
-        journalCell.sentPrompt = sentPrompt
-        if let promptId = sentPrompt.promptId {
-            journalCell.responses = self.responseObserversByPromptId[promptId]?.responses
-            journalCell.prompt = self.promptObserversById[promptId]?.prompt
-            if let contentEntryId = journalCell.prompt?.promptContentEntryId {
-                journalCell.promptContent = self.contentObserversByPromptContentEntryId[contentEntryId]?.promptContent
-            }
-            
-        } else {
-            journalCell.responses = nil
-            journalCell.prompt = nil
-            journalCell.promptContent = nil
-        }
-        
+//        let sentPrompt = journalEntry?.sentPrompt
+//        if journalEntry != journalCell.journalEntry {
+//
+//        }
+        print("Updating cell for \(indexPath.row). promptId=\(journalEntry?.sentPrompt.promptId ?? "not set")")
+        journalCell.journalEntry = journalEntry
         journalCell.updateView()
-        journalCell.addShadows()
         
         return journalCell
     }
@@ -268,25 +122,59 @@ class JournalFeedCollectionViewController: UICollectionViewController {
 }
 
 extension JournalFeedCollectionViewController: UICollectionViewDelegateFlowLayout {
-    //1
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        //2
-        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
-        let availableWidth = view.frame.width - paddingSpace
-        let widthPerItem = availableWidth / itemsPerRow
-        
-        return CGSize(width: widthPerItem, height: 200)
-    }
-    
+//    //1
+//    func collectionView(_ collectionView: UICollectionView,
+//                        layout collectionViewLayout: UICollectionViewLayout,
+//                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        //2
+//        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+//        let internalPadding: CGFloat = 20
+//        let availableWidth = view.frame.width - paddingSpace
+//        let widthPerItem = availableWidth / itemsPerRow
+//        let approximateWidthOfContents = self.view.frame.width - paddingSpace - (2 * internalPadding)
+//        print("approximage width of contents \(approximateWidthOfContents)")
+//
+//        let topSpace: CGFloat = 24
+//        let bottomSpace: CGFloat = 20
+//        let dateHeight: CGFloat = 21
+//        let dateBottomMargin: CGFloat = 18
+//        let questionBottomMargin: CGFloat = 12
+//        let baseHeight: CGFloat = topSpace + bottomSpace + dateHeight + dateBottomMargin + questionBottomMargin
+//        var responseHeight: CGFloat = 30
+//        var questionHeight: CGFloat = 25
+//        //get an estimation of height of cell based on content
+//        if let cell = collectionView.cellForItem(at: indexPath) as? JournalEntryCollectionViewCell {
+//            if let responseText = FormatUtils.responseText(cell.responses) {
+//                let size = CGSize(width: approximateWidthOfContents, height: 1000) //use arbitrarily large height
+//                let attributes = [NSAttributedString.Key.font: CactusFont.normal]
+//                let estimatedResponseFrame = NSString(string: responseText )
+//                    .boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
+//                print("estimated response height is \(estimatedResponseFrame.height)")
+//                responseHeight = estimatedResponseFrame.height + 12
+////                return CGSize(width: widthPerItem, height: estimatedResponseFrame.height)
+//            }
+//
+//            if let questionText = cell.prompt?.question {
+//                let size = CGSize(width: approximateWidthOfContents, height: 1000) //use arbitrarily large height
+//                let attributes = [NSAttributedString.Key.font: CactusFont.large]
+//                let estimatedResponseFrame = NSString(string: questionText )
+//                    .boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
+//                print("estimated question height is \(estimatedResponseFrame.height) for question \(questionText)")
+//                questionHeight = estimatedResponseFrame.height + 6
+//            }
+//
+//        }
+//
+//        return CGSize(width: widthPerItem, height: baseHeight + responseHeight + questionHeight )
+//    }
+//
     //3
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
         return sectionInsets
     }
-    
+//
     // 4
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -294,17 +182,20 @@ extension JournalFeedCollectionViewController: UICollectionViewDelegateFlowLayou
 //        return sectionInsets.bottom
         return 45.0
     }
-    
 }
 
-extension JournalFeedCollectionViewController: SkeletonCollectionViewDataSource {
-//    func numSections(in collectionSkeletonView: UICollectionView) -> Int {
-//        return 1
-//    }
-//    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return 1
-//    }
-    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        return self.reuseIdentifier
+extension JournalFeedCollectionViewController: JournalFeedDataSourceDelegate {
+    func updateEntry(_ journalEntry: JournalEntry, at: Int?) {
+        print("Update feed for entry at \(at ?? -1)")
+        guard let index = at else {
+            return
+        }
+        let indexPath = IndexPath(row: index, section: 0)
+        self.collectionView.reloadItems(at: [indexPath])
+    }
+    
+    func dataLoaded() {
+        print("JournalFeed Delegate: Data Loaded: Updating collection view cells")
+        self.collectionView.reloadData()
     }
 }

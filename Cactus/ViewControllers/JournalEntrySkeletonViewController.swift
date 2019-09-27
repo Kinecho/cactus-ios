@@ -16,17 +16,12 @@ class JournalEntrySkeletonViewController: UIViewController {
     @IBOutlet weak var responseBorderView: UIView!
     @IBOutlet weak var responseLabel: UILabel!
     
-//    let lineRadius: CGFloat = 6
     let radius = 6
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureView()
         self.startSkeleton()
-        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-//            self.startSkeleton()
-//        }
     }
     
     func configureView() {
@@ -52,7 +47,6 @@ class JournalEntrySkeletonViewController: UIViewController {
         self.responseLabel.linesCornerRadius = self.radius
         self.responseLabel.isHidden = true
         self.responseLabel.hideSkeleton()
-//        self.responseLabel.showAnimatedGradientSkeleton()
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             self.responseLabel.showAnimatedGradientSkeleton()
@@ -60,14 +54,4 @@ class JournalEntrySkeletonViewController: UIViewController {
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

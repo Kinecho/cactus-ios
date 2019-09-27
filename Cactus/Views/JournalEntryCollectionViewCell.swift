@@ -11,35 +11,43 @@ import SkeletonView
 
 @IBDesignable
 class JournalEntryCollectionViewCell: UICollectionViewCell {
-    
     @IBOutlet weak var skeletonContainer: UIView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
-//    @IBOutlet weak var responseLabel: UILabel!
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var editTextView: UITextView!
-    var sentPrompt: SentPrompt?
-    var responses: [ReflectionResponse]?
-    var prompt: ReflectionPrompt?
-    var promptContent: PromptContent?
+    
+    var journalEntry: JournalEntry?
+    
+    var sentPrompt: SentPrompt? {
+        return self.journalEntry?.sentPrompt
+    }
+    var responses: [ReflectionResponse]? {
+        return self.journalEntry?.responses
+    }
+    var prompt: ReflectionPrompt? {
+        return self.journalEntry?.prompt
+    }
+    var promptContent: PromptContent? {
+        return self.journalEntry?.promptContent
+    }
+    
     var isEditing = false
     var skeletonViewController = JournalEntrySkeletonViewController.loadFromNib()
-    var displaySkeleton: Bool = true {
-        didSet {
-            if self.displaySkeleton {
-                self.showSkeleton()
-            } else {
-                self.removeSkeleton()
-            }
-        }
+//    var displaySkeleton: Bool = true {
+//        didSet {
+//            if self.displaySkeleton {
+//                self.showSkeleton()
+//            } else {
+//                self.removeSkeleton()
+//            }
+//        }
+//    }
+    var displaySkeleton: Bool {
+        return !(self.journalEntry?.loadingComplete ?? false)
     }
     let cornerRadius: CGFloat = 12
     @IBAction func moreButtonTapped(_ sender: Any) {
-        
-//        let title = "Log Out?"
-        
-//        var  message = "Are you sure you want to log out?"
-        
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Edit Reflection", style: .default) { _ in
@@ -48,29 +56,14 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         })
         
         self.window?.rootViewController?.present(alert, animated: true, completion: nil)
-
-    }
-    
-    @IBInspectable var borderRadius: CGFloat {
-        get {
-            return self.layer.cornerRadius
-        }
-        set {
-            self.layer.cornerRadius = newValue
-        }
     }
     
     func startEdit() {
         self.isEditing = true
-        
-//        editTextView.text = responseLabel.text
         editTextView.isEditable = true
         editTextView.backgroundColor = .white
         self.editTextView.layer.borderWidth = 1
-//        editTextView.isHidden = false
-//        responseLabel.isHidden = true
-//        editTextView.isFocused = true
-        
+//        self.editTextView.isScrollEnabled = true
         let bar = UIToolbar()
         let save = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(self.saveEdit))
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
@@ -87,23 +80,15 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     
     @objc func saveEdit(_ sender: Any?) {
         self.isEditing = false
-        
         self.contentView.dismissKeyboard()
         
-//        responseLabel.text = editTextView.text
-//        editTextView.isHidden = true
         editTextView.isEditable = false
+//        self.editTextView.isScrollEnabled = false
         self.editTextView.layer.borderWidth = 0
-//        responseLabel.isHidden = false
         self.contentView.backgroundColor = .clear
         var response = self.responses?.first
         if response == nil, let promptId = self.sentPrompt?.promptId {
             response = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: self.prompt?.question)
-//            response = ReflectionResponse()
-//            response?.promptId = self.sentPrompt?.promptId
-//            response?.createdAt = Date()
-//            response?.deleted = false
-//            response?.responseMedium = .JOURNAL_IOS
         }
         
         response?.content.text = self.editTextView.text
@@ -135,44 +120,42 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         editTextView.isEditable = false
         editTextView.backgroundColor = .clear
         self.editTextView.layer.borderWidth = 0
-//        editTextView.isHidden = true
-//        responseLabel.isHidden = false
         self.contentView.backgroundColor = .white
+//        self.editTextView.isScrollEnabled = false
         self.contentView.dismissKeyboard()
-        
     }
     
     func showSkeleton() {
-        
         self.skeletonViewController.view.frame = self.skeletonContainer.bounds
         self.skeletonViewController.view.layer.cornerRadius = self.cornerRadius
+        self.skeletonViewController.view.clipsToBounds = true
+        self.skeletonViewController.view.layoutSkeletonIfNeeded()
+        
         self.skeletonContainer.isHidden = false
         self.skeletonContainer.addSubview(skeletonViewController.view)
         self.skeletonContainer.layoutSkeletonIfNeeded()
-        self.skeletonViewController.view.layoutSkeletonIfNeeded()
-//        let left = skeletonViewController.view.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 0)
-//        let right = skeletonViewController.view.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: 0)
-//        let top = skeletonViewController.view.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 0)
-//        let bottom = skeletonViewController.view.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 0)
-//
-//        NSLayoutConstraint.activate([left, right, top, bottom])
+        self.skeletonContainer.layer.cornerRadius = self.cornerRadius
+        self.skeletonContainer.clipsToBounds = true
         
-//        self.didAddSubview(skeletonViewController.view)
-//        self.skeletonViewController.view.layoutSubviews()
-//        self.skeletonViewController.view.layoutSkeletonIfNeeded()
+        self.layer.cornerRadius = 12
+        self.clipsToBounds = true
     }
     
     func removeSkeleton() {
-//        self.willRemoveSubview(self.skeletonViewController.view)
-//        self.contentView.willRemoveSubview(self.skeletonViewController.view)
         self.skeletonViewController.view.removeFromSuperview()
         self.skeletonContainer.isHidden = true
-//        self.skeletonContainer.removeFromSuperview()
     }
     
     func updateView() {
+        if !(self.journalEntry?.loadingComplete ?? false) {
+            self.showSkeleton()
+        } else {
+            self.removeSkeleton()
+            self.hideSkeleton()
+        }
+        
         self.contentView.isUserInteractionEnabled = true
-        var isLoading = false
+//        var isLoading = false
         if let sentDate = self.sentPrompt?.firstSentAt {
             let dateString = FormatUtils.formatDate(sentDate)
             self.dateLabel.text = dateString
@@ -183,25 +166,27 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         if self.prompt != nil {
             self.questionLabel.text = self.prompt?.question ?? "Not Found"
         } else {
-            isLoading = true
-        }
-        
-        if self.responses != nil {
-            let responseText =  self.responses?.map {$0.content.text ?? ""}.joined(separator: "\n\n")
-            self.editTextView.text = responseText
-        } else {
 //            isLoading = true
         }
         
+        if self.responses != nil {
+           let responseText = FormatUtils.responseText(self.responses)
+            self.editTextView.isHidden = false
+            self.editTextView.text = responseText
+        } else {
+//            isLoading = true
+            self.editTextView.isHidden = true
+        }
+        
         if self.prompt != nil && prompt?.promptContentEntryId != nil && self.promptContent == nil {
-            isLoading = true
+//            isLoading = true
         }
         
         if !(self.promptContent?.content.isEmpty ?? true) {
 //            self.contentView.backgroundColor = CactusColor.lightGreen
         }
         
-        self.displaySkeleton = isLoading
+//        self.displaySkeleton = isLoading
     }
     
     override func prepareForInterfaceBuilder() {
@@ -222,24 +207,13 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         self.skeletonViewController.view.layoutSubviews()
         self.skeletonViewController.view.layoutSkeletonIfNeeded()
         self.addShadows()
-        
+        self.layer.cornerRadius = 12
     }
     
     func addShadows() {
-//        guard !self.hasShadows else {
-//            return
-//        }
-        //        self.layer.shadowColor = UIColor.black.cgColor
-        //        self.layer.shadowOpacity = 1
-        //        self.layer.shadowOffset = .zero
-        //        self.layer.shadowRadius = 10
-        //        self.layer.masksToBounds = false
         self.contentView.layer.cornerRadius = self.layer.cornerRadius
-//        self.contentView.layer.cornerRadius = 2.0
         self.contentView.layer.borderWidth = 0.0
         self.contentView.layer.borderColor = UIColor.clear.cgColor
-        //        self.contentView.layer.masksToBounds = true
-        
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOffset = CGSize(width: 0, height: 10.0)
         self.layer.shadowRadius = 12.0
@@ -251,7 +225,16 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-//        self.addShadows()
+    }
+    
+    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        setNeedsLayout()
+        layoutIfNeeded()
         
+        let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
+        frame.size.height = ceil(size.height)
+        layoutAttributes.frame = frame
+        
+        return layoutAttributes
     }
 }
