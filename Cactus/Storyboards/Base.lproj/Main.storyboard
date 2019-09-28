@@ -183,7 +183,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uus-7V-bU1" customClass="RoundedButton" customModule="Cactus_Prod" customModuleProvider="target">
-                                <rect key="frame" x="161" y="724" width="92" height="38"/>
+                                <rect key="frame" x="162.5" y="724" width="89" height="38"/>
                                 <color key="backgroundColor" name="Lightest"/>
                                 <inset key="contentEdgeInsets" minX="16" minY="10" maxX="16" maxY="10"/>
                                 <state key="normal" title="Sign Out">

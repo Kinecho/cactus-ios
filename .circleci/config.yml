@@ -6,7 +6,7 @@ executors:
   cactus-ios: 
     working_directory: /Users/distiller/project
     macos:
-      xcode: "10.3.0"
+      xcode: "11.0.0"
     environment:
       FL_OUTPUT_DIR: fl_output
   cactus-web:
@@ -222,10 +222,10 @@ workflows:
       - notify-branch-workflow-started:
           name: &workflow_name iOS Branch Pipeline
           workflow_name: *workflow_name
-      - version-bump
-      - build-and-test:
-          requires: 
-            - version-bump
+      # - version-bump
+      # - build-and-test:
+      #     requires: 
+      #       - version-bump
       # - testflight_approval:
       #     type: approval
       #     name: &testflight_approval_name "TestFlight Approval"
