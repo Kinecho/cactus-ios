@@ -223,9 +223,9 @@ workflows:
           name: &workflow_name iOS Branch Pipeline
           workflow_name: *workflow_name
       # - version-bump
-      # - build-and-test:
-      #     requires: 
-      #       - version-bump
+      - build-and-test
+          # requires: 
+          #   - version-bump
       # - testflight_approval:
       #     type: approval
       #     name: &testflight_approval_name "TestFlight Approval"
