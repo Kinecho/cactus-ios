@@ -43,6 +43,7 @@ class RoundedButton: UIButton {
     
     func sharedInit() {
         self.clipsToBounds = true
+        self.titleLabel?.font = CactusFont.normal(self.titleLabel?.font.pointSize ?? 17)
         if let imageView = self.imageView {
             self.bringSubviewToFront(imageView)
         }
