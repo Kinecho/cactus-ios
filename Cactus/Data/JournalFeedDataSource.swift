@@ -42,13 +42,11 @@ class JournalEntryData {
     private var wontLoad: Bool = false
     weak var delegate: JournalEntryDataDelegate?
     var loadingComplete: Bool {
-        self.wontLoad || self.reflectionPromptData.hasLoaded && self.responseData.hasLoaded && self.contentData.hasLoaded
+        return self.wontLoad || self.reflectionPromptData.hasLoaded && self.responseData.hasLoaded && self.contentData.hasLoaded
     }
         
     func notifyIfLoadingComplete() {
-//        if self.loadingComplete {
-            self.delegate?.onData(self.getJournalEntry())
-//        }
+        self.delegate?.onData(self.getJournalEntry())
     }
     
     init(sentPrompt: SentPrompt, memberId: String) {

@@ -241,6 +241,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         self.layer.cornerRadius = 12
         self.borderView.layer.cornerRadius = 5
         self.addShadows()
+        
     }
     
     override func awakeFromNib() {
