@@ -142,8 +142,6 @@ struct JournalEntry: Equatable {
     
     var loadingComplete: Bool = false
     
-    
-    
     init(_ sentPrompt: SentPrompt) {
         self.sentPrompt = sentPrompt
     }
