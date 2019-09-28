@@ -12,23 +12,33 @@ import SkeletonView
 
 @IBDesignable
 class JournalFeedCollectionViewController: UICollectionViewController {
-    static var dataSource: JournalFeedDataSource = JournalFeedDataSource()
+    var dataSource: JournalFeedDataSource = JournalFeedDataSource()
     
     private let itemsPerRow: CGFloat = 1
     private let reuseIdentifier = ReuseIdentifier.JournalEntryCell.rawValue
+    private let defaultCellHeight: CGFloat = 220
+    private let defaultPadding: CGFloat = 20
+    private let defaultResponseTextHeight: CGFloat = 110
     private let sectionInsets = UIEdgeInsets(top: 15.0,
                                              left: 15.0,
                                              bottom: 15.0,
                                              right: 15.0)
     
+    @IBOutlet weak var layout: UICollectionViewFlowLayout!
+    func getCellEstimatedSize() -> CGSize {
+//        self.collectionView.
+        let contentInsetWidth = self.collectionView.contentInset.left + self.collectionView.contentInset.right
+        print("contentInsetWidth \(contentInsetWidth)")
+        return CGSize(width: self.view.bounds.size.width - sectionInsets.left - sectionInsets.right - contentInsetWidth, height: defaultCellHeight)
+    }
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
-        JournalFeedCollectionViewController.dataSource.delegate = self
+        self.dataSource.delegate = self
+                
+//        layout.itemSize = UICollectionViewFlowLayout.automaticSize
+        layout.estimatedItemSize = getCellEstimatedSize()
         
-        if let layout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.itemSize = UICollectionViewFlowLayout.automaticSize
-            layout.estimatedItemSize = CGSize(width: self.view.bounds.size.width - sectionInsets.left - sectionInsets.right, height: 220)
-        }
     }
     
     @objc func showAccountPage(sender: Any) {
@@ -37,13 +47,8 @@ class JournalFeedCollectionViewController: UICollectionViewController {
 
     override func viewWillAppear(_ animated: Bool) { }
     
-    @IBAction func showPromptContentCards(segue: UIStoryboardSegue) {
-        
-    }
-    
-    @IBAction func showDetail(segue: UIStoryboardSegue) {
-        
-    }
+    @IBAction func showPromptContentCards(segue: UIStoryboardSegue) { }
+    @IBAction func showDetail(segue: UIStoryboardSegue) { }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
@@ -63,7 +68,6 @@ class JournalFeedCollectionViewController: UICollectionViewController {
             }
             
         case "JournalEntryDetail":
-//            let navWrapper = segue.destination as? UINavigationController
             guard let cell = sender as? JournalEntryCollectionViewCell else {
                 return
             }
@@ -83,7 +87,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return JournalFeedCollectionViewController.dataSource.count
+        return self.dataSource.count
     }
 
     override func collectionView(_ collectionView: UICollectionView,
@@ -93,16 +97,12 @@ class JournalFeedCollectionViewController: UICollectionViewController {
             return cell
         }
                 
-        let journalEntry = JournalFeedCollectionViewController.dataSource.get(at: indexPath.row)
-        // Configure the cell
-//        let sentPrompt = journalEntry?.sentPrompt
-//        if journalEntry != journalCell.journalEntry {
-//
-//        }
+        let journalEntry = self.dataSource.get(at: indexPath.row)
+
         print("Updating cell for \(indexPath.row). promptId=\(journalEntry?.sentPrompt.promptId ?? "not set")")
         journalCell.journalEntry = journalEntry
         journalCell.updateView()
-        
+        journalCell.setCellWidth(self.getCellEstimatedSize().width)
         return journalCell
     }
     
@@ -119,71 +119,76 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         }
         // do stuff with image, or with other data that you need
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+////        return UITableViewAutomaticDimension
+//        return UICollectionViewFlowLayoutEstimatedSize
+//    }
 }
 
 extension JournalFeedCollectionViewController: UICollectionViewDelegateFlowLayout {
-//    //1
 //    func collectionView(_ collectionView: UICollectionView,
 //                        layout collectionViewLayout: UICollectionViewLayout,
-//                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        //2
-//        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
-//        let internalPadding: CGFloat = 20
-//        let availableWidth = view.frame.width - paddingSpace
-//        let widthPerItem = availableWidth / itemsPerRow
-//        let approximateWidthOfContents = self.view.frame.width - paddingSpace - (2 * internalPadding)
-//        print("approximage width of contents \(approximateWidthOfContents)")
-//
-//        let topSpace: CGFloat = 24
-//        let bottomSpace: CGFloat = 20
-//        let dateHeight: CGFloat = 21
-//        let dateBottomMargin: CGFloat = 18
-//        let questionBottomMargin: CGFloat = 12
-//        let baseHeight: CGFloat = topSpace + bottomSpace + dateHeight + dateBottomMargin + questionBottomMargin
-//        var responseHeight: CGFloat = 30
-//        var questionHeight: CGFloat = 25
-//        //get an estimation of height of cell based on content
-//        if let cell = collectionView.cellForItem(at: indexPath) as? JournalEntryCollectionViewCell {
-//            if let responseText = FormatUtils.responseText(cell.responses) {
-//                let size = CGSize(width: approximateWidthOfContents, height: 1000) //use arbitrarily large height
-//                let attributes = [NSAttributedString.Key.font: CactusFont.normal]
-//                let estimatedResponseFrame = NSString(string: responseText )
-//                    .boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
-//                print("estimated response height is \(estimatedResponseFrame.height)")
-//                responseHeight = estimatedResponseFrame.height + 12
-////                return CGSize(width: widthPerItem, height: estimatedResponseFrame.height)
-//            }
-//
-//            if let questionText = cell.prompt?.question {
-//                let size = CGSize(width: approximateWidthOfContents, height: 1000) //use arbitrarily large height
-//                let attributes = [NSAttributedString.Key.font: CactusFont.large]
-//                let estimatedResponseFrame = NSString(string: questionText )
-//                    .boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
-//                print("estimated question height is \(estimatedResponseFrame.height) for question \(questionText)")
-//                questionHeight = estimatedResponseFrame.height + 6
-//            }
-//
-//        }
-//
-//        return CGSize(width: widthPerItem, height: baseHeight + responseHeight + questionHeight )
+//                        insetForSectionAt section: Int) -> UIEdgeInsets {
+//        return sectionInsets
 //    }
-//
-    //3
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets {
-        return sectionInsets
-    }
-//
-    // 4
+
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return sectionInsets.bottom
         return 45.0
     }
-}
+    
+//     func shouldInvalidateLayoutForBoundsChange() -> Bool {
+//         return true
+//     }
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let estimatedSize = self.getCellEstimatedSize()
+//        let innerCellWidth = estimatedSize.width - (self.defaultPadding * 2)
+//
+//        var height: CGFloat = self.defaultCellHeight - self.defaultResponseTextHeight
+//        var responseTextHeight: CGFloat = self.defaultResponseTextHeight
+//        
+//       //we are just measuring height so we add a padding constant to give the label some room to breathe!
+////        var padding: CGFloat = 20
+//
+//        var responseLoaded = false
+//        //estimate each cell's height
+//        if let journalEntry = self.dataSource.get(at: indexPath.row), journalEntry.loadingComplete {
+//            responseLoaded = true
+//            if let responseText = FormatUtils.responseText(journalEntry.responses), !FormatUtils.isBlank(responseText) {
+//                let textFrame = self.estimateFrameForText(text: responseText, width: innerCellWidth, font: CactusFont.normal)
+//                responseTextHeight = textFrame.height
+//                print("Cell \(indexPath.row) | response text = \(responseText)")
+//
+//            } else {
+//                // No response text, and it has loaded, set height to 0
+//                responseTextHeight = 0
+//            }
+//        }
+//
+//        height += responseTextHeight
+//        print("Cell \(indexPath.row) | Responses loaded: \(responseLoaded) | cell height: \(height)| Response Text Height: \(responseTextHeight)")
+//        return CGSize(width: estimatedSize.width, height: height)
+//    }
+    
+//    func collectionView(collectionView: UICollectionView, layout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+//
+//    }
+    
+    private func estimateFrameForText(text: String, width: CGFloat, font: UIFont = CactusFont.normal) -> CGRect {
+        //we make the height arbitrarily large so we don't undershoot height in calculation
+        let height: CGFloat = 5000
+    
+        let size = CGSize(width: width, height: height)
+        let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+       
+        let attributes = [NSAttributedString.Key.font: font]
 
+        return NSString(string: text).boundingRect(with: size, options: options, attributes: attributes, context: nil)
+    }
+}
 extension JournalFeedCollectionViewController: JournalFeedDataSourceDelegate {
     func updateEntry(_ journalEntry: JournalEntry, at: Int?) {
         print("Update feed for entry at \(at ?? -1)")

@@ -39,9 +39,18 @@ class JournalEntryData {
     var reflectionPromptData = PromptData()
     var responseData = ResponseData()
     var contentData = ContentData()
+    private var wontLoad: Bool = false
     weak var delegate: JournalEntryDataDelegate?
-    var loadingComplete: Bool = false
+    var loadingComplete: Bool {
+        self.wontLoad || self.reflectionPromptData.hasLoaded && self.responseData.hasLoaded && self.contentData.hasLoaded
+    }
         
+    func notifyIfLoadingComplete() {
+//        if self.loadingComplete {
+            self.delegate?.onData(self.getJournalEntry())
+//        }
+    }
+    
     init(sentPrompt: SentPrompt, memberId: String) {
         print("Setting up Journal Entry for promptId \(sentPrompt.promptId ?? "unknown")")
         self.sentPrompt = sentPrompt
@@ -63,6 +72,11 @@ class JournalEntryData {
         entry.responses = self.responseData.responses
         entry.promptContent = self.contentData.promptContent
         entry.loadingComplete = self.loadingComplete
+        
+        entry.promptContentLoaded = self.contentData.hasLoaded
+        entry.promptLoaded = self.reflectionPromptData.hasLoaded
+        entry.responsesLoaded = self.responseData.hasLoaded
+        
         return entry
     }
     
@@ -70,82 +84,41 @@ class JournalEntryData {
         self.reflectionPromptData.unsubscriber?.remove()
         guard let promptId = self.promptId else {
             print("No prompt ID found on JournalEntryData, can't load data")
-            self.loadingComplete = true
-            self.delegate?.onData(self.getJournalEntry())
+            self.wontLoad = true
+            self.notifyIfLoadingComplete()
             return
         }
         
-        let group = DispatchGroup()
-        
-        // Get reflection prompt listener
-        group.enter()
         self.reflectionPromptData.unsubscriber = ReflectionPromptService.sharedInstance.observeById(id: promptId, { (reflectionPrompt, error) in
-            defer {
-                if !self.reflectionPromptData.hasLoaded {
-                    print("ReflectionPrompt data loaded for first time", promptId)
-                    self.reflectionPromptData.hasLoaded = true
-                    group.leave()
-                } else {
-                    print("Reflection Prompt Updated \(promptId)")
-                    self.delegate?.onData(self.getJournalEntry())
-                }
-            }
-    
             if let error = error {
                 print("Error fetching reflection prompt. PromptID \(promptId)", error)
             }
             
             self.reflectionPromptData.prompt = reflectionPrompt
+            self.reflectionPromptData.hasLoaded = true
+            self.notifyIfLoadingComplete()
         })
         
-        //get the user's responses
-        group.enter()
         self.responseData.unsubscriber = ReflectionResponseService.sharedInstance.observeForPromptId(id: promptId, { (responses, error) in
-            defer {
-                if !self.responseData.hasLoaded {
-                    print("Reflection responses loaded for first time. PromptID \(promptId)")
-                    self.reflectionPromptData.hasLoaded = true
-                    group.leave()
-                } else {
-                    print("Reflection responses updated. PromptID = \(promptId)")
-                    self.delegate?.onData(self.getJournalEntry())
-                }
-            }
-            
             if let error = error {
                 print("Failed to load reflection responses. PromptID \(promptId)", error)
             }
             if let responses = responses {
                 self.responseData.responses = responses
             }
+            self.responseData.hasLoaded = true
+            self.notifyIfLoadingComplete()
         })
         
-        //get the prompt content
-        group.enter()
         self.contentData.unsubscriber = PromptContentService.sharedInstance.observeForPromptId(promptId: promptId) { (promptContent, error) in
-            defer {
-                if !self.contentData.hasLoaded {
-                    print("promptContent  loaded for first time. PromptID \(promptId)")
-                    self.contentData.hasLoaded = true
-                    group.leave()
-                } else {
-                    print("Prompt Content updated. PromptID = \(promptId)")
-                    self.delegate?.onData(self.getJournalEntry())
-                }
-            }
-            
             if let error = error {
                 print("Failed to load promptContent. PromptID \(promptId)", error)
             }
             if let promptContent = promptContent {
                 self.contentData.promptContent = promptContent
             }
-        }
-        
-        group.notify(queue: .main) {
-            print("all data loaded. PromptID \(promptId)")
-            self.loadingComplete = true
-            self.delegate?.onData(self.getJournalEntry())
+            self.contentData.hasLoaded = true
+            self.notifyIfLoadingComplete()
         }
     }
 }
@@ -160,11 +133,17 @@ struct JournalEntry: Equatable {
     }
     
     var prompt: ReflectionPrompt?
+    var promptLoaded: Bool = false
     var sentPrompt: SentPrompt
     var responses: [ReflectionResponse]?
+    var responsesLoaded: Bool = false
     var promptContent: PromptContent?
+    var promptContentLoaded: Bool = false
+    
     var loadingComplete: Bool = false
-        
+    
+    
+    
     init(_ sentPrompt: SentPrompt) {
         self.sentPrompt = sentPrompt
     }
