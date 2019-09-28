@@ -39,6 +39,10 @@ struct FormatUtils {
         
         return false
     }
+    
+    static func responseText(_ responses: [ReflectionResponse]?) -> String? {
+        return  responses?.map {$0.content.text ?? ""}.joined(separator: "\n\n")
+    }
 }
 
 struct FontSize {

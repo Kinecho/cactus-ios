@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class PromptContentService {
     let flamelinkService: FlamelinkService
@@ -26,6 +27,13 @@ class PromptContentService {
                 print("Failed to fetch prompt content", error)
             }
             onData(promptContent, error)
+        }
+    }
+    
+    func observeForPromptId(promptId: String, _ onData: @escaping (PromptContent?, Any?) -> Void) -> ListenerRegistration {
+        let query = self.flamelinkService.getQuery(PromptContent.schema).whereField("promptId", isEqualTo: promptId)
+        return flamelinkService.addListener(query) { (promptContentItems, error) in
+            onData(promptContentItems?.first, error)
         }
     }
 }

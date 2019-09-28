@@ -6,6 +6,7 @@ disabled_rules:
   - valid_ibinspectable
   - for_where
   - trailing_comma
+  - function_body_length
 
 included: 
   - Cactus

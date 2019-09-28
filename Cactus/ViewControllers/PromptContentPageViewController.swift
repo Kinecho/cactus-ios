@@ -168,10 +168,8 @@ extension PromptContentPageViewController: UIPageViewControllerDelegate {
                             didFinishAnimating finished: Bool,
                             previousViewControllers: [UIViewController],
                             transitionCompleted completed: Bool) {
-        print("pageViewCpontroller transition completed delegate called")
         if let firstViewController = self.viewControllers?.first,
             let index = self.screens.firstIndex(of: firstViewController) {
-            print("setting pagecontroller index to \(index)")
             self.pageControl?.currentPage = index
         }
     }

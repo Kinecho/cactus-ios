@@ -26,21 +26,6 @@ class FlamelinkService {
         return self.getContentRef().whereField("_fl_meta_.env", isEqualTo: CactusConfig.flamelink.environmentId)
     }
     
-//    func observeSentPrompts(member: CactusMember, _ onData: @escaping ([SentPrompt]?, Any?) -> Void) -> ListenerRegistration? {
-//        guard let memberId = member.id else {
-//            onData(nil, "No member ID found")
-//            return nil
-//        }
-//
-//        let query = self.getCollectionRef()
-//            .whereField(SentPrompt.Field.cactusMemberId, isEqualTo: memberId)
-//            .order(by: SentPrompt.Field.firstSentAt, descending: true)
-//
-//        return self.firestoreService.addListener(query, { (sentPrompts, error) in
-//            onData(sentPrompts, error)
-//        })
-//    }
-    
     func getQuery(_ schema: FlamelinkSchema) -> Query {
         return getContentQuery().whereField("_fl_meta_.schema", isEqualTo: schema.rawValue)
     }
@@ -56,10 +41,48 @@ class FlamelinkService {
             guard let doc = docs?.documents.first else {
                 return onData(nil, error)
             }
-            let data = doc.data()
-            print("data is \(data)")
             let object = try? doc.decode(as: T.self, includingId: false)
             onData(object, error)
         }
     }
+    
+    func observeByEntryId<T: FlamelinkIdentifiable>(_ id: String, _ onData: @escaping (T?, Any?) -> Void) -> ListenerRegistration {
+        let query = getQuery(T.self.schema)
+        return query.whereField("_fl_meta_.fl_id", isEqualTo: id).addSnapshotListener({ (snapshot, error) in
+            let model = try? snapshot?.documents.first?.decode(as: T.self)
+            onData(model, error)
+        })
+    }
+    
+    func addListener<T: FlamelinkIdentifiable>(_ query: Query, _ onData: @escaping ([T]?, Any?) -> Void) -> ListenerRegistration {
+        // let query = query.whereField(BaseModelField.deleted, isEqualTo: false)
+        // NOTE: For straight up firstore queries, we append a "deleted" filter. For Flamelink we do not.
+        let listener = query.addSnapshotListener(self.snapshotListener(onData))
+        
+        return listener
+    }
+    
+    private func snapshotListener<T: FlamelinkIdentifiable>( _ onData: @escaping ([T]?, Any?) -> Void) -> FIRQuerySnapshotBlock {
+        func handler (_ snapshot: QuerySnapshot?, _ error: Error?) {
+            if let error = error {
+                return onData(nil, error)
+            }
+            guard let documents = snapshot?.documents else {
+                return onData(nil, "Unable to get documents")
+            }
+            var results = [T]()
+            documents.forEach({ (document) in
+                do {
+                    let object = try document.decode(as: T.self, includingId: false)
+                    results.append(object)
+                } catch {
+                    print("error decodding document", error)
+                }
+            })
+            return onData(results, nil)
+        }
+        
+        return handler
+    }
+    
 }

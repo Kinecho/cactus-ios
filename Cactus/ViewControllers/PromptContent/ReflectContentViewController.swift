@@ -16,7 +16,7 @@ class ReflectContentViewController: UIViewController {
     
     var content: Content!
     var promptContent: PromptContent!
-    var player:AVPlayer!
+    var player: AVPlayer!
     
     var doneButton: RoundedButton!
     var reflectionResponse: ReflectionResponse?
