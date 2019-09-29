@@ -73,13 +73,4 @@ struct CactusFont {
     static func bold(_ size: CGFloat) -> UIFont {
         return get(FontName.bold, size)
     }
-    
-    static func setGlobalFonts() {
-        let customFont = UIFont.appRegularFontWith(size: 17)
-        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: customFont], for: .normal)
-        
-        UITextField.appearance().substituteFontName = FontName.normal.rawValue
-        UILabel.appearance().substituteFontName = FontName.normal.rawValue
-        UILabel.appearance().substituteFontNameBold = FontName.normal.rawValue
-    }
 }

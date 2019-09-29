@@ -1385,7 +1385,7 @@
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
 				HEADER_SEARCH_PATHS = "${PODS_ROOT}/Firebase/Core/Sources";
 				INFOPLIST_FILE = "Cactus UnitTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1394,7 +1394,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cactus.Cactus-UnitTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1406,7 +1406,7 @@
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
 				HEADER_SEARCH_PATHS = "${PODS_ROOT}/Firebase/Core/Sources";
 				INFOPLIST_FILE = "Cactus UnitTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1415,7 +1415,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cactus.Cactus-UnitTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
