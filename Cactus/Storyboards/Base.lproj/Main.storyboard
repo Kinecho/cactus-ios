@@ -48,7 +48,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAU-lX-enM" customClass="RoundedButton" customModule="Cactus_Prod" customModuleProvider="target">
-                                <rect key="frame" x="313" y="404.5" width="67" height="40"/>
+                                <rect key="frame" x="315" y="404.5" width="65" height="40"/>
                                 <color key="backgroundColor" name="Green"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -183,7 +183,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uus-7V-bU1" customClass="RoundedButton" customModule="Cactus_Prod" customModuleProvider="target">
-                                <rect key="frame" x="162.5" y="724" width="89" height="38"/>
+                                <rect key="frame" x="161" y="724" width="92" height="38"/>
                                 <color key="backgroundColor" name="Lightest"/>
                                 <inset key="contentEdgeInsets" minX="16" minY="10" maxX="16" maxY="10"/>
                                 <state key="normal" title="Sign Out">
@@ -314,7 +314,7 @@
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="JournalEntryCell" id="hi3-X9-dKc" userLabel="Question Card" customClass="JournalEntryCollectionViewCell" customModule="Cactus_Prod" customModuleProvider="target">
                                 <rect key="frame" x="7" y="8" width="400" height="220"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="402" placeholderIntrinsicHeight="220" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qW-dd-S1T">
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" placeholderIntrinsicWidth="402" placeholderIntrinsicHeight="220" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qW-dd-S1T">
                                     <rect key="frame" x="0.0" y="0.0" width="400" height="220"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="754" text="May 14, 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOB-lq-qx1">
@@ -335,41 +335,37 @@
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xLH-Hu-Fx0" customClass="BorderedButton" customModule="Cactus_Prod" customModuleProvider="target">
-                                            <rect key="frame" x="497" y="10" width="36" height="36"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLH-Hu-Fx0" customClass="BorderedButton" customModule="Cactus_Prod" customModuleProvider="target">
+                                            <rect key="frame" x="491" y="4" width="48" height="48"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="36" id="ab8-UZ-8ce"/>
                                                 <constraint firstAttribute="width" constant="36" id="bqo-PG-SsK"/>
                                             </constraints>
-                                            <color key="tintColor" name="GreenDark"/>
-                                            <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
-                                            <state key="normal">
-                                                <attributedString key="attributedTitle">
-                                                    <fragment content=". . .">
-                                                        <attributes>
-                                                            <font key="NSFont" size="15" name="DINCondensed-Bold"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                            </state>
+                                            <color key="tintColor" name="GreenLight"/>
+                                            <state key="normal" title="" image="dots"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
                                                     <integer key="value" value="18"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                    <real key="value" value="1"/>
+                                                    <real key="value" value="2"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                     <color key="value" name="GreenLight"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="imageWidth">
+                                                    <real key="value" value="24"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="imageHeight">
+                                                    <real key="value" value="24"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="moreButtonTapped:" destination="hi3-X9-dKc" eventType="primaryActionTriggered" id="fQf-Zw-1oS"/>
                                             </connections>
                                         </button>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="748" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIY-zE-sMO">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="748" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIY-zE-sMO">
                                             <rect key="frame" x="20" y="101.5" width="360" height="100"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <string key="text">my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response.  </string>
@@ -398,20 +394,16 @@
                                         <constraint firstAttribute="bottom" secondItem="fIY-zE-sMO" secondAttribute="bottom" constant="20" id="XXG-Py-sXH"/>
                                         <constraint firstItem="0ud-An-1HM" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="20" id="ZUT-ez-gxV"/>
                                         <constraint firstItem="fIY-zE-sMO" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="18" id="gkI-LN-uVJ"/>
+                                        <constraint firstAttribute="width" constant="400" placeholder="YES" id="ksH-dB-zMd"/>
+                                        <constraint firstAttribute="trailing" secondItem="xLH-Hu-Fx0" secondAttribute="trailing" constant="20" id="oXt-3Y-tpH"/>
                                         <constraint firstAttribute="trailing" secondItem="fIY-zE-sMO" secondAttribute="trailing" constant="20" id="pgD-zz-UXd"/>
                                         <constraint firstItem="XOB-lq-qx1" firstAttribute="top" secondItem="0qW-dd-S1T" secondAttribute="top" constant="20" id="ptt-Kp-uU6"/>
-                                        <constraint firstAttribute="trailing" secondItem="xLH-Hu-Fx0" secondAttribute="trailing" constant="10" id="rL5-M0-iLA"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XOB-lq-qx1" secondAttribute="trailing" constant="20" symbolic="YES" id="tZr-iI-erT"/>
                                         <constraint firstAttribute="trailing" secondItem="0ud-An-1HM" secondAttribute="trailing" constant="20" id="umD-hz-9BQ"/>
-                                        <constraint firstItem="xLH-Hu-Fx0" firstAttribute="top" secondItem="0qW-dd-S1T" secondAttribute="top" constant="10" id="vRV-Op-D8r"/>
+                                        <constraint firstItem="xLH-Hu-Fx0" firstAttribute="top" secondItem="0qW-dd-S1T" secondAttribute="top" constant="20" id="vRV-Op-D8r"/>
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="0qW-dd-S1T" firstAttribute="leading" secondItem="hi3-X9-dKc" secondAttribute="leadingMargin" id="3X4-JJ-XZg"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="0qW-dd-S1T" secondAttribute="trailing" id="apn-j9-xNf"/>
-                                    <constraint firstItem="0qW-dd-S1T" firstAttribute="top" secondItem="hi3-X9-dKc" secondAttribute="topMargin" id="gDI-Q3-ivU"/>
-                                </constraints>
                                 <size key="customSize" width="400" height="220"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
@@ -524,11 +516,9 @@
     <resources>
         <image name="avatar_cactusOG" width="75" height="75"/>
         <image name="cactusLogo" width="1410" height="696"/>
+        <image name="dots" width="48" height="48"/>
         <namedColor name="Green">
             <color red="0.20000000298023224" green="0.80000001192092896" blue="0.67100000381469727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="GreenDark">
-            <color red="0.16099999845027924" green="0.63899999856948853" blue="0.53700000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="GreenDarkest">
             <color red="0.027000000700354576" green="0.27099999785423279" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
