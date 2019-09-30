@@ -67,7 +67,15 @@ platform :ios do
 
   lane :test do 
   	# swiftlint(mode: :lint, output_file: "reports/swiftlint/result.xml", reporter: "junit")
-  	scan(output_types: "junit", scheme: "Cactus Prod", skip_build: true, output_directory: "reports/scan", output_files: "results.xml")
+  	scan(output_types: "junit", 
+  		scheme: "Cactus Prod", 
+  		skip_build: true, output_directory: "reports/scan", 
+  		output_files: "results.xml",
+		device: "iPhone 8",
+		slack_url: "https://hooks.slack.com/services/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",
+		slack_channel: "engineering-apps-ci",
+		slack_only_on_failure: false
+		)
   end
 
   lane :lint do 

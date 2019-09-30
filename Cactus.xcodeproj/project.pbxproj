@@ -1429,7 +1429,7 @@
 				CURRENT_PROJECT_VERSION = 38;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
 				INFOPLIST_FILE = Cactus/ConfigProd/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1454,7 +1454,7 @@
 				CURRENT_PROJECT_VERSION = 38;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
 				INFOPLIST_FILE = Cactus/ConfigProd/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1597,7 +1597,7 @@
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
 				INFOPLIST_FILE = Cactus/ConfigStage/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1623,7 +1623,7 @@
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = Cactus/ConfigStage/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

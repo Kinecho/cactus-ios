@@ -62,16 +62,10 @@ commands:
       - run:
           name: Fetch CocoaPods Specs
           command: |
-            curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
-      # - restore-pods-cache
+            curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf      
       - run:
           name: "Install CocoaPods"
-          command: bundle exec pod install --verbose
-      # - save_cache:
-      #     name: "Save Pods Cache"
-      #     key: 2-pods-{{ checksum "Podfile.lock" }}
-      #     paths:
-      #       - Pods
+          command: bundle exec pod install --verbose      
   install: 
     steps:       
       - install-ruby
@@ -164,32 +158,7 @@ jobs:
       - store_test_results:
           path: fl_output/scan
       - store_artifacts:
-          path: fl_output      
-  # testflight-upload: 
-  #   executor: cactus-ios
-  #   steps: 
-  #     - checkout      
-  #     - install
-  #     # - install-ruby
-  #     # - restore-pods-cache
-  #     - add_ssh_keys:
-  #         name: "Add Fastlane Match SSH Key"
-  #         fingerprints:
-  #           - *match-ssh-fingerprint
-  #           - *cactus-ios-read-write-fingerprint
-  #     - run:
-  #         name: Deploy to TestFlight
-  #         command: bundle exec fastlane beta                
-  #     - store_artifacts:
-  #         path: fl_output
-  #     - slack/notify:
-  #         <<: *webhook-url
-  #         color: 'good'
-  #         include_job_number_field: false
-  #         include_visit_job_action: false
-  #         include_project_field: false
-  #         ts: "$(date +%s)"
-  #         message: "A new iOS build has been uploaded to testflight. <https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID|View CI workflow>"
+          path: fl_output        
   testflight-finalize-release: 
     executor: cactus-ios
     steps: 
@@ -217,34 +186,22 @@ jobs:
           command: bundle exec fastlane version_bump
 workflows:
   version: 2.1
-  build-and-test:
+  release-pipeline:
     jobs:
       - notify-branch-workflow-started:
           name: &workflow_name iOS Branch Pipeline
-          workflow_name: *workflow_name
-      # - version-bump
-      - build-and-test
-          # requires: 
-          #   - version-bump
-      # - testflight_approval:
-      #     type: approval
-      #     name: &testflight_approval_name "TestFlight Approval"
-      #     requires: 
-      #       - build-and-test
-      # - version-bump:
-      #     name: &version_bump_name "Bump Build Version"
-      #     requires: 
-      #       - *testflight_approval_name
-      # - testflight-upload:
-      #     name: &testflight_name "Deploy to Testflight"
-      #     requires: 
-      #       - *testflight_approval_name      
-      #       - *version_bump_name
+          workflow_name: *workflow_name      
+      - build-and-test:
+          name: &build-and-upload "Build and Upload to TestFlight"
+      - version-bump:          
+          name: &version_bump_name "Bump Build Version"
+          requires: 
+            - *build-and-upload      
       - finalize-release-approval: 
           type: approval
           name: &finalize-release-approval "Finalize Release - Build finished Processing"
           requires: 
-            - build-and-test
+            - *build-and-upload
       - testflight-finalize-release:
           name: &finalize_name "Upload Symbols to Sentry & Create Release"
           requires: 
