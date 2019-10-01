@@ -51,14 +51,59 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     }
     let cornerRadius: CGFloat = 12
     @IBAction func moreButtonTapped(_ sender: Any) {
+        let duration: Double = 1.0
+        let activeColor = CactusColor.darkGreen
+        let normalColor = CactusColor.lightGreen
+        
+        UIView.animate(withDuration: duration,
+                       delay: 0,
+                       usingSpringWithDamping: 0.5,
+                       initialSpringVelocity: -1,
+                       options: .curveEaseOut,
+                       animations: {
+                        self.moreButton.tintColor = activeColor
+                        self.moreButton.layer.borderColor = activeColor.cgColor
+                            self.moreButton?.transform = CGAffineTransform(rotationAngle: .pi/2)
+                        }, completion: { _ in
+                            self.moreButton?.transform = CGAffineTransform(rotationAngle: .pi/2)
+                        }
+        )
+        
+        func closeAnimation() {
+            UIView.animate(withDuration: duration * 0.75,
+                           delay: 0,
+                           usingSpringWithDamping: 0.5,
+                           initialSpringVelocity: -1,
+                           options: .curveEaseOut,
+                           animations: {
+                            self.moreButton.tintColor = normalColor
+                            self.moreButton.layer.borderColor = normalColor.cgColor
+                                self.moreButton?.transform = CGAffineTransform.identity
+                            }, completion: { _ in
+                                self.moreButton?.transform = CGAffineTransform.identity
+                            })
+        }
+        
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+            closeAnimation()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Reflect", style: .default, handler: { _ in
+            print("Reflect tapped")
+            closeAnimation()
+            self.reflectTapped()
+            
+        }))
+        
         alert.addAction(UIAlertAction(title: "Edit Reflection", style: .default) { _ in
             print("Edit reflection tapped")
+            closeAnimation()
             self.startEdit()
+            
         })
         
-        self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+        self.window?.rootViewController?.present(alert, animated: true)
     }
     
     func startEdit() {
