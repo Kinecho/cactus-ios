@@ -50,6 +50,9 @@ class PromptContentPageViewController: UIPageViewController {
     func getContentViewController(_ content: Content) -> UIViewController? {
         var viewController: UIViewController?
         print("content type is \(content.contentType)")
+        
+        var backgroundColor: UIColor? = CactusColor.lightBlue
+        
         switch content.contentType {
         case .text:
             let textViewController = TextContentViewController.loadFromNib()
@@ -75,9 +78,12 @@ class PromptContentPageViewController: UIPageViewController {
             reflectionViewController.promptContent = promptContent
             reflectionViewController.reflectionResponse = self.reflectionResponse
             viewController = reflectionViewController
+            backgroundColor = .white
         default:
             print("PromptContentPageViewController: ContentType not handled: \(content.contentType)")
         }
+        
+        viewController?.view.backgroundColor = backgroundColor
         
         return viewController
     }
