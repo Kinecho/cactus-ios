@@ -150,6 +150,10 @@
 		30C7E57C233FEB5800145111 /* FontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C7E57A233FEB5800145111 /* FontExtensions.swift */; };
 		30E2D376234311C6003D2B27 /* PillLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2D375234311C6003D2B27 /* PillLabelView.swift */; };
 		30E2D377234311C6003D2B27 /* PillLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2D375234311C6003D2B27 /* PillLabelView.swift */; };
+		30E2D37A23432B21003D2B27 /* NavigationMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2D37823432B21003D2B27 /* NavigationMenuViewController.swift */; };
+		30E2D37B23432B21003D2B27 /* NavigationMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2D37823432B21003D2B27 /* NavigationMenuViewController.swift */; };
+		30E2D37C23432B21003D2B27 /* NavigationMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30E2D37923432B21003D2B27 /* NavigationMenuViewController.xib */; };
+		30E2D37D23432B21003D2B27 /* NavigationMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30E2D37923432B21003D2B27 /* NavigationMenuViewController.xib */; };
 		30E9B09622EA68AC005B25FD /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B09522EA68AC005B25FD /* FirestoreService.swift */; };
 		30E9B09922EA6A81005B25FD /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B09822EA6A81005B25FD /* BaseModel.swift */; };
 		30E9B09A22EA6A81005B25FD /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B09822EA6A81005B25FD /* BaseModel.swift */; };
@@ -270,6 +274,8 @@
 		30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusColor.swift; sourceTree = "<group>"; };
 		30C7E57A233FEB5800145111 /* FontExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtensions.swift; sourceTree = "<group>"; };
 		30E2D375234311C6003D2B27 /* PillLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillLabelView.swift; sourceTree = "<group>"; };
+		30E2D37823432B21003D2B27 /* NavigationMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMenuViewController.swift; sourceTree = "<group>"; };
+		30E2D37923432B21003D2B27 /* NavigationMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationMenuViewController.xib; sourceTree = "<group>"; };
 		30E9B09522EA68AC005B25FD /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		30E9B09822EA6A81005B25FD /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		30E9B09C22EA7FC3005B25FD /* CactusMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusMember.swift; sourceTree = "<group>"; };
@@ -555,6 +561,8 @@
 				3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */,
 				30BF2E1723289D1200A49EB6 /* PromptContentPageViewController.swift */,
 				300AC17B23397A77005C6555 /* JournalHomeViewController.swift */,
+				30E2D37823432B21003D2B27 /* NavigationMenuViewController.swift */,
+				30E2D37923432B21003D2B27 /* NavigationMenuViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -739,6 +747,7 @@
 				30673B97233FDEC300EDE7BD /* Lato-Thin.ttf in Resources */,
 				303BF753232D289A00164539 /* QuoteContentViewController.xib in Resources */,
 				30673B93233FDEC300EDE7BD /* Lato-Italic.ttf in Resources */,
+				30E2D37D23432B21003D2B27 /* NavigationMenuViewController.xib in Resources */,
 				30673B9F233FDEC300EDE7BD /* Lato-BlackItalic.ttf in Resources */,
 				30A281F222EA627D0041158E /* ProdAssets.xcassets in Resources */,
 				30673B95233FDEC300EDE7BD /* Lato-LightItalic.ttf in Resources */,
@@ -753,6 +762,7 @@
 			files = (
 				30673B9E233FDEC300EDE7BD /* Lato-BlackItalic.ttf in Resources */,
 				30B6EA7B22EA5AA100443E46 /* LaunchScreen.storyboard in Resources */,
+				30E2D37C23432B21003D2B27 /* NavigationMenuViewController.xib in Resources */,
 				30BF2E2C23289F9F00A49EB6 /* TextContentViewController.xib in Resources */,
 				30673BA4233FDEC300EDE7BD /* Lato-Light.ttf in Resources */,
 				30673B92233FDEC300EDE7BD /* Lato-Italic.ttf in Resources */,
@@ -1246,6 +1256,7 @@
 				30E9B0AD22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
 				30934FA022EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift in Sources */,
 				305B186F23319E09003E1561 /* FileUtils.swift in Sources */,
+				30E2D37B23432B21003D2B27 /* NavigationMenuViewController.swift in Sources */,
 				30934F9A22EBF235007C4E6C /* BorderedButton.swift in Sources */,
 				3023FE3622ECF0AE00F753A7 /* CactusColor.swift in Sources */,
 				30934FAD22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */,
@@ -1307,6 +1318,7 @@
 				30934FAC22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */,
 				30B6EA7322EA5A9F00443E46 /* JournalEntryDetailViewController.swift in Sources */,
 				305B186E23319E09003E1561 /* FileUtils.swift in Sources */,
+				30E2D37A23432B21003D2B27 /* NavigationMenuViewController.swift in Sources */,
 				30934FA322EBF4E6007C4E6C /* FormatUtils.swift in Sources */,
 				30BF2E0D2328171200A49EB6 /* PromptContent.swift in Sources */,
 				30E9B0B322EADE2D005B25FD /* CGExtensions.swift in Sources */,
