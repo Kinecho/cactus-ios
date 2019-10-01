@@ -40,9 +40,19 @@ platform :ios do
     build_app(workspace: "Cactus.xcworkspace", scheme: "Cactus Prod", xcargs: "-UseModernBuildSystem=NO")
     changelog_from_git_commits
     slack(message: "A new build has been created. Next step: upload to test flight.", slack_url: "https://hooks.slack.com/services/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")
+    
+    ENV["DELIVER_ITMSTRANSPORTER_ADDITIONAL_UPLOAD_PARAMETERS"] = "-t DAV #"
     upload_to_testflight(skip_waiting_for_build_processing: true)
 	
     slack(message: "Successfully uploaded new build to TestFlight", slack_url: "https://hooks.slack.com/services/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")
+  end
+
+  lane :manual_upload do
+  	ENV["DELIVER_ITMSTRANSPORTER_ADDITIONAL_UPLOAD_PARAMETERS"] = "-t DAV #"
+  	upload_to_testflight(
+  		skip_waiting_for_build_processing: true,
+  		ipa: "/Users/neilpoulin/Downloads/Cactus Prod.ipa",
+  		)
   end
 
   lane :test do 
