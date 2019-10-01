@@ -26,19 +26,15 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     
     @IBOutlet weak var layout: UICollectionViewFlowLayout!
     func getCellEstimatedSize() -> CGSize {
-//        self.collectionView.
         let contentInsetWidth = self.collectionView.contentInset.left + self.collectionView.contentInset.right
-        print("contentInsetWidth \(contentInsetWidth)")
         return CGSize(width: self.view.bounds.size.width - sectionInsets.left - sectionInsets.right - contentInsetWidth, height: defaultCellHeight)
     }
  
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataSource.delegate = self
-                
 //        layout.itemSize = UICollectionViewFlowLayout.automaticSize
-        layout.estimatedItemSize = getCellEstimatedSize()
-        
+        layout.estimatedItemSize = getCellEstimatedSize()        
     }
     
     @objc func showAccountPage(sender: Any) {
@@ -103,6 +99,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         journalCell.journalEntry = journalEntry
         journalCell.updateView()
         journalCell.setCellWidth(self.getCellEstimatedSize().width)
+        journalCell.delegate = self
         return journalCell
     }
     
@@ -119,63 +116,14 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         }
         // do stuff with image, or with other data that you need
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-////        return UITableViewAutomaticDimension
-//        return UICollectionViewFlowLayoutEstimatedSize
-//    }
 }
 
 extension JournalFeedCollectionViewController: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView,
-//                        layout collectionViewLayout: UICollectionViewLayout,
-//                        insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return sectionInsets
-//    }
-
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 45.0
     }
-    
-//     func shouldInvalidateLayoutForBoundsChange() -> Bool {
-//         return true
-//     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let estimatedSize = self.getCellEstimatedSize()
-//        let innerCellWidth = estimatedSize.width - (self.defaultPadding * 2)
-//
-//        var height: CGFloat = self.defaultCellHeight - self.defaultResponseTextHeight
-//        var responseTextHeight: CGFloat = self.defaultResponseTextHeight
-//        
-//       //we are just measuring height so we add a padding constant to give the label some room to breathe!
-////        var padding: CGFloat = 20
-//
-//        var responseLoaded = false
-//        //estimate each cell's height
-//        if let journalEntry = self.dataSource.get(at: indexPath.row), journalEntry.loadingComplete {
-//            responseLoaded = true
-//            if let responseText = FormatUtils.responseText(journalEntry.responses), !FormatUtils.isBlank(responseText) {
-//                let textFrame = self.estimateFrameForText(text: responseText, width: innerCellWidth, font: CactusFont.normal)
-//                responseTextHeight = textFrame.height
-//                print("Cell \(indexPath.row) | response text = \(responseText)")
-//
-//            } else {
-//                // No response text, and it has loaded, set height to 0
-//                responseTextHeight = 0
-//            }
-//        }
-//
-//        height += responseTextHeight
-//        print("Cell \(indexPath.row) | Responses loaded: \(responseLoaded) | cell height: \(height)| Response Text Height: \(responseTextHeight)")
-//        return CGSize(width: estimatedSize.width, height: height)
-//    }
-    
-//    func collectionView(collectionView: UICollectionView, layout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-//
-//    }
     
     private func estimateFrameForText(text: String, width: CGFloat, font: UIFont = CactusFont.normal) -> CGRect {
         //we make the height arbitrarily large so we don't undershoot height in calculation
@@ -202,5 +150,12 @@ extension JournalFeedCollectionViewController: JournalFeedDataSourceDelegate {
     func dataLoaded() {
         print("JournalFeed Delegate: Data Loaded: Updating collection view cells")
         self.collectionView.reloadData()
+    }
+}
+
+extension JournalFeedCollectionViewController: JournalEntryCollectionVieweCellDelegate {
+    func goToDetails(cell: UICollectionViewCell) {
+        guard let path = self.collectionView.indexPath(for: cell) else {return}
+        self.collectionView.delegate?.collectionView?(self.collectionView, didSelectItemAt: path)
     }
 }

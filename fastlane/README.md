@@ -31,6 +31,11 @@ fastlane ios version_bump
 fastlane ios beta
 ```
 Push a new beta build to TestFlight
+### ios manual_upload
+```
+fastlane ios manual_upload
+```
+
 ### ios test
 ```
 fastlane ios test

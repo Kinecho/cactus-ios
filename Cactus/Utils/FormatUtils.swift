@@ -45,12 +45,32 @@ struct FormatUtils {
     }
 }
 
+enum FontName: String {
+    case normal = "Lato-Regular"
+    case bold = "Lato-Bold"
+    case italic = "Lato-Italic"
+    case boldItalic = "Lato-BoldItalic"
+}
+
 struct FontSize {
     static let large: CGFloat = 28
     static let normal: CGFloat = 16
 }
 
-struct CactusFont {    
-    static let large = UIFont.systemFont(ofSize: FontSize.large)
-    static let normal = UIFont.systemFont(ofSize: FontSize.normal)
+struct CactusFont {
+    static let normal = UIFont(name: FontName.normal.rawValue, size: FontSize.normal)!
+    static let large = UIFont(name: FontName.normal.rawValue, size: FontSize.large)!
+    static let normalBold = UIFont(name: FontName.bold.rawValue, size: FontSize.normal)!
+    
+    static func get(_ name: FontName, _ size: CGFloat) -> UIFont {
+        return UIFont(name: name.rawValue, size: size)!
+    }
+    
+    static func normal(_ size: CGFloat) -> UIFont {
+        return get(FontName.normal, size)
+    }
+    
+    static func bold(_ size: CGFloat) -> UIFont {
+        return get(FontName.bold, size)
+    }
 }

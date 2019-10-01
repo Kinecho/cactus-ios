@@ -21,4 +21,8 @@ extension UIView {
     @objc func dismissKeyboard() {
         self.endEditing(true)
     }
+    
+    func constraintWithIdentifier(_ identifier: String) -> NSLayoutConstraint? {
+        return self.constraints.first { $0.identifier == identifier }
+    }
 }

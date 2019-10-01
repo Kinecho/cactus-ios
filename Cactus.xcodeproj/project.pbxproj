@@ -62,6 +62,28 @@
 		305B18832331E162003E1561 /* ReflectContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 305B187F2331E162003E1561 /* ReflectContentViewController.xib */; };
 		305B1885233273C4003E1561 /* GrowingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1884233273C4003E1561 /* GrowingTextView.swift */; };
 		305B1886233273C4003E1561 /* GrowingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1884233273C4003E1561 /* GrowingTextView.swift */; };
+		30673B92233FDEC300EDE7BD /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B87233FDEC300EDE7BD /* Lato-Italic.ttf */; };
+		30673B93233FDEC300EDE7BD /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B87233FDEC300EDE7BD /* Lato-Italic.ttf */; };
+		30673B94233FDEC300EDE7BD /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B88233FDEC300EDE7BD /* Lato-LightItalic.ttf */; };
+		30673B95233FDEC300EDE7BD /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B88233FDEC300EDE7BD /* Lato-LightItalic.ttf */; };
+		30673B96233FDEC300EDE7BD /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B89233FDEC300EDE7BD /* Lato-Thin.ttf */; };
+		30673B97233FDEC300EDE7BD /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B89233FDEC300EDE7BD /* Lato-Thin.ttf */; };
+		30673B98233FDEC300EDE7BD /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B8A233FDEC300EDE7BD /* Lato-Bold.ttf */; };
+		30673B99233FDEC300EDE7BD /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B8A233FDEC300EDE7BD /* Lato-Bold.ttf */; };
+		30673B9A233FDEC300EDE7BD /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B8B233FDEC300EDE7BD /* Lato-Black.ttf */; };
+		30673B9B233FDEC300EDE7BD /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B8B233FDEC300EDE7BD /* Lato-Black.ttf */; };
+		30673B9C233FDEC300EDE7BD /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B8C233FDEC300EDE7BD /* Lato-Regular.ttf */; };
+		30673B9D233FDEC300EDE7BD /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B8C233FDEC300EDE7BD /* Lato-Regular.ttf */; };
+		30673B9E233FDEC300EDE7BD /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B8D233FDEC300EDE7BD /* Lato-BlackItalic.ttf */; };
+		30673B9F233FDEC300EDE7BD /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B8D233FDEC300EDE7BD /* Lato-BlackItalic.ttf */; };
+		30673BA0233FDEC300EDE7BD /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 30673B8E233FDEC300EDE7BD /* OFL.txt */; };
+		30673BA1233FDEC300EDE7BD /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 30673B8E233FDEC300EDE7BD /* OFL.txt */; };
+		30673BA2233FDEC300EDE7BD /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B8F233FDEC300EDE7BD /* Lato-BoldItalic.ttf */; };
+		30673BA3233FDEC300EDE7BD /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B8F233FDEC300EDE7BD /* Lato-BoldItalic.ttf */; };
+		30673BA4233FDEC300EDE7BD /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B90233FDEC300EDE7BD /* Lato-Light.ttf */; };
+		30673BA5233FDEC300EDE7BD /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B90233FDEC300EDE7BD /* Lato-Light.ttf */; };
+		30673BA6233FDEC300EDE7BD /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B91233FDEC300EDE7BD /* Lato-ThinItalic.ttf */; };
+		30673BA7233FDEC300EDE7BD /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B91233FDEC300EDE7BD /* Lato-ThinItalic.ttf */; };
 		308446F122ECAE0100FB0683 /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
 		30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
 		30934F9322EBE7DF007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
@@ -124,6 +146,14 @@
 		30BF2E35232964CD00A49EB6 /* FlamelinkTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0E23281CAA00A49EB6 /* FlamelinkTypes.swift */; };
 		30C49D3422EC299300A2EA95 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3322EC299300A2EA95 /* ViewExtensions.swift */; };
 		30C49D3822EC2D4C00A2EA95 /* CactusColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */; };
+		30C7E57B233FEB5800145111 /* FontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C7E57A233FEB5800145111 /* FontExtensions.swift */; };
+		30C7E57C233FEB5800145111 /* FontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C7E57A233FEB5800145111 /* FontExtensions.swift */; };
+		30E2D376234311C6003D2B27 /* PillLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2D375234311C6003D2B27 /* PillLabelView.swift */; };
+		30E2D377234311C6003D2B27 /* PillLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2D375234311C6003D2B27 /* PillLabelView.swift */; };
+		30E2D37A23432B21003D2B27 /* NavigationMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2D37823432B21003D2B27 /* NavigationMenuViewController.swift */; };
+		30E2D37B23432B21003D2B27 /* NavigationMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2D37823432B21003D2B27 /* NavigationMenuViewController.swift */; };
+		30E2D37C23432B21003D2B27 /* NavigationMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30E2D37923432B21003D2B27 /* NavigationMenuViewController.xib */; };
+		30E2D37D23432B21003D2B27 /* NavigationMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30E2D37923432B21003D2B27 /* NavigationMenuViewController.xib */; };
 		30E9B09622EA68AC005B25FD /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B09522EA68AC005B25FD /* FirestoreService.swift */; };
 		30E9B09922EA6A81005B25FD /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B09822EA6A81005B25FD /* BaseModel.swift */; };
 		30E9B09A22EA6A81005B25FD /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B09822EA6A81005B25FD /* BaseModel.swift */; };
@@ -150,7 +180,7 @@
 		30E9B0BE22EAF2FC005B25FD /* SentPromptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */; };
 		76F23F2602ADC65094F1CF3B /* Pods_Cactus_Prod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E8C1EB665F6286E3CD0BE5 /* Pods_Cactus_Prod.framework */; };
 		95087B85A8F99A3282E6AE87 /* Pods_Cactus_Stage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 518BD147DF40E10B6D005DB2 /* Pods_Cactus_Stage.framework */; };
-		D8C077334F20A3457E624C00 /* Pods_Cactus_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A9FFC5346620C8FAA15187B /* Pods_Cactus_UnitTests.framework */; };
+		C08E3AB862BAFCA7CA61D1A2 /* Pods_Cactus_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2B03820008735B26EA3B1D8 /* Pods_Cactus_UnitTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -188,6 +218,17 @@
 		305B187E2331E162003E1561 /* ReflectContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectContentViewController.swift; sourceTree = "<group>"; };
 		305B187F2331E162003E1561 /* ReflectContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReflectContentViewController.xib; sourceTree = "<group>"; };
 		305B1884233273C4003E1561 /* GrowingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowingTextView.swift; sourceTree = "<group>"; };
+		30673B87233FDEC300EDE7BD /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
+		30673B88233FDEC300EDE7BD /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
+		30673B89233FDEC300EDE7BD /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
+		30673B8A233FDEC300EDE7BD /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		30673B8B233FDEC300EDE7BD /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		30673B8C233FDEC300EDE7BD /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		30673B8D233FDEC300EDE7BD /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
+		30673B8E233FDEC300EDE7BD /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		30673B8F233FDEC300EDE7BD /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
+		30673B90233FDEC300EDE7BD /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		30673B91233FDEC300EDE7BD /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
 		308446F022ECAE0100FB0683 /* MailchimpModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailchimpModels.swift; sourceTree = "<group>"; };
 		308446F222ECB23B00FB0683 /* Cactus Stage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cactus Stage.entitlements"; sourceTree = "<group>"; };
 		308446F322ECB24F00FB0683 /* Cactus Prod.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cactus Prod.entitlements"; sourceTree = "<group>"; };
@@ -231,6 +272,10 @@
 		30BF2E312328C7AD00A49EB6 /* MarkdownTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownTypes.swift; sourceTree = "<group>"; };
 		30C49D3322EC299300A2EA95 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusColor.swift; sourceTree = "<group>"; };
+		30C7E57A233FEB5800145111 /* FontExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtensions.swift; sourceTree = "<group>"; };
+		30E2D375234311C6003D2B27 /* PillLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillLabelView.swift; sourceTree = "<group>"; };
+		30E2D37823432B21003D2B27 /* NavigationMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMenuViewController.swift; sourceTree = "<group>"; };
+		30E2D37923432B21003D2B27 /* NavigationMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationMenuViewController.xib; sourceTree = "<group>"; };
 		30E9B09522EA68AC005B25FD /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		30E9B09822EA6A81005B25FD /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		30E9B09C22EA7FC3005B25FD /* CactusMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusMember.swift; sourceTree = "<group>"; };
@@ -245,11 +290,11 @@
 		30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentPromptService.swift; sourceTree = "<group>"; };
 		4367361CF4B35F9E8F97DC27 /* Pods-Cactus Stage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus Stage.debug.xcconfig"; path = "Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage.debug.xcconfig"; sourceTree = "<group>"; };
 		518BD147DF40E10B6D005DB2 /* Pods_Cactus_Stage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cactus_Stage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A9FFC5346620C8FAA15187B /* Pods_Cactus_UnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cactus_UnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F7497B6D87D04BF0ED03305 /* Pods-Cactus Prod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus Prod.release.xcconfig"; path = "Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod.release.xcconfig"; sourceTree = "<group>"; };
 		74F3C20610CFC85363610D59 /* Pods-Cactus Stage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus Stage.release.xcconfig"; path = "Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage.release.xcconfig"; sourceTree = "<group>"; };
 		86D6B8A9F7309EC3280399A0 /* Pods-Cactus Prod.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus Prod.debug.xcconfig"; path = "Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod.debug.xcconfig"; sourceTree = "<group>"; };
 		AA14FEC6B72B3AE2B74A1CAA /* Pods-Cactus UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus UnitTests.release.xcconfig"; path = "Target Support Files/Pods-Cactus UnitTests/Pods-Cactus UnitTests.release.xcconfig"; sourceTree = "<group>"; };
+		D2B03820008735B26EA3B1D8 /* Pods_Cactus_UnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cactus_UnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCC1E9602C00EDA73D829630 /* Pods-Cactus UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus UnitTests.debug.xcconfig"; path = "Target Support Files/Pods-Cactus UnitTests/Pods-Cactus UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -258,7 +303,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8C077334F20A3457E624C00 /* Pods_Cactus_UnitTests.framework in Frameworks */,
+				C08E3AB862BAFCA7CA61D1A2 /* Pods_Cactus_UnitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +331,7 @@
 			children = (
 				05E8C1EB665F6286E3CD0BE5 /* Pods_Cactus_Prod.framework */,
 				518BD147DF40E10B6D005DB2 /* Pods_Cactus_Stage.framework */,
-				5A9FFC5346620C8FAA15187B /* Pods_Cactus_UnitTests.framework */,
+				D2B03820008735B26EA3B1D8 /* Pods_Cactus_UnitTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -317,6 +362,32 @@
 			path = "Cactus UnitTests";
 			sourceTree = "<group>";
 		};
+		30673B85233FDEB600EDE7BD /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				30673B86233FDEC300EDE7BD /* Lato */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		30673B86233FDEC300EDE7BD /* Lato */ = {
+			isa = PBXGroup;
+			children = (
+				30673B87233FDEC300EDE7BD /* Lato-Italic.ttf */,
+				30673B88233FDEC300EDE7BD /* Lato-LightItalic.ttf */,
+				30673B89233FDEC300EDE7BD /* Lato-Thin.ttf */,
+				30673B8A233FDEC300EDE7BD /* Lato-Bold.ttf */,
+				30673B8B233FDEC300EDE7BD /* Lato-Black.ttf */,
+				30673B8C233FDEC300EDE7BD /* Lato-Regular.ttf */,
+				30673B8D233FDEC300EDE7BD /* Lato-BlackItalic.ttf */,
+				30673B8E233FDEC300EDE7BD /* OFL.txt */,
+				30673B8F233FDEC300EDE7BD /* Lato-BoldItalic.ttf */,
+				30673B90233FDEC300EDE7BD /* Lato-Light.ttf */,
+				30673B91233FDEC300EDE7BD /* Lato-ThinItalic.ttf */,
+			);
+			path = Lato;
+			sourceTree = "<group>";
+		};
 		30934F9422EBF12D007C4E6C /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,6 +396,7 @@
 				30934F9E22EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift */,
 				30BF2E312328C7AD00A49EB6 /* MarkdownTypes.swift */,
 				305B1884233273C4003E1561 /* GrowingTextView.swift */,
+				30E2D375234311C6003D2B27 /* PillLabelView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -409,6 +481,7 @@
 		30B6EA6D22EA5A9F00443E46 /* Cactus */ = {
 			isa = PBXGroup;
 			children = (
+				30673B85233FDEB600EDE7BD /* Fonts */,
 				300AC18B233AE16C005C6555 /* Data */,
 				300AC18123398E86005C6555 /* Video */,
 				30A281D322EA610E0041158E /* ConfigProd */,
@@ -488,6 +561,8 @@
 				3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */,
 				30BF2E1723289D1200A49EB6 /* PromptContentPageViewController.swift */,
 				300AC17B23397A77005C6555 /* JournalHomeViewController.swift */,
+				30E2D37823432B21003D2B27 /* NavigationMenuViewController.swift */,
+				30E2D37923432B21003D2B27 /* NavigationMenuViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -501,6 +576,7 @@
 				30BF2E10232822E600A49EB6 /* FirebaseExtensions.swift */,
 				30BF2E2E2328A8AD00A49EB6 /* ViewControllerExtensions.swift */,
 				305B186A23319A72003E1561 /* ImageExtensions.swift */,
+				30C7E57A233FEB5800145111 /* FontExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -529,8 +605,8 @@
 				303BF73D232A986A00164539 /* Sources */,
 				303BF73E232A986A00164539 /* Frameworks */,
 				303BF73F232A986A00164539 /* Resources */,
-				42B1E959CD31FA7B6A7FD541 /* [CP] Embed Pods Frameworks */,
 				DFD245AB27A232280A286D00 /* [CP] Copy Pods Resources */,
+				6B8105465EEDE3242CB46627 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -655,16 +731,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				30A281E222EA61A30041158E /* SharedAssets.xcassets in Resources */,
+				30673B99233FDEC300EDE7BD /* Lato-Bold.ttf in Resources */,
 				30BF2E2D23289F9F00A49EB6 /* TextContentViewController.xib in Resources */,
 				300AC18A233A850B005C6555 /* JournalEntrySkeletonViewController.xib in Resources */,
+				30673B9B233FDEC300EDE7BD /* Lato-Black.ttf in Resources */,
 				3095619A22ECF1CD009357BD /* GoogleService-Info.plist in Resources */,
+				30673BA5233FDEC300EDE7BD /* Lato-Light.ttf in Resources */,
+				30673BA7233FDEC300EDE7BD /* Lato-ThinItalic.ttf in Resources */,
 				305B1866233175DC003E1561 /* PhotoContentViewController.xib in Resources */,
 				300AC18423398EB1005C6555 /* cactus-growing.mp4 in Resources */,
 				305B18832331E162003E1561 /* ReflectContentViewController.xib in Resources */,
+				30673BA1233FDEC300EDE7BD /* OFL.txt in Resources */,
 				30A281F022EA62650041158E /* LaunchScreen.storyboard in Resources */,
 				30A281E322EA61A30041158E /* Main.storyboard in Resources */,
+				30673B97233FDEC300EDE7BD /* Lato-Thin.ttf in Resources */,
 				303BF753232D289A00164539 /* QuoteContentViewController.xib in Resources */,
+				30673B93233FDEC300EDE7BD /* Lato-Italic.ttf in Resources */,
+				30E2D37D23432B21003D2B27 /* NavigationMenuViewController.xib in Resources */,
+				30673B9F233FDEC300EDE7BD /* Lato-BlackItalic.ttf in Resources */,
 				30A281F222EA627D0041158E /* ProdAssets.xcassets in Resources */,
+				30673B95233FDEC300EDE7BD /* Lato-LightItalic.ttf in Resources */,
+				30673B9D233FDEC300EDE7BD /* Lato-Regular.ttf in Resources */,
+				30673BA3233FDEC300EDE7BD /* Lato-BoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,18 +760,30 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30673B9E233FDEC300EDE7BD /* Lato-BlackItalic.ttf in Resources */,
 				30B6EA7B22EA5AA100443E46 /* LaunchScreen.storyboard in Resources */,
+				30E2D37C23432B21003D2B27 /* NavigationMenuViewController.xib in Resources */,
 				30BF2E2C23289F9F00A49EB6 /* TextContentViewController.xib in Resources */,
+				30673BA4233FDEC300EDE7BD /* Lato-Light.ttf in Resources */,
+				30673B92233FDEC300EDE7BD /* Lato-Italic.ttf in Resources */,
 				3095619C22ECF214009357BD /* GoogleService-Info.plist in Resources */,
 				300AC18323398EB1005C6555 /* cactus-growing.mp4 in Resources */,
 				300AC189233A850B005C6555 /* JournalEntrySkeletonViewController.xib in Resources */,
 				30A281EA22EA61EB0041158E /* StageAssets.xcassets in Resources */,
+				30673B98233FDEC300EDE7BD /* Lato-Bold.ttf in Resources */,
+				30673B96233FDEC300EDE7BD /* Lato-Thin.ttf in Resources */,
+				30673BA0233FDEC300EDE7BD /* OFL.txt in Resources */,
 				305B18822331E162003E1561 /* ReflectContentViewController.xib in Resources */,
+				30673BA2233FDEC300EDE7BD /* Lato-BoldItalic.ttf in Resources */,
 				30B6EA7822EA5AA100443E46 /* SharedAssets.xcassets in Resources */,
 				30B6EA7622EA5A9F00443E46 /* Main.storyboard in Resources */,
 				30A266DA2329BB73003C708E /* config.yml in Resources */,
+				30673BA6233FDEC300EDE7BD /* Lato-ThinItalic.ttf in Resources */,
+				30673B9C233FDEC300EDE7BD /* Lato-Regular.ttf in Resources */,
 				305B1865233175DC003E1561 /* PhotoContentViewController.xib in Resources */,
 				303BF752232D289A00164539 /* QuoteContentViewController.xib in Resources */,
+				30673B9A233FDEC300EDE7BD /* Lato-Black.ttf in Resources */,
+				30673B94233FDEC300EDE7BD /* Lato-LightItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -762,7 +862,41 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\" f92d423e6318610dec15544656c1d5c4183b6688 c3810717415bb49c6fc273d83e31562ce3f085d5cbeafd0e193e935f72fab7c6\n";
 		};
-		42B1E959CD31FA7B6A7FD541 /* [CP] Embed Pods Frameworks */ = {
+		66560279FA0B87D716AD6DD3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAnonymousAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseEmailAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseFacebookAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebasePhoneAuthUI.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAnonymousAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseEmailAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseFacebookAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebasePhoneAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B8105465EEDE3242CB46627 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -771,27 +905,27 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Cactus UnitTests/Pods-Cactus UnitTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire-iOS12.4/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AppAuth-iOS12.4/AppAuth.framework",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC-iOS12.4/openssl_grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/Cloudinary-iOS12.4/Cloudinary.framework",
-				"${BUILT_PRODUCTS_DIR}/CodableFirebase-iOS12.4/CodableFirebase.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit-iOS12.4/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit-iOS12.4/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMAppAuth-iOS12.4/GTMAppAuth.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher-iOS12.4/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac-iOS12.4/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS12.4/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/MarkdownKit-iOS12.4/MarkdownKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf-iOS12.4/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage-iOS12.4/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/Sentry-iOS12.4/Sentry.framework",
-				"${BUILT_PRODUCTS_DIR}/SkeletonView-iOS12.4/SkeletonView.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyGif-iOS12.4/SwiftyGif.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-C++-iOS12.4/grpcpp.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core-iOS12.4/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library-iOS12.4/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb-iOS12.4/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/Cloudinary/Cloudinary.framework",
+				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/MarkdownKit/MarkdownKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Sentry/Sentry.framework",
+				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -822,40 +956,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cactus UnitTests/Pods-Cactus UnitTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		66560279FA0B87D716AD6DD3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS11.0/FirebaseAnonymousAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS11.0/FirebaseAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS11.0/FirebaseEmailAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS11.0/FirebaseFacebookAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS11.0/FirebaseGoogleAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS11.0/FirebasePhoneAuthUI.bundle",
-				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAnonymousAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseEmailAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseFacebookAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebasePhoneAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		94E6ABEF1163C08E11A34C1D /* [CP] Check Pods Manifest.lock */ = {
@@ -889,27 +989,27 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire-iOS11.0/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AppAuth-iOS11.0/AppAuth.framework",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC-iOS11.0/openssl_grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/Cloudinary-iOS11.0/Cloudinary.framework",
-				"${BUILT_PRODUCTS_DIR}/CodableFirebase-iOS11.0/CodableFirebase.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit-iOS11.0/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit-iOS11.0/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMAppAuth-iOS11.0/GTMAppAuth.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher-iOS11.0/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac-iOS11.0/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS11.0/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/MarkdownKit-iOS11.0/MarkdownKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf-iOS11.0/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage-iOS11.0/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/Sentry-iOS11.0/Sentry.framework",
-				"${BUILT_PRODUCTS_DIR}/SkeletonView-iOS11.0/SkeletonView.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyGif-iOS11.0/SwiftyGif.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-C++-iOS11.0/grpcpp.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core-iOS11.0/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library-iOS11.0/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb-iOS11.0/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/Cloudinary/Cloudinary.framework",
+				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/MarkdownKit/MarkdownKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Sentry/Sentry.framework",
+				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -995,12 +1095,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Cactus UnitTests/Pods-Cactus UnitTests-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS12.4/FirebaseAnonymousAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS12.4/FirebaseAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS12.4/FirebaseEmailAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS12.4/FirebaseFacebookAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS12.4/FirebaseGoogleAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS12.4/FirebasePhoneAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAnonymousAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseEmailAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseFacebookAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebasePhoneAuthUI.bundle",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1029,27 +1129,27 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire-iOS11.0/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AppAuth-iOS11.0/AppAuth.framework",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC-iOS11.0/openssl_grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/Cloudinary-iOS11.0/Cloudinary.framework",
-				"${BUILT_PRODUCTS_DIR}/CodableFirebase-iOS11.0/CodableFirebase.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit-iOS11.0/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit-iOS11.0/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMAppAuth-iOS11.0/GTMAppAuth.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher-iOS11.0/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac-iOS11.0/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS11.0/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/MarkdownKit-iOS11.0/MarkdownKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf-iOS11.0/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage-iOS11.0/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/Sentry-iOS11.0/Sentry.framework",
-				"${BUILT_PRODUCTS_DIR}/SkeletonView-iOS11.0/SkeletonView.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyGif-iOS11.0/SwiftyGif.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-C++-iOS11.0/grpcpp.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core-iOS11.0/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library-iOS11.0/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb-iOS11.0/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/Cloudinary/Cloudinary.framework",
+				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/MarkdownKit/MarkdownKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Sentry/Sentry.framework",
+				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -1091,12 +1191,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS11.0/FirebaseAnonymousAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS11.0/FirebaseAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS11.0/FirebaseEmailAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS11.0/FirebaseFacebookAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS11.0/FirebaseGoogleAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-iOS11.0/FirebasePhoneAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAnonymousAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseEmailAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseFacebookAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebasePhoneAuthUI.bundle",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1156,6 +1256,7 @@
 				30E9B0AD22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
 				30934FA022EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift in Sources */,
 				305B186F23319E09003E1561 /* FileUtils.swift in Sources */,
+				30E2D37B23432B21003D2B27 /* NavigationMenuViewController.swift in Sources */,
 				30934F9A22EBF235007C4E6C /* BorderedButton.swift in Sources */,
 				3023FE3622ECF0AE00F753A7 /* CactusColor.swift in Sources */,
 				30934FAD22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */,
@@ -1185,10 +1286,12 @@
 				3023FE3422ECF06E00F753A7 /* MailchimpModels.swift in Sources */,
 				30BF2E1623282BDA00A49EB6 /* FlamelinkService.swift in Sources */,
 				3023FE3522ECF0A800F753A7 /* ViewExtensions.swift in Sources */,
+				30C7E57C233FEB5800145111 /* FontExtensions.swift in Sources */,
 				300AC188233A850B005C6555 /* JournalEntrySkeletonViewController.swift in Sources */,
 				30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */,
 				303BF751232D289A00164539 /* QuoteContentViewController.swift in Sources */,
 				30E9B0B822EADF75005B25FD /* HomeViewController.swift in Sources */,
+				30E2D377234311C6003D2B27 /* PillLabelView.swift in Sources */,
 				30E9B0B022EADD04005B25FD /* LoginViewController.swift in Sources */,
 				30BF2E342328D91B00A49EB6 /* PromptContent.swift in Sources */,
 				305B1869233178A8003E1561 /* ImageService.swift in Sources */,
@@ -1215,6 +1318,7 @@
 				30934FAC22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */,
 				30B6EA7322EA5A9F00443E46 /* JournalEntryDetailViewController.swift in Sources */,
 				305B186E23319E09003E1561 /* FileUtils.swift in Sources */,
+				30E2D37A23432B21003D2B27 /* NavigationMenuViewController.swift in Sources */,
 				30934FA322EBF4E6007C4E6C /* FormatUtils.swift in Sources */,
 				30BF2E0D2328171200A49EB6 /* PromptContent.swift in Sources */,
 				30E9B0B322EADE2D005B25FD /* CGExtensions.swift in Sources */,
@@ -1244,10 +1348,12 @@
 				308446F122ECAE0100FB0683 /* MailchimpModels.swift in Sources */,
 				30934F9622EBF146007C4E6C /* RoundedButton.swift in Sources */,
 				30E9B09922EA6A81005B25FD /* BaseModel.swift in Sources */,
+				30C7E57B233FEB5800145111 /* FontExtensions.swift in Sources */,
 				300AC187233A850B005C6555 /* JournalEntrySkeletonViewController.swift in Sources */,
 				30E9B0B722EADF75005B25FD /* HomeViewController.swift in Sources */,
 				303BF750232D289A00164539 /* QuoteContentViewController.swift in Sources */,
 				30E9B0AF22EADD04005B25FD /* LoginViewController.swift in Sources */,
+				30E2D376234311C6003D2B27 /* PillLabelView.swift in Sources */,
 				30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */,
 				30BF2E14232824AB00A49EB6 /* FlamelinkService.swift in Sources */,
 				305B1868233178A8003E1561 /* ImageService.swift in Sources */,
@@ -1295,9 +1401,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
-				HEADER_SEARCH_PATHS = "${PODS_ROOT}/Firebase/Core/Sources";
 				INFOPLIST_FILE = "Cactus UnitTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1306,7 +1411,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cactus.Cactus-UnitTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1316,9 +1421,8 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
-				HEADER_SEARCH_PATHS = "${PODS_ROOT}/Firebase/Core/Sources";
 				INFOPLIST_FILE = "Cactus UnitTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1327,7 +1431,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cactus.Cactus-UnitTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1338,10 +1442,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Cactus Prod.entitlements";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 42;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
 				INFOPLIST_FILE = Cactus/ConfigProd/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1363,10 +1467,10 @@
 				CODE_SIGN_ENTITLEMENTS = "Cactus Prod.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 42;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
 				INFOPLIST_FILE = Cactus/ConfigProd/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1509,7 +1613,7 @@
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
 				INFOPLIST_FILE = Cactus/ConfigStage/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1535,7 +1639,7 @@
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = Cactus/ConfigStage/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

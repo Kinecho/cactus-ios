@@ -9,18 +9,28 @@
 import UIKit
 import SkeletonView
 
+protocol JournalEntryCollectionVieweCellDelegate: class {
+    func goToDetails(cell: UICollectionViewCell)
+}
+
 @IBDesignable
 class JournalEntryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var responseTextView: UITextView!
-    var cellWidthConstraint: NSLayoutConstraint?
-    
     @IBOutlet weak var borderView: UIView!
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var dateTopContainerConstraint: NSLayoutConstraint!
     
+    weak var delegate: JournalEntryCollectionVieweCellDelegate?
+    
+    var cellWidthConstraint: NSLayoutConstraint?
+    var responseBottomConstraint: NSLayoutConstraint?
+    var textViewBottomPadding: CGFloat = 20
     var journalEntry: JournalEntry?
     var responseTextViewHeightConstraint: NSLayoutConstraint?
+    var questionLabelHeightConstraint: NSLayoutConstraint?
     var sentPrompt: SentPrompt? {
         return self.journalEntry?.sentPrompt
     }
@@ -41,14 +51,59 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     }
     let cornerRadius: CGFloat = 12
     @IBAction func moreButtonTapped(_ sender: Any) {
+        let duration: Double = 1.0
+        let activeColor = CactusColor.darkGreen
+        let normalColor = CactusColor.lightGreen
+        
+        UIView.animate(withDuration: duration,
+                       delay: 0,
+                       usingSpringWithDamping: 0.5,
+                       initialSpringVelocity: -1,
+                       options: .curveEaseOut,
+                       animations: {
+                        self.moreButton.tintColor = activeColor
+                        self.moreButton.layer.borderColor = activeColor.cgColor
+                            self.moreButton?.transform = CGAffineTransform(rotationAngle: .pi/2)
+                        }, completion: { _ in
+                            self.moreButton?.transform = CGAffineTransform(rotationAngle: .pi/2)
+                        }
+        )
+        
+        func closeAnimation() {
+            UIView.animate(withDuration: duration * 0.75,
+                           delay: 0,
+                           usingSpringWithDamping: 0.5,
+                           initialSpringVelocity: -1,
+                           options: .curveEaseOut,
+                           animations: {
+                            self.moreButton.tintColor = normalColor
+                            self.moreButton.layer.borderColor = normalColor.cgColor
+                                self.moreButton?.transform = CGAffineTransform.identity
+                            }, completion: { _ in
+                                self.moreButton?.transform = CGAffineTransform.identity
+                            })
+        }
+        
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+            closeAnimation()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Reflect", style: .default, handler: { _ in
+            print("Reflect tapped")
+            closeAnimation()
+            self.reflectTapped()
+            
+        }))
+        
         alert.addAction(UIAlertAction(title: "Edit Reflection", style: .default) { _ in
             print("Edit reflection tapped")
+            closeAnimation()
             self.startEdit()
+            
         })
         
-        self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+        self.window?.rootViewController?.present(alert, animated: true)
     }
     
     func startEdit() {
@@ -119,54 +174,27 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     }
     
     func removeResponseView() {
-//        self.responseTextViewHeightConstraint = self.responseTextView.heightAnchor.constraint(equalToConstant: 0)
-        self.responseTextViewHeightConstraint?.constant = 0
-        self.responseTextViewHeightConstraint?.isActive = true
         self.responseTextView.isHidden = true
         self.borderView.isHidden = true
+        self.responseBottomConstraint?.constant = 0
+        self.responseBottomConstraint?.isActive = true
     }
     
     func showResponseView() {
         self.responseTextView.isHidden = false
         self.borderView.isHidden = false
-    }
-    
-    func addSkeletons() {
-        if self.journalEntry?.responsesLoaded == true {
-            self.showResponseView()
-//            self.responseTextViewHeightConstraint = self.responseTextView.heightAnchor.constraint(equalToConstant: 90)
-            self.responseTextViewHeightConstraint?.constant = 90
-            self.responseTextViewHeightConstraint?.isActive = true
-            self.responseTextView.showAnimatedGradientSkeleton()
-        } else {
-            self.responseTextView.hideSkeleton()
-            self.responseTextViewHeightConstraint?.isActive = false
-        }
-
-        if self.journalEntry?.promptContentLoaded == false || self.journalEntry?.promptLoaded == false {
-            self.questionLabel.showAnimatedGradientSkeleton()
-        } else {
-            self.questionLabel.hideSkeleton()
-        }
-
-//        self.questionLabel.showSkeleton()
-    }
-    
-    func removeSkeletons() {
-        self.responseTextView.hideSkeleton()
-        self.dateLabel.hideSkeleton()
-        self.questionLabel.hideSkeleton()
+        self.responseBottomConstraint?.constant = self.textViewBottomPadding
+        self.responseTextViewHeightConstraint?.isActive = false
     }
     
     func updateView() {
-        self.addSkeletons()
-                
-        self.contentView.isUserInteractionEnabled = true
         if let sentDate = self.sentPrompt?.firstSentAt {
             let dateString = FormatUtils.formatDate(sentDate)
             self.dateLabel.text = dateString
+            self.dateLabel.hideSkeleton()
         } else {
             self.dateLabel.text = nil
+            self.dateLabel.showAnimatedGradientSkeleton()
         }
         
         let reflectContent = self.promptContent?.content.first(where: { (content) -> Bool in
@@ -175,31 +203,56 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         
         let reflectText = FormatUtils.isBlank(reflectContent?.text) ? nil : reflectContent?.text
         let questionText = reflectText ?? self.prompt?.question
+        let questionLoaded = self.journalEntry?.promptContentLoaded == true && self.journalEntry?.promptLoaded == true
         
-        if questionText != nil && self.journalEntry?.promptContentLoaded == true && self.journalEntry?.promptLoaded == true {
+        if questionLoaded {
+            if self.questionLabel.isSkeletonActive {
+                self.questionLabel.hideSkeleton()
+            }
             self.questionLabel.text = questionText
-            self.questionLabel.isHidden = false
+            self.questionLabel.numberOfLines = 0
+            self.questionLabelHeightConstraint?.isActive = false
+        } else {
+            self.questionLabel.text = nil
+            self.questionLabel.numberOfLines = 1
+            
+//            if !self.questionLabel.isSkeletonActive {
+                self.questionLabel.showAnimatedGradientSkeleton()
+//            }
+            self.questionLabelHeightConstraint?.isActive = true
+            
         }
         
         let responseText = FormatUtils.responseText(self.responses)
         
         if !FormatUtils.isBlank(responseText) {
             //responses loaded and has text
-            self.responseTextView.hideSkeleton()
-            self.responseTextViewHeightConstraint?.isActive = false
-            self.responseTextView.text = responseText
             self.showResponseView()
-            
+            self.responseTextView.hideSkeleton()
+            self.responseTextView.text = responseText
         } else if self.journalEntry?.responsesLoaded == true && FormatUtils.isBlank(responseText) {
             //responses loaded but no text
-            self.removeResponseView()
-            self.responseTextView.hideSkeleton()
+            self.responseTextViewHeightConstraint?.isActive = false
             self.responseTextView.text = nil
+            self.responseTextView.hideSkeleton()
+            self.removeResponseView()
+            
         } else {
             //responses loading still
             self.responseTextView.text = nil
+            self.responseBottomConstraint?.constant = self.textViewBottomPadding
+            self.responseTextViewHeightConstraint?.isActive = true
+            self.responseTextView.showAnimatedGradientSkeleton()
         }
-                
+               
+        if self.responses?.isEmpty == false && self.journalEntry?.responsesLoaded == true {
+            self.statusLabel.isHidden = false
+            self.dateTopContainerConstraint.isActive = false
+        } else {
+            self.statusLabel.isHidden = true
+            self.dateTopContainerConstraint.isActive = true
+        }
+        
         self.setNeedsLayout()
     }
     
@@ -248,12 +301,26 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
         self.responseTextViewHeightConstraint = self.responseTextView.heightAnchor.constraint(equalToConstant: 90)
-        self.responseTextViewHeightConstraint?.isActive = true
+        self.questionLabelHeightConstraint = self.questionLabel.heightAnchor.constraint(equalToConstant: 30)
+        
+        self.questionLabelHeightConstraint?.isActive = true
+        self.responseTextViewHeightConstraint?.isActive = false
+        
         self.cellWidthConstraint = self.contentView.widthAnchor.constraint(equalToConstant: 0)
         self.configureViewAppearance()
         self.questionLabel.text = nil
         self.dateLabel.text = nil
         self.responseTextView.text = nil
+        
+        self.responseBottomConstraint = self.contentView.constraintWithIdentifier("responseBottom")
+        self.textViewBottomPadding = self.responseBottomConstraint?.constant ?? 20
+        
+        let textTappedGesture = UITapGestureRecognizer(target: self, action: #selector(self.reflectTapped))
+        self.responseTextView.addGestureRecognizer(textTappedGesture)
+    }
+    
+    @objc func reflectTapped() {
+        self.delegate?.goToDetails(cell: self)
     }
     
     func setCellWidth(_ width: CGFloat) {

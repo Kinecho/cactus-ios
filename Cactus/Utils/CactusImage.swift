@@ -13,6 +13,9 @@ enum CactusImage: String {
     case cactusAvatarOG = "avatar_cactusOG"
     case twitter = "Twitter"
 
+    //Icons
+    case dots
+    
     func getImage() -> UIImage? {
         return UIImage(named: self.rawValue)
     }

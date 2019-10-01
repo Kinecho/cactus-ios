@@ -46,6 +46,14 @@ class ReflectContentViewController: UIViewController {
         }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        if let video = self.player {
+            video.seek(to: CMTime.zero)
+            video.play()
+            
+        }
+    }
+    
     func createCactusGrowingVideo() {
         
         guard let path = Bundle.main.path(forResource: "cactus-growing", ofType: "mp4") else {

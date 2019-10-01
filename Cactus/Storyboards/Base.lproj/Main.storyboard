@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="skj-bj-glJ">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
@@ -9,35 +9,46 @@
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Black.ttf">
+            <string>Lato-Black</string>
+        </array>
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Detail-->
         <scene sceneID="yUG-lL-AsK">
             <objects>
                 <viewController title="Detail" id="JEX-9P-axG" customClass="JournalEntryDetailViewController" customModule="Cactus_Prod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="svH-Pt-448">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="767"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0XM-y9-sOw">
-                                <rect key="frame" x="24" y="108" width="366" height="35"/>
+                                <rect key="frame" x="24" y="64" width="327" height="31.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="27"/>
                                 <color key="textColor" name="GreenDarkest"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N66-ae-VLO">
-                                <rect key="frame" x="24" y="183" width="366" height="200"/>
+                                <rect key="frame" x="24" y="135.5" width="327" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="Rji-Z0-zbI"/>
                                     <constraint firstAttribute="height" constant="200" id="T2p-sV-snj"/>
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAU-lX-enM" customClass="RoundedButton" customModule="Cactus_Prod" customModuleProvider="target">
-                                <rect key="frame" x="313" y="407" width="67" height="40"/>
+                                <rect key="frame" x="274" y="359.5" width="67" height="40"/>
                                 <color key="backgroundColor" name="Green"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -61,13 +72,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prompt Entry Id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0M3-a2-yA5" userLabel="Prompt Entry Label">
-                                <rect key="frame" x="24" y="587" width="370" height="20.5"/>
+                                <rect key="frame" x="24" y="539.5" width="331" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Some useful data here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kqa-Xw-bvS" userLabel="Prompt Text Area">
-                                <rect key="frame" x="20" y="615.5" width="374" height="128"/>
+                                <rect key="frame" x="20" y="568" width="335" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="pQQ-4V-Pem"/>
@@ -76,7 +87,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nPa-Rh-NgV">
-                                <rect key="frame" x="30" y="412" width="49" height="30"/>
+                                <rect key="frame" x="30" y="364.5" width="49" height="30"/>
                                 <state key="normal" title="Reflect"/>
                                 <connections>
                                     <segue destination="e7K-2Y-xsh" kind="show" identifier="ShowPromptContentModal" id="3OM-UU-9N2"/>
@@ -124,7 +135,7 @@
             <objects>
                 <viewController storyboardIdentifier="AppMain" id="skj-bj-glJ" customClass="AppMainViewController" customModule="Cactus_Prod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EpZ-UL-MZr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="F72-cu-vfx"/>
@@ -139,20 +150,20 @@
             <objects>
                 <viewController storyboardIdentifier="MemberProfile" title="Account" id="Fao-wE-ttY" customClass="MemberProfileViewController" customModule="Cactus_Prod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="elJ-45-fVg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MLD-zw-u1Q">
-                                <rect key="frame" x="0.0" y="94" width="414" height="85"/>
+                                <rect key="frame" x="0.0" y="50" width="375" height="85"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQj-B1-Uh5">
-                                        <rect key="frame" x="20" y="20" width="370" height="20.5"/>
+                                        <rect key="frame" x="20" y="20" width="331" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" editable="NO" text="test@example.com" translatesAutoresizingMaskIntoConstraints="NO" id="pJx-cQ-DWs">
-                                        <rect key="frame" x="20" y="40.5" width="370" height="44.5"/>
+                                        <rect key="frame" x="20" y="40.5" width="331" height="44.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" name="GreenDarkest"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -172,7 +183,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uus-7V-bU1" customClass="RoundedButton" customModule="Cactus_Prod" customModuleProvider="target">
-                                <rect key="frame" x="161" y="724" width="92" height="38"/>
+                                <rect key="frame" x="141.5" y="529" width="92" height="38"/>
                                 <color key="backgroundColor" name="Lightest"/>
                                 <inset key="contentEdgeInsets" minX="16" minY="10" maxX="16" maxY="10"/>
                                 <state key="normal" title="Sign Out">
@@ -188,19 +199,19 @@
                                 </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rf3-4r-J2l">
-                                <rect key="frame" x="193" y="224" width="51" height="31"/>
+                                <rect key="frame" x="193" y="180" width="51" height="31"/>
                                 <connections>
                                     <action selector="pushToggleTriggered:" destination="Fao-wE-ttY" eventType="primaryActionTriggered" id="Lzn-iO-qdr"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Push Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acV-kJ-tJO">
-                                <rect key="frame" x="24" y="229" width="139" height="21"/>
+                                <rect key="frame" x="24" y="185" width="139" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications permissions are managed in Settings" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXD-Zq-3m0">
-                                <rect key="frame" x="24" y="262" width="370" height="14.5"/>
+                                <rect key="frame" x="24" y="218" width="331" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" name="TextLight"/>
                                 <nil key="highlightedColor"/>
@@ -239,33 +250,33 @@
             <objects>
                 <viewController storyboardIdentifier="JournalHome" id="TYZ-Ys-0y2" userLabel="Journal Home" customClass="JournalHomeViewController" customModule="Cactus_Prod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BSA-pu-uSy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z8U-Me-3LH">
-                                <rect key="frame" x="0.0" y="129" width="414" height="767"/>
+                                <rect key="frame" x="0.0" y="70" width="375" height="597"/>
                                 <connections>
                                     <segue destination="GWJ-to-hjF" kind="embed" id="S3K-6l-Z7C"/>
                                 </connections>
                             </containerView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cactusLogo" translatesAutoresizingMaskIntoConstraints="NO" id="a8S-uZ-lk2">
-                                <rect key="frame" x="20" y="54" width="120" height="60"/>
+                                <rect key="frame" x="20" y="15" width="120" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="c8q-6a-FZ3"/>
+                                    <constraint firstAttribute="height" constant="40" id="c8q-6a-FZ3"/>
                                     <constraint firstAttribute="width" constant="120" id="m0b-ib-v2I"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_cactusOG" translatesAutoresizingMaskIntoConstraints="NO" id="cWM-Up-Dm8">
-                                <rect key="frame" x="344" y="59" width="50" height="50"/>
+                                <rect key="frame" x="315" y="15" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="15x-gP-G9u"/>
-                                    <constraint firstAttribute="width" constant="50" id="OXC-AJ-Gty"/>
+                                    <constraint firstAttribute="height" constant="40" id="15x-gP-G9u"/>
+                                    <constraint firstAttribute="width" secondItem="cWM-Up-Dm8" secondAttribute="height" multiplier="1:1" id="z8Z-cx-8WM"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="a8S-uZ-lk2" firstAttribute="top" secondItem="ZBF-X5-P48" secondAttribute="top" constant="10" id="1UK-il-Axw"/>
+                            <constraint firstItem="a8S-uZ-lk2" firstAttribute="top" secondItem="ZBF-X5-P48" secondAttribute="top" constant="15" id="1UK-il-Axw"/>
                             <constraint firstItem="Z8U-Me-3LH" firstAttribute="top" secondItem="a8S-uZ-lk2" secondAttribute="bottom" constant="15" id="DnA-pn-r6e"/>
                             <constraint firstItem="a8S-uZ-lk2" firstAttribute="leading" secondItem="ZBF-X5-P48" secondAttribute="leading" constant="20" id="Ku5-Pa-g0f"/>
                             <constraint firstItem="ZBF-X5-P48" firstAttribute="trailing" secondItem="cWM-Up-Dm8" secondAttribute="trailing" constant="20" id="MuQ-6d-ImR"/>
@@ -289,87 +300,112 @@
             <objects>
                 <collectionViewController storyboardIdentifier="JournalFeed" id="GWJ-to-hjF" userLabel="Journal Feed" customClass="JournalFeedCollectionViewController" customModule="Cactus_Prod" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" id="c64-uC-Gae">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="767"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="25" sectionInsetReference="layoutMargins" id="CAX-zL-tXF">
                             <size key="itemSize" width="300" height="220"/>
-                            <size key="estimatedItemSize" width="402" height="220"/>
+                            <size key="estimatedItemSize" width="300" height="220"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="JournalEntryCell" id="hi3-X9-dKc" userLabel="Question Card" customClass="JournalEntryCollectionViewCell" customModule="Cactus_Prod" customModuleProvider="target">
-                                <rect key="frame" x="7" y="8" width="400" height="220"/>
+                                <rect key="frame" x="37.5" y="8" width="300" height="220"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="402" placeholderIntrinsicHeight="220" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qW-dd-S1T">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="220"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" placeholderIntrinsicWidth="402" placeholderIntrinsicHeight="220" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qW-dd-S1T">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="220"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="754" text="May 14, 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOB-lq-qx1">
-                                            <rect key="frame" x="20" y="20" width="101.5" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DONE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7Y-9t-Q3G" userLabel="Status Label" customClass="PillLabelView" customModule="Cactus_Prod" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="10" width="42" height="18"/>
+                                            <color key="backgroundColor" name="GreenLight"/>
+                                            <color key="tintColor" name="TextLight"/>
+                                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="15"/>
                                             <color key="textColor" name="GreenDarkest"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="topInset">
+                                                    <real key="value" value="3"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="bottomInset">
+                                                    <real key="value" value="3"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="leftInset">
+                                                    <real key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="rightInset">
+                                                    <real key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="754" text="May 14, 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOB-lq-qx1">
+                                            <rect key="frame" x="20" y="38" width="103.5" height="20"/>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                            <color key="textColor" name="TextLight"/>
                                             <nil key="highlightedColor"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Placeholder Question" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ud-An-1HM">
-                                            <rect key="frame" x="20" y="61" width="360" height="21"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                            <color key="textColor" name="GreenDarkest"/>
+                                            <rect key="frame" x="20" y="78" width="2690" height="28"/>
+                                            <fontDescription key="fontDescription" name="Lato-Black" family="Lato" pointSize="24"/>
+                                            <color key="textColor" name="TextDark"/>
                                             <nil key="highlightedColor"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xLH-Hu-Fx0" customClass="BorderedButton" customModule="Cactus_Prod" customModuleProvider="target">
-                                            <rect key="frame" x="497" y="10" width="36" height="36"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <button contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLH-Hu-Fx0" customClass="BorderedButton" customModule="Cactus_Prod" customModuleProvider="target">
+                                            <rect key="frame" x="250" y="20" width="36" height="36"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="36" id="ab8-UZ-8ce"/>
                                                 <constraint firstAttribute="width" constant="36" id="bqo-PG-SsK"/>
                                             </constraints>
-                                            <color key="tintColor" name="GreenDark"/>
-                                            <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
-                                            <state key="normal">
-                                                <attributedString key="attributedTitle">
-                                                    <fragment content=". . .">
-                                                        <attributes>
-                                                            <font key="NSFont" size="15" name="DINCondensed-Bold"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                            </state>
+                                            <color key="tintColor" name="GreenLight"/>
+                                            <state key="normal" title="" image="dots"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
                                                     <integer key="value" value="18"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                    <real key="value" value="1"/>
+                                                    <real key="value" value="2"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                     <color key="value" name="GreenLight"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="imageWidth">
+                                                    <real key="value" value="24"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="imageHeight">
+                                                    <real key="value" value="24"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="moreButtonTapped:" destination="hi3-X9-dKc" eventType="primaryActionTriggered" id="fQf-Zw-1oS"/>
                                             </connections>
                                         </button>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="748" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIY-zE-sMO">
-                                            <rect key="frame" x="20" y="101.5" width="360" height="100"/>
+                                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="748" misplaced="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIY-zE-sMO">
+                                            <rect key="frame" x="18" y="127" width="300" height="73"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <string key="text">my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response. my response.  </string>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" name="TextDark"/>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="linesCornerRadius">
+                                                    <integer key="value" value="6"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="lastLineFillPercent">
+                                                    <integer key="value" value="25"/>
+                                                </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </textView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFa-Yu-OSz" userLabel="Border View">
-                                            <rect key="frame" x="-5" y="110" width="10" height="100"/>
+                                            <rect key="frame" x="-5" y="126" width="10" height="74"/>
                                             <color key="backgroundColor" name="YellowDark"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="10" id="pRO-h5-NZ6"/>
@@ -380,35 +416,45 @@
                                         <constraint firstItem="bFa-Yu-OSz" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="-5" id="0i4-lg-c9x"/>
                                         <constraint firstItem="0ud-An-1HM" firstAttribute="top" secondItem="XOB-lq-qx1" secondAttribute="bottom" constant="20" id="2hh-nA-B9O"/>
                                         <constraint firstItem="bFa-Yu-OSz" firstAttribute="top" secondItem="fIY-zE-sMO" secondAttribute="top" id="8fk-jM-QbO"/>
+                                        <constraint firstItem="e7Y-9t-Q3G" firstAttribute="top" secondItem="0qW-dd-S1T" secondAttribute="top" constant="10" id="9Xd-9a-aR3"/>
                                         <constraint firstItem="fIY-zE-sMO" firstAttribute="top" secondItem="0ud-An-1HM" secondAttribute="bottom" constant="20" id="A56-Dk-He5"/>
+                                        <constraint firstItem="xLH-Hu-Fx0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="e7Y-9t-Q3G" secondAttribute="trailing" constant="26" id="C7g-PW-9wQ"/>
                                         <constraint firstItem="XOB-lq-qx1" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="20" id="HE6-he-Dmj"/>
                                         <constraint firstItem="bFa-Yu-OSz" firstAttribute="bottom" secondItem="fIY-zE-sMO" secondAttribute="bottom" id="LIc-zH-bKm"/>
-                                        <constraint firstAttribute="bottom" secondItem="fIY-zE-sMO" secondAttribute="bottom" constant="20" id="XXG-Py-sXH"/>
+                                        <constraint firstAttribute="height" constant="220" placeholder="YES" id="RPb-Td-mCp"/>
+                                        <constraint firstAttribute="bottom" secondItem="fIY-zE-sMO" secondAttribute="bottom" constant="20" identifier="responseBottom" id="XXG-Py-sXH"/>
                                         <constraint firstItem="0ud-An-1HM" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="20" id="ZUT-ez-gxV"/>
+                                        <constraint firstItem="XOB-lq-qx1" firstAttribute="leading" secondItem="e7Y-9t-Q3G" secondAttribute="leading" id="cPU-dS-zYC"/>
+                                        <constraint firstItem="XOB-lq-qx1" firstAttribute="top" secondItem="e7Y-9t-Q3G" secondAttribute="bottom" constant="10" id="d2D-vf-hFb"/>
                                         <constraint firstItem="fIY-zE-sMO" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="18" id="gkI-LN-uVJ"/>
+                                        <constraint firstAttribute="width" constant="400" placeholder="YES" id="ksH-dB-zMd"/>
+                                        <constraint firstAttribute="trailing" secondItem="xLH-Hu-Fx0" secondAttribute="trailing" constant="20" id="oXt-3Y-tpH"/>
                                         <constraint firstAttribute="trailing" secondItem="fIY-zE-sMO" secondAttribute="trailing" constant="20" id="pgD-zz-UXd"/>
-                                        <constraint firstItem="XOB-lq-qx1" firstAttribute="top" secondItem="0qW-dd-S1T" secondAttribute="top" constant="20" id="ptt-Kp-uU6"/>
-                                        <constraint firstAttribute="trailing" secondItem="xLH-Hu-Fx0" secondAttribute="trailing" constant="10" id="rL5-M0-iLA"/>
+                                        <constraint firstItem="XOB-lq-qx1" firstAttribute="top" secondItem="0qW-dd-S1T" secondAttribute="top" constant="20" identifier="dateTopContainer" id="ptt-Kp-uU6"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XOB-lq-qx1" secondAttribute="trailing" constant="20" symbolic="YES" id="tZr-iI-erT"/>
                                         <constraint firstAttribute="trailing" secondItem="0ud-An-1HM" secondAttribute="trailing" constant="20" id="umD-hz-9BQ"/>
-                                        <constraint firstItem="xLH-Hu-Fx0" firstAttribute="top" secondItem="0qW-dd-S1T" secondAttribute="top" constant="10" id="vRV-Op-D8r"/>
+                                        <constraint firstItem="xLH-Hu-Fx0" firstAttribute="top" secondItem="0qW-dd-S1T" secondAttribute="top" constant="20" id="vRV-Op-D8r"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="RPb-Td-mCp"/>
+                                            <exclude reference="ksH-dB-zMd"/>
+                                            <exclude reference="ptt-Kp-uU6"/>
+                                        </mask>
+                                    </variation>
                                 </collectionViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="0qW-dd-S1T" firstAttribute="leading" secondItem="hi3-X9-dKc" secondAttribute="leadingMargin" id="EwN-iD-UJ6"/>
-                                    <constraint firstItem="0qW-dd-S1T" firstAttribute="top" secondItem="hi3-X9-dKc" secondAttribute="topMargin" id="Vy5-0m-qP2"/>
-                                </constraints>
-                                <size key="customSize" width="400" height="220"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="borderView" destination="bFa-Yu-OSz" id="tfb-fB-2ks"/>
                                     <outlet property="dateLabel" destination="XOB-lq-qx1" id="Apq-GM-yLb"/>
+                                    <outlet property="dateTopContainerConstraint" destination="ptt-Kp-uU6" id="SJZ-5K-kZA"/>
                                     <outlet property="moreButton" destination="xLH-Hu-Fx0" id="tcN-fN-sEr"/>
                                     <outlet property="questionLabel" destination="0ud-An-1HM" id="Jv0-cx-mwF"/>
                                     <outlet property="responseTextView" destination="fIY-zE-sMO" id="oTV-Xo-kpv"/>
+                                    <outlet property="statusLabel" destination="e7Y-9t-Q3G" id="0Ph-Yy-kmo"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -440,26 +486,26 @@
             <objects>
                 <viewController storyboardIdentifier="Login" id="4zv-1f-KPm" customClass="LoginViewController" customModule="Cactus_Prod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hCJ-wF-fbO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create An Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dt5-xk-ofP">
-                                <rect key="frame" x="82" y="64" width="250" height="37"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <rect key="frame" x="73" y="20" width="229" height="32.5"/>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="27"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start with a happier mindset today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afq-L6-2C3">
-                                <rect key="frame" x="75.5" y="121" width="263" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="60" y="72.5" width="255" height="20"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7x3-lF-lM2">
-                                <rect key="frame" x="0.0" y="169" width="414" height="693"/>
+                                <rect key="frame" x="0.0" y="125" width="375" height="542"/>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Nx-Ds-HR5">
-                                <rect key="frame" x="177" y="782" width="60" height="30"/>
+                                <rect key="frame" x="157.5" y="587" width="60" height="30"/>
                                 <state key="normal" title="Sign Out"/>
                                 <connections>
                                     <action selector="signOut:" destination="4zv-1f-KPm" eventType="primaryActionTriggered" id="djj-XB-PNU"/>
@@ -500,7 +546,7 @@
             <objects>
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="e7K-2Y-xsh" customClass="PromptContentPageViewController" customModule="Cactus_Prod" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
-                        <segue destination="d4Z-7w-6Js" kind="unwind" unwindAction="showPromptContentCardsWithSegue:" id="a8h-WV-999"/>
+                        <segue destination="d4Z-7w-6Js" kind="unwind" identifier="ShowPromptContentCard" unwindAction="showPromptContentCardsWithSegue:" id="a8h-WV-999"/>
                     </connections>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5pv-po-RJA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -511,11 +557,9 @@
     <resources>
         <image name="avatar_cactusOG" width="75" height="75"/>
         <image name="cactusLogo" width="1410" height="696"/>
+        <image name="dots" width="48" height="48"/>
         <namedColor name="Green">
             <color red="0.20000000298023224" green="0.80000001192092896" blue="0.67100000381469727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="GreenDark">
-            <color red="0.16099999845027924" green="0.63899999856948853" blue="0.53700000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="GreenDarkest">
             <color red="0.027000000700354576" green="0.27099999785423279" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -528,6 +572,9 @@
         </namedColor>
         <namedColor name="PinkDarkest">
             <color red="0.4779999852180481" green="0.2199999988079071" blue="0.078000001609325409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextDark">
+            <color red="0.2669999897480011" green="0.2669999897480011" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TextLight">
             <color red="0.45899999141693115" green="0.45899999141693115" blue="0.45899999141693115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
