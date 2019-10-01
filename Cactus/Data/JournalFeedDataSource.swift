@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Firebase
+import FirebaseFirestore
 
 struct PromptData {
     var hasLoaded: Bool = false

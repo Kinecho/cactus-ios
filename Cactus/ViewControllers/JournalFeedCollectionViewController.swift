@@ -26,19 +26,15 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     
     @IBOutlet weak var layout: UICollectionViewFlowLayout!
     func getCellEstimatedSize() -> CGSize {
-//        self.collectionView.
         let contentInsetWidth = self.collectionView.contentInset.left + self.collectionView.contentInset.right
-        print("contentInsetWidth \(contentInsetWidth)")
         return CGSize(width: self.view.bounds.size.width - sectionInsets.left - sectionInsets.right - contentInsetWidth, height: defaultCellHeight)
     }
  
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataSource.delegate = self
-                
 //        layout.itemSize = UICollectionViewFlowLayout.automaticSize
-        layout.estimatedItemSize = getCellEstimatedSize()
-        
+        layout.estimatedItemSize = getCellEstimatedSize()        
     }
     
     @objc func showAccountPage(sender: Any) {

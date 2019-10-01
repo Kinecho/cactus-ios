@@ -41,7 +41,7 @@ target 'Cactus Prod' do
 end
 
 target 'Cactus UnitTests' do
-#  use_frameworks!
+  use_frameworks!
   inhibit_all_warnings!
   app_pods  
 end

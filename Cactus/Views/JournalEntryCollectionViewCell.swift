@@ -20,7 +20,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var borderView: UIView!
     
     var journalEntry: JournalEntry?
-    var responseTextViewHeightConstraint: NSLayoutConstraint?
+//    var responseTextViewHeightConstraint: NSLayoutConstraint?
     var sentPrompt: SentPrompt? {
         return self.journalEntry?.sentPrompt
     }
@@ -120,8 +120,8 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     
     func removeResponseView() {
 //        self.responseTextViewHeightConstraint = self.responseTextView.heightAnchor.constraint(equalToConstant: 0)
-        self.responseTextViewHeightConstraint?.constant = 0
-        self.responseTextViewHeightConstraint?.isActive = true
+//        self.responseTextViewHeightConstraint?.constant = 0
+//        self.responseTextViewHeightConstraint?.isActive = false
         self.responseTextView.isHidden = true
         self.borderView.isHidden = true
     }
@@ -134,13 +134,16 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     func addSkeletons() {
         if self.journalEntry?.responsesLoaded == true {
             self.showResponseView()
+//            if self.responseTextViewHeightConstraint == nil {
+//                self.responseTextViewHeightConstraint = self.responseTextView.heightAnchor.constraint(equalToConstant: 0)
+//            }
 //            self.responseTextViewHeightConstraint = self.responseTextView.heightAnchor.constraint(equalToConstant: 90)
-            self.responseTextViewHeightConstraint?.constant = 90
-            self.responseTextViewHeightConstraint?.isActive = true
+//            self.responseTextViewHeightConstraint?.constant = 90
+//            self.responseTextViewHeightConstraint?.isActive = true
             self.responseTextView.showAnimatedGradientSkeleton()
         } else {
             self.responseTextView.hideSkeleton()
-            self.responseTextViewHeightConstraint?.isActive = false
+//            self.responseTextViewHeightConstraint?.isActive = false
         }
 
         if self.journalEntry?.promptContentLoaded == false || self.journalEntry?.promptLoaded == false {
@@ -186,7 +189,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         if !FormatUtils.isBlank(responseText) {
             //responses loaded and has text
             self.responseTextView.hideSkeleton()
-            self.responseTextViewHeightConstraint?.isActive = false
+//            self.responseTextViewHeightConstraint?.isActive = false
             self.responseTextView.text = responseText
             self.showResponseView()
             
@@ -247,8 +250,8 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
-        self.responseTextViewHeightConstraint = self.responseTextView.heightAnchor.constraint(equalToConstant: 90)
-        self.responseTextViewHeightConstraint?.isActive = true
+//        self.responseTextViewHeightConstraint = self.responseTextView.heightAnchor.constraint(equalToConstant: 90)
+//        self.responseTextViewHeightConstraint?.isActive = true
         self.cellWidthConstraint = self.contentView.widthAnchor.constraint(equalToConstant: 0)
         self.configureViewAppearance()
         self.questionLabel.text = nil
