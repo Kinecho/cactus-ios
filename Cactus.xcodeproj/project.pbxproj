@@ -33,6 +33,8 @@
 		303BF753232D289A00164539 /* QuoteContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303BF74F232D289A00164539 /* QuoteContentViewController.xib */; };
 		303EB0882343A0B800AC8741 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EB0872343A0B800AC8741 /* RoundedView.swift */; };
 		303EB0892343A0B800AC8741 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EB0872343A0B800AC8741 /* RoundedView.swift */; };
+		304EA2F32343B730001FB8AD /* CountProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304EA2F22343B730001FB8AD /* CountProcess.swift */; };
+		304EA2F42343B730001FB8AD /* CountProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304EA2F22343B730001FB8AD /* CountProcess.swift */; };
 		3054B5BD23313EAA00AA7272 /* MarkdownUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */; };
 		3054B5BE2331424000AA7272 /* MarkdownUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */; };
 		305B1863233175DC003E1561 /* PhotoContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1861233175DC003E1561 /* PhotoContentViewController.swift */; };
@@ -211,6 +213,7 @@
 		303BF74E232D289A00164539 /* QuoteContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteContentViewController.swift; sourceTree = "<group>"; };
 		303BF74F232D289A00164539 /* QuoteContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteContentViewController.xib; sourceTree = "<group>"; };
 		303EB0872343A0B800AC8741 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		304EA2F22343B730001FB8AD /* CountProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountProcess.swift; sourceTree = "<group>"; };
 		3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownUtil.swift; sourceTree = "<group>"; };
 		305B1861233175DC003E1561 /* PhotoContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoContentViewController.swift; sourceTree = "<group>"; };
 		305B1862233175DC003E1561 /* PhotoContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoContentViewController.xib; sourceTree = "<group>"; };
@@ -351,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */,
+				304EA2F22343B730001FB8AD /* CountProcess.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -1251,6 +1255,7 @@
 				309561A022EE16B5009357BD /* CactusConfig.swift in Sources */,
 				30934FB022EC0558007C4E6C /* ReflectionResponseService.swift in Sources */,
 				30934F9D22EBF2AC007C4E6C /* ColorExtensions.swift in Sources */,
+				304EA2F42343B730001FB8AD /* CountProcess.swift in Sources */,
 				30E9B0AA22EAD68B005B25FD /* AppMainViewController.swift in Sources */,
 				30BF2E122328230E00A49EB6 /* FirebaseExtensions.swift in Sources */,
 				30BF2E2B23289F9F00A49EB6 /* TextContentViewController.swift in Sources */,
@@ -1314,6 +1319,7 @@
 				309561A222EE16C3009357BD /* CactusConfig.swift in Sources */,
 				30934FAF22EC0558007C4E6C /* ReflectionResponseService.swift in Sources */,
 				30934F9C22EBF2AB007C4E6C /* ColorExtensions.swift in Sources */,
+				304EA2F32343B730001FB8AD /* CountProcess.swift in Sources */,
 				30BF2E0B232816CC00A49EB6 /* PromptContentService.swift in Sources */,
 				30E9B0A922EAD68B005B25FD /* AppMainViewController.swift in Sources */,
 				30934FA622EBFF27007C4E6C /* ReflectionPrompt.swift in Sources */,

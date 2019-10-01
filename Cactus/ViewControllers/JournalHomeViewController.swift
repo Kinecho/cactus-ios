@@ -18,6 +18,8 @@ class JournalHomeViewController: UIViewController {
     var alphaView: UIView!
     let menuContainer = UIView()
     
+    var blurEffect: UIBlurEffect?
+    
     var menuWidth: CGFloat {
         return self.view.bounds.width * 4/5
     }
@@ -49,14 +51,19 @@ class JournalHomeViewController: UIViewController {
             }
             self.user = user
             self.member = member
-        // Do any additional setup after load
         }
         
-        // Do any additional setup after loading the view.
+        if #available(iOS 13.0, *) {
+            self.blurEffect = UIBlurEffect(style: .systemUltraThinMaterialDark)
+        } else {
+            // Fallback on earlier versions
+            self.blurEffect = UIBlurEffect(style: .dark)
+        }
     }
     
     func setupDrawer() {
         self.menuDrawerViewController = NavigationMenuViewController.loadFromNib()
+        self.menuDrawerViewController.delegate = self
         
         self.menuContainer.frame = CGRect(x: self.view.bounds.maxX, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
         self.menuDrawerViewController.view.frame =  CGRect(x: 0, y: 0, width: self.menuWidth, height: self.view.bounds.height)
@@ -80,17 +87,32 @@ class JournalHomeViewController: UIViewController {
     }
     
     func toggleMenu() {
-        self.isMenuExpanded = !self.isMenuExpanded
+        self.isMenuExpanded.toggle()
+        self.animateMenu()
+    }
+    
+    func animateMenu() {
         let bounds = self.view.bounds
         let menuX = isMenuExpanded ? bounds.width - self.menuWidth : self.view.frame.maxX
         
-        self.overlayView.isHidden = !isMenuExpanded
-        let duration = 0.3
-        UIView.animate(withDuration: duration, animations: {
-            self.overlayView.effect = self.isMenuExpanded ? UIBlurEffect(style: .dark) : nil
+        let group = DispatchGroup()
+        
+        self.overlayView.isHidden = false
+        group.enter()
+        UIView.animate(withDuration: 0.2, animations: {
+            if let blurEffect = self.blurEffect {
+                self.overlayView.effect = self.isMenuExpanded ? blurEffect : nil
+            } else {
+                self.overlayView.alpha = self.isMenuExpanded ? 0.5 : 0
+                self.overlayView.backgroundColor = .black
+            }
+            
             self.profileImageView.transform = self.isMenuExpanded ? CGAffineTransform.init(scaleX: 0.8, y: 0.8) : CGAffineTransform.identity
+        }, completion: {_ in
+            group.leave()
         })
         
+        group.enter()
         UIView.animate(withDuration: isMenuExpanded ? 0.8 : 0.3,
                        delay: 0,
                        usingSpringWithDamping: isMenuExpanded ? 0.7 : 1,
@@ -98,7 +120,24 @@ class JournalHomeViewController: UIViewController {
                        options: .curveEaseInOut,
                        animations: {
                 self.menuContainer.frame = CGRect(x: menuX, y: 0, width: self.view.bounds.width, height: bounds.height)
+        }, completion: {_ in
+            group.leave()
+            self.overlayView.isHidden = !self.isMenuExpanded
         })
+        
+//        group.notify(queue: DispatchQueue.main) {
+//            if self.isMenuExpanded {
+//                self.menuDrawerViewController.finishedOpening()
+//            } else {
+//                self.menuDrawerViewController.finishedClosing()
+//            }
+//        }
+        
+        if self.isMenuExpanded {
+            self.menuDrawerViewController.finishedOpening()
+        } else {
+            self.menuDrawerViewController.finishedClosing()
+        }
         
     }
     
@@ -166,4 +205,16 @@ class JournalHomeViewController: UIViewController {
     }
     */
 
+}
+
+extension JournalHomeViewController: NavigationMenuViewControllerDelegate {
+    func closeMenu() {
+        self.isMenuExpanded = false
+        self.animateMenu()
+    }
+    
+    func openMenu() {
+        self.isMenuExpanded = true
+        self.animateMenu()
+    }
 }
