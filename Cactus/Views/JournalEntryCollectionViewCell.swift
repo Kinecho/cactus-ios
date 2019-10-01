@@ -16,11 +16,13 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var responseTextView: UITextView!
     var cellWidthConstraint: NSLayoutConstraint?
-    
+    var responseBottomConstraint: NSLayoutConstraint?
+    var textViewBottomPadding: CGFloat = 20
     @IBOutlet weak var borderView: UIView!
     
     var journalEntry: JournalEntry?
-//    var responseTextViewHeightConstraint: NSLayoutConstraint?
+    var responseTextViewHeightConstraint: NSLayoutConstraint?
+    var questionLabelHeightConstraint: NSLayoutConstraint?
     var sentPrompt: SentPrompt? {
         return self.journalEntry?.sentPrompt
     }
@@ -124,52 +126,25 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
 //        self.responseTextViewHeightConstraint?.isActive = false
         self.responseTextView.isHidden = true
         self.borderView.isHidden = true
+        self.responseBottomConstraint?.constant = 0
+        self.responseBottomConstraint?.isActive = true
     }
     
     func showResponseView() {
         self.responseTextView.isHidden = false
         self.borderView.isHidden = false
-    }
-    
-    func addSkeletons() {
-        if self.journalEntry?.responsesLoaded == true {
-            self.showResponseView()
-//            if self.responseTextViewHeightConstraint == nil {
-//                self.responseTextViewHeightConstraint = self.responseTextView.heightAnchor.constraint(equalToConstant: 0)
-//            }
-//            self.responseTextViewHeightConstraint = self.responseTextView.heightAnchor.constraint(equalToConstant: 90)
-//            self.responseTextViewHeightConstraint?.constant = 90
-//            self.responseTextViewHeightConstraint?.isActive = true
-            self.responseTextView.showAnimatedGradientSkeleton()
-        } else {
-            self.responseTextView.hideSkeleton()
-//            self.responseTextViewHeightConstraint?.isActive = false
-        }
-
-        if self.journalEntry?.promptContentLoaded == false || self.journalEntry?.promptLoaded == false {
-            self.questionLabel.showAnimatedGradientSkeleton()
-        } else {
-            self.questionLabel.hideSkeleton()
-        }
-
-//        self.questionLabel.showSkeleton()
-    }
-    
-    func removeSkeletons() {
-        self.responseTextView.hideSkeleton()
-        self.dateLabel.hideSkeleton()
-        self.questionLabel.hideSkeleton()
+        self.responseBottomConstraint?.constant = self.textViewBottomPadding
+        self.responseTextViewHeightConstraint?.isActive = false
     }
     
     func updateView() {
-        self.addSkeletons()
-                
-        self.contentView.isUserInteractionEnabled = true
         if let sentDate = self.sentPrompt?.firstSentAt {
             let dateString = FormatUtils.formatDate(sentDate)
             self.dateLabel.text = dateString
+            self.dateLabel.hideSkeleton()
         } else {
             self.dateLabel.text = nil
+            self.dateLabel.showAnimatedGradientSkeleton()
         }
         
         let reflectContent = self.promptContent?.content.first(where: { (content) -> Bool in
@@ -178,29 +153,56 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         
         let reflectText = FormatUtils.isBlank(reflectContent?.text) ? nil : reflectContent?.text
         let questionText = reflectText ?? self.prompt?.question
+        let questionLoaded = self.journalEntry?.promptContentLoaded == true && self.journalEntry?.promptLoaded == true
         
-        if questionText != nil && self.journalEntry?.promptContentLoaded == true && self.journalEntry?.promptLoaded == true {
+        if questionLoaded {
+            if self.questionLabel.isSkeletonActive {
+                self.questionLabel.hideSkeleton()
+            }
             self.questionLabel.text = questionText
-            self.questionLabel.isHidden = false
+            self.questionLabel.numberOfLines = 0
+            self.questionLabelHeightConstraint?.isActive = false
+        } else {
+            self.questionLabel.text = nil
+            self.questionLabel.numberOfLines = 1
+            
+//            if !self.questionLabel.isSkeletonActive {
+                self.questionLabel.showAnimatedGradientSkeleton()
+//            }
+            self.questionLabelHeightConstraint?.isActive = true
+            
         }
         
         let responseText = FormatUtils.responseText(self.responses)
         
         if !FormatUtils.isBlank(responseText) {
             //responses loaded and has text
+            self.showResponseView()
+//            self.responseBottomConstraint?.constant = self.textViewBottomPadding
+//            self.responseTextViewHeightConstraint?.isActive = false
             self.responseTextView.hideSkeleton()
 //            self.responseTextViewHeightConstraint?.isActive = false
             self.responseTextView.text = responseText
-            self.showResponseView()
+            
+//            self.hideSkeleton()
             
         } else if self.journalEntry?.responsesLoaded == true && FormatUtils.isBlank(responseText) {
             //responses loaded but no text
-            self.removeResponseView()
-            self.responseTextView.hideSkeleton()
+            self.responseTextViewHeightConstraint?.isActive = false
             self.responseTextView.text = nil
+            self.responseTextView.hideSkeleton()
+            self.removeResponseView()
+//            self.hideSkeleton()
+            
         } else {
             //responses loading still
             self.responseTextView.text = nil
+            self.responseBottomConstraint?.constant = self.textViewBottomPadding
+            self.responseTextViewHeightConstraint?.isActive = true
+            
+//            if !self.isSkeletonActive {
+                self.responseTextView.showAnimatedGradientSkeleton()
+//            }
         }
                 
         self.setNeedsLayout()
@@ -250,13 +252,20 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
-//        self.responseTextViewHeightConstraint = self.responseTextView.heightAnchor.constraint(equalToConstant: 90)
-//        self.responseTextViewHeightConstraint?.isActive = true
+        self.responseTextViewHeightConstraint = self.responseTextView.heightAnchor.constraint(equalToConstant: 90)
+        self.questionLabelHeightConstraint = self.questionLabel.heightAnchor.constraint(equalToConstant: 30)
+        
+        self.questionLabelHeightConstraint?.isActive = true
+        self.responseTextViewHeightConstraint?.isActive = false
+        
         self.cellWidthConstraint = self.contentView.widthAnchor.constraint(equalToConstant: 0)
         self.configureViewAppearance()
         self.questionLabel.text = nil
         self.dateLabel.text = nil
         self.responseTextView.text = nil
+        
+        self.responseBottomConstraint = self.contentView.constraintWithIdentifier("responseBottom")
+        self.textViewBottomPadding = self.responseBottomConstraint?.constant ?? 20
     }
     
     func setCellWidth(_ width: CGFloat) {
