@@ -26,7 +26,7 @@
             <objects>
                 <viewController title="Detail" id="JEX-9P-axG" customClass="JournalEntryDetailViewController" customModule="Cactus_Prod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="svH-Pt-448">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="762"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0XM-y9-sOw">
@@ -254,7 +254,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z8U-Me-3LH">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="134" width="414" height="762"/>
                                 <connections>
                                     <segue destination="GWJ-to-hjF" kind="embed" id="S3K-6l-Z7C"/>
                                 </connections>
@@ -293,10 +293,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="hbu-p9-et4" firstAttribute="leading" secondItem="ZBF-X5-P48" secondAttribute="leading" id="3Ue-eO-apm"/>
-                            <constraint firstItem="Z8U-Me-3LH" firstAttribute="top" secondItem="BSA-pu-uSy" secondAttribute="top" id="DnA-pn-r6e"/>
                             <constraint firstItem="ZBF-X5-P48" firstAttribute="trailing" secondItem="hbu-p9-et4" secondAttribute="trailing" id="FUK-W5-I5j"/>
                             <constraint firstItem="Z8U-Me-3LH" firstAttribute="leading" secondItem="BSA-pu-uSy" secondAttribute="leading" id="gsf-ZV-TqM"/>
                             <constraint firstAttribute="trailing" secondItem="Z8U-Me-3LH" secondAttribute="trailing" id="mF7-Is-B2k"/>
+                            <constraint firstItem="Z8U-Me-3LH" firstAttribute="top" secondItem="hbu-p9-et4" secondAttribute="bottom" constant="10" id="pUc-AM-2LR"/>
                             <constraint firstAttribute="top" secondItem="hbu-p9-et4" secondAttribute="top" id="rbV-Ql-z6y"/>
                             <constraint firstAttribute="bottom" secondItem="Z8U-Me-3LH" secondAttribute="bottom" id="yuK-PF-Eer"/>
                         </constraints>
@@ -317,14 +317,14 @@
         <scene sceneID="Gr6-KQ-PFf">
             <objects>
                 <collectionViewController storyboardIdentifier="JournalFeed" id="GWJ-to-hjF" userLabel="Journal Feed" customClass="JournalFeedCollectionViewController" customModule="Cactus_Prod" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" id="c64-uC-Gae">
+                    <collectionView key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" id="c64-uC-Gae">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="25" sectionInsetReference="layoutMargins" id="CAX-zL-tXF">
                             <size key="itemSize" width="300" height="220"/>
                             <size key="estimatedItemSize" width="300" height="220"/>
-                            <size key="headerReferenceSize" width="0.0" height="90"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
@@ -476,10 +476,6 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Am2-df-Zk1">
-                            <rect key="frame" x="0.0" y="8" width="375" height="90"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </collectionReusableView>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                         </userDefinedRuntimeAttributes>
