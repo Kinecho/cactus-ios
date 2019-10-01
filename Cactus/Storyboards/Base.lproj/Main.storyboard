@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="skj-bj-glJ">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
@@ -26,18 +26,18 @@
             <objects>
                 <viewController title="Detail" id="JEX-9P-axG" customClass="JournalEntryDetailViewController" customModule="Cactus_Prod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="svH-Pt-448">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0XM-y9-sOw">
-                                <rect key="frame" x="24" y="20" width="327" height="31.5"/>
+                                <rect key="frame" x="24" y="64" width="366" height="32.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="27"/>
                                 <color key="textColor" name="GreenDarkest"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N66-ae-VLO">
-                                <rect key="frame" x="24" y="91.5" width="327" height="200"/>
+                                <rect key="frame" x="24" y="136.5" width="366" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="Rji-Z0-zbI"/>
@@ -48,7 +48,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAU-lX-enM" customClass="RoundedButton" customModule="Cactus_Prod" customModuleProvider="target">
-                                <rect key="frame" x="274" y="315.5" width="67" height="40"/>
+                                <rect key="frame" x="315" y="360.5" width="65" height="40"/>
                                 <color key="backgroundColor" name="Green"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -72,13 +72,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prompt Entry Id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0M3-a2-yA5" userLabel="Prompt Entry Label">
-                                <rect key="frame" x="24" y="495.5" width="331" height="20.5"/>
+                                <rect key="frame" x="24" y="540.5" width="370" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Some useful data here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kqa-Xw-bvS" userLabel="Prompt Text Area">
-                                <rect key="frame" x="20" y="524" width="335" height="128"/>
+                                <rect key="frame" x="20" y="569" width="374" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="pQQ-4V-Pem"/>
@@ -87,7 +87,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nPa-Rh-NgV">
-                                <rect key="frame" x="30" y="320.5" width="49" height="30"/>
+                                <rect key="frame" x="30" y="365.5" width="49" height="30"/>
                                 <state key="normal" title="Reflect"/>
                                 <connections>
                                     <segue destination="e7K-2Y-xsh" kind="show" identifier="ShowPromptContentModal" id="3OM-UU-9N2"/>
@@ -135,7 +135,7 @@
             <objects>
                 <viewController storyboardIdentifier="AppMain" id="skj-bj-glJ" customClass="AppMainViewController" customModule="Cactus_Prod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EpZ-UL-MZr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="F72-cu-vfx"/>
@@ -183,7 +183,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uus-7V-bU1" customClass="RoundedButton" customModule="Cactus_Prod" customModuleProvider="target">
-                                <rect key="frame" x="141.5" y="529" width="92" height="38"/>
+                                <rect key="frame" x="143" y="529" width="89" height="38"/>
                                 <color key="backgroundColor" name="Lightest"/>
                                 <inset key="contentEdgeInsets" minX="16" minY="10" maxX="16" maxY="10"/>
                                 <state key="normal" title="Sign Out">
@@ -250,39 +250,54 @@
             <objects>
                 <viewController storyboardIdentifier="JournalHome" id="TYZ-Ys-0y2" userLabel="Journal Home" customClass="JournalHomeViewController" customModule="Cactus_Prod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BSA-pu-uSy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z8U-Me-3LH">
-                                <rect key="frame" x="0.0" y="70" width="375" height="597"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <connections>
                                     <segue destination="GWJ-to-hjF" kind="embed" id="S3K-6l-Z7C"/>
                                 </connections>
                             </containerView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cactusLogo" translatesAutoresizingMaskIntoConstraints="NO" id="a8S-uZ-lk2">
-                                <rect key="frame" x="20" y="15" width="120" height="40"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbu-p9-et4">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="124"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cactusLogo" translatesAutoresizingMaskIntoConstraints="NO" id="a8S-uZ-lk2">
+                                        <rect key="frame" x="20" y="64" width="120" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="c8q-6a-FZ3"/>
+                                            <constraint firstAttribute="width" constant="120" id="m0b-ib-v2I"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_cactusOG" translatesAutoresizingMaskIntoConstraints="NO" id="cWM-Up-Dm8">
+                                        <rect key="frame" x="354" y="64" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="15x-gP-G9u"/>
+                                            <constraint firstAttribute="width" secondItem="cWM-Up-Dm8" secondAttribute="height" multiplier="1:1" id="z8Z-cx-8WM"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="c8q-6a-FZ3"/>
-                                    <constraint firstAttribute="width" constant="120" id="m0b-ib-v2I"/>
+                                    <constraint firstItem="cWM-Up-Dm8" firstAttribute="top" secondItem="a8S-uZ-lk2" secondAttribute="bottom" constant="-40" id="1Ca-Nz-Ib2"/>
+                                    <constraint firstItem="a8S-uZ-lk2" firstAttribute="leading" secondItem="hbu-p9-et4" secondAttribute="leading" constant="20" id="9BP-He-JKQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="a8S-uZ-lk2" secondAttribute="bottom" constant="20" id="Jvk-Iy-mrw"/>
+                                    <constraint firstAttribute="trailing" secondItem="cWM-Up-Dm8" secondAttribute="trailing" constant="20" id="Nc4-5W-oVn"/>
+                                    <constraint firstItem="cWM-Up-Dm8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="a8S-uZ-lk2" secondAttribute="trailing" constant="20" id="PMd-cM-GH1"/>
+                                    <constraint firstItem="cWM-Up-Dm8" firstAttribute="centerY" secondItem="a8S-uZ-lk2" secondAttribute="centerY" id="ov3-yC-pu3"/>
+                                    <constraint firstItem="a8S-uZ-lk2" firstAttribute="top" secondItem="JcH-Rf-SJH" secondAttribute="top" constant="20" id="t5I-j8-Tz5"/>
                                 </constraints>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_cactusOG" translatesAutoresizingMaskIntoConstraints="NO" id="cWM-Up-Dm8">
-                                <rect key="frame" x="315" y="15" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="15x-gP-G9u"/>
-                                    <constraint firstAttribute="width" secondItem="cWM-Up-Dm8" secondAttribute="height" multiplier="1:1" id="z8Z-cx-8WM"/>
-                                </constraints>
-                            </imageView>
+                                <viewLayoutGuide key="safeArea" id="JcH-Rf-SJH"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="a8S-uZ-lk2" firstAttribute="top" secondItem="ZBF-X5-P48" secondAttribute="top" constant="15" id="1UK-il-Axw"/>
-                            <constraint firstItem="Z8U-Me-3LH" firstAttribute="top" secondItem="a8S-uZ-lk2" secondAttribute="bottom" constant="15" id="DnA-pn-r6e"/>
-                            <constraint firstItem="a8S-uZ-lk2" firstAttribute="leading" secondItem="ZBF-X5-P48" secondAttribute="leading" constant="20" id="Ku5-Pa-g0f"/>
-                            <constraint firstItem="ZBF-X5-P48" firstAttribute="trailing" secondItem="cWM-Up-Dm8" secondAttribute="trailing" constant="20" id="MuQ-6d-ImR"/>
+                            <constraint firstItem="hbu-p9-et4" firstAttribute="leading" secondItem="ZBF-X5-P48" secondAttribute="leading" id="3Ue-eO-apm"/>
+                            <constraint firstItem="Z8U-Me-3LH" firstAttribute="top" secondItem="BSA-pu-uSy" secondAttribute="top" id="DnA-pn-r6e"/>
+                            <constraint firstItem="ZBF-X5-P48" firstAttribute="trailing" secondItem="hbu-p9-et4" secondAttribute="trailing" id="FUK-W5-I5j"/>
                             <constraint firstItem="Z8U-Me-3LH" firstAttribute="leading" secondItem="BSA-pu-uSy" secondAttribute="leading" id="gsf-ZV-TqM"/>
-                            <constraint firstItem="cWM-Up-Dm8" firstAttribute="centerY" secondItem="a8S-uZ-lk2" secondAttribute="centerY" id="hRI-Gd-BeI"/>
                             <constraint firstAttribute="trailing" secondItem="Z8U-Me-3LH" secondAttribute="trailing" id="mF7-Is-B2k"/>
+                            <constraint firstAttribute="top" secondItem="hbu-p9-et4" secondAttribute="top" id="rbV-Ql-z6y"/>
                             <constraint firstAttribute="bottom" secondItem="Z8U-Me-3LH" secondAttribute="bottom" id="yuK-PF-Eer"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZBF-X5-P48"/>
@@ -290,6 +305,7 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="headerContainerView" destination="hbu-p9-et4" id="iYo-bs-85g"/>
                         <outlet property="profileImageView" destination="cWM-Up-Dm8" id="mwU-rO-svb"/>
                     </connections>
                 </viewController>
@@ -302,25 +318,25 @@
             <objects>
                 <collectionViewController storyboardIdentifier="JournalFeed" id="GWJ-to-hjF" userLabel="Journal Feed" customClass="JournalFeedCollectionViewController" customModule="Cactus_Prod" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" id="c64-uC-Gae">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="25" sectionInsetReference="layoutMargins" id="CAX-zL-tXF">
                             <size key="itemSize" width="300" height="220"/>
                             <size key="estimatedItemSize" width="300" height="220"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="headerReferenceSize" width="0.0" height="90"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="JournalEntryCell" id="hi3-X9-dKc" userLabel="Question Card" customClass="JournalEntryCollectionViewCell" customModule="Cactus_Prod" customModuleProvider="target">
-                                <rect key="frame" x="37.5" y="8" width="300" height="220"/>
+                                <rect key="frame" x="37.5" y="98" width="300" height="220"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" placeholderIntrinsicWidth="402" placeholderIntrinsicHeight="220" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qW-dd-S1T">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="220"/>
                                     <subviews>
                                         <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DONE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7Y-9t-Q3G" userLabel="Status Label" customClass="PillLabelView" customModule="Cactus_Prod" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="10" width="42" height="18"/>
+                                            <rect key="frame" x="20" y="10" width="43.5" height="18"/>
                                             <color key="backgroundColor" name="GreenLight"/>
                                             <color key="tintColor" name="TextLight"/>
                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="15"/>
@@ -342,7 +358,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="754" text="May 14, 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOB-lq-qx1">
-                                            <rect key="frame" x="20" y="38" width="103.5" height="20"/>
+                                            <rect key="frame" x="20" y="38" width="102.5" height="20"/>
                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                             <color key="textColor" name="TextLight"/>
                                             <nil key="highlightedColor"/>
@@ -351,7 +367,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Placeholder Question" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ud-An-1HM">
-                                            <rect key="frame" x="20" y="78" width="2690" height="28"/>
+                                            <rect key="frame" x="20" y="78" width="2518" height="29"/>
                                             <fontDescription key="fontDescription" name="Lato-Black" family="Lato" pointSize="24"/>
                                             <color key="textColor" name="TextDark"/>
                                             <nil key="highlightedColor"/>
@@ -407,7 +423,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </textView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFa-Yu-OSz" userLabel="Border View">
-                                            <rect key="frame" x="-5" y="126" width="10" height="74"/>
+                                            <rect key="frame" x="-5" y="127" width="10" height="73"/>
                                             <color key="backgroundColor" name="YellowDark"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="10" id="pRO-h5-NZ6"/>
@@ -460,6 +476,10 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Am2-df-Zk1">
+                            <rect key="frame" x="0.0" y="8" width="375" height="90"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </collectionReusableView>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                         </userDefinedRuntimeAttributes>
@@ -488,26 +508,26 @@
             <objects>
                 <viewController storyboardIdentifier="Login" id="4zv-1f-KPm" customClass="LoginViewController" customModule="Cactus_Prod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hCJ-wF-fbO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create An Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dt5-xk-ofP">
-                                <rect key="frame" x="73" y="20" width="229" height="32.5"/>
+                                <rect key="frame" x="92.5" y="64" width="229" height="32.5"/>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="27"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start with a happier mindset today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afq-L6-2C3">
-                                <rect key="frame" x="60" y="72.5" width="255" height="20"/>
+                                <rect key="frame" x="79.5" y="116.5" width="255" height="20"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7x3-lF-lM2">
-                                <rect key="frame" x="0.0" y="125" width="375" height="542"/>
+                                <rect key="frame" x="0.0" y="169" width="414" height="693"/>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Nx-Ds-HR5">
-                                <rect key="frame" x="157.5" y="587" width="60" height="30"/>
+                                <rect key="frame" x="177" y="782" width="60" height="30"/>
                                 <state key="normal" title="Sign Out"/>
                                 <connections>
                                     <action selector="signOut:" destination="4zv-1f-KPm" eventType="primaryActionTriggered" id="djj-XB-PNU"/>

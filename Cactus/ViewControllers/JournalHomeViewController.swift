@@ -11,6 +11,7 @@ import Firebase
 
 class JournalHomeViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var headerContainerView: UIView!
     var menuDrawerViewController: NavigationMenuViewController!
     var isMenuExpanded = false
     var memberListener:(() -> Void)?
@@ -103,10 +104,7 @@ class JournalHomeViewController: UIViewController {
         let bounds = self.view.bounds
         let menuX = isMenuExpanded ? bounds.width - self.menuWidth : self.view.frame.maxX
         
-        let group = DispatchGroup()
-        
         self.overlayView.isHidden = false
-        group.enter()
         UIView.animate(withDuration: 0.2, animations: {
             if let blurEffect = self.blurEffect {
                 self.overlayView.effect = self.isMenuExpanded ? blurEffect : nil
@@ -116,11 +114,8 @@ class JournalHomeViewController: UIViewController {
             }
             
             self.profileImageView.transform = self.isMenuExpanded ? CGAffineTransform.init(scaleX: 0.8, y: 0.8) : CGAffineTransform.identity
-        }, completion: {_ in
-            group.leave()
         })
         
-        group.enter()
         UIView.animate(withDuration: isMenuExpanded ? 0.8 : 0.3,
                        delay: 0,
                        usingSpringWithDamping: isMenuExpanded ? 0.7 : 1,
@@ -129,17 +124,8 @@ class JournalHomeViewController: UIViewController {
                        animations: {
                 self.menuContainer.frame = CGRect(x: menuX, y: 0, width: self.view.bounds.width, height: bounds.height)
         }, completion: {_ in
-            group.leave()
             self.overlayView.isHidden = !self.isMenuExpanded
         })
-        
-//        group.notify(queue: DispatchQueue.main) {
-//            if self.isMenuExpanded {
-//                self.menuDrawerViewController.finishedOpening()
-//            } else {
-//                self.menuDrawerViewController.finishedClosing()
-//            }
-//        }
         
         if self.isMenuExpanded {
             self.menuDrawerViewController.finishedOpening()
@@ -177,6 +163,27 @@ class JournalHomeViewController: UIViewController {
 
     func setupView() {
         self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.height / 2
+        self.headerContainerView.backgroundColor = .clear
+        let blurredView = UIVisualEffectView()
+        
+        if #available(iOS 13.0, *) {
+            let effect = UIBlurEffect(style: .regular)
+            blurredView.effect = effect
+        } else if #available(iOS 8.0, *) {
+            // Fallback on earlier versions
+            let effect = UIBlurEffect(style: .light)
+            blurredView.effect = effect
+        } else {
+            blurredView.alpha = 1
+            blurredView.backgroundColor = .white
+        }
+        blurredView.frame = self.headerContainerView.bounds
+        blurredView.translatesAutoresizingMaskIntoConstraints = false
+        self.headerContainerView.insertSubview(blurredView, at: 0)
+        blurredView.topAnchor.constraint(equalTo: self.headerContainerView.topAnchor).isActive = true
+        blurredView.bottomAnchor.constraint(equalTo: self.headerContainerView.bottomAnchor).isActive = true
+        blurredView.leadingAnchor.constraint(equalTo: self.headerContainerView.leadingAnchor).isActive = true
+        blurredView.trailingAnchor.constraint(equalTo: self.headerContainerView.trailingAnchor).isActive = true
     }
     
     func updateViewForMember(member: CactusMember?) {
