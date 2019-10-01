@@ -9,20 +9,25 @@
 import UIKit
 import SkeletonView
 
+protocol JournalEntryCollectionVieweCellDelegate: class {
+    func goToDetails(cell: UICollectionViewCell)
+}
+
 @IBDesignable
 class JournalEntryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var responseTextView: UITextView!
+    @IBOutlet weak var borderView: UIView!
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var dateTopContainerConstraint: NSLayoutConstraint!
+    
+    weak var delegate: JournalEntryCollectionVieweCellDelegate?
+    
     var cellWidthConstraint: NSLayoutConstraint?
     var responseBottomConstraint: NSLayoutConstraint?
     var textViewBottomPadding: CGFloat = 20
-    @IBOutlet weak var borderView: UIView!
-    
-    @IBOutlet weak var statusLabel: UILabel!
-    
-    @IBOutlet weak var dateTopContainerConstraint: NSLayoutConstraint!
     var journalEntry: JournalEntry?
     var responseTextViewHeightConstraint: NSLayoutConstraint?
     var questionLabelHeightConstraint: NSLayoutConstraint?
@@ -264,6 +269,13 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         
         self.responseBottomConstraint = self.contentView.constraintWithIdentifier("responseBottom")
         self.textViewBottomPadding = self.responseBottomConstraint?.constant ?? 20
+        
+        let textTappedGesture = UITapGestureRecognizer(target: self, action: #selector(self.reflectTapped))
+        self.responseTextView.addGestureRecognizer(textTappedGesture)
+    }
+    
+    @objc func reflectTapped() {
+        self.delegate?.goToDetails(cell: self)
     }
     
     func setCellWidth(_ width: CGFloat) {
