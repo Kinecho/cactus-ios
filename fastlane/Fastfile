@@ -47,17 +47,10 @@ platform :ios do
 
 
   desc "Push a new beta build to TestFlight"
-  lane :beta do
-  	# ensure_git_status_clean
+  lane :beta do  	
 	match(type: "appstore", readonly: is_ci)
-	sync_code_signing(type: "appstore")
-    # increment_build_number(xcodeproj: "Cactus.xcodeproj")
-    # commit_version_bump(xcodeproj: "Cactus.xcodeproj")
-    # add_git_tag
-    # push_to_git_remote
-    # increment_build_number(xcodeproj: "Cactus.xcodeproj")
+	sync_code_signing(type: "appstore")    
     build_app(workspace: "Cactus.xcworkspace", scheme: "Cactus Prod", xcargs: "-UseModernBuildSystem=NO")
-    # commit_version_bump(xcodeproj: "Cactus.xcodeproj", message: "[ci skip] Build Version Bump to #{lane_context[SharedValues::BUILD_NUMBER]}")
     changelog_from_git_commits
     slack(message: "A new build has been created. Next step: upload to test flight.", slack_url: "https://hooks.slack.com/services/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")
     upload_to_testflight(skip_waiting_for_build_processing: true)
@@ -69,12 +62,15 @@ platform :ios do
   	# swiftlint(mode: :lint, output_file: "reports/swiftlint/result.xml", reporter: "junit")
   	scan(output_types: "junit", 
   		scheme: "Cactus Prod", 
-  		skip_build: true, output_directory: "reports/scan", 
+  		skip_build: true, 
+  		output_directory: "reports/scan", 
   		output_files: "results.xml",
 		device: "iPhone 8",
 		slack_url: "https://hooks.slack.com/services/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",
 		slack_channel: "engineering-apps-ci",
-		slack_only_on_failure: false
+		slack_only_on_failure: false,
+		# include_system
+		include_simulator_logs: false,
 		)
   end
 
@@ -104,7 +100,6 @@ platform :ios do
 	end
 
 	lane :finalize_release do 
-
 		get_version_number(xcodeproj: "Cactus.xcodeproj", target: "Cactus Prod")
 		get_build_number
 		upload_symbols
