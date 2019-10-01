@@ -20,6 +20,9 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     var textViewBottomPadding: CGFloat = 20
     @IBOutlet weak var borderView: UIView!
     
+    @IBOutlet weak var statusLabel: UILabel!
+    
+    @IBOutlet weak var dateTopContainerConstraint: NSLayoutConstraint!
     var journalEntry: JournalEntry?
     var responseTextViewHeightConstraint: NSLayoutConstraint?
     var questionLabelHeightConstraint: NSLayoutConstraint?
@@ -121,9 +124,6 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     }
     
     func removeResponseView() {
-//        self.responseTextViewHeightConstraint = self.responseTextView.heightAnchor.constraint(equalToConstant: 0)
-//        self.responseTextViewHeightConstraint?.constant = 0
-//        self.responseTextViewHeightConstraint?.isActive = false
         self.responseTextView.isHidden = true
         self.borderView.isHidden = true
         self.responseBottomConstraint?.constant = 0
@@ -178,33 +178,31 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         if !FormatUtils.isBlank(responseText) {
             //responses loaded and has text
             self.showResponseView()
-//            self.responseBottomConstraint?.constant = self.textViewBottomPadding
-//            self.responseTextViewHeightConstraint?.isActive = false
             self.responseTextView.hideSkeleton()
-//            self.responseTextViewHeightConstraint?.isActive = false
             self.responseTextView.text = responseText
-            
-//            self.hideSkeleton()
-            
         } else if self.journalEntry?.responsesLoaded == true && FormatUtils.isBlank(responseText) {
             //responses loaded but no text
             self.responseTextViewHeightConstraint?.isActive = false
             self.responseTextView.text = nil
             self.responseTextView.hideSkeleton()
             self.removeResponseView()
-//            self.hideSkeleton()
             
         } else {
             //responses loading still
             self.responseTextView.text = nil
             self.responseBottomConstraint?.constant = self.textViewBottomPadding
             self.responseTextViewHeightConstraint?.isActive = true
-            
-//            if !self.isSkeletonActive {
-                self.responseTextView.showAnimatedGradientSkeleton()
-//            }
+            self.responseTextView.showAnimatedGradientSkeleton()
         }
-                
+               
+        if self.responses?.isEmpty == false && self.journalEntry?.responsesLoaded == true {
+            self.statusLabel.isHidden = false
+            self.dateTopContainerConstraint.isActive = false
+        } else {
+            self.statusLabel.isHidden = true
+            self.dateTopContainerConstraint.isActive = true
+        }
+        
         self.setNeedsLayout()
     }
     
