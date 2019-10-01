@@ -31,6 +31,8 @@
 		303BF751232D289A00164539 /* QuoteContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303BF74E232D289A00164539 /* QuoteContentViewController.swift */; };
 		303BF752232D289A00164539 /* QuoteContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303BF74F232D289A00164539 /* QuoteContentViewController.xib */; };
 		303BF753232D289A00164539 /* QuoteContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303BF74F232D289A00164539 /* QuoteContentViewController.xib */; };
+		303EB0882343A0B800AC8741 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EB0872343A0B800AC8741 /* RoundedView.swift */; };
+		303EB0892343A0B800AC8741 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EB0872343A0B800AC8741 /* RoundedView.swift */; };
 		3054B5BD23313EAA00AA7272 /* MarkdownUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */; };
 		3054B5BE2331424000AA7272 /* MarkdownUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */; };
 		305B1863233175DC003E1561 /* PhotoContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1861233175DC003E1561 /* PhotoContentViewController.swift */; };
@@ -208,6 +210,7 @@
 		303BF745232A986A00164539 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		303BF74E232D289A00164539 /* QuoteContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteContentViewController.swift; sourceTree = "<group>"; };
 		303BF74F232D289A00164539 /* QuoteContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteContentViewController.xib; sourceTree = "<group>"; };
+		303EB0872343A0B800AC8741 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownUtil.swift; sourceTree = "<group>"; };
 		305B1861233175DC003E1561 /* PhotoContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoContentViewController.swift; sourceTree = "<group>"; };
 		305B1862233175DC003E1561 /* PhotoContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoContentViewController.xib; sourceTree = "<group>"; };
@@ -397,6 +400,7 @@
 				30BF2E312328C7AD00A49EB6 /* MarkdownTypes.swift */,
 				305B1884233273C4003E1561 /* GrowingTextView.swift */,
 				30E2D375234311C6003D2B27 /* PillLabelView.swift */,
+				303EB0872343A0B800AC8741 /* RoundedView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1260,6 +1264,7 @@
 				30934F9A22EBF235007C4E6C /* BorderedButton.swift in Sources */,
 				3023FE3622ECF0AE00F753A7 /* CactusColor.swift in Sources */,
 				30934FAD22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */,
+				303EB0892343A0B800AC8741 /* RoundedView.swift in Sources */,
 				30A281DA22EA61A30041158E /* JournalEntryDetailViewController.swift in Sources */,
 				305B186C23319A72003E1561 /* ImageExtensions.swift in Sources */,
 				30BF2E332328C7AD00A49EB6 /* MarkdownTypes.swift in Sources */,
@@ -1322,6 +1327,7 @@
 				30934FA322EBF4E6007C4E6C /* FormatUtils.swift in Sources */,
 				30BF2E0D2328171200A49EB6 /* PromptContent.swift in Sources */,
 				30E9B0B322EADE2D005B25FD /* CGExtensions.swift in Sources */,
+				303EB0882343A0B800AC8741 /* RoundedView.swift in Sources */,
 				30BF2E1823289D1200A49EB6 /* PromptContentPageViewController.swift in Sources */,
 				305B186B23319A72003E1561 /* ImageExtensions.swift in Sources */,
 				30E9B0BD22EAF2FC005B25FD /* SentPromptService.swift in Sources */,

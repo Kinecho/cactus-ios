@@ -12,14 +12,11 @@ import Firebase
 
 @IBDesignable
 class MemberProfileViewController: UIViewController {
-    
     @IBOutlet weak var emailLabel: UITextView!
-    
     @IBOutlet weak var permissionSettingErrorLabel: UILabel!
     @IBOutlet weak var notificationSwitch: UISwitch!
     
     var managePermissionsInSettings = false
-    
     var notificationObserver: NSObjectProtocol?
     
     @objc func showJournal(sender: Any?) {
@@ -107,15 +104,6 @@ class MemberProfileViewController: UIViewController {
         let journalItem = UIBarButtonItem(title: "Journal", style: .plain, target: self, action: #selector(self.showJournal(sender:)))
         
         self.navigationItem.rightBarButtonItem = journalItem
-        
-//        InstanceID.instanceID().instanceID { (result, error) in
-//            if let error = error {
-//                print("Error fetching remote instance ID: \(error)")
-//            } else if let result = result {
-//                //we used to get the FCM token and display it for testing purposes.
-//            }
-//        }
-        
     }
     
     @IBAction func logOutTapped(_ sender: Any) {
