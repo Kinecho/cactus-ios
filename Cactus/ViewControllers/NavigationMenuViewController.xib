@@ -55,51 +55,53 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEe-Hm-kiV">
-                    <rect key="frame" x="0.0" y="211" width="334" height="48"/>
+                    <rect key="frame" x="0.0" y="211" width="334" height="116"/>
                     <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="24"/>
                     <color key="tintColor" name="GreenLight"/>
                     <inset key="contentEdgeInsets" minX="20" minY="10" maxX="0.0" maxY="10"/>
                     <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="Invite" image="paperplane" catalog="system"/>
+                    <state key="normal" title="Invite" image="airplane">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
+                    </state>
                     <connections>
                         <action selector="inviteTapped:" destination="-1" eventType="primaryActionTriggered" id="vVZ-HZ-N6b"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1A-e2-RO0" userLabel="Notifications">
-                    <rect key="frame" x="0.0" y="307" width="334" height="48"/>
+                    <rect key="frame" x="0.0" y="443" width="334" height="116"/>
                     <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="24"/>
                     <color key="tintColor" name="GreenLight"/>
                     <inset key="contentEdgeInsets" minX="20" minY="10" maxX="0.0" maxY="10"/>
                     <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="Settings" image="gear" catalog="system"/>
+                    <state key="normal" title="Settings" image="gear"/>
                     <connections>
                         <action selector="settingsTapped:" destination="-1" eventType="touchUpInside" id="lbw-08-Lh8"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQA-bL-PSt" userLabel="Settings">
-                    <rect key="frame" x="0.0" y="259" width="334" height="48"/>
+                    <rect key="frame" x="0.0" y="327" width="334" height="116"/>
                     <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="24"/>
                     <color key="tintColor" name="GreenLight"/>
                     <inset key="contentEdgeInsets" minX="20" minY="10" maxX="0.0" maxY="10"/>
                     <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="Notifications" image="bell" catalog="system"/>
+                    <state key="normal" title="Notifications" image="bell"/>
                     <connections>
                         <action selector="notificationsTapped:" destination="-1" eventType="touchUpInside" id="vEE-DD-8mJ"/>
                     </connections>
                 </button>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nnk-9j-MZV" customClass="RoundedView" customModule="Cactus_Prod" customModuleProvider="target">
-                    <rect key="frame" x="20" y="485" width="137" height="90"/>
+                    <rect key="frame" x="20" y="689" width="137" height="90"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="121" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OU6-hA-xBB">
                             <rect key="frame" x="35" y="10" width="67" height="47"/>
                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="40"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" name="GreenLight"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reflections" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qH1-jQ-ub4">
                             <rect key="frame" x="26" y="60" width="85" height="20"/>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" name="GreenLight"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -119,18 +121,18 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KDO-6D-AB5" customClass="RoundedView" customModule="Cactus_Prod" customModuleProvider="target">
-                    <rect key="frame" x="177" y="485" width="137" height="90"/>
+                    <rect key="frame" x="177" y="689" width="137" height="90"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="93" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlD-xm-bIw">
                             <rect key="frame" x="46.5" y="10" width="44.5" height="47"/>
                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="40"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" name="GreenLight"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETE-OQ-lib">
                             <rect key="frame" x="38.5" y="60" width="60.5" height="20"/>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" name="GreenLight"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -150,21 +152,21 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BaY-h1-QJB" customClass="RoundedView" customModule="Cactus_Prod" customModuleProvider="target">
-                    <rect key="frame" x="20" y="375" width="294" height="90"/>
+                    <rect key="frame" x="20" y="579" width="294" height="90"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_cactusOG" translatesAutoresizingMaskIntoConstraints="NO" id="Kms-7f-edX">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pottedCactus" translatesAutoresizingMaskIntoConstraints="NO" id="Kms-7f-edX">
                             <rect key="frame" x="-30" y="0.0" width="98" height="120"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="88" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SgD-gm-waT">
                             <rect key="frame" x="93" y="21.5" width="44.5" height="47"/>
                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="40"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" name="GreenLight"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day Streak" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0C-hD-Yg5">
                             <rect key="frame" x="152.5" y="35" width="83.5" height="20"/>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" name="GreenLight"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -194,7 +196,8 @@
                         <constraint firstAttribute="width" constant="40" id="sKD-UQ-KNA"/>
                     </constraints>
                     <color key="tintColor" name="GreenLight"/>
-                    <state key="normal" image="xmark.circle" catalog="system">
+                    <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                    <state key="normal" image="close">
                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large" weight="thin"/>
                     </state>
                     <connections>
@@ -242,11 +245,12 @@
         </view>
     </objects>
     <resources>
+        <image name="airplane" width="48" height="48"/>
         <image name="avatar_cactusOG" width="75" height="75"/>
-        <image name="bell" catalog="system" width="64" height="62"/>
-        <image name="gear" catalog="system" width="64" height="60"/>
-        <image name="paperplane" catalog="system" width="64" height="60"/>
-        <image name="xmark.circle" catalog="system" width="64" height="62"/>
+        <image name="bell" width="48" height="48"/>
+        <image name="close" width="48" height="48"/>
+        <image name="gear" width="48" height="48"/>
+        <image name="pottedCactus" width="150" height="150"/>
         <namedColor name="BlueLight">
             <color red="0.90196078431372551" green="0.97647058823529409" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

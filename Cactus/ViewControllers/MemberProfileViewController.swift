@@ -101,9 +101,8 @@ class MemberProfileViewController: UIViewController {
         let member = CactusMemberService.sharedInstance.getCurrentMember()
         self.emailLabel.text = member?.email
         
-        let journalItem = UIBarButtonItem(title: "Journal", style: .plain, target: self, action: #selector(self.showJournal(sender:)))
-        
-        self.navigationItem.rightBarButtonItem = journalItem
+//        let journalItem = UIBarButtonItem(title: "Journal", style: .plain, target: self, action: #selector(self.showJournal(sender:)))
+//        self.navigationItem.rightBarButtonItem = journalItem
     }
     
     @IBAction func logOutTapped(_ sender: Any) {

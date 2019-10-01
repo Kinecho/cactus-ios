@@ -61,7 +61,7 @@ class CountProcess {
                 valueChanged: @escaping (_ currentValue: Int) -> Void,
                 completion: ((_ currentValue: Int) -> Void)? = nil) {
         
-        let numSteps = UInt32((self.maxValue - self.minValue) / step)
+        let numSteps = UInt32(max((self.maxValue - self.minValue), 1) / step)
         var delay = stepDelayUsec
         
         if let duration = self.duration {

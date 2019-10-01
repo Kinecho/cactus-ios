@@ -44,15 +44,15 @@ class AppMainViewController: UIViewController {
             print("setup auth onData", member?.email ?? "no email")
             if member == nil {
                 print("found member, is null. showing loign screen.")
-                self.showScreen(ScreenID.Login, wrapInNav: true)
+                _ = self.showScreen(ScreenID.Login, wrapInNav: true)
                 self.hasUser = false
             } else {
                 print("Found member, not null. showing journal feed")
-                self.showScreen(ScreenID.JournalHome, wrapInNav: true)
+                let nav = self.showScreen(ScreenID.JournalHome, wrapInNav: true)                
 //                let nav = self.current as! UINavigationController
-                if let nav = self.current as? UINavigationController {
-                    nav.viewControllers.insert(self.getScreen(ScreenID.MemberProfile), at: 0)
-                }
+//                if let nav = self.current as? UINavigationController {
+//                    nav.viewControllers.insert(self.getScreen(ScreenID.MemberProfile), at: 0)
+//                }
                 
                 self.hasUser = true
             }
@@ -67,9 +67,10 @@ class AppMainViewController: UIViewController {
         
     }
    
-    func showScreen(_ screenId: ScreenID, wrapInNav: Bool=false, animate: ((_ new: UIViewController, _ completion: (() -> Void)?) -> Void)? = nil) {
+    func showScreen(_ screenId: ScreenID, wrapInNav: Bool=false, animate: ((_ new: UIViewController, _ completion: (() -> Void)?) -> Void)? = nil) -> UIViewController {
         let screen = getScreen(screenId)
-        _ = showScreen(screen, wrapInNav: wrapInNav)
+        let vc = showScreen(screen, wrapInNav: wrapInNav)
+        return vc
     }
     
     func showScreen(_ screen: UIViewController, wrapInNav: Bool=false) -> UIViewController {

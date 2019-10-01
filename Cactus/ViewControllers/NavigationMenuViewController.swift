@@ -14,7 +14,6 @@ protocol NavigationMenuViewControllerDelegate: class {
 }
 
 class NavigationMenuViewController: UIViewController {
-
     @IBOutlet weak var inviteButton: UIButton!
     @IBOutlet weak var notificationsButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
@@ -30,9 +29,9 @@ class NavigationMenuViewController: UIViewController {
     
     weak var delegate: NavigationMenuViewControllerDelegate?
     
-    let reflectionCount = 52
-    let minutes = 241
-    let streak = 94
+    let reflectionCount = 5
+    let minutes = 3
+    let streak = 0
     let countDiff = 30
     
     override func viewDidLoad() {
@@ -88,19 +87,23 @@ class NavigationMenuViewController: UIViewController {
     @IBAction func notificationsTapped(_ sender: Any) {
 //        let vc = MemberProfileViewController()
         let vc = AppDelegate.shared.rootViewController.getScreen(ScreenID.MemberProfile)
-        self.present(vc, animated: true)
+        
+        let navController = UINavigationController(rootViewController: vc)
+        vc.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.dismissView))
+        
+        self.present(navController, animated: true)
     }
     
+    @objc func dismissView() {
+        self.dismiss(animated: true, completion: nil)
+    }
+
     @IBAction func settingsTapped(_ sender: Any) {
     }
-    /*
-    // MARK: - Navigation
-
+  
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
-
 }
