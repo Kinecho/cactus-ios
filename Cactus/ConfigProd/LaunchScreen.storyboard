@@ -8,11 +8,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Lato-Regular.ttf">
-            <string>Lato-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -28,19 +23,11 @@
                                     <constraint firstAttribute="height" constant="200" id="6d5-Y0-OQp"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A different kind of mindfulness" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sdg-qb-Mo1">
-                                <rect key="frame" x="152" y="476" width="203.5" height="18"/>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" name="Pink"/>
                         <constraints>
-                            <constraint firstItem="Sdg-qb-Mo1" firstAttribute="top" secondItem="cA1-9x-8rs" secondAttribute="centerY" constant="23" id="M2F-GS-qfE"/>
                             <constraint firstItem="cA1-9x-8rs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="Y5T-84-p1j"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cA1-9x-8rs" secondAttribute="trailing" constant="87" id="e5r-fW-EUp"/>
-                            <constraint firstItem="Sdg-qb-Mo1" firstAttribute="leading" secondItem="cA1-9x-8rs" secondAttribute="trailing" constant="-175" id="nFF-ZF-GeZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="centerY" secondItem="cA1-9x-8rs" secondAttribute="centerY" id="uBM-Hc-wXC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
