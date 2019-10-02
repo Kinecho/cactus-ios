@@ -12,7 +12,7 @@ import SkeletonView
 
 @IBDesignable
 class JournalFeedCollectionViewController: UICollectionViewController {
-    var dataSource: JournalFeedDataSource = JournalFeedDataSource()
+    var dataSource: JournalFeedDataSource!
     
     private let itemsPerRow: CGFloat = 1
     private let reuseIdentifier = ReuseIdentifier.JournalEntryCell.rawValue
@@ -32,9 +32,8 @@ class JournalFeedCollectionViewController: UICollectionViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.dataSource.delegate = self
-//        layout.itemSize = UICollectionViewFlowLayout.automaticSize
-        layout.estimatedItemSize = getCellEstimatedSize()        
+//        self.dataSource.delegate = self
+        layout.estimatedItemSize = getCellEstimatedSize()
     }
     
     @objc func showAccountPage(sender: Any) {
@@ -150,6 +149,10 @@ extension JournalFeedCollectionViewController: JournalFeedDataSourceDelegate {
     func dataLoaded() {
         print("JournalFeed Delegate: Data Loaded: Updating collection view cells")
         self.collectionView.reloadData()
+    }
+    
+    func loadingCompleted() {
+        //        
     }
 }
 

@@ -63,6 +63,7 @@ class ReflectionResponse: FirestoreIdentifiable, Hashable {
     var promptId: String?
     var promptQuestion: String?
     var promptContentEntryId: String?
+    var reflectionDurationMs: Int?
     
     static func == (lhs: ReflectionResponse, rhs: ReflectionResponse) -> Bool {
         return lhs.id != nil && rhs.id != nil && lhs.id == rhs.id

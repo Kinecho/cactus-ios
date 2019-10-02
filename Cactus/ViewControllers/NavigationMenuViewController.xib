@@ -21,6 +21,7 @@
             <connections>
                 <outlet property="closeButton" destination="Mrp-jR-DR7" id="yks-xP-IZw"/>
                 <outlet property="inviteButton" destination="vEe-Hm-kiV" id="12G-Ph-14c"/>
+                <outlet property="minutesLabel" destination="ETE-OQ-lib" id="ce1-GG-qfm"/>
                 <outlet property="notificationsButton" destination="gQA-bL-PSt" id="msQ-CB-O0X"/>
                 <outlet property="reflectionCountLabel" destination="OU6-hA-xBB" id="Bzx-O9-iBd"/>
                 <outlet property="reflectionDurationLabel" destination="DlD-xm-bIw" id="17e-pN-93b"/>

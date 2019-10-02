@@ -12,12 +12,14 @@ import Firebase
 class JournalHomeViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var headerContainerView: UIView!
+    var journalFeedViewController: JournalFeedCollectionViewController?
     var menuDrawerViewController: NavigationMenuViewController!
     var isMenuExpanded = false
     var memberListener:(() -> Void)?
     let overlayView = UIVisualEffectView()
     var alphaView: UIView!
     let menuContainer = UIView()
+    let journalFeedDataSource = JournalFeedDataSource()
     
     var blurEffect: UIBlurEffect?
     
@@ -210,16 +212,22 @@ class JournalHomeViewController: UIViewController {
         self.menuContainer.backgroundColor = self.menuDrawerViewController.view.backgroundColor
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-    }
-    */
+        switch SegueID.fromString(segue.identifier) {
+        case .embedJournalFeed:
+            if let vc = segue.destination as? JournalFeedCollectionViewController {
+                self.journalFeedViewController = vc
+                vc.dataSource = self.journalFeedDataSource
+                vc.dataSource.delegate = self
+                
+            }
+        default:
+            break
+        }
 
+    }
 }
 
 extension JournalHomeViewController: NavigationMenuViewControllerDelegate {
@@ -231,5 +239,29 @@ extension JournalHomeViewController: NavigationMenuViewControllerDelegate {
     func openMenu() {
         self.isMenuExpanded = true
         self.animateMenu()
+    }
+}
+
+extension JournalHomeViewController: JournalFeedDataSourceDelegate {
+    func setMenuMetrics() {
+        self.menuDrawerViewController.streak = self.journalFeedDataSource.currentStreak
+        self.menuDrawerViewController.reflectionCount = self.journalFeedDataSource.totalReflections
+        self.menuDrawerViewController.reflectionDurationMs = self.journalFeedDataSource.totalReflectionDurationMs
+    }
+    
+    func updateEntry(_ journalEntry: JournalEntry, at: Int?) {
+        self.journalFeedViewController?.updateEntry(journalEntry, at: at)
+        
+        if self.journalFeedDataSource.loadingCompleted {
+            self.setMenuMetrics()
+        }
+    }
+    
+    func dataLoaded() {
+        self.journalFeedViewController?.dataLoaded()
+    }
+    
+    func loadingCompleted() {
+        self.setMenuMetrics()
     }
 }

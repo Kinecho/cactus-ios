@@ -149,6 +149,7 @@ struct JournalEntry: Equatable {
 protocol JournalFeedDataSourceDelegate: class {
     func updateEntry(_ journalEntry: JournalEntry, at: Int?)
     func dataLoaded()
+    func loadingCompleted()
 }
 
 class JournalFeedDataSource {
@@ -173,6 +174,32 @@ class JournalFeedDataSource {
     func unsubscribeAll() {
         memberUnsubscriber?()
         promptsListener?.remove()
+    }
+    
+    var currentStreak: Int {
+        return 0
+    }
+    
+    var responses: [ReflectionResponse] {
+        return journalEntryDataBySentPromptId.values.flatMap { (entry) -> [ReflectionResponse] in
+            return entry.responseData.responses
+        }
+    }
+    
+    var totalReflections: Int {
+        return responses.count
+    }
+    
+    var totalReflectionDurationMs: Int {
+        return self.responses.reduce(0) { (totalMs, response) -> Int in
+            return totalMs + (response.reflectionDurationMs ?? 0)
+        }
+    }
+    
+    var loadingCompleted: Bool {
+        return !journalEntryDataBySentPromptId.values.contains(where: { (entry) -> Bool in
+            return !entry.loadingComplete
+        })
     }
     
     deinit {
@@ -248,6 +275,10 @@ extension JournalFeedDataSource: JournalEntryDataDelegate {
     func onData(_ journalEntry: JournalEntry) {
         let index = self.indexOf(journalEntry)
         self.delegate?.updateEntry(journalEntry, at: index)
+        
+        if self.loadingCompleted {
+            self.delegate?.loadingCompleted()
+        }
     }
 
 }

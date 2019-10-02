@@ -46,8 +46,14 @@ enum StoryboardID: String {
 
 enum SegueID: String {
     case ShowPromptContentModal
+    case embedJournalFeed
 
     var name: String {
         return self.rawValue
+    }
+    
+    static func fromString(_ input: String?) -> SegueID?{
+        guard let input = input else {return nil}
+        return SegueID(rawValue: input)
     }
 }
