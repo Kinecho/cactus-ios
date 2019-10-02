@@ -40,8 +40,7 @@ class FlamelinkFile: Codable {
             if let fileId = fileIdString, !fileId.isEmpty {
                 self.fileIds.append(fileId)
             }
-        }
-        catch {
+        } catch {
             print("error init FlamelinkFile", error)
         }
     }
@@ -72,7 +71,6 @@ class ImageFile: FlamelinkFile {
             let container = try decoder.container(keyedBy: ImageCodingKeys.self)
             self.url = try? container.decode(String.self, forKey: ImageCodingKeys.url)
             self.storageUrl = try? container.decode(String.self, forKey: ImageCodingKeys.storageUrl)
-            
             
         } catch {
             print("error init ImageFile", error)

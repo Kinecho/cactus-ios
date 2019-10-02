@@ -43,7 +43,6 @@ class ImageService {
         imageView.setGifFromURL(url)
         imageView.startAnimatingGif()
         
-        
     }
     
     func setFromUrl(_ imageView: UIImageView, url: String, gifDelegate: SwiftyGifDelegate?=nil) {

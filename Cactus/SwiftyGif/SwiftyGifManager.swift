@@ -93,20 +93,20 @@ open class SwiftyGifManager {
     /// Check if an imageView is already managed by this manager
     /// - Parameter imageView: The UIImageView we're searching
     /// - Returns : a boolean for wether the imageView was found
-    open func containsImageView(_ imageView: UIImageView) -> Bool{
+    open func containsImageView(_ imageView: UIImageView) -> Bool {
         return displayViews.contains(imageView)
     }
     
     /// Check if this manager has cache for an imageView
     /// - Parameter imageView: The UIImageView we're searching cache for
     /// - Returns : a boolean for wether we have cache for the imageView
-    open func hasCache(_ imageView: UIImageView) -> Bool{
+    open func hasCache(_ imageView: UIImageView) -> Bool {
         return imageView.displaying && (imageView.loopCount == -1 || imageView.loopCount >= 5) ? haveCache : false
     }
     
     /// Update imageView current image. This method is called by the main loop.
     /// This is what create the animation.
-    @objc func updateImageView(){
+    @objc func updateImageView() {
         guard !displayViews.isEmpty else {
             stopTimer()
             return

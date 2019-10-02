@@ -40,7 +40,7 @@ public extension UIImageView {
     /// - Parameter manager: The manager to handle the gif display
     convenience init(gifImage: UIImage, manager: SwiftyGifManager = .defaultManager, loopCount: Int = -1) {
         self.init()
-        setGifImage(gifImage,manager: manager, loopCount: loopCount)
+        setGifImage(gifImage, manager: manager, loopCount: loopCount)
     }
     
     /// Convenience initializer. Creates a gif holder (defaulted to infinite loop).
@@ -198,7 +198,7 @@ public extension UIImageView {
     /// Check if this imageView is currently playing a gif
     ///
     /// - Returns wether the gif is currently playing
-    func isAnimatingGif() -> Bool{
+    func isAnimatingGif() -> Bool {
         return isPlaying
     }
     
@@ -271,7 +271,7 @@ public extension UIImageView {
     }
     
     /// Get current frame index
-    func currentFrameIndex() -> Int{
+    func currentFrameIndex() -> Int {
         return displayOrderIndex
     }
     
@@ -298,12 +298,12 @@ public extension UIImageView {
     ///
     /// - Returns : A boolean for weather the imageView is displayed
     func isDisplayedInScreen(_ imageView: UIView?) -> Bool {
-        guard !isHidden, let imageView = imageView else  {
+        guard !isHidden, let imageView = imageView else {
             return false
         }
         
         let screenRect = UIScreen.main.bounds
-        let viewRect = imageView.convert(bounds, to:nil)
+        let viewRect = imageView.convert(bounds, to: nil)
         let intersectionRect = viewRect.intersection(screenRect)
         
         return window != nil && !intersectionRect.isEmpty && !intersectionRect.isNull
@@ -447,11 +447,11 @@ public extension UIImageView {
         set { objc_setAssociatedObject(self, _cacheKey!, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
     
-    private func value<T>(_ key:UnsafeMutableRawPointer?, _ defaultValue:T) -> T {
+    private func value<T>(_ key: UnsafeMutableRawPointer?, _ defaultValue: T) -> T {
         return (objc_getAssociatedObject(self, key!) as? T) ?? defaultValue
     }
     
-    private func possiblyNil<T>(_ key:UnsafeMutableRawPointer?) -> T? {
+    private func possiblyNil<T>(_ key: UnsafeMutableRawPointer?) -> T? {
         let result = objc_getAssociatedObject(self, key!)
         
         if result == nil {
