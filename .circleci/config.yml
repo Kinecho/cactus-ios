@@ -164,6 +164,9 @@ jobs:
     steps: 
       - checkout
       - install-ruby
+      - run: 
+          name: "Install Sentry CLI"
+          command: brew install getsentry/tools/sentry-cli
       - add_ssh_keys:
           fingerprints:
             - *match-ssh-fingerprint
