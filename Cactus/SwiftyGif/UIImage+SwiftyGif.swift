@@ -185,7 +185,7 @@ public extension UIImage {
         
         let frameDelays: [Float] = /*try*/ frameProperties.map {
             if CFDictionaryGetCount($0) == 0 {
-                return 0.1
+                return 0.05
             }
             
             let unclampedKey = Unmanaged.passUnretained(kCGImagePropertyGIFUnclampedDelayTime).toOpaque()
