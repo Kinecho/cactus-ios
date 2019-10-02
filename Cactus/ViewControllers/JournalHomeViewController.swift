@@ -20,7 +20,6 @@ class JournalHomeViewController: UIViewController {
     var alphaView: UIView!
     let menuContainer = UIView()
     let journalFeedDataSource = JournalFeedDataSource()
-    
     var blurEffect: UIBlurEffect?
     
     var menuWidth: CGFloat {

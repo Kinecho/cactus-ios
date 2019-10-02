@@ -26,6 +26,14 @@
 		3023FE3422ECF06E00F753A7 /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
 		3023FE3522ECF0A800F753A7 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3322EC299300A2EA95 /* ViewExtensions.swift */; };
 		3023FE3622ECF0AE00F753A7 /* CactusColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */; };
+		30265C5923452F4E00934041 /* GifUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30265C5823452F4E00934041 /* GifUtil.swift */; };
+		30265C5A23452F4E00934041 /* GifUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30265C5823452F4E00934041 /* GifUtil.swift */; };
+		30265C5D23453C8D00934041 /* SwiftyGifManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30265C5C23453C8D00934041 /* SwiftyGifManager.swift */; };
+		30265C5E23453C8D00934041 /* SwiftyGifManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30265C5C23453C8D00934041 /* SwiftyGifManager.swift */; };
+		30265C6023453CB100934041 /* UIImage+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30265C5F23453CB100934041 /* UIImage+SwiftyGif.swift */; };
+		30265C6123453CB100934041 /* UIImage+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30265C5F23453CB100934041 /* UIImage+SwiftyGif.swift */; };
+		30265C6323453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30265C6223453CD100934041 /* UIImageView+SwiftyGif.swift */; };
+		30265C6423453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30265C6223453CD100934041 /* UIImageView+SwiftyGif.swift */; };
 		303BF744232A986A00164539 /* CactusUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303BF743232A986A00164539 /* CactusUnitTests.swift */; };
 		303BF750232D289A00164539 /* QuoteContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303BF74E232D289A00164539 /* QuoteContentViewController.swift */; };
 		303BF751232D289A00164539 /* QuoteContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303BF74E232D289A00164539 /* QuoteContentViewController.swift */; };
@@ -207,6 +215,10 @@
 		300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFeedDataSource.swift; sourceTree = "<group>"; };
 		3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberProfileViewController.swift; sourceTree = "<group>"; };
 		3023FE2F22ECD0A300F753A7 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		30265C5823452F4E00934041 /* GifUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifUtil.swift; sourceTree = "<group>"; };
+		30265C5C23453C8D00934041 /* SwiftyGifManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyGifManager.swift; sourceTree = "<group>"; };
+		30265C5F23453CB100934041 /* UIImage+SwiftyGif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+SwiftyGif.swift"; sourceTree = "<group>"; };
+		30265C6223453CD100934041 /* UIImageView+SwiftyGif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+SwiftyGif.swift"; sourceTree = "<group>"; };
 		303BF741232A986A00164539 /* Cactus UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cactus UnitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		303BF743232A986A00164539 /* CactusUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusUnitTests.swift; sourceTree = "<group>"; };
 		303BF745232A986A00164539 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -359,6 +371,16 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		30265C5B23453C7B00934041 /* SwiftyGif */ = {
+			isa = PBXGroup;
+			children = (
+				30265C5C23453C8D00934041 /* SwiftyGifManager.swift */,
+				30265C5F23453CB100934041 /* UIImage+SwiftyGif.swift */,
+				30265C6223453CD100934041 /* UIImageView+SwiftyGif.swift */,
+			);
+			path = SwiftyGif;
+			sourceTree = "<group>";
+		};
 		303BF742232A986A00164539 /* Cactus UnitTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -418,6 +440,7 @@
 				3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */,
 				305B186D23319E09003E1561 /* FileUtils.swift */,
 				300AC17E2339839A005C6555 /* CactusImage.swift */,
+				30265C5823452F4E00934041 /* GifUtil.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -489,6 +512,7 @@
 		30B6EA6D22EA5A9F00443E46 /* Cactus */ = {
 			isa = PBXGroup;
 			children = (
+				30265C5B23453C7B00934041 /* SwiftyGif */,
 				30673B85233FDEB600EDE7BD /* Fonts */,
 				300AC18B233AE16C005C6555 /* Data */,
 				300AC18123398E86005C6555 /* Video */,
@@ -929,7 +953,6 @@
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Sentry/Sentry.framework",
 				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -955,7 +978,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sentry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyGif.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -1013,7 +1035,6 @@
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Sentry/Sentry.framework",
 				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -1039,7 +1060,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sentry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyGif.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -1153,7 +1173,6 @@
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Sentry/Sentry.framework",
 				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -1179,7 +1198,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sentry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyGif.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -1276,6 +1294,7 @@
 				30934FA422EBF4E6007C4E6C /* FormatUtils.swift in Sources */,
 				30E9B0B422EADE2D005B25FD /* CGExtensions.swift in Sources */,
 				300AC18E233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */,
+				30265C5A23452F4E00934041 /* GifUtil.swift in Sources */,
 				305B18812331E162003E1561 /* ReflectContentViewController.swift in Sources */,
 				30E9B0BE22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
 				300AC1802339839A005C6555 /* CactusImage.swift in Sources */,
@@ -1285,6 +1304,7 @@
 				30934FAA22EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
 				30BF2E1923289D1200A49EB6 /* PromptContentPageViewController.swift in Sources */,
 				309561A522EE172B009357BD /* AppConfig.swift in Sources */,
+				30265C6123453CB100934041 /* UIImage+SwiftyGif.swift in Sources */,
 				30E9B09E22EA7FC3005B25FD /* CactusMember.swift in Sources */,
 				3054B5BE2331424000AA7272 /* MarkdownUtil.swift in Sources */,
 				30E9B0A422EAC204005B25FD /* AuthService.swift in Sources */,
@@ -1302,7 +1322,9 @@
 				303BF751232D289A00164539 /* QuoteContentViewController.swift in Sources */,
 				30E9B0B822EADF75005B25FD /* HomeViewController.swift in Sources */,
 				30E2D377234311C6003D2B27 /* PillLabelView.swift in Sources */,
+				30265C6423453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */,
 				30E9B0B022EADD04005B25FD /* LoginViewController.swift in Sources */,
+				30265C5E23453C8D00934041 /* SwiftyGifManager.swift in Sources */,
 				30BF2E342328D91B00A49EB6 /* PromptContent.swift in Sources */,
 				305B1869233178A8003E1561 /* ImageService.swift in Sources */,
 				305B1886233273C4003E1561 /* GrowingTextView.swift in Sources */,
@@ -1340,6 +1362,7 @@
 				30BF2E2F2328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */,
 				30BF2E0F23281CAA00A49EB6 /* FlamelinkTypes.swift in Sources */,
 				300AC18D233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */,
+				30265C5923452F4E00934041 /* GifUtil.swift in Sources */,
 				305B18802331E162003E1561 /* ReflectContentViewController.swift in Sources */,
 				30E9B0A022EABFBD005B25FD /* CactusMemberService.swift in Sources */,
 				300AC17F2339839A005C6555 /* CactusImage.swift in Sources */,
@@ -1349,6 +1372,7 @@
 				30E9B09622EA68AC005B25FD /* FirestoreService.swift in Sources */,
 				30934FA922EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
 				30BF2E2A23289F9F00A49EB6 /* TextContentViewController.swift in Sources */,
+				30265C6023453CB100934041 /* UIImage+SwiftyGif.swift in Sources */,
 				309561A422EE16D7009357BD /* AppConfig.swift in Sources */,
 				3054B5BD23313EAA00AA7272 /* MarkdownUtil.swift in Sources */,
 				3023FE2D22ECB47800F753A7 /* MemberProfileViewController.swift in Sources */,
@@ -1366,7 +1390,9 @@
 				303BF750232D289A00164539 /* QuoteContentViewController.swift in Sources */,
 				30E9B0AF22EADD04005B25FD /* LoginViewController.swift in Sources */,
 				30E2D376234311C6003D2B27 /* PillLabelView.swift in Sources */,
+				30265C6323453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */,
 				30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */,
+				30265C5D23453C8D00934041 /* SwiftyGifManager.swift in Sources */,
 				30BF2E14232824AB00A49EB6 /* FlamelinkService.swift in Sources */,
 				305B1868233178A8003E1561 /* ImageService.swift in Sources */,
 				305B1885233273C4003E1561 /* GrowingTextView.swift in Sources */,

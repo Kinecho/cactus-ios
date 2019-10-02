@@ -27,18 +27,23 @@ class FlamelinkFile: Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        let idArray = try? container.decode([String].self, forKey: CodingKeys.fileIds)
-        
-        if let ids = idArray {
-            self.fileIds = ids
-            return
+        do {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            
+            let idArray = try? container.decode([String].self, forKey: CodingKeys.fileIds)
+            
+            if let ids = idArray {
+                self.fileIds = ids
+                return
+            }
+            let fileIdString = try? container.decode(String.self, forKey: .fileIds)
+            if let fileId = fileIdString, !fileId.isEmpty {
+                self.fileIds.append(fileId)
+            }
         }
-        let fileIdString = try? container.decode(String.self, forKey: .fileIds)
-        if let fileId = fileIdString, !fileId.isEmpty {
-            self.fileIds.append(fileId)
-        }       
+        catch {
+            print("error init FlamelinkFile", error)
+        }
     }
 }
 
@@ -63,9 +68,18 @@ class ImageFile: FlamelinkFile {
     
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder)
-        let container = try decoder.container(keyedBy: ImageCodingKeys.self)
-        self.url = try? container.decode(String.self, forKey: ImageCodingKeys.url)
-        self.storageUrl = try? container.decode(String.self, forKey: ImageCodingKeys.storageUrl)
+        do {            
+            let container = try decoder.container(keyedBy: ImageCodingKeys.self)
+            self.url = try? container.decode(String.self, forKey: ImageCodingKeys.url)
+            self.storageUrl = try? container.decode(String.self, forKey: ImageCodingKeys.storageUrl)
+            
+            
+        } catch {
+            print("error init ImageFile", error)
+        }
     }
     
+    func isEmpty() -> Bool {
+        return FormatUtils.isBlank(self.url) && FormatUtils.isBlank(storageUrl) && FormatUtils.isBlank(self.fileId) && self.fileIds.isEmpty
+    }
 }

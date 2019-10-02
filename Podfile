@@ -18,7 +18,7 @@ def app_pods
   pod 'MarkdownKit'
   pod 'Cloudinary', '~> 2.0'
   pod 'SwiftLint'
-  pod 'SwiftyGif'
+#  pod 'SwiftyGif' implemented on our own
   pod 'SkeletonView'
 end
 

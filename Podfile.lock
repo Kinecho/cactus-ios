@@ -256,7 +256,6 @@ PODS:
   - Sentry/Core (4.3.1)
   - SkeletonView (1.8.2)
   - SwiftLint (0.35.0)
-  - SwiftyGif (5.1.1)
 
 DEPENDENCIES:
   - Cloudinary (~> 2.0)
@@ -276,7 +275,6 @@ DEPENDENCIES:
   - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `4.3.1`)
   - SkeletonView
   - SwiftLint
-  - SwiftyGif
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -324,7 +322,6 @@ SPEC REPOS:
     - SDWebImage
     - SkeletonView
     - SwiftLint
-    - SwiftyGif
 
 EXTERNAL SOURCES:
   Sentry:
@@ -382,8 +379,7 @@ SPEC CHECKSUMS:
   Sentry: 5267d493a398663538317e4dcc438c12c66202ed
   SkeletonView: bb27c39857e5492136f02ee8a3aa78de55d12ecd
   SwiftLint: 5553187048b900c91aa03552807681bb6b027846
-  SwiftyGif: f7702483db93586a41f04f4927cd682852a2fa10
 
-PODFILE CHECKSUM: 7b67550dc1ad3cab716c5a977a3f614f1de8ba9d
+PODFILE CHECKSUM: 83c60f0e6a17bed3b488252b9d5dca57fa8406c9
 
 COCOAPODS: 1.6.1

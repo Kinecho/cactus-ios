@@ -280,5 +280,6 @@ extension JournalFeedDataSource: JournalEntryDataDelegate {
             self.delegate?.loadingCompleted()
         }
     }
-
+    
+    //TODO: add update, deleted, add handlers
 }
