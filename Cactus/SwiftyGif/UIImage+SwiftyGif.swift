@@ -158,11 +158,11 @@ public extension UIImage {
         
         var imageProperties = [CFDictionary]()
         
-        var d = [Float]()
-        for i in 0..<imageCount {
-            d.append(Float(0.1))
-        }
-        return d
+//        var d = [Float]()
+//        for i in 0..<imageCount {
+//            d.append(Float(0.1))
+//        }
+//        return d
         
         for i in 0..<imageCount {
             if let dict = CGImageSourceCopyPropertiesAtIndex(imageSource, i, nil) {
@@ -175,7 +175,9 @@ public extension UIImage {
         let frameProperties = /*try*/ imageProperties.map { (dict: CFDictionary) -> CFDictionary in
             let key = Unmanaged.passUnretained(kCGImagePropertyGIFDictionary).toOpaque()
             let value = CFDictionaryGetValue(dict, key)
-            
+            if value == nil {
+                return NSDictionary()
+            }
             return unsafeBitCast(value, to: CFDictionary.self)
         }
         
