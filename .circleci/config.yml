@@ -36,7 +36,7 @@ commands:
           fail_only: true
           include_project_field: false
           include_job_number_field: false
-          failure_message: ":boom: *$CIRCLE_JOB* job failed in workflow <https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID| << parameters.workflow_name >> >\nBranch \\`<$(cat .git_branch_url.txt)|${CIRCLE_BRANCH}>\\`"  
+          failure_message: ":boom: *$CIRCLE_JOB* job failed in workflow <https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID| << parameters.workflow_name >> >\nBranch \\`<https://github.com/Kinecho/cactus-ios/compare/${CIRCLE_BRANCH}|${CIRCLE_BRANCH}>\\`"  
   get-repo-link:
     steps:
       - run:
@@ -48,11 +48,13 @@ commands:
               SLACK_GIT_LINK="<$CIRCLE_PULL_REQUEST|View Pull Request>"
               GIT_BRANCH_URL=$CIRCLE_PULL_REQUEST
             fi
+            SLACK_GIT_BRANCH_LINK="<${GIT_BRANCH_URL}|${CIRCLE_BRANCH}>"
+
             echo "Slack GIT Link is \"${SLACK_GIT_LINK}\""
             export SLACK_GIT_LINK
             export GIT_BRANCH_URL
             echo $SLACK_GIT_LINK >> .slack_git_url.txt
-            echo $GIT_BRANCH_URL >> .git_branch_url.txt
+            echo $SLACK_GIT_BRANCH_LINK >> .git_branch_url.txt
             echo 'export GIT_BRANCH_URL="$GIT_BRANCH_URL"' >> $BASH_ENV  
             echo 'export SLACK_GIT_LINK="$SLACK_GIT_LINK"' >> $BASH_ENV  
   restore-caches:
