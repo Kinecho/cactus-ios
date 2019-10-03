@@ -13,33 +13,71 @@ executors:
     working_directory: ~/project  
     docker:
       - image: circleci/node:8.15.0-browsers
-jobs:  
+
+aliases: 
+  - &pod-cache 4-pods-{{ checksum Podfile.lock }}
+  - &gem-cache 2-gems-{{ checksum "Gemfile.lock" }}
+
+commands:   
+  save-pods-cache: 
+    steps: 
+      - save_cache: 
+          name: "Restore Pods Cache"
+          key: *pod-cache
+          paths: 
+            - Pods
+  restore-pods-cache: 
+    steps: 
+      - restore_cache: 
+          name: "Restore Pods Cache"
+          key: *pod-cache
+  install-ruby: 
+    steps: 
+      - restore_cache:
+          name: "Restore Ruby Cache"
+          key: 2-gems-{{ checksum "Gemfile.lock" }}
+      - run: bundle check || bundle install --path vendor/bundle
+      - save_cache:
+          name: "Save Ruby Cache"
+          key: *gem-cache
+          paths:
+            - vendor/bundle
+            - vendor
+            - .bundle
+  install-pods:
+    steps:
+      - restore-pods-cache
+      # - run:
+      #     name: Fetch CocoaPods Specs
+      #     command: |
+      #       curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf      
+      - run:
+          name: "Install CocoaPods"
+          command: bundle exec pod install --verbose      
+      - save-pods-cache
+jobs:
   create-job:
       executor: cactus-ios
       steps: 
           - checkout
-          - run: 
-              name: "Create a new directory and files"
-              command: |
-                mkdir neil-test
-                echo 'My Files One!' >> neil-test/one.txt
-                echo 'My Files Two!' >> neil-test/two.txt
-                echo 'My Files Three!' >> neil-test/three.txt
+          - install-ruby
+          - install-pods
+          - run:
+              name: Build Only
+              command: bundle exec fastlane build_app
           - run: 
               name: "List files"
               command: |
                 echo Root Project Files
-                ls -la
-                echo Neil-Test files
-                ls -la neil-test
+                ls -la              
           - persist_to_workspace: 
               root: '.'
               paths: 
-                  - neil-test
+                  - build
   restore-job:
       executor: cactus-ios
       steps: 
-          - checkout
+          - checkout          
           - run: 
               name: "List files before restore"
               command: |
@@ -47,6 +85,8 @@ jobs:
                 ls -la
                 echo **** Neil-Test files ****
                 ls -la neil-test || echo None
+          - install-ruby
+          - install-pods
           - attach_workspace:
               at: '.'
           - run: 
@@ -58,7 +98,11 @@ jobs:
                 ls -la neil-test || echo None
 
                 echo **** restored-test **** 
-                ls -la restored-test
+                ls -la restored-test || echo none
+          - run:
+              name: Build Only
+              command: bundle exec fastlane build_app
+
 workflows:
   version: 2.1
   test-pipeline:
