@@ -106,7 +106,7 @@ jobs:
           include_project_field: false
           ts: "$(date +%s)"
           color: "#d8d8d8"
-          message: "Starting a release <https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID| << parameters.workflow_name >> > \nBranch \\`${CIRCLE_BRANCH}\\`"
+          message: "Starting workflow <https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID| << parameters.workflow_name >> > \nBranch \\`${CIRCLE_BRANCH}\\`"
   notify-branch-workflow-started:
     executor: cactus-web
     description: "Notify slack that a branch workflow has started and provide a link"
@@ -248,8 +248,14 @@ workflows:
       - notify-release-started:
           name: &workflow_name iOS Release Pipeline
           workflow_name: *workflow_name      
+          filters:
+            branches:
+              only: master
       - run-tests:
           name: &test-name "Run Tests"
+          filters:
+            branches:
+              only: master
       - upload-to-testflight:
           name: &build-and-upload "Deploy to TestFlight"
           requires: 
@@ -263,11 +269,14 @@ workflows:
               - *build-and-upload
           filters:
             branches:
-              only: master      
+              only: master  
       - notify-branch-workflow-finished:
           name: *workflow_name
           requires:
             - *finalize-release
+          filters:
+            branches:
+              only: master
       # TODO: Add upload symbols? Not sure if that's doing anything.. -NP 2019-10-03
 
   branch-pipeline:
