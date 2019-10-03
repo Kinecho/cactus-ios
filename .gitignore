@@ -21,3 +21,6 @@ reports/
 fl_output/
 .bundle/
 vendor/
+
+*.ipa
+*.dSYM.zip

@@ -65,7 +65,7 @@ jobs:
           - install-pods
           - run:
               name: Build Only
-              command: bundle exec fastlane build_app
+              command: bundle exec fastlane test
           - run: 
               name: "List files"
               command: |
@@ -102,7 +102,7 @@ jobs:
                 ls -la restored-test || echo none
           - run:
               name: Build Only
-              command: bundle exec fastlane build_app
+              command: bundle exec fastlane test
 
 workflows:
   version: 2.1
