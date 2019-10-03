@@ -29,7 +29,7 @@ commands:
           fail_only: true
           include_project_field: false
           include_job_number_field: false
-          failure_message: ":frowning: \\`${CIRCLE_BRANCH}\\` $CIRCLE_JOB job failed in <https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID| this workflow >"  
+          failure_message: ":frowning: *$CIRCLE_JOB* job failed on branch \\`${CIRCLE_BRANCH}\\` \n<https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID| View Workflow >"  
   get-repo-link:
     steps:
       - run:
