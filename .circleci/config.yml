@@ -162,7 +162,7 @@ jobs:
           fingerprints:
             - *match-ssh-fingerprint
       - install-swiftlint
-      - run: exit 0
+      - run: exit 1
       - run: 
           name: Run Swiftlint
           command: bundle exec fastlane lint
