@@ -265,7 +265,7 @@ workflows:
             branches:
               only: master      
       - notify-branch-workflow-finished:
-          name: *workflow_name
+          name: Notify Release Finished
           requires:
             - *finalize-release
       # TODO: Add upload symbols? Not sure if that's doing anything.. -NP 2019-10-03
@@ -273,7 +273,7 @@ workflows:
   branch-pipeline:
     jobs:
       - notify-branch-workflow-started:
-          name: &workflow_name Feature Branch Tests
+          name: &workflow_name Feature Branch CI
           workflow_name: *workflow_name  
           filters:
             branches:
@@ -284,7 +284,7 @@ workflows:
             branches:
               ignore: master      
       - notify-branch-workflow-finished:
-          name: *workflow_name
+          name: Notify Success
           requires:
             - *test-name      
 

@@ -490,7 +490,7 @@
                     <size key="freeformSize" width="414" height="762"/>
                     <connections>
                         <outlet property="layout" destination="CAX-zL-tXF" id="nRa-YX-6wQ"/>
-                        <segue destination="e7K-2Y-xsh" kind="presentation" identifier="PromptContentCards" modalPresentationStyle="fullScreen" id="8ag-mm-4p6"/>
+                        <segue destination="e7K-2Y-xsh" kind="presentation" identifier="PromptContentCards" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="8ag-mm-4p6"/>
                         <segue destination="JEX-9P-axG" kind="presentation" identifier="JournalEntryDetail" modalPresentationStyle="pageSheet" id="4Ff-fm-bhw"/>
                     </connections>
                 </collectionViewController>
