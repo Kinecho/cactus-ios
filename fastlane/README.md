@@ -51,24 +51,24 @@ fastlane ios lint
 fastlane ios certificates
 ```
 
-### ios upload_symbols
-```
-fastlane ios upload_symbols
-```
-
 ### ios version_test
 ```
 fastlane ios version_test
 ```
 
-### ios create_sentry_release
+### ios create_release
 ```
-fastlane ios create_sentry_release
+fastlane ios create_release
 ```
 
 ### ios finalize_release
 ```
 fastlane ios finalize_release
+```
+
+### ios upload_symbols
+```
+fastlane ios upload_symbols
 ```
 
 
