@@ -86,7 +86,6 @@ commands:
           name: "Install CocoaPods"
           command: bundle exec pod install --verbose      
       - save-pods-cache
-      - notify-on-failure
   install-swiftlint: 
     steps: 
       - run: 
