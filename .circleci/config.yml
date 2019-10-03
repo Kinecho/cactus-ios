@@ -45,7 +45,7 @@ jobs:
               command: |
                 echo Root Project Files
                 ls -la
-                **** echo Neil-Test files ****
+                echo **** Neil-Test files ****
                 ls -la neil-test || echo None
           - attach_workspace:
               at: restored-test
@@ -54,17 +54,20 @@ jobs:
               command: |
                 echo Root Project Files
                 ls -la
-                **** echo Neil-Test files ****
+                echo ****  Neil-Test files ****
                 ls -la neil-test || echo None
 
-                *** echo restored
+                echo **** restored-test **** 
                 ls -la restored-test
 workflows:
   version: 2.1
   test-pipeline:
     jobs:
       - create-job
-      - restore-job
+      - restore-job:
+          requires: 
+            - create-job
+
    
 
 
