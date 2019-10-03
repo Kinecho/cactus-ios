@@ -17,83 +17,75 @@ default_platform(:ios)
 
 platform :ios do
 
-  before_all do
-    setup_circle_ci
-  end
+  	before_all do
+    	setup_circle_ci
+  	end
 
-  lane :bump_build do 
-  	increment_build_number(xcodeproj: "Cactus.xcodeproj")
-  end
+  	lane :bump_build do 
+  		increment_build_number(xcodeproj: "Cactus.xcodeproj")
+  	end
   
 
-  lane :version_bump do 
-    increment_build_number(xcodeproj: "Cactus.xcodeproj")
-    commit_version_bump(xcodeproj: "Cactus.xcodeproj", message: "[ci skip] Build Version Bump to #{lane_context[SharedValues::BUILD_NUMBER]}")
-    push_to_git_remote
-  end
+  	lane :version_bump do 
+	    increment_build_number(xcodeproj: "Cactus.xcodeproj")
+	    commit_version_bump(xcodeproj: "Cactus.xcodeproj", message: "[ci skip] Build Version Bump to #{lane_context[SharedValues::BUILD_NUMBER]}")
+	    push_to_git_remote
+  	end
 
 
-  desc "Push a new beta build to TestFlight"
-  lane :beta do  	
-	match(type: "appstore", readonly: is_ci)
-	sync_code_signing(type: "appstore")    
-    build_app(workspace: "Cactus.xcworkspace", scheme: "Cactus Prod", xcargs: "-UseModernBuildSystem=NO")
-    changelog_from_git_commits
-    # slack(message: "A new build has been created. Next step: upload to test flight.", slack_url: "https://hooks.slack.com/services/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")    
+	desc "Push a new beta build to TestFlight"
+  	lane :beta do  	
+		match(type: "appstore", readonly: is_ci)
+		sync_code_signing(type: "appstore")    
+	    build_app(workspace: "Cactus.xcworkspace", scheme: "Cactus Prod", xcargs: "-UseModernBuildSystem=NO")
+	    changelog_from_git_commits
+	    # slack(message: "A new build has been created. Next step: upload to test flight.", slack_url: "https://hooks.slack.com/services/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")    
 
-    upload_to_testflight(skip_waiting_for_build_processing: true)
-	
-    # slack(message: "Successfully uploaded new build to TestFlight", slack_url: "https://hooks.slack.com/services/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")
-  end
+	    upload_to_testflight(skip_waiting_for_build_processing: true)
+		
+	    # slack(message: "Successfully uploaded new build to TestFlight", slack_url: "https://hooks.slack.com/services/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")
+  	end
 
-  lane :manual_upload do
-  	ENV["DELIVER_ITMSTRANSPORTER_ADDITIONAL_UPLOAD_PARAMETERS"] = "-t DAV #"
-  	upload_to_testflight(
-  		skip_waiting_for_build_processing: true,
-  		ipa: "/Users/neilpoulin/Downloads/Cactus Prod.ipa",
-  		)
-  end
+	lane :manual_upload do
+		ENV["DELIVER_ITMSTRANSPORTER_ADDITIONAL_UPLOAD_PARAMETERS"] = "-t DAV #"
+		upload_to_testflight(
+			skip_waiting_for_build_processing: true,
+			ipa: "/Users/neilpoulin/Downloads/Cactus Prod.ipa",
+	)
+	end
 
-  lane :test do 
-  	# swiftlint(mode: :lint, output_file: "reports/swiftlint/result.xml", reporter: "junit")
-  	scan(output_types: "junit", 
-  		scheme: "Cactus Prod", 
-  		skip_build: true, 
-  		output_directory: "reports/scan", 
-  		output_files: "results.xml",
-		device: "iPhone 8",
-		slack_url: "https://hooks.slack.com/services/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",
-		slack_channel: "engineering-apps-ci",
-		slack_only_on_failure: false,
-		# include_system
-		include_simulator_logs: false,
+  	lane :test do 
+	  	# swiftlint(mode: :lint, output_file: "reports/swiftlint/result.xml", reporter: "junit")
+	  	scan(output_types: "junit", 
+	  		scheme: "Cactus Prod", 
+	  		skip_build: true, 
+	  		output_directory: "reports/scan", 
+	  		output_files: "results.xml",
+			device: "iPhone 8",
+			slack_url: "https://hooks.slack.com/services/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",
+			slack_channel: "engineering-apps-ci",
+			slack_only_on_failure: false,
+			# include_system
+			include_simulator_logs: false,
 		)
-  end
+  	end
 
-  lane :lint do 
-  	sh("mkdir", "-p", "../reports/swiftlint")
-  	swiftlint(
-  		mode: :lint, 
-  		# executable: "Pods/SwiftLint/swiftlint", # The SwiftLint binary path (optional). Important if you've installed it via CocoaPods
-  		output_file: "reports/swiftlint/results.xml", 
-  		reporter: "junit", 
-  		config_file: ".swiftlint.yml"
-  		)
+  	lane :lint do 
+	  	sh("mkdir", "-p", "../reports/swiftlint")
+	  	swiftlint(
+	  		mode: :lint, 
+	  		# executable: "Pods/SwiftLint/swiftlint", # The SwiftLint binary path (optional). Important if you've installed it via CocoaPods
+	  		output_file: "reports/swiftlint/results.xml", 
+	  		reporter: "junit", 
+	  		config_file: ".swiftlint.yml"
+	  		)
   	
-  end
+  	end
 
-  lane :certificates do
-	  match(app_identifier: ["com.cactus.StageCactus", "com.cactus.CactusApp"])
+  	lane :certificates do
+		match(app_identifier: ["com.cactus.StageCactus", "com.cactus.CactusApp"])
 	end
 
-  lane :upload_symbols do 
-	  download_dsyms
-	  sentry_upload_dsym(
-	    auth_token: $SENTRY_AUTH_TOKEN,
-		org_slug: 'kinecho',
-	    project_slug: 'cactus-ios',
-	  )
-	end
 
 	lane :version_test do 
 		# version = "#{lane_context[SharedValues::VERSION_NUMBER]}.#{lane_context[SharedValues::BUILD_NUMBER]}"
@@ -124,12 +116,12 @@ platform :ios do
 
 	lane :finalize_release do 		
 		sentry_finalize_release(
-		  auth_token: $SENTRY_AUTH_TOKEN,
-		  org_slug: 'kinecho',
-	      project_slug: 'cactus-ios',
-		  version: version, # release version to create
-		  app_identifier: 'com.cactus.CactusApp', # pass in the bundle_identifer of your app		  
-		  finalize: true # Whether to finalize the release. If not provided or false, the release can be finalized using the sentry_finalize_release action
+			auth_token: $SENTRY_AUTH_TOKEN,
+			org_slug: 'kinecho',
+			project_slug: 'cactus-ios',
+			version: version, # release version to create
+			app_identifier: 'com.cactus.CactusApp', # pass in the bundle_identifer of your app		  
+			finalize: true # Whether to finalize the release. If not provided or false, the release can be finalized using the sentry_finalize_release action
 		)
 
 		sh("sentry-cli releases deploys '#{release}' new -e prod")
@@ -138,7 +130,6 @@ platform :ios do
 	lane :upload_symbols do 
 		get_version_number(xcodeproj: "Cactus.xcodeproj", target: "Cactus Prod")
 		get_build_number
-		# upload_symbols
 		download_dsyms(version: lane_context[SharedValues::VERSION_NUMBER], build_number: lane_context[SharedValues::BUILD_NUMBER])
 		version = "#{lane_context[SharedValues::VERSION_NUMBER]}.#{lane_context[SharedValues::BUILD_NUMBER]}"
 		release = "com.cactus.CactusApp-#{version}"
