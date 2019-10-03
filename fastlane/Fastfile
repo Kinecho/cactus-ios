@@ -135,7 +135,7 @@ platform :ios do
 		sh("sentry-cli releases deploys '#{release}' new -e prod")
 	end
 
-	land :upload_symbols do 
+	lane :upload_symbols do 
 		get_version_number(xcodeproj: "Cactus.xcodeproj", target: "Cactus Prod")
 		get_build_number
 		# upload_symbols
