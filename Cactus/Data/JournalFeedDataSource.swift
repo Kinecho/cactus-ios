@@ -168,7 +168,9 @@ class JournalFeedDataSource {
     
     func resetData() {
         self.orderedPromptIds.removeAll()
+        self.unsubscribeAll()
         journalEntryDataBySentPromptId.removeAll()
+        self.delegate?.dataLoaded()
     }
     
     func unsubscribeAll() {
@@ -255,18 +257,21 @@ class JournalFeedDataSource {
         guard let memberId = self.currentMember?.id else {
             return
         }
-        self.orderedPromptIds.removeAll()
+//        self.orderedPromptIds.removeAll()
+        var orderedPromptIds = [String]()
         self.sentPrompts.forEach { (sentPrompt) in
             guard let promptId = sentPrompt.promptId else {
                 return
             }
-            
-            let journalEntry = JournalEntryData(sentPrompt: sentPrompt, memberId: memberId)
-            journalEntry.delegate = self
-            self.journalEntryDataBySentPromptId[promptId] = journalEntry
-            self.orderedPromptIds.append(promptId)
+            if self.journalEntryDataBySentPromptId[promptId] == nil {
+                print("Setting up journal entry data source for promptId \(promptId)")
+                let journalEntry = JournalEntryData(sentPrompt: sentPrompt, memberId: memberId)
+                journalEntry.delegate = self
+                self.journalEntryDataBySentPromptId[promptId] = journalEntry
+            }
+            orderedPromptIds.append(promptId)
         }
-        
+        self.orderedPromptIds = orderedPromptIds
         self.delegate?.dataLoaded()
     }
 }

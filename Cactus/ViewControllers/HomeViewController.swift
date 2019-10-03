@@ -16,7 +16,7 @@ class HomeViewController: UISplitViewController, UISplitViewControllerDelegate {
     }
     
     @objc func showAccountPage(sender: Any) {
-        AppDelegate.shared.rootViewController.showScreen(ScreenID.MemberProfile, wrapInNav: true)
+        _ = AppDelegate.shared.rootViewController.showScreen(ScreenID.MemberProfile, wrapInNav: true)
     }
     
     override func viewDidLoad() {

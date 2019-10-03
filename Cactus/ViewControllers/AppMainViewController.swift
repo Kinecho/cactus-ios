@@ -48,12 +48,7 @@ class AppMainViewController: UIViewController {
                 self.hasUser = false
             } else {
                 print("Found member, not null. showing journal feed")
-                let nav = self.showScreen(ScreenID.JournalHome, wrapInNav: true)                
-//                let nav = self.current as! UINavigationController
-//                if let nav = self.current as? UINavigationController {
-//                    nav.viewControllers.insert(self.getScreen(ScreenID.MemberProfile), at: 0)
-//                }
-                
+                _ = self.showScreen(ScreenID.JournalHome, wrapInNav: true)
                 self.hasUser = true
             }
             self.authHasLoaded = true
@@ -61,10 +56,7 @@ class AppMainViewController: UIViewController {
     }
     
     func getScreen(_ screen: ScreenID) -> UIViewController {
-        var vc = storyboard!.instantiateViewController(withIdentifier: screen.name)
-      
-        return vc
-        
+        return storyboard!.instantiateViewController(withIdentifier: screen.name)
     }
    
     func showScreen(_ screenId: ScreenID, wrapInNav: Bool=false, animate: ((_ new: UIViewController, _ completion: (() -> Void)?) -> Void)? = nil) -> UIViewController {
