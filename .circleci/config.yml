@@ -16,6 +16,8 @@ executors:
 aliases: 
   - &match-ssh-fingerprint "4b:a2:6f:21:f5:6a:c2:26:05:b4:10:29:01:17:7c:51"
   - &cactus-ios-read-write-fingerprint "ca:4b:99:13:a3:ba:7c:8e:9b:2a:f5:2a:e9:95:9e:a8"
+  - &pod-cache 4-pods-{{ checksum "Podfile.lock" }}
+  - &gem-cache 2-gems-{{ checksum "Gemfile.lock" }}
   - &webhook-url
       webhook: "${SLACK_ENGINEERING_APPS_CI_URL}"
 
@@ -32,12 +34,7 @@ commands:
             echo "Slack GIT Link is \"${SLACK_GIT_LINK}\""
             export SLACK_GIT_LINK
             echo $SLACK_GIT_LINK >> .slack_git_url.txt
-            echo 'export SLACK_GIT_LINK="$SLACK_GIT_LINK"' >> $BASH_ENV
-  restore-pods-cache: 
-    steps: 
-      - restore_cache:
-          name: "Restore Pods Cache"
-          key: 2-pods-{{ checksum "Podfile.lock" }}
+            echo 'export SLACK_GIT_LINK="$SLACK_GIT_LINK"' >> $BASH_ENV  
   restore-caches:
     steps:
       - restore-pods-cache
@@ -48,29 +45,68 @@ commands:
     steps: 
       - restore_cache:
           name: "Restore Ruby Cache"
-          key: 2-gems-{{ checksum "Gemfile.lock" }}
+          key: *gem-cache
       - run: bundle check || bundle install --path vendor/bundle
       - save_cache:
           name: "Save Ruby Cache"
-          key: 2-gems-{{ checksum "Gemfile.lock" }}
+          key: *gem-cache
           paths:
             - vendor/bundle
             - vendor
             - .bundle
-  install-pods:
+  save-pods-cache: 
     steps: 
+      - save_cache: 
+          name: "Restore Pods Cache"
+          key: *pod-cache
+          paths: 
+            - Pods
+            - ~/.cocoapods
+  restore-pods-cache: 
+    steps: 
+      - restore_cache: 
+          name: "Restore Pods Cache"
+          key: *pod-cache
+  install-pods:
+    steps:
+      - restore-pods-cache
       - run:
-          name: Fetch CocoaPods Specs
+          name: Install Cocopods Master 
           command: |
             curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf      
       - run:
           name: "Install CocoaPods"
           command: bundle exec pod install --verbose      
-  install: 
-    steps:       
-      - install-ruby
-      - install-pods    
+      - save-pods-cache  
+  install-swiftlint: 
+    steps: 
+      - run: 
+          name: Install Swiftlint via homebrew
+          command: HOMEBREW_NO_AUTO_UPDATE=1 brew install swiftlint
+  install-sentry: 
+    steps:
+      - run: 
+          name: "Install Sentry CLI"
+          command: brew install getsentry/tools/sentry-cli
 jobs:  
+  notify-release-started:
+    description: "Notify slack that a release has started and provide a link"
+    resource_class: small
+    parameters:
+      workflow_name:
+        type: string
+        default: "DEFAULT"
+        description: "The message to send to slack"
+    executor: cactus-web
+    steps:
+      - slack/notify:
+          <<: *webhook-url
+          include_job_number_field: false
+          include_visit_job_action: false
+          include_project_field: false
+          ts: "$(date +%s)"
+          color: "#d8d8d8"
+          message: "Starting a release <https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID| << parameters.workflow_name >> > \nBranch \\`${CIRCLE_BRANCH}\\`"
   notify-branch-workflow-started:
     executor: cactus-web
     description: "Notify slack that a branch workflow has started and provide a link"
@@ -78,7 +114,7 @@ jobs:
     parameters:
       workflow_name:
         type: string
-        default: "DEFAULT"
+        default: "Default Workflow"
         description: "The message to send to slack"    
     steps:
       - get-repo-link
@@ -95,7 +131,7 @@ jobs:
     parameters:
       workflow_name:
         type: string
-        default: "DEFAULT"
+        default: "Default Workflow"
         description: "The message to send to slack"
     executor: cactus-web
     resource_class: small
@@ -108,12 +144,8 @@ jobs:
           include_visit_job_action: false
           include_project_field: false
           ts: "$(date +%s)"
-          message: ":white_check_mark: \\`${CIRCLE_BRANCH}\\` <https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID| << parameters.workflow_name >> > completed successfully.\n$(cat .slack_git_url.txt)"
-  key-test: 
-    executor: cactus-ios
-    steps: 
-      - checkout
-  build-and-test:
+          message: ":white_check_mark: \\`${CIRCLE_BRANCH}\\` <https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID| << parameters.workflow_name >> > completed successfully.\n$(cat .slack_git_url.txt)"  
+  run-tests: 
     executor: cactus-ios    
     shell: /bin/bash --login -o pipefail
     steps:
@@ -123,32 +155,36 @@ jobs:
           name: "Add Fastlane Match SSH Key"
           fingerprints:
             - *match-ssh-fingerprint
-            # - *cactus-ios-read-write-fingerprint      
-      - run: 
-          name: Install Swiftlint via homebrew
-          command: HOMEBREW_NO_AUTO_UPDATE=1 brew install swiftlint      
+      - install-swiftlint
       - run: 
           name: SwiftLint lane
-          command: bundle exec fastlane lint          
-      - install-pods      
+          command: bundle exec fastlane lint
+      - install-pods
       - run:
           name: Build and run tests
           command: bundle exec fastlane test
           environment:
             SCAN_DEVICE: iPhone 8
             SCAN_SCHEME: Cactus Prod
-      - run:
-          name: "Print files in directory"
-          command: ls -la  
+  upload-to-testflight:
+    executor: cactus-ios    
+    shell: /bin/bash --login -o pipefail
+    steps:
+      - add_ssh_keys:
+          name: "Add Fastlane Match SSH Key"
+          fingerprints:
+            - *match-ssh-fingerprint            
+      - checkout
+      - install-ruby
+      - install-swiftlint
+      - install-pods
+      - install-sentry
       - run: 
-          name: "Install Sentry CLI"
-          command: brew install getsentry/tools/sentry-cli
-      - run: 
-          name: "Run Create Release command"
+          name: Create Sentry Release
           command: "bundle exec fastlane create_release"
       - run:
           name: Deploy to TestFlight
-          command: bundle exec fastlane beta                
+          command: bundle exec fastlane beta
       - slack/notify:
           <<: *webhook-url
           color: 'good'
@@ -156,7 +192,7 @@ jobs:
           include_visit_job_action: false
           include_project_field: false
           ts: "$(date +%s)"
-          message: "A new iOS build has been uploaded to testflight. <https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID|View CI workflow>"          
+          message: "A new iOS build has been uploaded to testflight. <https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID|View CI workflow>"
       - store_test_results:
           path: reports
       - store_artifacts:
@@ -164,8 +200,26 @@ jobs:
       - store_test_results:
           path: fl_output/scan
       - store_artifacts:
-          path: fl_output        
-  upload-symbols: 
+          path: fl_output
+  finalize-release: 
+    executor: cactus-ios
+    steps: 
+      - checkout
+      - install-ruby
+      - run: 
+          name: "Install Sentry CLI"
+          command: brew install getsentry/tools/sentry-cli
+      - add_ssh_keys:
+          fingerprints:
+            - *match-ssh-fingerprint
+            - *cactus-ios-read-write-fingerprint
+      - run: 
+          name: "Run Finalize Release command"
+          command: "bundle exec fastlane finalize_release"
+      - run:
+          name: "Bump Version and Push to GIT"
+          command: bundle exec fastlane version_bump
+  upload-symbols:
     executor: cactus-ios
     steps: 
       - checkout
@@ -187,63 +241,52 @@ jobs:
             sentry-cli releases set-commits --auto $VERSION
       - store_artifacts:
           path: fl_output  
-  finalize-release: 
-    executor: cactus-ios
-    steps: 
-      - checkout
-      - install-ruby
-      - run: 
-          name: "Install Sentry CLI"
-          command: brew install getsentry/tools/sentry-cli
-      - add_ssh_keys:
-          fingerprints:
-            - *match-ssh-fingerprint
-      - run: 
-          name: "Run Finalize Release command"
-          command: "bundle exec fastlane finalize_release"
-
-  version-bump:
-    executor: cactus-ios
-    steps: 
-      - checkout
-      - install-ruby
-      - add_ssh_keys:
-          fingerprints:            
-            - *cactus-ios-read-write-fingerprint
-      - run:
-          name: "Fastlane Version Bump"
-          command: bundle exec fastlane version_bump
 workflows:
   version: 2.1
   release-pipeline:
     jobs:
-      - notify-branch-workflow-started:
-          name: &workflow_name iOS Branch Pipeline
+      - notify-release-started:
+          name: &workflow_name iOS Release Pipeline
           workflow_name: *workflow_name      
-      - build-and-test:
-          name: &build-and-upload "Build and Upload to TestFlight"
+      - run-tests:
+          name: &test-name "Run Tests"
+      - upload-to-testflight:
+          name: &build-and-upload "Deploy to TestFlight"
+          requires: 
+            - *test-name
+          filters:
+            branches:
+              only: master
       - finalize-release:
           name: &finalize-release "Finalize Release"
           requires: 
               - *build-and-upload
-      - version-bump:          
-          name: &version_bump_name "Bump Build Version"
-          requires: 
-            - *build-and-upload  
-            - *finalize-release          
+          filters:
+            branches:
+              only: master      
       - notify-branch-workflow-finished:
           name: *workflow_name
           requires:
-            - *version_bump_name
-      # - upload-symbols-approval: 
-      #     type: approval
-      #     name: &upload-symbols-approval "Finalize Release - Build finished Processing"
-      #     requires: 
-      #       - *build-and-upload
-      # - upload-symbols:
-      #     name: &finalize_name "Upload Symbols to Sentry"
-      #     requires: 
-      #       - *upload-symbols-approval
+            - *finalize-release
+      # TODO: Add upload symbols? Not sure if that's doing anything.. -NP 2019-10-03
+
+  branch-pipeline:
+    jobs:
+      - notify-branch-workflow-started:
+          name: &workflow_name Feature Branch Tests
+          workflow_name: *workflow_name  
+          filters:
+            branches:
+              ignore: master
+      - run-tests:
+          name: &test-name "Run Tests"
+          filters:
+            branches:
+              ignore: master      
+      - notify-branch-workflow-finished:
+          name: *workflow_name
+          requires:
+            - *test-name      
 
 
 
