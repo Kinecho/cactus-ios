@@ -15,6 +15,7 @@ class PromptContentPageViewController: UIPageViewController {
     var pageControl: UIPageControl?
     var prompt: ReflectionPrompt?
     var reflectionResponse: ReflectionResponse?
+    var closeButton: UIButton?
     
     fileprivate lazy var screens: [UIViewController] = []
     
@@ -23,14 +24,24 @@ class PromptContentPageViewController: UIPageViewController {
         self.dataSource = self
         self.delegate = self
         self.configureScreens()
-        
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.configureScreens()
     }
+    
+//    func configureNavbar() {
+//        guard let navBar = self.navigationController?.navigationBar else {return}
+//
+//        navBar.barStyle = .blackTranslucent
+//        navBar.isOpaque = false
+//        let closeButton = UIBarButtonItem()
+//
+//        closeButton.image = CactusImage.close.getImage()
+//        closeButton.tintColor = CactusColor.darkGreen
+//        self.navigationItem.rightBarButtonItem = closeButton
+//    }
     
     func configureScreens() {
         var screens: [UIViewController] = []
@@ -45,6 +56,7 @@ class PromptContentPageViewController: UIPageViewController {
             setViewControllers([firstVC], direction: .forward, animated: false, completion: nil)
         }
         self.configurePageControl()
+        self.addCloseButton()
     }
     
     func getContentViewController(_ content: Content) -> UIViewController? {
@@ -108,6 +120,38 @@ class PromptContentPageViewController: UIPageViewController {
                 ])
         }
     
+    }
+    
+    @objc func dismissPrompt() {
+//        if self.isBeingPresented {
+            self.dismiss(animated: true, completion: nil)
+//        }
+    }
+    
+    func addCloseButton() {
+        if self.closeButton != nil {
+            self.closeButton?.removeFromSuperview()
+        }
+        let buttonWidth: CGFloat = 50
+        let yPos = self.view.bounds.minY + self.view.safeAreaInsets.top + 20
+        let xPos = self.view.bounds.maxX - 20 - self.view.safeAreaInsets.right
+        let button = UIButton(frame: CGRect(x: xPos, y: yPos, width: 80, height: 80))
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(CactusImage.close.getImage(), for: .normal)
+        button.tintColor = CactusColor.darkGreen
+        
+        let contentInset: CGFloat = 10
+        button.contentEdgeInsets = UIEdgeInsets.init(top: contentInset, left: contentInset, bottom: contentInset, right: contentInset)
+        self.view.addSubview(button)
+        
+        button.widthAnchor.constraint(equalToConstant: buttonWidth).isActive = true
+        button.heightAnchor.constraint(equalToConstant: buttonWidth).isActive = true
+        button.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        button.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        
+        button.addTarget(self, action: #selector(self.dismissPrompt), for: .primaryActionTriggered)
+        
+        self.closeButton = button
     }
     
     func configurePageControl() {

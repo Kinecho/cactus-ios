@@ -39,12 +39,11 @@ platform :ios do
 	sync_code_signing(type: "appstore")    
     build_app(workspace: "Cactus.xcworkspace", scheme: "Cactus Prod", xcargs: "-UseModernBuildSystem=NO")
     changelog_from_git_commits
-    slack(message: "A new build has been created. Next step: upload to test flight.", slack_url: "https://hooks.slack.com/services/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")
-    
-    # ENV["DELIVER_ITMSTRANSPORTER_ADDITIONAL_UPLOAD_PARAMETERS"] = "-t DAV #"
+    # slack(message: "A new build has been created. Next step: upload to test flight.", slack_url: "https://hooks.slack.com/services/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")    
+
     upload_to_testflight(skip_waiting_for_build_processing: true)
 	
-    slack(message: "Successfully uploaded new build to TestFlight", slack_url: "https://hooks.slack.com/services/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")
+    # slack(message: "Successfully uploaded new build to TestFlight", slack_url: "https://hooks.slack.com/services/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")
   end
 
   lane :manual_upload do
@@ -96,19 +95,58 @@ platform :ios do
 	  )
 	end
 
-	lane :finalize_release do 
+	lane :version_test do 
+		# version = "#{lane_context[SharedValues::VERSION_NUMBER]}.#{lane_context[SharedValues::BUILD_NUMBER]}"
+		version = "MY_TEST_VERSION"
+		print "NEIL POULIN #{version}"
+		sh("echo", version)
+
+		sh("sentry-cli releases set-commits --auto #{version}")
+		sh("sentry-cli releases deploys '#{version}' new -e testflight")
+	end 
+
+	lane :create_release do 
 		get_version_number(xcodeproj: "Cactus.xcodeproj", target: "Cactus Prod")
-		get_build_number
-		upload_symbols
-		
+		get_build_number		
+		version = "#{lane_context[SharedValues::VERSION_NUMBER]}.#{lane_context[SharedValues::BUILD_NUMBER]}"
+		release = "com.cactus.CactusApp-#{version}"
 		sentry_create_release(
-		  # api_key: '...',
 		  auth_token: $SENTRY_AUTH_TOKEN,
 		  org_slug: 'kinecho',
 	      project_slug: 'cactus-ios',
-		  version: "#{lane_context[SharedValues::VERSION_NUMBER]}.#{lane_context[SharedValues::BUILD_NUMBER]}", # release version to create
+		  version: version, # release version to create
 		  app_identifier: 'com.cactus.CactusApp', # pass in the bundle_identifer of your app
 		  finalize: true # Whether to finalize the release. If not provided or false, the release can be finalized using the sentry_finalize_release action
+		)
+
+		sh("sentry-cli releases set-commits --auto #{release}")
+	end 
+
+	lane :finalize_release do 		
+		sentry_finalize_release(
+		  auth_token: $SENTRY_AUTH_TOKEN,
+		  org_slug: 'kinecho',
+	      project_slug: 'cactus-ios',
+		  version: version, # release version to create
+		  app_identifier: 'com.cactus.CactusApp', # pass in the bundle_identifer of your app		  
+		  finalize: true # Whether to finalize the release. If not provided or false, the release can be finalized using the sentry_finalize_release action
+		)
+
+		sh("sentry-cli releases deploys '#{release}' new -e prod")
+	end
+
+	land :upload_symbols do 
+		get_version_number(xcodeproj: "Cactus.xcodeproj", target: "Cactus Prod")
+		get_build_number
+		# upload_symbols
+		download_dsyms(version: lane_context[SharedValues::VERSION_NUMBER], build_number: lane_context[SharedValues::BUILD_NUMBER])
+		version = "#{lane_context[SharedValues::VERSION_NUMBER]}.#{lane_context[SharedValues::BUILD_NUMBER]}"
+		release = "com.cactus.CactusApp-#{version}"
+		sh("echo", version)
+		sentry_upload_dsym(
+			auth_token: $SENTRY_AUTH_TOKEN,
+			org_slug: 'kinecho',
+			project_slug: 'cactus-ios',
 		)
 	end
 end

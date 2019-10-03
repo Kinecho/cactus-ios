@@ -139,7 +139,10 @@ jobs:
             SCAN_SCHEME: Cactus Prod
       - run:
           name: "Print files in directory"
-          command: ls -la             
+          command: ls -la  
+      - run: 
+          name: "Run Finalize Release command"
+          command: "bundle exec fastlane create_release"
       - run:
           name: Deploy to TestFlight
           command: bundle exec fastlane beta                
@@ -159,7 +162,7 @@ jobs:
           path: fl_output/scan
       - store_artifacts:
           path: fl_output        
-  testflight-finalize-release: 
+  upload-symbols: 
     executor: cactus-ios
     steps: 
       - checkout
@@ -174,8 +177,25 @@ jobs:
       - run:
           name: Finalize Release & upload symbols
           command: bundle exec fastlane finalize_release
+      - run: 
+          name: "Associate commits with Sentry Release"
+          command: |
+            VERSION=$(sentry-cli releases propose-version)
+            sentry-cli releases set-commits --auto $VERSION
       - store_artifacts:
-          path: fl_output
+          path: fl_output  
+  finalize-release: 
+    executor: cactus-ios
+    steps: 
+      - checkout
+      - install-ruby
+      - add_ssh_keys:
+          fingerprints:
+            - *match-ssh-fingerprint
+      - run: 
+          name: "Run Finalize Release command"
+          command: "bundle exec fastlane finalize_release"
+
   version-bump:
     executor: cactus-ios
     steps: 
@@ -196,22 +216,28 @@ workflows:
           workflow_name: *workflow_name      
       - build-and-test:
           name: &build-and-upload "Build and Upload to TestFlight"
+      - finalize-release:
+          name: &finalize-release "Finalize Release"
+          requires: 
+              - *build-and-upload
       - version-bump:          
           name: &version_bump_name "Bump Build Version"
           requires: 
-            - *build-and-upload      
-      - finalize-release-approval: 
-          type: approval
-          name: &finalize-release-approval "Finalize Release - Build finished Processing"
-          requires: 
-            - *build-and-upload
-      - testflight-finalize-release:
-          name: &finalize_name "Upload Symbols to Sentry & Create Release"
-          requires: 
-            - *finalize-release-approval
+            - *build-and-upload  
+            - *finalize-release          
       - notify-branch-workflow-finished:
+          name: *workflow_name
           requires:
-            - *finalize_name
+            - *version_bump_name
+      # - upload-symbols-approval: 
+      #     type: approval
+      #     name: &upload-symbols-approval "Finalize Release - Build finished Processing"
+      #     requires: 
+      #       - *build-and-upload
+      # - upload-symbols:
+      #     name: &finalize_name "Upload Symbols to Sentry"
+      #     requires: 
+      #       - *upload-symbols-approval
 
 
 

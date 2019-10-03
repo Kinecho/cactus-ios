@@ -56,6 +56,16 @@ fastlane ios certificates
 fastlane ios upload_symbols
 ```
 
+### ios version_test
+```
+fastlane ios version_test
+```
+
+### ios create_sentry_release
+```
+fastlane ios create_sentry_release
+```
+
 ### ios finalize_release
 ```
 fastlane ios finalize_release
