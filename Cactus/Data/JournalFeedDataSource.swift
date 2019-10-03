@@ -255,6 +255,7 @@ class JournalFeedDataSource {
         guard let memberId = self.currentMember?.id else {
             return
         }
+        self.orderedPromptIds.removeAll()
         self.sentPrompts.forEach { (sentPrompt) in
             guard let promptId = sentPrompt.promptId else {
                 return
