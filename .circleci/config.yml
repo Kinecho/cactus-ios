@@ -36,13 +36,13 @@ commands:
           fail_only: true
           include_project_field: false
           include_job_number_field: false
-          failure_message: ":boom: *\\`$CIRCLE_JOB\\`* job failed in workflow <https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID| << parameters.workflow_name >> >\nBranch \\`<$(cat .git_branch_url.txt)|${CIRCLE_BRANCH}>\\`"  
+          failure_message: ":boom: *$CIRCLE_JOB* job failed in workflow <https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID| << parameters.workflow_name >> >\nBranch \\`<$(cat .git_branch_url.txt)|${CIRCLE_BRANCH}>\\`"  
   get-repo-link:
     steps:
       - run:
           name: Get Repo Link
           command: |
-            GIT_BRANCH_URL=https://github.com/Kinecho/cactus-ios/compare/${CIRCLE_BRANCH}
+            GIT_BRANCH_URL="https://github.com/Kinecho/cactus-ios/compare/${CIRCLE_BRANCH}"
             SLACK_GIT_LINK="<https://github.com/Kinecho/cactus-ios/compare/${CIRCLE_BRANCH}?expand=1|Open Pull Request>"
             if [[ ! -z $CIRCLE_PULL_REQUEST ]] ; then
               SLACK_GIT_LINK="<$CIRCLE_PULL_REQUEST|View Pull Request>"
