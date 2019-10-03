@@ -15,7 +15,7 @@ executors:
       - image: circleci/node:8.15.0-browsers
 
 aliases: 
-  - &pod-cache 4-pods-{{ checksum Podfile.lock }}
+  - &pod-cache 4-pods-{{ checksum "Podfile.lock" }}
   - &gem-cache 2-gems-{{ checksum "Gemfile.lock" }}
 
 commands:   
