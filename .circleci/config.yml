@@ -20,20 +20,42 @@ aliases:
   - &gem-cache 2-gems-{{ checksum "Gemfile.lock" }}
   - &webhook-url
       webhook: "${SLACK_ENGINEERING_APPS_CI_URL}"
+  - &workflow-name
 
-commands:  
+commands:    
+  notify-on-failure: 
+    parameters:
+      workflow_name:
+        type: string
+        default: "<not set>"
+        description: "The message to send to slack"
+    steps: 
+      - get-repo-link
+      - slack/status:
+          <<: *webhook-url
+          fail_only: true
+          include_project_field: false
+          include_job_number_field: false
+          failure_message: ":boom: *$CIRCLE_JOB* job failed in workflow <https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID| << parameters.workflow_name >> >\nBranch \\`<https://github.com/Kinecho/cactus-ios/compare/${CIRCLE_BRANCH}|${CIRCLE_BRANCH}>\\`"  
   get-repo-link:
     steps:
       - run:
           name: Get Repo Link
           command: |
+            GIT_BRANCH_URL="https://github.com/Kinecho/cactus-ios/compare/${CIRCLE_BRANCH}"
             SLACK_GIT_LINK="<https://github.com/Kinecho/cactus-ios/compare/${CIRCLE_BRANCH}?expand=1|Open Pull Request>"
             if [[ ! -z $CIRCLE_PULL_REQUEST ]] ; then
               SLACK_GIT_LINK="<$CIRCLE_PULL_REQUEST|View Pull Request>"
+              GIT_BRANCH_URL=$CIRCLE_PULL_REQUEST
             fi
+            SLACK_GIT_BRANCH_LINK="<${GIT_BRANCH_URL}|${CIRCLE_BRANCH}>"
+
             echo "Slack GIT Link is \"${SLACK_GIT_LINK}\""
             export SLACK_GIT_LINK
+            export GIT_BRANCH_URL
             echo $SLACK_GIT_LINK >> .slack_git_url.txt
+            echo $SLACK_GIT_BRANCH_LINK >> .git_branch_url.txt
+            echo 'export GIT_BRANCH_URL="$GIT_BRANCH_URL"' >> $BASH_ENV  
             echo 'export SLACK_GIT_LINK="$SLACK_GIT_LINK"' >> $BASH_ENV  
   restore-caches:
     steps:
@@ -71,13 +93,13 @@ commands:
     steps:
       - restore-pods-cache
       - run:
-          name: Install Cocopods Master 
+          name: Install CocoaPods Master Repo
           command: |
             curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf      
       - run:
           name: "Install CocoaPods"
           command: bundle exec pod install --verbose      
-      - save-pods-cache  
+      - save-pods-cache
   install-swiftlint: 
     steps: 
       - run: 
@@ -95,7 +117,7 @@ jobs:
     parameters:
       workflow_name:
         type: string
-        default: "DEFAULT"
+        default: "Default Workflow"
         description: "The message to send to slack"
     executor: cactus-web
     steps:
@@ -106,7 +128,7 @@ jobs:
           include_project_field: false
           ts: "$(date +%s)"
           color: "#d8d8d8"
-          message: "Starting a release <https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID| << parameters.workflow_name >> > \nBranch \\`${CIRCLE_BRANCH}\\`"
+          message: "Starting workflow <https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID| << parameters.workflow_name >> > \nBranch \\`${CIRCLE_BRANCH}\\`"
   notify-branch-workflow-started:
     executor: cactus-web
     description: "Notify slack that a branch workflow has started and provide a link"
@@ -146,6 +168,11 @@ jobs:
           ts: "$(date +%s)"
           message: ":white_check_mark: \\`${CIRCLE_BRANCH}\\` <https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID| << parameters.workflow_name >> > completed successfully.\n$(cat .slack_git_url.txt)"  
   run-tests: 
+    parameters:
+      workflow_name:
+        type: string
+        default: ""
+        description: "The message to send to slack"
     executor: cactus-ios    
     shell: /bin/bash --login -o pipefail
     steps:
@@ -155,26 +182,33 @@ jobs:
           name: "Add Fastlane Match SSH Key"
           fingerprints:
             - *match-ssh-fingerprint
-      - install-swiftlint
+      - install-swiftlint      
       - run: 
-          name: SwiftLint lane
+          name: Run Swiftlint
           command: bundle exec fastlane lint
       - install-pods
       - run:
-          name: Build and run tests
+          name: Run tests via Fastlane Scan
           command: bundle exec fastlane test
           environment:
             SCAN_DEVICE: iPhone 8
             SCAN_SCHEME: Cactus Prod
+      - notify-on-failure: 
+          workflow_name: << parameters.workflow_name >>
   upload-to-testflight:
+    parameters:
+      workflow_name:
+        type: string
+        default: ""
+        description: "The message to send to slack"
     executor: cactus-ios    
     shell: /bin/bash --login -o pipefail
     steps:
+      - checkout
       - add_ssh_keys:
           name: "Add Fastlane Match SSH Key"
           fingerprints:
-            - *match-ssh-fingerprint            
-      - checkout
+            - *match-ssh-fingerprint
       - install-ruby
       - install-swiftlint
       - install-pods
@@ -201,7 +235,14 @@ jobs:
           path: fl_output/scan
       - store_artifacts:
           path: fl_output
+      - notify-on-failure: 
+          workflow_name: << parameters.workflow_name >>
   finalize-release: 
+    parameters:
+      workflow_name:
+        type: string
+        default: ""
+        description: "The message to send to slack"
     executor: cactus-ios
     steps: 
       - checkout
@@ -219,7 +260,14 @@ jobs:
       - run:
           name: "Bump Version and Push to GIT"
           command: bundle exec fastlane version_bump
+      - notify-on-failure:
+          workflow_name: << parameters.workflow_name >>
   upload-symbols:
+    parameters:
+      workflow_name:
+        type: string
+        default: ""
+        description: "The message to send to slack"
     executor: cactus-ios
     steps: 
       - checkout
@@ -241,17 +289,27 @@ jobs:
             sentry-cli releases set-commits --auto $VERSION
       - store_artifacts:
           path: fl_output  
+      - notify-on-failure:
+          workflow_name: << parameters.workflow_name >>
 workflows:
   version: 2.1
   release-pipeline:
     jobs:
       - notify-release-started:
           name: &workflow_name iOS Release Pipeline
-          workflow_name: *workflow_name      
+          workflow_name: *workflow_name
+          filters:
+            branches:
+              only: master
       - run-tests:
           name: &test-name "Run Tests"
+          workflow_name: *workflow_name
+          filters:
+            branches:
+              only: master
       - upload-to-testflight:
           name: &build-and-upload "Deploy to TestFlight"
+          workflow_name: *workflow_name
           requires: 
             - *test-name
           filters:
@@ -259,15 +317,19 @@ workflows:
               only: master
       - finalize-release:
           name: &finalize-release "Finalize Release"
+          workflow_name: *workflow_name
           requires: 
               - *build-and-upload
           filters:
             branches:
-              only: master      
+              only: master  
       - notify-branch-workflow-finished:
           name: Notify Release Finished
           requires:
             - *finalize-release
+          filters:
+            branches:
+              only: master
       # TODO: Add upload symbols? Not sure if that's doing anything.. -NP 2019-10-03
 
   branch-pipeline:
@@ -279,7 +341,8 @@ workflows:
             branches:
               ignore: master
       - run-tests:
-          name: &test-name "Run Tests"
+          name: &test-name "Run Unit Tests"
+          workflow_name: *workflow_name
           filters:
             branches:
               ignore: master      
