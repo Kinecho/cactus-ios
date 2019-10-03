@@ -125,7 +125,6 @@ platform :ios do
 			project_slug: 'cactus-ios',
 			version: version, # release version to create
 			app_identifier: 'com.cactus.CactusApp', # pass in the bundle_identifer of your app		  
-			finalize: true # Whether to finalize the release. If not provided or false, the release can be finalized using the sentry_finalize_release action
 		)
 
 		sh("sentry-cli releases deploys '#{release}' new -e prod")
