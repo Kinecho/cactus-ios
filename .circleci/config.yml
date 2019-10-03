@@ -35,7 +35,7 @@ jobs:
           - persist_to_workspace: 
               root: neil-test
               paths: 
-                  - *
+                  - '.'
   restore-job:
       executor: cactus-ios
       steps: 
