@@ -71,10 +71,10 @@ jobs:
               command: |
                 echo Root Project Files
                 ls -la              
-          - persist_to_workspace: 
-              root: '.'
-              paths: 
-                  - build
+          # - persist_to_workspace: 
+          #     root: '.'
+          #     paths: 
+          #         - build
   restore-job:
       executor: cactus-ios
       steps: 
@@ -88,8 +88,8 @@ jobs:
                 ls -la neil-test || echo None
           - install-ruby
           - install-pods
-          - attach_workspace:
-              at: '.'
+          # - attach_workspace:
+          #     at: '.'
           - run: 
               name: "List files after restore"
               command: |
