@@ -182,8 +182,7 @@ jobs:
           name: "Add Fastlane Match SSH Key"
           fingerprints:
             - *match-ssh-fingerprint
-      - install-swiftlint
-      - run: exit 1
+      - install-swiftlint      
       - run: 
           name: Run Swiftlint
           command: bundle exec fastlane lint
