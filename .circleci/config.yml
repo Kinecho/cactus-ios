@@ -22,6 +22,11 @@ aliases:
       webhook: "${SLACK_ENGINEERING_APPS_CI_URL}"
 
 commands:  
+  notify-on-failure: 
+    steps: 
+      - slack/status:
+          <<: *webhook-url
+          fail_only: true
   get-repo-link:
     steps:
       - run:
@@ -71,13 +76,14 @@ commands:
     steps:
       - restore-pods-cache
       - run:
-          name: Install Cocopods Master 
+          name: Install CocoaPods Master Repo
           command: |
             curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf      
       - run:
           name: "Install CocoaPods"
           command: bundle exec pod install --verbose      
-      - save-pods-cache  
+      - save-pods-cache
+      - notify-on-failure
   install-swiftlint: 
     steps: 
       - run: 
@@ -156,25 +162,27 @@ jobs:
           fingerprints:
             - *match-ssh-fingerprint
       - install-swiftlint
+      run: exit 0
       - run: 
-          name: SwiftLint lane
+          name: Run Swiftlint
           command: bundle exec fastlane lint
       - install-pods
       - run:
-          name: Build and run tests
+          name: Run tests via Fastlane Scan
           command: bundle exec fastlane test
           environment:
             SCAN_DEVICE: iPhone 8
             SCAN_SCHEME: Cactus Prod
+      - notify-on-failure
   upload-to-testflight:
     executor: cactus-ios    
     shell: /bin/bash --login -o pipefail
     steps:
+      - checkout
       - add_ssh_keys:
           name: "Add Fastlane Match SSH Key"
           fingerprints:
-            - *match-ssh-fingerprint            
-      - checkout
+            - *match-ssh-fingerprint
       - install-ruby
       - install-swiftlint
       - install-pods
@@ -201,6 +209,7 @@ jobs:
           path: fl_output/scan
       - store_artifacts:
           path: fl_output
+      - notify-on-failure
   finalize-release: 
     executor: cactus-ios
     steps: 
@@ -219,6 +228,7 @@ jobs:
       - run:
           name: "Bump Version and Push to GIT"
           command: bundle exec fastlane version_bump
+      - notify-on-failure
   upload-symbols:
     executor: cactus-ios
     steps: 
@@ -241,6 +251,7 @@ jobs:
             sentry-cli releases set-commits --auto $VERSION
       - store_artifacts:
           path: fl_output  
+      - notify-on-failure
 workflows:
   version: 2.1
   release-pipeline:
