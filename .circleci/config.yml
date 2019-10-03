@@ -20,16 +20,22 @@ aliases:
   - &gem-cache 2-gems-{{ checksum "Gemfile.lock" }}
   - &webhook-url
       webhook: "${SLACK_ENGINEERING_APPS_CI_URL}"
+  - &workflow-name
 
-commands:  
+commands:    
   notify-on-failure: 
+    parameters:
+      workflow_name:
+        type: string
+        default: "<not set>"
+        description: "The message to send to slack"
     steps: 
       - slack/status:
           <<: *webhook-url
           fail_only: true
           include_project_field: false
           include_job_number_field: false
-          failure_message: ":frowning: *$CIRCLE_JOB* job failed on branch \\`${CIRCLE_BRANCH}\\` \n<https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID| View Workflow >"  
+          failure_message: ":frowning: *$CIRCLE_JOB* job failed on branch \\`${CIRCLE_BRANCH}\\` \n<https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID| View Workflow: << parameters.workflow_name >> >"  
   get-repo-link:
     steps:
       - run:
@@ -103,7 +109,7 @@ jobs:
     parameters:
       workflow_name:
         type: string
-        default: "DEFAULT"
+        default: "Default Workflow"
         description: "The message to send to slack"
     executor: cactus-web
     steps:
@@ -154,6 +160,11 @@ jobs:
           ts: "$(date +%s)"
           message: ":white_check_mark: \\`${CIRCLE_BRANCH}\\` <https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID| << parameters.workflow_name >> > completed successfully.\n$(cat .slack_git_url.txt)"  
   run-tests: 
+    parameters:
+      workflow_name:
+        type: string
+        default: ""
+        description: "The message to send to slack"
     executor: cactus-ios    
     shell: /bin/bash --login -o pipefail
     steps:
@@ -175,8 +186,14 @@ jobs:
           environment:
             SCAN_DEVICE: iPhone 8
             SCAN_SCHEME: Cactus Prod
-      - notify-on-failure
+      - notify-on-failure: 
+          workflow_name: << parameters.workflow_name >>
   upload-to-testflight:
+    parameters:
+      workflow_name:
+        type: string
+        default: ""
+        description: "The message to send to slack"
     executor: cactus-ios    
     shell: /bin/bash --login -o pipefail
     steps:
@@ -211,8 +228,14 @@ jobs:
           path: fl_output/scan
       - store_artifacts:
           path: fl_output
-      - notify-on-failure
+      - notify-on-failure: 
+          workflow_name: << parameters.workflow_name >>
   finalize-release: 
+    parameters:
+      workflow_name:
+        type: string
+        default: ""
+        description: "The message to send to slack"
     executor: cactus-ios
     steps: 
       - checkout
@@ -230,8 +253,14 @@ jobs:
       - run:
           name: "Bump Version and Push to GIT"
           command: bundle exec fastlane version_bump
-      - notify-on-failure
+      - notify-on-failure:
+          workflow_name: << parameters.workflow_name >>
   upload-symbols:
+    parameters:
+      workflow_name:
+        type: string
+        default: ""
+        description: "The message to send to slack"
     executor: cactus-ios
     steps: 
       - checkout
@@ -253,24 +282,27 @@ jobs:
             sentry-cli releases set-commits --auto $VERSION
       - store_artifacts:
           path: fl_output  
-      - notify-on-failure
+      - notify-on-failure:
+          workflow_name: << parameters.workflow_name >>
 workflows:
   version: 2.1
   release-pipeline:
     jobs:
       - notify-release-started:
           name: &workflow_name iOS Release Pipeline
-          workflow_name: *workflow_name      
+          workflow_name: *workflow_name
           filters:
             branches:
               only: master
       - run-tests:
           name: &test-name "Run Tests"
+          workflow_name: *workflow_name
           filters:
             branches:
               only: master
       - upload-to-testflight:
           name: &build-and-upload "Deploy to TestFlight"
+          workflow_name: *workflow_name
           requires: 
             - *test-name
           filters:
@@ -278,6 +310,7 @@ workflows:
               only: master
       - finalize-release:
           name: &finalize-release "Finalize Release"
+          workflow_name: *workflow_name
           requires: 
               - *build-and-upload
           filters:
@@ -302,6 +335,7 @@ workflows:
               ignore: master
       - run-tests:
           name: &test-name "Run Tests"
+          workflow_name: *workflow_name
           filters:
             branches:
               ignore: master      
