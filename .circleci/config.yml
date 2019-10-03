@@ -33,9 +33,9 @@ jobs:
                 echo Neil-Test files
                 ls -la neil-test
           - persist_to_workspace: 
-              root: neil-test
+              root: '.'
               paths: 
-                  - '.'
+                  - neil-test
   restore-job:
       executor: cactus-ios
       steps: 
@@ -48,7 +48,7 @@ jobs:
                 echo **** Neil-Test files ****
                 ls -la neil-test || echo None
           - attach_workspace:
-              at: restored-test
+              at: '.'
           - run: 
               name: "List files after restore"
               command: |
