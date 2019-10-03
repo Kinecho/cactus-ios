@@ -26,6 +26,7 @@ commands:
           key: *pod-cache
           paths: 
             - Pods
+            - ~/.cocoapods
   restore-pods-cache: 
     steps: 
       - restore_cache: 
@@ -47,10 +48,10 @@ commands:
   install-pods:
     steps:
       - restore-pods-cache
-      # - run:
-      #     name: Fetch CocoaPods Specs
-      #     command: |
-      #       curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf      
+      - run:
+          name: Fetch CocoaPods Specs
+          command: |
+            curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf      
       - run:
           name: "Install CocoaPods"
           command: bundle exec pod install --verbose      

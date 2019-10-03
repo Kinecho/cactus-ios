@@ -32,7 +32,7 @@ platform :ios do
 	    push_to_git_remote
   	end
 
-  	lane :build_app do 
+  	lane :build_only do 
   		build_app(workspace: "Cactus.xcworkspace", scheme: "Cactus Prod", xcargs: "-UseModernBuildSystem=NO")
   	end
 
