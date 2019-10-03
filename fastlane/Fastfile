@@ -114,7 +114,11 @@ platform :ios do
 		sh("sentry-cli releases set-commits --auto #{release}")
 	end 
 
-	lane :finalize_release do 		
+	lane :finalize_release do 
+		get_version_number(xcodeproj: "Cactus.xcodeproj", target: "Cactus Prod")
+		get_build_number		
+		version = "#{lane_context[SharedValues::VERSION_NUMBER]}.#{lane_context[SharedValues::BUILD_NUMBER]}"
+		release = "com.cactus.CactusApp-#{version}"		
 		sentry_finalize_release(
 			auth_token: $SENTRY_AUTH_TOKEN,
 			org_slug: 'kinecho',
