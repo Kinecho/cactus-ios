@@ -193,6 +193,14 @@ jobs:
           environment:
             SCAN_DEVICE: iPhone 8
             SCAN_SCHEME: Cactus Prod
+      - store_test_results:
+          path: reports
+      - store_artifacts:
+          path: reports
+      - store_test_results:
+          path: fl_output/scan
+      - store_artifacts:
+          path: fl_output
       - notify-on-failure: 
           workflow_name: << parameters.workflow_name >>
   upload-to-testflight:
