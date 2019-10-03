@@ -30,7 +30,7 @@ jobs:
               command: |
                 echo Root Project Files
                 ls -la
-                **** echo Neil-Test files ****
+                echo Neil-Test files
                 ls -la neil-test
           - persist_to_workspace: 
               root: ci-builds
