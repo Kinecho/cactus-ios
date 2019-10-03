@@ -33,9 +33,9 @@ jobs:
                 echo Neil-Test files
                 ls -la neil-test
           - persist_to_workspace: 
-              root: ci-builds
+              root: neil-test
               paths: 
-                  - neil-test/*
+                  - *
   restore-job:
       executor: cactus-ios
       steps: 
