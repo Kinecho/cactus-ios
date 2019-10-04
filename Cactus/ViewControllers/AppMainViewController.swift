@@ -14,6 +14,7 @@ class AppMainViewController: UIViewController {
     
     var hasUser = false
     var authHasLoaded = false
+    var member: CactusMember?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         let launchStoryboard = UIStoryboard(name: StoryboardID.LaunchScreen.name, bundle: nil)
@@ -42,16 +43,18 @@ class AppMainViewController: UIViewController {
     func setupAuth() {
         _ = CactusMemberService.sharedInstance.observeCurrentMember { (member, _, _) in
             print("setup auth onData", member?.email ?? "no email")
+            
             if member == nil {
                 print("found member, is null. showing loign screen.")
                 _ = self.showScreen(ScreenID.Login, wrapInNav: true)
                 self.hasUser = false
-            } else {
+            } else if member?.id != self.member?.id {
                 print("Found member, not null. showing journal feed")
                 _ = self.showScreen(ScreenID.JournalHome, wrapInNav: true)
                 self.hasUser = true
             }
             self.authHasLoaded = true
+            self.member = member
         }
     }
     

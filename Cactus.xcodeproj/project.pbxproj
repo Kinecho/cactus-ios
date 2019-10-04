@@ -32,6 +32,8 @@
 		30265C6123453CB100934041 /* UIImage+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30265C5F23453CB100934041 /* UIImage+SwiftyGif.swift */; };
 		30265C6323453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30265C6223453CD100934041 /* UIImageView+SwiftyGif.swift */; };
 		30265C6423453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30265C6223453CD100934041 /* UIImageView+SwiftyGif.swift */; };
+		302C4F492347D7A700798560 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F482347D7A700798560 /* SettingsTableViewController.swift */; };
+		302C4F4A2347D7A700798560 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F482347D7A700798560 /* SettingsTableViewController.swift */; };
 		303BF744232A986A00164539 /* CactusUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303BF743232A986A00164539 /* CactusUnitTests.swift */; };
 		303BF750232D289A00164539 /* QuoteContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303BF74E232D289A00164539 /* QuoteContentViewController.swift */; };
 		303BF751232D289A00164539 /* QuoteContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303BF74E232D289A00164539 /* QuoteContentViewController.swift */; };
@@ -218,6 +220,7 @@
 		30265C5C23453C8D00934041 /* SwiftyGifManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyGifManager.swift; sourceTree = "<group>"; };
 		30265C5F23453CB100934041 /* UIImage+SwiftyGif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+SwiftyGif.swift"; sourceTree = "<group>"; };
 		30265C6223453CD100934041 /* UIImageView+SwiftyGif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+SwiftyGif.swift"; sourceTree = "<group>"; };
+		302C4F482347D7A700798560 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		303BF741232A986A00164539 /* Cactus UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cactus UnitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		303BF743232A986A00164539 /* CactusUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusUnitTests.swift; sourceTree = "<group>"; };
 		303BF745232A986A00164539 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -595,6 +598,7 @@
 				300AC17B23397A77005C6555 /* JournalHomeViewController.swift */,
 				30E2D37823432B21003D2B27 /* NavigationMenuViewController.swift */,
 				30E2D37923432B21003D2B27 /* NavigationMenuViewController.xib */,
+				302C4F482347D7A700798560 /* SettingsTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1296,6 +1300,7 @@
 				30934FA422EBF4E6007C4E6C /* FormatUtils.swift in Sources */,
 				30E9B0B422EADE2D005B25FD /* CGExtensions.swift in Sources */,
 				300AC18E233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */,
+				302C4F4A2347D7A700798560 /* SettingsTableViewController.swift in Sources */,
 				305B18812331E162003E1561 /* ReflectContentViewController.swift in Sources */,
 				30E9B0BE22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
 				300AC1802339839A005C6555 /* CactusImage.swift in Sources */,
@@ -1363,6 +1368,7 @@
 				30BF2E2F2328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */,
 				30BF2E0F23281CAA00A49EB6 /* FlamelinkTypes.swift in Sources */,
 				300AC18D233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */,
+				302C4F492347D7A700798560 /* SettingsTableViewController.swift in Sources */,
 				305B18802331E162003E1561 /* ReflectContentViewController.swift in Sources */,
 				30E9B0A022EABFBD005B25FD /* CactusMemberService.swift in Sources */,
 				300AC17F2339839A005C6555 /* CactusImage.swift in Sources */,

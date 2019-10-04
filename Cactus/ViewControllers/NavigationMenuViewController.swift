@@ -25,6 +25,7 @@ class NavigationMenuViewController: UIViewController {
     
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var displayNameLabel: UILabel!
+    var member: CactusMember?
     
     var reflectionsCountProcess: CountProcess?
     var minutesCountProcess: CountProcess?
@@ -82,6 +83,7 @@ class NavigationMenuViewController: UIViewController {
                 print("Failed to get member in NavMenu", error)
             }
             self.updateMemberInfo(member)
+            self.member = member
         })
     }
    
@@ -187,17 +189,10 @@ class NavigationMenuViewController: UIViewController {
     
     @IBAction func settingsTapped(_ sender: Any) {
         let vc = AppDelegate.shared.rootViewController.getScreen(ScreenID.settingsTable, StoryboardID.Settings)
-                        
-        if self.navigationController != nil, !(self.navigationController?.viewControllers.contains(vc) ?? false) {
-//            vc.navigationController.hide
-//            vc.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.dismissView))
-            self.navigationController?.pushViewController(vc, animated: true)
-        } else if self.navigationController == nil {
-            vc.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.dismissView))
-            let nav = UINavigationController(rootViewController: vc)
-            self.present(nav, animated: true)
+        if let settingsVc = vc as? SettingsTableViewController {
+            settingsVc.member = self.member
         }
-        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
