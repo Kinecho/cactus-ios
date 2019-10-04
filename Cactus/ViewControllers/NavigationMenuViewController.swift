@@ -40,30 +40,22 @@ class NavigationMenuViewController: UIViewController {
     var previousStreak = 0
     
     var reflectionCount = 0 {
-        willSet {
-//            self.previousReflectionCount = newValue
-        }
-        
         didSet {
             self.animateReflectionCount()
+            //            self.previousReflectionCount = newValue
         }
     }
     
     var reflectionDurationMs = 0 {
-        willSet {
-//            self.previousReflectionDurationMs = newValue
-        }
         didSet {
             self.animateDuration()
+            //            self.previousReflectionDurationMs = newValue
         }
     }
     var streak = 0 {
-        willSet {
-//            self.previousStreak = newValue
-        }
-        
         didSet {
             self.animateStreak()
+            //            self.previousStreak = newValue
         }
     }
     let animationDurationMs: UInt32 = 750
@@ -112,7 +104,9 @@ class NavigationMenuViewController: UIViewController {
     }
     
     func resetNumbers() {
-        
+        self.reflectionCountLabel.text = "--"
+        self.streakCountLabel.text = "--"
+        self.reflectionDurationLabel.text = "--"
     }
     
     func animateNumbers() {
@@ -123,7 +117,7 @@ class NavigationMenuViewController: UIViewController {
     }
     
     func animateReflectionCount() {
-        
+        print("animate reflection count")
         self.reflectionsCountProcess = CountProcess(minValue: self.previousReflectionCount,
                                                     maxValue: self.reflectionCount,
                                                     name: "ReflectionCount",
@@ -158,6 +152,7 @@ class NavigationMenuViewController: UIViewController {
     }
     
     func animateStreak() {
+        print("animate streak")
         self.streakCountProcess = CountProcess(minValue: self.previousStreak,
                                                maxValue: self.streak,
                                                name: "Streak",

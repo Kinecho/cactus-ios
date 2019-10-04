@@ -72,7 +72,7 @@ class CountProcess {
             delay = min(UInt32(maxDuration / numSteps) * 1000, delay)
         }
         
-        let actualDelay = delay
+        let actualDelay = min(delay, 200_000)
         
         simulateLoading(toValue: maxValue, step: step, stepDelayUsec: actualDelay, valueChanged: valueChanged, completion: completion)
     }

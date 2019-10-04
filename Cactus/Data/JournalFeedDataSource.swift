@@ -179,7 +179,7 @@ class JournalFeedDataSource {
     }
     
     var currentStreak: Int {
-        return 0
+        return calculateStreak(self.responses)
     }
     
     var responses: [ReflectionResponse] {

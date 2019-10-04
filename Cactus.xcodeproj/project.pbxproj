@@ -34,6 +34,8 @@
 		30265C6423453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30265C6223453CD100934041 /* UIImageView+SwiftyGif.swift */; };
 		302C4F492347D7A700798560 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F482347D7A700798560 /* SettingsTableViewController.swift */; };
 		302C4F4A2347D7A700798560 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F482347D7A700798560 /* SettingsTableViewController.swift */; };
+		302C4F4C2347E25A00798560 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F4B2347E25A00798560 /* DateUtil.swift */; };
+		302C4F4D2347E25A00798560 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F4B2347E25A00798560 /* DateUtil.swift */; };
 		303BF744232A986A00164539 /* CactusUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303BF743232A986A00164539 /* CactusUnitTests.swift */; };
 		303BF750232D289A00164539 /* QuoteContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303BF74E232D289A00164539 /* QuoteContentViewController.swift */; };
 		303BF751232D289A00164539 /* QuoteContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303BF74E232D289A00164539 /* QuoteContentViewController.swift */; };
@@ -221,6 +223,7 @@
 		30265C5F23453CB100934041 /* UIImage+SwiftyGif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+SwiftyGif.swift"; sourceTree = "<group>"; };
 		30265C6223453CD100934041 /* UIImageView+SwiftyGif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+SwiftyGif.swift"; sourceTree = "<group>"; };
 		302C4F482347D7A700798560 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		302C4F4B2347E25A00798560 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		303BF741232A986A00164539 /* Cactus UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cactus UnitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		303BF743232A986A00164539 /* CactusUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusUnitTests.swift; sourceTree = "<group>"; };
 		303BF745232A986A00164539 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -443,6 +446,7 @@
 				3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */,
 				305B186D23319E09003E1561 /* FileUtils.swift */,
 				300AC17E2339839A005C6555 /* CactusImage.swift */,
+				302C4F4B2347E25A00798560 /* DateUtil.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1329,6 +1333,7 @@
 				30E9B0B822EADF75005B25FD /* HomeViewController.swift in Sources */,
 				30E2D377234311C6003D2B27 /* PillLabelView.swift in Sources */,
 				30265C6423453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */,
+				302C4F4D2347E25A00798560 /* DateUtil.swift in Sources */,
 				30E9B0B022EADD04005B25FD /* LoginViewController.swift in Sources */,
 				30265C5E23453C8D00934041 /* SwiftyGifManager.swift in Sources */,
 				30BF2E342328D91B00A49EB6 /* PromptContent.swift in Sources */,
@@ -1397,6 +1402,7 @@
 				30E9B0AF22EADD04005B25FD /* LoginViewController.swift in Sources */,
 				30E2D376234311C6003D2B27 /* PillLabelView.swift in Sources */,
 				30265C6323453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */,
+				302C4F4C2347E25A00798560 /* DateUtil.swift in Sources */,
 				30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */,
 				30265C5D23453C8D00934041 /* SwiftyGifManager.swift in Sources */,
 				30BF2E14232824AB00A49EB6 /* FlamelinkService.swift in Sources */,

@@ -31,10 +31,10 @@ class AppMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addChild(current)               // 1
-        current.view.frame = view.bounds              // 2
-        view.addSubview(current.view)                 // 3
-        current.didMove(toParent: self) // 4
+        addChild(current)
+        current.view.frame = view.bounds
+        view.addSubview(current.view)
+        current.didMove(toParent: self)
         // Do any additional setup after loading the view.
         print("***** setting up auth*****")
         self.setupAuth()
