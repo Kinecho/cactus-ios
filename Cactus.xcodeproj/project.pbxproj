@@ -158,6 +158,8 @@
 		30C49D3822EC2D4C00A2EA95 /* CactusColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */; };
 		30C7E57B233FEB5800145111 /* FontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C7E57A233FEB5800145111 /* FontExtensions.swift */; };
 		30C7E57C233FEB5800145111 /* FontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C7E57A233FEB5800145111 /* FontExtensions.swift */; };
+		30CD90AA2346F06B00703FE2 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30CD90A92346F06B00703FE2 /* Settings.storyboard */; };
+		30CD90AB2346F06B00703FE2 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30CD90A92346F06B00703FE2 /* Settings.storyboard */; };
 		30E2D376234311C6003D2B27 /* PillLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2D375234311C6003D2B27 /* PillLabelView.swift */; };
 		30E2D377234311C6003D2B27 /* PillLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2D375234311C6003D2B27 /* PillLabelView.swift */; };
 		30E2D37A23432B21003D2B27 /* NavigationMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2D37823432B21003D2B27 /* NavigationMenuViewController.swift */; };
@@ -288,6 +290,7 @@
 		30C49D3322EC299300A2EA95 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusColor.swift; sourceTree = "<group>"; };
 		30C7E57A233FEB5800145111 /* FontExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtensions.swift; sourceTree = "<group>"; };
+		30CD90A92346F06B00703FE2 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		30E2D375234311C6003D2B27 /* PillLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillLabelView.swift; sourceTree = "<group>"; };
 		30E2D37823432B21003D2B27 /* NavigationMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMenuViewController.swift; sourceTree = "<group>"; };
 		30E2D37923432B21003D2B27 /* NavigationMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationMenuViewController.xib; sourceTree = "<group>"; };
@@ -477,6 +480,7 @@
 			isa = PBXGroup;
 			children = (
 				30B6EA7422EA5A9F00443E46 /* Main.storyboard */,
+				30CD90A92346F06B00703FE2 /* Settings.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -761,6 +765,7 @@
 				30A281E222EA61A30041158E /* SharedAssets.xcassets in Resources */,
 				30673B99233FDEC300EDE7BD /* Lato-Bold.ttf in Resources */,
 				30BF2E2D23289F9F00A49EB6 /* TextContentViewController.xib in Resources */,
+				30CD90AB2346F06B00703FE2 /* Settings.storyboard in Resources */,
 				300AC18A233A850B005C6555 /* JournalEntrySkeletonViewController.xib in Resources */,
 				30673B9B233FDEC300EDE7BD /* Lato-Black.ttf in Resources */,
 				3095619A22ECF1CD009357BD /* GoogleService-Info.plist in Resources */,
@@ -807,6 +812,7 @@
 				30B6EA7622EA5A9F00443E46 /* Main.storyboard in Resources */,
 				30A266DA2329BB73003C708E /* config.yml in Resources */,
 				30673BA6233FDEC300EDE7BD /* Lato-ThinItalic.ttf in Resources */,
+				30CD90AA2346F06B00703FE2 /* Settings.storyboard in Resources */,
 				30673B9C233FDEC300EDE7BD /* Lato-Regular.ttf in Resources */,
 				305B1865233175DC003E1561 /* PhotoContentViewController.xib in Resources */,
 				303BF752232D289A00164539 /* QuoteContentViewController.xib in Resources */,

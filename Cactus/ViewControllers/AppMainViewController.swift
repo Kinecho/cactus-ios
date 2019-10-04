@@ -55,8 +55,9 @@ class AppMainViewController: UIViewController {
         }
     }
     
-    func getScreen(_ screen: ScreenID) -> UIViewController {
-        return storyboard!.instantiateViewController(withIdentifier: screen.name)
+    func getScreen(_ screen: ScreenID, _ storyboardId: StoryboardID=StoryboardID.Main) -> UIViewController {
+        let storyboard = storyboardId.getStoryboard()
+        return storyboard.instantiateViewController(withIdentifier: screen.name)
     }
    
     func showScreen(_ screenId: ScreenID, wrapInNav: Bool=false, animate: ((_ new: UIViewController, _ completion: (() -> Void)?) -> Void)? = nil) -> UIViewController {

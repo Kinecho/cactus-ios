@@ -12,6 +12,8 @@ import FirebaseAuth
 import Foundation
 import CodableFirebase
 
+typealias Unsubscriber = () -> Void
+
 class FirestoreService {
     let db: Firestore
     

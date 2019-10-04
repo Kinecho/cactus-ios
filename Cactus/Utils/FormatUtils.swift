@@ -33,7 +33,7 @@ struct FormatUtils {
             return true
         }
         
-        if input.isEmpty {
+        if input.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             return true
         }
         

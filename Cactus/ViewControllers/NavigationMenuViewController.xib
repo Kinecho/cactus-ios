@@ -20,6 +20,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NavigationMenuViewController" customModule="Cactus_Prod" customModuleProvider="target">
             <connections>
                 <outlet property="closeButton" destination="Mrp-jR-DR7" id="yks-xP-IZw"/>
+                <outlet property="displayNameLabel" destination="aeJ-aC-hQe" id="nAk-3A-jSx"/>
+                <outlet property="emailLabel" destination="3dw-Xl-Tng" id="e6p-dU-yK7"/>
                 <outlet property="inviteButton" destination="vEe-Hm-kiV" id="12G-Ph-14c"/>
                 <outlet property="minutesLabel" destination="ETE-OQ-lib" id="ce1-GG-qfm"/>
                 <outlet property="notificationsButton" destination="gQA-bL-PSt" id="msQ-CB-O0X"/>
@@ -35,7 +37,7 @@
             <rect key="frame" x="0.0" y="0.0" width="334" height="725"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Neil Poulin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeJ-aC-hQe">
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Neil Poulin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeJ-aC-hQe">
                     <rect key="frame" x="20" y="134" width="304" height="28"/>
                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
                     <color key="textColor" name="BlueLight"/>
@@ -49,7 +51,7 @@
                         <constraint firstAttribute="height" constant="50" id="yh4-BM-Xs8"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="neil@cactus.app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dw-Xl-Tng">
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="neil@cactus.app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dw-Xl-Tng">
                     <rect key="frame" x="20" y="172" width="294" height="19"/>
                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                     <color key="textColor" name="GreenLight"/>
@@ -76,7 +78,7 @@
                     <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="Settings" image="gear"/>
                     <connections>
-                        <action selector="settingsTapped:" destination="-1" eventType="touchUpInside" id="lbw-08-Lh8"/>
+                        <action selector="settingsTapped:" destination="-1" eventType="primaryActionTriggered" id="v7t-wy-7gJ"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQA-bL-PSt" userLabel="Settings">

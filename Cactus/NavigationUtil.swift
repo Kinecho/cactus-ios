@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 enum ScreenID: String {
+    //main
     case AppMain = "AppMain"
     case Home = "Home"
     case Login = "Login"
@@ -17,7 +18,10 @@ enum ScreenID: String {
     case MemberProfile = "MemberProfile"
     case JournalFeed
     case JournalHome
-
+    //settings
+    case settingsTable
+    case inviteScreen
+    
     var name: String {
         return self.rawValue
     }
@@ -38,9 +42,14 @@ enum NibName: String {
 enum StoryboardID: String {
     case LaunchScreen
     case Main
+    case Settings
 
     var name: String {
         return self.rawValue
+    }
+    
+    func getStoryboard() -> UIStoryboard {
+        return UIStoryboard(name: self.rawValue, bundle: nil)
     }
 }
 

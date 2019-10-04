@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 protocol NavigationMenuViewControllerDelegate: class {
     func closeMenu()
     func openMenu()
@@ -24,9 +23,14 @@ class NavigationMenuViewController: UIViewController {
     @IBOutlet weak var reflectionDurationLabel: UILabel!
     @IBOutlet weak var minutesLabel: UILabel!
     
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var displayNameLabel: UILabel!
+    
     var reflectionsCountProcess: CountProcess?
     var minutesCountProcess: CountProcess?
     var streakCountProcess: CountProcess?
+    
+    var memberUnsubscriber: Unsubscriber?
     
     weak var delegate: NavigationMenuViewControllerDelegate?
     
@@ -62,7 +66,6 @@ class NavigationMenuViewController: UIViewController {
         }
     }
     let animationDurationMs: UInt32 = 750
-    //    let countDiff = 30
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +76,29 @@ class NavigationMenuViewController: UIViewController {
         
 //        self.resetNumbers()
         // Do any additional setup after loading the view.
+        
+        self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, error, _) in
+            if let error = error {
+                print("Failed to get member in NavMenu", error)
+            }
+            self.updateMemberInfo(member)
+        })
+    }
+   
+    deinit {
+        self.memberUnsubscriber?()
+    }
+    
+    func updateMemberInfo(_ member: CactusMember?) {
+        if let member = member {
+            self.emailLabel.text = member.email
+            self.emailLabel.isHidden = false
+            self.displayNameLabel.text = "\(member.firstName ?? "") \(member.lastName ?? "")".trimmingCharacters(in: .whitespacesAndNewlines)
+            self.displayNameLabel.isHidden = false
+        } else {
+            self.emailLabel.isHidden = true
+            self.displayNameLabel.isHidden = true
+        }
     }
     
     func finishedClosing() {
@@ -84,17 +110,6 @@ class NavigationMenuViewController: UIViewController {
     }
     
     func resetNumbers() {
-        //        self.reflectionCountLabel.text = "\(max(0, reflectionCount - countDiff))"
-        //        self.streakCountLabel.text = "\(max(0, streak - countDiff))"
-        //        self.reflectionDurationLabel.text = "\(max(0, minutes - countDiff))"
-        
-//        self.reflectionCountLabel.text = "0"
-//        self.streakCountLabel.text = "0"
-//        self.reflectionDurationLabel.text = "0"
-        
-//        self.previousReflectionCount = self.reflectionCount
-//        self.previousStreak = self.streak
-//        self.previousReflectionDurationMs = self.reflectionDurationMs
         
     }
     
@@ -152,7 +167,8 @@ class NavigationMenuViewController: UIViewController {
     }
     
     @IBAction func inviteTapped(_ sender: Any) {
-        
+        let vc = AppDelegate.shared.rootViewController.getScreen(ScreenID.inviteScreen, StoryboardID.Settings)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func closeTapped(_ sender: Any) {
@@ -162,11 +178,7 @@ class NavigationMenuViewController: UIViewController {
     @IBAction func notificationsTapped(_ sender: Any) {
         //        let vc = MemberProfileViewController()
         let vc = AppDelegate.shared.rootViewController.getScreen(ScreenID.MemberProfile)
-        
-        let navController = UINavigationController(rootViewController: vc)
-        vc.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.dismissView))
-        
-        self.present(navController, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func dismissView() {
@@ -174,6 +186,18 @@ class NavigationMenuViewController: UIViewController {
     }
     
     @IBAction func settingsTapped(_ sender: Any) {
+        let vc = AppDelegate.shared.rootViewController.getScreen(ScreenID.settingsTable, StoryboardID.Settings)
+                        
+        if self.navigationController != nil, !(self.navigationController?.viewControllers.contains(vc) ?? false) {
+//            vc.navigationController.hide
+//            vc.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.dismissView))
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else if self.navigationController == nil {
+            vc.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.dismissView))
+            let nav = UINavigationController(rootViewController: vc)
+            self.present(nav, animated: true)
+        }
+        
     }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
