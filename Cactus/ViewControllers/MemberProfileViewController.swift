@@ -12,7 +12,7 @@ import Firebase
 
 @IBDesignable
 class MemberProfileViewController: UIViewController {
-    @IBOutlet weak var emailLabel: UITextView!
+//    @IBOutlet weak var emailLabel: UITextView!
     @IBOutlet weak var permissionSettingErrorLabel: UILabel!
     @IBOutlet weak var notificationSwitch: UISwitch!
     
@@ -94,12 +94,12 @@ class MemberProfileViewController: UIViewController {
             }
         }
 
-        emailLabel.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+//        emailLabel.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         // Do any additional setup after loading the view.
         
-        let member = CactusMemberService.sharedInstance.getCurrentMember()
-        self.emailLabel.text = member?.email
+//        let member = CactusMemberService.sharedInstance.getCurrentMember()
+//        self.emailLabel.text = member?.email
         
 //        let journalItem = UIBarButtonItem(title: "Journal", style: .plain, target: self, action: #selector(self.showJournal(sender:)))
 //        self.navigationItem.rightBarButtonItem = journalItem

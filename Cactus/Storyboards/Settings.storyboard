@@ -16,13 +16,13 @@
         <!--Invite View Controller-->
         <scene sceneID="FN9-08-AmX">
             <objects>
-                <viewController storyboardIdentifier="inviteScreen" id="4Id-NV-Bq1" userLabel="Invite View Controller" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="inviteScreen" title="Invite" id="4Id-NV-Bq1" userLabel="Invite View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lod-Nl-SAt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uqg-WV-VIf">
-                                <rect key="frame" x="135.5" y="433" width="143" height="30"/>
+                                <rect key="frame" x="134.5" y="433" width="145" height="30"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -43,7 +43,7 @@
         <!--Settings Table View Controller-->
         <scene sceneID="fzr-vF-ddO">
             <objects>
-                <tableViewController storyboardIdentifier="settingsTable" id="XLO-Dp-R0b" userLabel="Settings Table View Controller" customClass="SettingsTableViewController" customModule="Cactus_Prod" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="settingsTable" title="Settings" id="XLO-Dp-R0b" userLabel="Settings Table View Controller" customClass="SettingsTableViewController" customModule="Cactus_Prod" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4eP-GZ-IM5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,6 +94,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="T3Z-wr-Hxb" kind="show" id="R1W-5h-pel"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="C1u-m1-5D1" detailTextLabel="Xdy-Bv-XCM" style="IBUITableViewCellStyleValue1" id="Xi3-Zc-6ND" userLabel="Language Cell">
                                         <rect key="frame" x="0.0" y="129.5" width="414" height="43.5"/>
@@ -135,15 +138,18 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="dv7-kn-tAt" kind="show" id="6bA-cl-TPL"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="a0n-fx-mLH" style="IBUITableViewCellStyleDefault" id="gdM-4a-XaV" userLabel="Terms of Use Cell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="a0n-fx-mLH" style="IBUITableViewCellStyleDefault" id="gdM-4a-XaV" userLabel="Terms of Service Cell">
                                         <rect key="frame" x="0.0" y="216.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gdM-4a-XaV" id="vgs-rB-3mi">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Terms of Use" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a0n-fx-mLH">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Terms of Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a0n-fx-mLH">
                                                     <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -152,6 +158,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="VmT-AM-J56" kind="show" id="IAz-mq-zZr"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="OQf-Bn-3a6" style="IBUITableViewCellStyleDefault" id="GsB-sL-6cN" userLabel="Send Feedback Cell">
                                         <rect key="frame" x="0.0" y="260" width="414" height="43.5"/>
@@ -186,6 +195,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="3AU-GE-eN9" kind="show" id="Gta-Gc-dQm"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -195,24 +207,150 @@
                             <outlet property="delegate" destination="XLO-Dp-R0b" id="HHd-en-KPj"/>
                         </connections>
                     </tableView>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="emailAddressLabel" destination="FBh-Ni-bjj" id="B4Y-rw-TQp"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oG8-05-y9o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1094.2028985507247" y="-344.19642857142856"/>
+            <point key="canvasLocation" x="-1094" y="-332"/>
+        </scene>
+        <!--Linked Accounts-->
+        <scene sceneID="a8p-Jm-BUN">
+            <objects>
+                <viewController id="T3Z-wr-Hxb" userLabel="Linked Accounts" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="la8-wS-zEi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Linked Accounts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIG-cL-LD2">
+                                <rect key="frame" x="143.5" y="437.5" width="127" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="oIG-cL-LD2" firstAttribute="centerY" secondItem="la8-wS-zEi" secondAttribute="centerY" id="WQx-Sa-rHL"/>
+                            <constraint firstItem="oIG-cL-LD2" firstAttribute="centerX" secondItem="la8-wS-zEi" secondAttribute="centerX" id="hDu-zC-8MS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="m95-AF-UBV"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Linked Accounts" id="Ax6-NZ-WQc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JHg-HH-vor" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2835" y="-731"/>
+        </scene>
+        <!--Help View Controller-->
+        <scene sceneID="Y8n-iX-0hi">
+            <objects>
+                <viewController id="dv7-kn-tAt" userLabel="Help View Controller" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bDA-v3-7uD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have Questions?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07n-fK-1TU">
+                                <rect key="frame" x="20" y="200" width="374" height="31.5"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="07n-fK-1TU" firstAttribute="leading" secondItem="vCx-MQ-ROC" secondAttribute="leading" constant="20" id="HXU-xh-ncc"/>
+                            <constraint firstItem="vCx-MQ-ROC" firstAttribute="trailing" secondItem="07n-fK-1TU" secondAttribute="trailing" constant="20" id="mAR-6P-aHR"/>
+                            <constraint firstItem="07n-fK-1TU" firstAttribute="top" secondItem="vCx-MQ-ROC" secondAttribute="top" constant="112" id="xIB-NO-d4s"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vCx-MQ-ROC"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Help" id="A2S-MB-zfN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SRH-Ju-269" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2103" y="-731"/>
+        </scene>
+        <!--Privacy Policy-->
+        <scene sceneID="PBF-Qv-N61">
+            <objects>
+                <viewController title="Privacy Policy" id="VmT-AM-J56" customClass="TermsOfUseServiceController" customModule="Cactus_Prod" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yem-il-A0u">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k1e-NA-ws0">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="wMi-FG-Ubt" firstAttribute="trailing" secondItem="k1e-NA-ws0" secondAttribute="trailing" id="Njq-Bo-0BL"/>
+                            <constraint firstItem="k1e-NA-ws0" firstAttribute="leading" secondItem="wMi-FG-Ubt" secondAttribute="leading" id="aVi-Kj-seX"/>
+                            <constraint firstItem="k1e-NA-ws0" firstAttribute="top" secondItem="wMi-FG-Ubt" secondAttribute="top" id="edo-bN-GlV"/>
+                            <constraint firstItem="wMi-FG-Ubt" firstAttribute="bottom" secondItem="k1e-NA-ws0" secondAttribute="bottom" id="uwy-cY-NHX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wMi-FG-Ubt"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Terms of Service" id="Jn6-s0-iyR"/>
+                    <connections>
+                        <outlet property="webview" destination="k1e-NA-ws0" id="69m-sG-rI3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LQA-b2-IGB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="638" y="-731"/>
+        </scene>
+        <!--Privacy Policy-->
+        <scene sceneID="tjv-LY-eHu">
+            <objects>
+                <viewController title="Privacy Policy" id="3AU-GE-eN9" customClass="PrivacyPolicyViewController" customModule="Cactus_Prod" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RK6-lF-uf3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GJR-xY-OOA">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="GJR-xY-OOA" firstAttribute="top" secondItem="CkK-WM-ZBq" secondAttribute="top" id="2GP-MJ-BIR"/>
+                            <constraint firstItem="GJR-xY-OOA" firstAttribute="leading" secondItem="CkK-WM-ZBq" secondAttribute="leading" id="ETI-zJ-5Fr"/>
+                            <constraint firstItem="CkK-WM-ZBq" firstAttribute="trailing" secondItem="GJR-xY-OOA" secondAttribute="trailing" id="bLY-wB-oSO"/>
+                            <constraint firstItem="CkK-WM-ZBq" firstAttribute="bottom" secondItem="GJR-xY-OOA" secondAttribute="bottom" id="goZ-a8-qdn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CkK-WM-ZBq"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Privacy Policy" id="0df-7W-AK8"/>
+                    <connections>
+                        <outlet property="webview" destination="GJR-xY-OOA" id="N7M-tT-JCT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MAK-cE-tys" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1381" y="-731"/>
         </scene>
         <!--Email Settings View Controller-->
         <scene sceneID="pr2-vL-GcW">
             <objects>
-                <viewController id="KAd-di-PWW" userLabel="Email Settings View Controller" sceneMemberID="viewController">
+                <viewController title="Email Address" id="KAd-di-PWW" userLabel="Email Settings View Controller" customClass="EmailSettingsViewController" customModule="Cactus_Prod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NG1-hq-qNb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mz8-2O-CNy">
-                                <rect key="frame" x="157.5" y="410.5" width="99" height="21"/>
+                                <rect key="frame" x="157.5" y="437.5" width="99" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -225,11 +363,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kz1-Nk-eh8"/>
                     </view>
-                    <navigationItem key="navigationItem" id="6bO-uI-47t"/>
+                    <navigationItem key="navigationItem" title="Email Address" id="6bO-uI-47t"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pc9-hJ-qYt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-246" y="-344"/>
+            <point key="canvasLocation" x="-128" y="-731"/>
         </scene>
     </scenes>
 </document>
