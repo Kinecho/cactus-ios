@@ -105,6 +105,12 @@
 		3084E956234802C300788279 /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E954234802C300788279 /* TermsOfServiceViewController.swift */; };
 		3084E9582348042800788279 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E9572348042800788279 /* PrivacyPolicyViewController.swift */; };
 		3084E9592348042800788279 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E9572348042800788279 /* PrivacyPolicyViewController.swift */; };
+		3084E95B2348087100788279 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E95A2348087100788279 /* HelpViewController.swift */; };
+		3084E95C2348087100788279 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E95A2348087100788279 /* HelpViewController.swift */; };
+		3084E95E234810B300788279 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E95D234810B300788279 /* FeedbackViewController.swift */; };
+		3084E95F234810B300788279 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E95D234810B300788279 /* FeedbackViewController.swift */; };
+		3084E9612348118000788279 /* LanguageSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E9602348118000788279 /* LanguageSettingsViewController.swift */; };
+		3084E9622348118000788279 /* LanguageSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E9602348118000788279 /* LanguageSettingsViewController.swift */; };
 		30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
 		30934F9322EBE7DF007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
 		30934F9622EBF146007C4E6C /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9522EBF146007C4E6C /* RoundedButton.swift */; };
@@ -264,6 +270,9 @@
 		308446F322ECB24F00FB0683 /* Cactus Prod.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cactus Prod.entitlements"; sourceTree = "<group>"; };
 		3084E954234802C300788279 /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
 		3084E9572348042800788279 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
+		3084E95A2348087100788279 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		3084E95D234810B300788279 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
+		3084E9602348118000788279 /* LanguageSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettingsViewController.swift; sourceTree = "<group>"; };
 		30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFeedCollectionViewController.swift; sourceTree = "<group>"; };
 		30934F9522EBF146007C4E6C /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		30934F9822EBF235007C4E6C /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
@@ -402,6 +411,9 @@
 				302C4F4F2347FAA400798560 /* EmailSettingsViewController.swift */,
 				3084E954234802C300788279 /* TermsOfServiceViewController.swift */,
 				3084E9572348042800788279 /* PrivacyPolicyViewController.swift */,
+				3084E95A2348087100788279 /* HelpViewController.swift */,
+				3084E95D234810B300788279 /* FeedbackViewController.swift */,
+				3084E9602348118000788279 /* LanguageSettingsViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1323,6 +1335,7 @@
 				30A281DA22EA61A30041158E /* JournalEntryDetailViewController.swift in Sources */,
 				305B186C23319A72003E1561 /* ImageExtensions.swift in Sources */,
 				30BF2E332328C7AD00A49EB6 /* MarkdownTypes.swift in Sources */,
+				3084E95F234810B300788279 /* FeedbackViewController.swift in Sources */,
 				30934FA422EBF4E6007C4E6C /* FormatUtils.swift in Sources */,
 				30E9B0B422EADE2D005B25FD /* CGExtensions.swift in Sources */,
 				300AC18E233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */,
@@ -1350,11 +1363,13 @@
 				30BF2E1623282BDA00A49EB6 /* FlamelinkService.swift in Sources */,
 				3023FE3522ECF0A800F753A7 /* ViewExtensions.swift in Sources */,
 				30C7E57C233FEB5800145111 /* FontExtensions.swift in Sources */,
+				3084E9622348118000788279 /* LanguageSettingsViewController.swift in Sources */,
 				300AC188233A850B005C6555 /* JournalEntrySkeletonViewController.swift in Sources */,
 				30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */,
 				303BF751232D289A00164539 /* QuoteContentViewController.swift in Sources */,
 				30E9B0B822EADF75005B25FD /* HomeViewController.swift in Sources */,
 				30E2D377234311C6003D2B27 /* PillLabelView.swift in Sources */,
+				3084E95C2348087100788279 /* HelpViewController.swift in Sources */,
 				30265C6423453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */,
 				302C4F4D2347E25A00798560 /* DateUtil.swift in Sources */,
 				30E9B0B022EADD04005B25FD /* LoginViewController.swift in Sources */,
@@ -1395,6 +1410,7 @@
 				30BF2E1823289D1200A49EB6 /* PromptContentPageViewController.swift in Sources */,
 				305B186B23319A72003E1561 /* ImageExtensions.swift in Sources */,
 				30E9B0BD22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
+				3084E95E234810B300788279 /* FeedbackViewController.swift in Sources */,
 				30BF2E2F2328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */,
 				30BF2E0F23281CAA00A49EB6 /* FlamelinkTypes.swift in Sources */,
 				300AC18D233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */,
@@ -1422,11 +1438,13 @@
 				30934F9622EBF146007C4E6C /* RoundedButton.swift in Sources */,
 				30E9B09922EA6A81005B25FD /* BaseModel.swift in Sources */,
 				30C7E57B233FEB5800145111 /* FontExtensions.swift in Sources */,
+				3084E9612348118000788279 /* LanguageSettingsViewController.swift in Sources */,
 				300AC187233A850B005C6555 /* JournalEntrySkeletonViewController.swift in Sources */,
 				30E9B0B722EADF75005B25FD /* HomeViewController.swift in Sources */,
 				303BF750232D289A00164539 /* QuoteContentViewController.swift in Sources */,
 				30E9B0AF22EADD04005B25FD /* LoginViewController.swift in Sources */,
 				30E2D376234311C6003D2B27 /* PillLabelView.swift in Sources */,
+				3084E95B2348087100788279 /* HelpViewController.swift in Sources */,
 				30265C6323453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */,
 				302C4F4C2347E25A00798560 /* DateUtil.swift in Sources */,
 				30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */,
@@ -1518,7 +1536,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Cactus Prod.entitlements";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 50;
+				CURRENT_PROJECT_VERSION = 51;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
 				INFOPLIST_FILE = Cactus/ConfigProd/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1543,7 +1561,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cactus Prod.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 50;
+				CURRENT_PROJECT_VERSION = 51;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
 				INFOPLIST_FILE = Cactus/ConfigProd/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;

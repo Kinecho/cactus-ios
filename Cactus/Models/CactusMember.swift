@@ -33,7 +33,9 @@ class CactusMember: FirestoreIdentifiable, Hashable {
     var updatedAt: Date?
     var fcmTokens: [String]?
     var mailchimpListMember: ListMember?
-
+    var languageCode: String?
+    
+    
     static func == (lhs: CactusMember, rhs: CactusMember) -> Bool {
         return lhs.id != nil && rhs.id != nil && lhs.id == rhs.id
     }
