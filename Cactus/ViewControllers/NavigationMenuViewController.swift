@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 protocol NavigationMenuViewControllerDelegate: class {
     func closeMenu()
     func openMenu()
@@ -22,11 +23,12 @@ class NavigationMenuViewController: UIViewController {
     @IBOutlet weak var reflectionCountLabel: UILabel!
     @IBOutlet weak var reflectionDurationLabel: UILabel!
     @IBOutlet weak var minutesLabel: UILabel!
-    
+
+    @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var displayNameLabel: UILabel!
     var member: CactusMember?
-    
+    var user: User?
     var reflectionsCountProcess: CountProcess?
     var minutesCountProcess: CountProcess?
     var streakCountProcess: CountProcess?
@@ -66,16 +68,18 @@ class NavigationMenuViewController: UIViewController {
         self.reflectionCountLabel.text = "--"
         self.streakCountLabel.text = "--"
         self.reflectionDurationLabel.text = "--"
-        
+        self.avatarImageView.clipsToBounds = true
+        self.avatarImageView.layer.cornerRadius = self.avatarImageView.bounds.height / 2
 //        self.resetNumbers()
         // Do any additional setup after loading the view.
         
-        self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, error, _) in
+        self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, error, user) in
             if let error = error {
                 print("Failed to get member in NavMenu", error)
             }
-            self.updateMemberInfo(member)
+            self.updateMemberInfo(member, user)
             self.member = member
+            self.user = user
         })
     }
    
@@ -83,7 +87,7 @@ class NavigationMenuViewController: UIViewController {
         self.memberUnsubscriber?()
     }
     
-    func updateMemberInfo(_ member: CactusMember?) {
+    func updateMemberInfo(_ member: CactusMember?, _ user: User?) {
         if let member = member {
             self.emailLabel.text = member.email
             self.emailLabel.isHidden = false
@@ -93,6 +97,13 @@ class NavigationMenuViewController: UIViewController {
             self.emailLabel.isHidden = true
             self.displayNameLabel.isHidden = true
         }
+        
+        if let avatarUrl = user?.photoURL {
+            ImageService.shared.setFromUrl(self.avatarImageView, url: avatarUrl)
+        } else {
+            self.avatarImageView.image = CactusImage.cactusAvatarOG.getImage()
+        }
+        
     }
     
     func finishedClosing() {

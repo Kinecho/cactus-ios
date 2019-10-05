@@ -143,7 +143,7 @@ class ReflectContentViewController: UIViewController {
     func createInputView() {
         // *** Create Toolbar
         self.inputToolbar = UIView()
-        inputToolbar.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
+        inputToolbar.backgroundColor = .clear
         inputToolbar.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(inputToolbar)
         

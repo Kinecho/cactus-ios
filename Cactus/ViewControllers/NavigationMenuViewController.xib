@@ -19,6 +19,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NavigationMenuViewController" customModule="Cactus_Prod" customModuleProvider="target">
             <connections>
+                <outlet property="avatarImageView" destination="kzq-Fz-fZ5" id="GCx-8R-CgU"/>
                 <outlet property="closeButton" destination="Mrp-jR-DR7" id="yks-xP-IZw"/>
                 <outlet property="displayNameLabel" destination="aeJ-aC-hQe" id="nAk-3A-jSx"/>
                 <outlet property="emailLabel" destination="3dw-Xl-Tng" id="e6p-dU-yK7"/>

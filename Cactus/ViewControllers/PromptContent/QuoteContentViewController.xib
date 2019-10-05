@@ -8,6 +8,14 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuoteContentViewController" customModule="Cactus_Prod" customModuleProvider="target">
             <connections>
@@ -23,53 +31,49 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UuU-rg-2RG">
-                    <rect key="frame" x="30" y="94" width="354" height="200"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fQk-Kf-hA6">
-                    <rect key="frame" x="167" y="334" width="80" height="80"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="80" id="obC-35-e7u"/>
-                        <constraint firstAttribute="width" constant="80" id="qR6-Aa-xMd"/>
-                    </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="author title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ESs-3R-TcD">
-                    <rect key="frame" x="30" y="464.5" width="354" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ges-Vi-yiQ">
-                    <rect key="frame" x="30" y="434" width="354" height="20.5"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="qRQ-FR-cYC">
+                    <rect key="frame" x="20" y="349" width="374" height="208"/>
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="You are what you eat" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UuU-rg-2RG">
+                            <rect key="frame" x="41.5" y="0.0" width="291" height="52"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="30"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_cactusOG" translatesAutoresizingMaskIntoConstraints="NO" id="fQk-Kf-hA6">
+                            <rect key="frame" x="147" y="64" width="80" height="80"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="80" id="obC-35-e7u"/>
+                                <constraint firstAttribute="width" constant="80" id="qR6-Aa-xMd"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ges-Vi-yiQ">
+                            <rect key="frame" x="137" y="156" width="100.5" height="20"/>
+                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="author title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ESs-3R-TcD">
+                            <rect key="frame" x="146.5" y="188" width="81" height="20"/>
+                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
             </subviews>
             <color key="backgroundColor" name="BlueLight"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ges-Vi-yiQ" secondAttribute="trailing" constant="30" id="8Zl-8q-0Zn"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UuU-rg-2RG" secondAttribute="trailing" constant="30" id="Ayi-bh-spu"/>
-                <constraint firstItem="UuU-rg-2RG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="E4L-0S-htu"/>
-                <constraint firstItem="fQk-Kf-hA6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="G1D-wE-Hzl"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ESs-3R-TcD" secondAttribute="bottom" constant="20" id="M02-ak-KH6"/>
-                <constraint firstItem="ESs-3R-TcD" firstAttribute="top" secondItem="ges-Vi-yiQ" secondAttribute="bottom" constant="10" id="MVN-Te-vKR"/>
-                <constraint firstItem="ges-Vi-yiQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="URE-0A-1ky"/>
-                <constraint firstItem="ESs-3R-TcD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="WGf-D7-h78"/>
-                <constraint firstItem="fQk-Kf-hA6" firstAttribute="bottom" secondItem="ges-Vi-yiQ" secondAttribute="top" constant="-20" id="dzu-vd-xeS"/>
-                <constraint firstItem="UuU-rg-2RG" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="hRf-pc-Oow"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ESs-3R-TcD" secondAttribute="trailing" constant="30" id="laO-1a-ynS"/>
-                <constraint firstItem="fQk-Kf-hA6" firstAttribute="top" secondItem="UuU-rg-2RG" secondAttribute="bottom" constant="40" id="lsE-Fd-vX1"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qRQ-FR-cYC" secondAttribute="trailing" constant="20" id="2Ds-C2-IZH"/>
+                <constraint firstItem="qRQ-FR-cYC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="i2F-1b-vHw"/>
+                <constraint firstItem="qRQ-FR-cYC" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="zmP-8Y-Y2h"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="47.826086956521742" y="67.633928571428569"/>
         </view>
     </objects>
     <resources>
+        <image name="avatar_cactusOG" width="75" height="75"/>
         <namedColor name="BlueLight">
             <color red="0.90196078431372551" green="0.97647058823529409" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

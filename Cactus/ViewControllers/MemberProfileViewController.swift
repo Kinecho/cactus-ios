@@ -105,9 +105,7 @@ class MemberProfileViewController: UIViewController {
 //        self.navigationItem.rightBarButtonItem = journalItem
     }
     
-    @IBAction func logOutTapped(_ sender: Any) {
-        AuthService.sharedInstance.logOut(self)
-    }
+    
     /*
      // MARK: - Navigation
      
