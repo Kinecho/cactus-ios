@@ -260,7 +260,6 @@ jobs:
           command: brew install getsentry/tools/sentry-cli
       - add_ssh_keys:
           fingerprints:
-            - *match-ssh-fingerprint
             - *cactus-ios-read-write-fingerprint
       - run: 
           name: "Run Finalize Release command"
