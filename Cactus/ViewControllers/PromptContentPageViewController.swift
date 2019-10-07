@@ -16,6 +16,7 @@ class PromptContentPageViewController: UIPageViewController {
     var prompt: ReflectionPrompt?
     var reflectionResponse: ReflectionResponse?
     var closeButton: UIButton?
+    var journalDataSource: JournalFeedDataSource?
     
     fileprivate lazy var screens: [UIViewController] = []
     
@@ -50,6 +51,10 @@ class PromptContentPageViewController: UIPageViewController {
                 screens.append(screen)
             }
         })
+        
+        let celebrate = CelebrateViewController.loadFromNib()
+        celebrate.journalDataSource = self.journalDataSource
+        screens.append(celebrate)
         self.screens = screens
         
         if let firstVC = self.screens.first {

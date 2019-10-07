@@ -25,8 +25,8 @@ class QuoteContentViewController: UIViewController {
     }
 
     func configureView() {
-        if let quote = content.quote, let textString = quote.text {
-            if let mdText = MarkdownUtil.centeredMarkdown(textString, font: CactusFont.large) {
+        if let quote = content.quote, let textString = quote.text, let wrappedText = FormatUtils.wrapInDoubleQuotes(input: textString) {
+            if let mdText = MarkdownUtil.centeredMarkdown(wrappedText, font: CactusFont.large) {
                 self.quoteText.attributedText = mdText
             }
             self.authorNameText.text = quote.authorName

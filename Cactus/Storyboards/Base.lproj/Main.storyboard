@@ -48,7 +48,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAU-lX-enM" customClass="RoundedButton" customModule="Cactus_Prod" customModuleProvider="target">
-                                <rect key="frame" x="313" y="316.5" width="67" height="40"/>
+                                <rect key="frame" x="315" y="316.5" width="65" height="40"/>
                                 <color key="backgroundColor" name="Green"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -154,19 +154,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rf3-4r-J2l">
-                                <rect key="frame" x="190.5" y="78.5" width="51" height="31"/>
+                                <rect key="frame" x="192.5" y="78.5" width="51" height="31"/>
                                 <connections>
                                     <action selector="pushToggleTriggered:" destination="Fao-wE-ttY" eventType="primaryActionTriggered" id="Lzn-iO-qdr"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Push Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acV-kJ-tJO">
-                                <rect key="frame" x="24" y="84" width="136.5" height="20"/>
+                                <rect key="frame" x="24" y="84" width="138.5" height="20"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications permissions are managed in Settings" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXD-Zq-3m0">
-                                <rect key="frame" x="24" y="116" width="370" height="16"/>
+                                <rect key="frame" x="24" y="116" width="370" height="15.5"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
                                 <color key="textColor" name="TextLight"/>
                                 <nil key="highlightedColor"/>

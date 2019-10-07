@@ -20,9 +20,9 @@ public class MarkdownUtil {
         let mText = NSMutableAttributedString.init(attributedString: aText)
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .center
-        mText.addAttributes([NSAttributedString.Key.paragraphStyle: paragraph], range: NSRange(location: 0, length: aText.length - 1))
+        mText.addAttributes([NSAttributedString.Key.paragraphStyle: paragraph], range: NSRange(location: 0, length: aText.length))
         //            aText.attribute(.paragraphStyle, at: 0, longestEffectiveRange: NSRangePointer.(0, 10), in: NSMakeRange(0, 10))
-        return mText.attributedSubstring(from: NSRange(location: 0, length: mText.length - 1))
+        return mText.attributedSubstring(from: NSRange(location: 0, length: mText.length))
     }
     
     static func centeredMarkdown(_ input: String?, font: UIFont = CactusFont.normal) -> NSAttributedString? {

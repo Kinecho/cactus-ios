@@ -55,6 +55,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
             if let vc = segue.destination as? PromptContentPageViewController {
                 vc.promptContent = cell.promptContent
                 vc.prompt = cell.prompt
+                vc.journalDataSource = self.dataSource
                 var response = cell.responses?.first
                 if response == nil, let prompt = cell.prompt {
                     response = ReflectionResponseService.sharedInstance.createReflectionResponse(prompt, medium: .PROMPT_IOS)

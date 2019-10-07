@@ -40,6 +40,14 @@ struct FormatUtils {
         return false
     }
     
+    static func wrapInDoubleQuotes(input: String?) -> String? {
+        guard let input = input else {
+            return nil
+        }
+        
+        return "\"\(input)\""
+    }
+    
     static func responseText(_ responses: [ReflectionResponse]?) -> String? {
         return  responses?.map {$0.content.text ?? ""}.joined(separator: "\n\n")
     }

@@ -111,6 +111,13 @@
 		3084E95F234810B300788279 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E95D234810B300788279 /* FeedbackViewController.swift */; };
 		3084E9612348118000788279 /* LanguageSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E9602348118000788279 /* LanguageSettingsViewController.swift */; };
 		3084E9622348118000788279 /* LanguageSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E9602348118000788279 /* LanguageSettingsViewController.swift */; };
+		3084E9652348FE9C00788279 /* CelebrateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E9632348FE9C00788279 /* CelebrateViewController.swift */; };
+		3084E9662348FE9C00788279 /* CelebrateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E9632348FE9C00788279 /* CelebrateViewController.swift */; };
+		3084E9672348FE9C00788279 /* CelebrateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3084E9642348FE9C00788279 /* CelebrateViewController.xib */; };
+		3084E9682348FE9C00788279 /* CelebrateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3084E9642348FE9C00788279 /* CelebrateViewController.xib */; };
+		3084E96A234BACE300788279 /* FormatUtilTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E969234BACE300788279 /* FormatUtilTest.swift */; };
+		3084E96C234BC5FE00788279 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E96B234BC5FE00788279 /* PrimaryButton.swift */; };
+		3084E96D234BC5FE00788279 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E96B234BC5FE00788279 /* PrimaryButton.swift */; };
 		30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
 		30934F9322EBE7DF007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
 		30934F9622EBF146007C4E6C /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9522EBF146007C4E6C /* RoundedButton.swift */; };
@@ -273,6 +280,10 @@
 		3084E95A2348087100788279 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		3084E95D234810B300788279 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		3084E9602348118000788279 /* LanguageSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettingsViewController.swift; sourceTree = "<group>"; };
+		3084E9632348FE9C00788279 /* CelebrateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrateViewController.swift; sourceTree = "<group>"; };
+		3084E9642348FE9C00788279 /* CelebrateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CelebrateViewController.xib; sourceTree = "<group>"; };
+		3084E969234BACE300788279 /* FormatUtilTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatUtilTest.swift; sourceTree = "<group>"; };
+		3084E96B234BC5FE00788279 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFeedCollectionViewController.swift; sourceTree = "<group>"; };
 		30934F9522EBF146007C4E6C /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		30934F9822EBF235007C4E6C /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
@@ -424,6 +435,7 @@
 				303BF743232A986A00164539 /* CactusUnitTests.swift */,
 				303BF745232A986A00164539 /* Info.plist */,
 				305B187023319F42003E1561 /* FileUtilsTest.swift */,
+				3084E969234BACE300788279 /* FormatUtilTest.swift */,
 			);
 			path = "Cactus UnitTests";
 			sourceTree = "<group>";
@@ -459,6 +471,7 @@
 			children = (
 				30934F9522EBF146007C4E6C /* RoundedButton.swift */,
 				30934F9822EBF235007C4E6C /* BorderedButton.swift */,
+				3084E96B234BC5FE00788279 /* PrimaryButton.swift */,
 				30934F9E22EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift */,
 				30BF2E312328C7AD00A49EB6 /* MarkdownTypes.swift */,
 				305B1884233273C4003E1561 /* GrowingTextView.swift */,
@@ -581,6 +594,8 @@
 				305B1862233175DC003E1561 /* PhotoContentViewController.xib */,
 				305B187E2331E162003E1561 /* ReflectContentViewController.swift */,
 				305B187F2331E162003E1561 /* ReflectContentViewController.xib */,
+				3084E9632348FE9C00788279 /* CelebrateViewController.swift */,
+				3084E9642348FE9C00788279 /* CelebrateViewController.xib */,
 			);
 			path = PromptContent;
 			sourceTree = "<group>";
@@ -812,6 +827,7 @@
 				30673BA5233FDEC300EDE7BD /* Lato-Light.ttf in Resources */,
 				30673BA7233FDEC300EDE7BD /* Lato-ThinItalic.ttf in Resources */,
 				305B1866233175DC003E1561 /* PhotoContentViewController.xib in Resources */,
+				3084E9682348FE9C00788279 /* CelebrateViewController.xib in Resources */,
 				300AC18423398EB1005C6555 /* cactus-growing.mp4 in Resources */,
 				305B18832331E162003E1561 /* ReflectContentViewController.xib in Resources */,
 				30673BA1233FDEC300EDE7BD /* OFL.txt in Resources */,
@@ -849,6 +865,7 @@
 				305B18822331E162003E1561 /* ReflectContentViewController.xib in Resources */,
 				30673BA2233FDEC300EDE7BD /* Lato-BoldItalic.ttf in Resources */,
 				30B6EA7822EA5AA100443E46 /* SharedAssets.xcassets in Resources */,
+				3084E9672348FE9C00788279 /* CelebrateViewController.xib in Resources */,
 				30B6EA7622EA5A9F00443E46 /* Main.storyboard in Resources */,
 				30A266DA2329BB73003C708E /* config.yml in Resources */,
 				30673BA6233FDEC300EDE7BD /* Lato-ThinItalic.ttf in Resources */,
@@ -1294,6 +1311,7 @@
 				305B187C2331A906003E1561 /* ReflectionResponse.swift in Sources */,
 				305B18752331A8F5003E1561 /* CactusColor.swift in Sources */,
 				305B187A2331A906003E1561 /* PromptContent.swift in Sources */,
+				3084E96A234BACE300788279 /* FormatUtilTest.swift in Sources */,
 				305B18722331A843003E1561 /* FileUtils.swift in Sources */,
 				305B18762331A906003E1561 /* BaseModel.swift in Sources */,
 				303BF744232A986A00164539 /* CactusUnitTests.swift in Sources */,
@@ -1344,6 +1362,7 @@
 				30E9B0BE22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
 				300AC1802339839A005C6555 /* CactusImage.swift in Sources */,
 				30E9B0A122EABFBD005B25FD /* CactusMemberService.swift in Sources */,
+				3084E96D234BC5FE00788279 /* PrimaryButton.swift in Sources */,
 				30BF2E1523282BD600A49EB6 /* PromptContentService.swift in Sources */,
 				30E9B09B22EA6A84005B25FD /* FirestoreService.swift in Sources */,
 				30934FAA22EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
@@ -1366,6 +1385,7 @@
 				3084E9622348118000788279 /* LanguageSettingsViewController.swift in Sources */,
 				300AC188233A850B005C6555 /* JournalEntrySkeletonViewController.swift in Sources */,
 				30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */,
+				3084E9662348FE9C00788279 /* CelebrateViewController.swift in Sources */,
 				303BF751232D289A00164539 /* QuoteContentViewController.swift in Sources */,
 				30E9B0B822EADF75005B25FD /* HomeViewController.swift in Sources */,
 				30E2D377234311C6003D2B27 /* PillLabelView.swift in Sources */,
@@ -1419,6 +1439,7 @@
 				30E9B0A022EABFBD005B25FD /* CactusMemberService.swift in Sources */,
 				300AC17F2339839A005C6555 /* CactusImage.swift in Sources */,
 				30C49D3422EC299300A2EA95 /* ViewExtensions.swift in Sources */,
+				3084E96C234BC5FE00788279 /* PrimaryButton.swift in Sources */,
 				30C49D3822EC2D4C00A2EA95 /* CactusColor.swift in Sources */,
 				30BF2E11232822E600A49EB6 /* FirebaseExtensions.swift in Sources */,
 				30E9B09622EA68AC005B25FD /* FirestoreService.swift in Sources */,
@@ -1441,6 +1462,7 @@
 				3084E9612348118000788279 /* LanguageSettingsViewController.swift in Sources */,
 				300AC187233A850B005C6555 /* JournalEntrySkeletonViewController.swift in Sources */,
 				30E9B0B722EADF75005B25FD /* HomeViewController.swift in Sources */,
+				3084E9652348FE9C00788279 /* CelebrateViewController.swift in Sources */,
 				303BF750232D289A00164539 /* QuoteContentViewController.swift in Sources */,
 				30E9B0AF22EADD04005B25FD /* LoginViewController.swift in Sources */,
 				30E2D376234311C6003D2B27 /* PillLabelView.swift in Sources */,

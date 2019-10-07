@@ -21,9 +21,18 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        self.configureView()
+    }
+
+    func configureView() {
+        //this clears the extra table view "cells" after the cells that are displayed.
         tableView.tableFooterView = UIView()
         
+        //set up the table footer view with the logout button
+        self.configureFooter()
+    }
+    
+    func configureFooter() {
         let footerView = UIView(frame: CGRect(0, 0, 50, self.view.bounds.width));
         
         logoutButton.setTitle("Log Out", for: .normal)
@@ -51,7 +60,6 @@ class SettingsTableViewController: UITableViewController {
         versionTitleLabel.text = "Version"
         versionTextView.text = "Cactus \(appVersion ?? "") (\(buildVersion ?? "1"))"
         
-
         versionTextView.isScrollEnabled = false
         versionTextView.font = CactusFont.normal
         versionTextView.textColor = CactusColor.lightText
@@ -72,7 +80,6 @@ class SettingsTableViewController: UITableViewController {
         logoutButton.addTarget(self, action: #selector(self.logOutTapped(_:)), for: .primaryActionTriggered)
         self.emailAddressLabel.text = member?.email
     }
-
     
     @IBAction func logOutTapped(_ sender: Any) {
         AuthService.sharedInstance.logOut(self)
