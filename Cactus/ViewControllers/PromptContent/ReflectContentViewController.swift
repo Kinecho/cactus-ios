@@ -26,6 +26,10 @@ class ReflectContentViewController: UIViewController {
     var doneButton: PrimaryButton!
     var reflectionResponse: ReflectionResponse?
     
+    
+    var startTime: Date?
+    var endTime: Date?
+    
 //    @IBOutlet weak var inputToolbar: UIView!
     @IBOutlet weak var questionTextView: UITextView!
     var inputToolbar: UIView!
@@ -55,12 +59,13 @@ class ReflectContentViewController: UIViewController {
         if let video = self.player {
             video.seek(to: CMTime.zero)
             video.play()
-            
         }
+        
+        self.startTime = Date()
+        self.endTime = nil
     }
     
     func createCactusGrowingVideo() {
-        
         guard let path = Bundle.main.path(forResource: "cactus-growing", ofType: "mp4") else {
             print("Video not found")
             return
@@ -122,9 +127,18 @@ class ReflectContentViewController: UIViewController {
         guard let response = self.reflectionResponse else {
             return
         }
+        self.endTime = Date()
+        var durationMs: Double?
+        if let startTime = self.startTime, let endTime = self.endTime {
+            durationMs = endTime.timeIntervalSince(startTime) * 1000
+        }
+        if let duration = durationMs {
+            response.reflectionDurationMs = (response.reflectionDurationMs ?? 0) + Int(duration)
+        }
         
         let text = self.textView.text
         response.content.text = text
+                
         self.setSaving(true)
         ReflectionResponseService.sharedInstance.save(response) { (_, error) in
             if let error = error {
