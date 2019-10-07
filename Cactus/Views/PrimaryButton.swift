@@ -36,6 +36,9 @@ class PrimaryButton: UIButton {
     @IBInspectable var horizontalPadding: CGFloat = 20
     @IBInspectable var verticalPadding: CGFloat = 12
     
+    var borderColor: UIColor = CactusColor.darkGreen
+//    var mainColor: UIColor = CactusColor.green
+    
     @IBInspectable var borderRadius: CGFloat {
         get {
             return self.layer.cornerRadius
@@ -45,9 +48,25 @@ class PrimaryButton: UIButton {
         }
     }
     
+    func setEnabled(_ enabled: Bool) {
+        if enabled == true {
+            self.borderColor = CactusColor.darkGreen
+            self.backgroundColor = CactusColor.green
+        } else {
+            self.borderColor = CactusColor.darkGray
+            self.backgroundColor = CactusColor.gray
+        }
+        
+        self.isEnabled = enabled
+    }
+    
     func sharedInit() {
         self.clipsToBounds = true
         self.backgroundColor = CactusColor.green
+        if self.isEnabled == false {
+            self.backgroundColor = CactusColor.gray
+        }
+        
         self.setTitleColor(.white, for: .normal)
         self.titleLabel?.font = CactusFont.normal(self.fontSize)
         
@@ -88,11 +107,10 @@ class PrimaryButton: UIButton {
             
             border.path = pathsUsingCorrentInsetIfAny.cgPath
             border.fillColor = UIColor.clear.cgColor
-            border.strokeColor = CactusColor.darkGreen.cgColor
+            border.strokeColor = self.borderColor.cgColor
             border.lineWidth = thickness
             self.contentEdgeInsets = UIEdgeInsets(top: self.verticalPadding - offset, left: self.horizontalPadding, bottom: self.verticalPadding, right: self.horizontalPadding)
             self.border = border
         }
     }
-    
 }

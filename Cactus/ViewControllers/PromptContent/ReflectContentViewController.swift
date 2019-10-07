@@ -114,11 +114,9 @@ class ReflectContentViewController: UIViewController {
     func setSaving(_ isSaving: Bool) {
         if isSaving {
             doneButton.setTitle("Saving...", for: .disabled)
-            doneButton.backgroundColor = CactusColor.lightGray
-            doneButton.isEnabled = false
+            doneButton.setEnabled(false)
         } else {
-            doneButton.backgroundColor = CactusColor.green
-            doneButton.isEnabled = true
+            doneButton.setEnabled(true)
         }
     }
     
