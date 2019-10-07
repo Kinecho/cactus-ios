@@ -8,6 +8,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoContentViewController" customModule="Cactus_Prod" customModuleProvider="target">
             <connections>
@@ -21,29 +26,35 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="r9p-d4-BlA">
-                    <rect key="frame" x="30" y="84" width="354" height="200"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7qr-6t-ImQ">
-                    <rect key="frame" x="0.0" y="324" width="414" height="538"/>
-                </imageView>
+                <stackView opaque="NO" contentMode="center" axis="vertical" distribution="equalSpacing" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="cmg-8h-hbn">
+                    <rect key="frame" x="0.0" y="205" width="414" height="486"/>
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Here's an image title!" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="r9p-d4-BlA">
+                            <rect key="frame" x="20" y="0.0" width="374" height="52"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="30"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7qr-6t-ImQ">
+                            <rect key="frame" x="10" y="92" width="394" height="394"/>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="7qr-6t-ImQ" secondAttribute="trailing" constant="10" id="oH3-Bb-Bkx"/>
+                        <constraint firstItem="r9p-d4-BlA" firstAttribute="leading" secondItem="cmg-8h-hbn" secondAttribute="leading" constant="20" id="r6O-O9-rwb"/>
+                        <constraint firstAttribute="trailing" secondItem="r9p-d4-BlA" secondAttribute="trailing" constant="20" id="u4m-5b-AVJ"/>
+                        <constraint firstItem="7qr-6t-ImQ" firstAttribute="leading" secondItem="cmg-8h-hbn" secondAttribute="leading" constant="10" id="uvN-jP-Tj9"/>
+                    </constraints>
+                </stackView>
             </subviews>
             <color key="backgroundColor" name="BlueLight"/>
             <constraints>
-                <constraint firstItem="7qr-6t-ImQ" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" priority="999" id="1CD-lD-etM"/>
-                <constraint firstItem="7qr-6t-ImQ" firstAttribute="top" secondItem="r9p-d4-BlA" secondAttribute="bottom" constant="40" id="JvI-cy-hRk"/>
-                <constraint firstItem="7qr-6t-ImQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="LZX-K2-l3j"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7qr-6t-ImQ" secondAttribute="trailing" id="SGi-e8-chn"/>
-                <constraint firstItem="r9p-d4-BlA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="iLW-n1-wzy"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="r9p-d4-BlA" secondAttribute="trailing" constant="30" id="jvd-SR-iCK"/>
-                <constraint firstItem="r9p-d4-BlA" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="lUL-Lm-fO4"/>
+                <constraint firstItem="cmg-8h-hbn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="EH7-u5-sHP"/>
+                <constraint firstItem="cmg-8h-hbn" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="M4q-Lg-Wwv"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cmg-8h-hbn" secondAttribute="trailing" id="uRm-Lr-ZQF"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="139" y="120"/>
+            <point key="canvasLocation" x="137.68115942028987" y="119.86607142857142"/>
         </view>
     </objects>
     <resources>

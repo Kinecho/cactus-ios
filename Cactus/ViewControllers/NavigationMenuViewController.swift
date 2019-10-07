@@ -154,10 +154,14 @@ class NavigationMenuViewController: UIViewController {
         self.minutesCountProcess = CountProcess(minValue: prev,
                                                 maxValue: next,
                                                 name: "Duration",
-                                                threads: 3)
+                                                threads: 1)
         self.minutesCountProcess?.duration = animationDurationMs
         self.minutesCountProcess?.finish(valueChanged: { (value) in
             self.reflectionDurationLabel.text = "\(Double(value)/10)"
+        }, completion: {value in
+            DispatchQueue.main.async {
+                self.reflectionDurationLabel.text = "\(Double(value)/10)"
+            }            
         })
         
     }

@@ -193,9 +193,11 @@ class JournalFeedDataSource {
     }
     
     var totalReflectionDurationMs: Int {
-        return self.responses.reduce(0) { (totalMs, response) -> Int in
-            return totalMs + (response.reflectionDurationMs ?? 0)
-        }
+//        return self.responses.reduce(0) { (totalMs, response) -> Int in
+//            return totalMs + (response.reflectionDurationMs ?? 0)
+//        }
+        
+        return 10239000
     }
     
     var loadingCompleted: Bool {

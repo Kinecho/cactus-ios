@@ -168,7 +168,7 @@ class JournalHomeViewController: UIViewController {
         let blurredView = UIVisualEffectView()
         
         if #available(iOS 13.0, *) {
-            let effect = UIBlurEffect(style: .regular)
+            let effect = UIBlurEffect(style: .light)
             blurredView.effect = effect
         } else if #available(iOS 8.0, *) {
             // Fallback on earlier versions

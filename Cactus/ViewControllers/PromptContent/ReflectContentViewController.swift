@@ -18,7 +18,7 @@ class ReflectContentViewController: UIViewController {
 
     let padding: CGFloat = 8
     @IBOutlet weak var videoView: UIView!
-    var delegate: ReflectionContentViewControllerDelegate?
+    weak var delegate: ReflectionContentViewControllerDelegate?
     var content: Content!
     var promptContent: PromptContent!
     var player: AVPlayer!
@@ -82,13 +82,10 @@ class ReflectContentViewController: UIViewController {
     
     func configureDoneButton() {
         self.doneButton = PrimaryButton()
-//        doneButton.backgroundColor = CactusColor.darkGreen
         doneButton.translatesAutoresizingMaskIntoConstraints = false
         doneButton.showsTouchWhenHighlighted = true
         doneButton.addTarget(self, action: #selector(self.doneAction(_:)), for: .primaryActionTriggered)
         doneButton.setTitle("Done", for: .normal)
-//        doneButton.setTitleColor(.white, for: .normal)
-//        doneButton.backgroundColor = CactusColor.green
         doneButton.isEnabled = true
         doneButton.isUserInteractionEnabled = true
         
@@ -145,7 +142,7 @@ class ReflectContentViewController: UIViewController {
     func createInputView() {
         // *** Create Toolbar
         self.inputToolbar = UIView()
-        inputToolbar.backgroundColor = .clear
+        inputToolbar.backgroundColor = .white
         inputToolbar.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(inputToolbar)
         
@@ -161,6 +158,8 @@ class ReflectContentViewController: UIViewController {
 //        textView.contentInset = UIEdgeInsets(top: 10, left: 6, bottom: 10, right: 6)
         textView.placeholderColor = UIColor(white: 0.8, alpha: 1.0)
         textView.font = CactusFont.normal
+        textView.textColor = .black
+        textView.backgroundColor = .white
         textView.translatesAutoresizingMaskIntoConstraints = false
         inputToolbar.addSubview(textView)
         

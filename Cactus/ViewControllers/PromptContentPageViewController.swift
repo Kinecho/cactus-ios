@@ -32,20 +32,17 @@ class PromptContentPageViewController: UIPageViewController {
         self.configureScreens()
     }
     
-    
     func goToNextPage(animated: Bool = true){
         guard let currentViewController = self.viewControllers?.first else { return }
         guard let nextViewController = dataSource?.pageViewController( self, viewControllerAfter: currentViewController ) else { return }
         setViewControllers([nextViewController], direction: .forward, animated: animated, completion: nil)
     }
     
-    
     func goToPreviousPage(animated: Bool = true){
         guard let currentViewController = self.viewControllers?.first else { return }
         guard let previousViewController = dataSource?.pageViewController( self, viewControllerBefore: currentViewController ) else { return }
         setViewControllers([previousViewController], direction: .reverse, animated: animated, completion: nil)
     }
-    
     
     //    func configureNavbar() {
     //        guard let navBar = self.navigationController?.navigationBar else {return}
@@ -155,7 +152,7 @@ class PromptContentPageViewController: UIPageViewController {
         }
         let buttonWidth: CGFloat = 50
         let yPos = self.view.bounds.minY + self.view.safeAreaInsets.top + 20
-        let xPos = self.view.bounds.maxX - 20 - self.view.safeAreaInsets.right
+        let xPos = self.view.bounds.maxX - 40 - self.view.safeAreaInsets.right
         let button = UIButton(frame: CGRect(x: xPos, y: yPos, width: 80, height: 80))
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(CactusImage.close.getImage(), for: .normal)
@@ -168,7 +165,7 @@ class PromptContentPageViewController: UIPageViewController {
         button.widthAnchor.constraint(equalToConstant: buttonWidth).isActive = true
         button.heightAnchor.constraint(equalToConstant: buttonWidth).isActive = true
         button.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
-        button.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        button.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
         
         button.addTarget(self, action: #selector(self.dismissPrompt), for: .primaryActionTriggered)
         
@@ -187,7 +184,7 @@ class PromptContentPageViewController: UIPageViewController {
         pageControl.numberOfPages = self.screens.count
         pageControl.currentPage = 0
         pageControl.tintColor = CactusColor.darkestPink
-        pageControl.pageIndicatorTintColor = CactusColor.pink
+        pageControl.pageIndicatorTintColor = CactusColor.darkPink
         pageControl.currentPageIndicatorTintColor = CactusColor.darkestPink
         
         self.pageControl = pageControl
