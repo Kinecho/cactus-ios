@@ -9,16 +9,21 @@
 import UIKit
 import AVKit
 
+protocol ReflectionContentViewControllerDelegate: class {
+    func save(_ response: ReflectionResponse)
+    func nextScreen()
+}
+
 class ReflectContentViewController: UIViewController {
 
     let padding: CGFloat = 8
     @IBOutlet weak var videoView: UIView!
-    
+    var delegate: ReflectionContentViewControllerDelegate?
     var content: Content!
     var promptContent: PromptContent!
     var player: AVPlayer!
     
-    var doneButton: RoundedButton!
+    var doneButton: PrimaryButton!
     var reflectionResponse: ReflectionResponse?
     
 //    @IBOutlet weak var inputToolbar: UIView!
@@ -76,18 +81,14 @@ class ReflectContentViewController: UIViewController {
     }
     
     func configureDoneButton() {
-        self.doneButton = RoundedButton()
-        self.doneButton.borderRadius = 18
-        self.doneButton.contentEdgeInsets = UIEdgeInsets(top: 6, left: 12, bottom: 6, right: 12)
-
-        doneButton.backgroundColor = CactusColor.darkGreen
-        
+        self.doneButton = PrimaryButton()
+//        doneButton.backgroundColor = CactusColor.darkGreen
         doneButton.translatesAutoresizingMaskIntoConstraints = false
         doneButton.showsTouchWhenHighlighted = true
         doneButton.addTarget(self, action: #selector(self.doneAction(_:)), for: .primaryActionTriggered)
         doneButton.setTitle("Done", for: .normal)
-        doneButton.setTitleColor(.white, for: .normal)
-        doneButton.backgroundColor = CactusColor.green
+//        doneButton.setTitleColor(.white, for: .normal)
+//        doneButton.backgroundColor = CactusColor.green
         doneButton.isEnabled = true
         doneButton.isUserInteractionEnabled = true
         
@@ -136,6 +137,9 @@ class ReflectContentViewController: UIViewController {
             }
             
             self.setSaving(false)
+            if error == nil {
+                self.delegate?.nextScreen()
+            }
             
         }
     }
@@ -151,10 +155,12 @@ class ReflectContentViewController: UIViewController {
         textView = GrowingTextView()
         textView.delegate = self
         textView.layer.cornerRadius = 12.0
-//        textView.maxLength = 200
-        textView.maxHeight = 200
+        textView.maxHeight = 300
         textView.trimWhiteSpaceWhenEndEditing = true
         textView.placeholder = "Say something..."
+        textView.layer.borderWidth = 1
+        textView.layer.borderColor = CactusColor.green.cgColor
+//        textView.contentInset = UIEdgeInsets(top: 10, left: 6, bottom: 10, right: 6)
         textView.placeholderColor = UIColor(white: 0.8, alpha: 1.0)
         textView.font = CactusFont.normal
         textView.translatesAutoresizingMaskIntoConstraints = false

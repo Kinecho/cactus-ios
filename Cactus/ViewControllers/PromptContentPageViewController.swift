@@ -9,7 +9,7 @@
 import UIKit
 
 class PromptContentPageViewController: UIPageViewController {
-
+    
     var promptContent: PromptContent!
     var activeIndex: Int = 0
     var pageControl: UIPageControl?
@@ -32,17 +32,32 @@ class PromptContentPageViewController: UIPageViewController {
         self.configureScreens()
     }
     
-//    func configureNavbar() {
-//        guard let navBar = self.navigationController?.navigationBar else {return}
-//
-//        navBar.barStyle = .blackTranslucent
-//        navBar.isOpaque = false
-//        let closeButton = UIBarButtonItem()
-//
-//        closeButton.image = CactusImage.close.getImage()
-//        closeButton.tintColor = CactusColor.darkGreen
-//        self.navigationItem.rightBarButtonItem = closeButton
-//    }
+    
+    func goToNextPage(animated: Bool = true){
+        guard let currentViewController = self.viewControllers?.first else { return }
+        guard let nextViewController = dataSource?.pageViewController( self, viewControllerAfter: currentViewController ) else { return }
+        setViewControllers([nextViewController], direction: .forward, animated: animated, completion: nil)
+    }
+    
+    
+    func goToPreviousPage(animated: Bool = true){
+        guard let currentViewController = self.viewControllers?.first else { return }
+        guard let previousViewController = dataSource?.pageViewController( self, viewControllerBefore: currentViewController ) else { return }
+        setViewControllers([previousViewController], direction: .reverse, animated: animated, completion: nil)
+    }
+    
+    
+    //    func configureNavbar() {
+    //        guard let navBar = self.navigationController?.navigationBar else {return}
+    //
+    //        navBar.barStyle = .blackTranslucent
+    //        navBar.isOpaque = false
+    //        let closeButton = UIBarButtonItem()
+    //
+    //        closeButton.image = CactusImage.close.getImage()
+    //        closeButton.tintColor = CactusColor.darkGreen
+    //        self.navigationItem.rightBarButtonItem = closeButton
+    //    }
     
     func configureScreens() {
         var screens: [UIViewController] = []
@@ -94,6 +109,7 @@ class PromptContentPageViewController: UIPageViewController {
             reflectionViewController.content = content
             reflectionViewController.promptContent = promptContent
             reflectionViewController.reflectionResponse = self.reflectionResponse
+            reflectionViewController.delegate = self
             viewController = reflectionViewController
             backgroundColor = .white
         default:
@@ -109,11 +125,11 @@ class PromptContentPageViewController: UIPageViewController {
         super.viewDidLayoutSubviews()
         if let pageControl = self.pageControl {
             pageControl.translatesAutoresizingMaskIntoConstraints = false
-//            let bottomConstraint = pageControl.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+            //            let bottomConstraint = pageControl.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
             let left = pageControl.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 20)
             let right = pageControl.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -20)
             let topConstraint = pageControl.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 40)
-//            bottomConstraint.isActive = true
+            //            bottomConstraint.isActive = true
             topConstraint.isActive = true
             left.isActive = true
             right.isActive = true
@@ -121,16 +137,16 @@ class PromptContentPageViewController: UIPageViewController {
                 topConstraint,
                 left,
                 right
-//                bottomConstraint
-                ])
+                //                bottomConstraint
+            ])
         }
-    
+        
     }
     
     @objc func dismissPrompt() {
-//        if self.isBeingPresented {
-            self.dismiss(animated: true, completion: nil)
-//        }
+        //        if self.isBeingPresented {
+        self.dismiss(animated: true, completion: nil)
+        //        }
     }
     
     func addCloseButton() {
@@ -164,7 +180,7 @@ class PromptContentPageViewController: UIPageViewController {
         if self.pageControl != nil {
             self.pageControl?.removeFromSuperview()
         }
-//        let yPos = self.view.bounds.maxY - self.view.safeAreaInsets.top - 40
+        //        let yPos = self.view.bounds.maxY - self.view.safeAreaInsets.top - 40
         let yPos = self.view.bounds.minY + self.view.safeAreaInsets.top + 20
         let pageControl =  UIPageControl(frame: CGRect(x: 0, y: yPos, width: self.view.frame.width, height: 50))
         pageControl.backgroundColor = .clear
@@ -178,15 +194,15 @@ class PromptContentPageViewController: UIPageViewController {
         self.view.addSubview(pageControl)
         
     }
-
+    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-
+    
 }
 
 extension PromptContentPageViewController: UIPageViewControllerDataSource {
@@ -228,4 +244,16 @@ extension PromptContentPageViewController: UIPageViewControllerDelegate {
             self.pageControl?.currentPage = index
         }
     }
+}
+
+extension PromptContentPageViewController: ReflectionContentViewControllerDelegate {
+    func save(_ response: ReflectionResponse) {
+        
+    }
+    
+    func nextScreen() {
+        self.goToNextPage()
+    }
+    
+    
 }
