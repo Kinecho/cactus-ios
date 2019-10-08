@@ -66,23 +66,90 @@ class ReflectContentViewController: UIViewController {
     }
     
     func createCactusGrowingVideo() {
-        guard let path = Bundle.main.path(forResource: "cactus-growing", ofType: "mp4") else {
+//        guard let path = Bundle.main.path(forResource: "cactus-growing", ofType: "mp4") else {
+//            print("Video not found")
+//            return
+//        }
+        guard let videoURL =  Bundle.main.url(forResource: "cactus-growing-green", withExtension: "mp4") else {
+//        guard let videoURL =  Bundle.main.url(forResource: "playdoh-bat", withExtension: "mp4") else {
             print("Video not found")
             return
         }
-        
-        player = AVPlayer(url: URL(fileURLWithPath: path))
-        player.play()
-        player.playImmediately(atRate: 1.0)
-        
-        let playerLayer = AVPlayerLayer(player: player)
-        playerLayer.player?.play()
-        
+        let item = AVPlayerItem(url: videoURL)
         let videoFrame = AVMakeRect(aspectRatio: CGSize(width: 1, height: 1), insideRect: self.videoView.bounds)
+//        item.videoComposition = createVideoComposition(for: item)
+        player = AVPlayer(playerItem: item)
+//        player.rate
+        let playerLayer = AVPlayerLayer(player: player)
         playerLayer.frame = videoFrame
-        
         self.videoView.clipsToBounds = true
         self.videoView.layer.addSublayer(playerLayer)
+        playerLayer.pixelBufferAttributes = [(kCVPixelBufferPixelFormatTypeKey as String): kCVPixelFormatType_32BGRA]
+
+        playerLayer.player?.play()
+    }
+    
+    func getHue(red: CGFloat, green: CGFloat, blue: CGFloat) -> CGFloat {
+           let color = UIColor(red: red, green: green, blue: blue, alpha: 1)
+           var hue: CGFloat = 0
+           color.getHue(&hue, saturation: nil, brightness: nil, alpha: nil)
+           return hue
+       }
+    
+    func chromaKeyFilter(fromHue: CGFloat, toHue: CGFloat) -> CIFilter? {
+        // 1
+        let size = 64
+        var cubeRGB = [Float]()
+
+        // 2
+        for z in 0 ..< size {
+            let blue = CGFloat(z) / CGFloat(size-1)
+            for y in 0 ..< size {
+                let green = CGFloat(y) / CGFloat(size-1)
+                for x in 0 ..< size {
+                    let red = CGFloat(x) / CGFloat(size-1)
+
+                    // 3
+                    let hue = self.getHue(red: red, green: green, blue: blue)
+                    let alpha: CGFloat = (hue >= fromHue && hue <= toHue) ? 0: 1
+
+                    // 4
+                    cubeRGB.append(Float(red * alpha))
+                    cubeRGB.append(Float(green * alpha))
+                    cubeRGB.append(Float(blue * alpha))
+                    cubeRGB.append(Float(alpha))
+                }
+            }
+        }
+
+        let data = Data(buffer: UnsafeBufferPointer(start: &cubeRGB, count: cubeRGB.count))
+
+        // 5
+        let colorCubeFilter = CIFilter(name: "CIColorCube", parameters: ["inputCubeDimension": size, "inputCubeData": data])
+        return colorCubeFilter
+    }
+    
+    func filterPixels(foregroundCIImage: CIImage) -> CIImage {
+        var hue: CGFloat = 0
+        UIColor.white.getHue(&hue, saturation: nil, brightness: nil, alpha: nil)
+        // Remove Green from the Source Image
+        let chromaCIFilter = self.chromaKeyFilter(fromHue: hue, toHue: hue)
+        chromaCIFilter?.setValue(foregroundCIImage, forKey: kCIInputImageKey)
+        let sourceCIImageWithoutBackground = chromaCIFilter?.outputImage
+        var image = CIImage()
+        if let filteredImage = sourceCIImageWithoutBackground {
+            image = filteredImage
+        }
+        return image
+    }
+    
+    func createVideoComposition(for playerItem: AVPlayerItem) -> AVVideoComposition {
+        let composition = AVVideoComposition(asset: playerItem.asset, applyingCIFiltersWithHandler: { request in
+            let videoImage = request.sourceImage
+            let filteredImage = self.filterPixels(foregroundCIImage: videoImage)
+            return request.finish(with: filteredImage, context: nil)
+        })
+        return composition
     }
     
     func configureDoneButton() {
@@ -156,7 +223,7 @@ class ReflectContentViewController: UIViewController {
     func createInputView() {
         // *** Create Toolbar
         self.inputToolbar = UIView()
-        inputToolbar.backgroundColor = .white
+        inputToolbar.backgroundColor = self.view.backgroundColor
         inputToolbar.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(inputToolbar)
         
@@ -217,6 +284,7 @@ class ReflectContentViewController: UIViewController {
     func configureView() {
         let questionText = !FormatUtils.isBlank(content.text_md) ? content.text_md : content.text
         self.questionTextView.attributedText = MarkdownUtil.centeredMarkdown(questionText, font: CactusFont.large)
+        self.view.backgroundColor = CactusColor.lightBlue
     }
 
     @objc private func keyboardWillChangeFrame(_ notification: Notification) {
@@ -237,6 +305,9 @@ class ReflectContentViewController: UIViewController {
         view.endEditing(true)
     }
     
+    override func viewWillLayoutSubviews() {
+        self.view.backgroundColor = CactusColor.lightBlue
+    }
 }
 
 extension ReflectContentViewController: GrowingTextViewDelegate {

@@ -14,7 +14,7 @@ class PrivacyPolicyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        webview.load(NSURLRequest(url: NSURL(string: "https://cactus.app/privacy-policy")! as URL) as URLRequest)
+        webview.load(NSURLRequest(url: NSURL(string: "https://cactus.app/privacy-policy?no_nav=true")! as URL) as URLRequest)
         // Do any additional setup after loading the view.
     }
 }

@@ -14,7 +14,7 @@ class TermsOfUseServiceController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        webview.load(NSURLRequest(url: NSURL(string: "https://cactus.app/terms-of-service")! as URL) as URLRequest)
+        webview.load(NSURLRequest(url: NSURL(string: "https://cactus.app/terms-of-service?no_nav=true")! as URL) as URLRequest)
         // Do any additional setup after loading the view.
     }
     

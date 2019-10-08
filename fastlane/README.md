@@ -36,6 +36,11 @@ Push a new beta build to TestFlight
 fastlane ios manual_upload
 ```
 
+### ios add_devices
+```
+fastlane ios add_devices
+```
+
 ### ios test
 ```
 fastlane ios test

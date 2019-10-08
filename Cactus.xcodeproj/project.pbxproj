@@ -32,6 +32,8 @@
 		30265C6123453CB100934041 /* UIImage+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30265C5F23453CB100934041 /* UIImage+SwiftyGif.swift */; };
 		30265C6323453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30265C6223453CD100934041 /* UIImageView+SwiftyGif.swift */; };
 		30265C6423453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30265C6223453CD100934041 /* UIImageView+SwiftyGif.swift */; };
+		3026B291234D122C00CD2D34 /* cactus-growing-green.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3026B290234D122C00CD2D34 /* cactus-growing-green.mp4 */; };
+		3026B292234D122C00CD2D34 /* cactus-growing-green.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3026B290234D122C00CD2D34 /* cactus-growing-green.mp4 */; };
 		302C4F492347D7A700798560 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F482347D7A700798560 /* SettingsTableViewController.swift */; };
 		302C4F4A2347D7A700798560 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F482347D7A700798560 /* SettingsTableViewController.swift */; };
 		302C4F4C2347E25A00798560 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F4B2347E25A00798560 /* DateUtil.swift */; };
@@ -152,6 +154,8 @@
 		30A281EA22EA61EB0041158E /* StageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30A281E922EA61EB0041158E /* StageAssets.xcassets */; };
 		30A281F022EA62650041158E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30A281EF22EA62650041158E /* LaunchScreen.storyboard */; };
 		30A281F222EA627D0041158E /* ProdAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30A281EB22EA61FA0041158E /* ProdAssets.xcassets */; };
+		30AEDAC0234C0B7D0028649F /* AlphaFrameFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AEDABF234C0B7D0028649F /* AlphaFrameFilter.swift */; };
+		30AEDAC1234C0B7D0028649F /* AlphaFrameFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AEDABF234C0B7D0028649F /* AlphaFrameFilter.swift */; };
 		30B6EA6F22EA5A9F00443E46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */; };
 		30B6EA7322EA5A9F00443E46 /* JournalEntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA7222EA5A9F00443E46 /* JournalEntryDetailViewController.swift */; };
 		30B6EA7622EA5A9F00443E46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7422EA5A9F00443E46 /* Main.storyboard */; };
@@ -241,6 +245,7 @@
 		30265C5C23453C8D00934041 /* SwiftyGifManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyGifManager.swift; sourceTree = "<group>"; };
 		30265C5F23453CB100934041 /* UIImage+SwiftyGif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+SwiftyGif.swift"; sourceTree = "<group>"; };
 		30265C6223453CD100934041 /* UIImageView+SwiftyGif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+SwiftyGif.swift"; sourceTree = "<group>"; };
+		3026B290234D122C00CD2D34 /* cactus-growing-green.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "cactus-growing-green.mp4"; sourceTree = "<group>"; };
 		302C4F482347D7A700798560 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		302C4F4B2347E25A00798560 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		302C4F4F2347FAA400798560 /* EmailSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSettingsViewController.swift; sourceTree = "<group>"; };
@@ -305,6 +310,7 @@
 		30A281EB22EA61FA0041158E /* ProdAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ProdAssets.xcassets; sourceTree = "<group>"; };
 		30A281EF22EA62650041158E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30A281F722EA65EC0041158E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30AEDABF234C0B7D0028649F /* AlphaFrameFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaFrameFilter.swift; sourceTree = "<group>"; };
 		30B6EA6B22EA5A9F00443E46 /* Cactus Stage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cactus Stage.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30B6EA7222EA5A9F00443E46 /* JournalEntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryDetailViewController.swift; sourceTree = "<group>"; };
@@ -392,7 +398,9 @@
 		300AC18123398E86005C6555 /* Video */ = {
 			isa = PBXGroup;
 			children = (
+				3026B290234D122C00CD2D34 /* cactus-growing-green.mp4 */,
 				300AC18223398EB1005C6555 /* cactus-growing.mp4 */,
+				30AEDABF234C0B7D0028649F /* AlphaFrameFilter.swift */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -825,6 +833,7 @@
 				30673B9B233FDEC300EDE7BD /* Lato-Black.ttf in Resources */,
 				3095619A22ECF1CD009357BD /* GoogleService-Info.plist in Resources */,
 				30673BA5233FDEC300EDE7BD /* Lato-Light.ttf in Resources */,
+				3026B292234D122C00CD2D34 /* cactus-growing-green.mp4 in Resources */,
 				30673BA7233FDEC300EDE7BD /* Lato-ThinItalic.ttf in Resources */,
 				305B1866233175DC003E1561 /* PhotoContentViewController.xib in Resources */,
 				3084E9682348FE9C00788279 /* CelebrateViewController.xib in Resources */,
@@ -866,6 +875,7 @@
 				30673BA2233FDEC300EDE7BD /* Lato-BoldItalic.ttf in Resources */,
 				30B6EA7822EA5AA100443E46 /* SharedAssets.xcassets in Resources */,
 				3084E9672348FE9C00788279 /* CelebrateViewController.xib in Resources */,
+				3026B291234D122C00CD2D34 /* cactus-growing-green.mp4 in Resources */,
 				30B6EA7622EA5A9F00443E46 /* Main.storyboard in Resources */,
 				30A266DA2329BB73003C708E /* config.yml in Resources */,
 				30673BA6233FDEC300EDE7BD /* Lato-ThinItalic.ttf in Resources */,
@@ -1338,6 +1348,7 @@
 				30BF2E122328230E00A49EB6 /* FirebaseExtensions.swift in Sources */,
 				30BF2E2B23289F9F00A49EB6 /* TextContentViewController.swift in Sources */,
 				30934FA722EBFF27007C4E6C /* ReflectionPrompt.swift in Sources */,
+				30AEDAC1234C0B7D0028649F /* AlphaFrameFilter.swift in Sources */,
 				30BF2E35232964CD00A49EB6 /* FlamelinkTypes.swift in Sources */,
 				3023FE3122ECD0A300F753A7 /* NotificationService.swift in Sources */,
 				30E9B0AD22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
@@ -1415,6 +1426,7 @@
 				30E9B0A922EAD68B005B25FD /* AppMainViewController.swift in Sources */,
 				30934FA622EBFF27007C4E6C /* ReflectionPrompt.swift in Sources */,
 				30E9B0AC22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
+				30AEDAC0234C0B7D0028649F /* AlphaFrameFilter.swift in Sources */,
 				30934F9F22EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift in Sources */,
 				30934F9922EBF235007C4E6C /* BorderedButton.swift in Sources */,
 				30934FAC22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */,
@@ -1557,6 +1569,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Cactus Prod.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 55;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
@@ -1581,7 +1594,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Cactus Prod.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 55;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
@@ -1594,7 +1607,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cactus.CactusApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.cactus.CactusApp";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.cactus.CactusApp";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1749,7 +1762,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Cactus Stage.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
@@ -1763,7 +1776,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cactus.StageCactus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.cactus.StageCactus";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.cactus.StageCactus";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
