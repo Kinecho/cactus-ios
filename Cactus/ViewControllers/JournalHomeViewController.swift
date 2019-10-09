@@ -21,7 +21,9 @@ class JournalHomeViewController: UIViewController {
     let menuContainer = UIView()
     let journalFeedDataSource = JournalFeedDataSource()
     var blurEffect: UIBlurEffect?
-    
+    let menuOpenDuration: TimeInterval = 0.5
+    let menuCloseDuration: TimeInterval = 0.25
+    let blurEffectDuration: TimeInterval = 0.2
     var menuWidth: CGFloat {
         return self.view.bounds.width * 4/5
     }
@@ -106,7 +108,7 @@ class JournalHomeViewController: UIViewController {
         let menuX = isMenuExpanded ? bounds.width - self.menuWidth : self.view.frame.maxX
         
         self.overlayView.isHidden = false
-        UIView.animate(withDuration: 0.2, animations: {
+        UIView.animate(withDuration: blurEffectDuration, animations: {
             if let blurEffect = self.blurEffect {
                 self.overlayView.effect = self.isMenuExpanded ? blurEffect : nil
             } else {
@@ -117,7 +119,7 @@ class JournalHomeViewController: UIViewController {
             self.profileImageView.transform = self.isMenuExpanded ? CGAffineTransform.init(scaleX: 0.8, y: 0.8) : CGAffineTransform.identity
         })
         
-        UIView.animate(withDuration: isMenuExpanded ? 0.8 : 0.3,
+        UIView.animate(withDuration: isMenuExpanded ? menuOpenDuration : menuCloseDuration,
                        delay: 0,
                        usingSpringWithDamping: isMenuExpanded ? 0.7 : 1,
                        initialSpringVelocity: 0,
