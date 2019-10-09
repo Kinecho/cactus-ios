@@ -8,11 +8,9 @@
 
 import UIKit
 
-class TextContentViewController: UIViewController {
+class TextContentViewController: PromptContentViewController {
 
-    @IBOutlet weak var text: UITextView!
-    var content: Content!
-    var promptContent: PromptContent!
+    @IBOutlet weak var text: UITextView!    
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     override func viewDidLoad() {
@@ -23,8 +21,9 @@ class TextContentViewController: UIViewController {
     }
 
     func configureView() {
-        self.text.text = self.content.text
+        self.initTextView(self.text)
         
+        self.text.text = self.content.text
         var textString: String? = self.content.text_md
         if textString == nil || textString?.isEmpty ?? true {
             textString = self.content.text
@@ -36,15 +35,5 @@ class TextContentViewController: UIViewController {
         
         self.backgroundImageView.setImageFile(self.content.backgroundImage)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

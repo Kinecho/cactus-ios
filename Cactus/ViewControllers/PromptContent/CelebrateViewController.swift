@@ -17,7 +17,7 @@ class CelebrateViewController: UIViewController {
     @IBOutlet weak var durationMetricLabel: UILabel!
     @IBOutlet weak var reflectionCountMetricLabel: UILabel!
     @IBOutlet weak var homeButton: RoundedButton!
-    
+    var shouldAnimate = true
     var reflectionsCountProcess: CountProcess?
     var minutesCountProcess: CountProcess?
     var streakCountProcess: CountProcess?
@@ -29,12 +29,29 @@ class CelebrateViewController: UIViewController {
         super.viewDidLoad()
         let encouragement = celebrations.randomElement() ?? "Nice Work!"
         self.encouragementLabel.text = encouragement
+        self.resetNumbers()
         // Do any additional setup after loading the view.
     }
 
-
-    override func viewWillAppear(_ animated: Bool) {
-        self.animateNumbers()
+    override func viewDidAppear(_ animated: Bool) {
+        if self.shouldAnimate {
+            self.animateNumbers()
+            self.shouldAnimate = false
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.shouldAnimate = true
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.resetNumbers()
+    }
+    
+    func resetNumbers() {
+        self.reflectionCountNumberLabel.text = "--"
+        self.streakNumberLabe.text = "--"
+        self.durationCountNumbereLabel.text = "--"
     }
     
     func animateNumbers() {

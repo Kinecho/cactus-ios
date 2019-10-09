@@ -9,29 +9,23 @@
 import UIKit
 import AVKit
 
-protocol ReflectionContentViewControllerDelegate: class {
-    func save(_ response: ReflectionResponse)
-    func nextScreen()
-}
-
-class ReflectContentViewController: UIViewController {
+class ReflectContentViewController: PromptContentViewController {
 
     let padding: CGFloat = 8
     @IBOutlet weak var videoView: UIView!
-    weak var delegate: ReflectionContentViewControllerDelegate?
-    var content: Content!
-    var promptContent: PromptContent!
+    @IBOutlet weak var questionTextView: UITextView!
+//    weak var delegate: PromptContentViewControllerDelegate?
+//    var content: Content!
+//    var promptContent: PromptContent!
     var player: AVPlayer!
     
     var doneButton: PrimaryButton!
     var reflectionResponse: ReflectionResponse?
-    
-    
+        
     var startTime: Date?
     var endTime: Date?
     
 //    @IBOutlet weak var inputToolbar: UIView!
-    @IBOutlet weak var questionTextView: UITextView!
     var inputToolbar: UIView!
     var textView: GrowingTextView!
     private var textViewBottomConstraint: NSLayoutConstraint!
@@ -66,20 +60,13 @@ class ReflectContentViewController: UIViewController {
     }
     
     func createCactusGrowingVideo() {
-//        guard let path = Bundle.main.path(forResource: "cactus-growing", ofType: "mp4") else {
-//            print("Video not found")
-//            return
-//        }
-        guard let videoURL =  Bundle.main.url(forResource: "cactus-growing-green", withExtension: "mp4") else {
-//        guard let videoURL =  Bundle.main.url(forResource: "playdoh-bat", withExtension: "mp4") else {
+        guard let videoURL =  Bundle.main.url(forResource: "cactus-growing-green-588", withExtension: "mp4") else {
             print("Video not found")
             return
         }
         let item = AVPlayerItem(url: videoURL)
         let videoFrame = AVMakeRect(aspectRatio: CGSize(width: 1, height: 1), insideRect: self.videoView.bounds)
-//        item.videoComposition = createVideoComposition(for: item)
         player = AVPlayer(playerItem: item)
-//        player.rate
         let playerLayer = AVPlayerLayer(player: player)
         playerLayer.frame = videoFrame
         self.videoView.clipsToBounds = true
@@ -87,69 +74,6 @@ class ReflectContentViewController: UIViewController {
         playerLayer.pixelBufferAttributes = [(kCVPixelBufferPixelFormatTypeKey as String): kCVPixelFormatType_32BGRA]
 
         playerLayer.player?.play()
-    }
-    
-    func getHue(red: CGFloat, green: CGFloat, blue: CGFloat) -> CGFloat {
-           let color = UIColor(red: red, green: green, blue: blue, alpha: 1)
-           var hue: CGFloat = 0
-           color.getHue(&hue, saturation: nil, brightness: nil, alpha: nil)
-           return hue
-       }
-    
-    func chromaKeyFilter(fromHue: CGFloat, toHue: CGFloat) -> CIFilter? {
-        // 1
-        let size = 64
-        var cubeRGB = [Float]()
-
-        // 2
-        for z in 0 ..< size {
-            let blue = CGFloat(z) / CGFloat(size-1)
-            for y in 0 ..< size {
-                let green = CGFloat(y) / CGFloat(size-1)
-                for x in 0 ..< size {
-                    let red = CGFloat(x) / CGFloat(size-1)
-
-                    // 3
-                    let hue = self.getHue(red: red, green: green, blue: blue)
-                    let alpha: CGFloat = (hue >= fromHue && hue <= toHue) ? 0: 1
-
-                    // 4
-                    cubeRGB.append(Float(red * alpha))
-                    cubeRGB.append(Float(green * alpha))
-                    cubeRGB.append(Float(blue * alpha))
-                    cubeRGB.append(Float(alpha))
-                }
-            }
-        }
-
-        let data = Data(buffer: UnsafeBufferPointer(start: &cubeRGB, count: cubeRGB.count))
-
-        // 5
-        let colorCubeFilter = CIFilter(name: "CIColorCube", parameters: ["inputCubeDimension": size, "inputCubeData": data])
-        return colorCubeFilter
-    }
-    
-    func filterPixels(foregroundCIImage: CIImage) -> CIImage {
-        var hue: CGFloat = 0
-        UIColor.white.getHue(&hue, saturation: nil, brightness: nil, alpha: nil)
-        // Remove Green from the Source Image
-        let chromaCIFilter = self.chromaKeyFilter(fromHue: hue, toHue: hue)
-        chromaCIFilter?.setValue(foregroundCIImage, forKey: kCIInputImageKey)
-        let sourceCIImageWithoutBackground = chromaCIFilter?.outputImage
-        var image = CIImage()
-        if let filteredImage = sourceCIImageWithoutBackground {
-            image = filteredImage
-        }
-        return image
-    }
-    
-    func createVideoComposition(for playerItem: AVPlayerItem) -> AVVideoComposition {
-        let composition = AVVideoComposition(asset: playerItem.asset, applyingCIFiltersWithHandler: { request in
-            let videoImage = request.sourceImage
-            let filteredImage = self.filterPixels(foregroundCIImage: videoImage)
-            return request.finish(with: filteredImage, context: nil)
-        })
-        return composition
     }
     
     func configureDoneButton() {
@@ -216,7 +140,6 @@ class ReflectContentViewController: UIViewController {
             if error == nil {
                 self.delegate?.nextScreen()
             }
-            
         }
     }
     
@@ -230,8 +153,9 @@ class ReflectContentViewController: UIViewController {
         // *** Create GrowingTextView ***
         textView = GrowingTextView()
         textView.delegate = self
-        textView.layer.cornerRadius = 12.0
+        textView.layer.cornerRadius = 16.0
         textView.maxHeight = 300
+        textView.minHeight = 34
         textView.trimWhiteSpaceWhenEndEditing = true
         textView.placeholder = "Say something..."
         textView.layer.borderWidth = 1
@@ -282,6 +206,7 @@ class ReflectContentViewController: UIViewController {
     }
     
     func configureView() {
+        self.initTextView(self.questionTextView)
         let questionText = !FormatUtils.isBlank(content.text_md) ? content.text_md : content.text
         self.questionTextView.attributedText = MarkdownUtil.centeredMarkdown(questionText, font: CactusFont.large)
         self.view.backgroundColor = CactusColor.lightBlue

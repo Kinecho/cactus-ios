@@ -17,6 +17,8 @@ class PromptContentPageViewController: UIPageViewController {
     var reflectionResponse: ReflectionResponse?
     var closeButton: UIButton?
     var journalDataSource: JournalFeedDataSource?
+    lazy var paginationGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapGestureHandler))
+    var tapNavigationEnabled = true
     
     fileprivate lazy var screens: [UIViewController] = []
     
@@ -26,36 +28,46 @@ class PromptContentPageViewController: UIPageViewController {
         self.delegate = self
         self.configureScreens()
         self.view.backgroundColor = CactusColor.lightBlue
+//        self.view.addGestureRecognizer(self.paginationGesture)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.configureScreens()
+//        self.view.addGestureRecognizer(self.paginationGesture)
+    }
+    
+    @objc func tapGestureHandler(touch: UITapGestureRecognizer) {
+        guard self.tapNavigationEnabled == true else {return}
+        let touchPoint = touch.location(in: self.view)
+        let leftX = self.view.bounds.maxX * 0.3
+        if touchPoint.x <= leftX {
+            self.goToPreviousPage()
+        } else {
+            self.goToNextPage()
+        }
     }
     
     func goToNextPage(animated: Bool = true) {
         guard let currentViewController = self.viewControllers?.first else { return }
         guard let nextViewController = dataSource?.pageViewController( self, viewControllerAfter: currentViewController ) else { return }
-        setViewControllers([nextViewController], direction: .forward, animated: animated, completion: nil)
+        self.tapNavigationEnabled = false
+        setViewControllers([nextViewController], direction: .forward, animated: animated, completion: { completed in
+            self.delegate?.pageViewController?(self, didFinishAnimating: true, previousViewControllers: [], transitionCompleted: completed)
+            self.tapNavigationEnabled = true
+        })
     }
     
     func goToPreviousPage(animated: Bool = true) {
         guard let currentViewController = self.viewControllers?.first else { return }
         guard let previousViewController = dataSource?.pageViewController( self, viewControllerBefore: currentViewController ) else { return }
-        setViewControllers([previousViewController], direction: .reverse, animated: animated, completion: nil)
+        self.tapNavigationEnabled = false
+        setViewControllers([previousViewController], direction: .reverse, animated: animated, completion: { completed in
+            self.delegate?.pageViewController?(self, didFinishAnimating: true, previousViewControllers: [], transitionCompleted: completed)
+            self.tapNavigationEnabled = true
+            
+        })
     }
-    
-    //    func configureNavbar() {
-    //        guard let navBar = self.navigationController?.navigationBar else {return}
-    //
-    //        navBar.barStyle = .blackTranslucent
-    //        navBar.isOpaque = false
-    //        let closeButton = UIBarButtonItem()
-    //
-    //        closeButton.image = CactusImage.close.getImage()
-    //        closeButton.tintColor = CactusColor.darkGreen
-    //        self.navigationItem.rightBarButtonItem = closeButton
-    //    }
     
     func configureScreens() {
         var screens: [UIViewController] = []
@@ -66,7 +78,7 @@ class PromptContentPageViewController: UIPageViewController {
         })
         
         let celebrate = CelebrateViewController.loadFromNib()
-        celebrate.journalDataSource = self.journalDataSource
+        celebrate.journalDataSource = self.journalDataSource        
         screens.append(celebrate)
         self.screens = screens
         
@@ -78,44 +90,56 @@ class PromptContentPageViewController: UIPageViewController {
     }
     
     func getContentViewController(_ content: Content) -> UIViewController? {
-        var viewController: UIViewController?
+        var viewController: PromptContentViewController?
         print("content type is \(content.contentType)")
-        
         var backgroundColor: UIColor? = CactusColor.lightBlue
-        
+//        var tapNavigationEnabled = true
         switch content.contentType {
         case .text:
             let textViewController = TextContentViewController.loadFromNib()
-            textViewController.content = content
-            textViewController.promptContent = self.promptContent
+//            textViewController.content = content
+//            textViewController.promptContent = self.promptContent
             viewController = textViewController
         case .quote:
             print("Setting up quote view controller")
             let quoteViewController = QuoteContentViewController.loadFromNib()
-            quoteViewController.content = content
-            quoteViewController.promptContent = promptContent
+//            quoteViewController.content = content
+//            quoteViewController.promptContent = promptContent
             viewController = quoteViewController
         case .photo:
             print("Setting up photo view controller")
             let photoViewController = PhotoContentViewController.loadFromNib()
-            photoViewController.content = content
-            photoViewController.promptContent = promptContent
+//            photoViewController.content = content
+//            photoViewController.promptContent = promptContent
             viewController = photoViewController
         case .reflect:
             print("Setting up reflection screen")
             let reflectionViewController = ReflectContentViewController.loadFromNib()
-            reflectionViewController.content = content
-            reflectionViewController.promptContent = promptContent
             reflectionViewController.reflectionResponse = self.reflectionResponse
-            reflectionViewController.delegate = self
+//            reflectionViewController.content = content
+//            reflectionViewController.promptContent = promptContent
+//
+//            reflectionViewController.delegate = self
             viewController = reflectionViewController
+//            tapNavigationEnabled = false
             backgroundColor = .white
         default:
             print("PromptContentPageViewController: ContentType not handled: \(content.contentType)")
         }
         
-        viewController?.view.backgroundColor = backgroundColor
+        if let vc = viewController {
+            vc.content = content
+            vc.promptContent = promptContent
+            vc.delegate = self
+        }
         
+        viewController?.view.backgroundColor = backgroundColor
+//        if tapNavigationEnabled == true {
+//            self.view.addGestureRecognizer(self.paginationGesture)
+//        } else {
+//            self.view.removeGestureRecognizer(self.paginationGesture)
+//        }
+//
         return viewController
     }
     
@@ -244,14 +268,19 @@ extension PromptContentPageViewController: UIPageViewControllerDelegate {
     }
 }
 
-extension PromptContentPageViewController: ReflectionContentViewControllerDelegate {
+extension PromptContentPageViewController: PromptContentViewControllerDelegate {
     func save(_ response: ReflectionResponse) {
         
     }
-    
     func nextScreen() {
         self.goToNextPage()
     }
     
+    func previousScreen() {
+        self.goToPreviousPage()
+    }
     
+    func handleTapGesture(touch: UITapGestureRecognizer) {
+        self.tapGestureHandler(touch: touch)
+    }
 }

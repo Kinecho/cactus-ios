@@ -8,20 +8,18 @@
 
 import UIKit
 import Cloudinary
-class PhotoContentViewController: UIViewController {
+class PhotoContentViewController: PromptContentViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textView: UITextView!
-    var content: Content!
-    var promptContent: PromptContent!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-
+        super.viewDidLoad()        
         // Do any additional setup after loading the view.
         configureView()
     }
 
     func configureView() {
+        self.initTextView(self.textView)
         if let photo = content.photo {
             self.configurePhoto(photo)
         } else {

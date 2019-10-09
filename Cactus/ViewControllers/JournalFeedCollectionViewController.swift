@@ -95,7 +95,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
                 
         let journalEntry = self.dataSource.get(at: indexPath.row)
 
-        print("Updating cell for \(indexPath.row). promptId=\(journalEntry?.sentPrompt.promptId ?? "not set")")
+//        print("Updating cell for \(indexPath.row). promptId=\(journalEntry?.sentPrompt.promptId ?? "not set")")
         journalCell.journalEntry = journalEntry
         journalCell.updateView()
         journalCell.setCellWidth(self.getCellEstimatedSize().width)
@@ -139,7 +139,7 @@ extension JournalFeedCollectionViewController: UICollectionViewDelegateFlowLayou
 }
 extension JournalFeedCollectionViewController: JournalFeedDataSourceDelegate {
     func updateEntry(_ journalEntry: JournalEntry, at: Int?) {
-        print("Update feed for entry at \(at ?? -1)")
+//        print("Update feed for entry at \(at ?? -1)")
         guard let index = at else {
             return
         }

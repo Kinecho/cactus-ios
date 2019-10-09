@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -38,37 +38,34 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="K3S-gp-rfL">
-                            <rect key="frame" x="0.0" y="161.5" width="414" height="573"/>
+                            <rect key="frame" x="0.0" y="163.5" width="414" height="569"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nice Work!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZy-Om-fpJ">
-                                    <rect key="frame" x="110" y="0.0" width="194" height="40"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="40" id="26B-uD-mZp"/>
-                                    </constraints>
+                                    <rect key="frame" x="104" y="0.0" width="206" height="48"/>
                                     <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="40"/>
                                     <color key="textColor" name="PinkDarkest"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="celebrate" translatesAutoresizingMaskIntoConstraints="NO" id="mq1-0v-GmW">
-                                    <rect key="frame" x="50" y="80" width="314" height="209"/>
+                                    <rect key="frame" x="60" y="88" width="294" height="196"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="mq1-0v-GmW" secondAttribute="height" multiplier="1.5:1" id="yYm-2M-v0e"/>
                                     </constraints>
                                 </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yKD-GT-QmC">
-                                    <rect key="frame" x="20" y="329" width="374" height="150"/>
+                                    <rect key="frame" x="20" y="324" width="374" height="150"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Tm-of-7Tt" userLabel="ReflectionCountView">
                                             <rect key="frame" x="0.0" y="20" width="124.5" height="110"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="43" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvD-dT-BUU" userLabel="ReflectionCountLabel">
-                                                    <rect key="frame" x="35.5" y="0.0" width="53.5" height="56"/>
+                                                    <rect key="frame" x="34.5" y="0.0" width="56" height="58"/>
                                                     <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="48"/>
                                                     <color key="textColor" name="TextDark"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reflections" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9c-gm-g6T" userLabel="ReflectionsLabel">
-                                                    <rect key="frame" x="12.5" y="66" width="100" height="23.5"/>
+                                                    <rect key="frame" x="13" y="68" width="99" height="24"/>
                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
                                                     <color key="textColor" name="TextDark"/>
                                                     <nil key="highlightedColor"/>
@@ -85,13 +82,13 @@
                                             <rect key="frame" x="124.5" y="20" width="125" height="110"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="43" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mbf-rb-fMO" userLabel="ReflectionCountLabel">
-                                                    <rect key="frame" x="36" y="0.0" width="53.5" height="56"/>
+                                                    <rect key="frame" x="34.5" y="0.0" width="56" height="58"/>
                                                     <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="48"/>
                                                     <color key="textColor" name="TextDark"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAm-p2-IJE" userLabel="ReflectionsLabel">
-                                                    <rect key="frame" x="27" y="66" width="71.5" height="23.5"/>
+                                                    <rect key="frame" x="26.5" y="68" width="72.5" height="24"/>
                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
                                                     <color key="textColor" name="TextDark"/>
                                                     <nil key="highlightedColor"/>
@@ -108,13 +105,13 @@
                                             <rect key="frame" x="249.5" y="20" width="124.5" height="110"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIP-0j-BgR" userLabel="DayStreakCountLabel">
-                                                    <rect key="frame" x="48.5" y="0.0" width="27" height="56"/>
+                                                    <rect key="frame" x="48" y="0.0" width="28" height="58"/>
                                                     <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="48"/>
                                                     <color key="textColor" name="TextDark"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day Streak" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brx-ls-NRW" userLabel="DayStreakLabel">
-                                                    <rect key="frame" x="13" y="66" width="98" height="23.5"/>
+                                                    <rect key="frame" x="14" y="68" width="96.5" height="24"/>
                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
                                                     <color key="textColor" name="TextDark"/>
                                                     <nil key="highlightedColor"/>
@@ -135,7 +132,7 @@
                                     </constraints>
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIj-5w-M4R" customClass="PrimaryButton" customModule="Cactus_Prod" customModuleProvider="target">
-                                    <rect key="frame" x="109.5" y="519" width="195" height="54"/>
+                                    <rect key="frame" x="111" y="514" width="192" height="55"/>
                                     <color key="backgroundColor" name="Green"/>
                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="22"/>
                                     <inset key="contentEdgeInsets" minX="50" minY="14" maxX="50" maxY="14"/>
@@ -160,9 +157,9 @@
                             </subviews>
                             <constraints>
                                 <constraint firstItem="l2W-c0-JYG" firstAttribute="trailing" secondItem="yKD-GT-QmC" secondAttribute="trailing" constant="20" id="UUk-au-evS"/>
-                                <constraint firstItem="mq1-0v-GmW" firstAttribute="leading" secondItem="K3S-gp-rfL" secondAttribute="leading" constant="50" id="hVP-L6-2vT"/>
+                                <constraint firstItem="mq1-0v-GmW" firstAttribute="leading" secondItem="K3S-gp-rfL" secondAttribute="leading" constant="60" id="hVP-L6-2vT"/>
                                 <constraint firstItem="yKD-GT-QmC" firstAttribute="leading" secondItem="l2W-c0-JYG" secondAttribute="leading" constant="20" id="jED-zB-MaJ"/>
-                                <constraint firstAttribute="trailing" secondItem="mq1-0v-GmW" secondAttribute="trailing" constant="50" id="jpq-JJ-zfA"/>
+                                <constraint firstAttribute="trailing" secondItem="mq1-0v-GmW" secondAttribute="trailing" constant="60" id="jpq-JJ-zfA"/>
                             </constraints>
                             <viewLayoutGuide key="safeArea" id="l2W-c0-JYG"/>
                         </stackView>
@@ -172,7 +169,6 @@
                         <constraint firstItem="K3S-gp-rfL" firstAttribute="leading" secondItem="FQE-nf-i4h" secondAttribute="leading" id="7OY-69-iij"/>
                         <constraint firstItem="K3S-gp-rfL" firstAttribute="trailing" secondItem="FQE-nf-i4h" secondAttribute="trailing" id="JIM-U0-6JU"/>
                         <constraint firstItem="K3S-gp-rfL" firstAttribute="centerY" secondItem="7uq-lE-LWz" secondAttribute="centerY" id="czP-de-5p0"/>
-                        <constraint firstItem="K3S-gp-rfL" firstAttribute="top" relation="greaterThanOrEqual" secondItem="4QY-Gv-viY" secondAttribute="top" constant="50" id="fxv-fG-A2M"/>
                         <constraint firstItem="K3S-gp-rfL" firstAttribute="bottom" secondItem="FQE-nf-i4h" secondAttribute="bottom" id="lQx-JI-c1P"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="4QY-Gv-viY"/>
@@ -203,7 +199,7 @@
             <color red="1" green="0.89399999380111694" blue="0.85500001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TextDark">
-            <color red="0.2669999897480011" green="0.2669999897480011" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
