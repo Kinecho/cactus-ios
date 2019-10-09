@@ -21,6 +21,7 @@ enum ScreenID: String {
     //settings
     case settingsTable
     case inviteScreen
+    case notificationsScreen
     
     var name: String {
         return self.rawValue

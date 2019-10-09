@@ -159,6 +159,10 @@
 		30B6EA7622EA5A9F00443E46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7422EA5A9F00443E46 /* Main.storyboard */; };
 		30B6EA7822EA5AA100443E46 /* SharedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */; };
 		30B6EA7B22EA5AA100443E46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7922EA5AA100443E46 /* LaunchScreen.storyboard */; };
+		30BE566F234E73A000AA6D4D /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE566E234E73A000AA6D4D /* NotificationsTableViewController.swift */; };
+		30BE5670234E73A000AA6D4D /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE566E234E73A000AA6D4D /* NotificationsTableViewController.swift */; };
+		30BE5672234E829100AA6D4D /* NotificationTimeOfDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE5671234E829100AA6D4D /* NotificationTimeOfDayViewController.swift */; };
+		30BE5673234E829100AA6D4D /* NotificationTimeOfDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE5671234E829100AA6D4D /* NotificationTimeOfDayViewController.swift */; };
 		30BF2E0B232816CC00A49EB6 /* PromptContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0A232816CC00A49EB6 /* PromptContentService.swift */; };
 		30BF2E0D2328171200A49EB6 /* PromptContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0C2328171200A49EB6 /* PromptContent.swift */; };
 		30BF2E0F23281CAA00A49EB6 /* FlamelinkTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0E23281CAA00A49EB6 /* FlamelinkTypes.swift */; };
@@ -315,6 +319,8 @@
 		30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SharedAssets.xcassets; sourceTree = "<group>"; };
 		30B6EA7A22EA5AA100443E46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30B6EA7C22EA5AA100443E46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30BE566E234E73A000AA6D4D /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
+		30BE5671234E829100AA6D4D /* NotificationTimeOfDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTimeOfDayViewController.swift; sourceTree = "<group>"; };
 		30BF2E0A232816CC00A49EB6 /* PromptContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptContentService.swift; sourceTree = "<group>"; };
 		30BF2E0C2328171200A49EB6 /* PromptContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptContent.swift; sourceTree = "<group>"; };
 		30BF2E0E23281CAA00A49EB6 /* FlamelinkTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlamelinkTypes.swift; sourceTree = "<group>"; };
@@ -428,6 +434,8 @@
 				3084E95A2348087100788279 /* HelpViewController.swift */,
 				3084E95D234810B300788279 /* FeedbackViewController.swift */,
 				3084E9602348118000788279 /* LanguageSettingsViewController.swift */,
+				30BE566E234E73A000AA6D4D /* NotificationsTableViewController.swift */,
+				30BE5671234E829100AA6D4D /* NotificationTimeOfDayViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1336,6 +1344,7 @@
 			files = (
 				309561A022EE16B5009357BD /* CactusConfig.swift in Sources */,
 				30934FB022EC0558007C4E6C /* ReflectionResponseService.swift in Sources */,
+				30BE5673234E829100AA6D4D /* NotificationTimeOfDayViewController.swift in Sources */,
 				30934F9D22EBF2AC007C4E6C /* ColorExtensions.swift in Sources */,
 				304EA2F42343B730001FB8AD /* CountProcess.swift in Sources */,
 				30E9B0AA22EAD68B005B25FD /* AppMainViewController.swift in Sources */,
@@ -1360,6 +1369,7 @@
 				3084E95F234810B300788279 /* FeedbackViewController.swift in Sources */,
 				30934FA422EBF4E6007C4E6C /* FormatUtils.swift in Sources */,
 				30E9B0B422EADE2D005B25FD /* CGExtensions.swift in Sources */,
+				30BE5670234E73A000AA6D4D /* NotificationsTableViewController.swift in Sources */,
 				300AC18E233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */,
 				302C4F4A2347D7A700798560 /* SettingsTableViewController.swift in Sources */,
 				305B18812331E162003E1561 /* ReflectContentViewController.swift in Sources */,
@@ -1414,6 +1424,7 @@
 			files = (
 				309561A222EE16C3009357BD /* CactusConfig.swift in Sources */,
 				30934FAF22EC0558007C4E6C /* ReflectionResponseService.swift in Sources */,
+				30BE5672234E829100AA6D4D /* NotificationTimeOfDayViewController.swift in Sources */,
 				30934F9C22EBF2AB007C4E6C /* ColorExtensions.swift in Sources */,
 				304EA2F32343B730001FB8AD /* CountProcess.swift in Sources */,
 				30BF2E0B232816CC00A49EB6 /* PromptContentService.swift in Sources */,
@@ -1438,6 +1449,7 @@
 				3084E95E234810B300788279 /* FeedbackViewController.swift in Sources */,
 				30BF2E2F2328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */,
 				30BF2E0F23281CAA00A49EB6 /* FlamelinkTypes.swift in Sources */,
+				30BE566F234E73A000AA6D4D /* NotificationsTableViewController.swift in Sources */,
 				300AC18D233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */,
 				302C4F492347D7A700798560 /* SettingsTableViewController.swift in Sources */,
 				305B18802331E162003E1561 /* ReflectContentViewController.swift in Sources */,

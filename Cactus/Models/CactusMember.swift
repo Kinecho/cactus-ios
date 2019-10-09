@@ -15,6 +15,18 @@ public class CactusMemberField: BaseModelField {
     static public let firstName = "firstName"
     static public let lastName = "lastName"
     static public let userId = "userId"
+    static public let notificationSettings = "notificationSettings"
+}
+
+enum NotificationSettingType: String, Codable {
+    case email
+    case push
+}
+
+enum NotificationStatus: String, Codable {
+    case NOT_SET
+    case ACTIVE
+    case INACTIVE
 }
 
 class CactusMember: FirestoreIdentifiable, Hashable {
@@ -34,8 +46,8 @@ class CactusMember: FirestoreIdentifiable, Hashable {
     var fcmTokens: [String]?
     var mailchimpListMember: ListMember?
     var languageCode: String?
-    
-    
+    var notificationSettings: [String: String]? = [:]
+        
     static func == (lhs: CactusMember, rhs: CactusMember) -> Bool {
         return lhs.id != nil && rhs.id != nil && lhs.id == rhs.id
     }
@@ -43,5 +55,4 @@ class CactusMember: FirestoreIdentifiable, Hashable {
     func hash(into hasher: inout Hasher) {
         id.hash(into: &hasher)
     }
-
 }

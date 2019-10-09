@@ -13,6 +13,22 @@ func numDaysAgoFromMidnight(_ date: Date, _ today: Date) -> Int {
     return diffInDays ?? 0
 }
 
+func getDenverCalendar() -> Calendar {
+    var denverCalendar = Calendar.current
+    let denverTz = getDenverTimeZone()
+    denverCalendar.timeZone = denverTz
+    return denverCalendar
+}
+
+func getDenverTimeZone() -> TimeZone {
+    let denverTz = TimeZone(identifier: "America/Denver")!
+    return denverTz
+}
+
+func getDefaultNotificationDate() -> Date? {
+    return getDenverCalendar().date(bySettingHour: 2, minute: 45, second: 0, of: Date())
+}
+
 func calculateStreak(_ dates: [Date]) -> Int {
     if dates.isEmpty {
         return 0

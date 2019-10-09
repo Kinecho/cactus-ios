@@ -188,8 +188,7 @@ class NavigationMenuViewController: UIViewController {
     }
     
     @IBAction func notificationsTapped(_ sender: Any) {
-        //        let vc = MemberProfileViewController()
-        let vc = AppDelegate.shared.rootViewController.getScreen(ScreenID.MemberProfile)
+        let vc = AppDelegate.shared.rootViewController.getScreen(ScreenID.notificationsScreen, StoryboardID.Settings)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
