@@ -51,7 +51,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     }
     let cornerRadius: CGFloat = 12
     @IBAction func moreButtonTapped(_ sender: Any) {
-        let duration: Double = 1.0
+        let duration: Double = 0.5
         let activeColor = CactusColor.darkGreen
         let normalColor = CactusColor.lightGreen
         
@@ -61,8 +61,9 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
                        initialSpringVelocity: -1,
                        options: .curveEaseOut,
                        animations: {
-                        self.moreButton.tintColor = activeColor
-                        self.moreButton.layer.borderColor = activeColor.cgColor
+//                        self.moreButton.tintColor = activeColor
+//                        self.moreButton.imageView?.tintColor = activeColor
+//                        self.moreButton.layer.borderColor = activeColor.cgColor
                             self.moreButton?.transform = CGAffineTransform(rotationAngle: .pi/2)
                         }, completion: { _ in
                             self.moreButton?.transform = CGAffineTransform(rotationAngle: .pi/2)
@@ -76,8 +77,9 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
                            initialSpringVelocity: -1,
                            options: .curveEaseOut,
                            animations: {
-                            self.moreButton.tintColor = normalColor
-                            self.moreButton.layer.borderColor = normalColor.cgColor
+//                            self.moreButton.tintColor = normalColor
+//                            self.moreButton.imageView?.tintColor = normalColor
+//                            self.moreButton.layer.borderColor = normalColor.cgColor
                                 self.moreButton?.transform = CGAffineTransform.identity
                             }, completion: { _ in
                                 self.moreButton?.transform = CGAffineTransform.identity
@@ -122,7 +124,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         responseTextView.inputAccessoryView = bar
         responseTextView.becomeFirstResponder()
         
-        self.contentView.backgroundColor = CactusColor.pink
+//        self.contentView.backgroundColor = CactusColor.pink
         
     }
     

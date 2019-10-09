@@ -10,12 +10,24 @@ import UIKit
 
 class EmailSettingsViewController: UIViewController {
 
+    @IBOutlet weak var emailTextView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.setupEmail()
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.setupEmail()
+    }
+    
+    func setupEmail() {
+        if let member = CactusMemberService.sharedInstance.currentMember {
+            self.emailTextView.text = member.email
+        } else {
+            self.emailTextView.text = "(none provided)"
+        }
+    }
 
     /*
     // MARK: - Navigation

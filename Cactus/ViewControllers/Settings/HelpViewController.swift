@@ -20,22 +20,19 @@ class HelpViewController: UIViewController, MFMailComposeViewControllerDelegate 
     
     @IBAction func sendEmail(_ sender: Any) {
         
-        if MFMailComposeViewController.canSendMail() {
-            let mail = MFMailComposeViewController()
-            mail.mailComposeDelegate = self
-            mail.setToRecipients(["help@cactus.app"])
-            mail.setMessageBody("<p>Help on iOS App</p>", isHTML: true)
-
-            present(mail, animated: true)
-        } else {
-            // show failure alert
-            let alert = UIAlertController(title: "Unable to Send Mail", message: "Your device does not have a default email client configured", preferredStyle: .alert)            
-            let cancel = UIAlertAction(title: "Close", style: .cancel, handler: nil)
-            alert.addAction(cancel)
-            
-            self.present(alert, animated: true, completion: nil)
-        }
-        
+        if let url = URL(string: "mailto:help@cactus.app") {
+//            let mail = MFMailComposeViewController()
+//            mail.mailComposeDelegate = self
+//            mail.setToRecipients(["help@cactus.app"])
+//            mail.setMessageBody("<p>Help on iOS App</p>", isHTML: true)
+                
+//            present(mail, animated: true)
+            if #available(iOS 10.0, *) {
+              UIApplication.shared.open(url)
+            } else {
+              UIApplication.shared.openURL(url)
+            }
+        }        
     }
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {

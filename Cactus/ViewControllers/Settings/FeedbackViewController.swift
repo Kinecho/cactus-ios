@@ -7,46 +7,23 @@
 //
 
 import UIKit
-import MessageUI
-class FeedbackViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class FeedbackViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-    
 
     @IBAction func sendEmail(_ sender: Any) {
-        if MFMailComposeViewController.canSendMail() {
-            let mail = MFMailComposeViewController()
-            mail.mailComposeDelegate = self
-            mail.setToRecipients(["help@cactus.app"])
-            mail.setMessageBody("<p>Help on iOS App</p>", isHTML: true)
-
-            present(mail, animated: true)
-        } else {
-            // show failure alert
-            let alert = UIAlertController(title: "Unable to Send Mail", message: "Your device does not have a default email client configured", preferredStyle: .alert)
-            let cancel = UIAlertAction(title: "Close", style: .cancel, handler: nil)
-            alert.addAction(cancel)
-            
-            self.present(alert, animated: true, completion: nil)
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        let buildVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
+        let versionText = "Cactus%20\(appVersion ?? "")%20(\(buildVersion ?? "1"))"
+        
+        if let url = URL(string: "mailto:feedback@cactus.app?subject=iOS%20App%20Feedback%20for%20\(versionText)") {
+            if #available(iOS 10.0, *) {
+              UIApplication.shared.open(url)
+            } else {
+              UIApplication.shared.openURL(url)
+            }
         }
     }
-    
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true)
-    }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
