@@ -14,7 +14,8 @@ class ReflectContentViewController: PromptContentViewController {
     let padding: CGFloat = 8
     @IBOutlet weak var videoView: UIView!
     @IBOutlet weak var questionTextView: UITextView!
-//    weak var delegate: PromptContentViewControllerDelegate?
+    @IBOutlet weak var pottedCactusPlaceholderImage: UIImageView!
+    //    weak var delegate: PromptContentViewControllerDelegate?
 //    var content: Content!
 //    var promptContent: PromptContent!
     var player: AVPlayer!
@@ -36,7 +37,7 @@ class ReflectContentViewController: PromptContentViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.pottedCactusPlaceholderImage.removeFromSuperview()
         //TODO: Get the reflection response, either here or in the parent
         
         self.createInputView()

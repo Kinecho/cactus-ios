@@ -17,7 +17,6 @@ class PromptContentPageViewController: UIPageViewController {
     var reflectionResponse: ReflectionResponse?
     var closeButton: UIButton?
     var journalDataSource: JournalFeedDataSource?
-    lazy var paginationGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapGestureHandler))
     var tapNavigationEnabled = true
     
     fileprivate lazy var screens: [UIViewController] = []
@@ -28,13 +27,11 @@ class PromptContentPageViewController: UIPageViewController {
         self.delegate = self
         self.configureScreens()
         self.view.backgroundColor = CactusColor.lightBlue
-//        self.view.addGestureRecognizer(self.paginationGesture)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.configureScreens()
-//        self.view.addGestureRecognizer(self.paginationGesture)
     }
     
     @objc func tapGestureHandler(touch: UITapGestureRecognizer) {
@@ -93,35 +90,23 @@ class PromptContentPageViewController: UIPageViewController {
         var viewController: PromptContentViewController?
         print("content type is \(content.contentType)")
         var backgroundColor: UIColor? = CactusColor.lightBlue
-//        var tapNavigationEnabled = true
         switch content.contentType {
         case .text:
             let textViewController = TextContentViewController.loadFromNib()
-//            textViewController.content = content
-//            textViewController.promptContent = self.promptContent
             viewController = textViewController
         case .quote:
             print("Setting up quote view controller")
             let quoteViewController = QuoteContentViewController.loadFromNib()
-//            quoteViewController.content = content
-//            quoteViewController.promptContent = promptContent
             viewController = quoteViewController
         case .photo:
             print("Setting up photo view controller")
             let photoViewController = PhotoContentViewController.loadFromNib()
-//            photoViewController.content = content
-//            photoViewController.promptContent = promptContent
             viewController = photoViewController
         case .reflect:
             print("Setting up reflection screen")
             let reflectionViewController = ReflectContentViewController.loadFromNib()
             reflectionViewController.reflectionResponse = self.reflectionResponse
-//            reflectionViewController.content = content
-//            reflectionViewController.promptContent = promptContent
-//
-//            reflectionViewController.delegate = self
             viewController = reflectionViewController
-//            tapNavigationEnabled = false
             backgroundColor = .white
         default:
             print("PromptContentPageViewController: ContentType not handled: \(content.contentType)")
@@ -134,12 +119,6 @@ class PromptContentPageViewController: UIPageViewController {
         }
         
         viewController?.view.backgroundColor = backgroundColor
-//        if tapNavigationEnabled == true {
-//            self.view.addGestureRecognizer(self.paginationGesture)
-//        } else {
-//            self.view.removeGestureRecognizer(self.paginationGesture)
-//        }
-//
         return viewController
     }
     

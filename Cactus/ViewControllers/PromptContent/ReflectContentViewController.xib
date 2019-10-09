@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReflectContentViewController" customModule="Cactus_Prod" customModuleProvider="target">
             <connections>
+                <outlet property="pottedCactusPlaceholderImage" destination="lak-qi-UqW" id="lrS-j6-zvp"/>
                 <outlet property="questionTextView" destination="kau-mV-hyr" id="xwz-Wa-91C"/>
                 <outlet property="videoView" destination="ggY-Bf-lGx" id="dH0-IL-rUb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -21,39 +22,52 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blobNeedle" translatesAutoresizingMaskIntoConstraints="NO" id="Z7M-NV-7xD">
-                    <rect key="frame" x="-195" y="281.5" width="255" height="333"/>
-                    <color key="tintColor" name="GreenDark"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blob3" translatesAutoresizingMaskIntoConstraints="NO" id="tbd-wr-MpV">
+                    <rect key="frame" x="-140" y="388" width="200" height="200"/>
+                    <color key="tintColor" name="Pink"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="255" id="EDj-mq-xf8"/>
-                        <constraint firstAttribute="height" constant="333" id="tNf-x7-WNz"/>
+                        <constraint firstAttribute="height" constant="200" id="2W6-zl-usT"/>
+                        <constraint firstAttribute="width" constant="200" id="5Uz-qf-uLv"/>
                     </constraints>
                 </imageView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blob3" translatesAutoresizingMaskIntoConstraints="NO" id="tbd-wr-MpV">
-                    <rect key="frame" x="-344" y="284" width="404" height="408"/>
-                    <color key="tintColor" name="Pink"/>
-                </imageView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blobNeedle" translatesAutoresizingMaskIntoConstraints="NO" id="mHL-au-wC2">
-                    <rect key="frame" x="294" y="153" width="400" height="300"/>
-                    <color key="tintColor" name="Yellow"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blobNeedle" translatesAutoresizingMaskIntoConstraints="NO" id="Z7M-NV-7xD" userLabel="blobNeedle3">
+                    <rect key="frame" x="-190" y="323" width="250" height="250"/>
+                    <color key="tintColor" name="GreenDark"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="300" id="UYL-dD-3cO"/>
-                        <constraint firstAttribute="width" constant="400" id="hxn-G2-yTc"/>
+                        <constraint firstAttribute="width" constant="250" id="EDj-mq-xf8"/>
+                        <constraint firstAttribute="height" constant="250" id="tNf-x7-WNz"/>
                     </constraints>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blob1" translatesAutoresizingMaskIntoConstraints="NO" id="GGN-Rc-luJ">
-                    <rect key="frame" x="354" y="-65" width="450" height="452"/>
+                    <rect key="frame" x="364" y="-50" width="400" height="400"/>
                     <color key="tintColor" name="Yellow"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="450" id="COJ-sH-nqs"/>
-                        <constraint firstAttribute="height" constant="452" id="P99-mh-GyS"/>
+                        <constraint firstAttribute="width" constant="400" id="COJ-sH-nqs"/>
+                        <constraint firstAttribute="height" constant="400" id="P99-mh-GyS"/>
+                    </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blobNeedle" translatesAutoresizingMaskIntoConstraints="NO" id="mHL-au-wC2" userLabel="blobNeedle1">
+                    <rect key="frame" x="354" y="55" width="250" height="250"/>
+                    <color key="tintColor" name="YellowDark"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="250" id="UYL-dD-3cO"/>
+                        <constraint firstAttribute="width" constant="250" id="hxn-G2-yTc"/>
                     </constraints>
                 </imageView>
                 <view clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggY-Bf-lGx" userLabel="VideoView">
                     <rect key="frame" x="60" y="306" width="294" height="294"/>
+                    <subviews>
+                        <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pottedCactus" translatesAutoresizingMaskIntoConstraints="NO" id="lak-qi-UqW">
+                            <rect key="frame" x="0.0" y="0.0" width="294" height="294"/>
+                        </imageView>
+                    </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="lak-qi-UqW" secondAttribute="bottom" placeholder="YES" id="Kwm-qT-ieu"/>
+                        <constraint firstAttribute="trailing" secondItem="lak-qi-UqW" secondAttribute="trailing" placeholder="YES" id="P6c-KH-ZZ4"/>
+                        <constraint firstItem="lak-qi-UqW" firstAttribute="top" secondItem="ggY-Bf-lGx" secondAttribute="top" placeholder="YES" id="aRr-2d-gaQ"/>
                         <constraint firstAttribute="width" secondItem="ggY-Bf-lGx" secondAttribute="height" multiplier="1:1" id="tLN-jA-Cpa"/>
+                        <constraint firstItem="lak-qi-UqW" firstAttribute="leading" secondItem="ggY-Bf-lGx" secondAttribute="leading" placeholder="YES" id="uda-AO-XVD"/>
                     </constraints>
                 </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="What brings out your creative side? Long questions will oberflow and keep going and going below the video" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kau-mV-hyr">
@@ -67,17 +81,17 @@
             <constraints>
                 <constraint firstItem="ggY-Bf-lGx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1R0-7k-pcb"/>
                 <constraint firstItem="kau-mV-hyr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="5Gw-u5-vSV"/>
-                <constraint firstItem="mHL-au-wC2" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="BK2-Bo-Xyv"/>
                 <constraint firstItem="ggY-Bf-lGx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="FJL-oR-T7h"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kau-mV-hyr" secondAttribute="trailing" constant="20" id="SqO-Qo-o52"/>
-                <constraint firstItem="GGN-Rc-luJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-60" id="UID-Ze-ogB"/>
+                <constraint firstItem="mHL-au-wC2" firstAttribute="top" secondItem="GGN-Rc-luJ" secondAttribute="centerY" constant="-95" id="TVa-sF-zNO"/>
+                <constraint firstItem="GGN-Rc-luJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-50" id="UID-Ze-ogB"/>
                 <constraint firstItem="kau-mV-hyr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Vvz-B4-jqI"/>
                 <constraint firstItem="tbd-wr-MpV" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="bTd-o2-880"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ggY-Bf-lGx" secondAttribute="trailing" constant="60" id="cJ0-W8-yNY"/>
                 <constraint firstAttribute="leading" secondItem="Z7M-NV-7xD" secondAttribute="trailing" constant="-60" id="gsB-ua-D0l"/>
-                <constraint firstItem="mHL-au-wC2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-120" id="lWC-VG-B0B"/>
+                <constraint firstItem="mHL-au-wC2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-60" id="lWC-VG-B0B"/>
                 <constraint firstItem="Z7M-NV-7xD" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="my6-Ro-U3t"/>
-                <constraint firstItem="GGN-Rc-luJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="-65" id="r5J-VH-deN"/>
+                <constraint firstItem="GGN-Rc-luJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="-50" id="r5J-VH-deN"/>
                 <constraint firstItem="ggY-Bf-lGx" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="rAe-YA-0hd"/>
                 <constraint firstItem="tbd-wr-MpV" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="40" id="zSr-wt-7Hh"/>
             </constraints>
@@ -89,6 +103,7 @@
         <image name="blob1" width="200" height="194"/>
         <image name="blob3" width="202" height="204"/>
         <image name="blobNeedle" width="826" height="604"/>
+        <image name="pottedCactus" width="150" height="150"/>
         <namedColor name="BlueLight">
             <color red="0.90196078431372551" green="0.97647058823529409" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
@@ -100,6 +115,9 @@
         </namedColor>
         <namedColor name="Yellow">
             <color red="0.97600001096725464" green="0.92199999094009399" blue="0.5690000057220459" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="YellowDark">
+            <color red="0.9570000171661377" green="0.86699998378753662" blue="0.28200000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

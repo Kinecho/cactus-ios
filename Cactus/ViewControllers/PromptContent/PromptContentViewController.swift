@@ -34,12 +34,8 @@ class PromptContentViewController: UIViewController {
 //        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapGestureHandler(touch:)))
 //        tapRecognizer.isEnabled = true
 //        self.view.addGestureRecognizer(tapRecognizer)
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.basicTouch(_:))))
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapGestureHandler(touch:))))
         // Do any additional setup after loading the view.
-    }
-    
-    @objc func basicTouch(_ sender: Any) {
-        print("View touched")
     }
     
     @objc func tapGestureHandler(touch: UITapGestureRecognizer) {
