@@ -14,6 +14,9 @@ enum CactusImage: String {
     
     //Brands
     case twitter = "Twitter"
+    case facebook = "Facebook"
+    case google = "Google"
+    case envelope
 
     //Illustraions
     case pottedCactus
@@ -31,5 +34,20 @@ enum CactusImage: String {
     
     func getImage() -> UIImage? {
         return UIImage(named: self.rawValue)
+    }
+    
+    static func fromProviderId(_ providerId: String) -> UIImage? {
+        switch providerId {
+        case "google.com":
+            return CactusImage.google.getImage()
+        case "facebook.com":
+            return CactusImage.facebook.getImage()
+        case "twitter.com":
+            return CactusImage.twitter.getImage()
+        case "password":
+            return CactusImage.envelope.getImage()
+        default:
+            return nil
+        }
     }
 }
