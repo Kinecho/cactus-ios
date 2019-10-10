@@ -1589,7 +1589,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cactus Prod.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 55;
+				CURRENT_PROJECT_VERSION = 56;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
 				INFOPLIST_FILE = Cactus/ConfigProd/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1614,7 +1614,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cactus Prod.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 55;
+				CURRENT_PROJECT_VERSION = 56;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
 				INFOPLIST_FILE = Cactus/ConfigProd/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
