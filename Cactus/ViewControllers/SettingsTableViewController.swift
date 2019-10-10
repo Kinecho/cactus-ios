@@ -61,6 +61,7 @@ class SettingsTableViewController: UITableViewController {
         versionTextView.text = "Cactus \(appVersion ?? "") (\(buildVersion ?? "1"))"
         
         versionTextView.isScrollEnabled = false
+        versionTextView.isEditable = false
         versionTextView.font = CactusFont.normal
         versionTextView.textColor = CactusColor.lightText
         versionTextView.textAlignment = .right
