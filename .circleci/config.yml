@@ -6,7 +6,7 @@ executors:
   cactus-ios: 
     working_directory: /Users/distiller/project
     macos:
-      xcode: "11.0.0"
+      xcode: "11.1.0"
     environment:
       FL_OUTPUT_DIR: fl_output
   cactus-web:
@@ -203,6 +203,36 @@ jobs:
           path: fl_output
       - notify-on-failure: 
           workflow_name: << parameters.workflow_name >>
+  test-certs:
+    parameters:
+      workflow_name:
+        type: string
+        default: ""
+        description: "The message to send to slack"
+    executor: cactus-ios    
+    shell: /bin/bash --login -o pipefail
+    steps:
+      - checkout
+      - add_ssh_keys:
+          name: "Add Fastlane Match SSH Key"
+          fingerprints:
+            - *match-ssh-fingerprint
+      - install-ruby
+      - install-swiftlint
+      - install-pods      
+      - run:
+          name: Deploy to TestFlight
+          command: bundle exec fastlane beta      
+      - store_test_results:
+          path: reports
+      - store_artifacts:
+          path: reports
+      - store_test_results:
+          path: fl_output/scan
+      - store_artifacts:
+          path: fl_output
+      - notify-on-failure: 
+          workflow_name: << parameters.workflow_name >>
   upload-to-testflight:
     parameters:
       workflow_name:
@@ -300,6 +330,27 @@ jobs:
           workflow_name: << parameters.workflow_name >>
 workflows:
   version: 2.1
+  cert-test: 
+    jobs: 
+      -  notify-release-started:
+          name: &workflow_name Cert Test Pipeline
+          workflow_name: *workflow_name
+          filters:
+            branches:
+              only: cert-config-test
+      - upload-to-testflight:
+          name: &build-and-upload "Deploy to TestFlight"
+          workflow_name: *workflow_name
+          requires: 
+            - *test-name
+          filters:
+            branches:
+              only: cert-config-test
+      - notify-branch-workflow-finished:
+          name: Notify Cert Test Finished          
+          filters:
+            branches:
+              only: cert-config-test
   release-pipeline:
     jobs:
       - notify-release-started:
@@ -339,24 +390,24 @@ workflows:
               only: master
       # TODO: Add upload symbols? Not sure if that's doing anything.. -NP 2019-10-03
 
-  branch-pipeline:
-    jobs:
-      - notify-branch-workflow-started:
-          name: &workflow_name Feature Branch CI
-          workflow_name: *workflow_name  
-          filters:
-            branches:
-              ignore: master
-      - run-tests:
-          name: &test-name "Run Unit Tests"
-          workflow_name: *workflow_name
-          filters:
-            branches:
-              ignore: master      
-      - notify-branch-workflow-finished:
-          name: Notify Success
-          requires:
-            - *test-name      
+  # branch-pipeline:
+  #   jobs:
+  #     - notify-branch-workflow-started:
+  #         name: &workflow_name Feature Branch CI
+  #         workflow_name: *workflow_name  
+  #         filters:
+  #           branches:
+  #             ignore: master
+  #     - run-tests:
+  #         name: &test-name "Run Unit Tests"
+  #         workflow_name: *workflow_name
+  #         filters:
+  #           branches:
+  #             ignore: master      
+  #     - notify-branch-workflow-finished:
+  #         name: Notify Success
+  #         requires:
+  #           - *test-name      
 
 
 
