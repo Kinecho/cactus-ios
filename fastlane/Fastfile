@@ -38,12 +38,8 @@ platform :ios do
 		match(type: "appstore", readonly: is_ci)
 		sync_code_signing(type: "appstore")    
 	    build_app(workspace: "Cactus.xcworkspace", scheme: "Cactus Prod", xcargs: "-UseModernBuildSystem=NO")
-	    changelog_from_git_commits
-	    # slack(message: "A new build has been created. Next step: upload to test flight.", slack_url: "https://hooks.slack.com/services/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")    
-
-	    upload_to_testflight(skip_waiting_for_build_processing: true)
-		
-	    # slack(message: "Successfully uploaded new build to TestFlight", slack_url: "https://hooks.slack.com/services/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")
+	    changelog_from_git_commits	    
+	    upload_to_testflight(skip_waiting_for_build_processing: true)	    
   	end
 
 	lane :manual_upload do
@@ -94,7 +90,6 @@ platform :ios do
   	lane :certificates do
 		match(app_identifier: ["com.cactus.StageCactus", "com.cactus.CactusApp"], force: true)
 	end
-
 
 	lane :version_test do 
 		# version = "#{lane_context[SharedValues::VERSION_NUMBER]}.#{lane_context[SharedValues::BUILD_NUMBER]}"
