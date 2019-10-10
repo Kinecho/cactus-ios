@@ -340,9 +340,7 @@ workflows:
               only: cert-config-test
       - upload-to-testflight:
           name: &build-and-upload "Deploy to TestFlight"
-          workflow_name: *workflow_name
-          requires: 
-            - *test-name
+          workflow_name: *workflow_name          
           filters:
             branches:
               only: cert-config-test
