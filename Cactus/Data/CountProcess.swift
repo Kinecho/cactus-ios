@@ -66,8 +66,8 @@ class CountProcess {
         var step = step
         var numSteps = UInt32(max((self.maxValue - self.minValue), 1) / step)
         
-        if numSteps > 1000 {
-            step = 10
+        while numSteps >= 100 {
+            step *= 10
             numSteps = UInt32(max((self.maxValue - self.minValue), 1) / step)
         }
         

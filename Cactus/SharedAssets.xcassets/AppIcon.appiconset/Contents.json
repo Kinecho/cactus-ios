@@ -1,111 +1,111 @@
 {
   "images" : [
-    {
+	{
       "size" : "20x20",
-      "idiom" : "iphone",
-      "filename" : "cactus-square-20@2x.png",
-      "scale" : "2x"
+      "idiom": "iphone",
+	  "filename" : "appStoreLogoMarkPink-20@2x.png",
+      "scale": "2x"
+    },
+	{
+      "size" : "20x20",
+      "idiom": "iphone",
+	  "filename" : "appStoreLogoMarkPink-20@3x.png",
+      "scale": "3x"
+    },
+	{
+      "size" : "20x20",
+      "idiom": "ipad",
+	  "filename" : "appStoreLogoMarkPink-20.png",
+      "scale": "1x"
     },
     {
       "size" : "20x20",
-      "idiom" : "iphone",
-      "filename" : "cactus-square-20@3x.png",
-      "scale" : "3x"
+      "idiom": "ipad",
+	  "filename" : "appStoreLogoMarkPink-20@2x.png",
+      "scale": "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "cactus-square-29@2x.png",
+      "filename" : "appStoreLogoMarkPink-29@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "cactus-square-29@3x.png",
+      "filename" : "appStoreLogoMarkPink-29@3x.png",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "cactus-square-40@2x.png",
+      "filename" : "appStoreLogoMarkPink-40@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "cactus-square-40@3x.png",
+      "filename" : "appStoreLogoMarkPink-40@3x.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "cactus-square-60@2x.png",
+      "filename" : "appStoreLogoMarkPink-60@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "cactus-square-60@3x.png",
+      "filename" : "appStoreLogoMarkPink-60@3x.png",
       "scale" : "3x"
     },
     {
-      "size" : "20x20",
-      "idiom" : "ipad",
-      "filename" : "cactus-square-20.png",
-      "scale" : "1x"
-    },
-    {
-      "size" : "20x20",
-      "idiom" : "ipad",
-      "filename" : "cactus-square-20@2x.png",
-      "scale" : "2x"
-    },
-    {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "cactus-square-29.png",
+      "filename" : "appStoreLogoMarkPink-29.png",
       "scale" : "1x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "cactus-square-29@2x.png",
+      "filename" : "appStoreLogoMarkPink-29@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "cactus-square-40.png",
+      "filename" : "appStoreLogoMarkPink-40.png",
       "scale" : "1x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "cactus-square-40@2x.png",
+      "filename" : "appStoreLogoMarkPink-40@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "cactus-square-76.png",
+      "filename" : "appStoreLogoMarkPink-76.png",
       "scale" : "1x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "cactus-square-76@2x.png",
+      "filename" : "appStoreLogoMarkPink-76@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "83.5x83.5",
       "idiom" : "ipad",
-      "filename" : "cactus-square-83.5@2x.png",
+      "filename" : "appStoreLogoMarkPink-83.5@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "1024x1024",
       "idiom" : "ios-marketing",
-      "filename" : "cactus-square-1024.png",
+      "filename" : "appStoreLogoMarkPink-1024.png",
       "scale" : "1x"
     }
   ],

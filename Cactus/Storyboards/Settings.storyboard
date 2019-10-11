@@ -233,22 +233,32 @@
         <!--Invite View Controller-->
         <scene sceneID="FN9-08-AmX">
             <objects>
-                <viewController storyboardIdentifier="inviteScreen" title="Invite" id="4Id-NV-Bq1" userLabel="Invite View Controller" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="inviteScreen" title="Invite" id="4Id-NV-Bq1" userLabel="Invite View Controller" customClass="InviteSettingsViewController" customModule="Cactus_Prod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lod-Nl-SAt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uqg-WV-VIf">
-                                <rect key="frame" x="134.5" y="433" width="145" height="30"/>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="OK5-SD-rak">
+                                <rect key="frame" x="20" y="253" width="374" height="400"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="celebrate" translatesAutoresizingMaskIntoConstraints="NO" id="7kz-PQ-g3w">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="350"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sjq-DG-lmW" customClass="PrimaryButton" customModule="Cactus_Prod" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="370" width="374" height="30"/>
+                                        <state key="normal" title="Share Link"/>
+                                        <connections>
+                                            <action selector="shareTapped:" destination="4Id-NV-Bq1" eventType="primaryActionTriggered" id="fjR-fF-zuK"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Uqg-WV-VIf" firstAttribute="centerX" secondItem="Lod-Nl-SAt" secondAttribute="centerX" id="22c-zD-yTh"/>
-                            <constraint firstItem="Uqg-WV-VIf" firstAttribute="centerY" secondItem="Lod-Nl-SAt" secondAttribute="centerY" id="Mue-7p-Rm5"/>
+                            <constraint firstItem="OK5-SD-rak" firstAttribute="centerY" secondItem="WfV-Um-TCu" secondAttribute="centerY" id="6Ra-Vy-x9K"/>
+                            <constraint firstItem="OK5-SD-rak" firstAttribute="leading" secondItem="WfV-Um-TCu" secondAttribute="leading" constant="20" id="UEU-dW-i4s"/>
+                            <constraint firstItem="WfV-Um-TCu" firstAttribute="trailing" secondItem="OK5-SD-rak" secondAttribute="trailing" constant="20" id="h9T-WQ-laB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WfV-Um-TCu"/>
                     </view>
@@ -735,6 +745,7 @@
     </scenes>
     <resources>
         <image name="Facebook" width="300" height="300"/>
+        <image name="celebrate" width="544" height="350"/>
         <namedColor name="GreenDarkest">
             <color red="0.027000000700354576" green="0.27099999785423279" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -60,7 +60,7 @@ class NavigationMenuViewController: UIViewController {
             //            self.previousStreak = newValue
         }
     }
-    let animationDurationMs: UInt32 = 750
+    let animationDurationMs: UInt32 = 600
     
     override func viewDidLoad() {
         super.viewDidLoad()

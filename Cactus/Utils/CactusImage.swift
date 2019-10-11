@@ -12,6 +12,9 @@ import UIKit
 enum CactusImage: String {
     case cactusAvatarOG = "avatar_cactusOG"
     
+    //Logos
+    case logo
+    
     //Brands
     case twitter = "Twitter"
     case facebook = "Facebook"
