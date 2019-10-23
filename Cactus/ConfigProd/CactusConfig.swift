@@ -12,4 +12,5 @@ struct CactusConfig: AppConfig {
     static let webDomain = "https://cactus.app"
     static let flamelink = FlamelinkConfig()
     static let environment = AppEnvironment.prod
+    static let actionCodeDomain = "https://cactus.app"
 }

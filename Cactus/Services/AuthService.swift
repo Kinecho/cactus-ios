@@ -45,6 +45,7 @@ class AuthService {
                 do {
                     try Auth.auth().signOut()
                     vc.dismiss(animated: false, completion: nil)
+                    _ = AppDelegate.shared.rootViewController.showScreen(ScreenID.Login)
                 } catch {
                     print("error signing out", error)
                     let alert = UIAlertController(title: "Error Logging Out", message: "An unexpected error occurred while logging out. \n\n\(error)", preferredStyle: .alert)

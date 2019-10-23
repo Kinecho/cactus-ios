@@ -8,6 +8,7 @@
 	<array>
 		<string>applinks:cactus-app-stage.web.app</string>
 		<string>applinks:cactus-app-stage.firebaseapp.com</string>
+		<string>applinks:cactusstage.page.link</string>
 	</array>
 </dict>
 </plist>

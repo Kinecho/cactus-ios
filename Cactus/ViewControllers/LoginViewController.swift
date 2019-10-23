@@ -156,29 +156,39 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
     
     func configureAuth(_ user: User?=AuthService.sharedInstance.getCurrentUser()) {
         guard let authUI = FUIAuth.defaultAuthUI() else {fatalError("unable to configure auth")}
-        
+        authUI.tosurl = URL(string: "https://cacatus.app/terms-of-service")
+        authUI.privacyPolicyURL = URL(string: "https://cactus.app/privacy-policy")
         authUI.delegate = self
         authUI.shouldAutoUpgradeAnonymousUsers = true
         
         let actionCodeSettings = ActionCodeSettings()
-        actionCodeSettings.url = URL(string: "https://cactus-app-stage.web.app")    
+        actionCodeSettings.url = URL(string: CactusConfig.actionCodeDomain)
         actionCodeSettings.handleCodeInApp = true
         
-//        let twitterImage = UIImage(named: "Twitter")
-//        let twitterProvider = FUIOAuth(authUI: authUI,
-//                                                  providerID: "twitter.com",
-//                                                  buttonLabelText: "Sign in with Twitter",
-//                                                  shortName: "Twitter",
-//                                                  buttonColor: CactusColor.twitter,
-//                                                  iconImage: twitterImage!,
-//                                                  scopes: ["user.readwrite"],
-//                                                  customParameters: ["prompt" : "consent"],
-//                                                  loginHintKey: nil)
+        let twitterImage = CactusImage.twitter.ofWidth(newWidth: 25)
+        
+//        twitterImage?.withTintColor(.white)
+//        twitterImage?.resizingMode = .aspectFit
+//        twitterImage?.setSize = CGSize(width: 25, height: 25)
+        let twitterProvider = FUIOAuth(authUI: authUI,
+                                                  providerID: "twitter.com",
+                                                  buttonLabelText: "Sign in with Twitter",
+                                                  shortName: "Twitter",
+                                                  buttonColor: CactusColor.twitter,
+                                                  iconImage: twitterImage!,
+                                                  scopes: ["user.readwrite"],
+                                                  customParameters: ["prompt" : "consent"],
+                                                  loginHintKey: nil)
         
         let providers: [FUIAuthProvider] = [
-            FUIEmailAuth(authAuthUI: authUI, signInMethod: EmailLinkAuthSignInMethod, forceSameDevice: false, allowNewEmailAccounts: true, actionCodeSetting: actionCodeSettings),
+            FUIEmailAuth(authAuthUI: authUI,
+                         signInMethod: EmailLinkAuthSignInMethod,
+                         forceSameDevice: false,
+                         allowNewEmailAccounts: true,
+                         actionCodeSetting: actionCodeSettings),
             FUIFacebookAuth(),
-            FUIGoogleAuth()
+            FUIGoogleAuth(),
+//            twitterProvider
         ]
         
         authUI.providers = providers
@@ -197,9 +207,7 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
     
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
         print("AUTHDATA RESULT")
-        
         //anonymous auth upgrade
-        
         if let error = error as NSError?,
             error.code == FUIAuthErrorCode.mergeConflict.rawValue {
             print("there was an error logging in... handing different cases" )

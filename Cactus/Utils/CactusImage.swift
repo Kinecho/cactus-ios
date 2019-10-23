@@ -39,6 +39,18 @@ enum CactusImage: String {
         return UIImage(named: self.rawValue)
     }
     
+    func ofWidth(newWidth: CGFloat) -> UIImage? {
+        guard let image = getImage() else { return nil}
+        let scale = newWidth / image.size.width
+        let newHeight = image.size.height * scale
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+        image.draw(in: CGRect(0, 0, newWidth, newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return newImage
+    }
+    
     static func fromProviderId(_ providerId: String) -> UIImage? {
         switch providerId {
         case "google.com":

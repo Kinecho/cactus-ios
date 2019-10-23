@@ -138,7 +138,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         if let scheme = url.scheme,
-            scheme.localizedCaseInsensitiveCompare("com.anecdotal") == .orderedSame,
+            scheme.localizedCaseInsensitiveCompare("app.cactus") == .orderedSame,
             let viewName = url.host {
             
             var parameters: [String: String] = [:]
@@ -146,8 +146,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 parameters[$0.name] = $0.value
             }
             print("handling deep link:", viewName, parameters)
-            
-            //            redirect(to: view, with: parameters)
         }
         
         return false
@@ -167,28 +165,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let host = url.host
             let path = url.path
             var parameters: [String: String] = [:]
+            let link = parameters["link"]
             URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems?.forEach {
                 parameters[$0.name] = $0.value
             }
             print("host", host ?? "no host found")
             print("path", path)
             print("Parameters", parameters)
-//            if let bookId = parameters["bookId"] {
-//                let rootController = self.window?.rootViewController
-//                if let invitationScreen = rootController?.storyboard?.instantiateViewController(withIdentifier: "invitationScreen") as? InvitationScreenViewController {
-//                    invitationScreen.bookId = bookId
-//
-//
-//                    if let presentedController = rootController?.presentedViewController {
-//                        presentedController.present(invitationScreen, animated: true, completion: nil)
-//                    }
-//                    else {
-//                        rootController?.present(invitationScreen, animated: true, completion: nil)
-//                    }
-//                }
-//            }
+            print("Link", link ?? "no links")
         }
         print("link handled = \(handled)")
+        
+        if let authUrl = userActivity.webpageURL {            
+//            if FUIAuth.defaultAuthUI()?.url
+            if Auth.auth().isSignIn(withEmailLink: authUrl.absoluteString) {
+                if FUIAuth.defaultAuthUI()?.handleOpen(authUrl, sourceApplication: nil) ?? false {
+                    print("Handled by firebase auth ui")
+                    return true
+                }
+            } else {
+                var params: [String: String] = [:]
+                URLComponents(url: authUrl, resolvingAgainstBaseURL: false)?.queryItems?.forEach {
+                    params[$0.name] = $0.value
+                }
+                
+                if let linkParam = params["link"], let signinUrl = URL(string: linkParam) {
+                    if FUIAuth.defaultAuthUI()?.handleOpen(signinUrl, sourceApplication: nil) ?? false {
+                        print("Handled by firebase auth ui")
+                        return true
+                    }
+                } else {
+                    application.open(authUrl)
+                }
+            }
+        }
+        
         return handled
     }
     
