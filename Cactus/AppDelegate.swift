@@ -161,7 +161,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             print("handling dynamic link", dynamiclink ?? "No link found")
             guard let dynamiclink = dynamiclink, let url = dynamiclink.url else {return}
-            
             let host = url.host
             let path = url.path
             var parameters: [String: String] = [:]
@@ -176,7 +175,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         print("link handled = \(handled)")
         
-        if let authUrl = userActivity.webpageURL {            
+        if let authUrl = userActivity.webpageURL {
 //            if FUIAuth.defaultAuthUI()?.url
             if Auth.auth().isSignIn(withEmailLink: authUrl.absoluteString) {
                 if FUIAuth.defaultAuthUI()?.handleOpen(authUrl, sourceApplication: nil) ?? false {

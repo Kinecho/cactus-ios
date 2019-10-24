@@ -156,10 +156,11 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
     
     func configureAuth(_ user: User?=AuthService.sharedInstance.getCurrentUser()) {
         guard let authUI = FUIAuth.defaultAuthUI() else {fatalError("unable to configure auth")}
-        authUI.tosurl = URL(string: "https://cacatus.app/terms-of-service")
-        authUI.privacyPolicyURL = URL(string: "https://cactus.app/privacy-policy")
+//        authUI.tosurl = URL(string: "https://cacatus.app/terms-of-service")
+//        authUI.privacyPolicyURL = URL(string: "https://cactus.app/privacy-policy")
         authUI.delegate = self
         authUI.shouldAutoUpgradeAnonymousUsers = true
+//        authUI.url
         
         let actionCodeSettings = ActionCodeSettings()
         actionCodeSettings.url = URL(string: CactusConfig.actionCodeDomain)

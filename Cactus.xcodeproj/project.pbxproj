@@ -314,7 +314,7 @@
 		309561A122EE16C3009357BD /* CactusConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusConfig.swift; sourceTree = "<group>"; };
 		309561A322EE16D7009357BD /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		30A266D92329BB73003C708E /* config.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.yml; sourceTree = "<group>"; };
-		30A281E722EA61A30041158E /* Cactus Prod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cactus Prod.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		30A281E722EA61A30041158E /* Cactus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cactus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A281E922EA61EB0041158E /* StageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = StageAssets.xcassets; sourceTree = "<group>"; };
 		30A281EB22EA61FA0041158E /* ProdAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ProdAssets.xcassets; sourceTree = "<group>"; };
 		30A281EF22EA62650041158E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -577,7 +577,7 @@
 			isa = PBXGroup;
 			children = (
 				30B6EA6B22EA5A9F00443E46 /* Cactus Stage.app */,
-				30A281E722EA61A30041158E /* Cactus Prod.app */,
+				30A281E722EA61A30041158E /* Cactus.app */,
 				303BF741232A986A00164539 /* Cactus UnitTests.xctest */,
 			);
 			name = Products;
@@ -748,7 +748,7 @@
 			);
 			name = "Cactus Prod";
 			productName = Cactus;
-			productReference = 30A281E722EA61A30041158E /* Cactus Prod.app */;
+			productReference = 30A281E722EA61A30041158E /* Cactus.app */;
 			productType = "com.apple.product-type.application";
 		};
 		30B6EA6A22EA5A9F00443E46 /* Cactus Stage */ = {
@@ -1605,7 +1605,7 @@
 					"$(CONFIGURATION_BUILD_DIR)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cactus.CactusApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Cactus;
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.cactus.CactusApp";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1630,7 +1630,7 @@
 					"$(CONFIGURATION_BUILD_DIR)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cactus.CactusApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Cactus;
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.cactus.CactusApp";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
