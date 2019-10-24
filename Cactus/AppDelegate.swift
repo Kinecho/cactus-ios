@@ -177,18 +177,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let authUrl = userActivity.webpageURL {
 //            if FUIAuth.defaultAuthUI()?.url
-            if Auth.auth().isSignIn(withEmailLink: authUrl.absoluteString) {
-                if FUIAuth.defaultAuthUI()?.handleOpen(authUrl, sourceApplication: nil) ?? false {
+            var params: [String: String] = [:]
+            URLComponents(url: authUrl, resolvingAgainstBaseURL: false)?.queryItems?.forEach {
+                params[$0.name] = $0.value
+            }
+            var signinUrl:URL? = nil
+            if let linkParam = params["link"] {
+                 signinUrl = URL(string: linkParam)
+            }
+            
+            if Auth.auth().isSignIn(withEmailLink: authUrl.absoluteString) {                                
+                if FUIAuth.defaultAuthUI()?.handleOpen(signinUrl ?? authUrl, sourceApplication: nil) ?? false {
                     print("Handled by firebase auth ui")
                     return true
                 }
             } else {
-                var params: [String: String] = [:]
-                URLComponents(url: authUrl, resolvingAgainstBaseURL: false)?.queryItems?.forEach {
-                    params[$0.name] = $0.value
-                }
-                
-                if let linkParam = params["link"], let signinUrl = URL(string: linkParam) {
+                if let signinUrl = signinUrl {
                     if FUIAuth.defaultAuthUI()?.handleOpen(signinUrl, sourceApplication: nil) ?? false {
                         print("Handled by firebase auth ui")
                         return true

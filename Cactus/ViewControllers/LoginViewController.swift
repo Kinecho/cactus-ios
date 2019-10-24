@@ -86,8 +86,10 @@ class LoginViewController: UIViewController {
         }
         
         guard let authViewController = self.authViewController,
-            let authView = authViewController.view else {return}
-        
+            let authView = authViewController.view else {
+                return
+        }
+        authView.backgroundColor = .clear
         self.addChild(authViewController)
         self.addSubviewInParent(authView, in: self.containerView, at: 0)
         authViewController.didMove(toParent: self)
@@ -156,7 +158,7 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
     
     func configureAuth(_ user: User?=AuthService.sharedInstance.getCurrentUser()) {
         guard let authUI = FUIAuth.defaultAuthUI() else {fatalError("unable to configure auth")}
-//        authUI.tosurl = URL(string: "https://cacatus.app/terms-of-service")
+//        authUI.tosurl = URL(string: "https://cactus.app/terms-of-service")
 //        authUI.privacyPolicyURL = URL(string: "https://cactus.app/privacy-policy")
         authUI.delegate = self
         authUI.shouldAutoUpgradeAnonymousUsers = true
@@ -274,7 +276,6 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
                 ])
         }
     }
-
 }
 
 class CustomAuthPickerViewController: FUIAuthPickerViewController {
@@ -288,23 +289,25 @@ class CustomAuthPickerViewController: FUIAuthPickerViewController {
         let pickerView = scrollView?.subviews.first
         pickerView?.backgroundColor = .clear
         
+        scrollView?.subviews.forEach({ (view) in
+            if let textView = view as? UITextView {
+                textView.textAlignment = .center
+            }
+        })
+        
+        pickerView?.subviews.forEach({ (view) in
+            if let textView = view as? UITextView {
+                textView.textAlignment = .center
+            }
+        })
+        
+//        if let scrollView = scrollView {
+//            pickerView?.translatesAutoresizingMaskIntoConstraints = false
+//            pickerView?.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+//        }
+        
+        
 //        self.navigationController?.navigationBar.isHidden = false
         // Do any additional setup after loading the view.
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-//        self.navigationController?.isNavigationBarHidden = false
-//        self.navigationController?.navigationBar.isHidden = false
-//        self.title = "Hello!!"
-    }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
