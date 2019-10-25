@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 class PrimaryButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -92,12 +93,11 @@ class PrimaryButton: UIButton {
         mask.path = path.cgPath
         self.layer.mask = mask
 
-        if (self.border == nil ){
+        if self.border == nil {
             let border = CAShapeLayer()
             self.border = border
             self.layer.addSublayer(border)
         }
-        
         
         if let border = self.border {
             

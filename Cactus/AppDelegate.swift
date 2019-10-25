@@ -150,6 +150,72 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return false
     }
+        
+    func showErrorAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
+        self.rootViewController.present(alert, animated: true)
+    }
+    
+    func signinWithEmail(_ email: String, link: String) {
+        if !isValidEmail(email) {
+            self.confirmEmailAddress(link: link, message: "Please enter a valid email address")
+            return
+        }
+        
+        Auth.auth().signIn(withEmail: email, link: link) { (authResult, error) in
+            if let error = error {
+                if let errorCode = AuthErrorCode(rawValue: error._code) {
+                    print("errorCode \(errorCode)")
+                    switch errorCode {
+                    case .invalidEmail:
+                        return self.confirmEmailAddress(link: link, message: "\(email) does not match the email address the sign in link was sent to. Please try again.")
+                    case .invalidActionCode:
+                        self.showErrorAlert(title: "Unable to sign in", message: "This link may have been use already, is expired, or malformed. Please try again.")
+                    default:
+                        print("Error logging in", error.localizedDescription)
+                        self.showErrorAlert(title: "Oops! Unable to sign in", message: error.localizedDescription)
+                    }
+                }
+                
+            } else if let authResult = authResult {
+                print("AuthResult, \(authResult.user.email ?? "no email found")" )
+            }
+            
+            UserDefaults.standard.removeObject(forKey: "MagicLinkEmail")
+        }
+    }
+    
+    func confirmEmailAddress(link: String, message: String = "Please enter your email address") {
+        let emailAlert = UIAlertController(title: "Confirm your Email", message: message, preferredStyle: .alert)
+        
+        let submitAction = UIAlertAction(title: "Done", style: .default, handler: { _ in
+            if let inputEmail = emailAlert.textFields?.first?.text {
+                self.signinWithEmail(inputEmail, link: link)
+            }
+        })
+        submitAction.isEnabled = false
+        
+        emailAlert.addTextField { (textField) in
+            textField.placeholder = "Enter your email"
+            textField.layer.borderColor = CactusColor.green.cgColor
+            textField.frame = CGRect(textField.frame.minX, textField.frame.minY, textField.frame.width, 40)
+            textField.layer.cornerRadius = 20
+            textField.keyboardType = .emailAddress
+            textField.textContentType = .emailAddress
+            textField.returnKeyType = .done
+            textField.layoutIfNeeded()
+            textField.addTarget(emailAlert, action: #selector(emailAlert.textDidChangeInEmailConfirmAlert), for: .editingChanged)
+        }
+        
+        emailAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        emailAlert.addAction(submitAction)
+        
+        self.rootViewController.present(emailAlert, animated: true)
+    }
     
     //handle firebase dynamic links
     func application(_ application: UIApplication, continue userActivity: NSUserActivity,
@@ -175,31 +241,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         print("link handled = \(handled)")
         
-        if let authUrl = userActivity.webpageURL {
-//            if FUIAuth.defaultAuthUI()?.url
+        if let activityUrl = userActivity.webpageURL {
             var params: [String: String] = [:]
-            URLComponents(url: authUrl, resolvingAgainstBaseURL: false)?.queryItems?.forEach {
+            URLComponents(url: activityUrl, resolvingAgainstBaseURL: false)?.queryItems?.forEach {
                 params[$0.name] = $0.value
             }
-            var signinUrl:URL? = nil
+            var signinUrl: URL?
             if let linkParam = params["link"] {
                  signinUrl = URL(string: linkParam)
             }
             
-            if Auth.auth().isSignIn(withEmailLink: authUrl.absoluteString) {                                
-                if FUIAuth.defaultAuthUI()?.handleOpen(signinUrl ?? authUrl, sourceApplication: nil) ?? false {
+            if Auth.auth().isSignIn(withEmailLink: activityUrl.absoluteString) {
+                let email = UserDefaults.standard.string(forKey: "MagicLinkEmail")
+                if let email = email {
+                    self.signinWithEmail(email, link: activityUrl.absoluteString)
+                } else {
+                    self.confirmEmailAddress(link: activityUrl.absoluteString)
+                }
+                return true
+            } else if let signinUrl = signinUrl {
+                if FUIAuth.defaultAuthUI()?.handleOpen(signinUrl, sourceApplication: nil) ?? false {
                     print("Handled by firebase auth ui")
                     return true
                 }
             } else {
-                if let signinUrl = signinUrl {
-                    if FUIAuth.defaultAuthUI()?.handleOpen(signinUrl, sourceApplication: nil) ?? false {
-                        print("Handled by firebase auth ui")
-                        return true
-                    }
-                } else {
-                    application.open(authUrl)
-                }
+                print("url not supported, sending back to the browser")
+                application.open(activityUrl)
             }
         }
         

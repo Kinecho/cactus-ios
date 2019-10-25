@@ -22,4 +22,5 @@ protocol AppConfig {
     static var flamelink: FlamelinkConfig {get}
     static var environment: AppEnvironment {get}
     static var actionCodeDomain: String {get}
+    static var apiDomain: String {get}
 }

@@ -17,10 +17,12 @@ class LoginViewController: UIViewController {
     var anonymousSubtitle = "Start with a happier mindset toady."
     var loggedOutSubtitle = "Start with a happier mindset today."
     
+    @IBOutlet weak var emailInputView: CactusTextInputField!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subTextLabel: UILabel!
     @IBOutlet weak var signOutButton: UIButton!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var submitEmailButton: PrimaryButton!
     var authViewController: UIViewController?
     
     var authHandler: AuthStateDidChangeListenerHandle?
@@ -31,10 +33,58 @@ class LoginViewController: UIViewController {
         self.authHandler = AuthService.sharedInstance.getAuthStateChangeHandler { (_, user) in
             self.configureUI(user)
         }
+        
+        self.view.setupKeyboardDismissRecognizer()
+        self.emailInputView.delegate = self
     }
     
     deinit {
         AuthService.sharedInstance.removeAuthStateChangeListener(self.authHandler)
+    }
+    
+    @IBAction func magicLinkNext(_ sender: Any) {
+        let email = self.emailInputView.text
+        self.submitMagicLinkEMail(email)
+    }
+    
+    func showInvalidEmail() {
+        let alert = UIAlertController(title: "Invalid Email", message: "Please enter a valid email address", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func submitMagicLinkEMail(_ email: String?) {
+        self.submitEmailButton.setEnabled(false)
+        self.submitEmailButton.setTitle("Submitting...", for: .disabled)
+        guard let email = email?.trimmingCharacters(in: .whitespacesAndNewlines),
+            isValidEmail(email) else {
+            self.showInvalidEmail()
+            self.submitEmailButton.setEnabled(true)
+            return
+        }
+        
+        print("submitting magic link \(email)")
+        UserDefaults.standard.set(email, forKey: "MagicLinkEmail")
+        let magicLinkRequest = MagicLinkRequest(email: email, continuePath: "/home")
+        ApiService.sharedInstance.sendMagicLink(magicLinkRequest) { (response) in
+            DispatchQueue.main.async {
+                print("Got magic link ")
+                self.submitEmailButton.setEnabled(true)
+                self.handleMagicLinkResponse(response)
+            }            
+        }
+    }
+    
+    func handleMagicLinkResponse(_ magicLinkResponse: MagicLinkResponse) {
+        let greeting = magicLinkResponse.exists ? "Welcome Back!" : "Welcome!"
+        let alert = UIAlertController(title: greeting, message: "An email has been sent to \(magicLinkResponse.email).", preferredStyle: .alert)
+        if magicLinkResponse.success == false {
+            alert.title = "Oops! Something's not right."
+            alert.message = magicLinkResponse.error ?? "Something unexpected happened. Please try again later"
+        }
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true)
     }
     
     func configureUI(_ user: User?=AuthService.sharedInstance.getCurrentUser()) {
@@ -47,7 +97,6 @@ class LoginViewController: UIViewController {
                 self.signOutButton.isHidden = false
             }
         } else {
-            
             showLoggedOutUI()
         }
     }
@@ -131,10 +180,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func signOut(_ sender: Any) {
         print("attempting ot sign out")
-//        let user = AuthService.sharedInstance.getCurrentUser()
-        
         let title = "Are you sure yoyu wan to sign out?"
-    
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Log Out", style: .destructive) { _ in
@@ -184,11 +230,11 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
                                                   loginHintKey: nil)
         
         let providers: [FUIAuthProvider] = [
-            FUIEmailAuth(authAuthUI: authUI,
-                         signInMethod: EmailLinkAuthSignInMethod,
-                         forceSameDevice: false,
-                         allowNewEmailAccounts: true,
-                         actionCodeSetting: actionCodeSettings),
+//            FUIEmailAuth(authAuthUI: authUI,
+//                         signInMethod: EmailLinkAuthSignInMethod,
+//                         forceSameDevice: false,
+//                         allowNewEmailAccounts: true,
+//                         actionCodeSetting: actionCodeSettings),
             FUIFacebookAuth(),
             FUIGoogleAuth(),
 //            twitterProvider
@@ -300,14 +346,15 @@ class CustomAuthPickerViewController: FUIAuthPickerViewController {
                 textView.textAlignment = .center
             }
         })
-        
-//        if let scrollView = scrollView {
-//            pickerView?.translatesAutoresizingMaskIntoConstraints = false
-//            pickerView?.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-//        }
-        
-        
-//        self.navigationController?.navigationBar.isHidden = false
-        // Do any additional setup after loading the view.
+    }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        //textField code
+        textField.resignFirstResponder()  //if desired
+        self.submitMagicLinkEMail(textField.text)
+        return true
     }
 }

@@ -17,6 +17,12 @@
 		300AC18A233A850B005C6555 /* JournalEntrySkeletonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 300AC186233A850B005C6555 /* JournalEntrySkeletonViewController.xib */; };
 		300AC18D233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */; };
 		300AC18E233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */; };
+		3021B67123622FE7002634A8 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67023622FE7002634A8 /* ApiService.swift */; };
+		3021B67223622FE7002634A8 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67023622FE7002634A8 /* ApiService.swift */; };
+		3021B67523623010002634A8 /* ApiTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67423623010002634A8 /* ApiTypes.swift */; };
+		3021B67623623010002634A8 /* ApiTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67423623010002634A8 /* ApiTypes.swift */; };
+		3021B67823623AE3002634A8 /* CactusTextInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67723623AE3002634A8 /* CactusTextInputField.swift */; };
+		3021B67923623AE3002634A8 /* CactusTextInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67723623AE3002634A8 /* CactusTextInputField.swift */; };
 		3023FE2D22ECB47800F753A7 /* MemberProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */; };
 		3023FE2E22ECB47800F753A7 /* MemberProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */; };
 		3023FE3022ECD0A300F753A7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2F22ECD0A300F753A7 /* NotificationService.swift */; };
@@ -195,6 +201,8 @@
 		30C7E57C233FEB5800145111 /* FontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C7E57A233FEB5800145111 /* FontExtensions.swift */; };
 		30CD90AA2346F06B00703FE2 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30CD90A92346F06B00703FE2 /* Settings.storyboard */; };
 		30CD90AB2346F06B00703FE2 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30CD90A92346F06B00703FE2 /* Settings.storyboard */; };
+		30D461372362750900B8AED7 /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */; };
+		30D461382362750D00B8AED7 /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */; };
 		30E2D376234311C6003D2B27 /* PillLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2D375234311C6003D2B27 /* PillLabelView.swift */; };
 		30E2D377234311C6003D2B27 /* PillLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2D375234311C6003D2B27 /* PillLabelView.swift */; };
 		30E2D37A23432B21003D2B27 /* NavigationMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2D37823432B21003D2B27 /* NavigationMenuViewController.swift */; };
@@ -247,6 +255,9 @@
 		300AC185233A850B005C6555 /* JournalEntrySkeletonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JournalEntrySkeletonViewController.swift; path = Cactus/ViewControllers/JournalEntrySkeletonViewController.swift; sourceTree = SOURCE_ROOT; };
 		300AC186233A850B005C6555 /* JournalEntrySkeletonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = JournalEntrySkeletonViewController.xib; path = Cactus/ViewControllers/JournalEntrySkeletonViewController.xib; sourceTree = SOURCE_ROOT; };
 		300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFeedDataSource.swift; sourceTree = "<group>"; };
+		3021B67023622FE7002634A8 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		3021B67423623010002634A8 /* ApiTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTypes.swift; sourceTree = "<group>"; };
+		3021B67723623AE3002634A8 /* CactusTextInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusTextInputField.swift; sourceTree = "<group>"; };
 		3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberProfileViewController.swift; sourceTree = "<group>"; };
 		3023FE2F22ECD0A300F753A7 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		30265C5C23453C8D00934041 /* SwiftyGifManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyGifManager.swift; sourceTree = "<group>"; };
@@ -344,6 +355,7 @@
 		30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusColor.swift; sourceTree = "<group>"; };
 		30C7E57A233FEB5800145111 /* FontExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtensions.swift; sourceTree = "<group>"; };
 		30CD90A92346F06B00703FE2 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
 		30E2D375234311C6003D2B27 /* PillLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillLabelView.swift; sourceTree = "<group>"; };
 		30E2D37823432B21003D2B27 /* NavigationMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMenuViewController.swift; sourceTree = "<group>"; };
 		30E2D37923432B21003D2B27 /* NavigationMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationMenuViewController.xib; sourceTree = "<group>"; };
@@ -424,6 +436,14 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		3021B67323623000002634A8 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				3021B67423623010002634A8 /* ApiTypes.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
 		30265C5B23453C7B00934041 /* SwiftyGif */ = {
 			isa = PBXGroup;
 			children = (
@@ -500,6 +520,7 @@
 				30E2D375234311C6003D2B27 /* PillLabelView.swift */,
 				303EB0872343A0B800AC8741 /* RoundedView.swift */,
 				30BC2CFF234EA63E00AB7B89 /* AuthProviderTableViewCell.swift */,
+				3021B67723623AE3002634A8 /* CactusTextInputField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -627,6 +648,7 @@
 		30E9B09422EA688D005B25FD /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3021B67323623000002634A8 /* Api */,
 				30E9B09522EA68AC005B25FD /* FirestoreService.swift */,
 				30BF2E13232824AB00A49EB6 /* FlamelinkService.swift */,
 				30E9B0A222EAC204005B25FD /* AuthService.swift */,
@@ -637,6 +659,7 @@
 				3023FE2F22ECD0A300F753A7 /* NotificationService.swift */,
 				30BF2E0A232816CC00A49EB6 /* PromptContentService.swift */,
 				305B1867233178A8003E1561 /* ImageService.swift */,
+				3021B67023622FE7002634A8 /* ApiService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -688,6 +711,7 @@
 				30BF2E2E2328A8AD00A49EB6 /* ViewControllerExtensions.swift */,
 				305B186A23319A72003E1561 /* ImageExtensions.swift */,
 				30C7E57A233FEB5800145111 /* FontExtensions.swift */,
+				30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1356,6 +1380,7 @@
 			files = (
 				309561A022EE16B5009357BD /* CactusConfig.swift in Sources */,
 				30934FB022EC0558007C4E6C /* ReflectionResponseService.swift in Sources */,
+				30D461382362750D00B8AED7 /* UIAlertControllerExtensions.swift in Sources */,
 				30BE5673234E829100AA6D4D /* NotificationTimeOfDayViewController.swift in Sources */,
 				30934F9D22EBF2AC007C4E6C /* ColorExtensions.swift in Sources */,
 				305130D4234FE9F10088B51F /* InviteSettingsViewController.swift in Sources */,
@@ -1410,11 +1435,14 @@
 				3023FE3422ECF06E00F753A7 /* MailchimpModels.swift in Sources */,
 				30BF2E1623282BDA00A49EB6 /* FlamelinkService.swift in Sources */,
 				3023FE3522ECF0A800F753A7 /* ViewExtensions.swift in Sources */,
+				3021B67623623010002634A8 /* ApiTypes.swift in Sources */,
 				30C7E57C233FEB5800145111 /* FontExtensions.swift in Sources */,
 				3084E9622348118000788279 /* LanguageSettingsViewController.swift in Sources */,
 				300AC188233A850B005C6555 /* JournalEntrySkeletonViewController.swift in Sources */,
 				30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */,
 				3084E9662348FE9C00788279 /* CelebrateViewController.swift in Sources */,
+				3021B67223622FE7002634A8 /* ApiService.swift in Sources */,
+				3021B67923623AE3002634A8 /* CactusTextInputField.swift in Sources */,
 				303BF751232D289A00164539 /* QuoteContentViewController.swift in Sources */,
 				3026B29B234D3E2800CD2D34 /* PromptContentViewController.swift in Sources */,
 				30E9B0B822EADF75005B25FD /* HomeViewController.swift in Sources */,
@@ -1439,6 +1467,7 @@
 			files = (
 				309561A222EE16C3009357BD /* CactusConfig.swift in Sources */,
 				30934FAF22EC0558007C4E6C /* ReflectionResponseService.swift in Sources */,
+				30D461372362750900B8AED7 /* UIAlertControllerExtensions.swift in Sources */,
 				30BE5672234E829100AA6D4D /* NotificationTimeOfDayViewController.swift in Sources */,
 				30934F9C22EBF2AB007C4E6C /* ColorExtensions.swift in Sources */,
 				305130D3234FE9F10088B51F /* InviteSettingsViewController.swift in Sources */,
@@ -1493,11 +1522,14 @@
 				308446F122ECAE0100FB0683 /* MailchimpModels.swift in Sources */,
 				30934F9622EBF146007C4E6C /* RoundedButton.swift in Sources */,
 				30E9B09922EA6A81005B25FD /* BaseModel.swift in Sources */,
+				3021B67523623010002634A8 /* ApiTypes.swift in Sources */,
 				30C7E57B233FEB5800145111 /* FontExtensions.swift in Sources */,
 				3084E9612348118000788279 /* LanguageSettingsViewController.swift in Sources */,
 				300AC187233A850B005C6555 /* JournalEntrySkeletonViewController.swift in Sources */,
 				30E9B0B722EADF75005B25FD /* HomeViewController.swift in Sources */,
 				3084E9652348FE9C00788279 /* CelebrateViewController.swift in Sources */,
+				3021B67123622FE7002634A8 /* ApiService.swift in Sources */,
+				3021B67823623AE3002634A8 /* CactusTextInputField.swift in Sources */,
 				303BF750232D289A00164539 /* QuoteContentViewController.swift in Sources */,
 				3026B29A234D3E2800CD2D34 /* PromptContentViewController.swift in Sources */,
 				30E9B0AF22EADD04005B25FD /* LoginViewController.swift in Sources */,
