@@ -34,9 +34,23 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
 //        self.dataSource.delegate = self
         layout.estimatedItemSize = getCellEstimatedSize()
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(self.appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(self.appMovedToBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
+    }
+
+    @objc func appMovedToForeground() {
+        print("App moved to ForeGround!")
+        self.collectionView.reloadData()
     }
     
-    override func viewWillAppear(_ animated: Bool) { }
+    @objc func appMovedToBackground() {
+        print("App Moved to background")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.collectionView.reloadData()
+    }
     
     @IBAction func showPromptContentCards(segue: UIStoryboardSegue) { }
     @IBAction func showDetail(segue: UIStoryboardSegue) { }
