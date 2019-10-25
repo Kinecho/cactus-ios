@@ -196,53 +196,48 @@ class LoginViewController: UIViewController {
         })
         
         self.present(alert, animated: true)
-        
+//
     }
 }
 
 extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
+
+    func getTwitterProvider() -> FUIOAuth {
+        let twitterImage = CactusImage.twitter.ofWidth(newWidth: 25)
+        if #available(iOS 13.0, *) {
+            twitterImage?.withTintColor(.white)
+        } else {
+            // Fallback on earlier versions
+        }
+//        twitterImage?.resizingMode = .aspectFit
+//        twitterImage?.setSize = CGSize(width: 25, height: 25)
+        let twitterProvider = FUIOAuth(authUI: self.authUI,
+                                                  providerID: "twitter.com",
+                                                  buttonLabelText: "Sign in with Twitter",
+                                                  shortName: "Twitter",
+                                                  buttonColor: CactusColor.twitter,
+                                                  iconImage: twitterImage!,
+                                                  scopes: ["user.readwrite"],
+                                                  customParameters: ["prompt": "consent"],
+                                                  loginHintKey: nil)
+        return twitterProvider
+    }
     
     func configureAuth(_ user: User?=AuthService.sharedInstance.getCurrentUser()) {
         guard let authUI = FUIAuth.defaultAuthUI() else {fatalError("unable to configure auth")}
-//        authUI.tosurl = URL(string: "https://cactus.app/terms-of-service")
-//        authUI.privacyPolicyURL = URL(string: "https://cactus.app/privacy-policy")
+        authUI.tosurl = URL(string: "https://cactus.app/terms-of-service")
+        authUI.privacyPolicyURL = URL(string: "https://cactus.app/privacy-policy")
         authUI.delegate = self
         authUI.shouldAutoUpgradeAnonymousUsers = true
-//        authUI.url
-        
-//        let actionCodeSettings = ActionCodeSettings()
-//        actionCodeSettings.url = URL(string: CactusConfig.actionCodeDomain)
-//        actionCodeSettings.handleCodeInApp = true
-        
-//        let twitterImage = CactusImage.twitter.ofWidth(newWidth: 25)
-        
-//        twitterImage?.withTintColor(.white)
-//        twitterImage?.resizingMode = .aspectFit
-//        twitterImage?.setSize = CGSize(width: 25, height: 25)
-//        let twitterProvider = FUIOAuth(authUI: authUI,
-//                                                  providerID: "twitter.com",
-//                                                  buttonLabelText: "Sign in with Twitter",
-//                                                  shortName: "Twitter",
-//                                                  buttonColor: CactusColor.twitter,
-//                                                  iconImage: twitterImage!,
-//                                                  scopes: ["user.readwrite"],
-//                                                  customParameters: ["prompt" : "consent"],
-//                                                  loginHintKey: nil)
+        self.authUI = authUI
         
         let providers: [FUIAuthProvider] = [
-//            FUIEmailAuth(authAuthUI: authUI,
-//                         signInMethod: EmailLinkAuthSignInMethod,
-//                         forceSameDevice: false,
-//                         allowNewEmailAccounts: true,
-//                         actionCodeSetting: actionCodeSettings),
             FUIFacebookAuth(),
             FUIGoogleAuth(),
-//            twitterProvider
+//            self.getTwitterProvider()
         ]
         
         authUI.providers = providers
-        
-        self.authUI = authUI
     }
     
     // Customize the default auth picker view controller

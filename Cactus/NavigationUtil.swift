@@ -12,10 +12,8 @@ import UIKit
 enum ScreenID: String {
     //main
     case AppMain = "AppMain"
-    case Home = "Home"
     case Login = "Login"
     case LaunchScreen = "LaunchScreen"
-    case MemberProfile = "MemberProfile"
     case JournalFeed
     case JournalHome
     //settings

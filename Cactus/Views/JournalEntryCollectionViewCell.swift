@@ -25,6 +25,13 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     
     weak var delegate: JournalEntryCollectionVieweCellDelegate?
     
+    @IBOutlet weak var reflectButton: PrimaryButton!
+    @IBOutlet weak var reflectButtonTopQuestionConstraint: NSLayoutConstraint!
+    @IBOutlet weak var reflectButtonBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var editTextTopQuestionConstraint: NSLayoutConstraint!
+    
+    var backgroundImageView: UIImageView?
+    
     var cellWidthConstraint: NSLayoutConstraint?
     var responseBottomConstraint: NSLayoutConstraint?
     var textViewBottomPadding: CGFloat = 20
@@ -61,9 +68,6 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
                        initialSpringVelocity: -1,
                        options: .curveEaseOut,
                        animations: {
-//                        self.moreButton.tintColor = activeColor
-//                        self.moreButton.imageView?.tintColor = activeColor
-//                        self.moreButton.layer.borderColor = activeColor.cgColor
                             self.moreButton?.transform = CGAffineTransform(rotationAngle: .pi/2)
                         }, completion: { _ in
                             self.moreButton?.transform = CGAffineTransform(rotationAngle: .pi/2)
@@ -77,9 +81,6 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
                            initialSpringVelocity: -1,
                            options: .curveEaseOut,
                            animations: {
-//                            self.moreButton.tintColor = normalColor
-//                            self.moreButton.imageView?.tintColor = normalColor
-//                            self.moreButton.layer.borderColor = normalColor.cgColor
                                 self.moreButton?.transform = CGAffineTransform.identity
                             }, completion: { _ in
                                 self.moreButton?.transform = CGAffineTransform.identity
@@ -123,9 +124,6 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         
         responseTextView.inputAccessoryView = bar
         responseTextView.becomeFirstResponder()
-        
-//        self.contentView.backgroundColor = CactusColor.pink
-        
     }
     
     @objc func saveEdit(_ sender: Any?) {
@@ -180,6 +178,9 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         self.borderView.isHidden = true
         self.responseBottomConstraint?.constant = 0
         self.responseBottomConstraint?.isActive = true
+        
+        self.editTextTopQuestionConstraint.constant = 0
+        self.editTextTopQuestionConstraint.isActive = true
     }
     
     func showResponseView() {
@@ -187,6 +188,14 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         self.borderView.isHidden = false
         self.responseBottomConstraint?.constant = self.textViewBottomPadding
         self.responseTextViewHeightConstraint?.isActive = false
+        self.editTextTopQuestionConstraint.constant = self.textViewBottomPadding
+        self.editTextTopQuestionConstraint.isActive = true
+    }
+    
+    func configureReflectButton(show: Bool) {
+        self.reflectButton.isHidden = !show
+        self.reflectButtonBottomConstraint.isActive = show
+        self.reflectButtonTopQuestionConstraint.isActive = show
     }
     
     func updateView() {
@@ -202,12 +211,21 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         let reflectContent = self.promptContent?.content.first(where: { (content) -> Bool in
             content.contentType == .reflect
         })
-        
+                        
         let reflectText = FormatUtils.isBlank(reflectContent?.text) ? nil : reflectContent?.text
         let questionText = reflectText ?? self.prompt?.question
-        let questionLoaded = self.journalEntry?.promptContentLoaded == true && self.journalEntry?.promptLoaded == true
+        let contentImage = self.promptContent?.content.first?.backgroundImage
+        let subjectLine = self.promptContent?.subjectLine
+        let firstText = self.promptContent?.content.first?.text
+        let promptAndContentLoaded = self.journalEntry?.promptContentLoaded == true && self.journalEntry?.promptLoaded == true
+        let responsesLoaded = self.journalEntry?.responsesLoaded == true
+        let reflectionCompleted = responsesLoaded && responses?.isEmpty ?? true
+        let allLoaded = promptAndContentLoaded && responsesLoaded
         
-        if questionLoaded {
+//        if promptAndContentLoaded {
+        if allLoaded {
+            self.configureReflectButton(show: reflectionCompleted)
+            
             if self.questionLabel.isSkeletonActive {
                 self.questionLabel.hideSkeleton()
             }
@@ -260,6 +278,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     
     override func prepareForInterfaceBuilder() {
         self.layoutSubviews()
+        self.sharedInit()
         self.configureViewAppearance()
     }
     
@@ -299,8 +318,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    func sharedInit() {
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
         self.responseTextViewHeightConstraint = self.responseTextView.heightAnchor.constraint(equalToConstant: 90)
         self.questionLabelHeightConstraint = self.questionLabel.heightAnchor.constraint(equalToConstant: 30)
@@ -319,6 +337,16 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         
         let textTappedGesture = UITapGestureRecognizer(target: self, action: #selector(self.reflectTapped))
         self.responseTextView.addGestureRecognizer(textTappedGesture)
+        self.configureReflectButton(show: false)
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.sharedInit()
+    }
+    
+    @IBAction func reflectButtonTapped(_ sender: Any) {
+        self.delegate?.goToDetails(cell: self)
     }
     
     @objc func reflectTapped() {

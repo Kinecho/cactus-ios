@@ -23,8 +23,6 @@
 		3021B67623623010002634A8 /* ApiTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67423623010002634A8 /* ApiTypes.swift */; };
 		3021B67823623AE3002634A8 /* CactusTextInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67723623AE3002634A8 /* CactusTextInputField.swift */; };
 		3021B67923623AE3002634A8 /* CactusTextInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67723623AE3002634A8 /* CactusTextInputField.swift */; };
-		3023FE2D22ECB47800F753A7 /* MemberProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */; };
-		3023FE2E22ECB47800F753A7 /* MemberProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */; };
 		3023FE3022ECD0A300F753A7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2F22ECD0A300F753A7 /* NotificationService.swift */; };
 		3023FE3122ECD0A300F753A7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2F22ECD0A300F753A7 /* NotificationService.swift */; };
 		3023FE3422ECF06E00F753A7 /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
@@ -227,8 +225,6 @@
 		30E9B0B022EADD04005B25FD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0AE22EADD04005B25FD /* LoginViewController.swift */; };
 		30E9B0B322EADE2D005B25FD /* CGExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0B222EADE2D005B25FD /* CGExtensions.swift */; };
 		30E9B0B422EADE2D005B25FD /* CGExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0B222EADE2D005B25FD /* CGExtensions.swift */; };
-		30E9B0B722EADF75005B25FD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0B622EADF75005B25FD /* HomeViewController.swift */; };
-		30E9B0B822EADF75005B25FD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0B622EADF75005B25FD /* HomeViewController.swift */; };
 		30E9B0BA22EAF153005B25FD /* SentPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0B922EAF153005B25FD /* SentPrompt.swift */; };
 		30E9B0BB22EAF153005B25FD /* SentPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0B922EAF153005B25FD /* SentPrompt.swift */; };
 		30E9B0BD22EAF2FC005B25FD /* SentPromptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */; };
@@ -258,7 +254,6 @@
 		3021B67023622FE7002634A8 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		3021B67423623010002634A8 /* ApiTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTypes.swift; sourceTree = "<group>"; };
 		3021B67723623AE3002634A8 /* CactusTextInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusTextInputField.swift; sourceTree = "<group>"; };
-		3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberProfileViewController.swift; sourceTree = "<group>"; };
 		3023FE2F22ECD0A300F753A7 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		30265C5C23453C8D00934041 /* SwiftyGifManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyGifManager.swift; sourceTree = "<group>"; };
 		30265C5F23453CB100934041 /* UIImage+SwiftyGif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+SwiftyGif.swift"; sourceTree = "<group>"; };
@@ -368,7 +363,6 @@
 		30E9B0AB22EAD6EC005B25FD /* NavigationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUtil.swift; sourceTree = "<group>"; };
 		30E9B0AE22EADD04005B25FD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		30E9B0B222EADE2D005B25FD /* CGExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGExtensions.swift; sourceTree = "<group>"; };
-		30E9B0B622EADF75005B25FD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		30E9B0B922EAF153005B25FD /* SentPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentPrompt.swift; sourceTree = "<group>"; };
 		30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentPromptService.swift; sourceTree = "<group>"; };
 		4367361CF4B35F9E8F97DC27 /* Pods-Cactus Stage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus Stage.debug.xcconfig"; path = "Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage.debug.xcconfig"; sourceTree = "<group>"; };
@@ -689,9 +683,7 @@
 				30B6EA7222EA5A9F00443E46 /* JournalEntryDetailViewController.swift */,
 				30E9B0A822EAD68B005B25FD /* AppMainViewController.swift */,
 				30E9B0AE22EADD04005B25FD /* LoginViewController.swift */,
-				30E9B0B622EADF75005B25FD /* HomeViewController.swift */,
 				30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */,
-				3023FE2C22ECB47800F753A7 /* MemberProfileViewController.swift */,
 				30BF2E1723289D1200A49EB6 /* PromptContentPageViewController.swift */,
 				300AC17B23397A77005C6555 /* JournalHomeViewController.swift */,
 				30E2D37823432B21003D2B27 /* NavigationMenuViewController.swift */,
@@ -1427,7 +1419,6 @@
 				3084E956234802C300788279 /* TermsOfServiceViewController.swift in Sources */,
 				3054B5BE2331424000AA7272 /* MarkdownUtil.swift in Sources */,
 				30E9B0A422EAC204005B25FD /* AuthService.swift in Sources */,
-				3023FE2E22ECB47800F753A7 /* MemberProfileViewController.swift in Sources */,
 				30E9B09A22EA6A81005B25FD /* BaseModel.swift in Sources */,
 				30BF2E302328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */,
 				305B1864233175DC003E1561 /* PhotoContentViewController.swift in Sources */,
@@ -1445,7 +1436,6 @@
 				3021B67923623AE3002634A8 /* CactusTextInputField.swift in Sources */,
 				303BF751232D289A00164539 /* QuoteContentViewController.swift in Sources */,
 				3026B29B234D3E2800CD2D34 /* PromptContentViewController.swift in Sources */,
-				30E9B0B822EADF75005B25FD /* HomeViewController.swift in Sources */,
 				30E2D377234311C6003D2B27 /* PillLabelView.swift in Sources */,
 				3084E95C2348087100788279 /* HelpViewController.swift in Sources */,
 				30265C6423453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */,
@@ -1513,7 +1503,6 @@
 				309561A422EE16D7009357BD /* AppConfig.swift in Sources */,
 				3084E955234802C300788279 /* TermsOfServiceViewController.swift in Sources */,
 				3054B5BD23313EAA00AA7272 /* MarkdownUtil.swift in Sources */,
-				3023FE2D22ECB47800F753A7 /* MemberProfileViewController.swift in Sources */,
 				30E9B09D22EA7FC3005B25FD /* CactusMember.swift in Sources */,
 				30E9B0A322EAC204005B25FD /* AuthService.swift in Sources */,
 				30B6EA6F22EA5A9F00443E46 /* AppDelegate.swift in Sources */,
@@ -1526,7 +1515,6 @@
 				30C7E57B233FEB5800145111 /* FontExtensions.swift in Sources */,
 				3084E9612348118000788279 /* LanguageSettingsViewController.swift in Sources */,
 				300AC187233A850B005C6555 /* JournalEntrySkeletonViewController.swift in Sources */,
-				30E9B0B722EADF75005B25FD /* HomeViewController.swift in Sources */,
 				3084E9652348FE9C00788279 /* CelebrateViewController.swift in Sources */,
 				3021B67123622FE7002634A8 /* ApiService.swift in Sources */,
 				3021B67823623AE3002634A8 /* CactusTextInputField.swift in Sources */,

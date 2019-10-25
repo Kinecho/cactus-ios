@@ -36,10 +36,6 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         layout.estimatedItemSize = getCellEstimatedSize()
     }
     
-    @objc func showAccountPage(sender: Any) {
-        AppDelegate.shared.rootViewController.pushScreen(ScreenID.MemberProfile, animate: true)
-    }
-
     override func viewWillAppear(_ animated: Bool) { }
     
     @IBAction func showPromptContentCards(segue: UIStoryboardSegue) { }
