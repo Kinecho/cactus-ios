@@ -210,24 +210,24 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
         authUI.shouldAutoUpgradeAnonymousUsers = true
 //        authUI.url
         
-        let actionCodeSettings = ActionCodeSettings()
-        actionCodeSettings.url = URL(string: CactusConfig.actionCodeDomain)
-        actionCodeSettings.handleCodeInApp = true
+//        let actionCodeSettings = ActionCodeSettings()
+//        actionCodeSettings.url = URL(string: CactusConfig.actionCodeDomain)
+//        actionCodeSettings.handleCodeInApp = true
         
-        let twitterImage = CactusImage.twitter.ofWidth(newWidth: 25)
+//        let twitterImage = CactusImage.twitter.ofWidth(newWidth: 25)
         
 //        twitterImage?.withTintColor(.white)
 //        twitterImage?.resizingMode = .aspectFit
 //        twitterImage?.setSize = CGSize(width: 25, height: 25)
-        let twitterProvider = FUIOAuth(authUI: authUI,
-                                                  providerID: "twitter.com",
-                                                  buttonLabelText: "Sign in with Twitter",
-                                                  shortName: "Twitter",
-                                                  buttonColor: CactusColor.twitter,
-                                                  iconImage: twitterImage!,
-                                                  scopes: ["user.readwrite"],
-                                                  customParameters: ["prompt" : "consent"],
-                                                  loginHintKey: nil)
+//        let twitterProvider = FUIOAuth(authUI: authUI,
+//                                                  providerID: "twitter.com",
+//                                                  buttonLabelText: "Sign in with Twitter",
+//                                                  shortName: "Twitter",
+//                                                  buttonColor: CactusColor.twitter,
+//                                                  iconImage: twitterImage!,
+//                                                  scopes: ["user.readwrite"],
+//                                                  customParameters: ["prompt" : "consent"],
+//                                                  loginHintKey: nil)
         
         let providers: [FUIAuthProvider] = [
 //            FUIEmailAuth(authAuthUI: authUI,
