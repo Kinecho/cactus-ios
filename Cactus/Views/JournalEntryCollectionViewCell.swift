@@ -22,16 +22,22 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var borderView: UIView!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var dateTopContainerConstraint: NSLayoutConstraint!
+    @IBOutlet weak var backgroundBlobImageView: UIImageView!
+    @IBOutlet weak var subTextLabel: UILabel!
     
     weak var delegate: JournalEntryCollectionVieweCellDelegate?
     
+//    @IBOutlet weak var backgroundImageHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var backgroundImageTopToQuestionBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var backgroundImageTopSubTextBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var reflectButton: PrimaryButton!
     @IBOutlet weak var reflectButtonTopQuestionConstraint: NSLayoutConstraint!
     @IBOutlet weak var reflectButtonBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var reflectButtonTopToSubTextConstraint: NSLayoutConstraint!
     @IBOutlet weak var editTextTopQuestionConstraint: NSLayoutConstraint!
     
-    var backgroundImageView: UIImageView?
-    
+    @IBOutlet weak var backgroundImageView: UIImageView!
+        
     var cellWidthConstraint: NSLayoutConstraint?
     var responseBottomConstraint: NSLayoutConstraint?
     var textViewBottomPadding: CGFloat = 20
@@ -195,7 +201,27 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     func configureReflectButton(show: Bool) {
         self.reflectButton.isHidden = !show
         self.reflectButtonBottomConstraint.isActive = show
-        self.reflectButtonTopQuestionConstraint.isActive = show
+        self.reflectButtonTopQuestionConstraint.isActive = show && self.subTextLabel.isHidden
+        self.reflectButtonTopToSubTextConstraint.isActive = show && !self.subTextLabel.isHidden
+    }
+    
+    func configureBackgroundImage(show: Bool) {
+        if show, let contentImage = self.promptContent?.content.first?.backgroundImage, !contentImage.isEmpty() {
+            ImageService.shared.setPhoto(self.backgroundImageView, photo: contentImage)
+            self.backgroundImageView.isHidden = false
+            self.backgroundBlobImageView.isHidden = false
+            self.backgroundImageTopToQuestionBottomConstraint.isActive = self.subTextLabel.isHidden
+            self.backgroundImageTopSubTextBottomConstraint.isActive = !self.subTextLabel.isHidden
+            
+            self.reflectButtonTopQuestionConstraint.isActive = false
+            self.reflectButtonTopToSubTextConstraint.isActive = false
+        } else {
+            self.backgroundImageView.image = nil
+            self.backgroundImageTopToQuestionBottomConstraint.isActive = false
+            self.backgroundImageTopSubTextBottomConstraint.isActive = false
+            self.backgroundImageView.isHidden = true
+            self.backgroundBlobImageView.isHidden = true
+        }
     }
     
     func updateView() {
@@ -214,28 +240,46 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
                         
         let reflectText = FormatUtils.isBlank(reflectContent?.text) ? nil : reflectContent?.text
         let questionText = reflectText ?? self.prompt?.question
-        let contentImage = self.promptContent?.content.first?.backgroundImage
         let subjectLine = self.promptContent?.subjectLine
         let firstText = self.promptContent?.content.first?.text
         let promptAndContentLoaded = self.journalEntry?.promptContentLoaded == true && self.journalEntry?.promptLoaded == true
         let responsesLoaded = self.journalEntry?.responsesLoaded == true
-        let reflectionCompleted = responsesLoaded && responses?.isEmpty ?? true
+        let reflectionCompleted = responsesLoaded && !(responses?.isEmpty ?? true)
         let allLoaded = promptAndContentLoaded && responsesLoaded
         
+        self.subTextLabel.text = firstText
 //        if promptAndContentLoaded {
         if allLoaded {
-            self.configureReflectButton(show: reflectionCompleted)
-            
             if self.questionLabel.isSkeletonActive {
                 self.questionLabel.hideSkeleton()
             }
-            self.questionLabel.text = questionText
-            self.questionLabel.numberOfLines = 0
-            self.questionLabelHeightConstraint?.isActive = false
+            
+            if reflectionCompleted {
+                self.questionLabel.text = questionText
+                self.questionLabel.numberOfLines = 0
+                self.questionLabelHeightConstraint?.isActive = false
+                self.subTextLabel.isHidden = true
+            } else {
+                if subjectLine != nil {
+                    self.questionLabel.text = subjectLine
+                    self.questionLabel.numberOfLines = 0
+                    self.questionLabelHeightConstraint?.isActive = false
+                }
+                
+                if firstText != nil {
+                    self.subTextLabel.isHidden = false
+                } else {
+                    self.subTextLabel.isHidden = true
+                }
+            }
+            
+            self.configureReflectButton(show: !reflectionCompleted)
+            self.configureBackgroundImage(show: !reflectionCompleted)
         } else {
             self.questionLabel.text = nil
             self.questionLabel.numberOfLines = 1
-            
+            self.configureReflectButton(show: false)
+            self.configureBackgroundImage(show: false)
 //            if !self.questionLabel.isSkeletonActive {
                 self.questionLabel.showAnimatedGradientSkeleton()
 //            }
@@ -338,6 +382,8 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         let textTappedGesture = UITapGestureRecognizer(target: self, action: #selector(self.reflectTapped))
         self.responseTextView.addGestureRecognizer(textTappedGesture)
         self.configureReflectButton(show: false)
+        
+        self.backgroundBlobImageView.transform.rotated(by: -90)
     }
     
     override func awakeFromNib() {

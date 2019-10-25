@@ -10,9 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Lato-Black.ttf">
-            <string>Lato-Black</string>
-        </array>
         <array key="Lato-Bold.ttf">
             <string>Lato-Bold</string>
         </array>
@@ -235,7 +232,17 @@
                                 <collectionViewCellContentView key="contentView" verifyAmbiguity="ignoreSizes" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" placeholderIntrinsicWidth="402" placeholderIntrinsicHeight="200" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qW-dd-S1T">
                                     <rect key="frame" x="0.0" y="0.0" width="408" height="229"/>
                                     <subviews>
-                                        <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DONE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7Y-9t-Q3G" userLabel="Status Label" customClass="PillLabelView" customModule="Cactus" customModuleProvider="target">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blob4" translatesAutoresizingMaskIntoConstraints="NO" id="lDj-iq-UJ4" userLabel="Background Blob">
+                                            <rect key="frame" x="-25" y="180" width="450" height="120"/>
+                                            <color key="tintColor" name="PinkLightest"/>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="me6-iG-DkW" userLabel="Background Image View">
+                                            <rect key="frame" x="-25" y="180" width="450" height="200"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="200" id="laF-kS-zV3"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="DONE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7Y-9t-Q3G" userLabel="Status Label" customClass="PillLabelView" customModule="Cactus" customModuleProvider="target">
                                             <rect key="frame" x="20.000000000000004" y="10" width="43.333333333333343" height="18"/>
                                             <color key="backgroundColor" name="GreenLight"/>
                                             <color key="tintColor" name="TextLight"/>
@@ -257,7 +264,7 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="754" text="May 14, 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOB-lq-qx1">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="754" ambiguous="YES" text="May 14, 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOB-lq-qx1">
                                             <rect key="frame" x="20.000000000000007" y="38" width="102.66666666666669" height="20"/>
                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                             <color key="textColor" name="GreenDarkest"/>
@@ -266,17 +273,23 @@
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Placeholder Question" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ud-An-1HM">
-                                            <rect key="frame" x="20" y="78" width="368" height="29"/>
-                                            <fontDescription key="fontDescription" name="Lato-Black" family="Lato" pointSize="24"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" misplaced="YES" text="Placeholder Question" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ud-An-1HM">
+                                            <rect key="frame" x="20" y="102" width="360" height="29"/>
+                                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="22"/>
                                             <color key="textColor" name="GreenDarkest"/>
                                             <nil key="highlightedColor"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                         </label>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sub Text Label WIth lots of question context" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Prt-fK-hhC" userLabel="Sub Text Label">
+                                            <rect key="frame" x="20" y="170" width="360" height="20.666666666666657"/>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
+                                            <color key="textColor" name="GreenDarkest"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLH-Hu-Fx0" customClass="BorderedButton" customModule="Cactus" customModuleProvider="target">
-                                            <rect key="frame" x="352" y="20" width="36" height="36"/>
+                                            <rect key="frame" x="344" y="20" width="36" height="36"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="36" id="ab8-UZ-8ce"/>
@@ -295,10 +308,10 @@
                                                     <color key="value" name="GreenLight"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="imageWidth">
-                                                    <real key="value" value="24"/>
+                                                    <real key="value" value="20"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="imageHeight">
-                                                    <real key="value" value="24"/>
+                                                    <real key="value" value="20"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
@@ -306,9 +319,9 @@
                                             </connections>
                                         </button>
                                         <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="748" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" editable="NO" text="my response to the question" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIY-zE-sMO">
-                                            <rect key="frame" x="18" y="127" width="370" height="103"/>
+                                            <rect key="frame" x="18" y="180" width="362" height="50"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <color key="textColor" name="TextDark"/>
+                                            <color key="textColor" name="GreenDarkest"/>
                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             <userDefinedRuntimeAttributes>
@@ -322,15 +335,24 @@
                                             </userDefinedRuntimeAttributes>
                                         </textView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFa-Yu-OSz" userLabel="Border View">
-                                            <rect key="frame" x="-5" y="127" width="10" height="103"/>
+                                            <rect key="frame" x="-5" y="180" width="10" height="50"/>
                                             <color key="backgroundColor" name="YellowDark"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="10" id="pRO-h5-NZ6"/>
                                             </constraints>
                                         </view>
                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vu-J4-LLw" userLabel="Reflect Button" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="127" width="368" height="103"/>
+                                            <rect key="frame" x="20" y="180" width="360" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="8cM-D4-eRz"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="22"/>
                                             <state key="normal" title="Reflect"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                    <real key="value" value="22"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="reflectButtonTapped:" destination="hi3-X9-dKc" eventType="primaryActionTriggered" id="uZa-If-H7h"/>
                                             </connections>
@@ -338,34 +360,49 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="bFa-Yu-OSz" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="-5" id="0i4-lg-c9x"/>
+                                        <constraint firstAttribute="trailing" secondItem="lDj-iq-UJ4" secondAttribute="trailing" constant="-25" id="1um-HJ-PUP"/>
                                         <constraint firstItem="0ud-An-1HM" firstAttribute="top" secondItem="XOB-lq-qx1" secondAttribute="bottom" constant="20" id="2hh-nA-B9O"/>
                                         <constraint firstItem="6vu-J4-LLw" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="20" id="39S-nh-1LB"/>
+                                        <constraint firstItem="me6-iG-DkW" firstAttribute="top" secondItem="Prt-fK-hhC" secondAttribute="bottom" constant="20" id="3ye-R8-wrG"/>
                                         <constraint firstAttribute="trailing" secondItem="6vu-J4-LLw" secondAttribute="trailing" constant="20" id="6gT-NZ-B2Z"/>
+                                        <constraint firstAttribute="trailing" secondItem="me6-iG-DkW" secondAttribute="trailing" constant="-25" id="7Qa-YF-rEL"/>
                                         <constraint firstItem="bFa-Yu-OSz" firstAttribute="top" secondItem="fIY-zE-sMO" secondAttribute="top" id="8fk-jM-QbO"/>
-                                        <constraint firstItem="e7Y-9t-Q3G" firstAttribute="top" secondItem="0qW-dd-S1T" secondAttribute="top" constant="10" id="9Xd-9a-aR3"/>
+                                        <constraint firstItem="e7Y-9t-Q3G" firstAttribute="top" secondItem="0qW-dd-S1T" secondAttribute="top" constant="20" id="9Xd-9a-aR3"/>
                                         <constraint firstItem="fIY-zE-sMO" firstAttribute="top" secondItem="0ud-An-1HM" secondAttribute="bottom" constant="20" id="A56-Dk-He5"/>
                                         <constraint firstAttribute="bottom" secondItem="6vu-J4-LLw" secondAttribute="bottom" constant="20" id="BI7-jG-rCu"/>
                                         <constraint firstItem="xLH-Hu-Fx0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="e7Y-9t-Q3G" secondAttribute="trailing" constant="26" id="C7g-PW-9wQ"/>
                                         <constraint firstItem="XOB-lq-qx1" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="20" id="HE6-he-Dmj"/>
+                                        <constraint firstItem="0ud-An-1HM" firstAttribute="bottom" secondItem="Prt-fK-hhC" secondAttribute="top" constant="-10" id="KF5-WU-Q9i"/>
                                         <constraint firstItem="bFa-Yu-OSz" firstAttribute="bottom" secondItem="fIY-zE-sMO" secondAttribute="bottom" id="LIc-zH-bKm"/>
                                         <constraint firstItem="6vu-J4-LLw" firstAttribute="top" secondItem="0ud-An-1HM" secondAttribute="bottom" constant="20" id="LLf-nw-hRq"/>
+                                        <constraint firstItem="me6-iG-DkW" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="-25" id="PYM-nd-9qf"/>
                                         <constraint firstAttribute="bottom" secondItem="fIY-zE-sMO" secondAttribute="bottom" constant="20" identifier="responseBottom" id="XXG-Py-sXH"/>
+                                        <constraint firstItem="6vu-J4-LLw" firstAttribute="top" secondItem="Prt-fK-hhC" secondAttribute="bottom" constant="20" id="ZF8-xM-iS6"/>
                                         <constraint firstItem="0ud-An-1HM" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="20" id="ZUT-ez-gxV"/>
+                                        <constraint firstAttribute="bottom" secondItem="lDj-iq-UJ4" secondAttribute="bottom" constant="-50" id="cIS-jc-kzw"/>
                                         <constraint firstItem="XOB-lq-qx1" firstAttribute="leading" secondItem="e7Y-9t-Q3G" secondAttribute="leading" id="cPU-dS-zYC"/>
-                                        <constraint firstItem="XOB-lq-qx1" firstAttribute="top" secondItem="e7Y-9t-Q3G" secondAttribute="bottom" constant="10" id="d2D-vf-hFb"/>
+                                        <constraint firstItem="XOB-lq-qx1" firstAttribute="top" secondItem="e7Y-9t-Q3G" secondAttribute="bottom" constant="20" id="d2D-vf-hFb"/>
+                                        <constraint firstAttribute="trailing" secondItem="Prt-fK-hhC" secondAttribute="trailing" constant="20" id="exz-bl-u3b"/>
                                         <constraint firstItem="fIY-zE-sMO" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="18" id="gkI-LN-uVJ"/>
+                                        <constraint firstAttribute="bottom" secondItem="me6-iG-DkW" secondAttribute="bottom" id="i4D-IU-BkX"/>
                                         <constraint firstAttribute="width" constant="400" placeholder="YES" id="ksH-dB-zMd"/>
+                                        <constraint firstItem="me6-iG-DkW" firstAttribute="top" secondItem="0ud-An-1HM" secondAttribute="bottom" constant="20" id="nuF-VB-GJL"/>
                                         <constraint firstAttribute="trailing" secondItem="xLH-Hu-Fx0" secondAttribute="trailing" constant="20" id="oXt-3Y-tpH"/>
                                         <constraint firstAttribute="trailing" secondItem="fIY-zE-sMO" secondAttribute="trailing" constant="20" id="pgD-zz-UXd"/>
                                         <constraint firstItem="XOB-lq-qx1" firstAttribute="top" secondItem="0qW-dd-S1T" secondAttribute="top" constant="20" identifier="dateTopContainer" id="ptt-Kp-uU6"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XOB-lq-qx1" secondAttribute="trailing" constant="20" symbolic="YES" id="tZr-iI-erT"/>
                                         <constraint firstAttribute="trailing" secondItem="0ud-An-1HM" secondAttribute="trailing" constant="20" id="umD-hz-9BQ"/>
+                                        <constraint firstItem="Prt-fK-hhC" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="20" id="uma-7Y-8Pm"/>
                                         <constraint firstItem="xLH-Hu-Fx0" firstAttribute="top" secondItem="0qW-dd-S1T" secondAttribute="top" constant="20" id="vRV-Op-D8r"/>
+                                        <constraint firstItem="lDj-iq-UJ4" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="-25" id="vqw-P4-yPD"/>
+                                        <constraint firstItem="lDj-iq-UJ4" firstAttribute="top" secondItem="me6-iG-DkW" secondAttribute="top" id="ygy-2x-EfF"/>
                                         <constraint firstAttribute="height" constant="250" placeholder="YES" id="zxl-Bq-ctl"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
                                             <exclude reference="ptt-Kp-uU6"/>
+                                            <exclude reference="3ye-R8-wrG"/>
+                                            <exclude reference="ZF8-xM-iS6"/>
                                         </mask>
                                     </variation>
                                 </collectionViewCellContentView>
@@ -375,6 +412,10 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <outlet property="backgroundBlobImageView" destination="lDj-iq-UJ4" id="X6d-5q-L18"/>
+                                    <outlet property="backgroundImageTopSubTextBottomConstraint" destination="3ye-R8-wrG" id="Zf0-32-JVI"/>
+                                    <outlet property="backgroundImageTopToQuestionBottomConstraint" destination="nuF-VB-GJL" id="Gl5-zH-XDl"/>
+                                    <outlet property="backgroundImageView" destination="me6-iG-DkW" id="GdV-3A-ejH"/>
                                     <outlet property="borderView" destination="bFa-Yu-OSz" id="tfb-fB-2ks"/>
                                     <outlet property="dateLabel" destination="XOB-lq-qx1" id="Apq-GM-yLb"/>
                                     <outlet property="dateTopContainerConstraint" destination="ptt-Kp-uU6" id="SJZ-5K-kZA"/>
@@ -384,8 +425,10 @@
                                     <outlet property="reflectButton" destination="6vu-J4-LLw" id="iHy-hs-cOz"/>
                                     <outlet property="reflectButtonBottomConstraint" destination="BI7-jG-rCu" id="IBE-35-1vB"/>
                                     <outlet property="reflectButtonTopQuestionConstraint" destination="LLf-nw-hRq" id="pYo-Ll-RxS"/>
+                                    <outlet property="reflectButtonTopToSubTextConstraint" destination="ZF8-xM-iS6" id="nN3-s4-91V"/>
                                     <outlet property="responseTextView" destination="fIY-zE-sMO" id="oTV-Xo-kpv"/>
                                     <outlet property="statusLabel" destination="e7Y-9t-Q3G" id="0Ph-Yy-kmo"/>
+                                    <outlet property="subTextLabel" destination="Prt-fK-hhC" id="3CF-Ot-adc"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -448,19 +491,19 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="JP6-tG-hyL">
-                                        <rect key="frame" x="0.0" y="100" width="375" height="503"/>
+                                        <rect key="frame" x="0.0" y="99.999999999999972" width="375" height="505.33333333333326"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="dia-5i-NZT">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="57.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="59.333333333333336"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dt5-xk-ofP">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="31.666666666666668"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="32.666666666666664"/>
                                                         <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="27"/>
                                                         <color key="textColor" name="GreenDarkest"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start with a happier mindset today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afq-L6-2C3">
-                                                        <rect key="frame" x="0.0" y="37.666666666666657" width="375" height="20"/>
+                                                        <rect key="frame" x="0.0" y="38.666666666666657" width="375" height="20.666666666666671"/>
                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                         <color key="textColor" name="GreenDarkest"/>
                                                         <nil key="highlightedColor"/>
@@ -468,7 +511,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RUy-x4-bJ7" userLabel="Email Input Stack">
-                                                <rect key="frame" x="20" y="97.666666666666657" width="335" height="85"/>
+                                                <rect key="frame" x="20" y="99.333333333333343" width="335" height="85"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="S96-g0-ejQ" customClass="CactusTextInputField" customModule="Cactus" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="45"/>
@@ -481,7 +524,7 @@
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ey-8b-Wmd" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="55.000000000000028" width="335" height="30"/>
+                                                        <rect key="frame" x="0.0" y="54.999999999999972" width="335" height="30"/>
                                                         <state key="normal" title="Next"/>
                                                         <connections>
                                                             <action selector="magicLinkNext:" destination="4zv-1f-KPm" eventType="touchUpInside" id="XWC-S7-8tN"/>
@@ -494,13 +537,13 @@
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or choose from one of the following" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYq-wW-wiI" userLabel="Choose Provider">
-                                                <rect key="frame" x="20" y="222.66666666666669" width="335" height="16.333333333333343"/>
+                                                <rect key="frame" x="20" y="224.33333333333331" width="335" height="17"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                                 <color key="textColor" name="GreenDarkest"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7x3-lF-lM2" userLabel="Login Buttons Container">
-                                                <rect key="frame" x="20" y="279" width="335" height="224"/>
+                                                <rect key="frame" x="20" y="281.33333333333331" width="335" height="224"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="224" id="9hh-r5-2L7"/>
                                                 </constraints>
@@ -587,6 +630,7 @@
     <resources>
         <image name="avatar_cactusOG" width="75" height="75"/>
         <image name="blob3" width="202" height="204"/>
+        <image name="blob4" width="434" height="304"/>
         <image name="blobNeedle" width="826" height="604"/>
         <image name="dots" width="48" height="48"/>
         <image name="logo" width="705" height="348"/>
@@ -602,8 +646,8 @@
         <namedColor name="PinkLight">
             <color red="1" green="0.89399999380111694" blue="0.85500001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="TextDark">
-            <color red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="PinkLightest">
+            <color red="1" green="0.94901960784313721" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TextLight">
             <color red="0.45899999141693115" green="0.45899999141693115" blue="0.45899999141693115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

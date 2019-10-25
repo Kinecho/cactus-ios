@@ -20,6 +20,7 @@ struct CactusColor {
     static let gray: UIColor = UIColor(hex: "CCCCCC")
     static let darkGray: UIColor = UIColor(hex: "444444")
     
+    static let lightestPink: UIColor = UIColor(hex: "FFF2ED")
     static let lightPink: UIColor = UIColor(hex: "FFE4DA")
     static let pink: UIColor = UIColor(hex: "FFE4DA")
     static let darkPink: UIColor = UIColor(hex: "FDBCA3")
