@@ -17,7 +17,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuoteContentViewController" customModule="Cactus_Prod" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuoteContentViewController" customModule="Cactus" customModuleProvider="target">
             <connections>
                 <outlet property="authorNameTextView" destination="2A5-E3-lSG" id="Hba-gV-cIT"/>
                 <outlet property="authorTitleTextView" destination="WTS-uL-2xm" id="OTW-l4-y6U"/>

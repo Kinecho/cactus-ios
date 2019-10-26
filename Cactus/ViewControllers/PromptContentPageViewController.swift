@@ -104,6 +104,8 @@ class PromptContentPageViewController: UIPageViewController {
             reflectionViewController.reflectionResponse = self.reflectionResponse
             viewController = reflectionViewController
             backgroundColor = .white
+        case .elements:
+            viewController = CactusElementsViewController.loadFromNib()            
         default:
             print("PromptContentPageViewController: ContentType not handled: \(content.contentType)")
         }

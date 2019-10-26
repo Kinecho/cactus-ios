@@ -19,6 +19,10 @@
 		300AC18E233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */; };
 		3020DD942363F37D00EC40AE /* UIImageViewAligned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3020DD932363F37D00EC40AE /* UIImageViewAligned.swift */; };
 		3020DD952363F37D00EC40AE /* UIImageViewAligned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3020DD932363F37D00EC40AE /* UIImageViewAligned.swift */; };
+		3020DD9823640BE300EC40AE /* CactusElementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3020DD9623640BE300EC40AE /* CactusElementsViewController.swift */; };
+		3020DD9923640BE300EC40AE /* CactusElementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3020DD9623640BE300EC40AE /* CactusElementsViewController.swift */; };
+		3020DD9A23640BE300EC40AE /* CactusElementsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3020DD9723640BE300EC40AE /* CactusElementsViewController.xib */; };
+		3020DD9B23640BE300EC40AE /* CactusElementsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3020DD9723640BE300EC40AE /* CactusElementsViewController.xib */; };
 		3021B67123622FE7002634A8 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67023622FE7002634A8 /* ApiService.swift */; };
 		3021B67223622FE7002634A8 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67023622FE7002634A8 /* ApiService.swift */; };
 		3021B67523623010002634A8 /* ApiTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67423623010002634A8 /* ApiTypes.swift */; };
@@ -254,6 +258,8 @@
 		300AC186233A850B005C6555 /* JournalEntrySkeletonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = JournalEntrySkeletonViewController.xib; path = Cactus/ViewControllers/JournalEntrySkeletonViewController.xib; sourceTree = SOURCE_ROOT; };
 		300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFeedDataSource.swift; sourceTree = "<group>"; };
 		3020DD932363F37D00EC40AE /* UIImageViewAligned.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewAligned.swift; sourceTree = "<group>"; };
+		3020DD9623640BE300EC40AE /* CactusElementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusElementsViewController.swift; sourceTree = "<group>"; };
+		3020DD9723640BE300EC40AE /* CactusElementsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CactusElementsViewController.xib; sourceTree = "<group>"; };
 		3021B67023622FE7002634A8 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		3021B67423623010002634A8 /* ApiTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTypes.swift; sourceTree = "<group>"; };
 		3021B67723623AE3002634A8 /* CactusTextInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusTextInputField.swift; sourceTree = "<group>"; };
@@ -639,6 +645,8 @@
 				3084E9632348FE9C00788279 /* CelebrateViewController.swift */,
 				3084E9642348FE9C00788279 /* CelebrateViewController.xib */,
 				3026B299234D3E2800CD2D34 /* PromptContentViewController.swift */,
+				3020DD9623640BE300EC40AE /* CactusElementsViewController.swift */,
+				3020DD9723640BE300EC40AE /* CactusElementsViewController.xib */,
 			);
 			path = PromptContent;
 			sourceTree = "<group>";
@@ -863,6 +871,7 @@
 			files = (
 				3026B298234D1AF200CD2D34 /* cactus-growing-green-588.mp4 in Resources */,
 				30A281E222EA61A30041158E /* SharedAssets.xcassets in Resources */,
+				3020DD9B23640BE300EC40AE /* CactusElementsViewController.xib in Resources */,
 				30673B99233FDEC300EDE7BD /* Lato-Bold.ttf in Resources */,
 				30BF2E2D23289F9F00A49EB6 /* TextContentViewController.xib in Resources */,
 				30CD90AB2346F06B00703FE2 /* Settings.storyboard in Resources */,
@@ -902,6 +911,7 @@
 				3095619C22ECF214009357BD /* GoogleService-Info.plist in Resources */,
 				300AC189233A850B005C6555 /* JournalEntrySkeletonViewController.xib in Resources */,
 				30A281EA22EA61EB0041158E /* StageAssets.xcassets in Resources */,
+				3020DD9A23640BE300EC40AE /* CactusElementsViewController.xib in Resources */,
 				30673B98233FDEC300EDE7BD /* Lato-Bold.ttf in Resources */,
 				30673B96233FDEC300EDE7BD /* Lato-Thin.ttf in Resources */,
 				30673BA0233FDEC300EDE7BD /* OFL.txt in Resources */,
@@ -1418,6 +1428,7 @@
 				30BF2E1923289D1200A49EB6 /* PromptContentPageViewController.swift in Sources */,
 				309561A522EE172B009357BD /* AppConfig.swift in Sources */,
 				30265C6123453CB100934041 /* UIImage+SwiftyGif.swift in Sources */,
+				3020DD9923640BE300EC40AE /* CactusElementsViewController.swift in Sources */,
 				30BE5676234E982C00AA6D4D /* LinkedAccountsTableViewController.swift in Sources */,
 				30E9B09E22EA7FC3005B25FD /* CactusMember.swift in Sources */,
 				3084E956234802C300788279 /* TermsOfServiceViewController.swift in Sources */,
@@ -1504,6 +1515,7 @@
 				30934FA922EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
 				30BF2E2A23289F9F00A49EB6 /* TextContentViewController.swift in Sources */,
 				30265C6023453CB100934041 /* UIImage+SwiftyGif.swift in Sources */,
+				3020DD9823640BE300EC40AE /* CactusElementsViewController.swift in Sources */,
 				30BE5675234E982C00AA6D4D /* LinkedAccountsTableViewController.swift in Sources */,
 				309561A422EE16D7009357BD /* AppConfig.swift in Sources */,
 				3084E955234802C300788279 /* TermsOfServiceViewController.swift in Sources */,

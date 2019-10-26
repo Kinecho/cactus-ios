@@ -17,7 +17,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CelebrateViewController" customModule="Cactus_Prod" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CelebrateViewController" customModule="Cactus" customModuleProvider="target">
             <connections>
                 <outlet property="durationCountNumbereLabel" destination="mbf-rb-fMO" id="FyY-fi-4dK"/>
                 <outlet property="durationMetricLabel" destination="tAm-p2-IJE" id="Hf5-dE-ike"/>
@@ -131,7 +131,7 @@
                                         <constraint firstAttribute="height" constant="150" id="wU4-ZC-E6s"/>
                                     </constraints>
                                 </stackView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIj-5w-M4R" customClass="PrimaryButton" customModule="Cactus_Prod" customModuleProvider="target">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIj-5w-M4R" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
                                     <rect key="frame" x="109.5" y="513" width="195" height="54"/>
                                     <color key="backgroundColor" name="Green"/>
                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="22"/>
