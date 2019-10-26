@@ -153,12 +153,14 @@ class ReflectContentViewController: PromptContentViewController {
         
         // *** Create GrowingTextView ***
         textView = GrowingTextView()
+        let textPadding = UIEdgeInsets(top: padding, left: 10, bottom: padding, right: 10)
+        textView.textContainerInset = textPadding
         textView.delegate = self
         textView.layer.cornerRadius = 16.0
         textView.maxHeight = 300
         textView.minHeight = 34
         textView.trimWhiteSpaceWhenEndEditing = true
-        textView.placeholder = "Say something..."
+        textView.placeholder = "Add a note"
         textView.layer.borderWidth = 1
         textView.layer.borderColor = CactusColor.green.cgColor
 //        textView.contentInset = UIEdgeInsets(top: 10, left: 6, bottom: 10, right: 6)
