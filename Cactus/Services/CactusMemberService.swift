@@ -75,7 +75,6 @@ class CactusMemberService {
                 let token = result.token
                 var tokens = member.fcmTokens ?? []
                 if tokens.contains(token) {
-                    print("Token already exists on user, not doing anything")
                     return
                 }
                 tokens.append(token)
@@ -86,7 +85,6 @@ class CactusMemberService {
                     } else {
                         print("Successfully updated tokens on cactus member")
                     }
-                    
                 })
             }
         }
@@ -97,7 +95,6 @@ class CactusMemberService {
         let authUnsub = AuthService.sharedInstance.getAuthStateChangeHandler { (_, user) in
             _ = memberUnsub?.remove()
             if let user = user {
-                print("observeCurrentMember: got user")
                 let query = self.getCollectionRef().whereField(CactusMember.Field.userId, isEqualTo: user.uid).limit(to: 1)
                 memberUnsub = self.firestoreService.addListener(query) { (members: [CactusMember]?, error) in
                     print("observeCurrentMember: got member? \(members?.first?.email ?? "no email")")

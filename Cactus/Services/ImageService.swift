@@ -29,7 +29,7 @@ class ImageService {
             setGif(imageView, url, delegate: gifDelegate)
         } else {
             imageView.cldSetImage(_url, cloudinary: self.cloudinary)
-            imageView.isHidden = false
+//            imageView.isHidden = false
         }
     }
     
@@ -71,23 +71,17 @@ class ImageService {
         }
         
         guard !photo.isEmpty() else {
-            print("ImageFile.isEmpty() returned true, not processing photo")
             imageView.isHidden = true
             return
         }
         
-        print("Download Image - storageUrl", photo.storageUrl ?? "none")
-        print("Download Image - url", photo.url ?? "none")
-        
         if let storageUrl = photo.storageUrl, !storageUrl.isEmpty {
-            print("Downloading image with storageURL \(storageUrl)")
             setStorageUrl(imageView, url: storageUrl, gifDelegate: gifDelegate)
             imageView.isHidden = false
         } else if let url = photo.url, !FormatUtils.isBlank(url) {
             self.setFromUrl(imageView, url: url, gifDelegate: gifDelegate)
             imageView.isHidden = false
         } else {
-            print("ImageService setPhoto. Photo did not have any fields that could be handled. Photo: \(photo)")
             imageView.isHidden = true
         }
     }

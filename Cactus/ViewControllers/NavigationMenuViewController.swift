@@ -121,14 +121,12 @@ class NavigationMenuViewController: UIViewController {
     }
     
     func animateNumbers() {
-        print("Animate numbers called")
         self.animateReflectionCount()
         self.animateDuration()
         self.animateStreak()
     }
     
     func animateReflectionCount() {
-        print("animate reflection count")
         self.reflectionsCountProcess = CountProcess(minValue: self.previousReflectionCount,
                                                     maxValue: self.reflectionCount,
                                                     name: "ReflectionCount",
@@ -167,7 +165,6 @@ class NavigationMenuViewController: UIViewController {
     }
     
     func animateStreak() {
-        print("animate streak")
         self.streakCountProcess = CountProcess(minValue: self.previousStreak,
                                                maxValue: self.streak,
                                                name: "Streak",

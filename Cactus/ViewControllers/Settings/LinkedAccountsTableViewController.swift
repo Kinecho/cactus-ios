@@ -18,11 +18,10 @@ class LinkedAccountsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView()
-        self.userListener = AuthService.sharedInstance.getAuthStateChangeHandler(completion: { (auth, user) in
+        self.userListener = AuthService.sharedInstance.getAuthStateChangeHandler(completion: { (_, user) in
             self.currentUser = user
             self.tableView.reloadData()
         })
-        
         
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 44

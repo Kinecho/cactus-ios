@@ -64,7 +64,7 @@ struct FlamelinkMeta: Codable {
    var docId: String
    var env: String
    var fl_id: String
-   var lastModifiedBy: String
+   var lastModifiedBy: String?
 //   var lastModifiedDate: Date
    var locale: String?
    var schema: FlamelinkSchema

@@ -16,9 +16,14 @@ enum ContentType: String, Codable {
     case audio
     case reflect
     case share_reflection
-    
-    public init(from decoder: Decoder) throws {
-        self = try ContentType(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .text
+    case elements
+    case unknown
+    public init(from decoder: Decoder) {
+        do {
+            self = try ContentType(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .unknown
+        } catch {
+            self = .unknown
+        }
     }
 }
 

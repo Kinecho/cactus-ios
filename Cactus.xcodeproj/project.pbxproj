@@ -17,6 +17,8 @@
 		300AC18A233A850B005C6555 /* JournalEntrySkeletonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 300AC186233A850B005C6555 /* JournalEntrySkeletonViewController.xib */; };
 		300AC18D233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */; };
 		300AC18E233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */; };
+		3020DD942363F37D00EC40AE /* UIImageViewAligned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3020DD932363F37D00EC40AE /* UIImageViewAligned.swift */; };
+		3020DD952363F37D00EC40AE /* UIImageViewAligned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3020DD932363F37D00EC40AE /* UIImageViewAligned.swift */; };
 		3021B67123622FE7002634A8 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67023622FE7002634A8 /* ApiService.swift */; };
 		3021B67223622FE7002634A8 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67023622FE7002634A8 /* ApiService.swift */; };
 		3021B67523623010002634A8 /* ApiTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67423623010002634A8 /* ApiTypes.swift */; };
@@ -251,6 +253,7 @@
 		300AC185233A850B005C6555 /* JournalEntrySkeletonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JournalEntrySkeletonViewController.swift; path = Cactus/ViewControllers/JournalEntrySkeletonViewController.swift; sourceTree = SOURCE_ROOT; };
 		300AC186233A850B005C6555 /* JournalEntrySkeletonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = JournalEntrySkeletonViewController.xib; path = Cactus/ViewControllers/JournalEntrySkeletonViewController.xib; sourceTree = SOURCE_ROOT; };
 		300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFeedDataSource.swift; sourceTree = "<group>"; };
+		3020DD932363F37D00EC40AE /* UIImageViewAligned.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewAligned.swift; sourceTree = "<group>"; };
 		3021B67023622FE7002634A8 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		3021B67423623010002634A8 /* ApiTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTypes.swift; sourceTree = "<group>"; };
 		3021B67723623AE3002634A8 /* CactusTextInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusTextInputField.swift; sourceTree = "<group>"; };
@@ -515,6 +518,7 @@
 				303EB0872343A0B800AC8741 /* RoundedView.swift */,
 				30BC2CFF234EA63E00AB7B89 /* AuthProviderTableViewCell.swift */,
 				3021B67723623AE3002634A8 /* CactusTextInputField.swift */,
+				3020DD932363F37D00EC40AE /* UIImageViewAligned.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1427,6 +1431,7 @@
 				30BF2E1623282BDA00A49EB6 /* FlamelinkService.swift in Sources */,
 				3023FE3522ECF0A800F753A7 /* ViewExtensions.swift in Sources */,
 				3021B67623623010002634A8 /* ApiTypes.swift in Sources */,
+				3020DD952363F37D00EC40AE /* UIImageViewAligned.swift in Sources */,
 				30C7E57C233FEB5800145111 /* FontExtensions.swift in Sources */,
 				3084E9622348118000788279 /* LanguageSettingsViewController.swift in Sources */,
 				300AC188233A850B005C6555 /* JournalEntrySkeletonViewController.swift in Sources */,
@@ -1512,6 +1517,7 @@
 				30934F9622EBF146007C4E6C /* RoundedButton.swift in Sources */,
 				30E9B09922EA6A81005B25FD /* BaseModel.swift in Sources */,
 				3021B67523623010002634A8 /* ApiTypes.swift in Sources */,
+				3020DD942363F37D00EC40AE /* UIImageViewAligned.swift in Sources */,
 				30C7E57B233FEB5800145111 /* FontExtensions.swift in Sources */,
 				3084E9612348118000788279 /* LanguageSettingsViewController.swift in Sources */,
 				300AC187233A850B005C6555 /* JournalEntrySkeletonViewController.swift in Sources */,

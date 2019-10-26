@@ -26,7 +26,7 @@ class InviteSettingsViewController: UIViewController {
     }
     
     @IBAction func shareTapped(_ sender: Any) {
-        let items = [URL(string: self.getShareLink())]
+        let items = [URL(string: self.getShareLink()) as Any]
         let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
         present(ac, animated: true)
     }

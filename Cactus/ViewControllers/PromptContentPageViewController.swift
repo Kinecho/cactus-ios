@@ -88,22 +88,18 @@ class PromptContentPageViewController: UIPageViewController {
     
     func getContentViewController(_ content: Content) -> UIViewController? {
         var viewController: PromptContentViewController?
-        print("content type is \(content.contentType)")
         var backgroundColor: UIColor? = CactusColor.lightBlue
         switch content.contentType {
         case .text:
             let textViewController = TextContentViewController.loadFromNib()
             viewController = textViewController
         case .quote:
-            print("Setting up quote view controller")
             let quoteViewController = QuoteContentViewController.loadFromNib()
             viewController = quoteViewController
         case .photo:
-            print("Setting up photo view controller")
             let photoViewController = PhotoContentViewController.loadFromNib()
             viewController = photoViewController
         case .reflect:
-            print("Setting up reflection screen")
             let reflectionViewController = ReflectContentViewController.loadFromNib()
             reflectionViewController.reflectionResponse = self.reflectionResponse
             viewController = reflectionViewController

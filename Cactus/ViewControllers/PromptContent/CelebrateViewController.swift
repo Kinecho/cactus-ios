@@ -55,14 +55,12 @@ class CelebrateViewController: UIViewController {
     }
     
     func animateNumbers() {
-        print("Animate numbers called")
         self.animateReflectionCount()
         self.animateDuration()
         self.animateStreak()
     }
     
     func animateReflectionCount() {
-        print("animate reflection count")
         let count = self.journalDataSource?.totalReflections ?? 0
         self.reflectionsCountProcess = CountProcess(minValue: 0,
                                                     maxValue: count,
@@ -99,7 +97,6 @@ class CelebrateViewController: UIViewController {
     }
     
     func animateStreak() {
-        print("animate streak")
         let count = self.journalDataSource?.currentStreak ?? 0
         self.streakCountProcess = CountProcess(minValue: 0,
                                                maxValue: count,

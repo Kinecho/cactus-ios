@@ -10,9 +10,9 @@ import UIKit
 
 class TextContentViewController: PromptContentViewController {
 
-    @IBOutlet weak var text: UITextView!    
+    @IBOutlet weak var text: UITextView!
     
-    @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var backgroundImageView: UIImageViewAligned!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,8 +32,7 @@ class TextContentViewController: PromptContentViewController {
         if let mdText = MarkdownUtil.centeredMarkdown(textString, font: CactusFont.large) {
             self.text.attributedText = mdText
         }
-        
+
         self.backgroundImageView.setImageFile(self.content.backgroundImage)
     }
-
 }

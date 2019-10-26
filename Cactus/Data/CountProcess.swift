@@ -81,7 +81,7 @@ class CountProcess {
         }
         
         let actualDelay = max(1, min(delay, 200_000))
-        print("actual delay \(actualDelay) | num steps \(numSteps) | step = \(step)")
+//        print("actual delay \(actualDelay) | num steps \(numSteps) | step = \(step)")
         simulateLoading(toValue: maxValue, step: step, stepDelayUsec: actualDelay, valueChanged: valueChanged, completion: completion)
     }
 }

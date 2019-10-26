@@ -76,7 +76,6 @@ class JournalHomeViewController: UIViewController {
     func setupDrawer() {
         self.menuDrawerViewController = NavigationMenuViewController.loadFromNib()
         self.menuDrawerViewController.delegate = self
-        
         self.menuContainer.frame = CGRect(x: self.view.bounds.maxX, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
         self.menuDrawerViewController.view.frame =  CGRect(x: 0, y: 0, width: self.menuWidth, height: self.view.bounds.height)
         
@@ -84,16 +83,11 @@ class JournalHomeViewController: UIViewController {
         
         self.menuContainer.addSubview(self.menuDrawerViewController.view)
         self.view.addSubview(menuContainer)
-        
         self.menuDrawerViewController.didMove(toParent: self)
         
         self.menuContainer.backgroundColor = self.menuDrawerViewController.view.backgroundColor
-        self.menuContainer.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-        self.menuContainer.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         
-        self.menuDrawerViewController.view.leadingAnchor.constraint(equalTo: self.menuContainer.leadingAnchor).isActive = true
-        self.menuDrawerViewController.view.topAnchor.constraint(equalTo: self.menuContainer.safeAreaLayoutGuide.topAnchor).isActive = true
-        self.menuDrawerViewController.view.bottomAnchor.constraint(equalTo: self.menuContainer.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        //Note: Don't need to add constraints because we're not using autolayout here.
         
         self.setupAvatarGestures()
     }
