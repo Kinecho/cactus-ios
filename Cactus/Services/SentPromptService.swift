@@ -38,7 +38,22 @@ class SentPromptService {
         })
     }
     
-    func getById(id: String) {
+    func getSentPrompts(member: CactusMember, limit: Int? = nil, _ completed: @escaping ([SentPrompt]?, Any?) -> Void) {
+        guard let memberId = member.id else {
+            completed(nil, "No member ID found")
+            return
+        }
         
+        var query = self.getCollectionRef()
+            .whereField(SentPrompt.Field.cactusMemberId, isEqualTo: memberId)
+            .order(by: SentPrompt.Field.firstSentAt, descending: true)
+            
+        if let limit = limit {
+            query = query.limit(to: limit)
+        }
+        
+        return self.firestoreService.executeQuery(query, { (sentPrompts, error) in
+            completed(sentPrompts, error)
+        })
     }
 }

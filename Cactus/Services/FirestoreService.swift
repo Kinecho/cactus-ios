@@ -49,7 +49,7 @@ class FirestoreService {
         })
     }
     
-    func getDocuments<T: FirestoreIdentifiable>(_ query: Query, _ onData: @escaping ([T]?, Any?) -> Void) {
+    func executeQuery<T: FirestoreIdentifiable>(_ query: Query, _ onData: @escaping ([T]?, Any?) -> Void) {
         query.whereField(BaseModelField.deleted, isEqualTo: false).getDocuments(completion: self.snapshotListener(onData))
     }
     

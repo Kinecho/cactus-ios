@@ -218,19 +218,44 @@ class JournalFeedDataSource {
             self.currentMember = member
             if let member = member {
                 self.promptsListener = SentPromptService.sharedInstance
-                    .observeSentPrompts(member: member, { (prompts, error) in
+                    .observeSentPrompts(member: member, { (sentPrompts, error) in
                         if let error = error {
                             print("Error observing prompts", error)
                         }
                         
-                        print("Got sent prompts \(prompts?.count ?? 0)")
-                        if let prompts = prompts {
+                        print("Got sent prompts \(sentPrompts?.count ?? 0)")
+                        if let prompts = sentPrompts {
                             self.sentPrompts = prompts
                             self.initSentPrompts()
                         }
                     })
             }
         })
+    }
+    
+    func checkForNewPrompts() {
+        print("checkForNewPrompts called")
+        guard let member = self.currentMember else {
+            return
+        }
+        
+        SentPromptService.sharedInstance.getSentPrompts(member: member, limit: 10) { (sentPrompts, error) in
+            if let error = error {
+                print("Error checking for new prompts", error)
+            }
+            
+            guard let sentPrompts = sentPrompts else {
+                return
+            }
+            
+            sentPrompts.reversed().forEach { (sentPrompt) in
+                if !self.sentPrompts.contains(sentPrompt) {
+                    print("found a new prompt!")
+                    self.sentPrompts.insert(sentPrompt, at: 0)
+                }
+            }
+            self.initSentPrompts()
+        }
     }
     
     func get(at index: Int) -> JournalEntry? {
@@ -257,7 +282,7 @@ class JournalFeedDataSource {
         guard let memberId = self.currentMember?.id else {
             return
         }
-//        self.orderedPromptIds.removeAll()
+
         var orderedPromptIds = [String]()
         self.sentPrompts.forEach { (sentPrompt) in
             guard let promptId = sentPrompt.promptId else {
