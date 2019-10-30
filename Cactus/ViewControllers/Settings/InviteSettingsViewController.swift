@@ -16,17 +16,11 @@ class InviteSettingsViewController: UIViewController {
         self.configureView()
     }
     
-    func getShareLink() -> String {
-        let member = CactusMemberService.sharedInstance.currentMember
-        let email = member?.email ?? ""
-        return "https://cactus.app?ref=\(email)&utm_source=cactus_ios&utm_medium=invite-friends"
-    }
-    
     func configureView() {
     }
     
     @IBAction func shareTapped(_ sender: Any) {
-        let items = [URL(string: self.getShareLink()) as Any]
+        let items = [URL(string: getShareLink()) as Any]
         let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
         present(ac, animated: true)
     }

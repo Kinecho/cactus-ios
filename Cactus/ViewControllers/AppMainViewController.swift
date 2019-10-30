@@ -40,7 +40,7 @@ class AppMainViewController: UIViewController {
         self.setupAuth()
     }
     
-    func setupAuth() {
+    func setupAuth() {        
         _ = CactusMemberService.sharedInstance.observeCurrentMember { (member, _, _) in
             print("setup auth onData", member?.email ?? "no email")
             
@@ -51,6 +51,7 @@ class AppMainViewController: UIViewController {
             } else if member?.id != self.member?.id {
                 print("Found member, not null. showing journal feed")
                 _ = self.showScreen(ScreenID.JournalHome, wrapInNav: true)
+                self.initOnboarding()
                 self.hasUser = true
             }
             self.authHasLoaded = true
@@ -67,6 +68,33 @@ class AppMainViewController: UIViewController {
         let screen = getScreen(screenId)
         let vc = showScreen(screen, wrapInNav: wrapInNav)
         return vc
+    }
+    
+    func initOnboarding() {
+        let hasSeenOnboarding = UserDefaults.standard.bool(forKey: "NotificationOnboarding")
+        if hasSeenOnboarding {
+            print("has seen onboarding")
+            return
+        }
+        
+        NotificationService.sharedInstance.hasPushPermissions { (status) in
+            DispatchQueue.main.async {
+                guard status == .notDetermined else {
+                    return
+                }
+                
+                let alert = UIAlertController(title: "Never miss a reflection", message: "Turn on push notifications so you know when it's time to reflect. ", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Not Now", style: .cancel, handler: nil))
+                alert.addAction(UIAlertAction(title: "Allow", style: .default, handler: {_ in
+                    NotificationService.sharedInstance.requestPushPermissions { _ in
+                        print("permissions requested")
+                    }
+                }))
+                AppDelegate.shared.rootViewController.present(alert, animated: true)
+                
+                UserDefaults.standard.set(true, forKey: "NotificationOnboarding")
+            }
+        }
     }
     
     func showScreen(_ screen: UIViewController, wrapInNav: Bool=false) -> UIViewController {

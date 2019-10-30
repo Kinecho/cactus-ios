@@ -176,8 +176,13 @@ class NavigationMenuViewController: UIViewController {
     }
     
     @IBAction func inviteTapped(_ sender: Any) {
-        let vc = AppDelegate.shared.rootViewController.getScreen(ScreenID.inviteScreen, StoryboardID.Settings)
-        self.navigationController?.pushViewController(vc, animated: true)
+//        let vc = AppDelegate.shared.rootViewController.getScreen(ScreenID.inviteScreen, StoryboardID.Settings)
+//        self.navigationController?.pushViewController(vc, animated: true)
+        
+        let items: [Any] = [InviteShareItem()]
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        ac.excludedActivityTypes = [.addToReadingList, .airDrop, .assignToContact, .openInIBooks]
+        present(ac, animated: true)
     }
     
     @IBAction func closeTapped(_ sender: Any) {

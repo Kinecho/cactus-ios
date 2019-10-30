@@ -114,6 +114,8 @@
 		30673BA5233FDEC300EDE7BD /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B90233FDEC300EDE7BD /* Lato-Light.ttf */; };
 		30673BA6233FDEC300EDE7BD /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B91233FDEC300EDE7BD /* Lato-ThinItalic.ttf */; };
 		30673BA7233FDEC300EDE7BD /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B91233FDEC300EDE7BD /* Lato-ThinItalic.ttf */; };
+		3072742B236950AC00309B3C /* SharingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072742A236950AC00309B3C /* SharingService.swift */; };
+		3072742C236950AC00309B3C /* SharingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072742A236950AC00309B3C /* SharingService.swift */; };
 		308446F122ECAE0100FB0683 /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
 		3084E955234802C300788279 /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E954234802C300788279 /* TermsOfServiceViewController.swift */; };
 		3084E956234802C300788279 /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E954234802C300788279 /* TermsOfServiceViewController.swift */; };
@@ -301,6 +303,7 @@
 		30673B8F233FDEC300EDE7BD /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
 		30673B90233FDEC300EDE7BD /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		30673B91233FDEC300EDE7BD /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
+		3072742A236950AC00309B3C /* SharingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingService.swift; sourceTree = "<group>"; };
 		308446F022ECAE0100FB0683 /* MailchimpModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailchimpModels.swift; sourceTree = "<group>"; };
 		308446F222ECB23B00FB0683 /* Cactus Stage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cactus Stage.entitlements"; sourceTree = "<group>"; };
 		308446F322ECB24F00FB0683 /* Cactus Prod.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cactus Prod.entitlements"; sourceTree = "<group>"; };
@@ -666,6 +669,7 @@
 				30BF2E0A232816CC00A49EB6 /* PromptContentService.swift */,
 				305B1867233178A8003E1561 /* ImageService.swift */,
 				3021B67023622FE7002634A8 /* ApiService.swift */,
+				3072742A236950AC00309B3C /* SharingService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1426,6 +1430,7 @@
 				30E9B09B22EA6A84005B25FD /* FirestoreService.swift in Sources */,
 				30934FAA22EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
 				30BF2E1923289D1200A49EB6 /* PromptContentPageViewController.swift in Sources */,
+				3072742C236950AC00309B3C /* SharingService.swift in Sources */,
 				309561A522EE172B009357BD /* AppConfig.swift in Sources */,
 				30265C6123453CB100934041 /* UIImage+SwiftyGif.swift in Sources */,
 				3020DD9923640BE300EC40AE /* CactusElementsViewController.swift in Sources */,
@@ -1513,6 +1518,7 @@
 				30BF2E11232822E600A49EB6 /* FirebaseExtensions.swift in Sources */,
 				30E9B09622EA68AC005B25FD /* FirestoreService.swift in Sources */,
 				30934FA922EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
+				3072742B236950AC00309B3C /* SharingService.swift in Sources */,
 				30BF2E2A23289F9F00A49EB6 /* TextContentViewController.swift in Sources */,
 				30265C6023453CB100934041 /* UIImage+SwiftyGif.swift in Sources */,
 				3020DD9823640BE300EC40AE /* CactusElementsViewController.swift in Sources */,
