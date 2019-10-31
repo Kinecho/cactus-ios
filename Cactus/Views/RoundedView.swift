@@ -11,7 +11,14 @@ import UIKit
 @IBDesignable
 class RoundedView: UIView {
 
-    @IBInspectable var cornerRadius: CGFloat = 10
+    @IBInspectable var cornerRadius: CGFloat {
+        set {
+            self.layer.cornerRadius = newValue
+        }
+        get {
+            return self.layer.cornerRadius
+        }
+    }
     
     /*
     // Only override draw() if you perform custom drawing.

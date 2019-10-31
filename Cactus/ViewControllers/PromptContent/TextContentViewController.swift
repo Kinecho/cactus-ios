@@ -20,9 +20,8 @@ class TextContentViewController: PromptContentViewController {
         super.viewDidLoad()
 
         self.configureView()
-        // Do any additional setup after loading the view.
     }
-
+    
     func configureView() {
         self.initTextView(self.text)
         
@@ -49,10 +48,26 @@ class TextContentViewController: PromptContentViewController {
         if (self.content.showElementIcon ?? false), let element = self.promptContent.cactusElement {
             self.elementLabel.text = element.rawValue.uppercased()
             self.elementImage.image = element.getImage()
+            
+            self.elementStackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.elementTapped)))
+            
             self.elementStackView.isHidden = false
         } else {
             self.elementStackView.isHidden = true
         }
         
+    }
+    
+    @objc func elementTapped() {
+        guard let element = self.promptContent.cactusElement else {return}
+        
+        guard let contentVc = AppDelegate.shared.rootViewController.getScreen(ScreenID.elementsPageView) as? CactusElementPageViewController else {return}
+        contentVc.initialElement = element
+        
+        let modalVc = ModalViewController()
+        modalVc.contentVc = contentVc
+        modalVc.modalPresentationStyle = .overCurrentContext
+        modalVc.modalTransitionStyle = .crossDissolve
+        self.present(modalVc, animated: true, completion: nil)
     }
 }

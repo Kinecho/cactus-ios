@@ -43,18 +43,34 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d93-l8-nrE">
                     <rect key="frame" x="0.0" y="84" width="414" height="758"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Jkg-eq-lya">
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Jkg-eq-lya">
                             <rect key="frame" x="20" y="313.5" width="374" height="131"/>
                             <subviews>
                                 <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="iFz-q0-UFF" userLabel="Element StackView">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="80"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="experienceFull" translatesAutoresizingMaskIntoConstraints="NO" id="P0W-0e-UZQ" userLabel="ElementImage">
-                                            <rect key="frame" x="118" y="0.0" width="138" height="70"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nP6-KH-Fhm" customClass="RoundedView" customModule="Cactus" customModuleProvider="target">
+                                            <rect key="frame" x="152" y="0.0" width="70" height="70"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="experienceFull" translatesAutoresizingMaskIntoConstraints="NO" id="P0W-0e-UZQ" userLabel="ElementImage">
+                                                    <rect key="frame" x="10" y="10" width="50" height="50"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" name="PinkLight"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="70" id="1I6-2o-3gX"/>
+                                                <constraint firstAttribute="width" secondItem="nP6-KH-Fhm" secondAttribute="height" multiplier="1:1" id="2JU-zR-TH8"/>
+                                                <constraint firstAttribute="bottom" secondItem="P0W-0e-UZQ" secondAttribute="bottom" constant="10" id="3S9-HH-iLx"/>
+                                                <constraint firstItem="P0W-0e-UZQ" firstAttribute="leading" secondItem="nP6-KH-Fhm" secondAttribute="leading" constant="10" id="Cgl-kI-Lq9"/>
+                                                <constraint firstItem="P0W-0e-UZQ" firstAttribute="top" secondItem="nP6-KH-Fhm" secondAttribute="top" constant="10" id="OVI-4e-ObP"/>
+                                                <constraint firstAttribute="trailing" secondItem="P0W-0e-UZQ" secondAttribute="trailing" constant="10" id="dWS-2P-77Y"/>
+                                                <constraint firstAttribute="height" constant="70" id="xwo-iu-QEJ"/>
                                             </constraints>
-                                        </imageView>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="35"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXPERIENCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ch-3r-Ml4" userLabel="ElementLabel">
                                             <rect key="frame" x="135" y="80" width="104" height="0.0"/>
                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
@@ -103,7 +119,7 @@
                     <exclude reference="xd9-z0-zL0"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="139" y="120"/>
+            <point key="canvasLocation" x="137.68115942028987" y="119.86607142857142"/>
         </view>
     </objects>
     <resources>
@@ -116,6 +132,9 @@
         </namedColor>
         <namedColor name="PinkDarkest">
             <color red="0.4779999852180481" green="0.2199999988079071" blue="0.078000001609325409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PinkLight">
+            <color red="1" green="0.89399999380111694" blue="0.85500001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

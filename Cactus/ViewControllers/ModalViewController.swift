@@ -18,9 +18,13 @@ class ModalViewController: UIViewController {
     var contentHeightConstraint: NSLayoutConstraint!
     var contentWidthConstraint: NSLayoutConstraint!        
     var closeButton: UIButton?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.modalPresentationStyle = .overCurrentContext
+        self.modalTransitionStyle = .crossDissolve
+        
         self.configureBlur()
         self.configureContentView()
         self.configureChildContent()
