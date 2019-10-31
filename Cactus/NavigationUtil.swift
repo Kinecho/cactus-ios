@@ -16,6 +16,9 @@ enum ScreenID: String {
     case LaunchScreen = "LaunchScreen"
     case JournalFeed
     case JournalHome
+    case elementsPageView
+    case journalEmpty
+    case promptContentPageView
     //settings
     case settingsTable
     case inviteScreen

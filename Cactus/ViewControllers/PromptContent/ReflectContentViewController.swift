@@ -116,7 +116,13 @@ class ReflectContentViewController: PromptContentViewController {
     
     func saveResponse() {
         print("saving response...")
+        if let promptId = self.promptContent.promptId, self.reflectionResponse == nil {
+            let question = self.content.title
+            self.reflectionResponse = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: question)
+        }
+        
         guard let response = self.reflectionResponse else {
+            print("No reflection Response found on the ReflectContentCardViewControler. Unable to save the response")
             return
         }
         self.endTime = Date()

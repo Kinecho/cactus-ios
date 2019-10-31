@@ -83,13 +83,13 @@ class AppMainViewController: UIViewController {
                     return
                 }
                 
-                let alert = UIAlertController(title: "Never miss a reflection", message: "Turn on push notifications so you know when it's time to reflect. ", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Not Now", style: .cancel, handler: nil))
+                let alert = UIAlertController(title: "Never miss a reflection", message: "Turn on push notifications so you know when it's time to reflect. ", preferredStyle: .alert)                
                 alert.addAction(UIAlertAction(title: "Allow", style: .default, handler: {_ in
                     NotificationService.sharedInstance.requestPushPermissions { _ in
                         print("permissions requested")
                     }
                 }))
+                alert.addAction(UIAlertAction(title: "Not Now", style: .cancel, handler: nil))
                 AppDelegate.shared.rootViewController.present(alert, animated: true)
                 
                 UserDefaults.standard.set(true, forKey: "NotificationOnboarding")

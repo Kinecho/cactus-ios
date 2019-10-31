@@ -14,7 +14,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoContentViewController" customModule="Cactus_Prod" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoContentViewController" customModule="Cactus" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="7qr-6t-ImQ" id="gEQ-ho-5qs"/>
                 <outlet property="textView" destination="r9p-d4-BlA" id="jjr-SP-qHT"/>
@@ -32,6 +32,7 @@
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Here's an image title!" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="r9p-d4-BlA">
                             <rect key="frame" x="20" y="0.0" width="374" height="52"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" name="GreenDarkest"/>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="30"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
@@ -60,6 +61,9 @@
     <resources>
         <namedColor name="BlueLight">
             <color red="0.90196078431372551" green="0.97647058823529409" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="GreenDarkest">
+            <color red="0.027000000700354576" green="0.27099999785423279" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

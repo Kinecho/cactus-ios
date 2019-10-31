@@ -17,6 +17,7 @@ class LoginViewController: UIViewController {
     var anonymousSubtitle = "Start with a happier mindset toady."
     var loggedOutSubtitle = "Start with a happier mindset today."
     
+    @IBOutlet weak var otherProviderLabel: UILabel!
     @IBOutlet weak var emailInputView: CactusTextInputField!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subTextLabel: UILabel!
@@ -116,6 +117,9 @@ class LoginViewController: UIViewController {
         self.signOutButton.isHidden = true
         self.titleLabel.isHidden = false
         self.subTextLabel.isHidden = false
+        self.emailInputView.isHidden = false
+        self.submitEmailButton.isHidden = false
+        self.otherProviderLabel.isHidden = false
         self.configureAuthView()
     }
     
@@ -124,6 +128,11 @@ class LoginViewController: UIViewController {
         self.titleLabel.text = user.email
         self.subTextLabel.isHidden = true
         self.signOutButton.isHidden = false
+        
+        self.emailInputView.isHidden = true
+        self.submitEmailButton.isHidden = true
+        self.otherProviderLabel.isHidden = true
+        
     }
     
     func configureAuthView() {
@@ -239,15 +248,6 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
         
         authUI.providers = providers
     }
-    
-    // Customize the default auth picker view controller
-    //    func authPickerViewController(forAuthUI authUI: FUIAuth) -> FUIAuthPickerViewController {
-    //        return CustomAuthPickerViewController(authUI: authUI)
-    //    }
-    
-    //    func emailEntryViewController(forAuthUI authUI: FUIAuth) -> FUIEmailEntryViewController {
-    //        return CustomEmailEntryViewController(authUI: authUI)
-    //    }
     
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
         print("AUTHDATA RESULT")

@@ -116,6 +116,22 @@
 		30673BA7233FDEC300EDE7BD /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B91233FDEC300EDE7BD /* Lato-ThinItalic.ttf */; };
 		3072742B236950AC00309B3C /* SharingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072742A236950AC00309B3C /* SharingService.swift */; };
 		3072742C236950AC00309B3C /* SharingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072742A236950AC00309B3C /* SharingService.swift */; };
+		30727431236A289900309B3C /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30727430236A289900309B3C /* AppSettings.swift */; };
+		30727432236A289900309B3C /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30727430236A289900309B3C /* AppSettings.swift */; };
+		30727434236A295300309B3C /* AppSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30727433236A295300309B3C /* AppSettingsService.swift */; };
+		30727435236A295300309B3C /* AppSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30727433236A295300309B3C /* AppSettingsService.swift */; };
+		30727437236A312800309B3C /* CactusConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30727436236A312800309B3C /* CactusConstants.swift */; };
+		30727438236A312800309B3C /* CactusConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30727436236A312800309B3C /* CactusConstants.swift */; };
+		30727440236A43AA00309B3C /* CactusElementDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3072743D236A43AA00309B3C /* CactusElementDetailViewController.xib */; };
+		30727441236A43AA00309B3C /* CactusElementDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3072743D236A43AA00309B3C /* CactusElementDetailViewController.xib */; };
+		30727446236A4A3200309B3C /* CactusElementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30727445236A4A3100309B3C /* CactusElementDetailViewController.swift */; };
+		30727447236A4A3200309B3C /* CactusElementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30727445236A4A3100309B3C /* CactusElementDetailViewController.swift */; };
+		30727449236A4AC200309B3C /* CactusElementPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30727448236A4AC200309B3C /* CactusElementPageViewController.swift */; };
+		3072744A236A4AC200309B3C /* CactusElementPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30727448236A4AC200309B3C /* CactusElementPageViewController.swift */; };
+		3072744C236A56AD00309B3C /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072744B236A56AD00309B3C /* ModalViewController.swift */; };
+		3072744D236A56AD00309B3C /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072744B236A56AD00309B3C /* ModalViewController.swift */; };
+		3072744F236B504B00309B3C /* JournalHomeEmptyStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072744E236B504B00309B3C /* JournalHomeEmptyStateViewController.swift */; };
+		30727450236B504B00309B3C /* JournalHomeEmptyStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072744E236B504B00309B3C /* JournalHomeEmptyStateViewController.swift */; };
 		308446F122ECAE0100FB0683 /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
 		3084E955234802C300788279 /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E954234802C300788279 /* TermsOfServiceViewController.swift */; };
 		3084E956234802C300788279 /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E954234802C300788279 /* TermsOfServiceViewController.swift */; };
@@ -304,6 +320,14 @@
 		30673B90233FDEC300EDE7BD /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		30673B91233FDEC300EDE7BD /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
 		3072742A236950AC00309B3C /* SharingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingService.swift; sourceTree = "<group>"; };
+		30727430236A289900309B3C /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		30727433236A295300309B3C /* AppSettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsService.swift; sourceTree = "<group>"; };
+		30727436236A312800309B3C /* CactusConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusConstants.swift; sourceTree = "<group>"; };
+		3072743D236A43AA00309B3C /* CactusElementDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CactusElementDetailViewController.xib; sourceTree = "<group>"; };
+		30727445236A4A3100309B3C /* CactusElementDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CactusElementDetailViewController.swift; sourceTree = "<group>"; };
+		30727448236A4AC200309B3C /* CactusElementPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusElementPageViewController.swift; sourceTree = "<group>"; };
+		3072744B236A56AD00309B3C /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		3072744E236B504B00309B3C /* JournalHomeEmptyStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalHomeEmptyStateViewController.swift; sourceTree = "<group>"; };
 		308446F022ECAE0100FB0683 /* MailchimpModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailchimpModels.swift; sourceTree = "<group>"; };
 		308446F222ECB23B00FB0683 /* Cactus Stage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cactus Stage.entitlements"; sourceTree = "<group>"; };
 		308446F322ECB24F00FB0683 /* Cactus Prod.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cactus Prod.entitlements"; sourceTree = "<group>"; };
@@ -670,6 +694,7 @@
 				305B1867233178A8003E1561 /* ImageService.swift */,
 				3021B67023622FE7002634A8 /* ApiService.swift */,
 				3072742A236950AC00309B3C /* SharingService.swift */,
+				30727433236A295300309B3C /* AppSettingsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -678,6 +703,7 @@
 			isa = PBXGroup;
 			children = (
 				30E9B09822EA6A81005B25FD /* BaseModel.swift */,
+				30727430236A289900309B3C /* AppSettings.swift */,
 				30BF2E0E23281CAA00A49EB6 /* FlamelinkTypes.swift */,
 				30E9B09C22EA7FC3005B25FD /* CactusMember.swift */,
 				30E9B0B922EAF153005B25FD /* SentPrompt.swift */,
@@ -685,6 +711,7 @@
 				30934FA522EBFF27007C4E6C /* ReflectionPrompt.swift */,
 				30934FA822EC0001007C4E6C /* ReflectionResponse.swift */,
 				308446F022ECAE0100FB0683 /* MailchimpModels.swift */,
+				30727436236A312800309B3C /* CactusConstants.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -705,6 +732,11 @@
 				30E2D37823432B21003D2B27 /* NavigationMenuViewController.swift */,
 				30E2D37923432B21003D2B27 /* NavigationMenuViewController.xib */,
 				302C4F482347D7A700798560 /* SettingsTableViewController.swift */,
+				30727448236A4AC200309B3C /* CactusElementPageViewController.swift */,
+				30727445236A4A3100309B3C /* CactusElementDetailViewController.swift */,
+				3072743D236A43AA00309B3C /* CactusElementDetailViewController.xib */,
+				3072744B236A56AD00309B3C /* ModalViewController.swift */,
+				3072744E236B504B00309B3C /* JournalHomeEmptyStateViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -896,6 +928,7 @@
 				30E2D37D23432B21003D2B27 /* NavigationMenuViewController.xib in Resources */,
 				30673B9F233FDEC300EDE7BD /* Lato-BlackItalic.ttf in Resources */,
 				30A281F222EA627D0041158E /* ProdAssets.xcassets in Resources */,
+				30727441236A43AA00309B3C /* CactusElementDetailViewController.xib in Resources */,
 				30673B95233FDEC300EDE7BD /* Lato-LightItalic.ttf in Resources */,
 				30673B9D233FDEC300EDE7BD /* Lato-Regular.ttf in Resources */,
 				30673BA3233FDEC300EDE7BD /* Lato-BoldItalic.ttf in Resources */,
@@ -932,6 +965,7 @@
 				305B1865233175DC003E1561 /* PhotoContentViewController.xib in Resources */,
 				303BF752232D289A00164539 /* QuoteContentViewController.xib in Resources */,
 				30673B9A233FDEC300EDE7BD /* Lato-Black.ttf in Resources */,
+				30727440236A43AA00309B3C /* CactusElementDetailViewController.xib in Resources */,
 				30673B94233FDEC300EDE7BD /* Lato-LightItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1396,6 +1430,7 @@
 				305130D4234FE9F10088B51F /* InviteSettingsViewController.swift in Sources */,
 				304EA2F42343B730001FB8AD /* CountProcess.swift in Sources */,
 				30E9B0AA22EAD68B005B25FD /* AppMainViewController.swift in Sources */,
+				30727447236A4A3200309B3C /* CactusElementDetailViewController.swift in Sources */,
 				30BF2E122328230E00A49EB6 /* FirebaseExtensions.swift in Sources */,
 				30BF2E2B23289F9F00A49EB6 /* TextContentViewController.swift in Sources */,
 				30934FA722EBFF27007C4E6C /* ReflectionPrompt.swift in Sources */,
@@ -1410,6 +1445,8 @@
 				3023FE3622ECF0AE00F753A7 /* CactusColor.swift in Sources */,
 				3084E9592348042800788279 /* PrivacyPolicyViewController.swift in Sources */,
 				30934FAD22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */,
+				30727432236A289900309B3C /* AppSettings.swift in Sources */,
+				30727438236A312800309B3C /* CactusConstants.swift in Sources */,
 				303EB0892343A0B800AC8741 /* RoundedView.swift in Sources */,
 				30A281DA22EA61A30041158E /* JournalEntryDetailViewController.swift in Sources */,
 				305B186C23319A72003E1561 /* ImageExtensions.swift in Sources */,
@@ -1424,7 +1461,9 @@
 				30E9B0BE22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
 				300AC1802339839A005C6555 /* CactusImage.swift in Sources */,
 				30E9B0A122EABFBD005B25FD /* CactusMemberService.swift in Sources */,
+				30727450236B504B00309B3C /* JournalHomeEmptyStateViewController.swift in Sources */,
 				3084E96D234BC5FE00788279 /* PrimaryButton.swift in Sources */,
+				3072744D236A56AD00309B3C /* ModalViewController.swift in Sources */,
 				30BF2E1523282BD600A49EB6 /* PromptContentService.swift in Sources */,
 				30BC2D01234EA63E00AB7B89 /* AuthProviderTableViewCell.swift in Sources */,
 				30E9B09B22EA6A84005B25FD /* FirestoreService.swift in Sources */,
@@ -1438,6 +1477,7 @@
 				30E9B09E22EA7FC3005B25FD /* CactusMember.swift in Sources */,
 				3084E956234802C300788279 /* TermsOfServiceViewController.swift in Sources */,
 				3054B5BE2331424000AA7272 /* MarkdownUtil.swift in Sources */,
+				30727435236A295300309B3C /* AppSettingsService.swift in Sources */,
 				30E9B0A422EAC204005B25FD /* AuthService.swift in Sources */,
 				30E9B09A22EA6A81005B25FD /* BaseModel.swift in Sources */,
 				30BF2E302328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */,
@@ -1463,6 +1503,7 @@
 				302C4F4D2347E25A00798560 /* DateUtil.swift in Sources */,
 				30E9B0B022EADD04005B25FD /* LoginViewController.swift in Sources */,
 				30265C5E23453C8D00934041 /* SwiftyGifManager.swift in Sources */,
+				3072744A236A4AC200309B3C /* CactusElementPageViewController.swift in Sources */,
 				30BF2E342328D91B00A49EB6 /* PromptContent.swift in Sources */,
 				305B1869233178A8003E1561 /* ImageService.swift in Sources */,
 				305B1886233273C4003E1561 /* GrowingTextView.swift in Sources */,
@@ -1484,6 +1525,7 @@
 				305130D3234FE9F10088B51F /* InviteSettingsViewController.swift in Sources */,
 				304EA2F32343B730001FB8AD /* CountProcess.swift in Sources */,
 				30BF2E0B232816CC00A49EB6 /* PromptContentService.swift in Sources */,
+				30727446236A4A3200309B3C /* CactusElementDetailViewController.swift in Sources */,
 				30E9B0A922EAD68B005B25FD /* AppMainViewController.swift in Sources */,
 				30934FA622EBFF27007C4E6C /* ReflectionPrompt.swift in Sources */,
 				30E9B0AC22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
@@ -1498,6 +1540,8 @@
 				30BF2E0D2328171200A49EB6 /* PromptContent.swift in Sources */,
 				3084E9582348042800788279 /* PrivacyPolicyViewController.swift in Sources */,
 				30E9B0B322EADE2D005B25FD /* CGExtensions.swift in Sources */,
+				30727431236A289900309B3C /* AppSettings.swift in Sources */,
+				30727437236A312800309B3C /* CactusConstants.swift in Sources */,
 				303EB0882343A0B800AC8741 /* RoundedView.swift in Sources */,
 				30BF2E1823289D1200A49EB6 /* PromptContentPageViewController.swift in Sources */,
 				305B186B23319A72003E1561 /* ImageExtensions.swift in Sources */,
@@ -1512,7 +1556,9 @@
 				30E9B0A022EABFBD005B25FD /* CactusMemberService.swift in Sources */,
 				300AC17F2339839A005C6555 /* CactusImage.swift in Sources */,
 				30C49D3422EC299300A2EA95 /* ViewExtensions.swift in Sources */,
+				3072744F236B504B00309B3C /* JournalHomeEmptyStateViewController.swift in Sources */,
 				3084E96C234BC5FE00788279 /* PrimaryButton.swift in Sources */,
+				3072744C236A56AD00309B3C /* ModalViewController.swift in Sources */,
 				30C49D3822EC2D4C00A2EA95 /* CactusColor.swift in Sources */,
 				30BC2D00234EA63E00AB7B89 /* AuthProviderTableViewCell.swift in Sources */,
 				30BF2E11232822E600A49EB6 /* FirebaseExtensions.swift in Sources */,
@@ -1526,6 +1572,7 @@
 				309561A422EE16D7009357BD /* AppConfig.swift in Sources */,
 				3084E955234802C300788279 /* TermsOfServiceViewController.swift in Sources */,
 				3054B5BD23313EAA00AA7272 /* MarkdownUtil.swift in Sources */,
+				30727434236A295300309B3C /* AppSettingsService.swift in Sources */,
 				30E9B09D22EA7FC3005B25FD /* CactusMember.swift in Sources */,
 				30E9B0A322EAC204005B25FD /* AuthService.swift in Sources */,
 				30B6EA6F22EA5A9F00443E46 /* AppDelegate.swift in Sources */,
@@ -1551,6 +1598,7 @@
 				302C4F4C2347E25A00798560 /* DateUtil.swift in Sources */,
 				30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */,
 				30265C5D23453C8D00934041 /* SwiftyGifManager.swift in Sources */,
+				30727449236A4AC200309B3C /* CactusElementPageViewController.swift in Sources */,
 				30BF2E14232824AB00A49EB6 /* FlamelinkService.swift in Sources */,
 				305B1868233178A8003E1561 /* ImageService.swift in Sources */,
 				305B1885233273C4003E1561 /* GrowingTextView.swift in Sources */,

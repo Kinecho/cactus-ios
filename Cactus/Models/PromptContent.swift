@@ -103,7 +103,7 @@ class Content: Codable {
     var audio: AudioFile?
     var link: ContentLink?
     var actionButton: ActionButton?
-    
+    var showElementIcon: Bool?
 }
 
 class PromptContent: FlamelinkIdentifiable {
@@ -118,4 +118,32 @@ class PromptContent: FlamelinkIdentifiable {
     var subjectLine: String?
     var topic: String?
     var shareReflectionCopy_md: String?
+    var cactusElement: CactusElement?
+    
+    enum CodingKeys: String, CodingKey {
+        case _fl_meta_
+        case documentId
+        case entryId
+        case order
+        case content
+        case promptId
+        case subjectLine
+        case topic
+        case shareReflectionCopy_md
+        case cactusElement
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self._fl_meta_ = try? values.decode(FlamelinkMeta.self, forKey: ._fl_meta_)
+        self.documentId = try? values.decode(String.self, forKey: .documentId)
+        self.entryId = self._fl_meta_?.fl_id
+        self.order = try? values.decode(Int.self, forKey: .order)
+        self.content = (try? values.decode([Content].self, forKey: .content)) ?? []
+        self.promptId = try? values.decode(String.self, forKey: .promptId)
+        self.subjectLine = try? values.decode(String.self, forKey: .subjectLine)
+        self.topic = try? values.decode(String.self, forKey: .topic)
+        self.shareReflectionCopy_md = try? values.decode(String.self, forKey: .shareReflectionCopy_md)
+        self.cactusElement = try? values.decode(CactusElement.self, forKey: .cactusElement)
+    }
 }

@@ -23,18 +23,18 @@
             <objects>
                 <viewController title="Detail" id="JEX-9P-axG" customClass="JournalEntryDetailViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="svH-Pt-448">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="624"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0XM-y9-sOw">
-                                <rect key="frame" x="24" y="20" width="327" height="31.666666666666671"/>
+                                <rect key="frame" x="24" y="19.999999999999996" width="327" height="32.666666666666657"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="27"/>
                                 <color key="textColor" name="GreenDarkest"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N66-ae-VLO">
-                                <rect key="frame" x="24" y="91.666666666666686" width="327" height="200"/>
+                                <rect key="frame" x="24" y="92.666666666666686" width="327" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="Rji-Z0-zbI"/>
@@ -45,7 +45,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAU-lX-enM" customClass="RoundedButton" customModule="Cactus" customModuleProvider="target">
-                                <rect key="frame" x="274" y="315.66666666666669" width="67" height="40"/>
+                                <rect key="frame" x="274" y="316.66666666666669" width="67" height="40"/>
                                 <color key="backgroundColor" name="Green"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -69,13 +69,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prompt Entry Id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0M3-a2-yA5" userLabel="Prompt Entry Label">
-                                <rect key="frame" x="24" y="495.66666666666669" width="331" height="20.666666666666686"/>
+                                <rect key="frame" x="24" y="496.66666666666669" width="331" height="20.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Some useful data here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kqa-Xw-bvS" userLabel="Prompt Text Area">
-                                <rect key="frame" x="20" y="524.33333333333337" width="335" height="128"/>
+                                <rect key="frame" x="20" y="525.33333333333337" width="335" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="pQQ-4V-Pem"/>
@@ -84,7 +84,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nPa-Rh-NgV">
-                                <rect key="frame" x="30" y="320.66666666666669" width="49" height="30"/>
+                                <rect key="frame" x="30" y="321.66666666666669" width="49" height="30"/>
                                 <state key="normal" title="Reflect"/>
                                 <connections>
                                     <segue destination="e7K-2Y-xsh" kind="show" identifier="ShowPromptContentModal" id="3OM-UU-9N2"/>
@@ -202,6 +202,7 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="containerView" destination="Z8U-Me-3LH" id="KfG-U9-xGL"/>
                         <outlet property="headerContainerView" destination="hbu-p9-et4" id="iYo-bs-85g"/>
                         <outlet property="profileImageView" destination="cWM-Up-Dm8" id="mwU-rO-svb"/>
                     </connections>
@@ -210,12 +211,91 @@
             </objects>
             <point key="canvasLocation" x="200.00000000000003" y="-676.33928571428567"/>
         </scene>
+        <!--Journal Home Empty State View Controller-->
+        <scene sceneID="847-PT-r8z">
+            <objects>
+                <viewController storyboardIdentifier="journalEmpty" id="Dmd-WB-xa0" customClass="JournalHomeEmptyStateViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WFs-qk-8et">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nf0-67-wAF">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Hxl-JO-r3i">
+                                        <rect key="frame" x="20" y="152" width="335" height="430"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="center" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ibz-w3-gNj" userLabel="Copy Stack View">
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="190"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Cactus" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8E-Kd-lvh" userLabel="Welcome Label">
+                                                        <rect key="frame" x="29" y="0.0" width="277.33333333333331" height="38.666666666666664"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="32"/>
+                                                        <color key="textColor" name="GreenDarkest"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To get started, you'll learn about how Cactus works and reflect on your first question of the day." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ecc-M4-fbT" userLabel="Into Label">
+                                                        <rect key="frame" x="2.3333333333333428" y="58.666666666666671" width="330.33333333333326" height="61.333333333333329"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                                        <color key="textColor" name="GreenDarkest"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmD-zI-Lke" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
+                                                        <rect key="frame" x="120" y="140" width="95" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="4su-rf-UT4"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
+                                                        <state key="normal" title="Let's Begin"/>
+                                                        <connections>
+                                                            <action selector="beginTapped:" destination="Dmd-WB-xa0" eventType="primaryActionTriggered" id="0pm-2t-ucH"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="journalEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="Hjj-3G-eVg">
+                                                <rect key="frame" x="0.0" y="230" width="335" height="200"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="200" id="Dij-SN-Mgn"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Hxl-JO-r3i" firstAttribute="leading" secondItem="5FM-mc-PuP" secondAttribute="leading" constant="20" id="Ymu-uc-y2W"/>
+                                    <constraint firstItem="Hxl-JO-r3i" firstAttribute="trailing" secondItem="5FM-mc-PuP" secondAttribute="trailing" id="ZVg-h6-Jei"/>
+                                    <constraint firstItem="Hxl-JO-r3i" firstAttribute="centerY" secondItem="G13-7S-DHk" secondAttribute="centerY" id="dR3-gB-e10"/>
+                                    <constraint firstItem="Hxl-JO-r3i" firstAttribute="width" secondItem="G13-7S-DHk" secondAttribute="width" constant="-40" id="fnc-ow-0z0"/>
+                                    <constraint firstItem="Hxl-JO-r3i" firstAttribute="centerY" secondItem="5FM-mc-PuP" secondAttribute="centerY" id="nHD-za-oi2"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="5FM-mc-PuP"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="G13-7S-DHk"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="o7g-yB-xUJ" firstAttribute="trailing" secondItem="Nf0-67-wAF" secondAttribute="trailing" id="OQx-z8-4AP"/>
+                            <constraint firstItem="Nf0-67-wAF" firstAttribute="top" secondItem="o7g-yB-xUJ" secondAttribute="top" id="gzQ-D2-fSa"/>
+                            <constraint firstItem="o7g-yB-xUJ" firstAttribute="bottom" secondItem="Nf0-67-wAF" secondAttribute="bottom" id="hnm-eH-z7b"/>
+                            <constraint firstItem="Nf0-67-wAF" firstAttribute="leading" secondItem="o7g-yB-xUJ" secondAttribute="leading" id="yX4-Kd-N42"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="o7g-yB-xUJ"/>
+                    </view>
+                    <connections>
+                        <outlet property="letsBeginButton" destination="hmD-zI-Lke" id="28q-uJ-Fot"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aRW-bn-RpP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1021.6" y="-1368.4729064039409"/>
+        </scene>
         <!--Journal Feed-->
         <scene sceneID="Gr6-KQ-PFf">
             <objects>
                 <collectionViewController storyboardIdentifier="JournalFeed" id="GWJ-to-hjF" userLabel="Journal Feed" customClass="JournalFeedCollectionViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" id="c64-uC-Gae">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="762"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="25" sectionInsetReference="layoutMargins" id="CAX-zL-tXF">
@@ -225,18 +305,19 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" misplaced="YES" reuseIdentifier="JournalEntryCell" translatesAutoresizingMaskIntoConstraints="NO" id="hi3-X9-dKc" userLabel="Question Card" customClass="JournalEntryCollectionViewCell" customModule="Cactus" customModuleProvider="target">
-                                <rect key="frame" x="3" y="8" width="408" height="229"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" fixedFrame="YES" reuseIdentifier="JournalEntryCell" translatesAutoresizingMaskIntoConstraints="NO" id="hi3-X9-dKc" userLabel="Question Card" customClass="JournalEntryCollectionViewCell" customModule="Cactus" customModuleProvider="target">
+                                <rect key="frame" x="-1" y="7" width="408" height="229"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" verifyAmbiguity="ignoreSizes" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" placeholderIntrinsicWidth="402" placeholderIntrinsicHeight="200" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qW-dd-S1T">
+                                <collectionViewCellContentView key="contentView" verifyAmbiguity="ignoreSizes" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="402" placeholderIntrinsicHeight="200" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" id="0qW-dd-S1T">
                                     <rect key="frame" x="0.0" y="0.0" width="408" height="229"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blob4" translatesAutoresizingMaskIntoConstraints="NO" id="lDj-iq-UJ4" userLabel="Background Blob">
-                                            <rect key="frame" x="-25" y="143.66666666666666" width="868" height="119.99999999999997"/>
+                                            <rect key="frame" x="-25" y="-70" width="50" height="120"/>
                                             <color key="tintColor" name="PinkLightest"/>
                                         </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="me6-iG-DkW" userLabel="Background Image View">
-                                            <rect key="frame" x="-25" y="143.66666666666666" width="868" height="70"/>
+                                            <rect key="frame" x="-25" y="-70" width="50" height="70"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" priority="999" constant="200" identifier="JournalFeed.BackgroundImage.Height" id="laF-kS-zV3"/>
                                             </constraints>
@@ -247,7 +328,7 @@
                                             </variation>
                                         </imageView>
                                         <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DONE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7Y-9t-Q3G" userLabel="Status Label" customClass="PillLabelView" customModule="Cactus" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="20" width="42" height="18"/>
+                                            <rect key="frame" x="20" y="20" width="0.0" height="0.0"/>
                                             <color key="backgroundColor" name="GreenLight"/>
                                             <color key="tintColor" name="TextLight"/>
                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="15"/>
@@ -269,7 +350,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="754" text="May 14, 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOB-lq-qx1">
-                                            <rect key="frame" x="20.000000000000007" y="58" width="102.66666666666669" height="20"/>
+                                            <rect key="frame" x="20" y="40" width="0.0" height="0.0"/>
                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                             <color key="textColor" name="GreenDarkest"/>
                                             <nil key="highlightedColor"/>
@@ -278,7 +359,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Placeholder Question" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ud-An-1HM">
-                                            <rect key="frame" x="20" y="98" width="778" height="25.666666666666671"/>
+                                            <rect key="frame" x="20" y="-90" width="0.0" height="0.0"/>
                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="22"/>
                                             <color key="textColor" name="GreenDarkest"/>
                                             <nil key="highlightedColor"/>
@@ -290,13 +371,13 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sub Text Label WIth lots of question context" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Prt-fK-hhC" userLabel="Sub Text Label">
-                                            <rect key="frame" x="20" y="133.66666666666666" width="778" height="23.333333333333343"/>
+                                            <rect key="frame" x="20" y="-80" width="0.0" height="24"/>
                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
                                             <color key="textColor" name="GreenDarkest"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLH-Hu-Fx0" customClass="BorderedButton" customModule="Cactus" customModuleProvider="target">
-                                            <rect key="frame" x="762" y="20" width="36" height="36"/>
+                                            <rect key="frame" x="-56" y="20" width="36" height="36"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="36" id="ab8-UZ-8ce"/>
@@ -326,7 +407,7 @@
                                             </connections>
                                         </button>
                                         <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="748" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" editable="NO" text="my response to the question" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIY-zE-sMO">
-                                            <rect key="frame" x="18" y="143.66666666666666" width="780" height="50"/>
+                                            <rect key="frame" x="18" y="-70" width="0.0" height="50"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="textColor" name="GreenDarkest"/>
                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
@@ -342,14 +423,14 @@
                                             </userDefinedRuntimeAttributes>
                                         </textView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFa-Yu-OSz" userLabel="Border View">
-                                            <rect key="frame" x="-5" y="143.66666666666666" width="10" height="50"/>
+                                            <rect key="frame" x="-5" y="-70" width="10" height="50"/>
                                             <color key="backgroundColor" name="YellowDark"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="10" id="pRO-h5-NZ6"/>
                                             </constraints>
                                         </view>
                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vu-J4-LLw" userLabel="Reflect Button" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="143.66666666666666" width="778" height="50"/>
+                                            <rect key="frame" x="20" y="-70" width="0.0" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" identifier="ReflectButton.Height" id="8cM-D4-eRz"/>
                                             </constraints>
@@ -467,6 +548,14 @@
             </objects>
             <point key="canvasLocation" x="1030.4000000000001" y="-673.89162561576359"/>
         </scene>
+        <!--Cactus Element Page View Controller-->
+        <scene sceneID="j9g-sr-mcr">
+            <objects>
+                <pageViewController storyboardIdentifier="elementsPageView" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="fFb-oD-ZuG" customClass="CactusElementPageViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PD7-vf-zLS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2088" y="-675"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="atD-QB-cj1">
             <objects>
@@ -502,19 +591,19 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="JP6-tG-hyL">
-                                        <rect key="frame" x="0.0" y="100" width="375" height="503"/>
+                                        <rect key="frame" x="0.0" y="99.999999999999972" width="375" height="505.33333333333326"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="dia-5i-NZT">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="57.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="59.333333333333336"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dt5-xk-ofP">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="31.666666666666668"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="32.666666666666664"/>
                                                         <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="27"/>
                                                         <color key="textColor" name="GreenDarkest"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start with a happier mindset today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afq-L6-2C3">
-                                                        <rect key="frame" x="0.0" y="37.666666666666657" width="375" height="20"/>
+                                                        <rect key="frame" x="0.0" y="38.666666666666657" width="375" height="20.666666666666671"/>
                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                         <color key="textColor" name="GreenDarkest"/>
                                                         <nil key="highlightedColor"/>
@@ -522,7 +611,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RUy-x4-bJ7" userLabel="Email Input Stack">
-                                                <rect key="frame" x="20" y="97.666666666666657" width="335" height="85"/>
+                                                <rect key="frame" x="20" y="99.333333333333343" width="335" height="85"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="S96-g0-ejQ" customClass="CactusTextInputField" customModule="Cactus" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="45"/>
@@ -535,7 +624,7 @@
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ey-8b-Wmd" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="55.000000000000028" width="335" height="30"/>
+                                                        <rect key="frame" x="0.0" y="54.999999999999972" width="335" height="30"/>
                                                         <state key="normal" title="Next"/>
                                                         <connections>
                                                             <action selector="magicLinkNext:" destination="4zv-1f-KPm" eventType="touchUpInside" id="XWC-S7-8tN"/>
@@ -548,13 +637,13 @@
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or choose from one of the following" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYq-wW-wiI" userLabel="Choose Provider">
-                                                <rect key="frame" x="20" y="222.66666666666669" width="335" height="16.333333333333343"/>
+                                                <rect key="frame" x="20" y="224.33333333333331" width="335" height="17"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                                 <color key="textColor" name="GreenDarkest"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7x3-lF-lM2" userLabel="Login Buttons Container">
-                                                <rect key="frame" x="20" y="279" width="335" height="224"/>
+                                                <rect key="frame" x="20" y="281.33333333333331" width="335" height="224"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="224" id="9hh-r5-2L7"/>
                                                 </constraints>
@@ -613,6 +702,7 @@
                     <connections>
                         <outlet property="containerView" destination="7x3-lF-lM2" id="QXe-bV-ZLC"/>
                         <outlet property="emailInputView" destination="S96-g0-ejQ" id="aP2-hs-jI8"/>
+                        <outlet property="otherProviderLabel" destination="vYq-wW-wiI" id="Bqb-Tw-yao"/>
                         <outlet property="signOutButton" destination="1Nx-Ds-HR5" id="z3O-f8-i8s"/>
                         <outlet property="subTextLabel" destination="afq-L6-2C3" id="XOi-aB-u8x"/>
                         <outlet property="submitEmailButton" destination="8ey-8b-Wmd" id="yE8-XT-gxd"/>
@@ -626,7 +716,7 @@
         <!--Prompt Content Page View Controller-->
         <scene sceneID="ebg-Xv-86K">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="e7K-2Y-xsh" customClass="PromptContentPageViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
+                <pageViewController storyboardIdentifier="promptContentPageView" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="e7K-2Y-xsh" customClass="PromptContentPageViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="ZGL-Uk-IrM"/>
                     <connections>
@@ -644,6 +734,7 @@
         <image name="blob4" width="434" height="304"/>
         <image name="blobNeedle" width="826" height="604"/>
         <image name="dots" width="48" height="48"/>
+        <image name="journalEmpty" width="1217" height="687"/>
         <image name="logo" width="705" height="348"/>
         <namedColor name="Green">
             <color red="0.20000000298023224" green="0.80000001192092896" blue="0.67100000381469727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

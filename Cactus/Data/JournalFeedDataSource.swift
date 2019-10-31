@@ -227,6 +227,8 @@ class JournalFeedDataSource {
                         if let prompts = sentPrompts {
                             self.sentPrompts = prompts
                             self.initSentPrompts()
+                        } else {
+                            self.delegate?.dataLoaded()
                         }
                     })
             }

@@ -24,6 +24,13 @@ enum CactusImage: String {
     //Illustraions
     case pottedCactus
     
+    //Elements
+    case experience_element = "experienceFull"
+    case meaning_element = "meaningFull"
+    case relationships_element = "relationshipsFull"
+    case energy_element = "energyFull"
+    case emotions_element = "emotionsFull"
+    
     //Icons    
     case airplane
     case angleLeft
@@ -39,6 +46,29 @@ enum CactusImage: String {
         return UIImage(named: self.rawValue)
     }
     
+    static func forElement(_ element: CactusElement, width: CGFloat? = nil, height: CGFloat? = nil) -> UIImage? {
+        var image: CactusImage
+        switch element {
+        case .experience:
+            image = CactusImage.experience_element
+        case .energy:
+            image = CactusImage.energy_element
+        case .meaning:
+            image = CactusImage.meaning_element
+        case .emotions:
+            image = CactusImage.emotions_element
+        case .relationships:
+            image = CactusImage.relationships_element
+        }
+        
+        if let width = width, let height = height {
+            return image.ofSize(CGSize(height, width))
+        } else if let width = width {
+            return image.ofWidth(newWidth: width)
+        }
+        return image.getImage()
+    }
+    
     func ofWidth(newWidth: CGFloat) -> UIImage? {
         guard let image = getImage() else { return nil}
         let scale = newWidth / image.size.width
@@ -49,6 +79,17 @@ enum CactusImage: String {
         UIGraphicsEndImageContext()
 
         return newImage
+    }
+    
+    func ofSize(_ size: CGSize) -> UIImage? {
+        guard let image = getImage() else {return nil}
+        UIGraphicsBeginImageContext(size)
+        image.draw(in: CGRect(0, 0, size.height, size.width))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return newImage
+        
     }
     
     static func fromProviderId(_ providerId: String) -> UIImage? {

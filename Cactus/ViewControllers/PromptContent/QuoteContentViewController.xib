@@ -37,6 +37,7 @@
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="&quot;Early to bed, early to rise makes a man healthy, wealthy and wise&quot;" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UuU-rg-2RG">
                             <rect key="frame" x="5" y="0.0" width="364" height="123.5"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" name="GreenDarkest"/>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="30"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
@@ -55,13 +56,13 @@
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" contentInsetAdjustmentBehavior="never" editable="NO" text="Benjamin Frankin" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2A5-E3-lSG" userLabel="Author Name TextView">
                                             <rect key="frame" x="35.5" y="0.0" width="165" height="40"/>
-                                            <color key="textColor" name="TextDark"/>
+                                            <color key="textColor" name="GreenDarkest"/>
                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="20"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" contentInsetAdjustmentBehavior="never" editable="NO" text="American writer and Politician" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WTS-uL-2xm">
                                             <rect key="frame" x="0.0" y="30" width="236.5" height="36.5"/>
-                                            <color key="textColor" name="TextDark"/>
+                                            <color key="textColor" name="GreenDarkest"/>
                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
@@ -87,8 +88,8 @@
         <namedColor name="BlueLight">
             <color red="0.90196078431372551" green="0.97647058823529409" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <namedColor name="TextDark">
-            <color red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="GreenDarkest">
+            <color red="0.027000000700354576" green="0.27099999785423279" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

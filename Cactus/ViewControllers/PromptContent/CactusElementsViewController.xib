@@ -51,7 +51,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MYh-JU-2XA">
                                             <rect key="frame" x="137" y="0.0" width="100" height="130"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pottedCactus" translatesAutoresizingMaskIntoConstraints="NO" id="cf6-aT-9ln" userLabel="Energy Image">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energyFull" translatesAutoresizingMaskIntoConstraints="NO" id="cf6-aT-9ln" userLabel="Energy Image">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="cf6-aT-9ln" secondAttribute="height" multiplier="1:1" id="P1h-ZU-Xpz"/>
@@ -72,7 +72,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4Dc-Kl-nYO">
                                                     <rect key="frame" x="0.0" y="16" width="104" height="130"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pottedCactus" translatesAutoresizingMaskIntoConstraints="NO" id="tOD-lc-Qdv" userLabel="Experience Cactus">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="experienceFull" translatesAutoresizingMaskIntoConstraints="NO" id="tOD-lc-Qdv" userLabel="Experience Cactus">
                                                             <rect key="frame" x="2" y="0.0" width="100" height="100"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXPERIENCE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ql-dn-EJl" userLabel="Experience">
@@ -89,7 +89,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sZM-zl-XV2">
                                                     <rect key="frame" x="174" y="16" width="130.5" height="130"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pottedCactus" translatesAutoresizingMaskIntoConstraints="NO" id="XfD-yL-x2F" userLabel="Relationships Cactus">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="relationshipsFull" translatesAutoresizingMaskIntoConstraints="NO" id="XfD-yL-x2F" userLabel="Relationships Cactus">
                                                             <rect key="frame" x="15" y="0.0" width="100" height="100"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="XfD-yL-x2F" secondAttribute="height" multiplier="1:1" id="ld5-tS-RNB"/>
@@ -111,7 +111,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="II7-SE-0F6">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="130"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pottedCactus" translatesAutoresizingMaskIntoConstraints="NO" id="tF9-tg-EIL" userLabel="Emotions Cactus">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emotionsFull" translatesAutoresizingMaskIntoConstraints="NO" id="tF9-tg-EIL" userLabel="Emotions Cactus">
                                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMOTIONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NUw-Ld-aED">
@@ -128,7 +128,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eW6-bX-zba">
                                                     <rect key="frame" x="130" y="0.5" width="100" height="129"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pottedCactus" translatesAutoresizingMaskIntoConstraints="NO" id="sSx-cx-NoD" userLabel="Meaning Cactus">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meaningFull" translatesAutoresizingMaskIntoConstraints="NO" id="sSx-cx-NoD" userLabel="Meaning Cactus">
                                                             <rect key="frame" x="0.0" y="0.0" width="100" height="99"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="sSx-cx-NoD" secondAttribute="height" multiplier="1:1" constant="1" id="sQP-GC-XfD"/>
@@ -191,7 +191,11 @@
         </view>
     </objects>
     <resources>
-        <image name="pottedCactus" width="150" height="150"/>
+        <image name="emotionsFull" width="62" height="121"/>
+        <image name="energyFull" width="126" height="120"/>
+        <image name="experienceFull" width="69" height="122"/>
+        <image name="meaningFull" width="43" height="122"/>
+        <image name="relationshipsFull" width="109" height="122"/>
         <namedColor name="BlueLight">
             <color red="0.90196078431372551" green="0.97647058823529409" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

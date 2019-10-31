@@ -34,9 +34,39 @@ class FlamelinkService {
         return getQuery(schema).whereField("_fl_meta_.fl_id", isEqualTo: id)
     }
     
-    func getByEntryId<T: FlamelinkIdentifiable>(_ id: String, schema: FlamelinkSchema, _ onData: @escaping (_ object: T?, _ error: Any?) -> Void) {
-        let query = getEntryIdQuery(id, schema: schema)
-        
+    func executeQuery<T: FlamelinkIdentifiable>(_ query: Query, _ onData: @escaping (_ models: [T]?, _ error: Any?) -> Void) {
+        query.getDocuments { snapshot, error in
+            if let error = error {
+                return onData(nil, error)
+            }
+            var models: [T] = []
+            snapshot?.documents.forEach({ (doc) in
+                if let model = try? doc.decode(as: T.self, includingId: false) {
+                    models.append(model)
+                }
+            })
+            
+            onData(models, error)
+        }
+    }
+    
+    func observeQuery<T: FlamelinkIdentifiable>(_ query: Query, _ onData: @escaping (_ models: [T]?, _ error: Any?) -> Void) -> ListenerRegistration {
+        return query.addSnapshotListener { snapshot, error in
+            if let error = error {
+                return onData(nil, error)
+            }
+            var models: [T] = []
+            snapshot?.documents.forEach({ (doc) in
+                if let model = try? doc.decode(as: T.self, includingId: false) {
+                    models.append(model)
+                }
+            })
+            
+            onData(models, error)
+        }
+    }
+    
+    func getFirst<T: FlamelinkIdentifiable>(_ query: Query, _ onData: @escaping (_ object: T?, _ error: Any?) -> Void) {
         query.getDocuments { docs, error in
             guard let doc = docs?.documents.first else {
                 return onData(nil, error)
@@ -44,6 +74,18 @@ class FlamelinkService {
             let object = try? doc.decode(as: T.self, includingId: false)
             onData(object, error)
         }
+    }
+    
+    func getByEntryId<T: FlamelinkIdentifiable>(_ id: String, schema: FlamelinkSchema, _ onData: @escaping (_ object: T?, _ error: Any?) -> Void) {
+        let query = getEntryIdQuery(id, schema: schema)
+        self.getFirst(query, onData)
+//        query.getDocuments { docs, error in
+//            guard let doc = docs?.documents.first else {
+//                return onData(nil, error)
+//            }
+//            let object = try? doc.decode(as: T.self, includingId: false)
+//            onData(object, error)
+//        }
     }
     
     func observeByEntryId<T: FlamelinkIdentifiable>(_ id: String, _ onData: @escaping (T?, Any?) -> Void) -> ListenerRegistration {

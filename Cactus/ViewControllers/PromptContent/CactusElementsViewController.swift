@@ -41,30 +41,43 @@ class CactusElementsViewController: PromptContentViewController {
     }
     
     @objc func energySelected() {
-        self.showModal(image: CactusImage.cactusAvatarOG.getImage(), name: "Energy", text: "Caring for your physical health and managing the mind-body connection")
+        self.showModal(.energy)
     }
     
     @objc func meaningSelected() {
-        self.showModal(image: CactusImage.cactusAvatarOG.getImage(), name: "Meaning", text: "Test String")
+        self.showModal(.meaning)
     }
     
     @objc func experienceSelected() {
-        self.showModal(image: CactusImage.cactusAvatarOG.getImage(), name: "Experience", text: "Test String")
+        self.showModal(.experience)
     }
     
     @objc func emotionsSelected() {
-        self.showModal(image: CactusImage.cactusAvatarOG.getImage(), name: "Emotions", text: "Test String")
+        self.showModal(.emotions)
     }
     
     @objc func relationshipsSelected() {
-        self.showModal(image: CactusImage.cactusAvatarOG.getImage(), name: "Relationships", text: "Test String")
+        self.showModal(.relationships)
     }
 
     @objc func dismissModal() {
         self.presentedViewController?.dismiss(animated: true, completion: nil)
     }
     
-    func showModal(image: UIImage?, name: String, text: String) {
+    func showModal(_ element: CactusElement) {
+        guard let contentVc = AppDelegate.shared.rootViewController.getScreen(ScreenID.elementsPageView) as? CactusElementPageViewController else {return}
+        let modalVc = ModalViewController()
+        modalVc.setContent(contentVc, size: CGSize(width: 250, height: 350))
+        contentVc.backgroundColor = CactusColor.darkestGreen
+        contentVc.initialElement = element
+        modalVc.modalPresentationStyle = .overCurrentContext
+        modalVc.modalTransitionStyle = .crossDissolve
+        
+        self.present(modalVc, animated: true)
+
+    }
+    
+    func oldshowModal(image: UIImage?, name: String, text: String) {
         let modal = UIView(frame: CGRect(x: 0, y: 0, width: 250, height: 250))
                 
         let content = UIView()
@@ -79,6 +92,9 @@ class CactusElementsViewController: PromptContentViewController {
 //        modal.leadingAnchor.constraint(equalTo: modal.leadingAnchor, constant: 20)
                 
         let imageView = UIImageView(image: image)
+        imageView.backgroundColor = CactusColor.pink
+        imageView.clipsToBounds = true
+                
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.sizeThatFits(CGSize(70, 70))
         content.addSubview(imageView)

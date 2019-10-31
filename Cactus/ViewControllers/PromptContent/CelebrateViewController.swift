@@ -76,7 +76,7 @@ class CelebrateViewController: UIViewController {
 //        var prev = Int( round(Float(self.previousReflectionDurationMs) / 1000))
         let ms = self.journalDataSource?.totalReflectionDurationMs ?? 0
         var next = Int( round(Float(ms) / 1000))
-        var prev:Int = 0
+        var prev: Int = 0
         if next < 60 {
             self.durationMetricLabel.text = "Seconds"
         } else {

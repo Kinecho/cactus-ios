@@ -33,7 +33,7 @@ class SettingsTableViewController: UITableViewController {
     }
     
     func configureFooter() {
-        let footerView = UIView(frame: CGRect(0, 0, 50, self.view.bounds.width));
+        let footerView = UIView(frame: CGRect(0, 0, 50, self.view.bounds.width))
         
         logoutButton.setTitle("Log Out", for: .normal)
         logoutButton.borderRadius = 18
@@ -91,7 +91,7 @@ class SettingsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        self.footerView.frame = CGRect(tableView.frame.minX, tableView.frame.maxY + 20, tableView.bounds.width , 100 )
+        self.footerView.frame = CGRect(tableView.frame.minX, tableView.frame.maxY + 20, tableView.bounds.width, 100 )
 //        self.footerView.backgroundColor = .red
         return self.footerView
     }

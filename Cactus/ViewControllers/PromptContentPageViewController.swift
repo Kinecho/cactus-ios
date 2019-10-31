@@ -13,7 +13,7 @@ class PromptContentPageViewController: UIPageViewController {
     var promptContent: PromptContent!
     var activeIndex: Int = 0
     var pageControl: UIPageControl?
-    var prompt: ReflectionPrompt?
+//    var prompt: ReflectionPrompt?
     var reflectionResponse: ReflectionResponse?
     var closeButton: UIButton?
     var journalDataSource: JournalFeedDataSource?

@@ -45,7 +45,6 @@ class LanguageSettingsViewController: UIViewController {
 
 }
 
-
 extension LanguageSettingsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

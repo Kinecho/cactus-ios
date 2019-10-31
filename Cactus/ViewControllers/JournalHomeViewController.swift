@@ -12,7 +12,9 @@ import Firebase
 class JournalHomeViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var headerContainerView: UIView!
+    @IBOutlet weak var containerView: UIView!
     var journalFeedViewController: JournalFeedCollectionViewController?
+    var emptyStateViewController: JournalHomeEmptyStateViewController?
     var menuDrawerViewController: NavigationMenuViewController!
     var isMenuExpanded = false
     var memberListener:(() -> Void)?
@@ -20,6 +22,7 @@ class JournalHomeViewController: UIViewController {
     var alphaView: UIView!
     let menuContainer = UIView()
     let journalFeedDataSource = JournalFeedDataSource()
+    
     var blurEffect: UIBlurEffect?
     let menuOpenDuration: TimeInterval = 0.5
     let menuCloseDuration: TimeInterval = 0.25
@@ -223,6 +226,78 @@ class JournalHomeViewController: UIViewController {
         }
 
     }
+    
+    /**
+     */
+    func configureHomeView() {
+        
+    }
+    
+    func showEmptyState() {
+        if self.emptyStateViewController == nil {
+            self.emptyStateViewController = AppDelegate.shared.rootViewController.getScreen(ScreenID.journalEmpty) as? JournalHomeEmptyStateViewController
+        } else {
+//            self.emptyStateViewController?.removeFromParent()
+        }
+        
+        if let feedVc = self.journalFeedViewController {
+            feedVc.willMove(toParent: nil)
+            feedVc.view.removeFromSuperview()
+            feedVc.removeFromParent()
+        }
+        
+        guard let emptyVc = self.emptyStateViewController else {
+            return
+        }
+        
+        emptyVc.willMove(toParent: self)
+        self.addChild(emptyVc)
+        
+        self.containerView.addSubview(emptyVc.view)
+        emptyVc.view.translatesAutoresizingMaskIntoConstraints = false
+        emptyVc.view.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor).isActive = true
+        emptyVc.view.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor).isActive = true
+        emptyVc.view.topAnchor.constraint(equalTo: self.containerView.topAnchor).isActive = true
+        emptyVc.view.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor).isActive = true
+        
+        emptyVc.didMove(toParent: self)
+        
+//        emptyState.willM
+        
+//        self.containerView
+    }
+    
+    func showJournalFeed() {
+         if self.journalFeedViewController == nil {
+            self.journalFeedViewController = JournalFeedCollectionViewController()
+        } else {
+//            self.emptyStateViewController?.removeFromParent()
+        }
+        
+        if let emptyVc = self.emptyStateViewController {
+            emptyVc.willMove(toParent: nil)
+            emptyVc.view.removeFromSuperview()
+            emptyVc.removeFromParent()
+        }
+        
+        guard let journalVc = self.journalFeedViewController else {
+            return
+        }
+        journalVc.dataSource = self.journalFeedDataSource
+        journalVc.dataSource.delegate = self
+        journalVc.willMove(toParent: self)
+        self.addChild(journalVc)
+        
+        self.containerView.addSubview(journalVc.view)
+        journalVc.view.translatesAutoresizingMaskIntoConstraints = false
+        journalVc.view.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor).isActive = true
+        journalVc.view.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor).isActive = true
+        journalVc.view.topAnchor.constraint(equalTo: self.containerView.topAnchor).isActive = true
+        journalVc.view.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor).isActive = true
+        
+        journalVc.didMove(toParent: self)
+        
+    }
 }
 
 extension JournalHomeViewController: NavigationMenuViewControllerDelegate {
@@ -253,6 +328,12 @@ extension JournalHomeViewController: JournalFeedDataSourceDelegate {
     }
     
     func dataLoaded() {
+        if self.journalFeedDataSource.sentPrompts.isEmpty {
+            self.showEmptyState()
+        } else {
+            self.showJournalFeed()
+        }
+        
         self.journalFeedViewController?.dataLoaded()
     }
     
