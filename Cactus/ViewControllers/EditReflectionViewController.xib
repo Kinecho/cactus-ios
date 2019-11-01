@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditReflectionViewController" customModule="Cactus" customModuleProvider="target">
+            <connections>
+                <outlet property="questionTextView" destination="GG4-cB-g9a" id="hhT-kO-c4J"/>
+                <outlet property="responseTextView" destination="1w7-mK-MMI" id="Fdq-dY-P8v"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="573"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="How will you change the world in this crazy time?" translatesAutoresizingMaskIntoConstraints="NO" id="GG4-cB-g9a">
+                    <rect key="frame" x="20" y="20" width="334" height="74"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="textColor" name="GreenDarkest"/>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1w7-mK-MMI" userLabel="Response Text View">
+                    <rect key="frame" x="20" y="114" width="374" height="459"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <color key="textColor" name="GreenDarkest"/>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jbD-rY-rwM" customClass="BorderedButton" customModule="Cactus" customModuleProvider="target">
+                    <rect key="frame" x="344" y="503" width="50" height="50"/>
+                    <color key="backgroundColor" name="GreenDark"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="S3k-8A-h4M"/>
+                        <constraint firstAttribute="height" constant="50" id="jRu-al-1Eg"/>
+                    </constraints>
+                    <color key="tintColor" name="BlueLight"/>
+                    <state key="normal" image="checkmark" catalog="system">
+                        <color key="titleColor" name="BlueLight"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="imageWidth">
+                            <real key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="imageHeight">
+                            <real key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" name="GreenDarkest"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
+                            <real key="value" value="25"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="doneButtonTapped:" destination="-1" eventType="primaryActionTriggered" id="Qch-tD-Ped"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xV-dh-mpp">
+                    <rect key="frame" x="354" y="10" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="6d2-z5-34j"/>
+                        <constraint firstAttribute="width" constant="50" id="DjU-Dk-kan"/>
+                    </constraints>
+                    <color key="tintColor" name="GreenDarkest"/>
+                    <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                    <state key="normal" image="close"/>
+                    <connections>
+                        <action selector="cancelButtonTapped:" destination="-1" eventType="primaryActionTriggered" id="wIH-vb-tBH"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="GG4-cB-g9a" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="3ma-03-slb"/>
+                <constraint firstItem="2xV-dh-mpp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="7aT-2Q-UW7"/>
+                <constraint firstItem="1w7-mK-MMI" firstAttribute="top" secondItem="GG4-cB-g9a" secondAttribute="bottom" constant="20" id="8Ij-qf-1p2"/>
+                <constraint firstAttribute="bottom" secondItem="jbD-rY-rwM" secondAttribute="bottom" constant="20" id="EyU-0s-b2h"/>
+                <constraint firstItem="GG4-cB-g9a" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="IP3-4I-jGr"/>
+                <constraint firstItem="1w7-mK-MMI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Mhm-D3-826"/>
+                <constraint firstAttribute="trailing" secondItem="1w7-mK-MMI" secondAttribute="trailing" constant="20" id="QiM-XW-1pV"/>
+                <constraint firstAttribute="trailing" secondItem="jbD-rY-rwM" secondAttribute="trailing" constant="20" id="VvS-TQ-u5b"/>
+                <constraint firstAttribute="trailing" secondItem="2xV-dh-mpp" secondAttribute="trailing" constant="10" id="dYx-bl-9CI"/>
+                <constraint firstItem="2xV-dh-mpp" firstAttribute="leading" secondItem="GG4-cB-g9a" secondAttribute="trailing" id="iA8-39-Amc"/>
+                <constraint firstAttribute="bottom" secondItem="1w7-mK-MMI" secondAttribute="bottom" id="lRA-Ab-Baa"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="137.68115942028987" y="13.727678571428571"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="checkmark" catalog="system" width="64" height="56"/>
+        <image name="close" width="48" height="48"/>
+        <namedColor name="BlueLight">
+            <color red="0.90196078431372551" green="0.97647058823529409" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="GreenDark">
+            <color red="0.16099999845027924" green="0.63899999856948853" blue="0.53700000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GreenDarkest">
+            <color red="0.027000000700354576" green="0.27099999785423279" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

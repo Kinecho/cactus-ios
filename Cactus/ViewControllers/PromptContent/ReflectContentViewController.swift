@@ -40,7 +40,8 @@ class ReflectContentViewController: PromptContentViewController {
         self.pottedCactusPlaceholderImage.removeFromSuperview()
         //TODO: Get the reflection response, either here or in the parent
         
-        self.createInputView()
+//        self.createInputView()
+        self.createinputView()
         self.configureView()
         self.createCactusGrowingVideo()
         if let response = self.reflectionResponse {
@@ -150,7 +151,16 @@ class ReflectContentViewController: PromptContentViewController {
         }
     }
     
-    func createInputView() {
+    func createinputView() {
+        let editView = EditReflectionViewController.loadFromNib()
+        editView.delegate = self
+        editView.response = self.reflectionResponse
+        editView.questionText = self.content.text
+        
+        
+    }
+    
+    func _createInputView() {
         // *** Create Toolbar
         self.inputToolbar = UIView()
         inputToolbar.backgroundColor = self.view.backgroundColor
@@ -251,5 +261,18 @@ extension ReflectContentViewController: GrowingTextViewDelegate {
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
+    
+}
+
+
+extension ReflectContentViewController: EditReflectionViewControllerDelegate {
+    func done(text: String?) {
+        
+    }
+    
+    func cancel() {
+        
+    }
+    
     
 }
