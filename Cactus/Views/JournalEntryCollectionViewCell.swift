@@ -38,6 +38,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     
     weak var delegate: JournalEntryCollectionVieweCellDelegate?
     
+    var editViewController: EditReflectionViewController?
     var showingBackgroundImage = false
     var cellWidthConstraint: NSLayoutConstraint?
     var responseBottomConstraint: NSLayoutConstraint?
@@ -105,31 +106,42 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
             self.reflectTapped()
             
         }))
-        
-        alert.addAction(UIAlertAction(title: "Edit Reflection", style: .default) { _ in
-            print("Edit reflection tapped")
-            closeAnimation()
-            self.startEdit()
-            
-        })
+                
+        if !(self.responses?.isEmpty ?? true) {
+            let responseText = FormatUtils.responseText(self.responses)
+            let label = FormatUtils.isBlank(responseText) ? "Add Note" : "Edit Note"
+            alert.addAction(UIAlertAction(title: label, style: .default) { _ in
+                print("Edit reflection tapped")
+                closeAnimation()
+                self.startEdit()
+            })
+        }
         
         self.window?.rootViewController?.present(alert, animated: true)
     }
     
     func startEdit() {
-        self.isEditing = true
-        responseTextView.isEditable = true
-        responseTextView.backgroundColor = .white
-        self.responseTextView.layer.borderWidth = 1
-        let bar = UIToolbar()
-        let save = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(self.saveEdit))
-        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let cancel = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.cancelEdit))
-        bar.items = [cancel, spacer, save]
-        bar.sizeToFit()
         
-        responseTextView.inputAccessoryView = bar
-        responseTextView.becomeFirstResponder()
+        guard let vc = self.createEditReflectionModal() else {
+            print("Unable to get the edit modal ")
+            return
+        }
+        //            self.isEditing = true
+        self.editViewController = vc
+        AppDelegate.shared.rootViewController.present(vc, animated: true)
+
+        //        responseTextView.isEditable = true
+//        responseTextView.backgroundColor = .white
+//        self.responseTextView.layer.borderWidth = 1
+//        let bar = UIToolbar()
+//        let save = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(self.saveEdit))
+//        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+//        let cancel = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.cancelEdit))
+//        bar.items = [cancel, spacer, save]
+//        bar.sizeToFit()
+//
+//        responseTextView.inputAccessoryView = bar
+//        responseTextView.becomeFirstResponder()
     }
     
     @objc func saveEdit(_ sender: Any?) {
@@ -227,6 +239,16 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    func getQuestionText() -> String? {
+        let reflectContent = self.promptContent?.content.first(where: { (content) -> Bool in
+            content.contentType == .reflect
+        })
+                        
+        let reflectText = FormatUtils.isBlank(reflectContent?.text) ? nil : reflectContent?.text
+        let questionText = reflectText ?? self.prompt?.question
+        return questionText
+    }
+    
     func updateView() {
         if let sentDate = self.sentPrompt?.firstSentAt {
             let dateString = FormatUtils.formatDate(sentDate)
@@ -237,12 +259,13 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
             self.dateLabel.showAnimatedGradientSkeleton()
         }
         
-        let reflectContent = self.promptContent?.content.first(where: { (content) -> Bool in
-            content.contentType == .reflect
-        })
-                        
-        let reflectText = FormatUtils.isBlank(reflectContent?.text) ? nil : reflectContent?.text
-        let questionText = reflectText ?? self.prompt?.question
+//        let reflectContent = self.promptContent?.content.first(where: { (content) -> Bool in
+//            content.contentType == .reflect
+//        })
+//
+//        let reflectText = FormatUtils.isBlank(reflectContent?.text) ? nil : reflectContent?.text
+//        let questionText = reflectText ?? self.prompt?.question
+        let questionText = self.getQuestionText()
         let subjectLine = self.promptContent?.subjectLine
         let firstText = self.promptContent?.content.first?.text
         let promptAndContentLoaded = self.journalEntry?.promptContentLoaded == true && self.journalEntry?.promptLoaded == true
@@ -436,5 +459,49 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         layoutAttributes.frame = frame
 
         return layoutAttributes
+    }
+}
+
+extension JournalEntryCollectionViewCell: EditReflectionViewControllerDelegate {
+    func createEditReflectionModal() -> EditReflectionViewController? {
+        let editView = EditReflectionViewController.loadFromNib()
+        editView.delegate = self
+        
+        var response = self.responses?.first
+        if response == nil, let promptId = self.sentPrompt?.promptId {
+            response = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: self.prompt?.question)
+        }
+        
+        guard let reflectionResponse = response else {
+            return nil
+        }
+        
+        editView.response = reflectionResponse
+        editView.questionText = self.getQuestionText()
+        
+        return editView
+    }
+    
+    
+    
+    func done(text: String?) {
+        print("Saving text: \(text ?? "None provided")")
+        guard let response = self.editViewController?.response else {return}
+        
+        response.content.text = text
+        self.updateView()
+        
+        ReflectionResponseService.sharedInstance.save(response) { (saved, error) in
+            print("Saved the response! \(saved?.id ?? "no id found")")
+            self.editViewController?.isSaving = false
+             if error == nil {
+                 self.editViewController?.dismiss(animated: true, completion: nil)
+             }
+        }
+
+    }
+    
+    func cancel() {
+        self.editViewController?.dismiss(animated: true, completion: nil)
     }
 }
