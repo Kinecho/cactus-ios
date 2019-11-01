@@ -224,6 +224,17 @@
 		30CD90AA2346F06B00703FE2 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30CD90A92346F06B00703FE2 /* Settings.storyboard */; };
 		30CD90AB2346F06B00703FE2 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30CD90A92346F06B00703FE2 /* Settings.storyboard */; };
 		30D0E449236C89DA00EFC0E3 /* CactusConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30727436236A312800309B3C /* CactusConstants.swift */; };
+		30D0E44A236C913600EFC0E3 /* CactusImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC17E2339839A005C6555 /* CactusImage.swift */; };
+		30D0E44B236C91F500EFC0E3 /* CGExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0B222EADE2D005B25FD /* CGExtensions.swift */; };
+		30D0E44C236C920000EFC0E3 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9B22EBF2AB007C4E6C /* ColorExtensions.swift */; };
+		30D0E44D236C920400EFC0E3 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3322EC299300A2EA95 /* ViewExtensions.swift */; };
+		30D0E44E236C920800EFC0E3 /* FirebaseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E10232822E600A49EB6 /* FirebaseExtensions.swift */; };
+		30D0E44F236C920C00EFC0E3 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E2E2328A8AD00A49EB6 /* ViewControllerExtensions.swift */; };
+		30D0E451236C921200EFC0E3 /* FontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C7E57A233FEB5800145111 /* FontExtensions.swift */; };
+		30D0E452236C921500EFC0E3 /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */; };
+		30D0E454236C98C100EFC0E3 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D0E453236C98C100EFC0E3 /* StringExtensions.swift */; };
+		30D0E455236C98C100EFC0E3 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D0E453236C98C100EFC0E3 /* StringExtensions.swift */; };
+		30D0E456236C98C100EFC0E3 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D0E453236C98C100EFC0E3 /* StringExtensions.swift */; };
 		30D461372362750900B8AED7 /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */; };
 		30D461382362750D00B8AED7 /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */; };
 		30D7F709236BAAB100379EE0 /* EditReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D7F707236BAAB100379EE0 /* EditReflectionViewController.swift */; };
@@ -391,6 +402,7 @@
 		30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusColor.swift; sourceTree = "<group>"; };
 		30C7E57A233FEB5800145111 /* FontExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtensions.swift; sourceTree = "<group>"; };
 		30CD90A92346F06B00703FE2 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		30D0E453236C98C100EFC0E3 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
 		30D7F707236BAAB100379EE0 /* EditReflectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditReflectionViewController.swift; sourceTree = "<group>"; };
 		30D7F708236BAAB100379EE0 /* EditReflectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditReflectionViewController.xib; sourceTree = "<group>"; };
@@ -761,6 +773,7 @@
 				305B186A23319A72003E1561 /* ImageExtensions.swift */,
 				30C7E57A233FEB5800145111 /* FontExtensions.swift */,
 				30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */,
+				30D0E453236C98C100EFC0E3 /* StringExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1411,21 +1424,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30D0E44F236C920C00EFC0E3 /* ViewControllerExtensions.swift in Sources */,
+				30D0E44C236C920000EFC0E3 /* ColorExtensions.swift in Sources */,
 				30D0E449236C89DA00EFC0E3 /* CactusConstants.swift in Sources */,
 				305B187C2331A906003E1561 /* ReflectionResponse.swift in Sources */,
 				305B18752331A8F5003E1561 /* CactusColor.swift in Sources */,
 				305B187A2331A906003E1561 /* PromptContent.swift in Sources */,
 				3084E96A234BACE300788279 /* FormatUtilTest.swift in Sources */,
+				30D0E44A236C913600EFC0E3 /* CactusImage.swift in Sources */,
 				305B18722331A843003E1561 /* FileUtils.swift in Sources */,
 				305B18762331A906003E1561 /* BaseModel.swift in Sources */,
 				303BF744232A986A00164539 /* CactusUnitTests.swift in Sources */,
+				30D0E44B236C91F500EFC0E3 /* CGExtensions.swift in Sources */,
 				305B187D2331A906003E1561 /* MailchimpModels.swift in Sources */,
 				305B18742331A8F0003E1561 /* MarkdownUtil.swift in Sources */,
+				30D0E451236C921200EFC0E3 /* FontExtensions.swift in Sources */,
 				305B18732331A8E8003E1561 /* FormatUtils.swift in Sources */,
 				305B187123319F42003E1561 /* FileUtilsTest.swift in Sources */,
 				305B18772331A906003E1561 /* FlamelinkTypes.swift in Sources */,
 				305B18782331A906003E1561 /* CactusMember.swift in Sources */,
 				305B187B2331A906003E1561 /* ReflectionPrompt.swift in Sources */,
+				30D0E44D236C920400EFC0E3 /* ViewExtensions.swift in Sources */,
+				30D0E452236C921500EFC0E3 /* UIAlertControllerExtensions.swift in Sources */,
+				30D0E456236C98C100EFC0E3 /* StringExtensions.swift in Sources */,
+				30D0E44E236C920800EFC0E3 /* FirebaseExtensions.swift in Sources */,
 				305B18792331A906003E1561 /* SentPrompt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1446,6 +1468,7 @@
 				30BF2E122328230E00A49EB6 /* FirebaseExtensions.swift in Sources */,
 				30BF2E2B23289F9F00A49EB6 /* TextContentViewController.swift in Sources */,
 				30934FA722EBFF27007C4E6C /* ReflectionPrompt.swift in Sources */,
+				30D0E455236C98C100EFC0E3 /* StringExtensions.swift in Sources */,
 				30BF2E35232964CD00A49EB6 /* FlamelinkTypes.swift in Sources */,
 				3023FE3122ECD0A300F753A7 /* NotificationService.swift in Sources */,
 				30E9B0AD22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
@@ -1542,6 +1565,7 @@
 				30E9B0A922EAD68B005B25FD /* AppMainViewController.swift in Sources */,
 				30934FA622EBFF27007C4E6C /* ReflectionPrompt.swift in Sources */,
 				30E9B0AC22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
+				30D0E454236C98C100EFC0E3 /* StringExtensions.swift in Sources */,
 				30934F9F22EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift in Sources */,
 				30934F9922EBF235007C4E6C /* BorderedButton.swift in Sources */,
 				30934FAC22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */,

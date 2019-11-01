@@ -62,7 +62,7 @@ enum CactusImage: String {
         }
         
         if let width = width, let height = height {
-            return image.ofSize(CGSize(height, width))
+            return image.ofSize(CGSize(width: width, height: height))
         } else if let width = width {
             return image.ofWidth(newWidth: width)
         }
@@ -74,7 +74,7 @@ enum CactusImage: String {
         let scale = newWidth / image.size.width
         let newHeight = image.size.height * scale
         UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
-        image.draw(in: CGRect(0, 0, newWidth, newHeight))
+        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
 

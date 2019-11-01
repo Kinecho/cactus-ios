@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,8 +16,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReflectContentViewController" customModule="Cactus" customModuleProvider="target">
             <connections>
+                <outlet property="addNoteButton" destination="SQf-qu-GoP" id="S7k-Wt-6gL"/>
                 <outlet property="pottedCactusPlaceholderImage" destination="lak-qi-UqW" id="lrS-j6-zvp"/>
                 <outlet property="questionTextView" destination="kau-mV-hyr" id="xwz-Wa-91C"/>
+                <outlet property="reflectionTextView" destination="KbP-hJ-CGv" id="deJ-d4-KQq"/>
                 <outlet property="videoView" destination="ggY-Bf-lGx" id="dH0-IL-rUb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -82,10 +84,57 @@
                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="32"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQf-qu-GoP" customClass="BorderedButton" customModule="Cactus" customModuleProvider="target">
+                    <rect key="frame" x="40" y="792" width="334" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="2sE-55-Mnq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
+                    <color key="tintColor" name="GreenDark"/>
+                    <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
+                    <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Add a Note" image="pencil">
+                        <color key="titleColor" name="GreenDark"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="imageWidth">
+                            <real key="value" value="25"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="imageHeight">
+                            <real key="value" value="25"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" name="GreenDark"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
+                            <real key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="addNoteTapped:" destination="-1" eventType="primaryActionTriggered" id="oMT-sN-pDV"/>
+                    </connections>
+                </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="My Text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KbP-hJ-CGv" customClass="GrowingTextView" customModule="Cactus" customModuleProvider="target">
+                    <rect key="frame" x="20" y="800" width="374" height="40"/>
+                    <color key="textColor" name="GreenDarkest"/>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="maxHeight">
+                            <real key="value" value="200"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textView>
             </subviews>
             <color key="backgroundColor" name="BlueLight"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="KbP-hJ-CGv" secondAttribute="bottom" constant="22" id="0jt-Ql-8UX"/>
                 <constraint firstItem="ggY-Bf-lGx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1R0-7k-pcb"/>
+                <constraint firstItem="KbP-hJ-CGv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="3HJ-hf-Fdk"/>
                 <constraint firstItem="kau-mV-hyr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="5Gw-u5-vSV"/>
                 <constraint firstItem="ggY-Bf-lGx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="FJL-oR-T7h"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kau-mV-hyr" secondAttribute="trailing" constant="20" id="SqO-Qo-o52"/>
@@ -94,11 +143,15 @@
                 <constraint firstItem="kau-mV-hyr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Vvz-B4-jqI"/>
                 <constraint firstItem="tbd-wr-MpV" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="bTd-o2-880"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ggY-Bf-lGx" secondAttribute="trailing" constant="60" id="cJ0-W8-yNY"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="SQf-qu-GoP" secondAttribute="trailing" constant="40" id="gLu-Sj-ueR"/>
                 <constraint firstAttribute="leading" secondItem="Z7M-NV-7xD" secondAttribute="trailing" constant="-60" id="gsB-ua-D0l"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="SQf-qu-GoP" secondAttribute="bottom" constant="20" id="hrg-3b-mHT"/>
                 <constraint firstItem="mHL-au-wC2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-60" id="lWC-VG-B0B"/>
                 <constraint firstItem="Z7M-NV-7xD" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="my6-Ro-U3t"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="KbP-hJ-CGv" secondAttribute="trailing" constant="20" id="oH4-HE-bHW"/>
                 <constraint firstItem="GGN-Rc-luJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="-50" id="r5J-VH-deN"/>
                 <constraint firstItem="ggY-Bf-lGx" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="rAe-YA-0hd"/>
+                <constraint firstItem="SQf-qu-GoP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="tse-6n-o6R"/>
                 <constraint firstItem="tbd-wr-MpV" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="40" id="zSr-wt-7Hh"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -109,6 +162,7 @@
         <image name="blob1" width="200" height="194"/>
         <image name="blob3" width="202" height="204"/>
         <image name="blobNeedle" width="826" height="604"/>
+        <image name="pencil" width="24" height="24"/>
         <image name="pottedCactus" width="150" height="150"/>
         <namedColor name="BlueLight">
             <color red="0.90196078431372551" green="0.97647058823529409" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

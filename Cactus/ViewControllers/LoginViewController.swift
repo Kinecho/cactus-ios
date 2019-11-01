@@ -34,7 +34,7 @@ class LoginViewController: UIViewController {
         self.authHandler = AuthService.sharedInstance.getAuthStateChangeHandler { (_, user) in
             self.configureUI(user)
         }
-        
+        self.emailInputView.attributedPlaceholder = NSAttributedString(string: "Enter your email address").withColor(CactusColor.darkText)
         self.view.setupKeyboardDismissRecognizer()
         self.emailInputView.delegate = self
     }
@@ -125,7 +125,8 @@ class LoginViewController: UIViewController {
     
     func showLoggedInUI(_ user: User) {
         self.removeAuthViewController()
-        self.titleLabel.text = user.email
+//        self.titleLabel.text = user.email
+        self.titleLabel.isHidden = true
         self.subTextLabel.isHidden = true
         self.signOutButton.isHidden = false
         

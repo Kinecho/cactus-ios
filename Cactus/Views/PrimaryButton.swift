@@ -29,10 +29,10 @@ class PrimaryButton: UIButton {
         self.sharedInit()
     }
     
-    var border: CAShapeLayer? = nil
-    @IBInspectable var thickness:CGFloat = 4
+    var border: CAShapeLayer?
+    @IBInspectable var thickness: CGFloat = 4
     @IBInspectable var imageWidth: CGFloat = 25
-    @IBInspectable var imageHeight: CGFloat = 25
+    @IBInspectable var imageHeight:CGFloat = 25
     @IBInspectable var fontSize: CGFloat = 17
     @IBInspectable var horizontalPadding: CGFloat = 20
     @IBInspectable var verticalPadding: CGFloat = 12
