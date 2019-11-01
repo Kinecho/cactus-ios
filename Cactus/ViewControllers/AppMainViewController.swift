@@ -16,6 +16,20 @@ class AppMainViewController: UIViewController {
     var authHasLoaded = false
     var member: CactusMember?
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        if #available(iOS 13.0, *) {
+            return .darkContent
+        } else {
+            // Fallback on earlier versions
+            return .default
+        }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        self.setNeedsStatusBarAppearanceUpdate()
+    }
+
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         let launchStoryboard = UIStoryboard(name: StoryboardID.LaunchScreen.name, bundle: nil)
         self.current = launchStoryboard.instantiateViewController(withIdentifier: ScreenID.LaunchScreen.name)

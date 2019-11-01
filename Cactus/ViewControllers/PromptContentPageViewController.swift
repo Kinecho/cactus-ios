@@ -22,16 +22,26 @@ class PromptContentPageViewController: UIPageViewController {
     
     fileprivate lazy var screens: [UIViewController] = []
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        if #available(iOS 13.0, *) {
+            return .darkContent
+        } else {
+            // Fallback on earlier versions
+            return .default
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataSource = self
-        self.delegate = self
+        self.delegate = self        
         self.configureScreens()
         self.view.backgroundColor = CactusColor.lightBlue
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.setNeedsStatusBarAppearanceUpdate()
         self.configureScreens()
     }
     

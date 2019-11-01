@@ -27,6 +27,10 @@ class NotificationsTableViewController: UITableViewController {
     var managePermissionsInSettings = false
     var memberUnsubscriber: Unsubscriber?
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,6 +54,7 @@ class NotificationsTableViewController: UITableViewController {
         self.refreshPermissionsToggle()
         self.updateEmailSwitch()
         self.updateNotificationTime()
+        self.setNeedsStatusBarAppearanceUpdate()
     }
     
     func updateNotificationTime() {

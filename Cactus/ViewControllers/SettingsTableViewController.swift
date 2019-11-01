@@ -18,6 +18,15 @@ class SettingsTableViewController: UITableViewController {
     let versionTitleLabel = UILabel()
     let versionTextView = UITextView()
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setNeedsStatusBarAppearanceUpdate()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
