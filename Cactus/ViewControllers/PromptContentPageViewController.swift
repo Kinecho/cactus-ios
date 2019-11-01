@@ -16,6 +16,7 @@ class PromptContentPageViewController: UIPageViewController {
 //    var prompt: ReflectionPrompt?
     var reflectionResponse: ReflectionResponse?
     var closeButton: UIButton?
+    var sharePromptButton: UIButton?
     var journalDataSource: JournalFeedDataSource?
     var tapNavigationEnabled = true
     
@@ -84,6 +85,7 @@ class PromptContentPageViewController: UIPageViewController {
         }
         self.configurePageControl()
         self.addCloseButton()
+        self.addSharePromptButton()
     }
     
     func getContentViewController(_ content: Content) -> UIViewController? {
@@ -146,6 +148,40 @@ class PromptContentPageViewController: UIPageViewController {
         //        if self.isBeingPresented {
         self.dismiss(animated: true, completion: nil)
         //        }
+    }
+    
+    func addSharePromptButton() {
+        if self.sharePromptButton != nil {
+            self.sharePromptButton?.removeFromSuperview()
+        }
+        let buttonWidth: CGFloat = 50
+        let yPos = self.view.bounds.minY + self.view.safeAreaInsets.top + 20
+        let xPos = self.view.bounds.minX + 40 + self.view.safeAreaInsets.left
+        
+        let button = UIButton(frame: CGRect(x: xPos, y: yPos, width: 80, height: 80))
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(CactusImage.share.getImage(), for: .normal)
+        button.tintColor = CactusColor.darkGreen
+        
+        let contentInset: CGFloat = 10
+        button.contentEdgeInsets = UIEdgeInsets.init(top: contentInset, left: contentInset, bottom: contentInset, right: contentInset)
+        self.view.addSubview(button)
+        
+        button.widthAnchor.constraint(equalToConstant: buttonWidth).isActive = true
+        button.heightAnchor.constraint(equalToConstant: buttonWidth).isActive = true
+        button.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        button.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
+        
+        button.addTarget(self, action: #selector(self.sharePrompt), for: .primaryActionTriggered)
+        
+        self.sharePromptButton = button
+    }
+    
+    @objc func sharePrompt() {
+        let items: [Any] = [PromptShareItem(self.promptContent)]
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        ac.excludedActivityTypes = [.addToReadingList, .airDrop, .assignToContact, .openInIBooks]
+        present(ac, animated: true)
     }
     
     func addCloseButton() {

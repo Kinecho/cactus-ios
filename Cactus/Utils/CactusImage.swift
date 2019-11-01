@@ -41,6 +41,7 @@ enum CactusImage: String {
     case close
     case gear
     case dots
+    case share
     
     func getImage() -> UIImage? {
         return UIImage(named: self.rawValue)

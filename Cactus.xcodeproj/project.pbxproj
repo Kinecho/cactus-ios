@@ -697,9 +697,17 @@
 			path = PromptContent;
 			sourceTree = "<group>";
 		};
+		30D0E457236CE54100EFC0E3 /* Sharing */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sharing;
+			sourceTree = "<group>";
+		};
 		30E9B09422EA688D005B25FD /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				30D0E457236CE54100EFC0E3 /* Sharing */,
 				3021B67323623000002634A8 /* Api */,
 				30E9B09522EA68AC005B25FD /* FirestoreService.swift */,
 				30BF2E13232824AB00A49EB6 /* FlamelinkService.swift */,
