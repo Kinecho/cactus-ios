@@ -40,6 +40,11 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
         if #available(iOS 13.0, *) {
             self.isModalInPresentation = true
         }
+//        self.responseTextView.placeholder = "Add a note"
+//        self.responseTextView.placeholderColor = CactusColor.placeholderText
+//
+//        self.responseTextView.textInputView.placehol
+//        self.questionTextView.placeholder
         self.questionTextView.text = questionText
         self.responseTextView.text = response.content.text
         
@@ -79,7 +84,10 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
         }
     
     func hasChanges() -> Bool {
-        return self.responseTextView.text.trimmingCharacters(in: .whitespacesAndNewlines) != self.response.content.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let currentText: String = self.responseTextView.text.trimmingCharacters(in: .whitespacesAndNewlines)
+        let originalText: String = self.response.content.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        
+        return currentText != originalText
     }
     
     func handleDismiss() {
