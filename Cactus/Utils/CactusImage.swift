@@ -31,6 +31,33 @@ enum CactusImage: String {
     case energy_element = "energyFull"
     case emotions_element = "emotionsFull"
     
+    //Element parts
+    case emotions1
+    case emotions2
+    case emotions3
+    case energy1
+    case energy2
+    case energy3
+    case energy4
+    case energy5
+    case energy6
+    case energy7
+    case experience1
+    case experience2
+    case experience3
+    case experience4
+    case meaning1
+    case meaning2
+    case relationships1
+    case relationships2
+    case relationships3
+    case relationships4
+    case relationships5
+    case relationships6
+    case relationships7
+    case relationships8
+    case relationships9
+    
     //Icons    
     case airplane
     case angleLeft

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MeaningAnimationViewController" customModule="Cactus" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="EtV-D7-Q2E" id="ZwU-Tf-DlW"/>
+                <outlet property="pot" destination="XjM-Fa-cNX" id="Pzc-ve-4tl"/>
+                <outlet property="stem1" destination="4yr-JA-CMf" id="NTP-FB-wxM"/>
+                <outlet property="stem1Container" destination="6aE-ss-NOn" id="I6W-Am-anp"/>
+                <outlet property="stem2" destination="mjN-wG-74J" id="Xv3-3a-l6p"/>
+                <outlet property="stem2Container" destination="KDP-gx-tIJ" id="i1R-Ia-xOV"/>
+                <outlet property="view" destination="iN0-l3-epB" id="gbY-tF-PAG"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EtV-D7-Q2E">
+                    <rect key="frame" x="140" y="40" width="120" height="320"/>
+                    <subviews>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6aE-ss-NOn" userLabel="Stem1 Container">
+                            <rect key="frame" x="10" y="0.0" width="100" height="200"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meaning1" translatesAutoresizingMaskIntoConstraints="NO" id="4yr-JA-CMf" customClass="UIImageViewAligned" customModule="Cactus" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="200"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="200" id="mHT-1e-JKK"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="alignTop" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </imageView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="4yr-JA-CMf" firstAttribute="centerX" secondItem="6aE-ss-NOn" secondAttribute="centerX" id="G0k-Mc-yAg"/>
+                                <constraint firstItem="4yr-JA-CMf" firstAttribute="top" secondItem="6aE-ss-NOn" secondAttribute="top" id="Luc-xz-xUx"/>
+                                <constraint firstAttribute="trailing" secondItem="4yr-JA-CMf" secondAttribute="trailing" id="PwF-2y-VzI"/>
+                                <constraint firstItem="4yr-JA-CMf" firstAttribute="leading" secondItem="6aE-ss-NOn" secondAttribute="leading" id="bCA-vu-Erw"/>
+                                <constraint firstAttribute="height" constant="200" id="pSb-Tl-iRE"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KDP-gx-tIJ" userLabel="Stem 2 Container">
+                            <rect key="frame" x="60" y="110" width="55" height="100"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meaning2" translatesAutoresizingMaskIntoConstraints="NO" id="mjN-wG-74J" customClass="UIImageViewAligned" customModule="Cactus" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="55" height="100"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="100" id="0ST-cd-nMN"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="alignTop" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </imageView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="mjN-wG-74J" firstAttribute="leading" secondItem="KDP-gx-tIJ" secondAttribute="leading" id="AFQ-hb-5pa"/>
+                                <constraint firstItem="mjN-wG-74J" firstAttribute="top" secondItem="KDP-gx-tIJ" secondAttribute="top" id="FD5-hP-dzi"/>
+                                <constraint firstAttribute="height" constant="100" id="WZD-aS-xev"/>
+                                <constraint firstAttribute="trailing" secondItem="mjN-wG-74J" secondAttribute="trailing" id="xja-Aw-lih"/>
+                            </constraints>
+                        </view>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XjM-Fa-cNX" userLabel="pot">
+                            <rect key="frame" x="0.0" y="200" width="120" height="120"/>
+                            <color key="backgroundColor" name="PinkDarkest"/>
+                            <color key="tintColor" name="PinkDarkest"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="WgL-fW-y5W"/>
+                                <constraint firstAttribute="width" secondItem="XjM-Fa-cNX" secondAttribute="height" multiplier="1:1" id="XIB-rt-7ud"/>
+                                <constraint firstAttribute="height" constant="120" id="ny5-3S-HWr"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="6aE-ss-NOn" firstAttribute="leading" secondItem="XjM-Fa-cNX" secondAttribute="leading" constant="10" id="5qb-TG-56P"/>
+                        <constraint firstItem="XjM-Fa-cNX" firstAttribute="top" secondItem="6aE-ss-NOn" secondAttribute="bottom" id="6fu-Nm-gAA"/>
+                        <constraint firstItem="KDP-gx-tIJ" firstAttribute="trailing" secondItem="XjM-Fa-cNX" secondAttribute="trailing" constant="-5" id="H5z-ZE-GsS"/>
+                        <constraint firstAttribute="trailing" secondItem="XjM-Fa-cNX" secondAttribute="trailing" id="Nnb-di-bVC"/>
+                        <constraint firstItem="6aE-ss-NOn" firstAttribute="trailing" secondItem="XjM-Fa-cNX" secondAttribute="trailing" constant="-10" id="SlX-F6-AmF"/>
+                        <constraint firstItem="XjM-Fa-cNX" firstAttribute="leading" secondItem="EtV-D7-Q2E" secondAttribute="leading" id="cvp-wG-GzQ"/>
+                        <constraint firstItem="XjM-Fa-cNX" firstAttribute="centerX" secondItem="EtV-D7-Q2E" secondAttribute="centerX" id="ggA-j9-rAZ"/>
+                        <constraint firstAttribute="bottom" secondItem="XjM-Fa-cNX" secondAttribute="bottom" id="p2O-0K-ufp"/>
+                        <constraint firstItem="6aE-ss-NOn" firstAttribute="top" secondItem="EtV-D7-Q2E" secondAttribute="top" id="pbv-pG-aRq"/>
+                        <constraint firstItem="XjM-Fa-cNX" firstAttribute="top" secondItem="KDP-gx-tIJ" secondAttribute="bottom" constant="-10" id="ubR-aQ-Kt5"/>
+                        <constraint firstItem="KDP-gx-tIJ" firstAttribute="leading" secondItem="XjM-Fa-cNX" secondAttribute="centerX" id="xAJ-OO-ibx"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="EtV-D7-Q2E" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="CBw-Fn-Ivb"/>
+                <constraint firstItem="EtV-D7-Q2E" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="oXY-5J-xiF"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="137.68115942028987" y="112.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="meaning1" width="36" height="80"/>
+        <image name="meaning2" width="21" height="40"/>
+        <namedColor name="PinkDarkest">
+            <color red="0.4779999852180481" green="0.2199999988079071" blue="0.078000001609325409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

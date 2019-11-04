@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,6 +17,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReflectContentViewController" customModule="Cactus" customModuleProvider="target">
             <connections>
                 <outlet property="addNoteButton" destination="SQf-qu-GoP" id="S7k-Wt-6gL"/>
+                <outlet property="cactusAnimationContainerView" destination="HSm-4V-Hmx" id="AQP-du-hGh"/>
                 <outlet property="pottedCactusPlaceholderImage" destination="lak-qi-UqW" id="lrS-j6-zvp"/>
                 <outlet property="questionTextView" destination="kau-mV-hyr" id="xwz-Wa-91C"/>
                 <outlet property="reflectionTextView" destination="KbP-hJ-CGv" id="deJ-d4-KQq"/>
@@ -61,6 +62,12 @@
                         <constraint firstAttribute="width" constant="250" id="hxn-G2-yTc"/>
                     </constraints>
                 </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSm-4V-Hmx" userLabel="CactusAnimationContainer">
+                    <rect key="frame" x="40" y="281" width="334" height="334"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="HSm-4V-Hmx" secondAttribute="height" multiplier="1:1" id="Pf5-fV-PEa"/>
+                    </constraints>
+                </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggY-Bf-lGx" userLabel="VideoView">
                     <rect key="frame" x="60" y="306" width="294" height="294"/>
                     <subviews>
@@ -105,13 +112,13 @@
                             <real key="value" value="25"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                            <real key="value" value="2"/>
+                            <real key="value" value="1"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                             <color key="value" name="GreenDark"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
-                            <real key="value" value="20"/>
+                            <real key="value" value="25"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
@@ -120,6 +127,9 @@
                 </button>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="My Text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KbP-hJ-CGv" customClass="GrowingTextView" customModule="Cactus" customModuleProvider="target">
                     <rect key="frame" x="20" y="800" width="374" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" placeholder="YES" id="YuA-wQ-oae"/>
+                    </constraints>
                     <color key="textColor" name="GreenDarkest"/>
                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -136,7 +146,10 @@
                 <constraint firstItem="ggY-Bf-lGx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1R0-7k-pcb"/>
                 <constraint firstItem="KbP-hJ-CGv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="3HJ-hf-Fdk"/>
                 <constraint firstItem="kau-mV-hyr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="5Gw-u5-vSV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HSm-4V-Hmx" secondAttribute="trailing" constant="40" id="C9F-gy-JtD"/>
+                <constraint firstItem="HSm-4V-Hmx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="CuQ-pC-dM7"/>
                 <constraint firstItem="ggY-Bf-lGx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="FJL-oR-T7h"/>
+                <constraint firstItem="HSm-4V-Hmx" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Hme-5h-wl3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kau-mV-hyr" secondAttribute="trailing" constant="20" id="SqO-Qo-o52"/>
                 <constraint firstItem="mHL-au-wC2" firstAttribute="top" secondItem="GGN-Rc-luJ" secondAttribute="centerY" constant="-95" id="TVa-sF-zNO"/>
                 <constraint firstItem="GGN-Rc-luJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-50" id="UID-Ze-ogB"/>

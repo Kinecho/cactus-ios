@@ -15,8 +15,9 @@ class ReflectContentViewController: PromptContentViewController {
     @IBOutlet weak var pottedCactusPlaceholderImage: UIImageView!
     @IBOutlet weak var addNoteButton: BorderedButton!
     @IBOutlet weak var reflectionTextView: UITextView!
-    var player: AVPlayer!
+    @IBOutlet weak var cactusAnimationContainerView: UIView!
     
+    var player: AVPlayer!
     var reflectionResponse: ReflectionResponse?
     var editViewController: EditReflectionViewController?
         
@@ -32,9 +33,28 @@ class ReflectContentViewController: PromptContentViewController {
             self.reflectionResponse = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: question)
         }
         self.configureView()
-        self.createCactusGrowingVideo()
+        self.videoView.isHidden = true
+        self.createAnimation()
+//        self.createCactusGrowingVideo()
     }
    
+    func createAnimation() {
+        let container = self.cactusAnimationContainerView!
+        
+        let cactusVc = MeaningAnimationViewController.loadFromNib()
+        cactusVc.willMove(toParent: self)
+        cactusVc.view.frame = container.bounds
+        container.addSubview(cactusVc.view)
+        
+        let cactus = cactusVc.view
+        cactus?.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
+        cactus?.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
+        cactus?.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
+        cactus?.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
+        
+        cactusVc.didMove(toParent: self)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         if let video = self.player {
             video.seek(to: CMTime.zero)

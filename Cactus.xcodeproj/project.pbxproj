@@ -17,6 +17,10 @@
 		300AC18A233A850B005C6555 /* JournalEntrySkeletonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 300AC186233A850B005C6555 /* JournalEntrySkeletonViewController.xib */; };
 		300AC18D233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */; };
 		300AC18E233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */; };
+		301C1A90236F7E9700F06A3D /* MeaningAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301C1A8F236F7E9700F06A3D /* MeaningAnimationViewController.swift */; };
+		301C1A91236F7E9700F06A3D /* MeaningAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301C1A8F236F7E9700F06A3D /* MeaningAnimationViewController.swift */; };
+		301C1A93236F7EB700F06A3D /* MeaningAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 301C1A92236F7EB700F06A3D /* MeaningAnimationViewController.xib */; };
+		301C1A94236F7EB700F06A3D /* MeaningAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 301C1A92236F7EB700F06A3D /* MeaningAnimationViewController.xib */; };
 		3020DD942363F37D00EC40AE /* UIImageViewAligned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3020DD932363F37D00EC40AE /* UIImageViewAligned.swift */; };
 		3020DD952363F37D00EC40AE /* UIImageViewAligned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3020DD932363F37D00EC40AE /* UIImageViewAligned.swift */; };
 		3020DD9823640BE300EC40AE /* CactusElementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3020DD9623640BE300EC40AE /* CactusElementsViewController.swift */; };
@@ -291,6 +295,8 @@
 		300AC185233A850B005C6555 /* JournalEntrySkeletonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JournalEntrySkeletonViewController.swift; path = Cactus/ViewControllers/JournalEntrySkeletonViewController.swift; sourceTree = SOURCE_ROOT; };
 		300AC186233A850B005C6555 /* JournalEntrySkeletonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = JournalEntrySkeletonViewController.xib; path = Cactus/ViewControllers/JournalEntrySkeletonViewController.xib; sourceTree = SOURCE_ROOT; };
 		300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFeedDataSource.swift; sourceTree = "<group>"; };
+		301C1A8F236F7E9700F06A3D /* MeaningAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeaningAnimationViewController.swift; sourceTree = "<group>"; };
+		301C1A92236F7EB700F06A3D /* MeaningAnimationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeaningAnimationViewController.xib; sourceTree = "<group>"; };
 		3020DD932363F37D00EC40AE /* UIImageViewAligned.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewAligned.swift; sourceTree = "<group>"; };
 		3020DD9623640BE300EC40AE /* CactusElementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusElementsViewController.swift; sourceTree = "<group>"; };
 		3020DD9723640BE300EC40AE /* CactusElementsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CactusElementsViewController.xib; sourceTree = "<group>"; };
@@ -483,6 +489,15 @@
 				304EA2F22343B730001FB8AD /* CountProcess.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		301C1A8E236F7E7B00F06A3D /* Cactus Animations */ = {
+			isa = PBXGroup;
+			children = (
+				301C1A8F236F7E9700F06A3D /* MeaningAnimationViewController.swift */,
+				301C1A92236F7EB700F06A3D /* MeaningAnimationViewController.xib */,
+			);
+			path = "Cactus Animations";
 			sourceTree = "<group>";
 		};
 		3021B67323623000002634A8 /* Api */ = {
@@ -746,6 +761,7 @@
 		30E9B0A722EAD618005B25FD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				301C1A8E236F7E7B00F06A3D /* Cactus Animations */,
 				302C4F4E2347FA8100798560 /* Settings */,
 				300AC185233A850B005C6555 /* JournalEntrySkeletonViewController.swift */,
 				300AC186233A850B005C6555 /* JournalEntrySkeletonViewController.xib */,
@@ -954,6 +970,7 @@
 				30A281F022EA62650041158E /* LaunchScreen.storyboard in Resources */,
 				30A281E322EA61A30041158E /* Main.storyboard in Resources */,
 				30673B97233FDEC300EDE7BD /* Lato-Thin.ttf in Resources */,
+				301C1A94236F7EB700F06A3D /* MeaningAnimationViewController.xib in Resources */,
 				303BF753232D289A00164539 /* QuoteContentViewController.xib in Resources */,
 				30673B93233FDEC300EDE7BD /* Lato-Italic.ttf in Resources */,
 				30E2D37D23432B21003D2B27 /* NavigationMenuViewController.xib in Resources */,
@@ -999,6 +1016,7 @@
 				30673B9A233FDEC300EDE7BD /* Lato-Black.ttf in Resources */,
 				30727440236A43AA00309B3C /* CactusElementDetailViewController.xib in Resources */,
 				30673B94233FDEC300EDE7BD /* Lato-LightItalic.ttf in Resources */,
+				301C1A93236F7EB700F06A3D /* MeaningAnimationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1482,6 +1500,7 @@
 				30E9B0AD22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
 				30934FA022EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift in Sources */,
 				305B186F23319E09003E1561 /* FileUtils.swift in Sources */,
+				301C1A91236F7E9700F06A3D /* MeaningAnimationViewController.swift in Sources */,
 				30E2D37B23432B21003D2B27 /* NavigationMenuViewController.swift in Sources */,
 				302C4F512347FAA400798560 /* EmailSettingsViewController.swift in Sources */,
 				30934F9A22EBF235007C4E6C /* BorderedButton.swift in Sources */,
@@ -1579,6 +1598,7 @@
 				30934FAC22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */,
 				30B6EA7322EA5A9F00443E46 /* JournalEntryDetailViewController.swift in Sources */,
 				305B186E23319E09003E1561 /* FileUtils.swift in Sources */,
+				301C1A90236F7E9700F06A3D /* MeaningAnimationViewController.swift in Sources */,
 				30E2D37A23432B21003D2B27 /* NavigationMenuViewController.swift in Sources */,
 				302C4F502347FAA400798560 /* EmailSettingsViewController.swift in Sources */,
 				30934FA322EBF4E6007C4E6C /* FormatUtils.swift in Sources */,
