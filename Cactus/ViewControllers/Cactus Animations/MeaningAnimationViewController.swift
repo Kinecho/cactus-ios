@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MeaningAnimationViewController: UIViewController {
+class MeaningAnimationViewController: UIViewController, CactusElementAnimationViewController {
     @IBOutlet weak var stem1: UIImageView!
     @IBOutlet weak var stem2: UIImageView!
     @IBOutlet weak var pot: UIImageView!
@@ -22,12 +22,10 @@ class MeaningAnimationViewController: UIViewController {
         super.viewDidLoad()
 
         self.pot.layer.cornerRadius = 10
-        self.animate()
-        // Do any additional setup after loading the view.
+//        self.startAnimation()
     }
     
-    func animate() {
-        self.animatePot()
+    func startAnimations() {
         self.animateStem1(delay: 0, finishEarly: 5)
         self.animateStem2(delay: 10)
         self.animateContainer()
@@ -56,14 +54,8 @@ class MeaningAnimationViewController: UIViewController {
         })
     }
     
-    func animatePot(delay: TimeInterval=0) {
-        UIView.animate(withDuration: totalDuration - delay, delay: delay, animations: {
-            //none yet
-        })
-    }
-    
     func animateContainer(delay: TimeInterval=0) {
-        self.containerView.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+        self.containerView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
         UIView.animate(withDuration: totalDuration - delay, delay: delay, options: .curveLinear, animations: {
             self.containerView.transform = CGAffineTransform.identity
         })

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EmotionsAnimationViewController: UIViewController {
+class EmotionsAnimationViewController: UIViewController, CactusElementAnimationViewController {
     @IBOutlet weak var leaf1Container: UIView!
     @IBOutlet weak var leaf1: UIImageViewAligned!
     @IBOutlet weak var pot: UIImageView!
@@ -23,7 +23,7 @@ class EmotionsAnimationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.startAnimations()
+//        self.startAnimation()
     }
 
     func startAnimations() {

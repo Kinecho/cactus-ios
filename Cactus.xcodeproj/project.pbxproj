@@ -243,6 +243,8 @@
 		30CF53902370FBB800578B22 /* RelationshipsAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF538D2370FBB800578B22 /* RelationshipsAnimationViewController.swift */; };
 		30CF53912370FBB800578B22 /* RelationshipsAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CF538E2370FBB800578B22 /* RelationshipsAnimationViewController.xib */; };
 		30CF53922370FBB800578B22 /* RelationshipsAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CF538E2370FBB800578B22 /* RelationshipsAnimationViewController.xib */; };
+		30CF53942371183F00578B22 /* CactusElementAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF53932371183F00578B22 /* CactusElementAnimationViewController.swift */; };
+		30CF53952371183F00578B22 /* CactusElementAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF53932371183F00578B22 /* CactusElementAnimationViewController.swift */; };
 		30D0E449236C89DA00EFC0E3 /* CactusConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30727436236A312800309B3C /* CactusConstants.swift */; };
 		30D0E44A236C913600EFC0E3 /* CactusImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC17E2339839A005C6555 /* CactusImage.swift */; };
 		30D0E44B236C91F500EFC0E3 /* CGExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0B222EADE2D005B25FD /* CGExtensions.swift */; };
@@ -432,6 +434,7 @@
 		30CF53882370DDCC00578B22 /* EnergyAnimationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyAnimationViewController.xib; sourceTree = "<group>"; };
 		30CF538D2370FBB800578B22 /* RelationshipsAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipsAnimationViewController.swift; sourceTree = "<group>"; };
 		30CF538E2370FBB800578B22 /* RelationshipsAnimationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RelationshipsAnimationViewController.xib; sourceTree = "<group>"; };
+		30CF53932371183F00578B22 /* CactusElementAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusElementAnimationViewController.swift; sourceTree = "<group>"; };
 		30D0E453236C98C100EFC0E3 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
 		30D7F707236BAAB100379EE0 /* EditReflectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditReflectionViewController.swift; sourceTree = "<group>"; };
@@ -528,6 +531,7 @@
 				30CF53882370DDCC00578B22 /* EnergyAnimationViewController.xib */,
 				30CF538D2370FBB800578B22 /* RelationshipsAnimationViewController.swift */,
 				30CF538E2370FBB800578B22 /* RelationshipsAnimationViewController.xib */,
+				30CF53932371183F00578B22 /* CactusElementAnimationViewController.swift */,
 			);
 			path = "Cactus Animations";
 			sourceTree = "<group>";
@@ -1571,6 +1575,7 @@
 				30BF2E1523282BD600A49EB6 /* PromptContentService.swift in Sources */,
 				30BC2D01234EA63E00AB7B89 /* AuthProviderTableViewCell.swift in Sources */,
 				30E9B09B22EA6A84005B25FD /* FirestoreService.swift in Sources */,
+				30CF53952371183F00578B22 /* CactusElementAnimationViewController.swift in Sources */,
 				30934FAA22EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
 				30BF2E1923289D1200A49EB6 /* PromptContentPageViewController.swift in Sources */,
 				3072742C236950AC00309B3C /* SharingService.swift in Sources */,
@@ -1673,6 +1678,7 @@
 				30C49D3822EC2D4C00A2EA95 /* CactusColor.swift in Sources */,
 				30BC2D00234EA63E00AB7B89 /* AuthProviderTableViewCell.swift in Sources */,
 				30BF2E11232822E600A49EB6 /* FirebaseExtensions.swift in Sources */,
+				30CF53942371183F00578B22 /* CactusElementAnimationViewController.swift in Sources */,
 				30E9B09622EA68AC005B25FD /* FirestoreService.swift in Sources */,
 				30934FA922EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
 				3072742B236950AC00309B3C /* SharingService.swift in Sources */,

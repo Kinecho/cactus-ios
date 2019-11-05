@@ -16,7 +16,7 @@ class ReflectContentViewController: PromptContentViewController {
     @IBOutlet weak var addNoteButton: BorderedButton!
     @IBOutlet weak var reflectionTextView: UITextView!
     @IBOutlet weak var cactusAnimationContainerView: UIView!
-    
+    var animationVc: CactusElementAnimationViewController?
     var player: AVPlayer!
     var reflectionResponse: ReflectionResponse?
     var editViewController: EditReflectionViewController?
@@ -41,23 +41,45 @@ class ReflectContentViewController: PromptContentViewController {
     func createAnimation() {
         let container = self.cactusAnimationContainerView!
         
+        var cactusVc: CactusElementAnimationViewController?
+        
+        switch self.promptContent.cactusElement {
+        case .meaning:
+            cactusVc = MeaningAnimationViewController.loadFromNib()
+        case .emotions:
+            cactusVc = EmotionsAnimationViewController.loadFromNib()
+        case .experience:
+            cactusVc = ExperienceAnimationViewController.loadFromNib()
+        case .relationships:
+            cactusVc = RelationshipsAnimationViewController.loadFromNib()
+        case .energy:
+            cactusVc = EnergyAnimationViewController.loadFromNib()
+        default:
+            cactusVc = EnergyAnimationViewController.loadFromNib()
+        }
+        
+        guard let animationVc = cactusVc else {
+            print("Unable to find an animation vc for the element \(String(describing: self.promptContent.cactusElement))")
+            return
+        }
+        
 //        let cactusVc = MeaningAnimationViewController.loadFromNib()
 //        let cactusVc = EmotionsAnimationViewController.loadFromNib()
 //          let cactusVc = ExperienceAnimationViewController.loadFromNib()
 //        let cactusVc = EnergyAnimationViewController.loadFromNib()
-        let cactusVc = RelationshipsAnimationViewController.loadFromNib()
+//        let cactusVc = RelationshipsAnimationViewController.loadFromNib()
+        self.animationVc = animationVc
+        animationVc.willMove(toParent: self)
+        animationVc.view.frame = container.bounds
+        container.addSubview(animationVc.view)
         
-        cactusVc.willMove(toParent: self)
-        cactusVc.view.frame = container.bounds
-        container.addSubview(cactusVc.view)
-        
-        let cactus = cactusVc.view
+        let cactus = animationVc.view
         cactus?.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
         cactus?.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
         cactus?.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
         cactus?.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
         
-        cactusVc.didMove(toParent: self)
+        animationVc.didMove(toParent: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,6 +90,7 @@ class ReflectContentViewController: PromptContentViewController {
         
         self.startTime = Date()
         self.endTime = nil
+        self.animationVc?.startAnimations()
     }
     
     @IBAction func addNoteTapped(_ sender: Any) {

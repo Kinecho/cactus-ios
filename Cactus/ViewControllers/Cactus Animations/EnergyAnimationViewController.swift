@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EnergyAnimationViewController: UIViewController {
+class EnergyAnimationViewController: UIViewController, CactusElementAnimationViewController {
     @IBOutlet weak var containerView: UIView!
         
     @IBOutlet weak var leaf1: UIImageViewAligned!
@@ -24,7 +24,7 @@ class EnergyAnimationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.startAnimations()
+//        self.startAnimation()
     }
     
     func startAnimations() {

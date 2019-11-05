@@ -14,7 +14,7 @@ enum GrowDirectionX {
     case center
 }
 
-class RelationshipsAnimationViewController: UIViewController {
+class RelationshipsAnimationViewController: UIViewController, CactusElementAnimationViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var leaf1: UIImageView!
     @IBOutlet weak var leaf2: UIImageView!
@@ -29,7 +29,7 @@ class RelationshipsAnimationViewController: UIViewController {
     var totalDuration: TimeInterval = 20
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.startAnimations()
+//        self.startAnimation()
     }
     
     func startAnimations() {

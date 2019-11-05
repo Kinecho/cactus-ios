@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExperienceAnimationViewController: UIViewController {
+class ExperienceAnimationViewController: UIViewController, CactusElementAnimationViewController {
     @IBOutlet weak var pot: UIImageView!
     
     @IBOutlet weak var containerView: UIView!
@@ -26,7 +26,7 @@ class ExperienceAnimationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.startAnimations()
+//        self.startAnimation()
     }
 
     func startAnimations() {
