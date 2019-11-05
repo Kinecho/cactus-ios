@@ -239,6 +239,10 @@
 		30CF538A2370DDCC00578B22 /* EnergyAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF53872370DDCC00578B22 /* EnergyAnimationViewController.swift */; };
 		30CF538B2370DDCC00578B22 /* EnergyAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CF53882370DDCC00578B22 /* EnergyAnimationViewController.xib */; };
 		30CF538C2370DDCC00578B22 /* EnergyAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CF53882370DDCC00578B22 /* EnergyAnimationViewController.xib */; };
+		30CF538F2370FBB800578B22 /* RelationshipsAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF538D2370FBB800578B22 /* RelationshipsAnimationViewController.swift */; };
+		30CF53902370FBB800578B22 /* RelationshipsAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF538D2370FBB800578B22 /* RelationshipsAnimationViewController.swift */; };
+		30CF53912370FBB800578B22 /* RelationshipsAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CF538E2370FBB800578B22 /* RelationshipsAnimationViewController.xib */; };
+		30CF53922370FBB800578B22 /* RelationshipsAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CF538E2370FBB800578B22 /* RelationshipsAnimationViewController.xib */; };
 		30D0E449236C89DA00EFC0E3 /* CactusConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30727436236A312800309B3C /* CactusConstants.swift */; };
 		30D0E44A236C913600EFC0E3 /* CactusImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC17E2339839A005C6555 /* CactusImage.swift */; };
 		30D0E44B236C91F500EFC0E3 /* CGExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0B222EADE2D005B25FD /* CGExtensions.swift */; };
@@ -426,6 +430,8 @@
 		30CF53822370C58100578B22 /* ExperienceAnimationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExperienceAnimationViewController.xib; sourceTree = "<group>"; };
 		30CF53872370DDCC00578B22 /* EnergyAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyAnimationViewController.swift; sourceTree = "<group>"; };
 		30CF53882370DDCC00578B22 /* EnergyAnimationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyAnimationViewController.xib; sourceTree = "<group>"; };
+		30CF538D2370FBB800578B22 /* RelationshipsAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipsAnimationViewController.swift; sourceTree = "<group>"; };
+		30CF538E2370FBB800578B22 /* RelationshipsAnimationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RelationshipsAnimationViewController.xib; sourceTree = "<group>"; };
 		30D0E453236C98C100EFC0E3 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
 		30D7F707236BAAB100379EE0 /* EditReflectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditReflectionViewController.swift; sourceTree = "<group>"; };
@@ -520,6 +526,8 @@
 				30CF53822370C58100578B22 /* ExperienceAnimationViewController.xib */,
 				30CF53872370DDCC00578B22 /* EnergyAnimationViewController.swift */,
 				30CF53882370DDCC00578B22 /* EnergyAnimationViewController.xib */,
+				30CF538D2370FBB800578B22 /* RelationshipsAnimationViewController.swift */,
+				30CF538E2370FBB800578B22 /* RelationshipsAnimationViewController.xib */,
 			);
 			path = "Cactus Animations";
 			sourceTree = "<group>";
@@ -991,6 +999,7 @@
 				30CF53802370B10F00578B22 /* EmotionsAnimationViewController.xib in Resources */,
 				30CF53862370C58100578B22 /* ExperienceAnimationViewController.xib in Resources */,
 				305B18832331E162003E1561 /* ReflectContentViewController.xib in Resources */,
+				30CF53922370FBB800578B22 /* RelationshipsAnimationViewController.xib in Resources */,
 				30D7F70C236BAAB100379EE0 /* EditReflectionViewController.xib in Resources */,
 				30CF538C2370DDCC00578B22 /* EnergyAnimationViewController.xib in Resources */,
 				30673BA1233FDEC300EDE7BD /* OFL.txt in Resources */,
@@ -1019,6 +1028,7 @@
 				30E2D37C23432B21003D2B27 /* NavigationMenuViewController.xib in Resources */,
 				30BF2E2C23289F9F00A49EB6 /* TextContentViewController.xib in Resources */,
 				30673BA4233FDEC300EDE7BD /* Lato-Light.ttf in Resources */,
+				30CF53912370FBB800578B22 /* RelationshipsAnimationViewController.xib in Resources */,
 				30673B92233FDEC300EDE7BD /* Lato-Italic.ttf in Resources */,
 				3095619C22ECF214009357BD /* GoogleService-Info.plist in Resources */,
 				300AC189233A850B005C6555 /* JournalEntrySkeletonViewController.xib in Resources */,
@@ -1541,6 +1551,7 @@
 				30727432236A289900309B3C /* AppSettings.swift in Sources */,
 				30727438236A312800309B3C /* CactusConstants.swift in Sources */,
 				303EB0892343A0B800AC8741 /* RoundedView.swift in Sources */,
+				30CF53902370FBB800578B22 /* RelationshipsAnimationViewController.swift in Sources */,
 				30A281DA22EA61A30041158E /* JournalEntryDetailViewController.swift in Sources */,
 				305B186C23319A72003E1561 /* ImageExtensions.swift in Sources */,
 				30BF2E332328C7AD00A49EB6 /* MarkdownTypes.swift in Sources */,
@@ -1642,6 +1653,7 @@
 				30727431236A289900309B3C /* AppSettings.swift in Sources */,
 				30727437236A312800309B3C /* CactusConstants.swift in Sources */,
 				303EB0882343A0B800AC8741 /* RoundedView.swift in Sources */,
+				30CF538F2370FBB800578B22 /* RelationshipsAnimationViewController.swift in Sources */,
 				30BF2E1823289D1200A49EB6 /* PromptContentPageViewController.swift in Sources */,
 				305B186B23319A72003E1561 /* ImageExtensions.swift in Sources */,
 				30E9B0BD22EAF2FC005B25FD /* SentPromptService.swift in Sources */,

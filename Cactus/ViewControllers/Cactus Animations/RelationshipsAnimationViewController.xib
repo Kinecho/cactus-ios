@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RelationshipsAnimationViewController" customModule="Cactus" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="HSM-fK-tO8" id="0aD-Mc-rA8"/>
+                <outlet property="leaf1" destination="Wxs-ev-pyj" id="T8v-kp-cTI"/>
+                <outlet property="leaf2" destination="QYW-CK-ppw" id="Huu-dT-V8h"/>
+                <outlet property="leaf3" destination="i6S-ek-EQI" id="xv2-P0-bha"/>
+                <outlet property="leaf4" destination="QZz-FA-Cue" id="u6N-6U-T37"/>
+                <outlet property="leaf5" destination="3ME-Au-EL3" id="o2A-EX-pWL"/>
+                <outlet property="leaf6" destination="Cwo-iY-Z2o" id="t9u-lv-ISu"/>
+                <outlet property="leaf7" destination="XuM-8G-oac" id="a2e-1M-r9W"/>
+                <outlet property="leaf8" destination="xAb-Ct-sdg" id="R0U-fM-xvY"/>
+                <outlet property="leaf9" destination="Q6Y-vT-2LZ" id="qhM-YR-ncA"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSM-fK-tO8" userLabel="containerView">
+                    <rect key="frame" x="150" y="80" width="100" height="240"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="relationships9" translatesAutoresizingMaskIntoConstraints="NO" id="Q6Y-vT-2LZ" userLabel="leaf9">
+                            <rect key="frame" x="40" y="-10" width="60" height="160"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="160" id="Olh-Vl-BE1"/>
+                                <constraint firstAttribute="width" constant="60" id="yn4-bL-AxE"/>
+                            </constraints>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="relationships8" translatesAutoresizingMaskIntoConstraints="NO" id="xAb-Ct-sdg" userLabel="leaf8">
+                            <rect key="frame" x="-60" y="40" width="120" height="160"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="HqN-ew-94e"/>
+                                <constraint firstAttribute="height" constant="160" id="t6c-Yc-Blj"/>
+                            </constraints>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="relationships6" translatesAutoresizingMaskIntoConstraints="NO" id="Cwo-iY-Z2o" userLabel="leaf6">
+                            <rect key="frame" x="20" y="0.0" width="100" height="160"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="020-hV-Vur"/>
+                                <constraint firstAttribute="height" constant="160" id="bEB-uO-Q9z"/>
+                            </constraints>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="relationships2" translatesAutoresizingMaskIntoConstraints="NO" id="QYW-CK-ppw" userLabel="leaf2">
+                            <rect key="frame" x="45" y="50" width="110" height="110"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="110" id="n7N-Wv-kPv"/>
+                                <constraint firstAttribute="height" constant="110" id="sTQ-S3-Hpx"/>
+                            </constraints>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="relationships5" translatesAutoresizingMaskIntoConstraints="NO" id="3ME-Au-EL3" userLabel="leaf5">
+                            <rect key="frame" x="-30" y="0.0" width="100" height="160"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="Ff2-Si-wK0"/>
+                                <constraint firstAttribute="height" constant="160" id="XzZ-6z-6Jp"/>
+                            </constraints>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="relationships3" translatesAutoresizingMaskIntoConstraints="NO" id="i6S-ek-EQI" userLabel="leaf3">
+                            <rect key="frame" x="50" y="0.0" width="100" height="160"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="5ee-VZ-jHk"/>
+                                <constraint firstAttribute="height" constant="160" id="FqE-Jp-TzN"/>
+                            </constraints>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="relationships7" translatesAutoresizingMaskIntoConstraints="NO" id="XuM-8G-oac" userLabel="leaf7">
+                            <rect key="frame" x="60" y="70" width="100" height="90"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="90" id="ZJS-8h-Afr"/>
+                                <constraint firstAttribute="width" constant="100" id="iH6-4R-XDl"/>
+                            </constraints>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="relationships4" translatesAutoresizingMaskIntoConstraints="NO" id="QZz-FA-Cue" userLabel="leaf4">
+                            <rect key="frame" x="-40" y="35" width="90" height="125"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="125" id="FC5-Yt-zUj"/>
+                                <constraint firstAttribute="width" constant="90" id="yHI-M5-6An"/>
+                            </constraints>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="relationships1" translatesAutoresizingMaskIntoConstraints="NO" id="Wxs-ev-pyj" userLabel="leaf1">
+                            <rect key="frame" x="12.5" y="0.0" width="75" height="160"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="75" id="0gt-PR-eTA"/>
+                                <constraint firstAttribute="height" constant="160" id="rKp-9H-jIn"/>
+                            </constraints>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="relationshipsPot" translatesAutoresizingMaskIntoConstraints="NO" id="yTU-HM-18y" userLabel="pot">
+                            <rect key="frame" x="0.0" y="140" width="100" height="100"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="Sjb-fL-3cW"/>
+                                <constraint firstAttribute="height" constant="100" id="jcx-kv-qRa"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="XuM-8G-oac" firstAttribute="leading" secondItem="yTU-HM-18y" secondAttribute="centerX" constant="10" id="6o4-Jd-OT5"/>
+                        <constraint firstItem="Q6Y-vT-2LZ" firstAttribute="leading" secondItem="yTU-HM-18y" secondAttribute="centerX" constant="-10" id="77D-zi-Df2"/>
+                        <constraint firstItem="QYW-CK-ppw" firstAttribute="leading" secondItem="yTU-HM-18y" secondAttribute="centerX" constant="-5" id="7Wu-Va-Ur0"/>
+                        <constraint firstItem="Wxs-ev-pyj" firstAttribute="centerX" secondItem="yTU-HM-18y" secondAttribute="centerX" id="CVc-IA-aLm"/>
+                        <constraint firstItem="yTU-HM-18y" firstAttribute="top" secondItem="i6S-ek-EQI" secondAttribute="bottom" constant="-20" id="GD3-Te-z6f"/>
+                        <constraint firstItem="i6S-ek-EQI" firstAttribute="leading" secondItem="yTU-HM-18y" secondAttribute="centerX" id="HFI-Z4-GhD"/>
+                        <constraint firstItem="yTU-HM-18y" firstAttribute="top" secondItem="Q6Y-vT-2LZ" secondAttribute="bottom" constant="-10" id="JWq-BG-3ev"/>
+                        <constraint firstItem="Wxs-ev-pyj" firstAttribute="bottom" secondItem="yTU-HM-18y" secondAttribute="top" constant="20" id="Ln7-fs-F9I"/>
+                        <constraint firstItem="yTU-HM-18y" firstAttribute="leading" secondItem="HSM-fK-tO8" secondAttribute="leading" id="S5T-m1-Nu8"/>
+                        <constraint firstItem="Cwo-iY-Z2o" firstAttribute="centerX" secondItem="yTU-HM-18y" secondAttribute="centerX" constant="20" id="Sf0-RR-Maa"/>
+                        <constraint firstItem="Wxs-ev-pyj" firstAttribute="top" secondItem="HSM-fK-tO8" secondAttribute="top" id="Wr7-g0-egb"/>
+                        <constraint firstAttribute="trailing" secondItem="yTU-HM-18y" secondAttribute="trailing" id="Y1L-YX-OHM"/>
+                        <constraint firstAttribute="bottom" secondItem="yTU-HM-18y" secondAttribute="bottom" id="Z9z-Pm-u2l"/>
+                        <constraint firstItem="QZz-FA-Cue" firstAttribute="trailing" secondItem="yTU-HM-18y" secondAttribute="centerX" id="dn7-tt-SJy"/>
+                        <constraint firstItem="yTU-HM-18y" firstAttribute="top" secondItem="Cwo-iY-Z2o" secondAttribute="bottom" constant="-20" id="fgb-ed-PE3"/>
+                        <constraint firstItem="yTU-HM-18y" firstAttribute="top" secondItem="XuM-8G-oac" secondAttribute="bottom" constant="-20" id="hyH-c8-tMk"/>
+                        <constraint firstItem="yTU-HM-18y" firstAttribute="top" secondItem="QZz-FA-Cue" secondAttribute="bottom" constant="-20" id="m37-dx-Kqh"/>
+                        <constraint firstItem="yTU-HM-18y" firstAttribute="top" secondItem="3ME-Au-EL3" secondAttribute="bottom" constant="-20" id="v3L-qT-vwR"/>
+                        <constraint firstItem="yTU-HM-18y" firstAttribute="top" secondItem="QYW-CK-ppw" secondAttribute="bottom" constant="-20" id="vRJ-w4-OC6"/>
+                        <constraint firstItem="3ME-Au-EL3" firstAttribute="centerX" secondItem="yTU-HM-18y" secondAttribute="centerX" constant="-30" id="xpp-Lb-czq"/>
+                        <constraint firstItem="xAb-Ct-sdg" firstAttribute="trailing" secondItem="yTU-HM-18y" secondAttribute="centerX" constant="10" id="yoO-MQ-Zlr"/>
+                        <constraint firstItem="yTU-HM-18y" firstAttribute="top" secondItem="xAb-Ct-sdg" secondAttribute="bottom" constant="-60" id="yoc-Kd-sNb"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="HSM-fK-tO8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="aSJ-Rg-sv0"/>
+                <constraint firstItem="HSM-fK-tO8" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="b5d-Dh-1LV"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="139" y="109"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="relationships1" width="27" height="88"/>
+        <image name="relationships2" width="51" height="63"/>
+        <image name="relationships3" width="48" height="92"/>
+        <image name="relationships4" width="44" height="58"/>
+        <image name="relationships5" width="41" height="95"/>
+        <image name="relationships6" width="22" height="79"/>
+        <image name="relationships7" width="50" height="42"/>
+        <image name="relationships8" width="58" height="42"/>
+        <image name="relationships9" width="19" height="76"/>
+        <image name="relationshipsPot" width="47" height="44"/>
+    </resources>
+</document>

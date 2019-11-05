@@ -44,7 +44,8 @@ class ReflectContentViewController: PromptContentViewController {
 //        let cactusVc = MeaningAnimationViewController.loadFromNib()
 //        let cactusVc = EmotionsAnimationViewController.loadFromNib()
 //          let cactusVc = ExperienceAnimationViewController.loadFromNib()
-        let cactusVc = EnergyAnimationViewController.loadFromNib()
+//        let cactusVc = EnergyAnimationViewController.loadFromNib()
+        let cactusVc = RelationshipsAnimationViewController.loadFromNib()
         
         cactusVc.willMove(toParent: self)
         cactusVc.view.frame = container.bounds
