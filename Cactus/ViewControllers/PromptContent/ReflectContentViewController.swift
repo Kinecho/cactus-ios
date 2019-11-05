@@ -41,7 +41,11 @@ class ReflectContentViewController: PromptContentViewController {
     func createAnimation() {
         let container = self.cactusAnimationContainerView!
         
-        let cactusVc = MeaningAnimationViewController.loadFromNib()
+//        let cactusVc = MeaningAnimationViewController.loadFromNib()
+//        let cactusVc = EmotionsAnimationViewController.loadFromNib()
+//          let cactusVc = ExperienceAnimationViewController.loadFromNib()
+        let cactusVc = EnergyAnimationViewController.loadFromNib()
+        
         cactusVc.willMove(toParent: self)
         cactusVc.view.frame = container.bounds
         container.addSubview(cactusVc.view)

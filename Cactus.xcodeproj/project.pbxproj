@@ -227,6 +227,18 @@
 		30C7E57C233FEB5800145111 /* FontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C7E57A233FEB5800145111 /* FontExtensions.swift */; };
 		30CD90AA2346F06B00703FE2 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30CD90A92346F06B00703FE2 /* Settings.storyboard */; };
 		30CD90AB2346F06B00703FE2 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30CD90A92346F06B00703FE2 /* Settings.storyboard */; };
+		30CF537D2370B10F00578B22 /* EmotionsAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF537B2370B10F00578B22 /* EmotionsAnimationViewController.swift */; };
+		30CF537E2370B10F00578B22 /* EmotionsAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF537B2370B10F00578B22 /* EmotionsAnimationViewController.swift */; };
+		30CF537F2370B10F00578B22 /* EmotionsAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CF537C2370B10F00578B22 /* EmotionsAnimationViewController.xib */; };
+		30CF53802370B10F00578B22 /* EmotionsAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CF537C2370B10F00578B22 /* EmotionsAnimationViewController.xib */; };
+		30CF53832370C58100578B22 /* ExperienceAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF53812370C58100578B22 /* ExperienceAnimationViewController.swift */; };
+		30CF53842370C58100578B22 /* ExperienceAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF53812370C58100578B22 /* ExperienceAnimationViewController.swift */; };
+		30CF53852370C58100578B22 /* ExperienceAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CF53822370C58100578B22 /* ExperienceAnimationViewController.xib */; };
+		30CF53862370C58100578B22 /* ExperienceAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CF53822370C58100578B22 /* ExperienceAnimationViewController.xib */; };
+		30CF53892370DDCC00578B22 /* EnergyAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF53872370DDCC00578B22 /* EnergyAnimationViewController.swift */; };
+		30CF538A2370DDCC00578B22 /* EnergyAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF53872370DDCC00578B22 /* EnergyAnimationViewController.swift */; };
+		30CF538B2370DDCC00578B22 /* EnergyAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CF53882370DDCC00578B22 /* EnergyAnimationViewController.xib */; };
+		30CF538C2370DDCC00578B22 /* EnergyAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CF53882370DDCC00578B22 /* EnergyAnimationViewController.xib */; };
 		30D0E449236C89DA00EFC0E3 /* CactusConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30727436236A312800309B3C /* CactusConstants.swift */; };
 		30D0E44A236C913600EFC0E3 /* CactusImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC17E2339839A005C6555 /* CactusImage.swift */; };
 		30D0E44B236C91F500EFC0E3 /* CGExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0B222EADE2D005B25FD /* CGExtensions.swift */; };
@@ -408,6 +420,12 @@
 		30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusColor.swift; sourceTree = "<group>"; };
 		30C7E57A233FEB5800145111 /* FontExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtensions.swift; sourceTree = "<group>"; };
 		30CD90A92346F06B00703FE2 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		30CF537B2370B10F00578B22 /* EmotionsAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionsAnimationViewController.swift; sourceTree = "<group>"; };
+		30CF537C2370B10F00578B22 /* EmotionsAnimationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmotionsAnimationViewController.xib; sourceTree = "<group>"; };
+		30CF53812370C58100578B22 /* ExperienceAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceAnimationViewController.swift; sourceTree = "<group>"; };
+		30CF53822370C58100578B22 /* ExperienceAnimationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExperienceAnimationViewController.xib; sourceTree = "<group>"; };
+		30CF53872370DDCC00578B22 /* EnergyAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyAnimationViewController.swift; sourceTree = "<group>"; };
+		30CF53882370DDCC00578B22 /* EnergyAnimationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyAnimationViewController.xib; sourceTree = "<group>"; };
 		30D0E453236C98C100EFC0E3 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
 		30D7F707236BAAB100379EE0 /* EditReflectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditReflectionViewController.swift; sourceTree = "<group>"; };
@@ -496,6 +514,12 @@
 			children = (
 				301C1A8F236F7E9700F06A3D /* MeaningAnimationViewController.swift */,
 				301C1A92236F7EB700F06A3D /* MeaningAnimationViewController.xib */,
+				30CF537B2370B10F00578B22 /* EmotionsAnimationViewController.swift */,
+				30CF537C2370B10F00578B22 /* EmotionsAnimationViewController.xib */,
+				30CF53812370C58100578B22 /* ExperienceAnimationViewController.swift */,
+				30CF53822370C58100578B22 /* ExperienceAnimationViewController.xib */,
+				30CF53872370DDCC00578B22 /* EnergyAnimationViewController.swift */,
+				30CF53882370DDCC00578B22 /* EnergyAnimationViewController.xib */,
 			);
 			path = "Cactus Animations";
 			sourceTree = "<group>";
@@ -964,8 +988,11 @@
 				30673BA7233FDEC300EDE7BD /* Lato-ThinItalic.ttf in Resources */,
 				305B1866233175DC003E1561 /* PhotoContentViewController.xib in Resources */,
 				3084E9682348FE9C00788279 /* CelebrateViewController.xib in Resources */,
+				30CF53802370B10F00578B22 /* EmotionsAnimationViewController.xib in Resources */,
+				30CF53862370C58100578B22 /* ExperienceAnimationViewController.xib in Resources */,
 				305B18832331E162003E1561 /* ReflectContentViewController.xib in Resources */,
 				30D7F70C236BAAB100379EE0 /* EditReflectionViewController.xib in Resources */,
+				30CF538C2370DDCC00578B22 /* EnergyAnimationViewController.xib in Resources */,
 				30673BA1233FDEC300EDE7BD /* OFL.txt in Resources */,
 				30A281F022EA62650041158E /* LaunchScreen.storyboard in Resources */,
 				30A281E322EA61A30041158E /* Main.storyboard in Resources */,
@@ -1012,9 +1039,12 @@
 				30CD90AA2346F06B00703FE2 /* Settings.storyboard in Resources */,
 				30673B9C233FDEC300EDE7BD /* Lato-Regular.ttf in Resources */,
 				305B1865233175DC003E1561 /* PhotoContentViewController.xib in Resources */,
+				30CF538B2370DDCC00578B22 /* EnergyAnimationViewController.xib in Resources */,
 				303BF752232D289A00164539 /* QuoteContentViewController.xib in Resources */,
 				30673B9A233FDEC300EDE7BD /* Lato-Black.ttf in Resources */,
 				30727440236A43AA00309B3C /* CactusElementDetailViewController.xib in Resources */,
+				30CF537F2370B10F00578B22 /* EmotionsAnimationViewController.xib in Resources */,
+				30CF53852370C58100578B22 /* ExperienceAnimationViewController.xib in Resources */,
 				30673B94233FDEC300EDE7BD /* Lato-LightItalic.ttf in Resources */,
 				301C1A93236F7EB700F06A3D /* MeaningAnimationViewController.xib in Resources */,
 			);
@@ -1505,6 +1535,7 @@
 				302C4F512347FAA400798560 /* EmailSettingsViewController.swift in Sources */,
 				30934F9A22EBF235007C4E6C /* BorderedButton.swift in Sources */,
 				3023FE3622ECF0AE00F753A7 /* CactusColor.swift in Sources */,
+				30CF53842370C58100578B22 /* ExperienceAnimationViewController.swift in Sources */,
 				3084E9592348042800788279 /* PrivacyPolicyViewController.swift in Sources */,
 				30934FAD22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */,
 				30727432236A289900309B3C /* AppSettings.swift in Sources */,
@@ -1543,6 +1574,7 @@
 				30E9B0A422EAC204005B25FD /* AuthService.swift in Sources */,
 				30E9B09A22EA6A81005B25FD /* BaseModel.swift in Sources */,
 				30BF2E302328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */,
+				30CF537E2370B10F00578B22 /* EmotionsAnimationViewController.swift in Sources */,
 				305B1864233175DC003E1561 /* PhotoContentViewController.swift in Sources */,
 				30934F9722EBF146007C4E6C /* RoundedButton.swift in Sources */,
 				3023FE3422ECF06E00F753A7 /* MailchimpModels.swift in Sources */,
@@ -1559,6 +1591,7 @@
 				3021B67223622FE7002634A8 /* ApiService.swift in Sources */,
 				3021B67923623AE3002634A8 /* CactusTextInputField.swift in Sources */,
 				303BF751232D289A00164539 /* QuoteContentViewController.swift in Sources */,
+				30CF538A2370DDCC00578B22 /* EnergyAnimationViewController.swift in Sources */,
 				3026B29B234D3E2800CD2D34 /* PromptContentViewController.swift in Sources */,
 				30E2D377234311C6003D2B27 /* PillLabelView.swift in Sources */,
 				3084E95C2348087100788279 /* HelpViewController.swift in Sources */,
@@ -1603,6 +1636,7 @@
 				302C4F502347FAA400798560 /* EmailSettingsViewController.swift in Sources */,
 				30934FA322EBF4E6007C4E6C /* FormatUtils.swift in Sources */,
 				30BF2E0D2328171200A49EB6 /* PromptContent.swift in Sources */,
+				30CF53832370C58100578B22 /* ExperienceAnimationViewController.swift in Sources */,
 				3084E9582348042800788279 /* PrivacyPolicyViewController.swift in Sources */,
 				30E9B0B322EADE2D005B25FD /* CGExtensions.swift in Sources */,
 				30727431236A289900309B3C /* AppSettings.swift in Sources */,
@@ -1641,6 +1675,7 @@
 				30E9B09D22EA7FC3005B25FD /* CactusMember.swift in Sources */,
 				30E9B0A322EAC204005B25FD /* AuthService.swift in Sources */,
 				30B6EA6F22EA5A9F00443E46 /* AppDelegate.swift in Sources */,
+				30CF537D2370B10F00578B22 /* EmotionsAnimationViewController.swift in Sources */,
 				305B1863233175DC003E1561 /* PhotoContentViewController.swift in Sources */,
 				30BF2E322328C7AD00A49EB6 /* MarkdownTypes.swift in Sources */,
 				308446F122ECAE0100FB0683 /* MailchimpModels.swift in Sources */,
@@ -1657,6 +1692,7 @@
 				3021B67823623AE3002634A8 /* CactusTextInputField.swift in Sources */,
 				303BF750232D289A00164539 /* QuoteContentViewController.swift in Sources */,
 				3026B29A234D3E2800CD2D34 /* PromptContentViewController.swift in Sources */,
+				30CF53892370DDCC00578B22 /* EnergyAnimationViewController.swift in Sources */,
 				30E9B0AF22EADD04005B25FD /* LoginViewController.swift in Sources */,
 				30E2D376234311C6003D2B27 /* PillLabelView.swift in Sources */,
 				3084E95B2348087100788279 /* HelpViewController.swift in Sources */,
