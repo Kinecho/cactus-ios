@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -39,9 +39,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Neil Poulin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeJ-aC-hQe">
-                    <rect key="frame" x="20" y="134" width="304" height="28"/>
+                    <rect key="frame" x="20" y="134" width="304" height="29"/>
                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
-                    <color key="textColor" name="BlueLight"/>
+                    <color key="textColor" name="White"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_cactusOG" translatesAutoresizingMaskIntoConstraints="NO" id="kzq-Fz-fZ5">
@@ -53,13 +53,13 @@
                     </constraints>
                 </imageView>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="neil@cactus.app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dw-Xl-Tng">
-                    <rect key="frame" x="20" y="172" width="294" height="19"/>
+                    <rect key="frame" x="20" y="167" width="294" height="19"/>
                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                     <color key="textColor" name="GreenLight"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEe-Hm-kiV">
-                    <rect key="frame" x="0.0" y="211" width="334" height="116"/>
+                    <rect key="frame" x="0.0" y="206" width="334" height="68"/>
                     <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="24"/>
                     <color key="tintColor" name="GreenLight"/>
                     <inset key="contentEdgeInsets" minX="20" minY="10" maxX="0.0" maxY="10"/>
@@ -72,7 +72,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1A-e2-RO0" userLabel="Notifications">
-                    <rect key="frame" x="0.0" y="443" width="334" height="116"/>
+                    <rect key="frame" x="0.0" y="342" width="334" height="68"/>
                     <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="24"/>
                     <color key="tintColor" name="GreenLight"/>
                     <inset key="contentEdgeInsets" minX="20" minY="10" maxX="0.0" maxY="10"/>
@@ -83,7 +83,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQA-bL-PSt" userLabel="Settings">
-                    <rect key="frame" x="0.0" y="327" width="334" height="116"/>
+                    <rect key="frame" x="0.0" y="274" width="334" height="68"/>
                     <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="24"/>
                     <color key="tintColor" name="GreenLight"/>
                     <inset key="contentEdgeInsets" minX="20" minY="10" maxX="0.0" maxY="10"/>
@@ -94,17 +94,17 @@
                     </connections>
                 </button>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nnk-9j-MZV" customClass="RoundedView" customModule="Cactus" customModuleProvider="target">
-                    <rect key="frame" x="20" y="689" width="137" height="90"/>
+                    <rect key="frame" x="20" y="528" width="143" height="90"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="121" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OU6-hA-xBB">
-                            <rect key="frame" x="35" y="10" width="67" height="47"/>
+                            <rect key="frame" x="36.5" y="10" width="70" height="48"/>
                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="40"/>
                             <color key="textColor" name="GreenLight"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reflections" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qH1-jQ-ub4">
-                            <rect key="frame" x="26" y="60" width="85" height="20"/>
-                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                            <rect key="frame" x="37" y="61" width="69" height="17"/>
+                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                             <color key="textColor" name="GreenLight"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -113,29 +113,29 @@
                     <constraints>
                         <constraint firstItem="OU6-hA-xBB" firstAttribute="centerX" secondItem="Nnk-9j-MZV" secondAttribute="centerX" id="Azu-Qh-WF4"/>
                         <constraint firstItem="qH1-jQ-ub4" firstAttribute="centerX" secondItem="Nnk-9j-MZV" secondAttribute="centerX" id="CLA-Wc-Cw3"/>
-                        <constraint firstAttribute="bottom" secondItem="qH1-jQ-ub4" secondAttribute="bottom" constant="10" id="LAD-G3-u6x"/>
+                        <constraint firstAttribute="bottom" secondItem="qH1-jQ-ub4" secondAttribute="bottom" constant="12" id="LAD-G3-u6x"/>
                         <constraint firstAttribute="height" constant="90" id="VdV-Yr-X4K"/>
                         <constraint firstItem="qH1-jQ-ub4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="OU6-hA-xBB" secondAttribute="bottom" id="raU-QJ-uFQ"/>
                         <constraint firstItem="OU6-hA-xBB" firstAttribute="top" secondItem="Nnk-9j-MZV" secondAttribute="top" constant="10" id="wfG-XQ-YE8"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="20"/>
+                            <real key="value" value="12"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KDO-6D-AB5" customClass="RoundedView" customModule="Cactus" customModuleProvider="target">
-                    <rect key="frame" x="177" y="689" width="137" height="90"/>
+                    <rect key="frame" x="171" y="528" width="143" height="90"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="93" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlD-xm-bIw">
-                            <rect key="frame" x="46.5" y="10" width="44.5" height="47"/>
+                            <rect key="frame" x="48.5" y="10" width="46.5" height="48"/>
                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="40"/>
                             <color key="textColor" name="GreenLight"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETE-OQ-lib">
-                            <rect key="frame" x="38.5" y="60" width="60.5" height="20"/>
-                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                            <rect key="frame" x="46" y="61" width="51" height="17"/>
+                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                             <color key="textColor" name="GreenLight"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -145,31 +145,31 @@
                         <constraint firstItem="DlD-xm-bIw" firstAttribute="top" secondItem="KDO-6D-AB5" secondAttribute="top" constant="10" id="D5x-F8-aud"/>
                         <constraint firstAttribute="height" constant="90" id="Fgo-dS-Ntq"/>
                         <constraint firstItem="ETE-OQ-lib" firstAttribute="top" relation="greaterThanOrEqual" secondItem="DlD-xm-bIw" secondAttribute="bottom" id="kK3-k8-J2I"/>
-                        <constraint firstAttribute="bottom" secondItem="ETE-OQ-lib" secondAttribute="bottom" constant="10" id="vDD-fp-hus"/>
+                        <constraint firstAttribute="bottom" secondItem="ETE-OQ-lib" secondAttribute="bottom" constant="12" id="vDD-fp-hus"/>
                         <constraint firstItem="ETE-OQ-lib" firstAttribute="centerX" secondItem="KDO-6D-AB5" secondAttribute="centerX" id="xs0-10-7Od"/>
                         <constraint firstItem="DlD-xm-bIw" firstAttribute="centerX" secondItem="KDO-6D-AB5" secondAttribute="centerX" id="xsn-Wh-m5O"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="20"/>
+                            <real key="value" value="12"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BaY-h1-QJB" customClass="RoundedView" customModule="Cactus" customModuleProvider="target">
-                    <rect key="frame" x="20" y="579" width="294" height="90"/>
+                    <rect key="frame" x="20" y="430" width="294" height="90"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pottedCactus" translatesAutoresizingMaskIntoConstraints="NO" id="Kms-7f-edX">
                             <rect key="frame" x="-30" y="0.0" width="98" height="120"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="88" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SgD-gm-waT">
-                            <rect key="frame" x="93" y="21.5" width="44.5" height="47"/>
+                            <rect key="frame" x="93" y="21" width="46.5" height="48"/>
                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="40"/>
                             <color key="textColor" name="GreenLight"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day Streak" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0C-hD-Yg5">
-                            <rect key="frame" x="152.5" y="35" width="83.5" height="20"/>
-                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                            <rect key="frame" x="147.5" y="36.5" width="67.5" height="17"/>
+                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                             <color key="textColor" name="GreenLight"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -182,14 +182,14 @@
                         <constraint firstAttribute="height" constant="90" id="L9M-A2-koK"/>
                         <constraint firstItem="SgD-gm-waT" firstAttribute="leading" secondItem="Kms-7f-edX" secondAttribute="trailing" constant="25" id="QBC-9V-RrR"/>
                         <constraint firstItem="k0C-hD-Yg5" firstAttribute="centerY" secondItem="BaY-h1-QJB" secondAttribute="centerY" id="UOR-N1-S9F"/>
-                        <constraint firstItem="k0C-hD-Yg5" firstAttribute="leading" secondItem="SgD-gm-waT" secondAttribute="trailing" constant="15" id="tbi-B8-qva"/>
+                        <constraint firstItem="k0C-hD-Yg5" firstAttribute="leading" secondItem="SgD-gm-waT" secondAttribute="trailing" constant="8" id="tbi-B8-qva"/>
                         <constraint firstItem="Kms-7f-edX" firstAttribute="width" secondItem="BaY-h1-QJB" secondAttribute="width" multiplier="1/3" id="u7I-gQ-5kT"/>
                         <constraint firstItem="Kms-7f-edX" firstAttribute="top" secondItem="BaY-h1-QJB" secondAttribute="top" id="wDz-wk-j5X"/>
                         <constraint firstAttribute="bottom" secondItem="Kms-7f-edX" secondAttribute="bottom" constant="-30" id="yHI-IX-8Ko"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="20"/>
+                            <real key="value" value="12"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
@@ -216,11 +216,11 @@
                 <constraint firstItem="kzq-Fz-fZ5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="9H3-d6-wCa"/>
                 <constraint firstItem="gQA-bL-PSt" firstAttribute="top" secondItem="vEe-Hm-kiV" secondAttribute="bottom" id="BAs-Pg-GVW"/>
                 <constraint firstItem="r1A-e2-RO0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="BKw-iA-maM"/>
-                <constraint firstItem="KDO-6D-AB5" firstAttribute="top" secondItem="BaY-h1-QJB" secondAttribute="bottom" constant="20" id="CV0-EZ-laI"/>
+                <constraint firstItem="KDO-6D-AB5" firstAttribute="top" secondItem="BaY-h1-QJB" secondAttribute="bottom" constant="8" id="CV0-EZ-laI"/>
                 <constraint firstItem="gQA-bL-PSt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="CYX-Bl-7Pm"/>
                 <constraint firstItem="vEe-Hm-kiV" firstAttribute="top" secondItem="3dw-Xl-Tng" secondAttribute="bottom" constant="20" id="Cog-er-dgW"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="kzq-Fz-fZ5" secondAttribute="top" constant="-20" id="GWO-wZ-gTg"/>
-                <constraint firstItem="KDO-6D-AB5" firstAttribute="leading" secondItem="Nnk-9j-MZV" secondAttribute="trailing" constant="20" id="JlQ-tR-HlS"/>
+                <constraint firstItem="KDO-6D-AB5" firstAttribute="leading" secondItem="Nnk-9j-MZV" secondAttribute="trailing" constant="8" id="JlQ-tR-HlS"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vEe-Hm-kiV" secondAttribute="trailing" id="O5Q-D3-d46"/>
                 <constraint firstItem="Nnk-9j-MZV" firstAttribute="width" secondItem="KDO-6D-AB5" secondAttribute="width" id="O5o-is-0bl"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3dw-Xl-Tng" secondAttribute="trailing" constant="20" id="SaT-Ua-9LQ"/>
@@ -231,9 +231,9 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="BaY-h1-QJB" secondAttribute="trailing" constant="20" id="YNE-TL-4ld"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="KDO-6D-AB5" secondAttribute="trailing" constant="20" id="baa-Wh-Y1V"/>
                 <constraint firstItem="aeJ-aC-hQe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="gLk-Zf-8sC"/>
-                <constraint firstItem="Nnk-9j-MZV" firstAttribute="top" secondItem="BaY-h1-QJB" secondAttribute="bottom" constant="20" id="hHq-6q-sd7"/>
+                <constraint firstItem="Nnk-9j-MZV" firstAttribute="top" secondItem="BaY-h1-QJB" secondAttribute="bottom" constant="8" id="hHq-6q-sd7"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aeJ-aC-hQe" secondAttribute="trailing" constant="10" id="hUn-gK-SbS"/>
-                <constraint firstItem="3dw-Xl-Tng" firstAttribute="top" secondItem="aeJ-aC-hQe" secondAttribute="bottom" constant="10" id="iYX-Qz-Afn"/>
+                <constraint firstItem="3dw-Xl-Tng" firstAttribute="top" secondItem="aeJ-aC-hQe" secondAttribute="bottom" constant="4" id="iYX-Qz-Afn"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gQA-bL-PSt" secondAttribute="trailing" id="oMX-3g-7aD"/>
                 <constraint firstItem="BaY-h1-QJB" firstAttribute="top" secondItem="r1A-e2-RO0" secondAttribute="bottom" constant="20" id="rYy-aq-2Nj"/>
                 <constraint firstItem="Mrp-jR-DR7" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="twb-PF-6pO"/>
@@ -255,14 +255,14 @@
         <image name="close" width="48" height="48"/>
         <image name="gear" width="48" height="48"/>
         <image name="pottedCactus" width="150" height="150"/>
-        <namedColor name="BlueLight">
-            <color red="0.90196078431372551" green="0.97647058823529409" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
         <namedColor name="GreenDarkest">
             <color red="0.027000000700354576" green="0.27099999785423279" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="GreenLight">
             <color red="0.72500002384185791" green="0.93699997663497925" blue="0.91399997472763062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -49,7 +49,7 @@
                                     <rect key="frame" x="0.0" y="89.5" width="374" height="502"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MYh-JU-2XA">
-                                            <rect key="frame" x="137" y="0.0" width="100" height="130"/>
+                                            <rect key="frame" x="137" y="0.0" width="100" height="129"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energyFull" translatesAutoresizingMaskIntoConstraints="NO" id="cf6-aT-9ln" userLabel="Energy Image">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -59,25 +59,25 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ENERGY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCL-Y7-fJl" userLabel="Energy">
-                                                    <rect key="frame" x="0.0" y="110" width="100" height="20"/>
-                                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
+                                                    <rect key="frame" x="0.0" y="110" width="100" height="19"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
                                                     <color key="textColor" name="PinkDarkest"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="center" distribution="equalSpacing" alignment="center" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="Prx-mz-Vra" userLabel="Middle Stack View">
-                                            <rect key="frame" x="35" y="150" width="304.5" height="162"/>
+                                            <rect key="frame" x="41" y="149" width="292.5" height="164"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4Dc-Kl-nYO">
-                                                    <rect key="frame" x="0.0" y="16" width="104" height="130"/>
+                                                    <rect key="frame" x="0.0" y="17.5" width="100" height="129"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="experienceFull" translatesAutoresizingMaskIntoConstraints="NO" id="tOD-lc-Qdv" userLabel="Experience Cactus">
-                                                            <rect key="frame" x="2" y="0.0" width="100" height="100"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXPERIENCE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ql-dn-EJl" userLabel="Experience">
-                                                            <rect key="frame" x="0.0" y="110" width="104" height="20"/>
-                                                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
+                                                            <rect key="frame" x="1" y="110" width="97.5" height="19"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
                                                             <color key="textColor" name="PinkDarkest"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -87,17 +87,17 @@
                                                     </constraints>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sZM-zl-XV2">
-                                                    <rect key="frame" x="174" y="16" width="130.5" height="130"/>
+                                                    <rect key="frame" x="170" y="17.5" width="122.5" height="129"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="relationshipsFull" translatesAutoresizingMaskIntoConstraints="NO" id="XfD-yL-x2F" userLabel="Relationships Cactus">
-                                                            <rect key="frame" x="15" y="0.0" width="100" height="100"/>
+                                                            <rect key="frame" x="11" y="0.0" width="100" height="100"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="XfD-yL-x2F" secondAttribute="height" multiplier="1:1" id="ld5-tS-RNB"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RELATIONSHIPS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vze-gd-GgK" userLabel="Relationships">
-                                                            <rect key="frame" x="0.0" y="110" width="130.5" height="20"/>
-                                                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
+                                                            <rect key="frame" x="0.0" y="110" width="122.5" height="19"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
                                                             <color key="textColor" name="PinkDarkest"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -106,17 +106,17 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="center" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="iZ7-1j-xUy" userLabel="Bottom Stack View">
-                                            <rect key="frame" x="72" y="332" width="230" height="130"/>
+                                            <rect key="frame" x="72" y="333" width="230" height="129"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="II7-SE-0F6">
-                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="130"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="129"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emotionsFull" translatesAutoresizingMaskIntoConstraints="NO" id="tF9-tg-EIL" userLabel="Emotions Cactus">
                                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMOTIONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NUw-Ld-aED">
-                                                            <rect key="frame" x="0.0" y="110" width="100" height="20"/>
-                                                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
+                                                            <rect key="frame" x="0.0" y="110" width="100" height="19"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
                                                             <color key="textColor" name="PinkDarkest"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -126,7 +126,7 @@
                                                     </constraints>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eW6-bX-zba">
-                                                    <rect key="frame" x="130" y="0.5" width="100" height="129"/>
+                                                    <rect key="frame" x="130" y="0.5" width="100" height="128"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meaningFull" translatesAutoresizingMaskIntoConstraints="NO" id="sSx-cx-NoD" userLabel="Meaning Cactus">
                                                             <rect key="frame" x="0.0" y="0.0" width="100" height="99"/>
@@ -135,8 +135,8 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MEANING" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4R-wJ-ObL">
-                                                            <rect key="frame" x="0.0" y="109" width="100" height="20"/>
-                                                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
+                                                            <rect key="frame" x="0.0" y="109" width="100" height="19"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
                                                             <color key="textColor" name="PinkDarkest"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>

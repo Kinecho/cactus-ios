@@ -277,7 +277,7 @@ DEPENDENCIES:
   - SwiftLint
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - AppAuth
     - BoringSSL-GRPC
@@ -382,4 +382,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 83c60f0e6a17bed3b488252b9d5dca57fa8406c9
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.8.4
