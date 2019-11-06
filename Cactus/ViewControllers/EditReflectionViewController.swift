@@ -56,7 +56,7 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
         self.configureSaving()
         self.responseTextView.textContainerInset = UIEdgeInsets(top: 0, left: 6, bottom: 0, right: 6)
     }
-    
+        
     override func viewWillAppear(_ animated: Bool) {
         self.responseTextView.becomeFirstResponder()
     }

@@ -35,7 +35,6 @@ class ReflectContentViewController: PromptContentViewController {
         self.configureView()
         self.videoView.isHidden = true
         self.createAnimation()
-//        self.createCactusGrowingVideo()
     }
    
     func createAnimation() {
@@ -63,11 +62,6 @@ class ReflectContentViewController: PromptContentViewController {
             return
         }
         
-//        let cactusVc = MeaningAnimationViewController.loadFromNib()
-//        let cactusVc = EmotionsAnimationViewController.loadFromNib()
-//          let cactusVc = ExperienceAnimationViewController.loadFromNib()
-//        let cactusVc = EnergyAnimationViewController.loadFromNib()
-//        let cactusVc = RelationshipsAnimationViewController.loadFromNib()
         self.animationVc = animationVc
         animationVc.willMove(toParent: self)
         animationVc.view.frame = container.bounds
