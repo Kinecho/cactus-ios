@@ -245,6 +245,10 @@
 		30CF53922370FBB800578B22 /* RelationshipsAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CF538E2370FBB800578B22 /* RelationshipsAnimationViewController.xib */; };
 		30CF53942371183F00578B22 /* CactusElementAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF53932371183F00578B22 /* CactusElementAnimationViewController.swift */; };
 		30CF53952371183F00578B22 /* CactusElementAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF53932371183F00578B22 /* CactusElementAnimationViewController.swift */; };
+		30CF539823732EC300578B22 /* VideoContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF539623732EC300578B22 /* VideoContentViewController.swift */; };
+		30CF539923732EC300578B22 /* VideoContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF539623732EC300578B22 /* VideoContentViewController.swift */; };
+		30CF539A23732EC300578B22 /* VideoContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CF539723732EC300578B22 /* VideoContentViewController.xib */; };
+		30CF539B23732EC300578B22 /* VideoContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CF539723732EC300578B22 /* VideoContentViewController.xib */; };
 		30D0E449236C89DA00EFC0E3 /* CactusConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30727436236A312800309B3C /* CactusConstants.swift */; };
 		30D0E44A236C913600EFC0E3 /* CactusImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC17E2339839A005C6555 /* CactusImage.swift */; };
 		30D0E44B236C91F500EFC0E3 /* CGExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0B222EADE2D005B25FD /* CGExtensions.swift */; };
@@ -435,6 +439,8 @@
 		30CF538D2370FBB800578B22 /* RelationshipsAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipsAnimationViewController.swift; sourceTree = "<group>"; };
 		30CF538E2370FBB800578B22 /* RelationshipsAnimationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RelationshipsAnimationViewController.xib; sourceTree = "<group>"; };
 		30CF53932371183F00578B22 /* CactusElementAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusElementAnimationViewController.swift; sourceTree = "<group>"; };
+		30CF539623732EC300578B22 /* VideoContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoContentViewController.swift; sourceTree = "<group>"; };
+		30CF539723732EC300578B22 /* VideoContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoContentViewController.xib; sourceTree = "<group>"; };
 		30D0E453236C98C100EFC0E3 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
 		30D7F707236BAAB100379EE0 /* EditReflectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditReflectionViewController.swift; sourceTree = "<group>"; };
@@ -744,6 +750,8 @@
 				3026B299234D3E2800CD2D34 /* PromptContentViewController.swift */,
 				3020DD9623640BE300EC40AE /* CactusElementsViewController.swift */,
 				3020DD9723640BE300EC40AE /* CactusElementsViewController.xib */,
+				30CF539623732EC300578B22 /* VideoContentViewController.swift */,
+				30CF539723732EC300578B22 /* VideoContentViewController.xib */,
 			);
 			path = PromptContent;
 			sourceTree = "<group>";
@@ -1005,6 +1013,7 @@
 				305B18832331E162003E1561 /* ReflectContentViewController.xib in Resources */,
 				30CF53922370FBB800578B22 /* RelationshipsAnimationViewController.xib in Resources */,
 				30D7F70C236BAAB100379EE0 /* EditReflectionViewController.xib in Resources */,
+				30CF539B23732EC300578B22 /* VideoContentViewController.xib in Resources */,
 				30CF538C2370DDCC00578B22 /* EnergyAnimationViewController.xib in Resources */,
 				30673BA1233FDEC300EDE7BD /* OFL.txt in Resources */,
 				30A281F022EA62650041158E /* LaunchScreen.storyboard in Resources */,
@@ -1048,6 +1057,7 @@
 				3084E9672348FE9C00788279 /* CelebrateViewController.xib in Resources */,
 				3026B297234D1AF200CD2D34 /* cactus-growing-green-588.mp4 in Resources */,
 				30B6EA7622EA5A9F00443E46 /* Main.storyboard in Resources */,
+				30CF539A23732EC300578B22 /* VideoContentViewController.xib in Resources */,
 				30A266DA2329BB73003C708E /* config.yml in Resources */,
 				30673BA6233FDEC300EDE7BD /* Lato-ThinItalic.ttf in Resources */,
 				30CD90AA2346F06B00703FE2 /* Settings.storyboard in Resources */,
@@ -1576,6 +1586,7 @@
 				30BC2D01234EA63E00AB7B89 /* AuthProviderTableViewCell.swift in Sources */,
 				30E9B09B22EA6A84005B25FD /* FirestoreService.swift in Sources */,
 				30CF53952371183F00578B22 /* CactusElementAnimationViewController.swift in Sources */,
+				30CF539923732EC300578B22 /* VideoContentViewController.swift in Sources */,
 				30934FAA22EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
 				30BF2E1923289D1200A49EB6 /* PromptContentPageViewController.swift in Sources */,
 				3072742C236950AC00309B3C /* SharingService.swift in Sources */,
@@ -1679,6 +1690,7 @@
 				30BC2D00234EA63E00AB7B89 /* AuthProviderTableViewCell.swift in Sources */,
 				30BF2E11232822E600A49EB6 /* FirebaseExtensions.swift in Sources */,
 				30CF53942371183F00578B22 /* CactusElementAnimationViewController.swift in Sources */,
+				30CF539823732EC300578B22 /* VideoContentViewController.swift in Sources */,
 				30E9B09622EA68AC005B25FD /* FirestoreService.swift in Sources */,
 				30934FA922EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
 				3072742B236950AC00309B3C /* SharingService.swift in Sources */,

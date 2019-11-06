@@ -49,6 +49,23 @@ class FlamelinkFile: Codable {
 class VideoFile: FlamelinkFile {
     var youtubeVideoId: String?
     var url: String?
+    
+    enum VideoCodingKeys: String, CodingKey {
+        case youtubeVideoId
+        case url
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+        do {
+            let container = try decoder.container(keyedBy: VideoCodingKeys.self)
+            self.url = try? container.decode(String.self, forKey: VideoCodingKeys.url)
+            self.youtubeVideoId = try? container.decode(String.self, forKey: VideoCodingKeys.youtubeVideoId)
+            
+        } catch {
+            print("error init VideoFile", error)
+        }
+    }
 }
 
 class AudioFile: FlamelinkFile {
