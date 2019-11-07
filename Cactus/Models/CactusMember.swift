@@ -29,6 +29,25 @@ enum NotificationStatus: String, Codable {
     case INACTIVE
 }
 
+struct ElementAccumulation: Codable {
+    var emotions: Int = 0
+    var energy: Int = 0
+    var experience: Int = 0
+    var meaning: Int = 0
+    var relationships: Int = 0
+}
+
+struct ReflectionStats: Codable {
+    var currentStreakDays: Int = 0
+    var totalDurationMs: Int = 0
+    var totalCount: Int = 0
+    var elementAccumulation: ElementAccumulation
+}
+
+struct MemberStats: Codable {
+    var reflections: ReflectionStats?
+}
+
 class CactusMember: FirestoreIdentifiable, Hashable {
     static let collectionName = FirestoreCollectionName.members
     static let Field = CactusMemberField.self
@@ -47,7 +66,9 @@ class CactusMember: FirestoreIdentifiable, Hashable {
     var mailchimpListMember: ListMember?
     var languageCode: String?
     var notificationSettings: [String: String]? = [:]
-        
+
+    var stats: MemberStats?
+    
     static func == (lhs: CactusMember, rhs: CactusMember) -> Bool {
         return lhs.id != nil && rhs.id != nil && lhs.id == rhs.id
     }

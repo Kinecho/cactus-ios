@@ -330,17 +330,17 @@ extension JournalHomeViewController: NavigationMenuViewControllerDelegate {
 
 extension JournalHomeViewController: JournalFeedDataSourceDelegate {
     func setMenuMetrics() {
-        self.menuDrawerViewController.streak = self.journalFeedDataSource.currentStreak
-        self.menuDrawerViewController.reflectionCount = self.journalFeedDataSource.totalReflections
-        self.menuDrawerViewController.reflectionDurationMs = self.journalFeedDataSource.totalReflectionDurationMs
+//        self.menuDrawerViewController.streak = self.journalFeedDataSource.currentStreak
+//        self.menuDrawerViewController.reflectionCount = self.journalFeedDataSource.totalReflections
+//        self.menuDrawerViewController.reflectionDurationMs = self.journalFeedDataSource.totalReflectionDurationMs
     }
     
     func updateEntry(_ journalEntry: JournalEntry, at: Int?) {
         self.journalFeedViewController?.updateEntry(journalEntry, at: at)
         
-        if self.journalFeedDataSource.loadingCompleted {
-            self.setMenuMetrics()
-        }
+//        if self.journalFeedDataSource.loadingCompleted {
+//            self.setMenuMetrics()
+//        }
     }
     
     func dataLoaded() {

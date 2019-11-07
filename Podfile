@@ -14,7 +14,7 @@ def app_pods
   pod 'Firebase/Firestore'
   pod 'FirebaseUI'
   pod 'FirebaseUI/Storage'
-  pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '4.3.1'
+  pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '4.4.1'
   pod 'MarkdownKit'
   pod 'Cloudinary', '~> 2.0'
   pod 'SwiftLint'

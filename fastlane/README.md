@@ -56,11 +56,6 @@ fastlane ios lint
 fastlane ios certificates
 ```
 
-### ios version_test
-```
-fastlane ios version_test
-```
-
 ### ios create_release
 ```
 fastlane ios create_release

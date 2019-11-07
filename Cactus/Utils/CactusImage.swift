@@ -25,12 +25,26 @@ enum CactusImage: String {
     case pottedCactus
     
     //Elements
+    case experience_element_1 = "experience-1"
+    case experience_element_2 = "experience-2"
     case experience_element = "experienceFull"
-    case meaning_element = "meaningFull"
-    case relationships_element = "relationshipsFull"
-    case energy_element = "energyFull"
-    case emotions_element = "emotionsFull"
     
+    case meaning_element_1 = "meaning-1"
+    case meaning_element_2 = "meaning-2"
+    case meaning_element = "meaningFull"
+    
+    case relationships_element_1 = "relationships-1"
+    case relationships_element_2 = "relationships-2"
+    case relationships_element = "relationshipsFull"
+    
+    case energy_element_1 = "energy-1"
+    case energy_element_2 = "energy-2"
+    case energy_element = "energyFull"
+    
+    case emotions_element_1 = "emotions-1"
+    case emotions_element_2 = "emotions-2"
+    case emotions_element = "emotionsFull"
+        
     //Element parts
     case emotions1
     case emotions2

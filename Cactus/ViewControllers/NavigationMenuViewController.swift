@@ -93,6 +93,14 @@ class NavigationMenuViewController: UIViewController {
             self.emailLabel.isHidden = false
             self.displayNameLabel.text = "\(member.firstName ?? "") \(member.lastName ?? "")".trimmingCharacters(in: .whitespacesAndNewlines)
             self.displayNameLabel.isHidden = false
+            
+            if let reflectionStats = member.stats?.reflections {
+                self.streak = reflectionStats.currentStreakDays
+                self.reflectionDurationMs = reflectionStats.totalDurationMs
+                self.reflectionCount = reflectionStats.totalCount
+            }
+            
+            
         } else {
             self.emailLabel.isHidden = true
             self.displayNameLabel.isHidden = true
@@ -103,7 +111,6 @@ class NavigationMenuViewController: UIViewController {
         } else {
             self.avatarImageView.image = CactusImage.cactusAvatarOG.getImage()
         }
-        
     }
     
     func finishedClosing() {
