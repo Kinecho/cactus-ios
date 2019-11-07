@@ -252,9 +252,9 @@ PODS:
   - SDWebImage (5.3.0):
     - SDWebImage/Core (= 5.3.0)
   - SDWebImage/Core (5.3.0)
-  - Sentry (4.3.1):
-    - Sentry/Core (= 4.3.1)
-  - Sentry/Core (4.3.1)
+  - Sentry (4.4.1):
+    - Sentry/Core (= 4.4.1)
+  - Sentry/Core (4.4.1)
   - SkeletonView (1.8.2)
   - SwiftLint (0.36.0)
 
@@ -273,7 +273,7 @@ DEPENDENCIES:
   - FirebaseUI
   - FirebaseUI/Storage
   - MarkdownKit
-  - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `4.3.1`)
+  - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `4.4.1`)
   - SkeletonView
   - SwiftLint
 
@@ -327,12 +327,12 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   Sentry:
     :git: https://github.com/getsentry/sentry-cocoa.git
-    :tag: 4.3.1
+    :tag: 4.4.1
 
 CHECKOUT OPTIONS:
   Sentry:
     :git: https://github.com/getsentry/sentry-cocoa.git
-    :tag: 4.3.1
+    :tag: 4.4.1
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
@@ -377,10 +377,10 @@ SPEC CHECKSUMS:
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   Protobuf: a4dc852ad69c027ca2166ed287b856697814375b
   SDWebImage: f1afa74b86587c2c63f4e80dfd39b21e3c17b45b
-  Sentry: 5267d493a398663538317e4dcc438c12c66202ed
+  Sentry: 5d312a04e369154aeac616214f4dfc3cbcc8b296
   SkeletonView: bb27c39857e5492136f02ee8a3aa78de55d12ecd
   SwiftLint: fc9859e4e1752340664851f667bb1898b9c90114
 
-PODFILE CHECKSUM: 83c60f0e6a17bed3b488252b9d5dca57fa8406c9
+PODFILE CHECKSUM: af8647b69db9d1597cbc4ca4b454835d996679d8
 
 COCOAPODS: 1.8.4
