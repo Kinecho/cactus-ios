@@ -11,6 +11,17 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 
+class PageLoader<T: FirestoreIdentifiable> {
+    var result: PageResult<T>?
+    var finishedLoading: Bool { result != nil }
+    var pageIndex: Int
+    var listener: ListenerRegistration?
+    
+    init(page index: Int) {
+        self.pageIndex = index
+    }
+}
+
 struct PromptData {
     var hasLoaded: Bool = false
     var unsubscriber: ListenerRegistration?
@@ -55,7 +66,6 @@ class JournalEntryData {
         self.sentPrompt = sentPrompt
         self.promptId = sentPrompt.promptId
         self.memberId = memberId
-        self.setupPromptObserver()
     }
     
     deinit {
@@ -63,6 +73,13 @@ class JournalEntryData {
         self.reflectionPromptData.unsubscriber?.remove()
         self.responseData.unsubscriber?.remove()
         self.contentData.unsubscriber?.remove()
+    }
+    
+    func start() {
+        guard self.reflectionPromptData.unsubscriber == nil else {
+            return
+        }
+        self.setupPromptObserver()
     }
     
     func getJournalEntry() -> JournalEntry {
@@ -148,6 +165,8 @@ struct JournalEntry: Equatable {
 
 protocol JournalFeedDataSourceDelegate: class {
     func updateEntry(_ journalEntry: JournalEntry, at: Int?)
+    func insert(_ journalEntry: JournalEntry, at: Int?)
+    func insertItems(_ indexes: [Int])
     func dataLoaded()
     func loadingCompleted()
 }
@@ -204,6 +223,13 @@ class JournalFeedDataSource {
         })
     }
     
+    var pageListeners: [ListenerRegistration] = []
+    var pages: [PageLoader<SentPrompt>] = []
+    var pageSize: Int = 10
+    var mightHaveMore: Bool {self.pages.last?.result?.mightHaveMore ?? false}
+    
+    var isLoading: Bool {self.pages.contains { !$0.finishedLoading } }
+    
     deinit {
         print("Deinit JournalFeedDataSource. Unsubscribing from all data")
         self.unsubscribeAll()
@@ -211,6 +237,22 @@ class JournalFeedDataSource {
     
     init() {
         print("Creating JournalFeedDataSource")
+     
+//        self.oldInit()
+        self.start()
+    }
+    
+    func start() {
+        self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, _, _) in
+            if self.currentMember != member {
+                self.resetData()
+            }
+            self.currentMember = member
+            self.loadNextPage()
+        })
+    }
+    
+    func oldInit() {
         self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, error, _) in
             if self.currentMember != member {
                 self.resetData()
@@ -218,11 +260,11 @@ class JournalFeedDataSource {
             self.currentMember = member
             if let member = member {
                 self.promptsListener = SentPromptService.sharedInstance
-                    .observeSentPrompts(member: member, { (sentPrompts, error) in
+                    .observeSentPrompts(member: member, limit: 3, { (sentPrompts, error) in
                         if let error = error {
                             print("Error observing prompts", error)
                         }
-                        
+
                         print("Got sent prompts \(sentPrompts?.count ?? 0)")
                         if let prompts = sentPrompts {
                             self.sentPrompts = prompts
@@ -235,13 +277,47 @@ class JournalFeedDataSource {
         })
     }
     
+    func loadNextPage() {
+        print("[JournalFeedDataSource] attempting to load  next page")
+        
+        guard !self.isLoading else {
+            print("Already loading more, can't fetch next page")
+            return
+        }
+        guard let member = self.currentMember else {
+            print("[JouranlFeedDataSource] No current member found, can't load next page")
+            return
+        }
+        let nextIndex = self.pages.count
+        let previousResult = self.pages.last?.result
+        
+        if previousResult == nil && nextIndex != 0 {
+            print("Page hasn't finished loading yet, can't fetch next page")
+            return
+        }
+        
+        let page = PageLoader<SentPrompt>(page: nextIndex)
+        self.pages.append(page)
+        page.listener = SentPromptService.sharedInstance.observeSentPromptsPage(member: member, limit: self.pageSize, lastResult: previousResult, { (pageResult) in
+            page.result = pageResult
+            self.configurePages()
+        })
+    }
+    
+    func configurePages() {
+        let prompts: [SentPrompt] = self.pages.compactMap {$0.result?.results}.flatMap {$0}
+        self.sentPrompts = prompts
+        //Below is copied from initPrompts
+        self.initSentPrompts()
+    }
+    
     func checkForNewPrompts() {
         print("checkForNewPrompts called")
         guard let member = self.currentMember else {
             return
         }
-        
-        SentPromptService.sharedInstance.getSentPrompts(member: member, limit: 10) { (sentPrompts, error) in
+        let first = self.pages.first?.result?.firstSnapshot
+        SentPromptService.sharedInstance.getSentPrompts(member: member, limit: 10, before: first) { (sentPrompts, error) in
             if let error = error {
                 print("Error checking for new prompts", error)
             }
@@ -249,7 +325,7 @@ class JournalFeedDataSource {
             guard let sentPrompts = sentPrompts else {
                 return
             }
-            
+                        
             sentPrompts.reversed().forEach { (sentPrompt) in
                 if !self.sentPrompts.contains(sentPrompt) {
                     print("found a new prompt!")
@@ -279,27 +355,38 @@ class JournalFeedDataSource {
         
         return self.orderedPromptIds.firstIndex(of: promptId)
     }
-        
+    
     func initSentPrompts() {
         guard let memberId = self.currentMember?.id else {
             return
         }
 
+        var createdEntries: [JournalEntryData] = []
+        var insertedIndexes: [Int] = []
         var orderedPromptIds = [String]()
-        self.sentPrompts.forEach { (sentPrompt) in
-            guard let promptId = sentPrompt.promptId else {
+        for (index, sentPrompt) in self.sentPrompts.enumerated() {
+            guard let promptId = sentPrompt.promptId, !orderedPromptIds.contains(promptId) else {
                 return
             }
             if self.journalEntryDataBySentPromptId[promptId] == nil {
                 print("Setting up journal entry data source for promptId \(promptId)")
                 let journalEntry = JournalEntryData(sentPrompt: sentPrompt, memberId: memberId)
                 journalEntry.delegate = self
+                createdEntries.append(journalEntry)
                 self.journalEntryDataBySentPromptId[promptId] = journalEntry
+                insertedIndexes.append(index)
             }
             orderedPromptIds.append(promptId)
         }
         self.orderedPromptIds = orderedPromptIds
-        self.delegate?.dataLoaded()
+        
+        if self.pages.count == 1 {
+            self.delegate?.dataLoaded()
+        } else if !insertedIndexes.isEmpty {
+            self.delegate?.insertItems(insertedIndexes)
+        }
+        createdEntries.forEach {$0.start()}
+//        self.delegate?.dataLoaded()
     }
 }
 

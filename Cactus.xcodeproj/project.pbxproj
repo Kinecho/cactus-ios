@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -295,6 +295,8 @@
 		30E9B0BB22EAF153005B25FD /* SentPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0B922EAF153005B25FD /* SentPrompt.swift */; };
 		30E9B0BD22EAF2FC005B25FD /* SentPromptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */; };
 		30E9B0BE22EAF2FC005B25FD /* SentPromptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */; };
+		30FA2C9923741A3300F671AF /* JournalFeedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FA2C9823741A3300F671AF /* JournalFeedFlowLayout.swift */; };
+		30FA2C9A23741A3300F671AF /* JournalFeedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FA2C9823741A3300F671AF /* JournalFeedFlowLayout.swift */; };
 		76F23F2602ADC65094F1CF3B /* Pods_Cactus_Prod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E8C1EB665F6286E3CD0BE5 /* Pods_Cactus_Prod.framework */; };
 		95087B85A8F99A3282E6AE87 /* Pods_Cactus_Stage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 518BD147DF40E10B6D005DB2 /* Pods_Cactus_Stage.framework */; };
 		C08E3AB862BAFCA7CA61D1A2 /* Pods_Cactus_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2B03820008735B26EA3B1D8 /* Pods_Cactus_UnitTests.framework */; };
@@ -459,6 +461,7 @@
 		30E9B0B222EADE2D005B25FD /* CGExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGExtensions.swift; sourceTree = "<group>"; };
 		30E9B0B922EAF153005B25FD /* SentPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentPrompt.swift; sourceTree = "<group>"; };
 		30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentPromptService.swift; sourceTree = "<group>"; };
+		30FA2C9823741A3300F671AF /* JournalFeedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFeedFlowLayout.swift; sourceTree = "<group>"; };
 		4367361CF4B35F9E8F97DC27 /* Pods-Cactus Stage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus Stage.debug.xcconfig"; path = "Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage.debug.xcconfig"; sourceTree = "<group>"; };
 		518BD147DF40E10B6D005DB2 /* Pods_Cactus_Stage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cactus_Stage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F7497B6D87D04BF0ED03305 /* Pods-Cactus Prod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus Prod.release.xcconfig"; path = "Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod.release.xcconfig"; sourceTree = "<group>"; };
@@ -628,6 +631,7 @@
 				30BC2CFF234EA63E00AB7B89 /* AuthProviderTableViewCell.swift */,
 				3021B67723623AE3002634A8 /* CactusTextInputField.swift */,
 				3020DD932363F37D00EC40AE /* UIImageViewAligned.swift */,
+				30FA2C9823741A3300F671AF /* JournalFeedFlowLayout.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1425,6 +1429,7 @@
 				305B1864233175DC003E1561 /* PhotoContentViewController.swift in Sources */,
 				30934F9722EBF146007C4E6C /* RoundedButton.swift in Sources */,
 				3023FE3422ECF06E00F753A7 /* MailchimpModels.swift in Sources */,
+				30FA2C9A23741A3300F671AF /* JournalFeedFlowLayout.swift in Sources */,
 				30BF2E1623282BDA00A49EB6 /* FlamelinkService.swift in Sources */,
 				3023FE3522ECF0A800F753A7 /* ViewExtensions.swift in Sources */,
 				3021B67623623010002634A8 /* ApiTypes.swift in Sources */,
@@ -1529,6 +1534,7 @@
 				305B1863233175DC003E1561 /* PhotoContentViewController.swift in Sources */,
 				30BF2E322328C7AD00A49EB6 /* MarkdownTypes.swift in Sources */,
 				308446F122ECAE0100FB0683 /* MailchimpModels.swift in Sources */,
+				30FA2C9923741A3300F671AF /* JournalFeedFlowLayout.swift in Sources */,
 				30934F9622EBF146007C4E6C /* RoundedButton.swift in Sources */,
 				30E9B09922EA6A81005B25FD /* BaseModel.swift in Sources */,
 				3021B67523623010002634A8 /* ApiTypes.swift in Sources */,
