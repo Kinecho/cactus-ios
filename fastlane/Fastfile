@@ -67,9 +67,9 @@ platform :ios do
 	  		output_directory: "reports/scan", 
 	  		output_files: "results.xml",
 			device: "iPhone 8",
-			slack_url: "https://hooks.slack.com/services/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",
-			slack_channel: "engineering-apps-ci",
-			slack_only_on_failure: false,
+			# slack_url: "https://hooks.slack.com/services/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",
+			# slack_channel: "engineering-apps-ci",
+			# slack_only_on_failure: false,
 			# include_system
 			include_simulator_logs: false,
 		)
@@ -78,28 +78,16 @@ platform :ios do
   	lane :lint do 
 	  	sh("mkdir", "-p", "../reports/swiftlint")
 	  	swiftlint(
-	  		mode: :lint, 
-	  		# executable: "Pods/SwiftLint/swiftlint", # The SwiftLint binary path (optional). Important if you've installed it via CocoaPods
+	  		mode: :lint, 	  		
 	  		output_file: "reports/swiftlint/results.xml", 
 	  		reporter: "junit", 
 	  		config_file: ".swiftlint.yml"
 	  		)
-  	
   	end
 
   	lane :certificates do
 		match(app_identifier: ["com.cactus.StageCactus", "com.cactus.CactusApp"], force: true)
 	end
-
-	lane :version_test do 
-		# version = "#{lane_context[SharedValues::VERSION_NUMBER]}.#{lane_context[SharedValues::BUILD_NUMBER]}"
-		version = "MY_TEST_VERSION"
-		print "NEIL POULIN #{version}"
-		sh("echo", version)
-
-		sh("sentry-cli releases set-commits --auto #{version}")
-		sh("sentry-cli releases deploys '#{version}' new -e testflight")
-	end 
 
 	lane :create_release do 
 		get_version_number(xcodeproj: "Cactus.xcodeproj", target: "Cactus Prod")

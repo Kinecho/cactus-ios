@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseAuth
+
 class AuthService {
     
     static let sharedInstance = AuthService()
