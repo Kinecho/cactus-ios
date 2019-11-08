@@ -35,16 +35,17 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var editTextTopQuestionConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var cellWidthConstraint: NSLayoutConstraint!
     
     weak var delegate: JournalEntryCollectionVieweCellDelegate?
     
     var editViewController: EditReflectionViewController?
+    var responseTextViewHeightConstraint: NSLayoutConstraint?
     var showingBackgroundImage = false
-    var cellWidthConstraint: NSLayoutConstraint?
+//    var cellWidthConstraint: NSLayoutConstraint?
     var responseBottomConstraint: NSLayoutConstraint?
     var textViewBottomPadding: CGFloat = 20
     var journalEntry: JournalEntry?
-    var responseTextViewHeightConstraint: NSLayoutConstraint?
     var questionLabelHeightConstraint: NSLayoutConstraint?
     var sentPrompt: SentPrompt? {
         return self.journalEntry?.sentPrompt
@@ -325,7 +326,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
             self.showResponseView()
             self.responseTextView.text = nil
             self.responseBottomConstraint?.constant = self.textViewBottomPadding
-            self.responseTextViewHeightConstraint?.priority = UILayoutPriority(999)
+//            self.responseTextViewHeightConstraint.priority = UILayoutPriority(999)
             self.responseTextViewHeightConstraint?.isActive = true
             self.responseTextView.showAnimatedGradientSkeleton()
             
@@ -414,11 +415,12 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
         self.responseTextViewHeightConstraint = self.responseTextView.heightAnchor.constraint(equalToConstant: 90)
         self.questionLabelHeightConstraint = self.questionLabel.heightAnchor.constraint(equalToConstant: 30)
-        
-        self.questionLabelHeightConstraint?.isActive = true
+        self.questionLabelHeightConstraint?.identifier = "QuestionLabel.height"
+        self.questionLabelHeightConstraint?.isActive = false
+
+//        self.responseTextViewHeightConstraint?.priority
         self.responseTextViewHeightConstraint?.isActive = false
         
-        self.cellWidthConstraint = self.contentView.widthAnchor.constraint(equalToConstant: 0)
         self.configureViewAppearance()
         self.questionLabel.text = nil
         self.dateLabel.text = nil
@@ -451,11 +453,13 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         self.setNeedsLayout()
     }
     
+    //TODO: Removed while testing layout updates to the collection view
+    //from article: The default implementation of this method simply applies any autolayout constraints to the configured view. If the size is different, it will return a preferred set of attributes.
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
         setNeedsLayout()
         layoutIfNeeded()
         let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
-        frame.size.height = ceil(size.height)
+        frame.size.height = ceil(size.height) + 1
         layoutAttributes.frame = frame
 
         return layoutAttributes
@@ -481,8 +485,6 @@ extension JournalEntryCollectionViewCell: EditReflectionViewControllerDelegate {
         
         return editView
     }
-    
-    
     
     func done(text: String?) {
         print("Saving text: \(text ?? "None provided")")

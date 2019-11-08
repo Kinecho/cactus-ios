@@ -14,6 +14,15 @@ import CodableFirebase
 
 typealias Unsubscriber = () -> Void
 
+struct PageResult<T: FirestoreIdentifiable> {
+    var error: Any?
+    var results: [T]?
+    var firstSnapshot: DocumentSnapshot?
+    var lastSnapshot: DocumentSnapshot?
+    var mightHaveMore: Bool = false
+    var pageSize: Int?
+}
+
 class FirestoreService {
     let db: Firestore
     
@@ -59,6 +68,58 @@ class FirestoreService {
         let listener = query.addSnapshotListener(self.snapshotListener(onData))
         
         return listener
+    }
+    
+    func addPaginatedListener<T: FirestoreIdentifiable>(_ query: Query, limit: Int?=nil, lastResult: PageResult<T>?, _ onData: @escaping (PageResult<T>) -> Void) -> ListenerRegistration {
+        var query = query.whereField(BaseModelField.deleted, isEqualTo: false)
+        
+        if let limit = limit {
+            query = query.limit(to: limit)
+        }
+        
+        if let after = lastResult?.lastSnapshot {
+            query = query.start(afterDocument: after)
+        }
+        
+        let listener = query.addSnapshotListener(self.paginatedSnapshotListener(onData, limit: limit))
+        
+        return listener
+    }
+    
+    private func paginatedSnapshotListener<T: FirestoreIdentifiable>( _ onData: @escaping (PageResult<T>) -> Void, limit: Int?=nil) -> FIRQuerySnapshotBlock {
+        func handler (_ snapshot: QuerySnapshot?, _ error: Error?) {
+            var result = PageResult<T>()
+            if let error = error {
+                result.error = error
+                return onData(result)
+            }
+            guard let documents = snapshot?.documents else {
+                result.error = "Unable to fetch documents"
+                return onData(result)
+            }
+            var models = [T]()
+            documents.forEach({ (document) in
+                do {
+                    let object = try document.decode(as: T.self)
+                    models.append(object)
+                } catch {
+                    print("error decodding document", error)
+                }
+            })
+            
+            result.results = models
+            result.firstSnapshot = documents.first
+            result.lastSnapshot = documents.last
+            
+            if let limit = limit {
+                result.pageSize = limit
+                result.mightHaveMore = documents.count == limit
+            }
+            
+            return onData(result)
+        }
+        
+        return handler
     }
     
     private func snapshotListener<T: FirestoreIdentifiable>( _ onData: @escaping ([T]?, Any?) -> Void) -> FIRQuerySnapshotBlock {

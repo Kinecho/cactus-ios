@@ -13,7 +13,6 @@ import SkeletonView
 @IBDesignable
 class JournalFeedCollectionViewController: UICollectionViewController {
     var dataSource: JournalFeedDataSource!
-    
     private let itemsPerRow: CGFloat = 1
     private let reuseIdentifier = ReuseIdentifier.JournalEntryCell.rawValue
     private let defaultCellHeight: CGFloat = 220
@@ -24,7 +23,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
                                              bottom: 15.0,
                                              right: 15.0)
     
-    @IBOutlet weak var layout: UICollectionViewFlowLayout!
+    @IBOutlet weak var layout: JournalFeedFlowLayout!
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         if #available(iOS 13.0, *) {
@@ -41,17 +40,34 @@ class JournalFeedCollectionViewController: UICollectionViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.dataSource.delegate = self
+        self.collectionView.prefetchDataSource = self
         layout.estimatedItemSize = getCellEstimatedSize()
+//        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(self.appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(self.appMovedToBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        
+        self.collectionView.reloadData()
     }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
 
+//        collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
+    @IBAction func loadMoreTapped(_ sender: Any) {
+        self.dataSource.loadNextPage()
+    }
+    
     @objc func appMovedToForeground() {
         print("App moved to ForeGround!")
-        self.dataSource.checkForNewPrompts()
-//        self.collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.dataSource.checkForNewPrompts()
+        }
+        
+//        self.collectionView.layoutIfNeeded()
+//        self.layout.invalidateLayout()
     }
     
     @objc func appMovedToBackground() {
@@ -75,7 +91,6 @@ class JournalFeedCollectionViewController: UICollectionViewController {
             
             if let vc = segue.destination as? PromptContentPageViewController {
                 vc.promptContent = cell.promptContent
-//                vc.prompt = cell.prompt
                 vc.journalDataSource = self.dataSource
                 var response = cell.responses?.first
                 if response == nil, let prompt = cell.prompt {
@@ -103,6 +118,16 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         return 1
     }
 
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == self.dataSource.count - 1 {
+            // Last cell is visible
+            print("Loading next page")
+            DispatchQueue.main.async {
+                self.dataSource.loadNextPage()
+            }
+        }
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.dataSource.count
     }
@@ -115,8 +140,6 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         }
                 
         let journalEntry = self.dataSource.get(at: indexPath.row)
-
-//        print("Updating cell for \(indexPath.row). promptId=\(journalEntry?.sentPrompt.promptId ?? "not set")")
         journalCell.journalEntry = journalEntry
         journalCell.updateView()
         journalCell.setCellWidth(self.getCellEstimatedSize().width)
@@ -135,8 +158,32 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         } else {
             self.performSegue(withIdentifier: "JournalEntryDetail", sender: cell)
         }
-        // do stuff with image, or with other data that you need
     }
+
+}
+
+extension JournalFeedCollectionViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        print("Prefetch indexes called for \(indexPaths.map({$0.row}))")
+        if indexPaths.contains(where: self.isLoadingCell) {
+            self.dataSource.loadNextPage()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+        print("Cancel prefetchign for \(indexPaths)")
+    }
+    
+    func isLoadingCell(for indexPath: IndexPath) -> Bool {
+        return indexPath.row >= self.dataSource.count
+    }
+    
+    func visibleIndexPathsToReload(intersecting indexPaths: [IndexPath]) -> [IndexPath] {
+        let indexPathsForVisibleRows = self.collectionView.indexPathsForVisibleItems
+        let indexPathsIntersection = Set(indexPathsForVisibleRows).intersection(indexPaths)
+        return Array(indexPathsIntersection)
+    }
+    
 }
 
 extension JournalFeedCollectionViewController: UICollectionViewDelegateFlowLayout {
@@ -144,18 +191,6 @@ extension JournalFeedCollectionViewController: UICollectionViewDelegateFlowLayou
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 45.0
-    }
-    
-    private func estimateFrameForText(text: String, width: CGFloat, font: UIFont = CactusFont.normal) -> CGRect {
-        //we make the height arbitrarily large so we don't undershoot height in calculation
-        let height: CGFloat = 5000
-    
-        let size = CGSize(width: width, height: height)
-        let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
-       
-        let attributes = [NSAttributedString.Key.font: font]
-
-        return NSString(string: text).boundingRect(with: size, options: options, attributes: attributes, context: nil)
     }
 }
 extension JournalFeedCollectionViewController: JournalFeedDataSourceDelegate {
@@ -173,8 +208,23 @@ extension JournalFeedCollectionViewController: JournalFeedDataSourceDelegate {
         self.collectionView.reloadData()
     }
     
+    func insert(_ journalEntry: JournalEntry, at: Int?) {
+        guard let index = at ?? self.dataSource.indexOf(journalEntry) else {
+            print("unable to find index of journal entry")
+            return
+        }
+        
+        let indexPath = IndexPath(row: index, section: 0)
+        self.collectionView.insertItems(at: [indexPath])        
+    }
+    
+    func insertItems(_ indexes: [Int]) {
+        let indexPaths = indexes.map { IndexPath(row: $0, section: 0) }
+        self.collectionView.insertItems(at: indexPaths)
+    }
+    
     func loadingCompleted() {
-        //        
+//        self.collectionView.layoutIfNeeded()
     }
 }
 
