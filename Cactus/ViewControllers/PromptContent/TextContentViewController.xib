@@ -44,7 +44,7 @@
                     <rect key="frame" x="0.0" y="84" width="414" height="758"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Jkg-eq-lya">
-                            <rect key="frame" x="20" y="347" width="374" height="64"/>
+                            <rect key="frame" x="20" y="342.5" width="374" height="73.5"/>
                             <subviews>
                                 <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="iFz-q0-UFF" userLabel="Element StackView">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="80"/>
@@ -80,10 +80,10 @@
                                     </subviews>
                                 </stackView>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Today you’ll think about someone you’d like to dine with." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vdy-jl-RMz">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="64"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="73.5"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="textColor" name="GreenDarkest"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                             </subviews>

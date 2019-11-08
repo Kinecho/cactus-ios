@@ -71,7 +71,7 @@ enum FontName: String {
 
 struct FontSize {
     static let large: CGFloat = 28
-    static let normal: CGFloat = 16
+    static let normal: CGFloat = 18
 }
 
 struct CactusFont {

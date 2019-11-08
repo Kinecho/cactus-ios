@@ -60,7 +60,7 @@
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEe-Hm-kiV">
                     <rect key="frame" x="0.0" y="205" width="334" height="116"/>
-                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="24"/>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
                     <color key="tintColor" name="GreenLight"/>
                     <inset key="contentEdgeInsets" minX="20" minY="10" maxX="0.0" maxY="10"/>
                     <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -73,7 +73,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1A-e2-RO0" userLabel="Notifications">
                     <rect key="frame" x="0.0" y="437" width="334" height="116"/>
-                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="24"/>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
                     <color key="tintColor" name="GreenLight"/>
                     <inset key="contentEdgeInsets" minX="20" minY="10" maxX="0.0" maxY="10"/>
                     <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -84,7 +84,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQA-bL-PSt" userLabel="Settings">
                     <rect key="frame" x="0.0" y="321" width="334" height="116"/>
-                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="24"/>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
                     <color key="tintColor" name="GreenLight"/>
                     <inset key="contentEdgeInsets" minX="20" minY="10" maxX="0.0" maxY="10"/>
                     <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -94,7 +94,7 @@
                     </connections>
                 </button>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nnk-9j-MZV" customClass="RoundedView" customModule="Cactus" customModuleProvider="target">
-                    <rect key="frame" x="20" y="671" width="143" height="90"/>
+                    <rect key="frame" x="20" y="691" width="143" height="90"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="121" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OU6-hA-xBB">
                             <rect key="frame" x="38" y="10" width="67" height="47"/>
@@ -125,7 +125,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KDO-6D-AB5" customClass="RoundedView" customModule="Cactus" customModuleProvider="target">
-                    <rect key="frame" x="171" y="671" width="143" height="90"/>
+                    <rect key="frame" x="171" y="691" width="143" height="90"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="93" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlD-xm-bIw">
                             <rect key="frame" x="49.5" y="10" width="44.5" height="47"/>
@@ -156,7 +156,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BaY-h1-QJB" customClass="RoundedView" customModule="Cactus" customModuleProvider="target">
-                    <rect key="frame" x="20" y="573" width="294" height="90"/>
+                    <rect key="frame" x="20" y="593" width="294" height="90"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pottedCactus" translatesAutoresizingMaskIntoConstraints="NO" id="Kms-7f-edX">
                             <rect key="frame" x="-30" y="0.0" width="98" height="120"/>
@@ -235,7 +235,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aeJ-aC-hQe" secondAttribute="trailing" constant="10" id="hUn-gK-SbS"/>
                 <constraint firstItem="3dw-Xl-Tng" firstAttribute="top" secondItem="aeJ-aC-hQe" secondAttribute="bottom" constant="4" id="iYX-Qz-Afn"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gQA-bL-PSt" secondAttribute="trailing" id="oMX-3g-7aD"/>
-                <constraint firstItem="BaY-h1-QJB" firstAttribute="top" secondItem="r1A-e2-RO0" secondAttribute="bottom" constant="20" id="rYy-aq-2Nj"/>
+                <constraint firstItem="BaY-h1-QJB" firstAttribute="top" secondItem="r1A-e2-RO0" secondAttribute="bottom" constant="40" id="rYy-aq-2Nj"/>
                 <constraint firstItem="Mrp-jR-DR7" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="twb-PF-6pO"/>
                 <constraint firstItem="vEe-Hm-kiV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="vAn-tf-hat"/>
                 <constraint firstItem="r1A-e2-RO0" firstAttribute="top" secondItem="gQA-bL-PSt" secondAttribute="bottom" id="x4H-59-i9L"/>
