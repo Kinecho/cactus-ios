@@ -218,6 +218,12 @@ extension JournalFeedCollectionViewController: JournalFeedDataSourceDelegate {
         self.collectionView.insertItems(at: [indexPath])        
     }
     
+    func removeItems(_ indexes: [Int]) {
+        print("Removing items")
+        let indexPaths = indexes.map { IndexPath(row: $0, section: 0) }
+        self.collectionView.deleteItems(at: indexPaths)
+    }
+    
     func insertItems(_ indexes: [Int]) {
         let indexPaths = indexes.map { IndexPath(row: $0, section: 0) }
         self.collectionView.insertItems(at: indexPaths)

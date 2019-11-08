@@ -17,6 +17,9 @@ typealias Unsubscriber = () -> Void
 struct PageResult<T: FirestoreIdentifiable> {
     var error: Any?
     var results: [T]?
+    var removed: [T]?
+    var updated: [T]?
+    var added: [T]?
     var firstSnapshot: DocumentSnapshot?
     var lastSnapshot: DocumentSnapshot?
     var mightHaveMore: Bool = false
@@ -97,6 +100,25 @@ class FirestoreService {
                 result.error = "Unable to fetch documents"
                 return onData(result)
             }
+            
+            result.added = []
+            result.removed = []
+            result.updated = []
+            snapshot?.documentChanges.forEach({ (change) in
+                guard let model = try? change.document.decode(as: T.self) else {
+                    print("Failed to decode document")
+                    return
+                }
+                switch change.type {
+                case .added:
+                    result.added?.append(model)
+                case .removed:
+                    result.removed?.append(model)
+                case .modified:
+                    result.updated?.append(model)
+                }
+            })
+            
             var models = [T]()
             documents.forEach({ (document) in
                 do {

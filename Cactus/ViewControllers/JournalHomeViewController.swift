@@ -329,6 +329,10 @@ extension JournalHomeViewController: NavigationMenuViewControllerDelegate {
 }
 
 extension JournalHomeViewController: JournalFeedDataSourceDelegate {
+    func removeItems(_ indexes: [Int]) {
+        self.journalFeedViewController?.removeItems(indexes)
+    }
+    
     func insert(_ journalEntry: JournalEntry, at: Int?) {
         self.journalFeedViewController?.insert(journalEntry, at: at)
     }

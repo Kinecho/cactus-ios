@@ -31,7 +31,7 @@
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="This is a video about cats" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="91e-N7-VTk">
                             <rect key="frame" x="20" y="0.0" width="280" height="37.5"/>
-                            <color key="backgroundColor" name="PinkLightest"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="textColor" name="GreenDarkest"/>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -56,7 +56,7 @@
                     </constraints>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" name="PinkLightest"/>
+            <color key="backgroundColor" name="BlueLight"/>
             <constraints>
                 <constraint firstItem="Lw3-Rb-dxn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hps-Kj-g8M"/>
                 <constraint firstItem="Lw3-Rb-dxn" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="qgA-eq-5WJ"/>
@@ -67,11 +67,11 @@
         </view>
     </objects>
     <resources>
+        <namedColor name="BlueLight">
+            <color red="0.90196078431372551" green="0.97647058823529409" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="GreenDarkest">
             <color red="0.027000000700354576" green="0.27099999785423279" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="PinkLightest">
-            <color red="1" green="0.94901960784313721" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

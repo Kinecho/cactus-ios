@@ -166,6 +166,8 @@ struct JournalEntry: Equatable {
 protocol JournalFeedDataSourceDelegate: class {
     func updateEntry(_ journalEntry: JournalEntry, at: Int?)
     func insert(_ journalEntry: JournalEntry, at: Int?)
+//    func remove(_ journalEntry: JournalEntry, at: Int)
+    func removeItems(_ indexes: [Int])
     func insertItems(_ indexes: [Int])
     func dataLoaded()
     func loadingCompleted()
@@ -237,8 +239,6 @@ class JournalFeedDataSource {
     
     init() {
         print("Creating JournalFeedDataSource")
-     
-//        self.oldInit()
         self.start()
     }
     
@@ -249,31 +249,6 @@ class JournalFeedDataSource {
             }
             self.currentMember = member
             self.loadNextPage()
-        })
-    }
-    
-    func oldInit() {
-        self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, error, _) in
-            if self.currentMember != member {
-                self.resetData()
-            }
-            self.currentMember = member
-            if let member = member {
-                self.promptsListener = SentPromptService.sharedInstance
-                    .observeSentPrompts(member: member, limit: 3, { (sentPrompts, error) in
-                        if let error = error {
-                            print("Error observing prompts", error)
-                        }
-
-                        print("Got sent prompts \(sentPrompts?.count ?? 0)")
-                        if let prompts = sentPrompts {
-                            self.sentPrompts = prompts
-                            self.initSentPrompts()
-                        } else {
-                            self.delegate?.dataLoaded()
-                        }
-                    })
-            }
         })
     }
     
@@ -300,7 +275,19 @@ class JournalFeedDataSource {
         self.pages.append(page)
         page.listener = SentPromptService.sharedInstance.observeSentPromptsPage(member: member, limit: self.pageSize, lastResult: previousResult, { (pageResult) in
             page.result = pageResult
+            let removedPromptIds: [String]? = page.result?.removed?.compactMap({ (sentPrompt) -> String? in
+                return sentPrompt.promptId
+            })
+            
+            let removedIndexes: [Int] = removedPromptIds?.compactMap { promptId in
+                return self.orderedPromptIds.firstIndex(of: promptId)
+            } ?? []
+                                    
             self.configurePages()
+            
+            if !removedIndexes.isEmpty {
+                self.delegate?.removeItems(removedIndexes)
+            }
         })
     }
     
@@ -308,6 +295,7 @@ class JournalFeedDataSource {
         let prompts: [SentPrompt] = self.pages.compactMap {$0.result?.results}.flatMap {$0}
         self.sentPrompts = prompts
         //Below is copied from initPrompts
+        
         self.initSentPrompts()
     }
     
@@ -400,6 +388,6 @@ extension JournalFeedDataSource: JournalEntryDataDelegate {
             self.delegate?.loadingCompleted()
         }
     }
-    
+
     //TODO: add update, deleted, add handlers
 }
