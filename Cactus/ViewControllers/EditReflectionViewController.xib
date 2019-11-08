@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -37,10 +37,10 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1w7-mK-MMI" userLabel="Response Text View">
-                    <rect key="frame" x="10" y="113.5" width="394" height="379.5"/>
+                    <rect key="frame" x="15" y="113.5" width="384" height="379.5"/>
                     <color key="backgroundColor" name="White"/>
                     <color key="textColor" name="GreenDarkest"/>
-                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
                     <userDefinedRuntimeAttributes>
@@ -51,8 +51,8 @@
                     </userDefinedRuntimeAttributes>
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jbD-rY-rwM" userLabel="Done Button" customClass="BorderedButton" customModule="Cactus" customModuleProvider="target">
-                    <rect key="frame" x="344" y="503" width="50" height="50"/>
-                    <color key="backgroundColor" name="GreenDark"/>
+                    <rect key="frame" x="349" y="503" width="50" height="50"/>
+                    <color key="backgroundColor" name="Green"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="Pr7-I6-BLR"/>
                         <constraint firstAttribute="height" constant="50" id="jRu-al-1Eg"/>
@@ -88,7 +88,7 @@
                         <constraint firstAttribute="height" constant="50" id="6d2-z5-34j"/>
                         <constraint firstAttribute="width" constant="50" id="DjU-Dk-kan"/>
                     </constraints>
-                    <color key="tintColor" name="GreenDarkest"/>
+                    <color key="tintColor" name="Green"/>
                     <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                     <state key="normal" image="close"/>
                     <connections>
@@ -103,9 +103,9 @@
                 <constraint firstItem="1w7-mK-MMI" firstAttribute="top" secondItem="GG4-cB-g9a" secondAttribute="bottom" constant="20" id="8Ij-qf-1p2"/>
                 <constraint firstAttribute="bottom" secondItem="jbD-rY-rwM" secondAttribute="bottom" constant="20" id="EyU-0s-b2h"/>
                 <constraint firstItem="GG4-cB-g9a" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="IP3-4I-jGr"/>
-                <constraint firstItem="1w7-mK-MMI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="Mhm-D3-826"/>
-                <constraint firstAttribute="trailing" secondItem="1w7-mK-MMI" secondAttribute="trailing" constant="10" id="QiM-XW-1pV"/>
-                <constraint firstItem="1w7-mK-MMI" firstAttribute="trailing" secondItem="jbD-rY-rwM" secondAttribute="trailing" constant="10" id="VvS-TQ-u5b"/>
+                <constraint firstItem="1w7-mK-MMI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="Mhm-D3-826"/>
+                <constraint firstAttribute="trailing" secondItem="1w7-mK-MMI" secondAttribute="trailing" constant="15" id="QiM-XW-1pV"/>
+                <constraint firstItem="1w7-mK-MMI" firstAttribute="trailing" secondItem="jbD-rY-rwM" secondAttribute="trailing" id="VvS-TQ-u5b"/>
                 <constraint firstAttribute="trailing" secondItem="2xV-dh-mpp" secondAttribute="trailing" constant="10" id="dYx-bl-9CI"/>
                 <constraint firstItem="2xV-dh-mpp" firstAttribute="leading" secondItem="GG4-cB-g9a" secondAttribute="trailing" id="iA8-39-Amc"/>
                 <constraint firstItem="jbD-rY-rwM" firstAttribute="top" secondItem="1w7-mK-MMI" secondAttribute="bottom" constant="10" id="lRA-Ab-Baa"/>
@@ -120,8 +120,8 @@
         <namedColor name="BlueLight">
             <color red="0.90196078431372551" green="0.97647058823529409" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <namedColor name="GreenDark">
-            <color red="0.16099999845027924" green="0.63899999856948853" blue="0.53700000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Green">
+            <color red="0.20000000298023224" green="0.80000001192092896" blue="0.67100000381469727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="GreenDarkest">
             <color red="0.027000000700354576" green="0.27099999785423279" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -71,7 +71,7 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
         } else {
             self.doneButton.isEnabled = true
             self.buttonWidthConstraint.constant = 50
-            self.doneButton.backgroundColor = CactusColor.darkGreen
+            self.doneButton.backgroundColor = CactusColor.green
         }
     }
     
