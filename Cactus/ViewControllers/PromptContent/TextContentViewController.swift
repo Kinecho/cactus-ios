@@ -33,7 +33,7 @@ class TextContentViewController: PromptContentViewController {
         
         if let mdText = MarkdownUtil.centeredMarkdown(textString, font: CactusFont.normal(24)) {
             self.text.attributedText = mdText
-        }
+        } 
 
         self.backgroundImageView.setImageFile(self.content.backgroundImage)
         
