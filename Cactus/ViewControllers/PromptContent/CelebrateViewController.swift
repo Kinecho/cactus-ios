@@ -13,7 +13,7 @@ class CelebrateViewController: UIViewController {
     @IBOutlet weak var encouragementLabel: UILabel!
     @IBOutlet weak var reflectionCountNumberLabel: UILabel!
     @IBOutlet weak var durationCountNumbereLabel: UILabel!
-    @IBOutlet weak var streakNumberLabe: UILabel!
+    @IBOutlet weak var streakNumberLabel: UILabel!
     @IBOutlet weak var durationMetricLabel: UILabel!
     @IBOutlet weak var reflectionCountMetricLabel: UILabel!
     @IBOutlet weak var homeButton: RoundedButton!
@@ -24,13 +24,28 @@ class CelebrateViewController: UIViewController {
     let animationDurationMs: UInt32 = 750
     var journalDataSource: JournalFeedDataSource?
     let celebrations = ["Well done!", "Nice work!", "Way to go!"]
-    
+    var memberUnsubscriber: Unsubscriber?
+    var member: CactusMember? {
+        didSet {
+            self.shouldAnimate = true
+            self.animateNumbers()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         let encouragement = celebrations.randomElement() ?? "Nice Work!"
         self.encouragementLabel.text = encouragement
         self.resetNumbers()
+        
+        self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, _, _) in
+            self.member = member
+        })
+        
         // Do any additional setup after loading the view.
+    }
+    
+    deinit {
+        self.memberUnsubscriber?()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -50,7 +65,7 @@ class CelebrateViewController: UIViewController {
     
     func resetNumbers() {
         self.reflectionCountNumberLabel.text = "--"
-        self.streakNumberLabe.text = "--"
+        self.streakNumberLabel.text = "--"
         self.durationCountNumbereLabel.text = "--"
     }
     
@@ -61,7 +76,7 @@ class CelebrateViewController: UIViewController {
     }
     
     func animateReflectionCount() {
-        let count = self.journalDataSource?.totalReflections ?? 0
+        let count = self.member?.stats?.reflections?.totalCount ?? 0
         self.reflectionsCountProcess = CountProcess(minValue: 0,
                                                     maxValue: count,
                                                     name: "ReflectionCount",
@@ -74,7 +89,7 @@ class CelebrateViewController: UIViewController {
     
     func animateDuration() {
 //        var prev = Int( round(Float(self.previousReflectionDurationMs) / 1000))
-        let ms = self.journalDataSource?.totalReflectionDurationMs ?? 0
+        let ms = self.member?.stats?.reflections?.totalDurationMs ?? 0
         var next = Int( round(Float(ms) / 1000))
         var prev: Int = 0
         if next < 60 {
@@ -97,14 +112,14 @@ class CelebrateViewController: UIViewController {
     }
     
     func animateStreak() {
-        let count = self.journalDataSource?.currentStreak ?? 0
+        let count = self.member?.stats?.reflections?.currentStreakDays ?? 0
         self.streakCountProcess = CountProcess(minValue: 0,
                                                maxValue: count,
                                                name: "Streak",
                                                threads: 3)
         self.streakCountProcess?.duration = animationDurationMs
         self.streakCountProcess?.finish(valueChanged: { (value) in
-            self.streakNumberLabe.text = "\(value)"
+            self.streakNumberLabel.text = "\(value)"
         })
     }
     
