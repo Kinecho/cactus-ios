@@ -17,6 +17,7 @@ class CelebrateViewController: UIViewController {
     @IBOutlet weak var durationMetricLabel: UILabel!
     @IBOutlet weak var reflectionCountMetricLabel: UILabel!
     @IBOutlet weak var homeButton: RoundedButton!
+    let logger = Logger(fileName: "CelebrateViewController")
     var shouldAnimate = true
     var reflectionsCountProcess: CountProcess?
     var minutesCountProcess: CountProcess?
@@ -27,7 +28,8 @@ class CelebrateViewController: UIViewController {
     var memberUnsubscriber: Unsubscriber?
     var member: CactusMember? {
         didSet {
-            self.shouldAnimate = true
+            self.logger.info("Member did set, animating numbers")
+//            self.shouldAnimate = true
             self.animateNumbers()
         }
     }
@@ -36,7 +38,7 @@ class CelebrateViewController: UIViewController {
         let encouragement = celebrations.randomElement() ?? "Nice Work!"
         self.encouragementLabel.text = encouragement
         self.resetNumbers()
-        
+        self.shouldAnimate = false
         self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, _, _) in
             self.member = member
         })
@@ -70,6 +72,7 @@ class CelebrateViewController: UIViewController {
     }
     
     func animateNumbers() {
+        logger.info("Animating numbers")
         self.animateReflectionCount()
         self.animateDuration()
         self.animateStreak()
