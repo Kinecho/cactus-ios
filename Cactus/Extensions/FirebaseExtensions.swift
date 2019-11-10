@@ -136,7 +136,7 @@ extension DocumentSnapshot {
             let decodedObject = try decoder.decode(objectType, from: jsonData)
             return decodedObject
         } catch {
-            print("failed to decode", error)
+            Logger.shared.error("failed to decode", error, fileName: "FirebaseExtensions", functionName: #function)
             throw error
         }
         

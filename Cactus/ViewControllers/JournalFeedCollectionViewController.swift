@@ -13,6 +13,7 @@ import SkeletonView
 @IBDesignable
 class JournalFeedCollectionViewController: UICollectionViewController {
     var dataSource: JournalFeedDataSource!
+    var logger = Logger(fileName: "JournalFeedCollectionViewController")
     private let itemsPerRow: CGFloat = 1
     private let reuseIdentifier = ReuseIdentifier.JournalEntryCell.rawValue
     private let defaultCellHeight: CGFloat = 220
@@ -42,7 +43,6 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         self.collectionView.prefetchDataSource = self
         layout.estimatedItemSize = getCellEstimatedSize()
-//        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(self.appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(self.appMovedToBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
@@ -52,20 +52,22 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-
-//        collectionView.collectionViewLayout.invalidateLayout()
     }
     
-    @IBAction func loadMoreTapped(_ sender: Any) {
-        self.dataSource.loadNextPage()
+    func reloadVisibleViews() {
+        let visibleIds = self.collectionView.indexPathsForVisibleItems
+        if  !visibleIds.isEmpty {
+            print("reloading \(visibleIds)")
+            self.collectionView.reloadItems(at: visibleIds)
+        }
     }
     
     @objc func appMovedToForeground() {
         print("App moved to ForeGround!")
-        DispatchQueue.main.async {
-            self.dataSource.checkForNewPrompts()
-        }
-        
+//        DispatchQueue.main.async {
+//            self.dataSource.checkForNewPrompts()
+//        }
+        self.reloadVisibleViews()
 //        self.collectionView.layoutIfNeeded()
 //        self.layout.invalidateLayout()
     }
@@ -194,44 +196,55 @@ extension JournalFeedCollectionViewController: UICollectionViewDelegateFlowLayou
     }
 }
 extension JournalFeedCollectionViewController: JournalFeedDataSourceDelegate {
+    func batchUpdate(addedIndexes: [Int], removedIndexes: [Int]) {
+        self.collectionView.performBatchUpdates({
+            self.collectionView.deleteItems(at: removedIndexes.map { IndexPath(row: $0, section: 0) })
+            self.collectionView.insertItems(at: addedIndexes.map { IndexPath(row: $0, section: 0) })
+        }, completion: { (completed) in
+            self.logger.info("Batch update completed: \(completed)")
+        })
+    }
+    
+    func handleEmptyState(hasResults: Bool) {
+        self.logger.warn("method not implemented", functionName: #function)
+    }
+    
     func updateEntry(_ journalEntry: JournalEntry, at: Int?) {
-//        print("Update feed for entry at \(at ?? -1)")
         guard let index = at else {
+            self.logger.warn("Unable to update entry: Index not provided", functionName: #function)
             return
         }
         let indexPath = IndexPath(row: index, section: 0)
+        self.logger.debug("Updating entry at \(indexPath)", functionName: #function)
         self.collectionView.reloadItems(at: [indexPath])
     }
     
     func dataLoaded() {
-        print("JournalFeed Delegate: Data Loaded: Updating collection view cells")
+        self.logger.info("JournalFeed Delegate: Data Loaded: reloading Data on collection view", functionName: #function)
         self.collectionView.reloadData()
     }
     
     func insert(_ journalEntry: JournalEntry, at: Int?) {
         guard let index = at ?? self.dataSource.indexOf(journalEntry) else {
-            print("unable to find index of journal entry")
+            self.logger.warn("unable to find index of journal entry \(journalEntry)", functionName: #function)
             return
         }
-        
+        self.logger.info("Inserting data at \(index)", functionName: #function)
         let indexPath = IndexPath(row: index, section: 0)
         self.collectionView.insertItems(at: [indexPath])        
     }
     
     func removeItems(_ indexes: [Int]) {
-        print("Removing items")
+        self.logger.info("Removing items at \(indexes)", functionName: #function)
         let indexPaths = indexes.map { IndexPath(row: $0, section: 0) }
         self.collectionView.deleteItems(at: indexPaths)
     }
     
     func insertItems(_ indexes: [Int]) {
+        self.logger.info("Inserting items at \(indexes)", functionName: #function)
         let indexPaths = indexes.map { IndexPath(row: $0, section: 0) }
         self.collectionView.insertItems(at: indexPaths)
-    }
-    
-    func loadingCompleted() {
-//        self.collectionView.layoutIfNeeded()
-    }
+    }    
 }
 
 extension JournalFeedCollectionViewController: JournalEntryCollectionVieweCellDelegate {

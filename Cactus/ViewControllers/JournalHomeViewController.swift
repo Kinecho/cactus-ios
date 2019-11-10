@@ -21,16 +21,17 @@ class JournalHomeViewController: UIViewController {
     let overlayView = UIVisualEffectView()
     var alphaView: UIView!
     let menuContainer = UIView()
-    let journalFeedDataSource = JournalFeedDataSource()
-    
+    var journalFeedDataSource: JournalFeedDataSource!
+    var currentViewController: UIViewController?
     var blurEffect: UIBlurEffect?
     let menuOpenDuration: TimeInterval = 0.5
     let menuCloseDuration: TimeInterval = 0.25
     let blurEffectDuration: TimeInterval = 0.2
+    let logger = Logger(fileName: "JournalHomeViewController")
     var menuWidth: CGFloat {
         return self.view.bounds.width * 4/5
     }
-    var member: CactusMember? {
+    var member: CactusMember! {
         didSet {
             self.updateViewForMember(member: self.member)
         }
@@ -53,6 +54,10 @@ class JournalHomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.logger.info("Creating journal feed data source with member \(self.member.email ?? "none")", functionName: #function)
+        self.journalFeedDataSource = JournalFeedDataSource(member: self.member)
+        self.journalFeedDataSource.delegate = self
+        
         self.setupView()
         
         self.overlayView.backgroundColor = .clear
@@ -63,7 +68,7 @@ class JournalHomeViewController: UIViewController {
         
         self.memberListener = CactusMemberService.sharedInstance.observeCurrentMember { (member, error, user) in
             if let error = error {
-                print("error observing cactus member", error)
+                self.logger.error("error observing cactus member", error)
             }
             self.user = user
             self.member = member
@@ -75,6 +80,8 @@ class JournalHomeViewController: UIViewController {
             // Fallback on earlier versions
             self.blurEffect = UIBlurEffect(style: .dark)
         }
+        
+        self.journalFeedDataSource.start()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -203,11 +210,12 @@ class JournalHomeViewController: UIViewController {
     }
     
     func updateViewForMember(member: CactusMember?) {
-        
+//        self.journalFeedDataSource?.curr
+        self.logger.info("Update view for member (nothing implemented)", functionName: #function)
     }
     
     func updateViewForUser(user: Firebase.User?) {
-        
+        self.logger.info("Updating view for user")
         if let imageUrl = user?.photoURL {
             ImageService.shared.setFromUrl(self.profileImageView, url: imageUrl)
         } else {
@@ -226,34 +234,21 @@ class JournalHomeViewController: UIViewController {
         self.menuContainer.backgroundColor = self.menuDrawerViewController.view.backgroundColor
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        switch SegueID.fromString(segue.identifier) {
-        case .embedJournalFeed:
-            if let vc = segue.destination as? JournalFeedCollectionViewController {
-                self.journalFeedViewController = vc
-                vc.dataSource = self.journalFeedDataSource
-                vc.dataSource.delegate = self
-                
-            }
-        default:
-            break
-        }
-
-    }
-    
-    /**
-     */
     func configureHomeView() {
         
     }
     
     func showEmptyState() {
+        self.logger.info("Showing empty state")
         if self.emptyStateViewController == nil {
             self.emptyStateViewController = AppDelegate.shared.rootViewController.getScreen(ScreenID.journalEmpty) as? JournalHomeEmptyStateViewController
         } else {
 //            self.emptyStateViewController?.removeFromParent()
+        }
+        
+        if self.currentViewController is JournalHomeEmptyStateViewController {
+            self.logger.info("Already showing empty state, returning", functionName: #function)
+            return
         }
         
         if let feedVc = self.journalFeedViewController {
@@ -263,6 +258,7 @@ class JournalHomeViewController: UIViewController {
         }
         
         guard let emptyVc = self.emptyStateViewController else {
+            self.logger.warn("No empty state controller was found", functionName: #function)
             return
         }
         
@@ -277,30 +273,38 @@ class JournalHomeViewController: UIViewController {
         emptyVc.view.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor).isActive = true
         
         emptyVc.didMove(toParent: self)
-        
-//        emptyState.willM
-        
-//        self.containerView
+        self.currentViewController = emptyStateViewController
     }
     
     func showJournalFeed() {
+        self.logger.info("showing journal feed")
+        if self.currentViewController is JournalFeedCollectionViewController {
+            self.logger.info("Already showing journal feed, returning")
+            return
+        }
+        
          if self.journalFeedViewController == nil {
-            self.journalFeedViewController = JournalFeedCollectionViewController()
+            self.logger.info("JournalFeedController was nil, creating it now")
+            self.journalFeedViewController = AppDelegate.shared.rootViewController.getJournalFeedViewController()
         } else {
-//            self.emptyStateViewController?.removeFromParent()
+            self.logger.info("JournalFeedController already exists, setting it up")
         }
         
         if let emptyVc = self.emptyStateViewController {
+            self.logger.info("Empty state existed, removing it now")
             emptyVc.willMove(toParent: nil)
             emptyVc.view.removeFromSuperview()
             emptyVc.removeFromParent()
         }
         
         guard let journalVc = self.journalFeedViewController else {
+            self.logger.warn("No journal feed was found, unable to continue setting it up.")
             return
         }
+        
         journalVc.dataSource = self.journalFeedDataSource
         journalVc.dataSource.delegate = self
+        
         journalVc.willMove(toParent: self)
         self.addChild(journalVc)
         
@@ -311,8 +315,8 @@ class JournalHomeViewController: UIViewController {
         journalVc.view.topAnchor.constraint(equalTo: self.containerView.topAnchor).isActive = true
         journalVc.view.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor).isActive = true
         
+        self.currentViewController = journalVc
         journalVc.didMove(toParent: self)
-        
     }
 }
 
@@ -329,6 +333,10 @@ extension JournalHomeViewController: NavigationMenuViewControllerDelegate {
 }
 
 extension JournalHomeViewController: JournalFeedDataSourceDelegate {
+    func batchUpdate(addedIndexes: [Int], removedIndexes: [Int]) {
+        self.journalFeedViewController?.batchUpdate(addedIndexes: addedIndexes, removedIndexes: removedIndexes)
+    }
+    
     func removeItems(_ indexes: [Int]) {
         self.journalFeedViewController?.removeItems(indexes)
     }
@@ -341,31 +349,23 @@ extension JournalHomeViewController: JournalFeedDataSourceDelegate {
         self.journalFeedViewController?.insertItems(indexes)
     }
     
-    func setMenuMetrics() {
-//        self.menuDrawerViewController.streak = self.journalFeedDataSource.currentStreak
-//        self.menuDrawerViewController.reflectionCount = self.journalFeedDataSource.totalReflections
-//        self.menuDrawerViewController.reflectionDurationMs = self.journalFeedDataSource.totalReflectionDurationMs
-    }
     
+
     func updateEntry(_ journalEntry: JournalEntry, at: Int?) {
         self.journalFeedViewController?.updateEntry(journalEntry, at: at)
-        
-//        if self.journalFeedDataSource.loadingCompleted {
-//            self.setMenuMetrics()
-//        }
     }
     
     func dataLoaded() {
-        if self.journalFeedDataSource.sentPrompts.isEmpty {
-            self.showEmptyState()
-        } else {
-            self.showJournalFeed()
-        }
-        
+        self.logger.info("Data Loaded called. Refreshing collectionView")
         self.journalFeedViewController?.dataLoaded()
     }
     
-    func loadingCompleted() {
-        self.setMenuMetrics()
+    func handleEmptyState(hasResults: Bool) {
+        self.logger.info("Handle empty state called: hasResults = \(hasResults)")
+        if hasResults {
+            self.showJournalFeed()
+        } else {
+           self.showEmptyState()
+        }
     }
 }

@@ -14,153 +14,9 @@ import FirebaseFirestore
 class PageLoader<T: FirestoreIdentifiable> {
     var result: PageResult<T>?
     var finishedLoading: Bool { result != nil }
-    var pageIndex: Int
     var listener: ListenerRegistration?
     
-    init(page index: Int) {
-        self.pageIndex = index
-    }
-}
-
-struct PromptData {
-    var hasLoaded: Bool = false
-    var unsubscriber: ListenerRegistration?
-    var prompt: ReflectionPrompt?
-}
-
-struct ResponseData {
-    var hasLoaded: Bool = false
-    var unsubscriber: ListenerRegistration?
-    var responses = [ReflectionResponse]()
-}
-
-struct ContentData {
-    var hasLoaded: Bool = false
-    var unsubscriber: ListenerRegistration?
-    var promptContent: PromptContent?
-}
-
-protocol JournalEntryDataDelegate: class {
-    func onData(_ journalEntry: JournalEntry)
-}
-
-class JournalEntryData {
-    var promptId: String?
-    var memberId: String
-    var sentPrompt: SentPrompt
-    var reflectionPromptData = PromptData()
-    var responseData = ResponseData()
-    var contentData = ContentData()
-    private var wontLoad: Bool = false
-    weak var delegate: JournalEntryDataDelegate?
-    var loadingComplete: Bool {
-        return self.wontLoad || self.reflectionPromptData.hasLoaded && self.responseData.hasLoaded && self.contentData.hasLoaded
-    }
-        
-    func notifyIfLoadingComplete() {
-        self.delegate?.onData(self.getJournalEntry())
-    }
-    
-    init(sentPrompt: SentPrompt, memberId: String) {
-        print("Setting up Journal Entry for promptId \(sentPrompt.promptId ?? "unknown")")
-        self.sentPrompt = sentPrompt
-        self.promptId = sentPrompt.promptId
-        self.memberId = memberId
-    }
-    
-    deinit {
-        print("JournalEntryData deinit called for promptId \(sentPrompt.promptId ?? "unknown")")
-        self.reflectionPromptData.unsubscriber?.remove()
-        self.responseData.unsubscriber?.remove()
-        self.contentData.unsubscriber?.remove()
-    }
-    
-    func start() {
-        guard self.reflectionPromptData.unsubscriber == nil else {
-            return
-        }
-        self.setupPromptObserver()
-    }
-    
-    func getJournalEntry() -> JournalEntry {
-        var entry = JournalEntry(self.sentPrompt)
-        entry.prompt = self.reflectionPromptData.prompt
-        entry.responses = self.responseData.responses
-        entry.promptContent = self.contentData.promptContent
-        entry.loadingComplete = self.loadingComplete
-        
-        entry.promptContentLoaded = self.contentData.hasLoaded
-        entry.promptLoaded = self.reflectionPromptData.hasLoaded
-        entry.responsesLoaded = self.responseData.hasLoaded
-        
-        return entry
-    }
-    
-    func setupPromptObserver() {
-        self.reflectionPromptData.unsubscriber?.remove()
-        guard let promptId = self.promptId else {
-            print("No prompt ID found on JournalEntryData, can't load data")
-            self.wontLoad = true
-            self.notifyIfLoadingComplete()
-            return
-        }
-        
-        self.reflectionPromptData.unsubscriber = ReflectionPromptService.sharedInstance.observeById(id: promptId, { (reflectionPrompt, error) in
-            if let error = error {
-                print("Error fetching reflection prompt. PromptID \(promptId)", error)
-            }
-            
-            self.reflectionPromptData.prompt = reflectionPrompt
-            self.reflectionPromptData.hasLoaded = true
-            self.notifyIfLoadingComplete()
-        })
-        
-        self.responseData.unsubscriber = ReflectionResponseService.sharedInstance.observeForPromptId(id: promptId, { (responses, error) in
-            if let error = error {
-                print("Failed to load reflection responses. PromptID \(promptId)", error)
-            }
-            if let responses = responses {
-                self.responseData.responses = responses
-            }
-            self.responseData.hasLoaded = true
-            self.notifyIfLoadingComplete()
-        })
-        
-        self.contentData.unsubscriber = PromptContentService.sharedInstance.observeForPromptId(promptId: promptId) { (promptContent, error) in
-            if let error = error {
-                print("Failed to load promptContent. PromptID \(promptId)", error)
-            }
-            if let promptContent = promptContent {
-                self.contentData.promptContent = promptContent
-            }
-            self.contentData.hasLoaded = true
-            self.notifyIfLoadingComplete()
-        }
-    }
-}
-
-struct JournalEntry: Equatable {
-    static func == (lhs: JournalEntry, rhs: JournalEntry) -> Bool {
-        return lhs.prompt?.id == rhs.prompt?.id
-            && lhs.sentPrompt.id == rhs.sentPrompt.id
-            && lhs.responses?.count == rhs.responses?.count
-            && lhs.promptContent?.entryId == rhs.promptContent?.entryId
-            && lhs.loadingComplete == rhs.loadingComplete
-    }
-    
-    var prompt: ReflectionPrompt?
-    var promptLoaded: Bool = false
-    var sentPrompt: SentPrompt
-    var responses: [ReflectionResponse]?
-    var responsesLoaded: Bool = false
-    var promptContent: PromptContent?
-    var promptContentLoaded: Bool = false
-    
-    var loadingComplete: Bool = false
-    
-    init(_ sentPrompt: SentPrompt) {
-        self.sentPrompt = sentPrompt
-    }
+    init() {}
 }
 
 protocol JournalFeedDataSourceDelegate: class {
@@ -169,11 +25,13 @@ protocol JournalFeedDataSourceDelegate: class {
 //    func remove(_ journalEntry: JournalEntry, at: Int)
     func removeItems(_ indexes: [Int])
     func insertItems(_ indexes: [Int])
+    func batchUpdate(addedIndexes: [Int], removedIndexes: [Int])
     func dataLoaded()
-    func loadingCompleted()
+    func handleEmptyState(hasResults: Bool)
 }
 
 class JournalFeedDataSource {
+    var logger = Logger(fileName: "JournalFeedDataSource")
     var currentMember: CactusMember?
     var journalEntryDataBySentPromptId: [String: JournalEntryData] = [:]
     var sentPrompts: [SentPrompt] = []
@@ -186,7 +44,7 @@ class JournalFeedDataSource {
     var memberUnsubscriber: (() -> Void)?
     
     weak var delegate: JournalFeedDataSourceDelegate?
-    
+    var hasLoaded = false
     func resetData() {
         self.orderedPromptIds.removeAll()
         self.unsubscribeAll()
@@ -227,96 +85,139 @@ class JournalFeedDataSource {
     
     var pageListeners: [ListenerRegistration] = []
     var pages: [PageLoader<SentPrompt>] = []
-    var pageSize: Int = 10
+    var pageSize: Int = 3
     var mightHaveMore: Bool {self.pages.last?.result?.mightHaveMore ?? false}
     
-    var isLoading: Bool {self.pages.contains { !$0.finishedLoading } }
+    var isLoading: Bool {self.pages.isEmpty ? !self.hasLoaded : self.pages.contains { !$0.finishedLoading } }
     
     deinit {
-        print("Deinit JournalFeedDataSource. Unsubscribing from all data")
+        logger.info("Deinit JournalFeedDataSource. Unsubscribing from all data")
         self.unsubscribeAll()
+        self.delegate = nil
+        self.resetData()
     }
     
-    init() {
-        print("Creating JournalFeedDataSource")
-        self.start()
+    init(member: CactusMember?=nil) {
+        self.currentMember = member
     }
     
+    var startDate: Date?
+    var hasStarted: Bool = false
     func start() {
-        self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, _, _) in
-            if self.currentMember != member {
-                self.resetData()
+        if hasStarted {
+            self.logger.warn("data source has already been started. Returning")
+            return
+        }
+                
+        if self.currentMember == nil {
+            self.logger.info("No member found, returning", functionName: #function)
+//            self.resetData()
+            return
+        }
+        self.logger.info("Starting journal feed data source")
+        self.hasStarted = true
+        self.initializePages()
+    
+//        logger.info("Creating JournalFeedDataSource", functionName: #function)
+//        self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, _, _) in
+//            if self.currentMember != member {
+//                self.logger.info("No member found, resetting data", functionName: #function)
+//                self.resetData()
+//            }
+//            self.currentMember = member
+//            self.initializePages()
+////            self.loadNextPage()
+//        })
+    }
+    
+    func initializePages() {
+        guard let member = self.currentMember else {
+            self.logger.warn("[JouranlFeedDataSource] No current member found, can't start pages")
+            return
+        }
+        
+        let futurePage = PageLoader<SentPrompt>()
+        self.pages.insert(futurePage, at: 0)
+        
+        let startDate = Date()
+        self.startDate = startDate
+        futurePage.listener = SentPromptService.sharedInstance.observeFuturePrompts(member: member, since: startDate, limit: nil, { (pageResult) in
+            futurePage.result = pageResult
+            self.logger.info("Got \"future\" data with \(pageResult.results?.count ?? 0) results", fileName: "JournalFeedDataSource", line: #line)
+            self.configurePages()
+        })
+        
+        let firstPage = PageLoader<SentPrompt>()
+        self.pages.insert(firstPage, at: 1)
+        firstPage.listener = SentPromptService.sharedInstance.observeSentPromptsPage(member: member, beforeOrEqualTo: startDate, limit: self.pageSize, lastResult: nil, { (pageResult) in
+            firstPage.result = pageResult
+            self.logger.info("Got first page data with \(pageResult.results?.count ?? 0) results", fileName: "JournalFeedDataSource", line: #line)
+            
+            if !self.hasLoaded {
+                self.delegate?.handleEmptyState(hasResults: !(pageResult.results?.isEmpty ?? true))
             }
-            self.currentMember = member
-            self.loadNextPage()
+            
+            self.configurePages()
+            self.hasLoaded = true
         })
     }
     
     func loadNextPage() {
-        print("[JournalFeedDataSource] attempting to load  next page")
+        self.logger.info("attempting to load  next page", functionName: #function)
         
         guard !self.isLoading else {
-            print("Already loading more, can't fetch next page")
+            logger.info("Already loading more, can't fetch next page", functionName: #function)
             return
         }
         guard let member = self.currentMember else {
-            print("[JouranlFeedDataSource] No current member found, can't load next page")
+            logger.warn("No current member found, can't load next page", functionName: #function)
             return
         }
         let nextIndex = self.pages.count
         let previousResult = self.pages.last?.result
         
         if previousResult == nil && nextIndex != 0 {
-            print("Page hasn't finished loading yet, can't fetch next page")
+            logger.info("Page hasn't finished loading yet, can't fetch next page", functionName: #function, line: #line)
             return
         }
         
-        let page = PageLoader<SentPrompt>(page: nextIndex)
+        self.logger.info("Creating page loader. This will be the \(self.pages.count) page", functionName: #function, line: #line)
+        let page = PageLoader<SentPrompt>()
         self.pages.append(page)
         page.listener = SentPromptService.sharedInstance.observeSentPromptsPage(member: member, limit: self.pageSize, lastResult: previousResult, { (pageResult) in
             page.result = pageResult
-            let removedPromptIds: [String]? = page.result?.removed?.compactMap({ (sentPrompt) -> String? in
-                return sentPrompt.promptId
-            })
-            
-            let removedIndexes: [Int] = removedPromptIds?.compactMap { promptId in
-                return self.orderedPromptIds.firstIndex(of: promptId)
-            } ?? []
-                                    
+            self.logger.info("Got page data with \(pageResult.results?.count ?? 0) results", functionName: "JournalFeedDataSource", line: #line)
             self.configurePages()
-            
-            if !removedIndexes.isEmpty {
-                self.delegate?.removeItems(removedIndexes)
-            }
         })
     }
     
     func configurePages() {
+        self.logger.info("configuring page data", functionName: #function, line: #line)
         let prompts: [SentPrompt] = self.pages.compactMap {$0.result?.results}.flatMap {$0}
         self.sentPrompts = prompts
-        //Below is copied from initPrompts
         
         self.initSentPrompts()
     }
     
-    func checkForNewPrompts() {
-        print("checkForNewPrompts called")
+    func checkForNewPrompts(_ completed: (([SentPrompt]?) -> Void)? = nil) {
+        logger.info("checkForNewPrompts called")
         guard let member = self.currentMember else {
             return
         }
         let first = self.pages.first?.result?.firstSnapshot
         SentPromptService.sharedInstance.getSentPrompts(member: member, limit: 10, before: first) { (sentPrompts, error) in
             if let error = error {
-                print("Error checking for new prompts", error)
+                self.logger.error("Error checking for new prompts", error)
             }
             
             guard let sentPrompts = sentPrompts else {
+                self.logger.info("NO sent prompts found")
                 return
             }
                         
             sentPrompts.reversed().forEach { (sentPrompt) in
                 if !self.sentPrompts.contains(sentPrompt) {
-                    print("found a new prompt!")
+                    self.logger.custom("found a new prompt!", icon: Emoji.tada)
                     self.sentPrompts.insert(sentPrompt, at: 0)
                 }
             }
@@ -346,6 +247,7 @@ class JournalFeedDataSource {
     
     func initSentPrompts() {
         guard let memberId = self.currentMember?.id else {
+            self.logger.warn("No member or memberId was found on the data feed", functionName: #function, line: #line)
             return
         }
 
@@ -357,7 +259,7 @@ class JournalFeedDataSource {
                 return
             }
             if self.journalEntryDataBySentPromptId[promptId] == nil {
-                print("Setting up journal entry data source for promptId \(promptId)")
+                self.logger.debug("Setting up journal entry data source for promptId \(promptId)")
                 let journalEntry = JournalEntryData(sentPrompt: sentPrompt, memberId: memberId)
                 journalEntry.delegate = self
                 createdEntries.append(journalEntry)
@@ -366,28 +268,34 @@ class JournalFeedDataSource {
             }
             orderedPromptIds.append(promptId)
         }
+        
+        //get removed indexes
+        var removedIndexes: [Int] = []
+        for (index, id) in self.orderedPromptIds.enumerated() {
+            if !orderedPromptIds.contains(id) {
+                removedIndexes.append(index)
+            }
+        }
+        self.logger.info("found \(removedIndexes.count) removed indexes")
+        
         self.orderedPromptIds = orderedPromptIds
         
-        if self.pages.count == 1 {
-            self.delegate?.dataLoaded()
+        if !removedIndexes.isEmpty && !insertedIndexes.isEmpty {
+            self.logger.info("Performing batch update")
+            self.delegate?.batchUpdate(addedIndexes: insertedIndexes, removedIndexes: removedIndexes)
+        } else if !removedIndexes.isEmpty {
+            self.delegate?.removeItems(removedIndexes)
         } else if !insertedIndexes.isEmpty {
             self.delegate?.insertItems(insertedIndexes)
         }
+        
         createdEntries.forEach {$0.start()}
-//        self.delegate?.dataLoaded()
     }
 }
 
 extension JournalFeedDataSource: JournalEntryDataDelegate {
-    //TODO: Deal with deleted entries/sent prompts
     func onData(_ journalEntry: JournalEntry) {
         let index = self.indexOf(journalEntry)
         self.delegate?.updateEntry(journalEntry, at: index)
-        
-        if self.loadingCompleted {
-            self.delegate?.loadingCompleted()
-        }
     }
-
-    //TODO: add update, deleted, add handlers
 }

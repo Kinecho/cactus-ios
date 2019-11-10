@@ -10,8 +10,8 @@ import UIKit
 import FirebaseAuth
 
 class AppMainViewController: UIViewController {
-    private var current: UIViewController
-    
+    var current: UIViewController
+    let logger = Logger(fileName: "AppMainViewController")
     var hasUser = false
     var authHasLoaded = false
     var member: CactusMember?
@@ -50,7 +50,7 @@ class AppMainViewController: UIViewController {
         view.addSubview(current.view)
         current.didMove(toParent: self)
         // Do any additional setup after loading the view.
-        print("***** setting up auth*****")
+        logger.info("***** setting up auth*****")
         self.setupAuth()
     }
     
@@ -59,18 +59,35 @@ class AppMainViewController: UIViewController {
             print("setup auth onData", member?.email ?? "no email")
             
             if member == nil {
-                print("found member, is null. showing loign screen.")
+                self.logger.info("found member is null. showing loign screen.")
                 _ = self.showScreen(ScreenID.Login, wrapInNav: true)
                 self.hasUser = false
-            } else if member?.id != self.member?.id {
-                print("Found member, not null. showing journal feed")
-                _ = self.showScreen(ScreenID.JournalHome, wrapInNav: true)
+            } else if let member = member, member.id != self.member?.id {
+                self.logger.info("Found member, not null. showing journal home page")
+                self.showJournalHome(member: member, wrapInNav: true)
                 self.initOnboarding()
                 self.hasUser = true
             }
             self.authHasLoaded = true
             self.member = member
         }
+    }
+    
+    func getJournalFeedViewController() -> JournalFeedCollectionViewController {
+        guard let vc = self.getScreen(ScreenID.JournalFeed) as? JournalFeedCollectionViewController else {
+            self.logger.error("Unable to get JournalFeedCollectionViewController from storyboard")
+            fatalError("Unable to get journal feed view controller")
+        }
+        return vc
+    }
+    
+    func showJournalHome(member: CactusMember, wrapInNav: Bool) {
+        self.logger.info("Showing Journal Home screen for member email \(member.email ?? "none set")")
+        guard let vc = self.getScreen(ScreenID.JournalHome) as? JournalHomeViewController else {
+            return
+        }
+        vc.member = member
+        _ = showScreen(vc, wrapInNav: true)
     }
     
     func getScreen(_ screen: ScreenID, _ storyboardId: StoryboardID=StoryboardID.Main) -> UIViewController {
@@ -87,7 +104,7 @@ class AppMainViewController: UIViewController {
     func initOnboarding() {
         let hasSeenOnboarding = UserDefaults.standard.bool(forKey: "NotificationOnboarding")
         if hasSeenOnboarding {
-            print("has seen onboarding")
+            logger.info("has seen onboarding")
             return
         }
         
@@ -100,7 +117,7 @@ class AppMainViewController: UIViewController {
                 let alert = UIAlertController(title: "Never miss a reflection", message: "Turn on push notifications so you know when it's time to reflect. ", preferredStyle: .alert)                
                 alert.addAction(UIAlertAction(title: "Allow", style: .default, handler: {_ in
                     NotificationService.sharedInstance.requestPushPermissions { _ in
-                        print("permissions requested")
+                        self.logger.info("permissions requested")
                     }
                 }))
                 alert.addAction(UIAlertAction(title: "Not Now", style: .cancel, handler: nil))
@@ -112,35 +129,33 @@ class AppMainViewController: UIViewController {
     }
     
     func showScreen(_ screen: UIViewController, wrapInNav: Bool=false) -> UIViewController {
-        var new = screen
+        var newVc = screen
         if wrapInNav {
-            new = UINavigationController(rootViewController: screen)
+            newVc = UINavigationController(rootViewController: screen)
         }
         
-        addChild(new)                    // 2
-        new.view.frame = view.bounds                   // 3
-        self.view.addSubview(new.view)                      // 4
-        new.didMove(toParent: self)      // 5
-        current.willMove(toParent: nil)  // 6
-        current.view.removeFromSuperview()            // 7
-        current.removeFromParent()       // 8
-        current = new
-        print("showScreen...")
-        return new
+        addChild(newVc)
+        newVc.view.frame = view.bounds
+        self.view.addSubview(newVc.view)
+        newVc.didMove(toParent: self)
+        current.willMove(toParent: nil)
+        current.view.removeFromSuperview()
+        current.removeFromParent()
+        current = newVc
+        self.logger.info("showScreen...", functionName: #function)
+        return newVc
     }
     
     func pushScreen(_ screenId: ScreenID, animate: Bool=true) {
         let screen = getScreen(screenId)
 
         if  let nav = self.current as? UINavigationController {
-            print("Pushing view controller")
+            self.logger.info("Pushing view controller")
             nav.pushViewController(screen, animated: animate)
         } else {
-            print("Presenting view controller")
+            self.logger.info("Presenting view controller")
             self.current.present(screen, animated: animate)
         }
-        
-//        return new
     }
     
 }

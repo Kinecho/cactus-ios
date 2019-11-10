@@ -22,8 +22,8 @@ struct LanguageChoice {
 class LanguageSettingsViewController: UIViewController {
     @IBOutlet weak var languagePickerView: UIPickerView!
     let languages: [LanguageChoice] = [
-            LanguageChoice(title: "Engligh", value: "en"),
-            LanguageChoice(title: "Spanish", value: "es", enabled: false),
+            LanguageChoice(title: "English", value: "en"),
+//            LanguageChoice(title: "Spanish", value: "es", enabled: false),
        ]
     var chosenLanguage: LanguageChoice?
     

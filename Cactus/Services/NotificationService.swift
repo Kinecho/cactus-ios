@@ -14,12 +14,29 @@ import FirebaseMessaging
 class NotificationService {
     
     let firestoreService: FirestoreService
+    let notificationCenter = NotificationCenter.default
+    
     private init() {
         firestoreService = FirestoreService.sharedInstance
-        
+        notificationCenter.addObserver(self, selector: #selector(self.appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(self.appMovedToBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
     }
     
     public static var sharedInstance = NotificationService()
+    
+    @objc func appMovedToForeground() {
+        //test
+        print("Notification service - app moved to foreground, removing badge count")
+        self.clearIconBadge()
+    }
+    
+    @objc func appMovedToBackground() {
+        //test
+    }
+    
+    func clearIconBadge() {
+        UIApplication.shared.applicationIconBadgeNumber = 0
+    }
     
     func registerForPushIfEnabled() {
         self.hasPushPermissions { (status) in
@@ -49,6 +66,11 @@ class NotificationService {
             self.registerForPushIfEnabled()
             onFinished(hasPermission)
         }
+    }
+    
+    func handlePushMessage(_ message: [AnyHashable: Any]) {
+        print("Cactus Notification service is handling message \(message)")
+        
     }
     
 }

@@ -19,7 +19,7 @@ typealias SentryUser = Sentry.User
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    let logger = Logger(fileName: String(describing: AppDelegate.self))
     var fcmToken: String?
     var window: UIWindow?
     private var currentUser: FirebaseAuth.User?
@@ -27,16 +27,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-
-//        CactusFont.setGlobalFonts()
         return true
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 //        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-
+        logger.info("Loading app will start", functionName: #function)
         Fabric.with([Crashlytics.self])
-        
+//        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
         // Create a Sentry client and start crash handler
         do {
             Client.shared = try Client(dsn: "https://728bdc63f41d4c93a6ce0884a01b58ea@sentry.io/1515431")
@@ -80,6 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
         Messaging.messaging().delegate = self
         
+        NotificationService.sharedInstance.clearIconBadge()
         NotificationService.sharedInstance.registerForPushIfEnabled()
         
         return true
@@ -291,7 +290,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         application.registerForRemoteNotifications()
     }
-
+    
+    // Support for background fetch
+//    func application(_ application: UIApplication,
+//                     performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+//        guard let vc = (AppDelegate.shared.rootViewController.current as? UINavigationController)?.viewControllers.first as? JournalHomeViewController else {
+//            completionHandler(.noData)
+//            return
+//        }
+        
+//        vc.journalFeedDataSource.checkForNewPrompts { (sentPrompts) in
+//            if (sentPrompts?.count ?? 0) > 0 {
+//                print("Background fetch found new data")
+//                completionHandler(.newData)
+//                vc.journalFeedViewController?.reloadVisibleViews()
+//            } else {
+//                print("Background fetch did not have any new data")
+//                completionHandler(.noData)
+//            }
+//        }
+//    }
 }
 
 extension AppDelegate: MessagingDelegate {
@@ -384,7 +402,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         
         // Print full message.
         print(userInfo)
-        
+        NotificationService.sharedInstance.handlePushMessage(userInfo)
         // Change this to your preferred presentation option
         completionHandler([])
     }
@@ -406,3 +424,4 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
 }
 // [END ios_10_message_handling]
+

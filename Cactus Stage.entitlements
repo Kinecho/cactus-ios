@@ -10,5 +10,7 @@
 		<string>applinks:cactus-app-stage.firebaseapp.com</string>
 		<string>applinks:cactusstage.page.link</string>
 	</array>
+	<key>com.apple.developer.networking.networkextension</key>
+	<array/>
 </dict>
 </plist>

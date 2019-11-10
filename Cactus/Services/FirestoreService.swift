@@ -13,6 +13,7 @@ import Foundation
 import CodableFirebase
 
 typealias Unsubscriber = () -> Void
+typealias DataObserver = ListenerRegistration
 
 struct PageResult<T: FirestoreIdentifiable> {
     var error: Any?
@@ -34,7 +35,9 @@ class FirestoreService {
     private init() {
         let firestoreSettings = FirestoreSettings()
         firestoreSettings.isPersistenceEnabled = true
+        
         self.db = Firestore.firestore()
+        self.db.settings = firestoreSettings
     }
     
     func getFirst<T: FirestoreIdentifiable>(_ query: Query, _ onData: @escaping (T?, Any?) -> Void) {

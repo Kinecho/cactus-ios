@@ -17,6 +17,13 @@
 		300AC18A233A850B005C6555 /* JournalEntrySkeletonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 300AC186233A850B005C6555 /* JournalEntrySkeletonViewController.xib */; };
 		300AC18D233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */; };
 		300AC18E233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */; };
+		3018B11D23751DE70005333A /* AppIconSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018B11C23751DE70005333A /* AppIconSettingsViewController.swift */; };
+		3018B11E23751DE70005333A /* AppIconSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018B11C23751DE70005333A /* AppIconSettingsViewController.swift */; };
+		3018B1202376041A0005333A /* LoggerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018B11F2376041A0005333A /* LoggerUtil.swift */; };
+		3018B1212376041A0005333A /* LoggerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018B11F2376041A0005333A /* LoggerUtil.swift */; };
+		3018B1232376182D0005333A /* JournalEntryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018B1222376182D0005333A /* JournalEntryData.swift */; };
+		3018B1242376182D0005333A /* JournalEntryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018B1222376182D0005333A /* JournalEntryData.swift */; };
+		3018B1262376687B0005333A /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3018B1252376687B0005333A /* NetworkExtension.framework */; };
 		301C1A90236F7E9700F06A3D /* MeaningAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301C1A8F236F7E9700F06A3D /* MeaningAnimationViewController.swift */; };
 		301C1A91236F7E9700F06A3D /* MeaningAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301C1A8F236F7E9700F06A3D /* MeaningAnimationViewController.swift */; };
 		301C1A93236F7EB700F06A3D /* MeaningAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 301C1A92236F7EB700F06A3D /* MeaningAnimationViewController.xib */; };
@@ -319,6 +326,10 @@
 		300AC185233A850B005C6555 /* JournalEntrySkeletonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JournalEntrySkeletonViewController.swift; path = Cactus/ViewControllers/JournalEntrySkeletonViewController.swift; sourceTree = SOURCE_ROOT; };
 		300AC186233A850B005C6555 /* JournalEntrySkeletonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = JournalEntrySkeletonViewController.xib; path = Cactus/ViewControllers/JournalEntrySkeletonViewController.xib; sourceTree = SOURCE_ROOT; };
 		300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFeedDataSource.swift; sourceTree = "<group>"; };
+		3018B11C23751DE70005333A /* AppIconSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSettingsViewController.swift; sourceTree = "<group>"; };
+		3018B11F2376041A0005333A /* LoggerUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerUtil.swift; sourceTree = "<group>"; };
+		3018B1222376182D0005333A /* JournalEntryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryData.swift; sourceTree = "<group>"; };
+		3018B1252376687B0005333A /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		301C1A8F236F7E9700F06A3D /* MeaningAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeaningAnimationViewController.swift; sourceTree = "<group>"; };
 		301C1A92236F7EB700F06A3D /* MeaningAnimationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeaningAnimationViewController.xib; sourceTree = "<group>"; };
 		3020DD932363F37D00EC40AE /* UIImageViewAligned.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewAligned.swift; sourceTree = "<group>"; };
@@ -494,6 +505,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95087B85A8F99A3282E6AE87 /* Pods_Cactus_Stage.framework in Frameworks */,
+				3018B1262376687B0005333A /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +515,7 @@
 		19CA97E6FF714D2347BC4076 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3018B1252376687B0005333A /* NetworkExtension.framework */,
 				05E8C1EB665F6286E3CD0BE5 /* Pods_Cactus_Prod.framework */,
 				518BD147DF40E10B6D005DB2 /* Pods_Cactus_Stage.framework */,
 				D2B03820008735B26EA3B1D8 /* Pods_Cactus_UnitTests.framework */,
@@ -523,6 +536,7 @@
 			children = (
 				300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */,
 				304EA2F22343B730001FB8AD /* CountProcess.swift */,
+				3018B1222376182D0005333A /* JournalEntryData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -576,6 +590,7 @@
 				30BE5671234E829100AA6D4D /* NotificationTimeOfDayViewController.swift */,
 				30BE5674234E982C00AA6D4D /* LinkedAccountsTableViewController.swift */,
 				305130D2234FE9F10088B51F /* InviteSettingsViewController.swift */,
+				3018B11C23751DE70005333A /* AppIconSettingsViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -646,6 +661,7 @@
 				305B186D23319E09003E1561 /* FileUtils.swift */,
 				300AC17E2339839A005C6555 /* CactusImage.swift */,
 				302C4F4B2347E25A00798560 /* DateUtil.swift */,
+				3018B11F2376041A0005333A /* LoggerUtil.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1398,6 +1414,7 @@
 				30E9B0B422EADE2D005B25FD /* CGExtensions.swift in Sources */,
 				30BE5670234E73A000AA6D4D /* NotificationsTableViewController.swift in Sources */,
 				300AC18E233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */,
+				3018B1242376182D0005333A /* JournalEntryData.swift in Sources */,
 				302C4F4A2347D7A700798560 /* SettingsTableViewController.swift in Sources */,
 				305B18812331E162003E1561 /* ReflectContentViewController.swift in Sources */,
 				30E9B0BE22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
@@ -1421,6 +1438,7 @@
 				30E9B09E22EA7FC3005B25FD /* CactusMember.swift in Sources */,
 				3084E956234802C300788279 /* TermsOfServiceViewController.swift in Sources */,
 				3054B5BE2331424000AA7272 /* MarkdownUtil.swift in Sources */,
+				3018B1212376041A0005333A /* LoggerUtil.swift in Sources */,
 				30727435236A295300309B3C /* AppSettingsService.swift in Sources */,
 				30E9B0A422EAC204005B25FD /* AuthService.swift in Sources */,
 				30E9B09A22EA6A81005B25FD /* BaseModel.swift in Sources */,
@@ -1450,6 +1468,7 @@
 				30265C6423453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */,
 				302C4F4D2347E25A00798560 /* DateUtil.swift in Sources */,
 				30E9B0B022EADD04005B25FD /* LoginViewController.swift in Sources */,
+				3018B11E23751DE70005333A /* AppIconSettingsViewController.swift in Sources */,
 				30265C5E23453C8D00934041 /* SwiftyGifManager.swift in Sources */,
 				3072744A236A4AC200309B3C /* CactusElementPageViewController.swift in Sources */,
 				30BF2E342328D91B00A49EB6 /* PromptContent.swift in Sources */,
@@ -1503,6 +1522,7 @@
 				30BF2E0F23281CAA00A49EB6 /* FlamelinkTypes.swift in Sources */,
 				30BE566F234E73A000AA6D4D /* NotificationsTableViewController.swift in Sources */,
 				300AC18D233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */,
+				3018B1232376182D0005333A /* JournalEntryData.swift in Sources */,
 				302C4F492347D7A700798560 /* SettingsTableViewController.swift in Sources */,
 				305B18802331E162003E1561 /* ReflectContentViewController.swift in Sources */,
 				30E9B0A022EABFBD005B25FD /* CactusMemberService.swift in Sources */,
@@ -1526,6 +1546,7 @@
 				309561A422EE16D7009357BD /* AppConfig.swift in Sources */,
 				3084E955234802C300788279 /* TermsOfServiceViewController.swift in Sources */,
 				3054B5BD23313EAA00AA7272 /* MarkdownUtil.swift in Sources */,
+				3018B1202376041A0005333A /* LoggerUtil.swift in Sources */,
 				30727434236A295300309B3C /* AppSettingsService.swift in Sources */,
 				30E9B09D22EA7FC3005B25FD /* CactusMember.swift in Sources */,
 				30E9B0A322EAC204005B25FD /* AuthService.swift in Sources */,
@@ -1555,6 +1576,7 @@
 				30265C6323453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */,
 				302C4F4C2347E25A00798560 /* DateUtil.swift in Sources */,
 				30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */,
+				3018B11D23751DE70005333A /* AppIconSettingsViewController.swift in Sources */,
 				30265C5D23453C8D00934041 /* SwiftyGifManager.swift in Sources */,
 				30727449236A4AC200309B3C /* CactusElementPageViewController.swift in Sources */,
 				30BF2E14232824AB00A49EB6 /* FlamelinkService.swift in Sources */,
