@@ -45,7 +45,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAU-lX-enM" customClass="RoundedButton" customModule="Cactus" customModuleProvider="target">
-                                <rect key="frame" x="274" y="315.66666666666669" width="67" height="40"/>
+                                <rect key="frame" x="276" y="316.66666666666669" width="65" height="40"/>
                                 <color key="backgroundColor" name="Green"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -292,7 +292,7 @@
             <objects>
                 <collectionViewController storyboardIdentifier="JournalFeed" id="GWJ-to-hjF" userLabel="Journal Feed" customClass="JournalFeedCollectionViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="c64-uC-Gae">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="762"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="25" sectionInsetReference="layoutMargins" id="CAX-zL-tXF" customClass="JournalFeedFlowLayout" customModule="Cactus" customModuleProvider="target">
@@ -385,7 +385,7 @@
                                                 <constraint firstAttribute="height" constant="36" id="ab8-UZ-8ce"/>
                                                 <constraint firstAttribute="width" constant="36" id="bqo-PG-SsK"/>
                                             </constraints>
-                                            <color key="tintColor" name="GreenLight"/>
+                                            <color key="tintColor" name="GreenDark"/>
                                             <state key="normal" title="" image="dots"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
@@ -395,7 +395,7 @@
                                                     <integer key="value" value="1"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                    <color key="value" name="GreenLight"/>
+                                                    <color key="value" name="GreenLightest"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="imageWidth">
                                                     <real key="value" value="20"/>
@@ -595,7 +595,7 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="JP6-tG-hyL">
-                                        <rect key="frame" x="0.0" y="99.999999999999972" width="375" height="505.33333333333326"/>
+                                        <rect key="frame" x="0.0" y="100" width="375" height="518.33333333333337"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="dia-5i-NZT">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="59.333333333333336"/>
@@ -615,7 +615,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RUy-x4-bJ7" userLabel="Email Input Stack">
-                                                <rect key="frame" x="20" y="99.333333333333343" width="335" height="85"/>
+                                                <rect key="frame" x="20" y="99.333333333333343" width="335" height="98"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email address" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="S96-g0-ejQ" customClass="CactusTextInputField" customModule="Cactus" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="45"/>
@@ -628,7 +628,7 @@
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ey-8b-Wmd" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="54.999999999999972" width="335" height="30"/>
+                                                        <rect key="frame" x="0.0" y="54.999999999999972" width="335" height="43"/>
                                                         <state key="normal" title="Next"/>
                                                         <connections>
                                                             <action selector="magicLinkNext:" destination="4zv-1f-KPm" eventType="touchUpInside" id="XWC-S7-8tN"/>
@@ -641,13 +641,13 @@
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or choose from one of the following" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYq-wW-wiI" userLabel="Choose Provider">
-                                                <rect key="frame" x="20" y="224.33333333333331" width="335" height="17"/>
+                                                <rect key="frame" x="20" y="237.33333333333331" width="335" height="17"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                                 <color key="textColor" name="GreenDarkest"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7x3-lF-lM2" userLabel="Login Buttons Container">
-                                                <rect key="frame" x="20" y="281.33333333333331" width="335" height="224"/>
+                                                <rect key="frame" x="20" y="294.33333333333331" width="335" height="223.99999999999994"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="224" id="9hh-r5-2L7"/>
                                                 </constraints>
@@ -743,11 +743,17 @@
         <namedColor name="Green">
             <color red="0.20000000298023224" green="0.80000001192092896" blue="0.67100000381469727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="GreenDark">
+            <color red="0.16099999845027924" green="0.63899999856948853" blue="0.53700000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="GreenDarkest">
             <color red="0.027000000700354576" green="0.27099999785423279" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="GreenLight">
             <color red="0.72500002384185791" green="0.93699997663497925" blue="0.91399997472763062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GreenLightest">
+            <color red="0.84160512685775757" green="0.89422440528869629" blue="0.90274512767791748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="PinkLight">
             <color red="1" green="0.89399999380111694" blue="0.85500001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
