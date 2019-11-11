@@ -86,6 +86,7 @@ class PromptContentPageViewController: UIPageViewController {
         })
         
         let celebrate = CelebrateViewController.loadFromNib()
+        celebrate.reflectionResponse = self.reflectionResponse
         celebrate.journalDataSource = self.journalDataSource        
         screens.append(celebrate)
         self.screens = screens

@@ -35,6 +35,21 @@ struct ElementAccumulation: Codable {
     var experience: Int = 0
     var meaning: Int = 0
     var relationships: Int = 0
+    
+    func getElement(_ element: CactusElement) -> Int {
+        switch element {
+        case .emotions:
+            return self.emotions
+        case .energy:
+            return self.energy
+        case .meaning:
+            return self.meaning
+        case .experience:
+            return self.experience
+        case .relationships:
+            return self.relationships            
+        }
+    }
 }
 
 struct ReflectionStats: Codable {

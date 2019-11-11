@@ -30,6 +30,7 @@ struct CactusColor {
     static let lightGreen: UIColor = UIColor(hex: "B9EFE9")
     static let green: UIColor = UIColor(hex: "33CCAB")
     static let darkGreen: UIColor = UIColor(hex: "29A389")
+    static let darkerGreen = UIColor(hex: "#0b6e79")
     static let darkestGreen: UIColor = UIColor(hex: "07454C")
     
     static let yellow: UIColor = UIColor(hex: "F9EB91")

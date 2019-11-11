@@ -17,6 +17,17 @@ class CelebrateViewController: UIViewController {
     @IBOutlet weak var durationMetricLabel: UILabel!
     @IBOutlet weak var reflectionCountMetricLabel: UILabel!
     @IBOutlet weak var homeButton: RoundedButton!
+    @IBOutlet weak var elementStackView: UIStackView!
+        
+    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var experienceStatImageView: UIImageView!
+    @IBOutlet weak var meaningStatImageView: UIImageView!
+    @IBOutlet weak var emotionsStatImageView: UIImageView!
+    @IBOutlet weak var energyStatImageView: UIImageView!
+    @IBOutlet weak var relationshipStatImageView: UIImageView!
+    
+    weak var reflectionResponse: ReflectionResponse?
+    
     let logger = Logger(fileName: "CelebrateViewController")
     var shouldAnimate = true
     var reflectionsCountProcess: CountProcess?
@@ -31,6 +42,7 @@ class CelebrateViewController: UIViewController {
             self.logger.info("Member did set, animating numbers")
 //            self.shouldAnimate = true
             self.animateNumbers()
+            self.updateElements()
         }
     }
     override func viewDidLoad() {
@@ -43,7 +55,70 @@ class CelebrateViewController: UIViewController {
             self.member = member
         })
         
-        // Do any additional setup after loading the view.
+        self.initElements()
+        self.configureDescription()
+        
+    }
+    
+    func configureDescription() {
+        guard let element = self.reflectionResponse?.cactusElement else {
+            self.descriptionTextView.isHidden = true
+            return
+        }
+        let description = getElementDescription(element)
+        self.descriptionTextView.text = "Today's reflection focused on \(element.rawValue), which is about \(description)"
+        self.descriptionTextView.isHidden = false
+    }
+    
+    func initElements() {
+        for element in CactusElement.allCases {
+            let imageView = self.getElementImage(element)
+            imageView.isUserInteractionEnabled = true
+            switch element {
+            case .meaning:
+                imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.showMeaningModal)))
+            case .emotions:
+                imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.showEmotionModal)))
+            case .experience:
+                imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.showExperienceModal)))
+            case .energy:
+                imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.showEnergyModal)))
+            case .relationships:
+                imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.showRelationshipsModal)))
+            }
+        }
+    }
+        
+    func showElementModal(element: CactusElement) {
+        logger.info("Showing element modal for \(element.rawValue)")
+        guard let contentVc = AppDelegate.shared.rootViewController.getScreen(ScreenID.elementsPageView) as? CactusElementPageViewController else {return}
+        contentVc.initialElement = element
+        
+        let modalVc = ModalViewController()
+        modalVc.contentVc = contentVc
+        modalVc.modalPresentationStyle = .overCurrentContext
+        modalVc.modalTransitionStyle = .crossDissolve
+        self.present(modalVc, animated: true, completion: nil)
+    }
+    
+    @objc func showEnergyModal() {
+        self.showElementModal(element: .energy)
+    }
+    
+    @objc func showMeaningModal() {
+        self.showElementModal(element: .meaning)
+    }
+    
+    @objc func showRelationshipsModal() {
+        self.showElementModal(element: .relationships)
+    }
+    
+    @objc func showEmotionModal() {
+        self.showElementModal(element: .emotions)
+    }
+    
+    @objc func showExperienceModal() {
+        self.showElementModal(element: .experience)
     }
     
     deinit {
@@ -69,6 +144,41 @@ class CelebrateViewController: UIViewController {
         self.reflectionCountNumberLabel.text = "--"
         self.streakNumberLabel.text = "--"
         self.durationCountNumbereLabel.text = "--"
+    }
+    
+    func updateElements() {
+        guard let stats = self.member?.stats?.reflections?.elementAccumulation else {return}
+        for element in CactusElement.allCases {
+            self.configureElement(element, number: stats.getElement(element))
+        }
+    }
+    
+    func getElementImage(_ element: CactusElement) -> UIImageView {
+        var imageView: UIImageView!
+        switch element {
+        case .meaning:
+            imageView = self.meaningStatImageView
+        case .emotions:
+            imageView = self.emotionsStatImageView
+        case .experience:
+            imageView = self.experienceStatImageView
+        case .energy:
+            imageView = self.energyStatImageView
+        case .relationships:
+            imageView = self.relationshipStatImageView
+        }
+        return imageView
+    }
+    
+    func configureElement(_ element: CactusElement, number: Int) {
+        let imageView = getElementImage(element)
+        logger.info("Configuring element for \(element.rawValue)")
+        if number > 0 {
+            imageView.image = element.getStatImage(number)
+            imageView.isHidden = false
+        } else {
+            imageView.isHidden = true
+        }
     }
     
     func animateNumbers() {

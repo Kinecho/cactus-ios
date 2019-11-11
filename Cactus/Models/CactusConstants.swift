@@ -22,6 +22,17 @@ enum CactusElement: String, Codable, CaseIterable {
         return CactusImage.forElement(self, width: width, height: height)
     }
     
+    func getStatImage(_ stat: Int) -> UIImage? {
+        var suffix = "-\(stat)"
+        if stat >= 3 {
+            suffix = "Full"
+        }
+        
+        let name = "\(self.rawValue)\(suffix)"
+        Logger.shared.info("Getting elememnt stat image with name \(name)")
+        return UIImage(named: name)
+    }
+    
     var description: String {
         return getElementDescription(self)
     }

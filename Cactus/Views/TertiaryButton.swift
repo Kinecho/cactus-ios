@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class PrimaryButton: UIButton {
+class TertiaryButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         sharedInit()
@@ -36,9 +36,8 @@ class PrimaryButton: UIButton {
     @IBInspectable var fontSize: CGFloat = 17
     @IBInspectable var horizontalPadding: CGFloat = 20
     @IBInspectable var verticalPadding: CGFloat = 12
-    @IBInspectable var showBorder: Bool = true
     
-    var borderColor: UIColor = CactusColor.darkGreen
+//    var borderColor: UIColor = CactusColor.darkGreen
 //    var mainColor: UIColor = CactusColor.green
     
     @IBInspectable var borderRadius: CGFloat {
@@ -52,11 +51,11 @@ class PrimaryButton: UIButton {
     
     func setEnabled(_ enabled: Bool) {
         if enabled == true {
-            self.borderColor = CactusColor.darkGreen
-            self.backgroundColor = CactusColor.green
+//            self.borderColor = CactusColor.white
+            self.backgroundColor = CactusColor.white
         } else {
-            self.borderColor = CactusColor.darkGray
-            self.backgroundColor = CactusColor.gray
+//            self.borderColor = CactusColor.lightGray
+            self.backgroundColor = CactusColor.lightGray
         }
         
         self.isEnabled = enabled
@@ -64,13 +63,15 @@ class PrimaryButton: UIButton {
     
     func sharedInit() {
         self.clipsToBounds = true
-        self.backgroundColor = CactusColor.green
+        self.backgroundColor = CactusColor.white
         if self.isEnabled == false {
             self.backgroundColor = CactusColor.gray
         }
         
         self.setTitleColor(.white, for: .normal)
         self.titleLabel?.font = CactusFont.normal(self.fontSize)
+        self.setTitleColor(CactusColor.darkestGreen, for: .normal)
+        self.setTitleColor(CactusColor.darkText, for: .disabled)
         
         self.layoutSubviews()
         if let imageView = self.imageView {
@@ -89,39 +90,29 @@ class PrimaryButton: UIButton {
             imageView.bounds.size.height = imageHeight
         }
         
-        if self.showBorder {
-            self.setupBorder()
-        } else {
-            self.border?.removeFromSuperlayer()
-            self.border = nil
-        }
-    }
-    
-    func setupBorder() {
-        let radius = self.frame.height / 2
-        let path = UIBezierPath(roundedRect: self.bounds, cornerRadius: radius)
-        let mask = CAShapeLayer()
-        mask.path = path.cgPath
-        self.layer.mask = mask
+//        let path = UIBezierPath(roundedRect: self.bounds, cornerRadius: radius)
+//        let mask = CAShapeLayer()
+//        mask.path = path.cgPath
+//        self.layer.mask = mask
 
-        if self.border == nil {
-            let border = CAShapeLayer()
-            self.border = border
-            self.layer.addSublayer(border)
-        }
+//        if self.border == nil {
+//            let border = CAShapeLayer()
+//            self.border = border
+//            self.layer.addSublayer(border)
+//        }
         
-        if let border = self.border {
-            
-            let offset = thickness / 2
-            border.frame = CGRect(-offset, -offset, self.bounds.width + (2 * offset), self.bounds.height)
-            let pathsUsingCorrentInsetIfAny = UIBezierPath(roundedRect: border.bounds, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: radius, height: radius))
-            
-            border.path = pathsUsingCorrentInsetIfAny.cgPath
-            border.fillColor = UIColor.clear.cgColor
-            border.strokeColor = self.borderColor.cgColor
-            border.lineWidth = thickness
-            self.contentEdgeInsets = UIEdgeInsets(top: self.verticalPadding - offset, left: self.horizontalPadding, bottom: self.verticalPadding, right: self.horizontalPadding)
-            self.border = border
-        }
+//        if let border = self.border {
+//
+//            let offset = thickness / 2
+//            border.frame = CGRect(-offset, -offset, self.bounds.width + (2 * offset), self.bounds.height)
+//            let pathsUsingCorrentInsetIfAny = UIBezierPath(roundedRect: border.bounds, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: radius, height: radius))
+//
+//            border.path = pathsUsingCorrentInsetIfAny.cgPath
+//            border.fillColor = UIColor.clear.cgColor
+//            border.strokeColor = self.borderColor.cgColor
+//            border.lineWidth = thickness
+//            self.contentEdgeInsets = UIEdgeInsets(top: self.verticalPadding - offset, left: self.horizontalPadding, bottom: self.verticalPadding, right: self.horizontalPadding)
+//            self.border = border
+//        }
     }
 }
