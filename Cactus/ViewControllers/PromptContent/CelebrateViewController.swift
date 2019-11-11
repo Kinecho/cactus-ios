@@ -65,7 +65,7 @@ class CelebrateViewController: UIViewController {
             self.descriptionTextView.isHidden = true
             return
         }
-        let description = getElementDescription(element)
+        let description = getElementDescription(element).lowercased()
         self.descriptionTextView.text = "Today's reflection focused on \(element.rawValue), which is about \(description)"
         self.descriptionTextView.isHidden = false
     }
