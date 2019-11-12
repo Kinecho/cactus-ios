@@ -27,44 +27,26 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woG-hL-hQ0">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share Your Note" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gI0-aE-cWE">
+                    <rect key="frame" x="90" y="429" width="234" height="37.5"/>
+                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="32"/>
+                    <color key="textColor" name="GreenDarkest"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woG-hL-hQ0">
+                    <rect key="frame" x="0.0" y="178" width="414" height="684"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="owl-1d-Qer">
                             <rect key="frame" x="0.0" y="40" width="414" height="372.5"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share Your Note" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gI0-aE-cWE">
-                                    <rect key="frame" x="90" y="0.0" width="234" height="37.5"/>
-                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="32"/>
-                                    <color key="textColor" name="GreenDarkest"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="This text will get updated" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FGJ-cX-bWz">
                                     <rect key="frame" x="20" y="57.5" width="374" height="33"/>
                                     <color key="textColor" name="GreenDarkest"/>
                                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
-                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZD-Ji-fbZ" userLabel="NoteContainerView" customClass="ShadowView" customModule="Cactus" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="110.5" width="374" height="150"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="150" placeholder="YES" id="3G5-fc-mc4"/>
-                                        <constraint firstAttribute="height" constant="150" id="gvQ-pJ-VV9"/>
-                                    </constraints>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="12"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="gvQ-pJ-VV9"/>
-                                        </mask>
-                                    </variation>
-                                </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="6Wc-xs-yCu" userLabel="Actions Stack View">
-                                    <rect key="frame" x="20" y="280.5" width="374" height="92"/>
+                                    <rect key="frame" x="20" y="280" width="374" height="92"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hH-rs-91I" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
                                             <rect key="frame" x="109" y="0.0" width="156" height="40"/>
@@ -90,6 +72,19 @@
                                         </button>
                                     </subviews>
                                 </stackView>
+                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZD-Ji-fbZ" userLabel="NoteContainerView">
+                                    <rect key="frame" x="20" y="110.5" width="374" height="150"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="150" placeholder="YES" id="3G5-fc-mc4"/>
+                                        <constraint firstAttribute="height" constant="150" id="gvQ-pJ-VV9"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="gvQ-pJ-VV9"/>
+                                        </mask>
+                                    </variation>
+                                </view>
                             </subviews>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="6Wc-xs-yCu" secondAttribute="trailing" constant="20" id="3ad-hi-2BL"/>
@@ -103,8 +98,8 @@
                     </subviews>
                     <constraints>
                         <constraint firstItem="owl-1d-Qer" firstAttribute="leading" secondItem="p6l-me-v5g" secondAttribute="leading" id="JTz-Pg-bM0"/>
-                        <constraint firstItem="owl-1d-Qer" firstAttribute="top" secondItem="p6l-me-v5g" secondAttribute="top" constant="40" id="Q4s-Jm-hXp"/>
-                        <constraint firstItem="owl-1d-Qer" firstAttribute="bottom" secondItem="p6l-me-v5g" secondAttribute="bottom" id="XF3-ZV-idd"/>
+                        <constraint firstItem="owl-1d-Qer" firstAttribute="top" secondItem="p6l-me-v5g" secondAttribute="top" constant="20" id="Q4s-Jm-hXp"/>
+                        <constraint firstItem="owl-1d-Qer" firstAttribute="bottom" secondItem="p6l-me-v5g" secondAttribute="bottom" constant="-40" id="XF3-ZV-idd"/>
                         <constraint firstItem="owl-1d-Qer" firstAttribute="trailing" secondItem="p6l-me-v5g" secondAttribute="trailing" id="fm3-he-nqc"/>
                         <constraint firstItem="owl-1d-Qer" firstAttribute="width" secondItem="Pc8-ae-fnh" secondAttribute="width" id="u5q-8L-m8u"/>
                     </constraints>
@@ -115,10 +110,13 @@
             </subviews>
             <color key="backgroundColor" name="Yellow"/>
             <constraints>
+                <constraint firstItem="gI0-aE-cWE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="72h-4C-Hf5"/>
+                <constraint firstItem="woG-hL-hQ0" firstAttribute="top" secondItem="gI0-aE-cWE" secondAttribute="bottom" constant="10" id="774-tL-hA4"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gI0-aE-cWE" secondAttribute="trailing" constant="20" id="AmQ-Qs-wiz"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="woG-hL-hQ0" secondAttribute="trailing" id="Cqi-gj-qrc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="woG-hL-hQ0" secondAttribute="bottom" id="DFU-Ga-aoy"/>
                 <constraint firstItem="woG-hL-hQ0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Nq1-th-Xtz"/>
-                <constraint firstItem="woG-hL-hQ0" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="mAO-Xw-GlY"/>
+                <constraint firstItem="gI0-aE-cWE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="sKb-tm-6ic"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="108.48214285714285"/>

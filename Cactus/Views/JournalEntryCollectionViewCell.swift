@@ -116,13 +116,25 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
                 closeAnimation()
                 self.startEdit()
             })
+            
+            alert.addAction(UIAlertAction(title: "Share Note", style: .default, handler: { _ in
+                closeAnimation()
+                guard let reflectionResponse = self.responses?.first, let promptContent = self.promptContent else {
+                    return
+                }
+                
+                let vc = ShareNoteViewController.loadFromNib()
+                vc.reflectionResponse = reflectionResponse
+                vc.promptContent = promptContent
+                AppDelegate.shared.rootViewController.present(vc, animated: true)
+            }))
+            
         }
         
         self.window?.rootViewController?.present(alert, animated: true)
     }
     
     func startEdit() {
-        
         guard let vc = self.createEditReflectionModal() else {
             print("Unable to get the edit modal ")
             return
