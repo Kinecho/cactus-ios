@@ -41,14 +41,14 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blobNeedle" translatesAutoresizingMaskIntoConstraints="NO" id="bG9-dC-CMJ" userLabel="background blobNeedle">
+                    <rect key="frame" x="0.0" y="300" width="414" height="295"/>
+                    <color key="backgroundColor" name="GreenDarker"/>
+                    <color key="tintColor" name="GreenDarkest"/>
+                </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7uq-lE-LWz">
                     <rect key="frame" x="0.0" y="94" width="414" height="802"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blobNeedle" translatesAutoresizingMaskIntoConstraints="NO" id="yep-zg-zjw">
-                            <rect key="frame" x="0.0" y="274.5" width="414" height="295"/>
-                            <color key="backgroundColor" name="GreenDarker"/>
-                            <color key="tintColor" name="GreenDarkest"/>
-                        </imageView>
                         <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="K3S-gp-rfL">
                             <rect key="frame" x="0.0" y="10" width="414" height="519.5"/>
                             <subviews>
@@ -230,16 +230,12 @@
                         </stackView>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="yep-zg-zjw" secondAttribute="trailing" id="3FH-R6-pAg"/>
                         <constraint firstItem="K3S-gp-rfL" firstAttribute="width" secondItem="7uq-lE-LWz" secondAttribute="width" id="6U2-uH-Ie3"/>
                         <constraint firstItem="K3S-gp-rfL" firstAttribute="leading" secondItem="7uq-lE-LWz" secondAttribute="leading" id="7OY-69-iij"/>
                         <constraint firstAttribute="bottom" secondItem="K3S-gp-rfL" secondAttribute="bottom" constant="40" id="Fe7-In-Fmf"/>
                         <constraint firstItem="K3S-gp-rfL" firstAttribute="trailing" secondItem="7uq-lE-LWz" secondAttribute="trailing" id="JIM-U0-6JU"/>
-                        <constraint firstItem="yep-zg-zjw" firstAttribute="leading" secondItem="7uq-lE-LWz" secondAttribute="leading" id="SH0-8Q-pRF"/>
                         <constraint firstItem="K3S-gp-rfL" firstAttribute="leading" secondItem="7uq-lE-LWz" secondAttribute="leading" id="hVq-mf-lbi"/>
-                        <constraint firstAttribute="bottom" secondItem="yep-zg-zjw" secondAttribute="bottom" id="iWY-2V-yzL"/>
                         <constraint firstAttribute="top" secondItem="K3S-gp-rfL" secondAttribute="top" constant="-60" id="ifc-VL-axJ"/>
-                        <constraint firstItem="yep-zg-zjw" firstAttribute="top" secondItem="06r-LT-xho" secondAttribute="centerY" constant="15" id="uCc-Qc-3rm"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
@@ -254,7 +250,11 @@
                 <constraint firstItem="7uq-lE-LWz" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="6SO-P7-AB2"/>
                 <constraint firstAttribute="trailing" secondItem="7uq-lE-LWz" secondAttribute="trailing" id="C9S-S6-kTW"/>
                 <constraint firstAttribute="bottom" secondItem="7uq-lE-LWz" secondAttribute="bottom" id="LTq-8Y-12S"/>
+                <constraint firstItem="bG9-dC-CMJ" firstAttribute="top" secondItem="06r-LT-xho" secondAttribute="centerY" constant="15" id="Z2A-5G-y2M"/>
                 <constraint firstItem="7uq-lE-LWz" firstAttribute="top" secondItem="K3S-gp-rfL" secondAttribute="top" constant="-10" id="Zfb-pJ-5WJ"/>
+                <constraint firstItem="bG9-dC-CMJ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="cHw-z4-mGj"/>
+                <constraint firstItem="bG9-dC-CMJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cpE-fE-9dc"/>
+                <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="bG9-dC-CMJ" secondAttribute="bottom" id="f8j-HN-sMk"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="107.8125"/>
