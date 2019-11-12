@@ -26,7 +26,9 @@ class CelebrateViewController: UIViewController {
     @IBOutlet weak var energyStatImageView: UIImageView!
     @IBOutlet weak var relationshipStatImageView: UIImageView!
     
+    @IBOutlet weak var shareNoteButton: TertiaryButton!
     weak var reflectionResponse: ReflectionResponse?
+    var promptContent: PromptContent?
     
     let logger = Logger(fileName: "CelebrateViewController")
     var shouldAnimate = true
@@ -240,14 +242,11 @@ class CelebrateViewController: UIViewController {
     @IBAction func goHomeTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func shareNoteTapped(_ sender: Any) {
+        let vc = ShareNoteViewController.loadFromNib()
+        vc.reflectionResponse = self.reflectionResponse
+        vc.promptContent = self.promptContent
+        self.present(vc, animated: true)
     }
-    */
-
 }

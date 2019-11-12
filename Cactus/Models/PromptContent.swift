@@ -146,4 +146,13 @@ class PromptContent: FlamelinkIdentifiable {
         self.shareReflectionCopy_md = try? values.decode(String.self, forKey: .shareReflectionCopy_md)
         self.cactusElement = try? values.decode(CactusElement.self, forKey: .cactusElement)
     }
+    
+    func getQuestion() -> String? {
+        self.content.first {$0.contentType == .reflect}?.text
+    }
+    
+    func getQuestionMarkdown() -> String? {
+        let content = self.content.first {$0.contentType == .reflect}
+        return FormatUtils.isBlank(content?.text_md) ? content?.text : content?.text_md
+    }
 }

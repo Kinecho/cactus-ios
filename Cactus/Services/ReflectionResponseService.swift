@@ -87,4 +87,10 @@ class ReflectionResponseService {
         
         return response
     }
+    
+    func shareReflection(_ response: ReflectionResponse, _ completed: @escaping (ReflectionResponse?, Any?) -> Void) {
+        response.shared = true
+        response.sharedAt = Date()
+        self.save(response, completed)
+    }
 }

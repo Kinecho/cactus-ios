@@ -17,6 +17,14 @@
 		300AC18A233A850B005C6555 /* JournalEntrySkeletonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 300AC186233A850B005C6555 /* JournalEntrySkeletonViewController.xib */; };
 		300AC18D233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */; };
 		300AC18E233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */; };
+		300F236C237A61F100F35CDE /* ShareReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F236A237A61F100F35CDE /* ShareReflectionViewController.swift */; };
+		300F236D237A61F100F35CDE /* ShareReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F236A237A61F100F35CDE /* ShareReflectionViewController.swift */; };
+		300F236E237A61F100F35CDE /* ShareReflectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 300F236B237A61F100F35CDE /* ShareReflectionViewController.xib */; };
+		300F236F237A61F100F35CDE /* ShareReflectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 300F236B237A61F100F35CDE /* ShareReflectionViewController.xib */; };
+		300F2371237A629800F35CDE /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F2370237A629800F35CDE /* CircleView.swift */; };
+		300F2372237A629800F35CDE /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F2370237A629800F35CDE /* CircleView.swift */; };
+		300F2374237A6F7500F35CDE /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F2373237A6F7500F35CDE /* ShadowView.swift */; };
+		300F2375237A6F7500F35CDE /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F2373237A6F7500F35CDE /* ShadowView.swift */; };
 		3014A38C2378CA0300121729 /* TertiaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3014A38B2378CA0300121729 /* TertiaryButton.swift */; };
 		3014A38D2378CA0300121729 /* TertiaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3014A38B2378CA0300121729 /* TertiaryButton.swift */; };
 		3018B11D23751DE70005333A /* AppIconSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018B11C23751DE70005333A /* AppIconSettingsViewController.swift */; };
@@ -335,6 +343,11 @@
 		300AC185233A850B005C6555 /* JournalEntrySkeletonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JournalEntrySkeletonViewController.swift; path = Cactus/ViewControllers/JournalEntrySkeletonViewController.swift; sourceTree = SOURCE_ROOT; };
 		300AC186233A850B005C6555 /* JournalEntrySkeletonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = JournalEntrySkeletonViewController.xib; path = Cactus/ViewControllers/JournalEntrySkeletonViewController.xib; sourceTree = SOURCE_ROOT; };
 		300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFeedDataSource.swift; sourceTree = "<group>"; };
+		300F236A237A61F100F35CDE /* ShareReflectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareReflectionViewController.swift; sourceTree = "<group>"; };
+		300F236B237A61F100F35CDE /* ShareReflectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareReflectionViewController.xib; sourceTree = "<group>"; };
+		300F2370237A629800F35CDE /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		300F2373237A6F7500F35CDE /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		300F2376237A7C8600F35CDE /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 		3014A38B2378CA0300121729 /* TertiaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TertiaryButton.swift; sourceTree = "<group>"; };
 		3018B11C23751DE70005333A /* AppIconSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSettingsViewController.swift; sourceTree = "<group>"; };
 		3018B11F2376041A0005333A /* LoggerUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerUtil.swift; sourceTree = "<group>"; };
@@ -651,6 +664,7 @@
 				30934F9822EBF235007C4E6C /* BorderedButton.swift */,
 				3084E96B234BC5FE00788279 /* PrimaryButton.swift */,
 				3014A38B2378CA0300121729 /* TertiaryButton.swift */,
+				300F2376237A7C8600F35CDE /* SecondaryButton.swift */,
 				30934F9E22EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift */,
 				30BF2E312328C7AD00A49EB6 /* MarkdownTypes.swift */,
 				305B1884233273C4003E1561 /* GrowingTextView.swift */,
@@ -660,6 +674,8 @@
 				3021B67723623AE3002634A8 /* CactusTextInputField.swift */,
 				3020DD932363F37D00EC40AE /* UIImageViewAligned.swift */,
 				30FA2C9823741A3300F671AF /* JournalFeedFlowLayout.swift */,
+				300F2370237A629800F35CDE /* CircleView.swift */,
+				300F2373237A6F7500F35CDE /* ShadowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -861,6 +877,8 @@
 				30D7F708236BAAB100379EE0 /* EditReflectionViewController.xib */,
 				30F716852379ED32004989DB /* ShareNoteViewController.swift */,
 				30F716862379ED32004989DB /* ShareNoteViewController.xib */,
+				300F236A237A61F100F35CDE /* ShareReflectionViewController.swift */,
+				300F236B237A61F100F35CDE /* ShareReflectionViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1047,6 +1065,7 @@
 				30CF53802370B10F00578B22 /* EmotionsAnimationViewController.xib in Resources */,
 				30CF53862370C58100578B22 /* ExperienceAnimationViewController.xib in Resources */,
 				305B18832331E162003E1561 /* ReflectContentViewController.xib in Resources */,
+				300F236F237A61F100F35CDE /* ShareReflectionViewController.xib in Resources */,
 				30CF53922370FBB800578B22 /* RelationshipsAnimationViewController.xib in Resources */,
 				30D7F70C236BAAB100379EE0 /* EditReflectionViewController.xib in Resources */,
 				30CF539B23732EC300578B22 /* VideoContentViewController.xib in Resources */,
@@ -1094,6 +1113,7 @@
 				3084E9672348FE9C00788279 /* CelebrateViewController.xib in Resources */,
 				3026B297234D1AF200CD2D34 /* cactus-growing-green-588.mp4 in Resources */,
 				30B6EA7622EA5A9F00443E46 /* Main.storyboard in Resources */,
+				300F236E237A61F100F35CDE /* ShareReflectionViewController.xib in Resources */,
 				30CF539A23732EC300578B22 /* VideoContentViewController.xib in Resources */,
 				30A266DA2329BB73003C708E /* config.yml in Resources */,
 				30673BA6233FDEC300EDE7BD /* Lato-ThinItalic.ttf in Resources */,
@@ -1424,6 +1444,7 @@
 				30934FAD22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */,
 				30727432236A289900309B3C /* AppSettings.swift in Sources */,
 				30727438236A312800309B3C /* CactusConstants.swift in Sources */,
+				300F2375237A6F7500F35CDE /* ShadowView.swift in Sources */,
 				3014A38C2378CA0300121729 /* TertiaryButton.swift in Sources */,
 				303EB0892343A0B800AC8741 /* RoundedView.swift in Sources */,
 				30CF53902370FBB800578B22 /* RelationshipsAnimationViewController.swift in Sources */,
@@ -1431,6 +1452,7 @@
 				305B186C23319A72003E1561 /* ImageExtensions.swift in Sources */,
 				30BF2E332328C7AD00A49EB6 /* MarkdownTypes.swift in Sources */,
 				3084E95F234810B300788279 /* FeedbackViewController.swift in Sources */,
+				300F236D237A61F100F35CDE /* ShareReflectionViewController.swift in Sources */,
 				30934FA422EBF4E6007C4E6C /* FormatUtils.swift in Sources */,
 				30E9B0B422EADE2D005B25FD /* CGExtensions.swift in Sources */,
 				30BE5670234E73A000AA6D4D /* NotificationsTableViewController.swift in Sources */,
@@ -1454,6 +1476,7 @@
 				3072742C236950AC00309B3C /* SharingService.swift in Sources */,
 				309561A522EE172B009357BD /* AppConfig.swift in Sources */,
 				30265C6123453CB100934041 /* UIImage+SwiftyGif.swift in Sources */,
+				300F2372237A629800F35CDE /* CircleView.swift in Sources */,
 				3020DD9923640BE300EC40AE /* CactusElementsViewController.swift in Sources */,
 				30BE5676234E982C00AA6D4D /* LinkedAccountsTableViewController.swift in Sources */,
 				30E9B09E22EA7FC3005B25FD /* CactusMember.swift in Sources */,
@@ -1534,6 +1557,7 @@
 				30E9B0B322EADE2D005B25FD /* CGExtensions.swift in Sources */,
 				30727431236A289900309B3C /* AppSettings.swift in Sources */,
 				30727437236A312800309B3C /* CactusConstants.swift in Sources */,
+				300F2374237A6F7500F35CDE /* ShadowView.swift in Sources */,
 				3014A38D2378CA0300121729 /* TertiaryButton.swift in Sources */,
 				303EB0882343A0B800AC8741 /* RoundedView.swift in Sources */,
 				30CF538F2370FBB800578B22 /* RelationshipsAnimationViewController.swift in Sources */,
@@ -1541,6 +1565,7 @@
 				305B186B23319A72003E1561 /* ImageExtensions.swift in Sources */,
 				30E9B0BD22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
 				3084E95E234810B300788279 /* FeedbackViewController.swift in Sources */,
+				300F236C237A61F100F35CDE /* ShareReflectionViewController.swift in Sources */,
 				30BF2E2F2328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */,
 				30BF2E0F23281CAA00A49EB6 /* FlamelinkTypes.swift in Sources */,
 				30BE566F234E73A000AA6D4D /* NotificationsTableViewController.swift in Sources */,
@@ -1564,6 +1589,7 @@
 				3072742B236950AC00309B3C /* SharingService.swift in Sources */,
 				30BF2E2A23289F9F00A49EB6 /* TextContentViewController.swift in Sources */,
 				30265C6023453CB100934041 /* UIImage+SwiftyGif.swift in Sources */,
+				300F2371237A629800F35CDE /* CircleView.swift in Sources */,
 				3020DD9823640BE300EC40AE /* CactusElementsViewController.swift in Sources */,
 				30BE5675234E982C00AA6D4D /* LinkedAccountsTableViewController.swift in Sources */,
 				309561A422EE16D7009357BD /* AppConfig.swift in Sources */,

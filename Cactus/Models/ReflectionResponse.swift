@@ -66,6 +66,9 @@ class ReflectionResponse: FirestoreIdentifiable, Hashable {
     var reflectionDurationMs: Int?
     var cactusElement: CactusElement?
     var reflectionDates: [Date]?
+    var shared: Bool = false
+    var sharedAt: Date?
+    var unsharedAt: Date?
     
     static func == (lhs: ReflectionResponse, rhs: ReflectionResponse) -> Bool {
         return lhs.id != nil && rhs.id != nil && lhs.id == rhs.id

@@ -86,3 +86,49 @@ class PromptShareItem: NSObject, UIActivityItemSource {
         }
     }
 }
+
+class ReflectionShareItem: NSObject, UIActivityItemSource {
+    let promptContent: PromptContent!
+    let reflectionResponse: ReflectionResponse!
+    
+    init(_ reflectionResponse: ReflectionResponse, _ promptContent: PromptContent) {
+        self.promptContent = promptContent
+        self.reflectionResponse = reflectionResponse
+    }
+    
+    func getShareTitle() -> String {
+        return "Read my private note on Cactus"
+    }
+    
+    func getShareBody() -> String {
+        return self.promptContent.getQuestion() ?? ""
+    }
+    
+    func getLink() -> String? {
+        guard let id = self.reflectionResponse.id else {
+            return nil
+        }
+        return "\(CactusConfig.webDomain)/reflection/\(id)?utm_source=cactus_ios&utm_medium=share-note"
+    }
+    
+    func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
+        return self.getLink() ?? ""
+    }
+
+    func activityViewController(_ activityViewController: UIActivityViewController, subjectForActivityType activityType: UIActivity.ActivityType?) -> String {
+        return getShareTitle()
+    }
+    
+    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
+        
+        let defaultItem = "\(self.getShareTitle())\n\(self.getShareBody())\n\(self.getLink() ?? "")".trimmingCharacters(in: .whitespacesAndNewlines)
+        guard let activityType = activityType else {
+            return defaultItem
+        }
+        
+        switch activityType {
+        default:
+            return defaultItem
+        }
+    }
+}
