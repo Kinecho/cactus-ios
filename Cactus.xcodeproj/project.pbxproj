@@ -308,6 +308,9 @@
 		30F716882379ED32004989DB /* ShareNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F716852379ED32004989DB /* ShareNoteViewController.swift */; };
 		30F716892379ED32004989DB /* ShareNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30F716862379ED32004989DB /* ShareNoteViewController.xib */; };
 		30F7168A2379ED32004989DB /* ShareNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30F716862379ED32004989DB /* ShareNoteViewController.xib */; };
+		30F7168B237A4A9B004989DB /* LoggerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018B11F2376041A0005333A /* LoggerUtil.swift */; };
+		30F7168C237A4B85004989DB /* CactusConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309561A122EE16C3009357BD /* CactusConfig.swift */; };
+		30F7168D237A4B9C004989DB /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309561A322EE16D7009357BD /* AppConfig.swift */; };
 		30FA2C9923741A3300F671AF /* JournalFeedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FA2C9823741A3300F671AF /* JournalFeedFlowLayout.swift */; };
 		30FA2C9A23741A3300F671AF /* JournalFeedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FA2C9823741A3300F671AF /* JournalFeedFlowLayout.swift */; };
 		76F23F2602ADC65094F1CF3B /* Pods_Cactus_Prod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E8C1EB665F6286E3CD0BE5 /* Pods_Cactus_Prod.framework */; };
@@ -1365,6 +1368,7 @@
 				305B18752331A8F5003E1561 /* CactusColor.swift in Sources */,
 				305B187A2331A906003E1561 /* PromptContent.swift in Sources */,
 				3084E96A234BACE300788279 /* FormatUtilTest.swift in Sources */,
+				30F7168B237A4A9B004989DB /* LoggerUtil.swift in Sources */,
 				30D0E44A236C913600EFC0E3 /* CactusImage.swift in Sources */,
 				305B18722331A843003E1561 /* FileUtils.swift in Sources */,
 				305B18762331A906003E1561 /* BaseModel.swift in Sources */,
@@ -1374,10 +1378,12 @@
 				305B18742331A8F0003E1561 /* MarkdownUtil.swift in Sources */,
 				30D0E451236C921200EFC0E3 /* FontExtensions.swift in Sources */,
 				305B18732331A8E8003E1561 /* FormatUtils.swift in Sources */,
+				30F7168D237A4B9C004989DB /* AppConfig.swift in Sources */,
 				305B187123319F42003E1561 /* FileUtilsTest.swift in Sources */,
 				305B18772331A906003E1561 /* FlamelinkTypes.swift in Sources */,
 				305B18782331A906003E1561 /* CactusMember.swift in Sources */,
 				305B187B2331A906003E1561 /* ReflectionPrompt.swift in Sources */,
+				30F7168C237A4B85004989DB /* CactusConfig.swift in Sources */,
 				30D0E44D236C920400EFC0E3 /* ViewExtensions.swift in Sources */,
 				30D0E452236C921500EFC0E3 /* UIAlertControllerExtensions.swift in Sources */,
 				30D0E456236C98C100EFC0E3 /* StringExtensions.swift in Sources */,
