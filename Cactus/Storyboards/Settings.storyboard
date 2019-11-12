@@ -795,7 +795,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kz1-Nk-eh8"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Email Address" id="6bO-uI-47t"/>
+                    <navigationItem key="navigationItem" title="My Profile" id="6bO-uI-47t"/>
                     <connections>
                         <outlet property="cancelButton" destination="yHb-HA-5fO" id="LmW-F3-v1g"/>
                         <outlet property="emailTextView" destination="ApW-VM-gjv" id="7Q9-cq-RoI"/>
