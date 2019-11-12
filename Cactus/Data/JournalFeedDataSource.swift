@@ -85,7 +85,7 @@ class JournalFeedDataSource {
     
     var pageListeners: [ListenerRegistration] = []
     var pages: [PageLoader<SentPrompt>] = []
-    var pageSize: Int = 3
+    var pageSize: Int = 10
     var mightHaveMore: Bool {self.pages.last?.result?.mightHaveMore ?? false}
     
     var isLoading: Bool {self.pages.isEmpty ? !self.hasLoaded : self.pages.contains { !$0.finishedLoading } }

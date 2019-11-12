@@ -66,7 +66,7 @@ class ReflectionResponse: FirestoreIdentifiable, Hashable {
     var reflectionDurationMs: Int?
     var cactusElement: CactusElement?
     var reflectionDates: [Date]?
-    var shared: Bool = false
+    var shared: Bool? = false
     var sharedAt: Date?
     var unsharedAt: Date?
     

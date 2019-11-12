@@ -54,7 +54,7 @@ class ShareNoteViewController: UIViewController {
     }
 
     func configureSharing() {
-        if self.reflectionResponse.shared {
+        if self.reflectionResponse?.shared == true {
             self.shareLinkButton.isHidden = true
             self.shareButton.isHidden = false
         } else {
