@@ -49,16 +49,16 @@
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-12" translatesAutoresizingMaskIntoConstraints="NO" id="IYg-f3-bGG" userLabel="Profile Stack View">
-                    <rect key="frame" x="75" y="19" width="319" height="52"/>
+                    <rect key="frame" x="75" y="18" width="319" height="54"/>
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Neil Poulin" translatesAutoresizingMaskIntoConstraints="NO" id="ESG-fY-NaE" userLabel="Name Text View">
-                            <rect key="frame" x="0.0" y="0.0" width="319" height="30.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="319" height="33"/>
                             <color key="textColor" name="GreenDarkest"/>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Shared on September 22, 2019" translatesAutoresizingMaskIntoConstraints="NO" id="4Zw-zO-IN8" userLabel="Date Text View">
-                            <rect key="frame" x="0.0" y="21.5" width="319" height="30.5"/>
+                            <rect key="frame" x="0.0" y="21" width="319" height="33"/>
                             <color key="textColor" name="GreenDarkest"/>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -66,17 +66,17 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="L5w-8H-XoN">
-                    <rect key="frame" x="20" y="91" width="374" height="105"/>
+                    <rect key="frame" x="20" y="92" width="374" height="94.5"/>
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="What is your favorite thing about your best friend?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7V9-KK-est" userLabel="Question Text View">
-                            <rect key="frame" x="0.0" y="0.0" width="374" height="59.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="59"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <color key="textColor" name="GreenDarkest"/>
                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="18"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="my answer is short" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dMJ-OO-Asb" userLabel="Response Text View">
-                            <rect key="frame" x="0.0" y="69.5" width="374" height="35.5"/>
+                            <rect key="frame" x="0.0" y="59" width="374" height="35.5"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <color key="textColor" name="GreenDarkest"/>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
