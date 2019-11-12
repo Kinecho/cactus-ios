@@ -172,7 +172,7 @@
                                         <constraint firstAttribute="height" constant="90" id="wU4-ZC-E6s"/>
                                     </constraints>
                                 </stackView>
-                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nej-fG-g5l" userLabel="Actions Stack View">
+                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nej-fG-g5l" userLabel="Actions Stack View">
                                     <rect key="frame" x="20" y="469.5" width="374" height="50"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ToH-i0-PzU" userLabel="Share Note Button" customClass="TertiaryButton" customModule="Cactus" customModuleProvider="target">
@@ -222,9 +222,9 @@
                                 <constraint firstAttribute="trailing" secondItem="V9m-W4-NJ0" secondAttribute="trailing" constant="20" id="Fft-sk-gdK"/>
                                 <constraint firstItem="06r-LT-xho" firstAttribute="leading" secondItem="K3S-gp-rfL" secondAttribute="leading" constant="20" id="Myc-vF-m0g"/>
                                 <constraint firstAttribute="trailing" secondItem="yKD-GT-QmC" secondAttribute="trailing" constant="20" id="UUk-au-evS"/>
-                                <constraint firstAttribute="trailing" secondItem="nej-fG-g5l" secondAttribute="trailing" constant="20" id="X3r-HA-Xt1"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nej-fG-g5l" secondAttribute="trailing" constant="20" id="X3r-HA-Xt1"/>
                                 <constraint firstItem="yKD-GT-QmC" firstAttribute="leading" secondItem="K3S-gp-rfL" secondAttribute="leading" constant="20" id="jED-zB-MaJ"/>
-                                <constraint firstItem="nej-fG-g5l" firstAttribute="leading" secondItem="K3S-gp-rfL" secondAttribute="leading" constant="20" id="ofd-hJ-1NV"/>
+                                <constraint firstItem="nej-fG-g5l" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="K3S-gp-rfL" secondAttribute="leading" constant="20" id="ofd-hJ-1NV"/>
                                 <constraint firstAttribute="trailing" secondItem="06r-LT-xho" secondAttribute="trailing" constant="20" id="xJR-PH-e1L"/>
                             </constraints>
                         </stackView>

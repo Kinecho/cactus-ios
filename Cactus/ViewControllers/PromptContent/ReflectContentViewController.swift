@@ -30,7 +30,8 @@ class ReflectContentViewController: PromptContentViewController {
         
         if let promptId = self.promptContent.promptId, self.reflectionResponse == nil {
             let question = self.content.title
-            self.reflectionResponse = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: question)
+            let element = self.promptContent.cactusElement
+            self.reflectionResponse = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: question, element: element)
         }
         self.configureView()
         self.videoView.isHidden = true
@@ -141,7 +142,7 @@ class ReflectContentViewController: PromptContentViewController {
         if let duration = durationMs {
             response.reflectionDurationMs = (response.reflectionDurationMs ?? 0) + Int(duration)
         }
-        
+        response.cactusElement = self.promptContent.cactusElement
         self.setSaving(true)
         ReflectionResponseService.sharedInstance.save(response) { (saved, error) in
             if let error = error {

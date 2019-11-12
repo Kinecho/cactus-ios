@@ -154,7 +154,8 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         self.contentView.backgroundColor = .clear
         var response = self.responses?.first
         if response == nil, let promptId = self.sentPrompt?.promptId {
-            response = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: self.prompt?.question)
+            let element = self.promptContent?.cactusElement
+            response = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: self.prompt?.question, element: element)
         }
         
         response?.content.text = self.responseTextView.text
@@ -473,7 +474,8 @@ extension JournalEntryCollectionViewCell: EditReflectionViewControllerDelegate {
         
         var response = self.responses?.first
         if response == nil, let promptId = self.sentPrompt?.promptId {
-            response = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: self.prompt?.question)
+            let element = self.promptContent?.cactusElement
+            response = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: self.prompt?.question, element: element)
         }
         
         guard let reflectionResponse = response else {

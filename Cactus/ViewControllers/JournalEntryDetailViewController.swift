@@ -29,8 +29,8 @@ class JournalEntryDetailViewController: UIViewController {
         self.view.dismissKeyboard()
         
         if response == nil, let promptId = self.prompt?.id {
-            response = ReflectionResponseService.sharedInstance
-                .createReflectionResponse(promptId, promptQuestion: self.prompt?.question)
+            let element = self.promptContent?.cactusElement
+            response = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: self.prompt?.question, element: element)
         }
         
         response?.content.text = self.responseTextView.text

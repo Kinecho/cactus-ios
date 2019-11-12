@@ -67,7 +67,7 @@ class ReflectionResponseService {
         return response
     }
     
-    func createReflectionResponse(_ promptId: String, promptQuestion: String?) -> ReflectionResponse? {
+    func createReflectionResponse(_ promptId: String, promptQuestion: String?, element: CactusElement?) -> ReflectionResponse? {
         guard let member = CactusMemberService.sharedInstance.currentMember else {
             return nil
         }
@@ -79,7 +79,7 @@ class ReflectionResponseService {
         response.userId = member.userId
         response.memberEmail = member.email
         response.responseMedium = ResponseMedium.JOURNAL_IOS
-
+        response.cactusElement = element
         if let listMember = member.mailchimpListMember {
             response.mailchimpMemberId = listMember.id
             response.mailchimpUniqueEmailId = listMember.unique_email_id
