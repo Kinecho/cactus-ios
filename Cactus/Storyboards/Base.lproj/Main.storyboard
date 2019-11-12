@@ -595,19 +595,19 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="JP6-tG-hyL">
-                                        <rect key="frame" x="0.0" y="99.999999999999972" width="375" height="505.33333333333326"/>
+                                        <rect key="frame" x="0.0" y="100" width="375" height="503"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="dia-5i-NZT">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="59.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="57.666666666666664"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dt5-xk-ofP">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="32.666666666666664"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="31.666666666666668"/>
                                                         <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="27"/>
                                                         <color key="textColor" name="GreenDarkest"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start with a happier mindset today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afq-L6-2C3">
-                                                        <rect key="frame" x="0.0" y="38.666666666666657" width="375" height="20.666666666666671"/>
+                                                        <rect key="frame" x="0.0" y="37.666666666666657" width="375" height="20"/>
                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                         <color key="textColor" name="GreenDarkest"/>
                                                         <nil key="highlightedColor"/>
@@ -615,7 +615,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RUy-x4-bJ7" userLabel="Email Input Stack">
-                                                <rect key="frame" x="20" y="99.333333333333343" width="335" height="85"/>
+                                                <rect key="frame" x="20" y="97.666666666666657" width="335" height="85"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email address" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="S96-g0-ejQ" customClass="CactusTextInputField" customModule="Cactus" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="45"/>
@@ -634,7 +634,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ey-8b-Wmd" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="54.999999999999972" width="335" height="30"/>
+                                                        <rect key="frame" x="0.0" y="55.000000000000028" width="335" height="30"/>
                                                         <state key="normal" title="Next"/>
                                                         <connections>
                                                             <action selector="magicLinkNext:" destination="4zv-1f-KPm" eventType="touchUpInside" id="XWC-S7-8tN"/>
@@ -647,13 +647,13 @@
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or choose from one of the following" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYq-wW-wiI" userLabel="Choose Provider">
-                                                <rect key="frame" x="20" y="224.33333333333331" width="335" height="17"/>
+                                                <rect key="frame" x="20" y="222.66666666666669" width="335" height="16.333333333333343"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                                 <color key="textColor" name="GreenDarkest"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7x3-lF-lM2" userLabel="Login Buttons Container">
-                                                <rect key="frame" x="20" y="281.33333333333331" width="335" height="224"/>
+                                                <rect key="frame" x="20" y="279" width="335" height="224"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="224" id="9hh-r5-2L7"/>
                                                 </constraints>
