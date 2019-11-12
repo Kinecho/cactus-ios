@@ -59,6 +59,8 @@ class ReflectionResponse: FirestoreIdentifiable, Hashable {
     var mailchimpMemberId: String?
     var mailchimpUniqueEmailId: String?
     var memberEmail: String?
+    var memberFirstName: String?
+    var memberLastName: String?
     var content = ReflectionContent()
     var promptId: String?
     var promptQuestion: String?

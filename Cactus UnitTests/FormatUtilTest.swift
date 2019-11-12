@@ -18,10 +18,22 @@ class FormatUtilTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func wrapInQuotesTest() {
+    func testWrapInQuotes() {
         XCTAssertEqual(FormatUtils.wrapInDoubleQuotes(input: "test"), "\"test\"")
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+    }
+    
+    func testHasChanges() {
+        XCTAssertTrue(FormatUtils.hasChanges(nil, "new value"))
+        XCTAssertTrue(FormatUtils.hasChanges("old value", "new value"))
+        XCTAssertTrue(FormatUtils.hasChanges("old value", nil))
+        XCTAssertTrue(FormatUtils.hasChanges("old value", ""))
+        XCTAssertFalse(FormatUtils.hasChanges(nil, ""))
+        XCTAssertFalse(FormatUtils.hasChanges(nil, nil))
+        XCTAssertFalse(FormatUtils.hasChanges("", ""))
+        XCTAssertFalse(FormatUtils.hasChanges(nil, " "))
+        
     }
 
 }

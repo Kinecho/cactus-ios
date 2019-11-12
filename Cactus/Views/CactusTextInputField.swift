@@ -11,6 +11,9 @@ import UIKit
 @IBDesignable
 class CactusTextInputField: UITextField {
 
+    @IBInspectable var cornerRadius: CGFloat = 20
+    @IBInspectable var fullyRoundedCorners: Bool = false
+    
     let padding = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
     
     override func prepareForInterfaceBuilder() {
@@ -36,7 +39,12 @@ class CactusTextInputField: UITextField {
         self.clipsToBounds = true
         self.layer.borderColor = CactusColor.green.cgColor
         self.layer.borderWidth = 1.0
-        self.layer.cornerRadius = 20
+        
+        if self.fullyRoundedCorners {
+            self.layer.cornerRadius = self.frame.height / 2
+        } else {
+            self.layer.cornerRadius = self.cornerRadius
+        }
         
 //        self.heightAnchor.constraint(equalToConstant: self.font?.lineHeight ?? 16 + 10).isActive = true
         

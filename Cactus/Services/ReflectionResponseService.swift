@@ -91,6 +91,11 @@ class ReflectionResponseService {
     func shareReflection(_ response: ReflectionResponse, _ completed: @escaping (ReflectionResponse?, Any?) -> Void) {
         response.shared = true
         response.sharedAt = Date()
+        if let member = CactusMemberService.sharedInstance.currentMember {
+            response.memberFirstName = member.firstName
+            response.memberLastName = member.lastName
+        }
+        
         self.save(response, completed)
     }
 }

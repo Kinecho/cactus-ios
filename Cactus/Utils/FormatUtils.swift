@@ -9,7 +9,16 @@
 import Foundation
 import UIKit
 
+func toEmptyString(_ input: String?) -> String {
+    return input ?? ""
+}
+
 struct FormatUtils {
+    
+    static func hasChanges(_ input: String?, _ original: String?) -> Bool {
+        return toEmptyString(input).trimmingCharacters(in: .whitespacesAndNewlines) != toEmptyString(original).trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
     static func formatDate(_ date: Date?, currentYearFormat: String="MMMM d", previousYearFormat: String="MMM d, yyyy") -> String? {
         var dateString: String?
         if let date = date {

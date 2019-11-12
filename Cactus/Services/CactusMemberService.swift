@@ -67,6 +67,10 @@ class CactusMemberService {
         }
     }
     
+    func save(_ member: CactusMember, completed: @escaping (CactusMember?, Any?) -> Void){
+        self.firestoreService.save(member, onComplete: completed)
+    }
+    
     func addFCMToken(member: CactusMember) {
         InstanceID.instanceID().instanceID { (result, error) in
             if let error = error {

@@ -25,6 +25,8 @@
 		300F2372237A629800F35CDE /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F2370237A629800F35CDE /* CircleView.swift */; };
 		300F2374237A6F7500F35CDE /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F2373237A6F7500F35CDE /* ShadowView.swift */; };
 		300F2375237A6F7500F35CDE /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F2373237A6F7500F35CDE /* ShadowView.swift */; };
+		300F2378237B4DE400F35CDE /* BorderedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F2377237B4DE400F35CDE /* BorderedTextView.swift */; };
+		300F2379237B4DE400F35CDE /* BorderedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F2377237B4DE400F35CDE /* BorderedTextView.swift */; };
 		3014A38C2378CA0300121729 /* TertiaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3014A38B2378CA0300121729 /* TertiaryButton.swift */; };
 		3014A38D2378CA0300121729 /* TertiaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3014A38B2378CA0300121729 /* TertiaryButton.swift */; };
 		3018B11D23751DE70005333A /* AppIconSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018B11C23751DE70005333A /* AppIconSettingsViewController.swift */; };
@@ -348,6 +350,7 @@
 		300F2370237A629800F35CDE /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		300F2373237A6F7500F35CDE /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		300F2376237A7C8600F35CDE /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
+		300F2377237B4DE400F35CDE /* BorderedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedTextView.swift; sourceTree = "<group>"; };
 		3014A38B2378CA0300121729 /* TertiaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TertiaryButton.swift; sourceTree = "<group>"; };
 		3018B11C23751DE70005333A /* AppIconSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSettingsViewController.swift; sourceTree = "<group>"; };
 		3018B11F2376041A0005333A /* LoggerUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerUtil.swift; sourceTree = "<group>"; };
@@ -672,6 +675,7 @@
 				303EB0872343A0B800AC8741 /* RoundedView.swift */,
 				30BC2CFF234EA63E00AB7B89 /* AuthProviderTableViewCell.swift */,
 				3021B67723623AE3002634A8 /* CactusTextInputField.swift */,
+				300F2377237B4DE400F35CDE /* BorderedTextView.swift */,
 				3020DD932363F37D00EC40AE /* UIImageViewAligned.swift */,
 				30FA2C9823741A3300F671AF /* JournalFeedFlowLayout.swift */,
 				300F2370237A629800F35CDE /* CircleView.swift */,
@@ -1454,6 +1458,7 @@
 				3084E95F234810B300788279 /* FeedbackViewController.swift in Sources */,
 				300F236D237A61F100F35CDE /* ShareReflectionViewController.swift in Sources */,
 				30934FA422EBF4E6007C4E6C /* FormatUtils.swift in Sources */,
+				300F2378237B4DE400F35CDE /* BorderedTextView.swift in Sources */,
 				30E9B0B422EADE2D005B25FD /* CGExtensions.swift in Sources */,
 				30BE5670234E73A000AA6D4D /* NotificationsTableViewController.swift in Sources */,
 				300AC18E233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */,
@@ -1567,6 +1572,7 @@
 				3084E95E234810B300788279 /* FeedbackViewController.swift in Sources */,
 				300F236C237A61F100F35CDE /* ShareReflectionViewController.swift in Sources */,
 				30BF2E2F2328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */,
+				300F2379237B4DE400F35CDE /* BorderedTextView.swift in Sources */,
 				30BF2E0F23281CAA00A49EB6 /* FlamelinkTypes.swift in Sources */,
 				30BE566F234E73A000AA6D4D /* NotificationsTableViewController.swift in Sources */,
 				300AC18D233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */,

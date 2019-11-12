@@ -32,7 +32,7 @@ class NavigationMenuViewController: UIViewController {
     var reflectionsCountProcess: CountProcess?
     var minutesCountProcess: CountProcess?
     var streakCountProcess: CountProcess?
-    
+    weak var settingsTableVc: SettingsTableViewController?
     var memberUnsubscriber: Unsubscriber?
     
     weak var delegate: NavigationMenuViewControllerDelegate?
@@ -100,7 +100,8 @@ class NavigationMenuViewController: UIViewController {
                 self.reflectionCount = reflectionStats.totalCount
             }
             
-            
+            self.settingsTableVc?.member = member
+            self.settingsTableVc?.configureView()
         } else {
             self.emailLabel.isHidden = true
             self.displayNameLabel.isHidden = true
@@ -209,6 +210,7 @@ class NavigationMenuViewController: UIViewController {
         let vc = AppDelegate.shared.rootViewController.getScreen(ScreenID.settingsTable, StoryboardID.Settings)
         if let settingsVc = vc as? SettingsTableViewController {
             settingsVc.member = self.member
+            self.settingsTableVc = settingsVc
         }
         self.navigationController?.pushViewController(vc, animated: true)
     }

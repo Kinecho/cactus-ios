@@ -30,15 +30,21 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.configureFooter()
+        
+        self.tableView.tableFooterView = self.footerView
+        
         self.configureView()
     }
 
     func configureView() {
-        //this clears the extra table view "cells" after the cells that are displayed.
-        tableView.tableFooterView = UIView()
-        
-        //set up the table footer view with the logout button
-        self.configureFooter()
+        let name = "\(member?.firstName ?? "") \(member?.lastName ?? "")".trimmingCharacters(in: .whitespacesAndNewlines)
+        let email = member?.email
+        if (!FormatUtils.isBlank(name) && !FormatUtils.isBlank(email)) {
+            self.emailAddressLabel.text = "\(name) (\(email ?? ""))"
+        } else {
+            self.emailAddressLabel.text = member?.email
+        }
     }
     
     func configureFooter() {
@@ -88,44 +94,13 @@ class SettingsTableViewController: UITableViewController {
         self.footerView = footerView
         
         logoutButton.addTarget(self, action: #selector(self.logOutTapped(_:)), for: .primaryActionTriggered)
-        self.emailAddressLabel.text = member?.email
+        
     }
     
     @IBAction func logOutTapped(_ sender: Any) {
         AuthService.sharedInstance.logOut(self)
     }
     
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 200
-    }
-    
-    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        self.footerView.frame = CGRect(tableView.frame.minX, tableView.frame.maxY + 20, tableView.bounds.width, 100 )
-//        self.footerView.backgroundColor = .red
-        return self.footerView
-    }
-    // MARK: - Table view data source
-//
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-//
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return 0
-//    }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
