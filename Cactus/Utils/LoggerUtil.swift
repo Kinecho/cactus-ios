@@ -48,17 +48,19 @@ class Logger {
         return self.logLevel.rawValue <= logLevel.rawValue
     }
     
-    init(fileName: String?=nil, functionName: String?=nil) {
+    init(fileName: String?=nil) {
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
         dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         
         self.fileName = fileName
-        self.functionName = functionName
     }
     
     func withFunctionName(_ functionName: String) -> Logger {
-        return Logger(fileName: self.fileName, functionName: functionName)
+        let logger = Logger(fileName: self.fileName)
+        
+        logger.functionName = functionName
+        return logger
     }
     
     func tada(_ message: String) {

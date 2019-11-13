@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Notification Onboarding View Controller-->
+        <scene sceneID="QBa-uX-7tZ">
+            <objects>
+                <viewController storyboardIdentifier="notificationOnboarding" id="7aI-3Q-pgv" customClass="NotificationOnboardingViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HrP-QK-aXd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K1H-p1-FDE" userLabel="Close Button">
+                                <rect key="frame" x="260" y="10" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1Xf-z9-o2g"/>
+                                    <constraint firstAttribute="width" constant="50" id="5KO-g9-7Uq"/>
+                                </constraints>
+                                <color key="tintColor" name="PinkDarkest"/>
+                                <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" image="close"/>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="7aI-3Q-pgv" eventType="primaryActionTriggered" id="3fj-jV-hAr"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blob3" translatesAutoresizingMaskIntoConstraints="NO" id="Cse-hb-epR">
+                                <rect key="frame" x="-203" y="-137" width="303" height="317"/>
+                                <color key="tintColor" name="PinkDark"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="303" id="BbE-wv-6QP"/>
+                                    <constraint firstAttribute="height" constant="317" id="kHT-1F-MKL"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blobNeedle" translatesAutoresizingMaskIntoConstraints="NO" id="sze-OD-lKJ">
+                                <rect key="frame" x="160" y="360" width="400" height="400"/>
+                                <color key="tintColor" name="GreenDarker"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="aXU-gj-DSy"/>
+                                    <constraint firstAttribute="height" constant="400" id="hFo-8F-KFP"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="t2a-kg-Fhq" userLabel="ContentStack View">
+                                <rect key="frame" x="20" y="27.5" width="280" height="425"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8Op-eM-NFE" userLabel="Messages Stack View">
+                                        <rect key="frame" x="24.5" y="8" width="231.5" height="309"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eg6-dq-Mur">
+                                                <rect key="frame" x="0.0" y="0.0" width="231.5" height="24"/>
+                                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="20"/>
+                                                <color key="textColor" name="PinkDarkest"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyy-A7-2j1" userLabel="Authorized Label">
+                                                <rect key="frame" x="0.0" y="34" width="231.5" height="65"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="You currently have push notifications ">
+                                                        <attributes>
+                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <font key="NSFont" size="18" name="Lato-Regular"/>
+                                                            <font key="NSOriginalFont" size="18" name="Lato-Regular"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content="turned on">
+                                                        <attributes>
+                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <font key="NSFont" size="18" name="Lato-Regular"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content=". ">
+                                                        <attributes>
+                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <font key="NSFont" size="18" name="Lato-Regular"/>
+                                                            <font key="NSOriginalFont" size="18" name="Lato-Regular"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content="You can change this in your settings">
+                                                        <attributes>
+                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <font key="NSFont" size="18" name="Lato-Italic"/>
+                                                            <font key="NSOriginalFont" size="18" name="Lato-Italic"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content=".">
+                                                        <attributes>
+                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <font key="NSFont" size="18" name="Lato-Regular"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcx-Lh-HCN" userLabel="Denied Label">
+                                                <rect key="frame" x="0.0" y="109" width="231.5" height="82"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Turn on push notifications so you know when it's time to reflect. You can enable this in your settings.">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.028353048488497734" green="0.26966866850852966" blue="0.30119732022285461" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" size="17" name="Lato-Regular"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Every day brings a new prompt to reflect on and beecome more mindful. Turn on push notifications so you never miss a day." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkC-1F-qGO" userLabel="New Notification Label">
+                                                <rect key="frame" x="0.0" y="201" width="231.5" height="108"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                <color key="textColor" name="GreenDarkest"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="H0V-7V-5hz" userLabel="Actions Stack View">
+                                        <rect key="frame" x="76" y="357" width="128" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbC-G6-C2k" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="128" height="30"/>
+                                                <state key="normal" title="Allow Notifications"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="verticalPadding">
+                                                        <real key="value" value="16"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="enableNotificationsTapped:" destination="7aI-3Q-pgv" eventType="primaryActionTriggered" id="oN6-HL-Pyb"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="css-4j-oBX" userLabel="Go To SEttings" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="30" width="128" height="30"/>
+                                                <state key="normal" title="Manage Settings"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="verticalPadding">
+                                                        <real key="value" value="16"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="settingsTapped:" destination="7aI-3Q-pgv" eventType="primaryActionTriggered" id="EBb-mN-LfX"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="20"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="PinkLight"/>
+                        <constraints>
+                            <constraint firstItem="t2a-kg-Fhq" firstAttribute="trailing" secondItem="keV-aa-4TR" secondAttribute="trailing" constant="-20" id="Mls-wb-ezx"/>
+                            <constraint firstItem="t2a-kg-Fhq" firstAttribute="leading" secondItem="keV-aa-4TR" secondAttribute="leading" constant="20" id="eFs-4o-aNA"/>
+                            <constraint firstItem="keV-aa-4TR" firstAttribute="leading" secondItem="Cse-hb-epR" secondAttribute="trailing" constant="-100" id="f8R-fj-4db"/>
+                            <constraint firstItem="keV-aa-4TR" firstAttribute="centerX" secondItem="sze-OD-lKJ" secondAttribute="leading" id="gSX-qC-e2o"/>
+                            <constraint firstItem="Cse-hb-epR" firstAttribute="bottom" secondItem="HrP-QK-aXd" secondAttribute="centerY" multiplier="0.75" id="qGA-rP-7kL"/>
+                            <constraint firstItem="t2a-kg-Fhq" firstAttribute="centerY" secondItem="keV-aa-4TR" secondAttribute="centerY" id="rzv-rr-eWa"/>
+                            <constraint firstItem="K1H-p1-FDE" firstAttribute="top" secondItem="keV-aa-4TR" secondAttribute="top" constant="10" id="tN4-SC-4NW"/>
+                            <constraint firstItem="sze-OD-lKJ" firstAttribute="top" secondItem="keV-aa-4TR" secondAttribute="centerY" multiplier="1.5" id="yrU-VA-OWh"/>
+                            <constraint firstItem="keV-aa-4TR" firstAttribute="trailing" secondItem="K1H-p1-FDE" secondAttribute="trailing" constant="10" id="zLy-G6-mTo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="keV-aa-4TR"/>
+                    </view>
+                    <connections>
+                        <outlet property="authorizedLabel" destination="uyy-A7-2j1" id="8d5-nW-Keh"/>
+                        <outlet property="deniedLabel" destination="pcx-Lh-HCN" id="Vj8-j6-RqD"/>
+                        <outlet property="enableButton" destination="hbC-G6-C2k" id="sbl-EU-RC8"/>
+                        <outlet property="enableLabel" destination="dkC-1F-qGO" id="rN9-jK-qrJ"/>
+                        <outlet property="notificationTitleLabel" destination="Eg6-dq-Mur" id="38A-k3-A0g"/>
+                        <outlet property="settingsButton" destination="css-4j-oBX" id="WO1-D0-e3a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="egL-9R-n9T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-223.18840579710147" y="89.732142857142847"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="blob3" width="202" height="204"/>
+        <image name="blobNeedle" width="826" height="604"/>
+        <image name="close" width="48" height="48"/>
+        <namedColor name="GreenDarker">
+            <color red="0.043137254901960784" green="0.43137254901960786" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GreenDarkest">
+            <color red="0.027000000700354576" green="0.27099999785423279" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PinkDark">
+            <color red="0.99215686274509807" green="0.73725490196078436" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PinkDarkest">
+            <color red="0.4779999852180481" green="0.2199999988079071" blue="0.078000001609325409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PinkLight">
+            <color red="1" green="0.89399999380111694" blue="0.85500001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

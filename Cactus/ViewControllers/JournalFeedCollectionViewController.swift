@@ -64,12 +64,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     
     @objc func appMovedToForeground() {
         print("App moved to ForeGround!")
-//        DispatchQueue.main.async {
-//            self.dataSource.checkForNewPrompts()
-//        }
         self.reloadVisibleViews()
-//        self.collectionView.layoutIfNeeded()
-//        self.layout.invalidateLayout()
     }
     
     @objc func appMovedToBackground() {

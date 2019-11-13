@@ -24,6 +24,23 @@ extension NSAttributedString {
         return mText
     }
     
+    func firstRange(of input: String) -> NSRange? {
+        guard let substringRange = self.string.range(of: input) else {
+            return nil
+        }
+        return NSRange(substringRange, in: self.string)
+    }
+    
+    func withItalics(forSubstring input: String) -> NSAttributedString {
+        guard let range = self.firstRange(of: input) else {
+            return self
+        }
+        
+        let font: UIFont? = self.attribute(NSAttributedString.Key.font, at: 0, effectiveRange: nil) as? UIFont
+                
+        return self.withAttributes([NSAttributedString.Key.font: CactusFont.italic(font?.pointSize ?? FontSize.normal)], range: range)
+    }
+    
     func withColor(_ color: UIColor) -> NSAttributedString {
 //        let range = NSRange(location: 0, length: self.length)
 //        let mText = NSMutableAttributedString.init(attributedString: self)

@@ -86,17 +86,52 @@ class JournalHomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.logger.info("View Will Appear")
         
+        self.navigationController?.setNavigationBarHidden(true, animated: false)        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.logger.info("View Did Appear")
+        self.presentPermissionsOnboardingIfNeeded()
         self.setNeedsStatusBarAppearanceUpdate()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    func presentPermissionsOnboardingIfNeeded() {
+        guard self.journalFeedDataSource.count > 0 else {
+            self.logger.info("The data source is empty, not attempting to show onboarding", functionName: #function)
+            return
+        }
+        
+        let hasSeenOnboarding = UserDefaults.standard.bool(forKey: "NotificationOnboarding")
+        if hasSeenOnboarding {
+            logger.info("User has seen onboarding via UserDefeaults[\"NotificationOnboarding\"]", functionName: #function)
+            return
+        }
+        
+        NotificationService.sharedInstance.hasPushPermissions { (status) in
+            DispatchQueue.main.async {
+                guard status != .authorized else {
+                    self.logger.info("user already has push notificatiosn enabled")
+                    return
+                }
+                
+                guard let vc = AppDelegate.shared.rootViewController.getScreen(ScreenID.notificationOnboarding) as? NotificationOnboardingViewController else {
+                    return
+                }
+                
+                vc.status = status
+                
+                self.present(vc, animated: true, completion: {
+                    UserDefaults.standard.set(true, forKey: "NotificationOnboarding")
+                })
+            }
+        }
     }
     
     func setupDrawer() {
@@ -348,8 +383,6 @@ extension JournalHomeViewController: JournalFeedDataSourceDelegate {
     func insertItems(_ indexes: [Int]) {
         self.journalFeedViewController?.insertItems(indexes)
     }
-    
-    
 
     func updateEntry(_ journalEntry: JournalEntry, at: Int?) {
         self.journalFeedViewController?.updateEntry(journalEntry, at: at)
@@ -364,6 +397,7 @@ extension JournalHomeViewController: JournalFeedDataSourceDelegate {
         self.logger.info("Handle empty state called: hasResults = \(hasResults)")
         if hasResults {
             self.showJournalFeed()
+            self.presentPermissionsOnboardingIfNeeded()
         } else {
            self.showEmptyState()
         }

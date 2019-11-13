@@ -10,7 +10,14 @@ import Foundation
 import UIKit
 
 enum CactusImage: String {
+    
+    //Avatars
     case cactusAvatarOG = "avatar_cactusOG"
+    case avatar1
+    case avatar2
+    case avatar3
+    case avatar4
+    case avatar5
     
     //Logos
     case logo

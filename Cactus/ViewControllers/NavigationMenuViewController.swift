@@ -184,7 +184,7 @@ class NavigationMenuViewController: UIViewController {
     }
     
     @IBAction func inviteTapped(_ sender: Any) {
-//        let vc = AppDelegate.shared.rootViewController.getScreen(ScreenID.inviteScreen, StoryboardID.Settings)
+//        let vc = AppDelegate.shared.rootViewController.getScreen(ScreenID.inviteScreen)
 //        self.navigationController?.pushViewController(vc, animated: true)
         
         let items: [Any] = [InviteShareItem()]
@@ -198,7 +198,7 @@ class NavigationMenuViewController: UIViewController {
     }
     
     @IBAction func notificationsTapped(_ sender: Any) {
-        let vc = AppDelegate.shared.rootViewController.getScreen(ScreenID.notificationsScreen, StoryboardID.Settings)
+        let vc = AppDelegate.shared.rootViewController.getScreen(ScreenID.notificationsScreen)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -207,7 +207,7 @@ class NavigationMenuViewController: UIViewController {
     }
     
     @IBAction func settingsTapped(_ sender: Any) {
-        let vc = AppDelegate.shared.rootViewController.getScreen(ScreenID.settingsTable, StoryboardID.Settings)
+        let vc = AppDelegate.shared.rootViewController.getScreen(ScreenID.settingsTable)
         if let settingsVc = vc as? SettingsTableViewController {
             settingsVc.member = self.member
             self.settingsTableVc = settingsVc

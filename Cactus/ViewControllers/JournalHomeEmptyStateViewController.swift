@@ -60,7 +60,7 @@ class JournalHomeEmptyStateViewController: UIViewController {
         vc.promptContent = promptContent
         vc.reflectionResponse = self.reflectionResponses?.first
         self.promptContentVC = vc
-        vc.modalPresentationStyle = .overFullScreen
+        vc.modalPresentationStyle = .fullScreen //this is needed to trigger the viewDidApper on the journal home
         vc.modalTransitionStyle = .crossDissolve
         AppDelegate.shared.rootViewController.present(vc, animated: true, completion: nil)
 //        _ = AppDelegate.shared.rootViewController.showScreen(vc, wrapInNav: true)

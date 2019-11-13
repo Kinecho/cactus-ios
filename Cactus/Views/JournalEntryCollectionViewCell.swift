@@ -273,12 +273,6 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
             self.dateLabel.showAnimatedGradientSkeleton()
         }
         
-//        let reflectContent = self.promptContent?.content.first(where: { (content) -> Bool in
-//            content.contentType == .reflect
-//        })
-//
-//        let reflectText = FormatUtils.isBlank(reflectContent?.text) ? nil : reflectContent?.text
-//        let questionText = reflectText ?? self.prompt?.question
         let questionText = self.getQuestionText()
         let subjectLine = self.promptContent?.subjectLine
         let firstText = self.promptContent?.content.first?.text
@@ -351,24 +345,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
             self.responseTextView.hideSkeleton()
             self.responseTextView.text = responseText
         }
-//        } else if self.journalEntry?.responsesLoaded == true && FormatUtils.isBlank(responseText) {
-//        } else if allLoaded && FormatUtils.isBlank(responseText) {
-//            //responses loaded but no text
-//            self.responseTextViewHeightConstraint?.isActive = false
-//            self.responseTextView.text = nil
-//            self.responseTextView.hideSkeleton()
-//            self.removeResponseView()
-//
-//        } else {
-//            //responses loading still
-//            self.responseTextView.text = nil
-//            self.responseBottomConstraint?.constant = self.textViewBottomPadding
-//            self.responseTextViewHeightConstraint?.priority = UILayoutPriority(999)
-//            self.responseTextViewHeightConstraint?.isActive = true
-////            self.responseTextView.rounded
-//            self.responseTextView.showAnimatedGradientSkeleton()
-//        }
-               
+        
         if self.responses?.isEmpty == false && self.journalEntry?.responsesLoaded == true {
             self.statusLabel.isHidden = false
             self.dateTopContainerConstraint.isActive = false

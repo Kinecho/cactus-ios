@@ -144,6 +144,12 @@ class JournalFeedDataSource {
         futurePage.listener = SentPromptService.sharedInstance.observeFuturePrompts(member: member, since: startDate, limit: nil, { (pageResult) in
             futurePage.result = pageResult
             self.logger.info("Got \"future\" data with \(pageResult.results?.count ?? 0) results", fileName: "JournalFeedDataSource", line: #line)
+            
+            if !(pageResult.results?.isEmpty ?? true) {
+                //need to update the UI for the first appearance so we can show onboarding
+                self.delegate?.handleEmptyState(hasResults: true)
+            }
+            
             self.configurePages()
         })
         

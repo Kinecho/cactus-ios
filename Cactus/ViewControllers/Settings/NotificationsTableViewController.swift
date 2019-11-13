@@ -95,7 +95,7 @@ class NotificationsTableViewController: UITableViewController {
             let message = "Notification settings are managed in the App's Settings."
             
             let alert = UIAlertController(title: "Manage Notifications", message: message, preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: "Take Me There", style: .default, handler: { (_) in
+            alert.addAction(UIAlertAction(title: "Go to App Settings", style: .default, handler: { (_) in
                 NotificationService.sharedInstance.goToSettings()
                 self.refreshPermissionsToggle(animated: true)
             }))

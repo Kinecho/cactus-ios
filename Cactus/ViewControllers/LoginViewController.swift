@@ -17,11 +17,11 @@ class LoginViewController: UIViewController {
     var anonymousSubtitle = "Start with a happier mindset toady."
     var loggedOutSubtitle = "Start with a happier mindset today."
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var otherProviderLabel: UILabel!
     @IBOutlet weak var emailInputView: CactusTextInputField!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subTextLabel: UILabel!
-    @IBOutlet weak var signOutButton: UIButton!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var submitEmailButton: PrimaryButton!
     var authViewController: UIViewController?
@@ -95,7 +95,6 @@ class LoginViewController: UIViewController {
                 showLoggedInUI(user)
             } else {
                 showAnonymousUserUI(user)
-                self.signOutButton.isHidden = false
             }
         } else {
             showLoggedOutUI()
@@ -105,7 +104,6 @@ class LoginViewController: UIViewController {
     func showAnonymousUserUI(_ user: User) {
         self.titleLabel.text = anonymousUserTitle
         self.subTextLabel.text = anonymousSubtitle
-        self.signOutButton.isHidden = true
         self.titleLabel.isHidden = false
         self.subTextLabel.isHidden = false
         self.configureAuthView()
@@ -114,7 +112,6 @@ class LoginViewController: UIViewController {
     func showLoggedOutUI() {
         self.titleLabel.text = loggedOutTitle
         self.subTextLabel.text = loggedOutSubtitle
-        self.signOutButton.isHidden = true
         self.titleLabel.isHidden = false
         self.subTextLabel.isHidden = false
         self.emailInputView.isHidden = false
@@ -128,12 +125,13 @@ class LoginViewController: UIViewController {
 //        self.titleLabel.text = user.email
         self.titleLabel.isHidden = true
         self.subTextLabel.isHidden = true
-        self.signOutButton.isHidden = false
         
         self.emailInputView.isHidden = true
         self.submitEmailButton.isHidden = true
         self.otherProviderLabel.isHidden = true
-        
+            
+        self.activityIndicator.startAnimating()
+//        self.activityIndicator.isHidden = false
     }
     
     func configureAuthView() {
@@ -186,27 +184,6 @@ class LoginViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationBar.isHidden = false
-    }
-    
-    @IBAction func signOut(_ sender: Any) {
-        print("attempting ot sign out")
-        let title = "Are you sure yoyu wan to sign out?"
-        let alert = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Log Out", style: .destructive) { _ in
-            do {
-                try self.authUI.signOut()
-                self.dismiss(animated: false, completion: nil)
-            } catch {
-                print("error signing out", error)
-                let alert = UIAlertController(title: "Error Logging Out", message: "An unexpected error occurred while logging out. \n\n\(error)", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.present(alert, animated: true)
-            }
-        })
-        
-        self.present(alert, animated: true)
-//
     }
 }
 

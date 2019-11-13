@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 enum ScreenID: String {
+    
+    
     //main
     case AppMain = "AppMain"
     case Login = "Login"
@@ -24,8 +26,24 @@ enum ScreenID: String {
     case inviteScreen
     case notificationsScreen
     
+    //Onboarding
+    case notificationOnboarding
+    
     var name: String {
         return self.rawValue
+    }
+    
+    var storyboardID: StoryboardID {
+        switch self {
+        case .settingsTable,
+             .inviteScreen,
+             .notificationsScreen:
+            return StoryboardID.Settings
+        case .notificationOnboarding:
+            return StoryboardID.Onboarding
+        default:
+            return StoryboardID.Main
+        }
     }
 }
 
@@ -45,6 +63,7 @@ enum StoryboardID: String {
     case LaunchScreen
     case Main
     case Settings
+    case Onboarding
 
     var name: String {
         return self.rawValue

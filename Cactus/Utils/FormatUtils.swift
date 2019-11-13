@@ -99,4 +99,8 @@ struct CactusFont {
     static func bold(_ size: CGFloat) -> UIFont {
         return get(FontName.bold, size)
     }
+    
+    static func italic(_ size: CGFloat) -> UIFont {
+        return get(FontName.italic, size)
+    }
 }

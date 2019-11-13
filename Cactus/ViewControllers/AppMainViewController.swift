@@ -65,7 +65,7 @@ class AppMainViewController: UIViewController {
             } else if let member = member, member.id != self.member?.id {
                 self.logger.info("Found member, not null. showing journal home page")
                 self.showJournalHome(member: member, wrapInNav: true)
-                self.initOnboarding()
+//                self.initOnboarding() //Moved to journal Home
                 self.hasUser = true
             }
             self.authHasLoaded = true
@@ -90,8 +90,8 @@ class AppMainViewController: UIViewController {
         _ = showScreen(vc, wrapInNav: true)
     }
     
-    func getScreen(_ screen: ScreenID, _ storyboardId: StoryboardID=StoryboardID.Main) -> UIViewController {
-        let storyboard = storyboardId.getStoryboard()
+    func getScreen(_ screen: ScreenID) -> UIViewController {
+        let storyboard = screen.storyboardID.getStoryboard()
         return storyboard.instantiateViewController(withIdentifier: screen.name)
     }
    
@@ -101,32 +101,33 @@ class AppMainViewController: UIViewController {
         return vc
     }
     
-    func initOnboarding() {
-        let hasSeenOnboarding = UserDefaults.standard.bool(forKey: "NotificationOnboarding")
-        if hasSeenOnboarding {
-            logger.info("has seen onboarding")
-            return
-        }
-        
-        NotificationService.sharedInstance.hasPushPermissions { (status) in
-            DispatchQueue.main.async {
-                guard status == .notDetermined else {
-                    return
-                }
-                
-                let alert = UIAlertController(title: "Never miss a reflection", message: "Turn on push notifications so you know when it's time to reflect. ", preferredStyle: .alert)                
-                alert.addAction(UIAlertAction(title: "Allow", style: .default, handler: {_ in
-                    NotificationService.sharedInstance.requestPushPermissions { _ in
-                        self.logger.info("permissions requested")
-                    }
-                }))
-                alert.addAction(UIAlertAction(title: "Not Now", style: .cancel, handler: nil))
-                AppDelegate.shared.rootViewController.present(alert, animated: true)
-                
-                UserDefaults.standard.set(true, forKey: "NotificationOnboarding")
-            }
-        }
-    }
+    //Moved to Journal Home
+//    func initOnboarding() {
+//        let hasSeenOnboarding = UserDefaults.standard.bool(forKey: "NotificationOnboarding")
+//        if hasSeenOnboarding {
+//            logger.info("has seen onboarding")
+//            return
+//        }
+//
+//        NotificationService.sharedInstance.hasPushPermissions { (status) in
+//            DispatchQueue.main.async {
+//                guard status == .notDetermined else {
+//                    return
+//                }
+//
+//                let alert = UIAlertController(title: "Never miss a reflection", message: "Turn on push notifications so you know when it's time to reflect. ", preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "Allow", style: .default, handler: {_ in
+//                    NotificationService.sharedInstance.requestPushPermissions { _ in
+//                        self.logger.info("permissions requested")
+//                    }
+//                }))
+//                alert.addAction(UIAlertAction(title: "Not Now", style: .cancel, handler: nil))
+//                AppDelegate.shared.rootViewController.present(alert, animated: true)
+//
+//                UserDefaults.standard.set(true, forKey: "NotificationOnboarding")
+//            }
+//        }
+//    }
     
     func showScreen(_ screen: UIViewController, wrapInNav: Bool=false) -> UIViewController {
         var newVc = screen

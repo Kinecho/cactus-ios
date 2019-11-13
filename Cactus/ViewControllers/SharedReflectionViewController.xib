@@ -33,7 +33,7 @@
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wZ6-mA-GQQ" userLabel="Image Wrapper View" customClass="CircleView" customModule="Cactus" customModuleProvider="target">
                     <rect key="frame" x="20" y="20" width="50" height="50"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pottedCactus" translatesAutoresizingMaskIntoConstraints="NO" id="BmW-az-hWl" userLabel="avatarImage">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar1" translatesAutoresizingMaskIntoConstraints="NO" id="BmW-az-hWl" userLabel="avatarImage">
                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                             <color key="backgroundColor" name="Pink"/>
                         </imageView>
@@ -66,17 +66,17 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="L5w-8H-XoN">
-                    <rect key="frame" x="20" y="92" width="374" height="95"/>
+                    <rect key="frame" x="20" y="92" width="374" height="94.5"/>
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="What is your favorite thing about your best friend?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7V9-KK-est" userLabel="Question Text View">
-                            <rect key="frame" x="0.0" y="0.0" width="374" height="59.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="59"/>
                             <color key="backgroundColor" name="White"/>
                             <color key="textColor" name="GreenDarkest"/>
                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="18"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="my answer is short" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dMJ-OO-Asb" userLabel="Response Text View">
-                            <rect key="frame" x="0.0" y="59.5" width="374" height="35.5"/>
+                            <rect key="frame" x="0.0" y="59" width="374" height="35.5"/>
                             <color key="backgroundColor" name="White"/>
                             <color key="textColor" name="GreenDarkest"/>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
@@ -107,7 +107,7 @@
         </view>
     </objects>
     <resources>
-        <image name="pottedCactus" width="150" height="150"/>
+        <image name="avatar1" width="100" height="100"/>
         <namedColor name="GreenDarkest">
             <color red="0.027000000700354576" green="0.27099999785423279" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -207,6 +207,10 @@
 		30A281EA22EA61EB0041158E /* StageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30A281E922EA61EB0041158E /* StageAssets.xcassets */; };
 		30A281F022EA62650041158E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30A281EF22EA62650041158E /* LaunchScreen.storyboard */; };
 		30A281F222EA627D0041158E /* ProdAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30A281EB22EA61FA0041158E /* ProdAssets.xcassets */; };
+		30AB8ED5237C86380048CFD2 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30AB8ED4237C86380048CFD2 /* Onboarding.storyboard */; };
+		30AB8ED6237C86380048CFD2 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30AB8ED4237C86380048CFD2 /* Onboarding.storyboard */; };
+		30AB8ED9237C86910048CFD2 /* NotificationOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB8ED8237C86910048CFD2 /* NotificationOnboardingViewController.swift */; };
+		30AB8EDA237C86910048CFD2 /* NotificationOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB8ED8237C86910048CFD2 /* NotificationOnboardingViewController.swift */; };
 		30B6EA6F22EA5A9F00443E46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */; };
 		30B6EA7322EA5A9F00443E46 /* JournalEntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA7222EA5A9F00443E46 /* JournalEntryDetailViewController.swift */; };
 		30B6EA7622EA5A9F00443E46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7422EA5A9F00443E46 /* Main.storyboard */; };
@@ -444,6 +448,8 @@
 		30A281EB22EA61FA0041158E /* ProdAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ProdAssets.xcassets; sourceTree = "<group>"; };
 		30A281EF22EA62650041158E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30A281F722EA65EC0041158E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30AB8ED4237C86380048CFD2 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		30AB8ED8237C86910048CFD2 /* NotificationOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOnboardingViewController.swift; sourceTree = "<group>"; };
 		30B6EA6B22EA5A9F00443E46 /* Cactus Stage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cactus Stage.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30B6EA7222EA5A9F00443E46 /* JournalEntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryDetailViewController.swift; sourceTree = "<group>"; };
@@ -736,8 +742,17 @@
 			children = (
 				30B6EA7422EA5A9F00443E46 /* Main.storyboard */,
 				30CD90A92346F06B00703FE2 /* Settings.storyboard */,
+				30AB8ED4237C86380048CFD2 /* Onboarding.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		30AB8ED7237C86650048CFD2 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				30AB8ED8237C86910048CFD2 /* NotificationOnboardingViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		30B6EA6222EA5A9F00443E46 = {
@@ -858,6 +873,7 @@
 		30E9B0A722EAD618005B25FD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				30AB8ED7237C86650048CFD2 /* Onboarding */,
 				301C1A8E236F7E7B00F06A3D /* Cactus Animations */,
 				302C4F4E2347FA8100798560 /* Settings */,
 				300AC185233A850B005C6555 /* JournalEntrySkeletonViewController.swift */,
@@ -1067,6 +1083,7 @@
 				305B1866233175DC003E1561 /* PhotoContentViewController.xib in Resources */,
 				3084E9682348FE9C00788279 /* CelebrateViewController.xib in Resources */,
 				30CF53802370B10F00578B22 /* EmotionsAnimationViewController.xib in Resources */,
+				30AB8ED6237C86380048CFD2 /* Onboarding.storyboard in Resources */,
 				30CF53862370C58100578B22 /* ExperienceAnimationViewController.xib in Resources */,
 				305B18832331E162003E1561 /* ReflectContentViewController.xib in Resources */,
 				300F236F237A61F100F35CDE /* SharedReflectionViewController.xib in Resources */,
@@ -1098,6 +1115,7 @@
 				30673B9E233FDEC300EDE7BD /* Lato-BlackItalic.ttf in Resources */,
 				30B6EA7B22EA5AA100443E46 /* LaunchScreen.storyboard in Resources */,
 				30E2D37C23432B21003D2B27 /* NavigationMenuViewController.xib in Resources */,
+				30AB8ED5237C86380048CFD2 /* Onboarding.storyboard in Resources */,
 				30BF2E2C23289F9F00A49EB6 /* TextContentViewController.xib in Resources */,
 				30673BA4233FDEC300EDE7BD /* Lato-Light.ttf in Resources */,
 				30CF53912370FBB800578B22 /* RelationshipsAnimationViewController.xib in Resources */,
@@ -1490,6 +1508,7 @@
 				3018B1212376041A0005333A /* LoggerUtil.swift in Sources */,
 				30727435236A295300309B3C /* AppSettingsService.swift in Sources */,
 				30E9B0A422EAC204005B25FD /* AuthService.swift in Sources */,
+				30AB8EDA237C86910048CFD2 /* NotificationOnboardingViewController.swift in Sources */,
 				30E9B09A22EA6A81005B25FD /* BaseModel.swift in Sources */,
 				30BF2E302328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */,
 				30CF537E2370B10F00578B22 /* EmotionsAnimationViewController.swift in Sources */,
@@ -1604,6 +1623,7 @@
 				3018B1202376041A0005333A /* LoggerUtil.swift in Sources */,
 				30727434236A295300309B3C /* AppSettingsService.swift in Sources */,
 				30E9B09D22EA7FC3005B25FD /* CactusMember.swift in Sources */,
+				30AB8ED9237C86910048CFD2 /* NotificationOnboardingViewController.swift in Sources */,
 				30E9B0A322EAC204005B25FD /* AuthService.swift in Sources */,
 				30B6EA6F22EA5A9F00443E46 /* AppDelegate.swift in Sources */,
 				30CF537D2370B10F00578B22 /* EmotionsAnimationViewController.swift in Sources */,

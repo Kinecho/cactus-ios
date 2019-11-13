@@ -73,16 +73,16 @@
 	<string>Your location is used while using the app</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Lato-Italic.tff</string>
-		<string>Lato-LightItalic.tff</string>
-		<string>Lato-Thin.tff</string>
+		<string>Lato-Italic.ttf</string>
+		<string>Lato-LightItalic.ttf</string>
+		<string>Lato-Thin.ttf</string>
 		<string>Lato-Bold.tff</string>
 		<string>Lato-Black.tff</string>
-		<string>Lato-Regular.tff</string>
-		<string>Lato-BlackItalic.tff</string>
-		<string>Lato-BoldItalic.tff</string>
-		<string>Lato-Light.tff</string>
-		<string>Lato-ThinItalic.tff</string>
+		<string>Lato-Regular.ttf</string>
+		<string>Lato-BlackItalic.ttf</string>
+		<string>Lato-BoldItalic.ttf</string>
+		<string>Lato-Light.ttf</string>
+		<string>Lato-ThinItalic.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
