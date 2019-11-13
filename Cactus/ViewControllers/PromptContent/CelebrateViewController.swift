@@ -42,7 +42,7 @@ class CelebrateViewController: UIViewController {
     var memberUnsubscriber: Unsubscriber?
     var member: CactusMember? {
         didSet {
-            self.logger.info("Member did set, animating numbers")
+            self.logger.info("Member did set, animating numbers. Stats are: \(String(describing: member?.stats?.reflections))")
 //            self.shouldAnimate = true
             self.animateNumbers()
             self.updateElements()
