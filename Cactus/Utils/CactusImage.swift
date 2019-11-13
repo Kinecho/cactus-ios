@@ -15,6 +15,9 @@ enum CactusImage: String {
     //Logos
     case logo
     
+    //blobs
+    case needlePattern    
+    
     //Brands
     case twitter = "Twitter"
     case facebook = "Facebook"

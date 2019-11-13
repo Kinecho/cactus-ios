@@ -79,4 +79,17 @@ class ReflectionResponse: FirestoreIdentifiable, Hashable {
     func hash(into hasher: inout Hasher) {
         id.hash(into: &hasher)
     }
+    
+    func getFullName() -> String? {
+        let name = "\(self.memberFirstName ?? "") \(self.memberLastName ?? "")".trimmingCharacters(in: .whitespacesAndNewlines)
+        return FormatUtils.isBlank(name) ? nil : name
+    }
+    
+    func getFullNameOrEmail() -> String? {
+        let name = self.getFullName()
+        if !FormatUtils.isBlank(name) {
+            return name
+        }
+        return self.memberEmail
+    }
 }

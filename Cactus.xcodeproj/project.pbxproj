@@ -17,10 +17,10 @@
 		300AC18A233A850B005C6555 /* JournalEntrySkeletonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 300AC186233A850B005C6555 /* JournalEntrySkeletonViewController.xib */; };
 		300AC18D233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */; };
 		300AC18E233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */; };
-		300F236C237A61F100F35CDE /* ShareReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F236A237A61F100F35CDE /* ShareReflectionViewController.swift */; };
-		300F236D237A61F100F35CDE /* ShareReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F236A237A61F100F35CDE /* ShareReflectionViewController.swift */; };
-		300F236E237A61F100F35CDE /* ShareReflectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 300F236B237A61F100F35CDE /* ShareReflectionViewController.xib */; };
-		300F236F237A61F100F35CDE /* ShareReflectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 300F236B237A61F100F35CDE /* ShareReflectionViewController.xib */; };
+		300F236C237A61F100F35CDE /* SharedReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F236A237A61F100F35CDE /* SharedReflectionViewController.swift */; };
+		300F236D237A61F100F35CDE /* SharedReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F236A237A61F100F35CDE /* SharedReflectionViewController.swift */; };
+		300F236E237A61F100F35CDE /* SharedReflectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 300F236B237A61F100F35CDE /* SharedReflectionViewController.xib */; };
+		300F236F237A61F100F35CDE /* SharedReflectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 300F236B237A61F100F35CDE /* SharedReflectionViewController.xib */; };
 		300F2371237A629800F35CDE /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F2370237A629800F35CDE /* CircleView.swift */; };
 		300F2372237A629800F35CDE /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F2370237A629800F35CDE /* CircleView.swift */; };
 		300F2374237A6F7500F35CDE /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F2373237A6F7500F35CDE /* ShadowView.swift */; };
@@ -345,8 +345,8 @@
 		300AC185233A850B005C6555 /* JournalEntrySkeletonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JournalEntrySkeletonViewController.swift; path = Cactus/ViewControllers/JournalEntrySkeletonViewController.swift; sourceTree = SOURCE_ROOT; };
 		300AC186233A850B005C6555 /* JournalEntrySkeletonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = JournalEntrySkeletonViewController.xib; path = Cactus/ViewControllers/JournalEntrySkeletonViewController.xib; sourceTree = SOURCE_ROOT; };
 		300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFeedDataSource.swift; sourceTree = "<group>"; };
-		300F236A237A61F100F35CDE /* ShareReflectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareReflectionViewController.swift; sourceTree = "<group>"; };
-		300F236B237A61F100F35CDE /* ShareReflectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareReflectionViewController.xib; sourceTree = "<group>"; };
+		300F236A237A61F100F35CDE /* SharedReflectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedReflectionViewController.swift; sourceTree = "<group>"; };
+		300F236B237A61F100F35CDE /* SharedReflectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SharedReflectionViewController.xib; sourceTree = "<group>"; };
 		300F2370237A629800F35CDE /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		300F2373237A6F7500F35CDE /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		300F2376237A7C8600F35CDE /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
@@ -881,8 +881,8 @@
 				30D7F708236BAAB100379EE0 /* EditReflectionViewController.xib */,
 				30F716852379ED32004989DB /* ShareNoteViewController.swift */,
 				30F716862379ED32004989DB /* ShareNoteViewController.xib */,
-				300F236A237A61F100F35CDE /* ShareReflectionViewController.swift */,
-				300F236B237A61F100F35CDE /* ShareReflectionViewController.xib */,
+				300F236A237A61F100F35CDE /* SharedReflectionViewController.swift */,
+				300F236B237A61F100F35CDE /* SharedReflectionViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1069,7 +1069,7 @@
 				30CF53802370B10F00578B22 /* EmotionsAnimationViewController.xib in Resources */,
 				30CF53862370C58100578B22 /* ExperienceAnimationViewController.xib in Resources */,
 				305B18832331E162003E1561 /* ReflectContentViewController.xib in Resources */,
-				300F236F237A61F100F35CDE /* ShareReflectionViewController.xib in Resources */,
+				300F236F237A61F100F35CDE /* SharedReflectionViewController.xib in Resources */,
 				30CF53922370FBB800578B22 /* RelationshipsAnimationViewController.xib in Resources */,
 				30D7F70C236BAAB100379EE0 /* EditReflectionViewController.xib in Resources */,
 				30CF539B23732EC300578B22 /* VideoContentViewController.xib in Resources */,
@@ -1117,7 +1117,7 @@
 				3084E9672348FE9C00788279 /* CelebrateViewController.xib in Resources */,
 				3026B297234D1AF200CD2D34 /* cactus-growing-green-588.mp4 in Resources */,
 				30B6EA7622EA5A9F00443E46 /* Main.storyboard in Resources */,
-				300F236E237A61F100F35CDE /* ShareReflectionViewController.xib in Resources */,
+				300F236E237A61F100F35CDE /* SharedReflectionViewController.xib in Resources */,
 				30CF539A23732EC300578B22 /* VideoContentViewController.xib in Resources */,
 				30A266DA2329BB73003C708E /* config.yml in Resources */,
 				30673BA6233FDEC300EDE7BD /* Lato-ThinItalic.ttf in Resources */,
@@ -1456,7 +1456,7 @@
 				305B186C23319A72003E1561 /* ImageExtensions.swift in Sources */,
 				30BF2E332328C7AD00A49EB6 /* MarkdownTypes.swift in Sources */,
 				3084E95F234810B300788279 /* FeedbackViewController.swift in Sources */,
-				300F236D237A61F100F35CDE /* ShareReflectionViewController.swift in Sources */,
+				300F236D237A61F100F35CDE /* SharedReflectionViewController.swift in Sources */,
 				30934FA422EBF4E6007C4E6C /* FormatUtils.swift in Sources */,
 				300F2378237B4DE400F35CDE /* BorderedTextView.swift in Sources */,
 				30E9B0B422EADE2D005B25FD /* CGExtensions.swift in Sources */,
@@ -1570,7 +1570,7 @@
 				305B186B23319A72003E1561 /* ImageExtensions.swift in Sources */,
 				30E9B0BD22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
 				3084E95E234810B300788279 /* FeedbackViewController.swift in Sources */,
-				300F236C237A61F100F35CDE /* ShareReflectionViewController.swift in Sources */,
+				300F236C237A61F100F35CDE /* SharedReflectionViewController.swift in Sources */,
 				30BF2E2F2328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */,
 				300F2379237B4DE400F35CDE /* BorderedTextView.swift in Sources */,
 				30BF2E0F23281CAA00A49EB6 /* FlamelinkTypes.swift in Sources */,

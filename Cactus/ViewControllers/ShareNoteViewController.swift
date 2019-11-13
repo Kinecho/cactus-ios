@@ -15,7 +15,7 @@ class ShareNoteViewController: UIViewController {
     @IBOutlet weak var shareLinkButton: PrimaryButton!
     @IBOutlet weak var shareButton: TertiaryButton!
     var logger = Logger(fileName: "ShareNoteViewController")
-    var reflectionVc: ShareReflectionViewController?
+    var reflectionVc: SharedReflectionViewController?
     var promptContent: PromptContent!
     var reflectionResponse: ReflectionResponse!
     
@@ -28,7 +28,7 @@ class ShareNoteViewController: UIViewController {
     
     func embedSharedReflection() {
         if self.reflectionVc == nil {
-            let vc =  ShareReflectionViewController.loadFromNib()
+            let vc =  SharedReflectionViewController.loadFromNib()
             self.reflectionVc = vc
             vc.willMove(toParent: self)
             self.addChild(vc)

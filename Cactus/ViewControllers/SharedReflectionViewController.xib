@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +16,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShareReflectionViewController" customModule="Cactus" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SharedReflectionViewController" customModule="Cactus" customModuleProvider="target">
             <connections>
                 <outlet property="avatarImageView" destination="BmW-az-hWl" id="iek-dM-XUK"/>
                 <outlet property="questionTextView" destination="7V9-KK-est" id="8Um-2P-caW"/>
@@ -66,18 +66,18 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="L5w-8H-XoN">
-                    <rect key="frame" x="20" y="92" width="374" height="94.5"/>
+                    <rect key="frame" x="20" y="92" width="374" height="95"/>
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="What is your favorite thing about your best friend?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7V9-KK-est" userLabel="Question Text View">
-                            <rect key="frame" x="0.0" y="0.0" width="374" height="59"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="59.5"/>
+                            <color key="backgroundColor" name="White"/>
                             <color key="textColor" name="GreenDarkest"/>
                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="18"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="my answer is short" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dMJ-OO-Asb" userLabel="Response Text View">
-                            <rect key="frame" x="0.0" y="59" width="374" height="35.5"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <rect key="frame" x="0.0" y="59.5" width="374" height="35.5"/>
+                            <color key="backgroundColor" name="White"/>
                             <color key="textColor" name="GreenDarkest"/>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

@@ -18,7 +18,8 @@ class CelebrateViewController: UIViewController {
     @IBOutlet weak var reflectionCountMetricLabel: UILabel!
     @IBOutlet weak var homeButton: RoundedButton!
     @IBOutlet weak var elementStackView: UIStackView!
-        
+    @IBOutlet weak var needleBackgroundImageView: UIImageView!
+    
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var experienceStatImageView: UIImageView!
     @IBOutlet weak var meaningStatImageView: UIImageView!
@@ -56,7 +57,7 @@ class CelebrateViewController: UIViewController {
         self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, _, _) in
             self.member = member
         })
-        
+                
         self.initElements()
         self.configureDescription()
         

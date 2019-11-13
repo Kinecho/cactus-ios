@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShareReflectionViewController: UIViewController {
+class SharedReflectionViewController: UIViewController {
     
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var sharedMemberNameTextView: UITextView!
@@ -21,6 +21,8 @@ class ShareReflectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
    
+        self.updateProfileDataIfNeeded()
+        
         self.configureDateView()
         self.configureNameView()
         self.configureAvatarView()
@@ -28,13 +30,31 @@ class ShareReflectionViewController: UIViewController {
         self.configureResponseView()
     }
     
+    func updateProfileDataIfNeeded() {
+        guard let response = self.reflectionResponse, let member = CactusMemberService.sharedInstance.currentMember else {
+            return
+        }
+        
+        if FormatUtils.hasChanges(member.firstName, response.memberFirstName) ||
+            FormatUtils.hasChanges(member.lastName, response.memberLastName) ||
+            FormatUtils.hasChanges(member.email, response.memberEmail) {
+            response.memberFirstName = member.firstName
+            response.memberLastName = member.lastName
+            response.memberEmail = member.email
+            
+            ReflectionResponseService.sharedInstance.save(response) { _, _ in
+                self.configureNameView()
+            }
+        }
+    }
+    
     func configureAvatarView() {
         //nothing to do yet
     }
     
     func configureNameView() {
-        if let email = self.reflectionResponse?.memberEmail, !FormatUtils.isBlank(email) {
-            self.sharedMemberNameTextView.text = email
+        if let nameValue = self.reflectionResponse?.getFullNameOrEmail(), !FormatUtils.isBlank(nameValue) {
+            self.sharedMemberNameTextView.text = nameValue
             self.sharedMemberNameTextView.isHidden = false
         } else {
             self.sharedMemberNameTextView.isHidden = true
@@ -68,3 +88,4 @@ class ShareReflectionViewController: UIViewController {
         }
     }
 }
+ 
