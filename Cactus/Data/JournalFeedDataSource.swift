@@ -145,7 +145,7 @@ class JournalFeedDataSource {
             futurePage.result = pageResult
             self.logger.info("Got \"future\" data with \(pageResult.results?.count ?? 0) results", fileName: "JournalFeedDataSource", line: #line)
             
-            if !(pageResult.results?.isEmpty ?? true) {
+            if !(pageResult.results?.isEmpty ?? true) && self.hasLoaded {
                 //need to update the UI for the first appearance so we can show onboarding
                 self.delegate?.handleEmptyState(hasResults: true)
             }
@@ -258,10 +258,11 @@ class JournalFeedDataSource {
         }
 
         var createdEntries: [JournalEntryData] = []
-        var insertedIndexes: [Int] = []
-        var orderedPromptIds = [String]()
-        for (index, sentPrompt) in self.sentPrompts.enumerated() {
-            guard let promptId = sentPrompt.promptId, !orderedPromptIds.contains(promptId) else {
+        var newPromptIds: [String] = []
+        var updatedOrderedPromptIds = [String]()
+        self.sentPrompts.forEach { sentPrompt in
+            guard let promptId = sentPrompt.promptId, !updatedOrderedPromptIds.contains(promptId) else {
+                self.logger.warn("ordered prompt ids already contains this prompt. something is wrong.")
                 return
             }
             if self.journalEntryDataBySentPromptId[promptId] == nil {
@@ -270,21 +271,29 @@ class JournalFeedDataSource {
                 journalEntry.delegate = self
                 createdEntries.append(journalEntry)
                 self.journalEntryDataBySentPromptId[promptId] = journalEntry
+                newPromptIds.append(promptId)
+            }
+            updatedOrderedPromptIds.append(promptId)
+        }
+                
+        self.logger.info("Adding new prompts: \(newPromptIds)")
+        var insertedIndexes: [Int] = []
+        for (index, id) in updatedOrderedPromptIds.enumerated() {
+            if !self.orderedPromptIds.contains(id) {
                 insertedIndexes.append(index)
             }
-            orderedPromptIds.append(promptId)
         }
         
         //get removed indexes
         var removedIndexes: [Int] = []
         for (index, id) in self.orderedPromptIds.enumerated() {
-            if !orderedPromptIds.contains(id) {
+            if !updatedOrderedPromptIds.contains(id) {
                 removedIndexes.append(index)
             }
         }
         self.logger.info("found \(removedIndexes.count) removed indexes")
         
-        self.orderedPromptIds = orderedPromptIds
+        self.orderedPromptIds = updatedOrderedPromptIds
         
         if !removedIndexes.isEmpty && !insertedIndexes.isEmpty {
             self.logger.info("Performing batch update")

@@ -13,13 +13,12 @@ class PromptContentPageViewController: UIPageViewController {
     var promptContent: PromptContent!
     var activeIndex: Int = 0
     var pageControl: UIPageControl?
-//    var prompt: ReflectionPrompt?
     var reflectionResponse: ReflectionResponse?
     var closeButton: UIButton?
     var sharePromptButton: UIButton?
     var journalDataSource: JournalFeedDataSource?
     var tapNavigationEnabled = true
-    
+    var logger = Logger(fileName: "PromptContentPageViewController")
     fileprivate lazy var screens: [UIViewController] = []
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -257,7 +256,6 @@ class PromptContentPageViewController: UIPageViewController {
 extension PromptContentPageViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         //        handle previous
-        
         guard let viewControllerIndex = self.screens.firstIndex(of: viewController) else { return nil }
         
         let previousIndex = viewControllerIndex - 1
@@ -265,8 +263,12 @@ extension PromptContentPageViewController: UIPageViewControllerDataSource {
         guard previousIndex >= 0 else { return nil }
         guard self.screens.count > previousIndex else { return nil }
         
-        return self.screens[previousIndex]
+        if let reflectVc = viewController as? ReflectContentViewController {
+            self.logger.info("Saving response on go to previous")
+            reflectVc.saveResponse(nextPageOnSuccess: false, nil)
+        }
         
+        return self.screens[previousIndex]
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
@@ -277,6 +279,11 @@ extension PromptContentPageViewController: UIPageViewControllerDataSource {
         
         guard nextIndex < self.screens.count else { return nil }
         guard self.screens.count > nextIndex else { return nil }
+        
+        if let reflectVc = viewController as? ReflectContentViewController {
+            self.logger.info("Saving response on go to next")
+            reflectVc.saveResponse(nextPageOnSuccess: false, nil)
+        }
         
         return self.screens[nextIndex]
         

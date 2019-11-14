@@ -16,6 +16,7 @@ class ReflectContentViewController: PromptContentViewController {
     @IBOutlet weak var addNoteButton: BorderedButton!
     @IBOutlet weak var reflectionTextView: UITextView!
     @IBOutlet weak var cactusAnimationContainerView: UIView!
+    var logger = Logger(fileName: "ReflectionContentViewController")
     var animationVc: CactusElementAnimationViewController?
     var player: AVPlayer!
     var reflectionResponse: ReflectionResponse?
@@ -59,7 +60,7 @@ class ReflectContentViewController: PromptContentViewController {
         }
         
         guard let animationVc = cactusVc else {
-            print("Unable to find an animation vc for the element \(String(describing: self.promptContent.cactusElement))")
+            self.logger.warn("Unable to find an animation vc for the element \(String(describing: self.promptContent.cactusElement))")
             return
         }
         
@@ -96,7 +97,7 @@ class ReflectContentViewController: PromptContentViewController {
        
     func createCactusGrowingVideo() {
         guard let videoURL =  Bundle.main.url(forResource: "cactus-growing-green-588", withExtension: "mp4") else {
-            print("Video not found")
+            self.logger.warn("Video not found")
             return
         }
         let item = AVPlayerItem(url: videoURL)
@@ -112,7 +113,7 @@ class ReflectContentViewController: PromptContentViewController {
     }
         
     @objc func doneAction(_ sender: Any) {
-        print("Done button tapped")
+        self.logger.info("Done button tapped")
         self.saveResponse()
         view.endEditing(true)
     }
@@ -129,9 +130,10 @@ class ReflectContentViewController: PromptContentViewController {
     
     func saveResponse(nextPageOnSuccess: Bool=true, _ completion: ((ReflectionResponse?, Any?) -> Void)?=nil) {
         //Note: The text must be set on the response object, we will not grab it from here.
-        print("saving response...")
+        self.logger.debug("saving response...")
         guard let response = self.reflectionResponse else {
-            print("No reflection Response found on the ReflectContentCardViewControler. Unable to save the response")
+            self.logger.warn("No reflection Response found on the ReflectContentCardViewControler. Unable to save the response")
+            completion?(nil, "No reflection response was found")
             return
         }
         self.endTime = Date()
@@ -146,7 +148,7 @@ class ReflectContentViewController: PromptContentViewController {
         self.setSaving(true)
         ReflectionResponseService.sharedInstance.save(response) { (saved, error) in
             if let error = error {
-                print("Error saving reflection response", error)
+                self.logger.error("Error saving reflection response", error)
             }
             
             self.setSaving(false)
@@ -200,7 +202,7 @@ class ReflectContentViewController: PromptContentViewController {
 
 extension ReflectContentViewController: GrowingTextViewDelegate {
     func textViewDidChangeHeight(_ textView: GrowingTextView, height: CGFloat) {
-        print("text view did change height")
+        self.logger.debug("text view did change height")
         UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: [.curveLinear], animations: { () -> Void in
             self.view.layoutIfNeeded()
         }, completion: nil)
@@ -209,7 +211,7 @@ extension ReflectContentViewController: GrowingTextViewDelegate {
 
 extension ReflectContentViewController: EditReflectionViewControllerDelegate {
     func done(text: String?) {
-        print("Saving text: \(text ?? "None provided")")
+        self.logger.info("Saving text: \(text ?? "None provided")")
         self.reflectionResponse?.content.text = text
         self.configureResponseView()
         self.saveResponse(nextPageOnSuccess: false) { (_, error) in
