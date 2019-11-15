@@ -143,7 +143,7 @@ class JournalFeedDataSource {
         self.startDate = startDate
         futurePage.listener = SentPromptService.sharedInstance.observeFuturePrompts(member: member, since: startDate, limit: nil, { (pageResult) in
             futurePage.result = pageResult
-            self.logger.info("Got \"future\" data with \(pageResult.results?.count ?? 0) results", fileName: "JournalFeedDataSource", line: #line)
+            self.logger.info("Got \"future\" data with \(pageResult.results?.count ?? 0) results", line: #line)
             
             if !(pageResult.results?.isEmpty ?? true) && self.hasLoaded {
                 //need to update the UI for the first appearance so we can show onboarding
@@ -157,7 +157,7 @@ class JournalFeedDataSource {
         self.pages.insert(firstPage, at: 1)
         firstPage.listener = SentPromptService.sharedInstance.observeSentPromptsPage(member: member, beforeOrEqualTo: startDate, limit: self.pageSize, lastResult: nil, { (pageResult) in
             firstPage.result = pageResult
-            self.logger.info("Got first page data with \(pageResult.results?.count ?? 0) results", fileName: "JournalFeedDataSource", line: #line)
+            self.logger.info("Got first page data with \(pageResult.results?.count ?? 0) results", line: #line)
             
             if !self.hasLoaded {
                 self.delegate?.handleEmptyState(hasResults: !(pageResult.results?.isEmpty ?? true))

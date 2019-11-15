@@ -27,6 +27,15 @@ class ReflectionResponseService {
         return self.firestoreService.observeById(id, onData)
     }
     
+    func getForPromptId(promptId: String, _ onData: @escaping ([ReflectionResponse]?, Any?) -> Void) {
+        guard let currentMember = CactusMemberService.sharedInstance.getCurrentMember(), let memberId = currentMember.id else {
+            onData([], nil)
+            return
+        }
+        let query = self.getCollectionRef().whereField(ReflectionResponse.Field.cactusMemberId, isEqualTo: memberId).whereField(ReflectionResponseField.promptId, isEqualTo: promptId)
+        self.firestoreService.executeQuery(query, onData)
+    }
+    
     func observeForPromptId(id: String, _ onData: @escaping ([ReflectionResponse]?, Any?) -> Void) -> ListenerRegistration? {
         guard let currentMember = CactusMemberService.sharedInstance.getCurrentMember(), let memberId = currentMember.id else {
             onData([], "No cactus member")

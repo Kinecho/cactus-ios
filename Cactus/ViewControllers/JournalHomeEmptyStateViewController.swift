@@ -51,6 +51,10 @@ class JournalHomeEmptyStateViewController: UIViewController {
         }
     }
     
+    deinit {
+        self.responseListener?.remove()
+    }
+    
     @IBAction func beginTapped(_ sender: Any) {
         print("let's begin was tapped")
         print("navigating to \(self.promptContent?.entryId ?? "none found")")

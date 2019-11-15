@@ -89,7 +89,7 @@ class TertiaryButton: UIButton {
             imageView.bounds.size.width = imageWidth
             imageView.bounds.size.height = imageHeight
         }
-        
+        self.contentEdgeInsets = UIEdgeInsets(top: self.verticalPadding, left: self.horizontalPadding, bottom: self.verticalPadding, right: self.horizontalPadding)
 //        let path = UIBezierPath(roundedRect: self.bounds, cornerRadius: radius)
 //        let mask = CAShapeLayer()
 //        mask.path = path.cgPath

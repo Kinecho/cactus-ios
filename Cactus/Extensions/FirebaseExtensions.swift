@@ -104,6 +104,7 @@ extension DocumentSnapshot {
     
     func decode<T: Decodable>(as objectType: T.Type, includingId: Bool = true) throws -> T {
         do {
+            
             guard var documentData = self.data() else {throw DocumentSnapshotExtensionError.decodingError}
             if includingId {
                 documentData["id"] = self.documentID

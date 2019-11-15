@@ -56,7 +56,7 @@ class AppMainViewController: UIViewController {
     
     func setupAuth() {        
         _ = CactusMemberService.sharedInstance.observeCurrentMember { (member, _, _) in
-            print("setup auth onData", member?.email ?? "no email")
+            self.logger.info("setup auth onData \(member?.email ?? "no email")" )
             
             if member == nil {
                 self.logger.info("found member is null. showing loign screen.")
@@ -65,7 +65,6 @@ class AppMainViewController: UIViewController {
             } else if let member = member, member.id != self.member?.id {
                 self.logger.info("Found member, not null. showing journal home page")
                 self.showJournalHome(member: member, wrapInNav: true)
-//                self.initOnboarding() //Moved to journal Home
                 self.hasUser = true
             }
             self.authHasLoaded = true
@@ -87,7 +86,7 @@ class AppMainViewController: UIViewController {
             return
         }
         vc.member = member
-        _ = showScreen(vc, wrapInNav: true)
+        _ = showScreen(vc, wrapInNav: true)        
     }
     
     func getScreen(_ screen: ScreenID) -> UIViewController {
@@ -99,6 +98,17 @@ class AppMainViewController: UIViewController {
         let screen = getScreen(screenId)
         let vc = showScreen(screen, wrapInNav: wrapInNav)
         return vc
+    }
+    
+    func loadPromptContent(promptContentEntryId: String, link: String?=nil) {
+//        let link = "https://cactus-app-stage.web.app/prompts/IAOrt4jq7sXilcpyprdG"
+        
+        let vc = LoadablePromptContentViewController.loadFromNib()
+        vc.originalLink = link
+        vc.promptContentEntryId = promptContentEntryId
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .coverVertical
+        self.present(vc, animated: true, completion: nil)
     }
     
     //Moved to Journal Home

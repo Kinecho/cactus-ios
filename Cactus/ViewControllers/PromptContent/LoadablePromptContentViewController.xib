@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoadablePromptContentViewController" customModule="Cactus" customModuleProvider="target">
+            <connections>
+                <outlet property="activityIndicator" destination="kI0-Ch-Yfr" id="fIF-Qt-agv"/>
+                <outlet property="errorDescriptionLabel" destination="Ug3-3t-o1l" id="WEX-M4-Jhs"/>
+                <outlet property="errorStackView" destination="Xlp-PX-Cby" id="Iyc-10-7sQ"/>
+                <outlet property="errorTitleLabel" destination="geO-Da-tMB" id="6qs-VK-KiP"/>
+                <outlet property="goHomeButton" destination="iip-Cr-Ek4" id="khF-Pr-tCU"/>
+                <outlet property="loadingStackView" destination="k9e-2Q-BN3" id="ZPQ-iO-EU6"/>
+                <outlet property="openBrowserButton" destination="xAv-IM-DQV" id="rnc-y6-cHb"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wdh-fK-kOB">
+                    <rect key="frame" x="20" y="340" width="374" height="216.5"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Xlp-PX-Cby" userLabel="Error Stack View">
+                            <rect key="frame" x="24.5" y="8" width="325" height="176.5"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MhY-08-r50" userLabel="Error Labels Stack View">
+                                    <rect key="frame" x="0.0" y="0.0" width="325" height="106.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looks like something went wrong..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geO-Da-tMB" userLabel="Error Title Label">
+                                            <rect key="frame" x="58" y="0.0" width="209" height="53"/>
+                                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="22"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The prompt was not found. You can try to open this in safari" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ug3-3t-o1l" userLabel="Error Message Label">
+                                            <rect key="frame" x="0.0" y="63" width="325" height="43.5"/>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="E5a-Q0-3kg" userLabel="Error Actions Stack View">
+                                    <rect key="frame" x="63.5" y="146.5" width="198" height="30"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAv-IM-DQV" userLabel="Open in Safari" customClass="SecondaryButton" customModule="Cactus" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="113" height="30"/>
+                                            <state key="normal" title="Open in Browser"/>
+                                            <connections>
+                                                <action selector="openInBrowserTapped:" destination="-1" eventType="primaryActionTriggered" id="AEI-4U-Wi7"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iip-Cr-Ek4" userLabel="Go Home Button" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
+                                            <rect key="frame" x="133" y="0.0" width="65" height="30"/>
+                                            <state key="normal" title="Go Home"/>
+                                            <connections>
+                                                <action selector="goHomeTapped:" destination="-1" eventType="primaryActionTriggered" id="W0E-Cx-HRd"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="k9e-2Q-BN3" userLabel="Loading Stack View">
+                            <rect key="frame" x="137.5" y="184.5" width="99" height="24"/>
+                            <subviews>
+                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="kI0-Ch-Yfr">
+                                    <rect key="frame" x="0.0" y="2" width="20" height="20"/>
+                                </activityIndicatorView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Loading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noi-UR-ZpU" userLabel="Loading Prompt">
+                                    <rect key="frame" x="31" y="0.0" width="69" height="24"/>
+                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="20"/>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" name="BlueLight"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="wdh-fK-kOB" secondAttribute="trailing" constant="20" id="PQw-1c-cKD"/>
+                <constraint firstItem="wdh-fK-kOB" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="mzg-PY-ugI"/>
+                <constraint firstItem="wdh-fK-kOB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="wfG-Ie-ihv"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="116"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="BlueLight">
+            <color red="0.90196078431372551" green="0.97647058823529409" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

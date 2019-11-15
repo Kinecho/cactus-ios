@@ -97,6 +97,8 @@ class Logger {
     func severe(_ message: String, fileName: String?=nil, functionName: String?=nil, line: Int?=nil) {
         guard self.showLogLevel(LogLevel.severe) else {return}
         self.printLog(message, icon: Emoji.exclamationDouble, fileName: fileName, functionName: functionName, line: line)
+        let errorMessage = "\(message)\n\(String(describing: error))".trimmingCharacters(in: .whitespacesAndNewlines)
+        self.sendSentryEvent(errorMessage, level: .fatal, extra: error, fileName: fileName, functionName: functionName, line: line)
     }
     
     func formatDate(date: Date=Date()) -> String {
@@ -125,8 +127,23 @@ class Logger {
         print("\(prefix) | \(message)")
     }
     
-    func sendSentryEvent(_ message: String, level: SentryLogLevel, extra: Any?=nil, fileName: String?=nil, functionName: String?=nil, line: Int?=nil) {
-        var prefix = "\(level) \(self.formatDate())"
+    func sendSentryEvent(_ message: String, level: SentrySeverity, extra: Any?=nil, fileName: String?=nil, functionName: String?=nil, line: Int?=nil) {
+        var prefix = ""
+        switch level {
+        case .error:
+            prefix = "\(Emoji.cactus)\(Emoji.error) Error"
+        case .fatal:
+            prefix = "\(Emoji.cactus)\(Emoji.exclamationDouble) Fatal"
+        case .debug:
+            prefix = "\(Emoji.cactus)\(Emoji.debug) Debug"
+        case .info:
+            prefix = "\(Emoji.cactus)\(Emoji.info) Info"
+        case .warning:
+            prefix = "\(Emoji.cactus)\(Emoji.warning) Warning"
+        default:
+            prefix = "\(Emoji.cactus)"
+        }
+        
         let contextArray = [fileName ?? self.fileName, functionName ?? self.functionName].compactMap {$0}
         if let context = contextArray.isEmpty ? nil : contextArray.joined(separator: ".") {
             prefix = "\(prefix) | \(context)"
@@ -139,10 +156,25 @@ class Logger {
         let eventMessage = "\(prefix) | \(message)"
         print("sending sentry event: \(eventMessage)")
         
-        let event = Sentry.Event(level: .info)
+        let event = Sentry.Event(level: level)
         event.message = eventMessage
         event.environment = CactusConfig.environment.rawValue
-        var eventExtra: [String: Any] = ["ios": true]
+        var eventExtra: [String: Any] = [
+            "ios": true,
+        ]
+        
+        if let fileName = fileName ?? self.fileName {
+            eventExtra["File Name"] = fileName
+        }
+        
+        if let functionName = functionName ?? self.functionName {
+            eventExtra["Function Name"] = functionName
+        }
+        
+        if line != nil {
+            eventExtra["Line Numbmer"] = line
+        }
+                
         switch extra {
         case let exception as Exception:
             event.exceptions = [exception]

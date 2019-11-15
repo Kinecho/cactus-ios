@@ -250,6 +250,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                  signinUrl = URL(string: linkParam)
             }
             
+            let promptHandler = LinkHandlerUtil.handlePromptContent(activityUrl)
+            
             if Auth.auth().isSignIn(withEmailLink: activityUrl.absoluteString) {
                 let email = UserDefaults.standard.string(forKey: "MagicLinkEmail")
                 if let email = email {
@@ -263,6 +265,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     print("Handled by firebase auth ui")
                     return true
                 }
+            } else if promptHandler.handled && promptHandler.promptContentEntryId != nil {
+                self.rootViewController.loadPromptContent(promptContentEntryId: promptHandler.promptContentEntryId!, link: activityUrl.absoluteString)
+                return true
             } else {
                 print("url not supported, sending back to the browser")
                 application.open(activityUrl)
