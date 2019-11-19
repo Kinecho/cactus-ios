@@ -28,7 +28,11 @@ class CelebrateViewController: UIViewController {
     @IBOutlet weak var relationshipStatImageView: UIImageView!
     
     @IBOutlet weak var shareNoteButton: TertiaryButton!
-    weak var reflectionResponse: ReflectionResponse?
+    weak var reflectionResponse: ReflectionResponse? {
+        didSet {
+            self.configureShareNoteButton()
+        }
+    }
     var promptContent: PromptContent?
     
     let logger = Logger(fileName: "CelebrateViewController")
@@ -64,6 +68,8 @@ class CelebrateViewController: UIViewController {
     }
     
     func configureShareNoteButton() {
+        guard self.isViewLoaded else {return}
+        
         if FormatUtils.isBlank(self.reflectionResponse?.content.text) {
             self.shareNoteButton.isHidden = true
         } else {

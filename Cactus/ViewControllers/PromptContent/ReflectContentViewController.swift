@@ -128,7 +128,7 @@ class ReflectContentViewController: PromptContentViewController {
         }
     }
     
-    func saveResponse(nextPageOnSuccess: Bool=true, _ completion: ((ReflectionResponse?, Any?) -> Void)?=nil) {
+    func saveResponse(nextPageOnSuccess: Bool=true, silent: Bool = false, _ completion: ((ReflectionResponse?, Any?) -> Void)?=nil) {
         //Note: The text must be set on the response object, we will not grab it from here.
         self.logger.debug("saving response...")
         guard let response = self.reflectionResponse else {
@@ -145,13 +145,18 @@ class ReflectContentViewController: PromptContentViewController {
             response.reflectionDurationMs = (response.reflectionDurationMs ?? 0) + Int(duration)
         }
         response.cactusElement = self.promptContent.cactusElement
-        self.setSaving(true)
+        if !silent{
+            self.setSaving(true)
+        }
+        
         ReflectionResponseService.sharedInstance.save(response) { (saved, error) in
             if let error = error {
                 self.logger.error("Error saving reflection response", error)
             }
             
-            self.setSaving(false)
+            if !silent{
+                self.setSaving(false)
+            }
             completion?(saved, error)
             if error == nil, nextPageOnSuccess {
                 self.delegate?.nextScreen()

@@ -13,12 +13,18 @@ class PromptContentPageViewController: UIPageViewController {
     var promptContent: PromptContent!
     var activeIndex: Int = 0
     var pageControl: UIPageControl?
-    var reflectionResponse: ReflectionResponse?
+    var reflectionResponse: ReflectionResponse? {
+        didSet {
+            self.updateCelebrate()
+        }
+    }
     var closeButton: UIButton?
     var sharePromptButton: UIButton?
     var journalDataSource: JournalFeedDataSource?
     var tapNavigationEnabled = true
     var logger = Logger(fileName: "PromptContentPageViewController")
+    var celebrateVc: CelebrateViewController?
+        
     fileprivate lazy var screens: [UIViewController] = []
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -87,7 +93,8 @@ class PromptContentPageViewController: UIPageViewController {
         let celebrate = CelebrateViewController.loadFromNib()
         celebrate.reflectionResponse = self.reflectionResponse
         celebrate.promptContent = self.promptContent
-        celebrate.journalDataSource = self.journalDataSource        
+        celebrate.journalDataSource = self.journalDataSource
+        self.celebrateVc = celebrate
         screens.append(celebrate)
         self.screens = screens
         
@@ -97,6 +104,15 @@ class PromptContentPageViewController: UIPageViewController {
         self.configurePageControl()
         self.addCloseButton()
         self.addSharePromptButton()
+    }
+    
+    func updateCelebrate() {
+        guard let celebrate = self.celebrateVc else {
+            self.logger.info("No celebrate screen existed. Can't update it.")
+            return
+        }
+        
+        celebrate.reflectionResponse = self.reflectionResponse
     }
     
     func getContentViewController(_ content: Content) -> UIViewController? {
@@ -265,7 +281,14 @@ extension PromptContentPageViewController: UIPageViewControllerDataSource {
         
         if let reflectVc = viewController as? ReflectContentViewController {
             self.logger.info("Saving response on go to previous")
-            reflectVc.saveResponse(nextPageOnSuccess: false, nil)
+            reflectVc.saveResponse(nextPageOnSuccess: false, silent: true) { saved, error in
+                if let error = error {
+                    self.logger.error("Failed to save reflectionr response when going to the next page", error)
+                }
+                if let saved = saved {
+                    self.reflectionResponse = saved
+                }
+            }
         }
         
         return self.screens[previousIndex]
@@ -282,7 +305,14 @@ extension PromptContentPageViewController: UIPageViewControllerDataSource {
         
         if let reflectVc = viewController as? ReflectContentViewController {
             self.logger.info("Saving response on go to next")
-            reflectVc.saveResponse(nextPageOnSuccess: false, nil)
+            reflectVc.saveResponse(nextPageOnSuccess: false, silent: true) { saved, error in
+                if let error = error {
+                    self.logger.error("Failed to save reflectionr response when going to the next page", error)
+                }
+                if let saved = saved {
+                    self.reflectionResponse = saved
+                }
+            }
         }
         
         return self.screens[nextIndex]
