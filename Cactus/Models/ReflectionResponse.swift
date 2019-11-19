@@ -80,6 +80,32 @@ class ReflectionResponse: FirestoreIdentifiable, Hashable {
         id.hash(into: &hasher)
     }
     
+    /**
+        Add a date to the reflection date array.
+        - Parameter date: The date to add
+        - Parameter thresholdInMinutes: The threshold to use to determine if a new date should be added to the array or not.
+        - Returns: If the new date was added or not
+     */
+    func addReflectionLog(_ date: Date, thresholdInMinutes: Int = 10) -> Bool {
+        if self.reflectionDates == nil {
+            self.reflectionDates = []
+        }
+        
+        let hasRecent = self.reflectionDates?.contains(where: { (d) -> Bool in
+            return Int(abs(d.timeIntervalSince(date))) < (thresholdInMinutes * 60)
+        })
+        if hasRecent == true {
+            return false
+        }
+        self.reflectionDates?.append(date)
+        
+        return true
+    }
+    
+    /**
+     Get the full name of the member that reflected. Uses the firstName and lastname when available.
+     - Returns: String or nil. String value is trimmed of whitespaces
+     */
     func getFullName() -> String? {
         let name = "\(self.memberFirstName ?? "") \(self.memberLastName ?? "")".trimmingCharacters(in: .whitespacesAndNewlines)
         return FormatUtils.isBlank(name) ? nil : name

@@ -44,7 +44,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="needlePattern" translatesAutoresizingMaskIntoConstraints="NO" id="bG9-dC-CMJ" userLabel="background blobNeedle">
-                    <rect key="frame" x="0.0" y="408.5" width="414" height="1304"/>
+                    <rect key="frame" x="0.0" y="408.5" width="414.00000000000011" height="652"/>
                     <color key="backgroundColor" name="GreenDarker"/>
                     <color key="tintColor" name="GreenDarkest"/>
                 </imageView>
@@ -72,33 +72,18 @@
                                     <subviews>
                                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emotions-2" translatesAutoresizingMaskIntoConstraints="NO" id="k1B-nU-U2F">
                                             <rect key="frame" x="0.0" y="0.0" width="0.0" height="100"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="oBV-CJ-JN3"/>
-                                            </constraints>
                                         </imageView>
                                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energy-2" translatesAutoresizingMaskIntoConstraints="NO" id="q2U-w6-cxV">
                                             <rect key="frame" x="0.0" y="0.0" width="0.0" height="100"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="sJk-iO-ArD"/>
-                                            </constraints>
                                         </imageView>
                                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="experience-2" translatesAutoresizingMaskIntoConstraints="NO" id="8mP-21-rXX" userLabel="Experience Stat Image View">
                                             <rect key="frame" x="0.0" y="0.0" width="0.0" height="100"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="CdV-Pv-nc5"/>
-                                            </constraints>
                                         </imageView>
                                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meaning-2" translatesAutoresizingMaskIntoConstraints="NO" id="OoS-hD-ENo">
                                             <rect key="frame" x="0.0" y="0.0" width="0.0" height="100"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="Hge-0w-qqc"/>
-                                            </constraints>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="relationships-2" translatesAutoresizingMaskIntoConstraints="NO" id="uCm-0i-ArW">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="WDd-0j-cNu"/>
-                                            </constraints>
                                         </imageView>
                                     </subviews>
                                     <constraints>

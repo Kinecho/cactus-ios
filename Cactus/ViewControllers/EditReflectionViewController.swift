@@ -20,6 +20,7 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
     @IBOutlet weak var doneButton: BorderedButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var buttonWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var sharedStackView: UIStackView!
     
     let padding: CGFloat = 10
     var response: ReflectionResponse!
@@ -55,6 +56,9 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
     func configureView() {
         self.configureSaving()
         self.responseTextView.textContainerInset = UIEdgeInsets(top: 0, left: 6, bottom: 0, right: 6)
+        
+        self.sharedStackView.isHidden = !(self.response.shared ?? false)
+        
     }
         
     override func viewWillAppear(_ animated: Bool) {

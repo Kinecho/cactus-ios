@@ -16,10 +16,15 @@ class ReflectContentViewController: PromptContentViewController {
     @IBOutlet weak var addNoteButton: BorderedButton!
     @IBOutlet weak var reflectionTextView: UITextView!
     @IBOutlet weak var cactusAnimationContainerView: UIView!
+    @IBOutlet weak var sharedNoteStackView: UIStackView!
     var logger = Logger(fileName: "ReflectionContentViewController")
     var animationVc: CactusElementAnimationViewController?
     var player: AVPlayer!
-    var reflectionResponse: ReflectionResponse?
+    var reflectionResponse: ReflectionResponse? {
+        didSet {
+            self.configureResponseView()
+        }
+    }
     var editViewController: EditReflectionViewController?
         
     var startTime: Date?
@@ -78,6 +83,14 @@ class ReflectContentViewController: PromptContentViewController {
         animationVc.didMove(toParent: self)
     }
     
+    func configureNote() {
+        guard self.isViewLoaded else {
+            return
+        }
+        
+        
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         if let video = self.player {
             video.seek(to: CMTime.zero)
@@ -114,7 +127,11 @@ class ReflectContentViewController: PromptContentViewController {
         
     @objc func doneAction(_ sender: Any) {
         self.logger.info("Done button tapped")
-        self.saveResponse()
+        self.saveResponse(nextPageOnSuccess: true, silent: false) { (saved, _) in
+            if let saved = saved {
+                self.reflectionResponse = saved
+            }
+        }
         view.endEditing(true)
     }
     
@@ -186,13 +203,16 @@ class ReflectContentViewController: PromptContentViewController {
     }
 
     func configureResponseView() {
+        guard self.isViewLoaded else {return}
         if FormatUtils.isBlank(self.reflectionResponse?.content.text) {
             self.reflectionTextView.isHidden = true
             self.addNoteButton.isHidden = false
+            self.sharedNoteStackView.isHidden = true
         } else {
             self.reflectionTextView.isHidden = false
             self.reflectionTextView.text = self.reflectionResponse?.content.text
-            self.addNoteButton.isHidden = true
+            self.addNoteButton.isHidden = true            
+            self.sharedNoteStackView.isHidden = !(self.reflectionResponse?.shared ?? false)
         }
     }
     

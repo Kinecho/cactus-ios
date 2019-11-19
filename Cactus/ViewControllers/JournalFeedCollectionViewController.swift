@@ -96,6 +96,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
                 vc.reflectionResponse = response                
             }
             
+        //depracated
         case "JournalEntryDetail":
             guard let cell = sender as? JournalEntryCollectionViewCell else {
                 return
@@ -153,7 +154,8 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         if journalCell.promptContent != nil {
             self.performSegue(withIdentifier: "PromptContentCards", sender: cell)
         } else {
-            self.performSegue(withIdentifier: "JournalEntryDetail", sender: cell)
+            // If no prompt content, don't do anything
+            // self.performSegue(withIdentifier: "JournalEntryDetail", sender: cell)
         }
     }
 
