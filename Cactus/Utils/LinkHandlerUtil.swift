@@ -35,20 +35,11 @@ class LinkHandlerUtil {
             return nil
         }
        
-        return LinkHandlerUtil.getPathId(url, for: name)
+        return url.getPathId(for: name)
     }
-    
-    static func getPathId(_ url: URL, for name: String) -> String? {
-       let parts = url.pathComponents
-       guard let nameIndex = parts.firstIndex(of: name), parts.endIndex > nameIndex + 1 else {
-           return nil
-       }
-       
-       return  parts[nameIndex + 1]
-   }
-    
+        
     static func handlePromptContent(_ url: URL) -> Bool {
-        let entryId = LinkHandlerUtil.getPathId(url, for: "prompts")
+        let entryId = url.getPathId(for: "prompts")
         
         if let entryId = entryId {
             AppDelegate.shared.rootViewController.loadPromptContent(promptContentEntryId: entryId, link: url.absoluteString)
@@ -59,7 +50,7 @@ class LinkHandlerUtil {
     }
     
     static func handleSharedResponse(_ url: URL) -> Bool {
-        if let responseId = LinkHandlerUtil.getPathId(url, for: "reflection") {
+        if let responseId = url.getPathId(for: "reflection") {
             AppDelegate.shared.rootViewController.loadSharedReflection(reflectionId: responseId, link: url.absoluteString)
             return true
         }

@@ -16,4 +16,13 @@ extension URL {
         }
         return parameters
     }
+    
+    func getPathId(for name: String) -> String? {
+        let parts = self.pathComponents
+        guard let nameIndex = parts.firstIndex(of: name), parts.endIndex > nameIndex + 1 else {
+            return nil
+        }
+        
+        return  parts[nameIndex + 1]
+    }
 }

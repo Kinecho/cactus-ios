@@ -24,4 +24,10 @@ class URLExtensionTest: XCTestCase {
         XCTAssertTrue(URL(string: "https://cactus.app?param=one&other=two")!.getQueryParams().count == 2)
         XCTAssertTrue(URL(string: "https://cactus.app")!.getQueryParams().count == 0)
     }
+    
+    func testGetPathId() {
+        XCTAssertEqual(URL(string: "https://cactus.app/this/reflection/abc123/test")!.getPathId(for: "reflection"), "abc123")
+        XCTAssertNil(URL(string: "https://cactus.app/this/reflection/abc123/test")!.getPathId(for: "test"))
+        XCTAssertEqual(URL(string: "https://cactus-app-stage.web.app/prompts/IAOrt4jq7sXilcpyprdG?slide=0")!.getPathId(for: "prompts"), "IAOrt4jq7sXilcpyprdG")
+    }
 }
