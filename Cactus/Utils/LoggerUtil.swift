@@ -131,6 +131,7 @@ class Logger {
         print("\(prefix) | \(message)")
     }
     
+    // swiftlint:disable cyclomatic_complexity
     func sendSentryEvent(_ message: String, level: SentrySeverity, extra: Any?=nil, fileName: String?=nil, functionName: String?=nil, line: Int?=nil) {
         var prefix = ""
         switch level {
@@ -191,6 +192,7 @@ class Logger {
         
         Client.shared?.send(event: event, completion: nil)
     }
+    // swiftlint:enable cyclomatic_complexity
     
     func printLog(_ message: String, icon: String?=nil, includeDate: Bool=true, fileName: String?=nil, functionName: String?=nil, line: Int?=nil) {
         var prefix = "\(Emoji.cactus)\(icon ?? "")".trimmingCharacters(in: .whitespaces)

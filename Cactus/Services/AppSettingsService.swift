@@ -5,16 +5,6 @@
 //  Created by Neil Poulin on 10/31/19.
 //  Copyright © 2019 Cactus. All rights reserved.
 //
-
-import Foundation
-//
-//  PromptContentService.swift
-//  Cactus Stage
-//
-//  Created by Neil Poulin on 9/10/19.
-//  Copyright © 2019 Cactus. All rights reserved.
-//
-
 import Foundation
 import Firebase
 import FirebaseFirestore
@@ -22,7 +12,7 @@ import FirebaseFirestore
 class AppSettingsService {
     let flamelinkService: FlamelinkService
     let schema = FlamelinkSchema.appSettings_ios
-    var currentSettings: AppSettings? = nil
+    var currentSettings: AppSettings?
     fileprivate var settingsObserver: ListenerRegistration?
     
     static let sharedInstance = AppSettingsService()
@@ -38,7 +28,7 @@ class AppSettingsService {
     }
     
     deinit {
-        self.settingsObserver?.remove();
+        self.settingsObserver?.remove()
     }
     
     func observeSettings(_ onData: @escaping (AppSettings?, Any?) -> Void) -> ListenerRegistration {

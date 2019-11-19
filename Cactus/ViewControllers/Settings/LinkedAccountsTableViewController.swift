@@ -51,7 +51,7 @@ class LinkedAccountsTableViewController: UITableViewController {
     */
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.currentUser?.providerData.filter({ (info) -> Bool in
+        return self.currentUser?.providerData.filter({ (_) -> Bool in
 //            return info.providerID != "password"
             return true
         }).count ?? 0

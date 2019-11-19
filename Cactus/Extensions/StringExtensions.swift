@@ -42,11 +42,6 @@ extension NSAttributedString {
     }
     
     func withColor(_ color: UIColor) -> NSAttributedString {
-//        let range = NSRange(location: 0, length: self.length)
-//        let mText = NSMutableAttributedString.init(attributedString: self)
-//        mText.addAttributes([NSAttributedString.Key.foregroundColor: color], range: self.fullRange)
-//        return mText.attributedSubstring(from: NSRange(location: 0, length: mText.length))
-        
         return self.withAttributes([NSAttributedString.Key.foregroundColor: color])
     }
     
@@ -56,7 +51,7 @@ extension NSAttributedString {
         return self.withAttributes([NSAttributedString.Key.paragraphStyle: paragraph])
     }
     
-    func withAttributes(_ attributes: [NSAttributedString.Key : Any], range: NSRange?=nil) -> NSAttributedString {
+    func withAttributes(_ attributes: [NSAttributedString.Key: Any], range: NSRange?=nil) -> NSAttributedString {
         let range = range ?? self.fullRange
         let mText = self.toMutable()
         mText.addAttributes(attributes, range: range)

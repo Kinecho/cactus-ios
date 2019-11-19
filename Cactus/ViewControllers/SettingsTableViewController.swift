@@ -40,7 +40,7 @@ class SettingsTableViewController: UITableViewController {
     func configureView() {
         let name = "\(member?.firstName ?? "") \(member?.lastName ?? "")".trimmingCharacters(in: .whitespacesAndNewlines)
         let email = member?.email
-        if (!FormatUtils.isBlank(name) && !FormatUtils.isBlank(email)) {
+        if !FormatUtils.isBlank(name) && !FormatUtils.isBlank(email) {
             self.emailAddressLabel.text = "\(name) (\(email ?? ""))"
         } else {
             self.emailAddressLabel.text = member?.email

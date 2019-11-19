@@ -22,7 +22,9 @@ class ShareNoteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.embedSharedReflection()
-        self.shareSubTextView.attributedText = MarkdownUtil.centeredMarkdown("Become more courageous and **build trust and connection** with others.", font: CactusFont.normal, color: CactusColor.darkestGreen)
+        self.shareSubTextView.attributedText = MarkdownUtil.centeredMarkdown("Become more courageous and **build trust and connection** with others.",
+                                                                             font: CactusFont.normal,
+                                                                             color: CactusColor.darkestGreen)
         self.configureSharing()
     }
     

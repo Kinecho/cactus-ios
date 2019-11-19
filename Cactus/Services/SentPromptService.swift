@@ -89,7 +89,7 @@ class SentPromptService {
         return self.firestoreService.addPaginatedListener(query, limit: limit, lastResult: nil, onData)
     }
     
-    func getSentPrompts(member: CactusMember, limit: Int? = nil, before: DocumentSnapshot?=nil,  _ completed: @escaping ([SentPrompt]?, Any?) -> Void) {
+    func getSentPrompts(member: CactusMember, limit: Int? = nil, before: DocumentSnapshot?=nil, _ completed: @escaping ([SentPrompt]?, Any?) -> Void) {
         guard let memberId = member.id else {
             completed(nil, "No member ID found")
             return

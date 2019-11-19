@@ -145,7 +145,7 @@ class ReflectContentViewController: PromptContentViewController {
             response.reflectionDurationMs = (response.reflectionDurationMs ?? 0) + Int(duration)
         }
         response.cactusElement = self.promptContent.cactusElement
-        if !silent{
+        if !silent {
             self.setSaving(true)
         }
         
@@ -154,7 +154,7 @@ class ReflectContentViewController: PromptContentViewController {
                 self.logger.error("Error saving reflection response", error)
             }
             
-            if !silent{
+            if !silent {
                 self.setSaving(false)
             }
             completion?(saved, error)

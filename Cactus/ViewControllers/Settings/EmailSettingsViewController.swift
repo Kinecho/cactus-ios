@@ -132,7 +132,6 @@ class EmailSettingsViewController: UIViewController {
     }
 }
 
-
 extension EmailSettingsViewController: UITextFieldDelegate {
 //    textFieldDidchange
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
