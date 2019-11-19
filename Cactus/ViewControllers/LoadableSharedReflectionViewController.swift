@@ -25,6 +25,7 @@ class LoadableSharedReflectionViewController: UIViewController {
     var logger = Logger(fileName: "LoadableSharedReflectionViewController")
     var sharedResponse: ReflectionResponse?
     var currentVc: UIViewController?
+    var memberProfile: MemberProfile?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,21 +51,34 @@ class LoadableSharedReflectionViewController: UIViewController {
             }
             
             self.sharedResponse = response
-            if let promptEntryId = response?.promptContentEntryId {
-                PromptContentService.sharedInstance.getByEntryId(id: promptEntryId) { (promptContent, error) in
-                    self.handlePromptContent(promptContent, error: error)
+            guard let memberId = response?.cactusMemberId else {
+                self.showError("Unable to find the member that shared the response")
+                return
+            }
+            
+            MemberProfileService.sharedInstance.getByMemberId(id: memberId) { (profile, error) in
+                guard let profile = profile else {
+                    self.showError("Unable to load the member that shared this reflection.")
+                    return
                 }
-            } else if let promptId = response?.promptId {
-                PromptContentService.sharedInstance.getByPromptId(promptId: promptId) { (promptContent, error) in
-                    self.handlePromptContent(promptContent, error: error)
+                self.memberProfile = profile
+                
+                if let promptEntryId = response?.promptContentEntryId {
+                    PromptContentService.sharedInstance.getByEntryId(id: promptEntryId) { (promptContent, error) in
+                        self.handlePromptContent(promptContent, error: error)
+                    }
+                } else if let promptId = response?.promptId {
+                    PromptContentService.sharedInstance.getByPromptId(promptId: promptId) { (promptContent, error) in
+                        self.handlePromptContent(promptContent, error: error)
+                    }
+                } else {
+                    self.logger.warn("Unable to find a value on the response to load the prompt content.")
+                    let vc = ViewSharedReflectionViewController.loadFromNib()
+                    vc.reflectionResponse = response
+                    self.addTakeover(vc)
+                    self.hideError()
+                    self.stopLoading()
                 }
-            } else {
-                self.logger.warn("Unable to find a value on the response to load the prompt content.")
-                let vc = ViewSharedReflectionViewController.loadFromNib()
-                vc.reflectionResponse = response
-                self.addTakeover(vc)
-                self.hideError()
-                self.stopLoading()
             }
         }
     }
@@ -77,6 +91,7 @@ class LoadableSharedReflectionViewController: UIViewController {
             let vc = ViewSharedReflectionViewController.loadFromNib()
             vc.reflectionResponse = self.sharedResponse
             vc.promptContent = promptContent
+            vc.memberProfile = self.memberProfile
             self.addTakeover(vc)
             self.hideError()
             self.stopLoading()

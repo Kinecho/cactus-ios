@@ -38,7 +38,7 @@
             <rect key="frame" x="0.0" y="0.0" width="334" height="725"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_cactusOG" translatesAutoresizingMaskIntoConstraints="NO" id="kzq-Fz-fZ5">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar3" translatesAutoresizingMaskIntoConstraints="NO" id="kzq-Fz-fZ5">
                     <rect key="frame" x="20" y="64" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="kzq-Fz-fZ5" secondAttribute="height" multiplier="1:1" id="Q5v-8U-aTh"/>
@@ -47,16 +47,16 @@
                     </constraints>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="fG7-eM-Oku" userLabel="Profile Stack View">
-                    <rect key="frame" x="20" y="134" width="334" height="52.5"/>
+                    <rect key="frame" x="20" y="134" width="334" height="51"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Neil Poulin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeJ-aC-hQe">
-                            <rect key="frame" x="0.0" y="0.0" width="334" height="29"/>
+                            <rect key="frame" x="0.0" y="0.0" width="334" height="28"/>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
                             <color key="textColor" name="White"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="neil@cactus.app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dw-Xl-Tng">
-                            <rect key="frame" x="0.0" y="33" width="334" height="19.5"/>
+                            <rect key="frame" x="0.0" y="32" width="334" height="19"/>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                             <color key="textColor" name="GreenLight"/>
                             <nil key="highlightedColor"/>
@@ -64,7 +64,7 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="mdu-RK-mVB" userLabel="Actions Stack View">
-                    <rect key="frame" x="0.0" y="206.5" width="334" height="150"/>
+                    <rect key="frame" x="0.0" y="205" width="334" height="150"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEe-Hm-kiV" customClass="BorderedButton" customModule="Cactus" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="8" width="326" height="44"/>
@@ -129,19 +129,19 @@
                     <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="8"/>
                 </stackView>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BaY-h1-QJB" userLabel="Streak Rounded View" customClass="RoundedView" customModule="Cactus" customModuleProvider="target">
-                    <rect key="frame" x="20" y="396.5" width="294" height="90"/>
+                    <rect key="frame" x="20" y="395" width="294" height="90"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pottedCactus" translatesAutoresizingMaskIntoConstraints="NO" id="Kms-7f-edX">
                             <rect key="frame" x="-30" y="0.0" width="98" height="120"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="88" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SgD-gm-waT">
-                            <rect key="frame" x="93" y="21" width="46.5" height="48"/>
+                            <rect key="frame" x="93" y="21.5" width="44.5" height="47"/>
                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="40"/>
                             <color key="textColor" name="GreenLight"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day Streak" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0C-hD-Yg5">
-                            <rect key="frame" x="147.5" y="36.5" width="67.5" height="17"/>
+                            <rect key="frame" x="145.5" y="37" width="68.5" height="16.5"/>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                             <color key="textColor" name="GreenLight"/>
                             <nil key="highlightedColor"/>
@@ -167,16 +167,16 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nnk-9j-MZV" userLabel="Reflections Rounded View" customClass="RoundedView" customModule="Cactus" customModuleProvider="target">
-                    <rect key="frame" x="20" y="494.5" width="143" height="90"/>
+                    <rect key="frame" x="20" y="493" width="143" height="90"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="121" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OU6-hA-xBB">
-                            <rect key="frame" x="36.5" y="10" width="70" height="48"/>
+                            <rect key="frame" x="38" y="10" width="67" height="47"/>
                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="40"/>
                             <color key="textColor" name="GreenLight"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reflections" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qH1-jQ-ub4">
-                            <rect key="frame" x="37" y="61" width="69" height="17"/>
+                            <rect key="frame" x="36.5" y="61.5" width="70" height="16.5"/>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                             <color key="textColor" name="GreenLight"/>
                             <nil key="highlightedColor"/>
@@ -198,16 +198,16 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KDO-6D-AB5" userLabel="Minutes Rounded View" customClass="RoundedView" customModule="Cactus" customModuleProvider="target">
-                    <rect key="frame" x="171" y="494.5" width="143" height="90"/>
+                    <rect key="frame" x="171" y="493" width="143" height="90"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="93" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlD-xm-bIw">
-                            <rect key="frame" x="48.5" y="10" width="46.5" height="48"/>
+                            <rect key="frame" x="49.5" y="10" width="44.5" height="47"/>
                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="40"/>
                             <color key="textColor" name="GreenLight"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETE-OQ-lib">
-                            <rect key="frame" x="46" y="61" width="51" height="17"/>
+                            <rect key="frame" x="46.5" y="61.5" width="50" height="16.5"/>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                             <color key="textColor" name="GreenLight"/>
                             <nil key="highlightedColor"/>
@@ -276,7 +276,7 @@
     </objects>
     <resources>
         <image name="airplane" width="48" height="48"/>
-        <image name="avatar_cactusOG" width="75" height="75"/>
+        <image name="avatar3" width="100" height="100"/>
         <image name="bell" width="48" height="48"/>
         <image name="close" width="48" height="48"/>
         <image name="gear" width="48" height="48"/>

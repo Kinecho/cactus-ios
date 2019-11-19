@@ -13,6 +13,7 @@ class ViewSharedReflectionViewController: UIViewController {
     @IBOutlet weak var closeButton: UIButton!
     var reflectionVc: SharedReflectionViewController?
     var promptContent: PromptContent?
+    var memberProfile: MemberProfile?
     
     var reflectionResponse: ReflectionResponse!
     var logger = Logger("ViewSharedReflectionViewController")
@@ -43,6 +44,7 @@ class ViewSharedReflectionViewController: UIViewController {
         
         vc.reflectionResponse = self.reflectionResponse
         vc.promptContent = self.promptContent
+        vc.authorProfile = self.memberProfile
         vc.view.translatesAutoresizingMaskIntoConstraints = false
         self.noteContainerView.addSubview(vc.view)
         self.noteContainerView.layer.cornerRadius = 10

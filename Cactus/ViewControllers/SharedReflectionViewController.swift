@@ -15,8 +15,12 @@ class SharedReflectionViewController: UIViewController {
     @IBOutlet weak var sharedAtTextView: UITextView!
     @IBOutlet weak var questionTextView: UITextView!
     @IBOutlet weak var reflectionTextView: UITextView!
+    
+    var authorProfile: MemberProfile?
     var promptContent: PromptContent?
     var reflectionResponse: ReflectionResponse?
+    
+    var logger = Logger("SharedReflectionViewController")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +34,18 @@ class SharedReflectionViewController: UIViewController {
         self.configureResponseView()
     }
     
+//    func getMemberProfile(_ memberId: String, completed: (Member))
+    
     func updateProfileDataIfNeeded() {
-        guard let response = self.reflectionResponse, let member = CactusMemberService.sharedInstance.currentMember else {
+        guard let response = self.reflectionResponse else {
             return
         }
+        
+        guard let member = self.authorProfile else {
+            self.logger.warn("No member profile was found")
+            return
+        }
+        
         
         if FormatUtils.hasChanges(member.firstName, response.memberFirstName) ||
             FormatUtils.hasChanges(member.lastName, response.memberLastName) ||
@@ -50,6 +62,11 @@ class SharedReflectionViewController: UIViewController {
     
     func configureAvatarView() {
         //nothing to do yet
+        if let imageUrl = self.authorProfile?.avatarUrl {
+            self.avatarImageView.withUrl(imageUrl)
+        } else {
+            self.avatarImageView.image = CactusImage.avatar3.getImage()
+        }
     }
     
     func configureNameView() {

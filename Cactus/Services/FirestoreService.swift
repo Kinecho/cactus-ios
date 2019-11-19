@@ -76,6 +76,17 @@ class FirestoreService {
         return listener
     }
     
+    func observeFirst<T: FirestoreIdentifiable>(_ query: Query, _ onData: @escaping (T?, Any?) -> Void) -> ListenerRegistration {
+        let query = query.whereField(BaseModelField.deleted, isEqualTo: false)
+        query.limit(to: 1)
+        
+        let listener = query.addSnapshotListener(self.snapshotListener({ (models, error) in
+            onData(models?.first, error)
+        }))
+        
+        return listener
+    }
+    
     func addPaginatedListener<T: FirestoreIdentifiable>(_ query: Query, limit: Int?=nil, lastResult: PageResult<T>?, _ onData: @escaping (PageResult<T>) -> Void) -> ListenerRegistration {
         var query = query.whereField(BaseModelField.deleted, isEqualTo: false)
         
@@ -252,7 +263,7 @@ class FirestoreService {
                 batch.updateData([
                     BaseModelField.deleted: true,
                     BaseModelField.deletedAt: Timestamp()
-                    ], forDocument: doc.reference)
+                ], forDocument: doc.reference)
                 deletedCount += 1
                 
             })

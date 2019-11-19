@@ -45,6 +45,7 @@ class ShareNoteViewController: UIViewController {
         
         vc.reflectionResponse = self.reflectionResponse
         vc.promptContent = self.promptContent
+        vc.authorProfile = MemberProfileService.sharedInstance.currentMemberProfile
         vc.view.translatesAutoresizingMaskIntoConstraints = false
         self.noteContainerView.addSubview(vc.view)
         self.noteContainerView.layer.cornerRadius = 10

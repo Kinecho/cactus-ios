@@ -15,6 +15,7 @@ public enum FirestoreCollectionName: String {
     case sentPrompts
     case reflectionResponses
     case fl_content
+    case memberProfiles
 }
 
 public enum FlamelinkSchema: String, Codable {

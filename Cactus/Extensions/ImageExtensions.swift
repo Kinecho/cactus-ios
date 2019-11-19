@@ -18,4 +18,8 @@ extension UIImageView {
         
         ImageService.shared.setPhoto(self, photo: image)
     }
+    
+    func withUrl(_ url: String) {
+        ImageService.shared.setFromUrl(self, url: url)
+    }
 }

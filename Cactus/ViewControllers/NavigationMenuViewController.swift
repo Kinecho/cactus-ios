@@ -110,7 +110,7 @@ class NavigationMenuViewController: UIViewController {
         if let avatarUrl = user?.photoURL {
             ImageService.shared.setFromUrl(self.avatarImageView, url: avatarUrl)
         } else {
-            self.avatarImageView.image = CactusImage.cactusAvatarOG.getImage()
+            self.avatarImageView.image = CactusImage.avatar3.getImage()
         }
     }
     
