@@ -35,22 +35,22 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wdh-fK-kOB">
-                    <rect key="frame" x="20" y="316.5" width="374" height="263"/>
+                    <rect key="frame" x="20" y="315" width="374" height="266.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Xlp-PX-Cby" userLabel="Error Stack View">
-                            <rect key="frame" x="28" y="8" width="318.5" height="223.5"/>
+                            <rect key="frame" x="24.5" y="8" width="325" height="226.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MhY-08-r50" userLabel="Error Labels Stack View">
-                                    <rect key="frame" x="0.0" y="0.0" width="318.5" height="103.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="325" height="106.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looks like something went wrong..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geO-Da-tMB" userLabel="Error Title Label">
-                                            <rect key="frame" x="52" y="0.0" width="214.5" height="51.5"/>
+                                            <rect key="frame" x="58" y="0.0" width="209" height="53"/>
                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="22"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The prompt was not found. You can try to open this in safari" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ug3-3t-o1l" userLabel="Error Message Label">
-                                            <rect key="frame" x="0.0" y="61.5" width="318.5" height="42"/>
+                                            <rect key="frame" x="0.0" y="63" width="325" height="43.5"/>
                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -58,7 +58,7 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="E5a-Q0-3kg" userLabel="Error Actions Stack View">
-                                    <rect key="frame" x="102.5" y="143.5" width="113" height="80"/>
+                                    <rect key="frame" x="106" y="146.5" width="113" height="80"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAv-IM-DQV" userLabel="Open in Safari" customClass="SecondaryButton" customModule="Cactus" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="113" height="30"/>
@@ -79,13 +79,13 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="k9e-2Q-BN3" userLabel="Loading Stack View">
-                            <rect key="frame" x="136" y="231.5" width="102.5" height="23.5"/>
+                            <rect key="frame" x="137.5" y="234.5" width="99" height="24"/>
                             <subviews>
                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="kI0-Ch-Yfr">
                                     <rect key="frame" x="0.0" y="2" width="20" height="20"/>
                                 </activityIndicatorView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noi-UR-ZpU" userLabel="Loading Prompt">
-                                    <rect key="frame" x="30" y="0.0" width="72.5" height="23.5"/>
+                                    <rect key="frame" x="30" y="0.0" width="69" height="24"/>
                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>

@@ -36,14 +36,14 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfN-fs-oAx">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jfN-fs-oAx">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="iWg-nM-5BF">
-                            <rect key="frame" x="0.0" y="290" width="176.5" height="238"/>
+                            <rect key="frame" x="0.0" y="321" width="414" height="254"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JyY-gs-SNc" userLabel="LoadingStack View">
-                                    <rect key="frame" x="0.0" y="0.0" width="176.5" height="22"/>
+                                    <rect key="frame" x="119" y="8" width="176.5" height="22"/>
                                     <subviews>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="2u5-6v-b0E">
                                             <rect key="frame" x="0.0" y="1" width="20" height="20"/>
@@ -58,7 +58,7 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0vA-AM-1DJ" userLabel="Error Labels Stack View">
-                                    <rect key="frame" x="64" y="62" width="48.5" height="56"/>
+                                    <rect key="frame" x="183" y="70" width="48.5" height="56"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBj-cR-kr8" userLabel="Error Title Label">
                                             <rect key="frame" x="0.0" y="0.0" width="48.5" height="24"/>
@@ -75,7 +75,7 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ibf-6W-YGx" userLabel="Error Actions Stack View">
-                                    <rect key="frame" x="32" y="158" width="113" height="80"/>
+                                    <rect key="frame" x="150.5" y="166" width="113" height="80"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFb-Hr-X88" userLabel="Open In Browser" customClass="SecondaryButton" customModule="Cactus" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="113" height="30"/>
