@@ -127,18 +127,18 @@
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="45X-z1-aZS" userLabel="Shared Note Stack View">
-                    <rect key="frame" x="111" y="742" width="192.5" height="48"/>
+                    <rect key="frame" x="119" y="768" width="176" height="22"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="users" translatesAutoresizingMaskIntoConstraints="NO" id="Pyi-cX-7bU">
-                            <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
+                            <rect key="frame" x="0.0" y="1" width="20" height="20"/>
                             <color key="tintColor" name="GreenDark"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="BeO-UV-fRp"/>
                                 <constraint firstAttribute="width" constant="20" id="D5B-7K-wEA"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="This note is shared" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHU-di-dY2" userLabel="Shared Label">
-                            <rect key="frame" x="48" y="14" width="146" height="22"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This note is shared" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHU-di-dY2" userLabel="Shared Label">
+                            <rect key="frame" x="30" y="0.0" width="146" height="22"/>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                             <color key="textColor" name="TextLight"/>
                             <nil key="highlightedColor"/>

@@ -23,7 +23,7 @@ class LoadableSharedReflectionViewController: UIViewController {
     var originalLink: String?
     var reflectionId: String?
     var logger = Logger(fileName: "LoadableSharedReflectionViewController")
-    var sharedReflection: ReflectionResponse?
+    var sharedResponse: ReflectionResponse?
     var currentVc: UIViewController?
     
     override func viewDidLoad() {
@@ -40,10 +40,16 @@ class LoadableSharedReflectionViewController: UIViewController {
         ReflectionResponseService.sharedInstance.getById(reflectionId) { (response, error) in
             if let error = error {
                 self.logger.error("Failed to get reflection response", error)
-                self.showError("Unable to load the reflection")
+                self.showError("This reflection does not exist or you do not have permission to view it")
                 return
             }
             
+            if !(response?.shared ?? false) {
+                self.showError("This reflection does not exist or you do not have permission to view it")
+                return
+            }
+            
+            self.sharedResponse = response
             if let promptEntryId = response?.promptContentEntryId {
                 PromptContentService.sharedInstance.getByEntryId(id: promptEntryId) { (promptContent, error) in
                     self.handlePromptContent(promptContent, error: error)
@@ -53,7 +59,7 @@ class LoadableSharedReflectionViewController: UIViewController {
                     self.handlePromptContent(promptContent, error: error)
                 }
             } else {
-                //todo load the prompt content....
+                self.logger.warn("Unable to find a value on the response to load the prompt content.")
                 let vc = ViewSharedReflectionViewController.loadFromNib()
                 vc.reflectionResponse = response
                 self.addTakeover(vc)
@@ -69,7 +75,7 @@ class LoadableSharedReflectionViewController: UIViewController {
         }
         if let promptContent = promptContent {
             let vc = ViewSharedReflectionViewController.loadFromNib()
-            vc.reflectionResponse = self.sharedReflection
+            vc.reflectionResponse = self.sharedResponse
             vc.promptContent = promptContent
             self.addTakeover(vc)
             self.hideError()
@@ -103,15 +109,25 @@ class LoadableSharedReflectionViewController: UIViewController {
     
     func hideError() {
         self.errorStackView.isHidden = true
+        UIView.animate(withDuration: 0.5) {
+            self.view.backgroundColor = CactusColor.yellow
+        }
     }
     
     func showError(_ message: String, title: String?=nil) {
         self.stopLoading()
         self.errorStackView.isHidden = false
         self.errorMessageLabel.text = message
+        
+        UIView.animate(withDuration: 0.5) {
+            self.view.backgroundColor = CactusColor.lightPink
+        }
+        
         if let title = title {
             self.errorTitleLabel.isHidden = false
             self.errorTitleLabel.text = title
+        } else {
+            self.errorTitleLabel.isHidden = true
         }
         
         if self.canOpenLink() {

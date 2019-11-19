@@ -36,68 +36,85 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iWg-nM-5BF">
-                    <rect key="frame" x="20" y="385.5" width="374" height="125.5"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfN-fs-oAx">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JyY-gs-SNc" userLabel="LoadingStack View">
-                            <rect key="frame" x="96.5" y="0.0" width="181" height="21"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="iWg-nM-5BF">
+                            <rect key="frame" x="0.0" y="290" width="176.5" height="238"/>
                             <subviews>
-                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="2u5-6v-b0E">
-                                    <rect key="frame" x="0.0" y="0.5" width="20" height="20"/>
-                                    <color key="color" name="TextDark"/>
-                                </activityIndicatorView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Reflection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBq-rr-TMP" userLabel="Loading Label">
-                                    <rect key="frame" x="30" y="0.0" width="151" height="21"/>
-                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JyY-gs-SNc" userLabel="LoadingStack View">
+                                    <rect key="frame" x="0.0" y="0.0" width="176.5" height="22"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="2u5-6v-b0E">
+                                            <rect key="frame" x="0.0" y="1" width="20" height="20"/>
+                                            <color key="color" name="TextDark"/>
+                                        </activityIndicatorView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Reflection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBq-rr-TMP" userLabel="Loading Label">
+                                            <rect key="frame" x="30" y="0.0" width="146.5" height="22"/>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0vA-AM-1DJ" userLabel="Error Labels Stack View">
+                                    <rect key="frame" x="64" y="62" width="48.5" height="56"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBj-cR-kr8" userLabel="Error Title Label">
+                                            <rect key="frame" x="0.0" y="0.0" width="48.5" height="24"/>
+                                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QmD-YW-edS" userLabel="Error Message Label">
+                                            <rect key="frame" x="0.0" y="34" width="48.5" height="22"/>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ibf-6W-YGx" userLabel="Error Actions Stack View">
+                                    <rect key="frame" x="32" y="158" width="113" height="80"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFb-Hr-X88" userLabel="Open In Browser" customClass="SecondaryButton" customModule="Cactus" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="113" height="30"/>
+                                            <state key="normal" title="Open in Browser"/>
+                                            <connections>
+                                                <action selector="openBrowserTapped:" destination="-1" eventType="primaryActionTriggered" id="nPC-8J-Grn"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whY-zI-ICh" userLabel="Go home" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="50" width="113" height="30"/>
+                                            <state key="normal" title="Go Home"/>
+                                            <connections>
+                                                <action selector="goHomeTapped:" destination="-1" eventType="primaryActionTriggered" id="jyw-CJ-hjo"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
                             </subviews>
-                        </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0vA-AM-1DJ" userLabel="Error Labels Stack View">
-                            <rect key="frame" x="162.5" y="21" width="49" height="44.5"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBj-cR-kr8" userLabel="Error Title Label">
-                                    <rect key="frame" x="0.0" y="0.0" width="49" height="23.5"/>
-                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="20"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QmD-YW-edS" userLabel="Error Message Label">
-                                    <rect key="frame" x="0.0" y="23.5" width="49" height="21"/>
-                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                        </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ibf-6W-YGx" userLabel="Error Actions Stack View">
-                            <rect key="frame" x="130.5" y="65.5" width="113" height="60"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFb-Hr-X88" userLabel="Open In Browser" customClass="SecondaryButton" customModule="Cactus" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="113" height="30"/>
-                                    <state key="normal" title="Open in Browser"/>
-                                    <connections>
-                                        <action selector="openBrowserTapped:" destination="-1" eventType="primaryActionTriggered" id="nPC-8J-Grn"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whY-zI-ICh" userLabel="Go home" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="30" width="113" height="30"/>
-                                    <state key="normal" title="Go Home"/>
-                                    <connections>
-                                        <action selector="goHomeTapped:" destination="-1" eventType="primaryActionTriggered" id="jyw-CJ-hjo"/>
-                                    </connections>
-                                </button>
-                            </subviews>
+                            <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="20"/>
                         </stackView>
                     </subviews>
-                </stackView>
+                    <constraints>
+                        <constraint firstItem="iWg-nM-5BF" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="tdc-zp-7LW" secondAttribute="bottom" priority="999" id="WHj-xZ-fNP"/>
+                        <constraint firstItem="iWg-nM-5BF" firstAttribute="trailing" secondItem="tdc-zp-7LW" secondAttribute="trailing" id="bdO-FV-D6c"/>
+                        <constraint firstItem="iWg-nM-5BF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="tdc-zp-7LW" secondAttribute="top" id="bf0-5X-Rm6"/>
+                        <constraint firstItem="iWg-nM-5BF" firstAttribute="width" secondItem="sNn-DG-bYl" secondAttribute="width" id="eHO-6r-Ooj"/>
+                        <constraint firstItem="iWg-nM-5BF" firstAttribute="leading" secondItem="tdc-zp-7LW" secondAttribute="leading" id="mjk-S2-Ywj"/>
+                        <constraint firstItem="iWg-nM-5BF" firstAttribute="centerY" secondItem="jfN-fs-oAx" secondAttribute="centerY" id="ylI-ka-nz3"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="tdc-zp-7LW"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="sNn-DG-bYl"/>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="iWg-nM-5BF" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="YVk-Sm-OFe"/>
-                <constraint firstItem="iWg-nM-5BF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="dG6-oE-VDg"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iWg-nM-5BF" secondAttribute="trailing" constant="20" id="jlm-uI-Tmj"/>
+                <constraint firstItem="jfN-fs-oAx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="69N-br-OZU"/>
+                <constraint firstItem="jfN-fs-oAx" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="8Lc-xA-wSS"/>
+                <constraint firstAttribute="bottom" secondItem="jfN-fs-oAx" secondAttribute="bottom" id="gXl-df-UW1"/>
+                <constraint firstItem="jfN-fs-oAx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="wn9-xP-VWP"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="112"/>
