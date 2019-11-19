@@ -21,6 +21,10 @@ class PromptContentService {
         self.flamelinkService = FlamelinkService.sharedInstance
     }
     
+    func getBaseQuery() -> Query {
+        return self.flamelinkService.getQuery(FlamelinkSchema.promptContent)
+    }
+    
     func getByEntryId(id: String, _ onData: @escaping (PromptContent?, Any?) -> Void) {
         flamelinkService.getByEntryId(id, schema: self.schema) { (promptContent: PromptContent?, error) in
             print("Fetched prompt content")
@@ -29,6 +33,11 @@ class PromptContentService {
             }
             onData(promptContent, error)
         }
+    }
+    
+    func getByPromptId(promptId: String, _ onData: @escaping (PromptContent?, Any?) -> Void) {
+        let query = self.flamelinkService.getQuery(PromptContent.schema).whereField("promptId", isEqualTo: promptId)
+        self.flamelinkService.getFirst(query, onData)
     }
     
     func observeForPromptId(promptId: String, _ onData: @escaping (PromptContent?, Any?) -> Void) -> ListenerRegistration {

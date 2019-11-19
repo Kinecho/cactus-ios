@@ -10,8 +10,6 @@ import Foundation
 import UIKit
 
 enum ScreenID: String {
-    
-    
     //main
     case AppMain = "AppMain"
     case Login = "Login"
@@ -44,6 +42,12 @@ enum ScreenID: String {
         default:
             return StoryboardID.Main
         }
+    }
+    
+    func getViewController() -> UIViewController {
+        let storyboardId = self.storyboardID
+        let storyboard = storyboardId.getStoryboard()
+        return storyboard.instantiateViewController(withIdentifier: self.name)
     }
 }
 

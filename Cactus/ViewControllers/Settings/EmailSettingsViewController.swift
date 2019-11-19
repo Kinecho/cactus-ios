@@ -11,12 +11,14 @@ import UIKit
 class EmailSettingsViewController: UIViewController {
 
     @IBOutlet weak var emailTextView: UITextView!
+    @IBOutlet weak var userIdTextView: BorderedTextView!
+    @IBOutlet weak var memberIdTextView: BorderedTextView!
     
     @IBOutlet weak var saveActionsStackView: UIStackView!
     @IBOutlet weak var saveButton: PrimaryButton!
     @IBOutlet weak var firstNameInput: CactusTextInputField!
     @IBOutlet weak var lastNameInput: CactusTextInputField!
-        
+    
     @IBOutlet weak var cancelButton: TertiaryButton!
     
     var member: CactusMember?
@@ -42,6 +44,12 @@ class EmailSettingsViewController: UIViewController {
         self.emailTextView.textContainerInset = UIEdgeInsets.zero
         self.emailTextView.textContainer.lineFragmentPadding = 0
         
+        self.memberIdTextView.textContainerInset = UIEdgeInsets.zero
+        self.memberIdTextView.textContainer.lineFragmentPadding = 0
+        
+        self.userIdTextView.textContainerInset = UIEdgeInsets.zero
+        self.userIdTextView.textContainer.lineFragmentPadding = 0
+        
         self.view.setupKeyboardDismissRecognizer()
     }
         
@@ -63,10 +71,14 @@ class EmailSettingsViewController: UIViewController {
             self.emailTextView.text = member.email
             self.firstNameInput.text = member.firstName
             self.lastNameInput.text = member.lastName
+            self.userIdTextView.text = member.userId
+            self.memberIdTextView.text = member.id
         } else {
             self.emailTextView.text = "(none provided)"
             self.firstNameInput.text = nil
             self.lastNameInput.text = nil
+            self.userIdTextView.text = nil
+            self.memberIdTextView.text = nil
         }
     }
 

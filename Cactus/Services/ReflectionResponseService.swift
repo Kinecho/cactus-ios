@@ -107,4 +107,8 @@ class ReflectionResponseService {
         
         self.save(response, completed)
     }
+    
+    func getById(_ responseId: String, _ completed: @escaping (ReflectionResponse?, Any?) -> Void) {
+        self.firestoreService.getById(responseId, from: FirestoreCollectionName.reflectionResponses, completion: completed)
+    }
 }

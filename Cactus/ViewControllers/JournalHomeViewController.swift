@@ -108,7 +108,7 @@ class JournalHomeViewController: UIViewController {
             return
         }
         
-        let hasSeenOnboarding = UserDefaults.standard.bool(forKey: "NotificationOnboarding")
+        let hasSeenOnboarding = UserDefaults.standard.bool(forKey: UserDefaultsKey.notificationOnboarding)
         if hasSeenOnboarding {
             logger.info("User has seen onboarding via UserDefeaults[\"NotificationOnboarding\"]", functionName: #function)
             return
@@ -128,7 +128,7 @@ class JournalHomeViewController: UIViewController {
                 vc.status = status
                 
                 self.present(vc, animated: true, completion: {
-                    UserDefaults.standard.set(true, forKey: "NotificationOnboarding")
+                    UserDefaults.standard.set(true, forKey: UserDefaultsKey.notificationOnboarding)
                 })
             }
         }
@@ -254,7 +254,7 @@ class JournalHomeViewController: UIViewController {
         if let imageUrl = user?.photoURL {
             ImageService.shared.setFromUrl(self.profileImageView, url: imageUrl)
         } else {
-            self.profileImageView.image = CactusImage.cactusAvatarOG.getImage()
+            self.profileImageView.image = CactusImage.avatar3.getImage()
         }
         
     }

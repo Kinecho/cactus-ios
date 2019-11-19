@@ -13,19 +13,21 @@ import Firebase
 class CactusMemberService {
     
     let firestoreService: FirestoreService
-    var memberListener: (() -> Void)?
+    var memberListener: Unsubscriber?
     var currentMember: CactusMember?
+    var currentUser: User?
     static let sharedInstance = CactusMemberService()
     
     private init() {
         self.firestoreService = FirestoreService.sharedInstance
-        self.memberListener = self.observeCurrentMember { (member, _, _) in
+        self.memberListener = self.observeCurrentMember { (member, _, user) in
             
             if let member = member, member != self.currentMember {
                 DispatchQueue.main.async {
                     self.addFCMToken(member: member)
                 }
             }
+            self.currentUser = user
             self.currentMember = member
         }
     }
@@ -67,7 +69,7 @@ class CactusMemberService {
         }
     }
     
-    func save(_ member: CactusMember, completed: @escaping (CactusMember?, Any?) -> Void){
+    func save(_ member: CactusMember, completed: @escaping (CactusMember?, Any?) -> Void) {
         self.firestoreService.save(member, onComplete: completed)
     }
     
@@ -94,7 +96,13 @@ class CactusMemberService {
         }
     }
     
-    func observeCurrentMember( _ onData: @escaping (CactusMember?, Any?, User?) -> Void) -> (() -> Void) {
+    /**
+     Add a listener for the current Cactus Member, based on the current auth user.
+     When the auth user changes (i.e. logs out or logs in), the data callback handler will be updated with the latest values
+        - Parameters onData: The data handler
+        - Returns: an Unsubscriber function
+     */
+    func observeCurrentMember( _ onData: @escaping (CactusMember?, Any?, User?) -> Void) -> Unsubscriber {
         var memberUnsub: ListenerRegistration?
         let authUnsub = AuthService.sharedInstance.getAuthStateChangeHandler { (_, user) in
             _ = memberUnsub?.remove()

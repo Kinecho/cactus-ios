@@ -111,33 +111,29 @@ class AppMainViewController: UIViewController {
         self.present(vc, animated: true, completion: nil)
     }
     
-    //Moved to Journal Home
-//    func initOnboarding() {
-//        let hasSeenOnboarding = UserDefaults.standard.bool(forKey: "NotificationOnboarding")
-//        if hasSeenOnboarding {
-//            logger.info("has seen onboarding")
-//            return
-//        }
-//
-//        NotificationService.sharedInstance.hasPushPermissions { (status) in
-//            DispatchQueue.main.async {
-//                guard status == .notDetermined else {
-//                    return
-//                }
-//
-//                let alert = UIAlertController(title: "Never miss a reflection", message: "Turn on push notifications so you know when it's time to reflect. ", preferredStyle: .alert)
-//                alert.addAction(UIAlertAction(title: "Allow", style: .default, handler: {_ in
-//                    NotificationService.sharedInstance.requestPushPermissions { _ in
-//                        self.logger.info("permissions requested")
-//                    }
-//                }))
-//                alert.addAction(UIAlertAction(title: "Not Now", style: .cancel, handler: nil))
-//                AppDelegate.shared.rootViewController.present(alert, animated: true)
-//
-//                UserDefaults.standard.set(true, forKey: "NotificationOnboarding")
-//            }
-//        }
-//    }
+    func loadSharedReflection(reflectionId: String, link: String?=nil) {
+        let vc = LoadableSharedReflectionViewController.loadFromNib()
+        vc.originalLink = link
+        vc.reflectionId = reflectionId
+//        vc.modalPresentationStyle = .overFullScreen
+//        vc.modalTransitionStyle = .coverVertical
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    func sendLoginEvent(_ loginEvent: LoginEvent) {
+        DispatchQueue.global(qos: .background).async {
+            var loginEvent = loginEvent
+            loginEvent.signupQueryParams = StorageService.sharedInstance.getLocalSignupQueryParams()
+            
+            ApiService.sharedInstance.sendLoginEvent(loginEvent, completed: { error in
+                if let error = error {
+                    self.logger.error("Failed to send login event", error)
+                    return
+                }
+                self.logger.info("login event completed")
+            })
+        }
+    }
     
     func showScreen(_ screen: UIViewController, wrapInNav: Bool=false) -> UIViewController {
         var newVc = screen

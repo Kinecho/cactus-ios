@@ -13,6 +13,7 @@ class CactusTextInputField: UITextField {
 
     @IBInspectable var cornerRadius: CGFloat = 20
     @IBInspectable var fullyRoundedCorners: Bool = false
+    @IBInspectable var borderColor: UIColor = CactusColor.green
     
     let padding = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
     
@@ -37,7 +38,7 @@ class CactusTextInputField: UITextField {
     
     func setup() {
         self.clipsToBounds = true
-        self.layer.borderColor = CactusColor.green.cgColor
+        self.layer.borderColor = self.borderColor.cgColor
         self.layer.borderWidth = 1.0
         
         if self.fullyRoundedCorners {

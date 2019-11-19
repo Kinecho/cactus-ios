@@ -47,11 +47,23 @@ class LinkHandlerUtil {
        return  parts[nameIndex + 1]
    }
     
-    static func handlePromptContent(_ url: URL) -> PromptContentHandler {
+    static func handlePromptContent(_ url: URL) -> Bool {
         let entryId = LinkHandlerUtil.getPathId(url, for: "prompts")
         
-        var handler = PromptContentHandler(handled: entryId != nil)
-        handler.promptContentEntryId = entryId                        
-        return handler
+        if let entryId = entryId {
+            AppDelegate.shared.rootViewController.loadPromptContent(promptContentEntryId: entryId, link: url.absoluteString)
+            return true
+        }
+        
+        return false
+    }
+    
+    static func handleSharedResponse(_ url: URL) -> Bool {
+        if let responseId = LinkHandlerUtil.getPathId(url, for: "reflection") {
+            AppDelegate.shared.rootViewController.loadSharedReflection(reflectionId: responseId, link: url.absoluteString)
+            return true
+        }
+        return false
+        
     }
 }

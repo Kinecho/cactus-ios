@@ -34,19 +34,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         logger.info("Loading app will start", functionName: #function)
         Fabric.with([Crashlytics.self])
-//        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
         // Create a Sentry client and start crash handler
         do {
             Client.shared = try Client(dsn: "https://728bdc63f41d4c93a6ce0884a01b58ea@sentry.io/1515431")
-            
             try Client.shared?.startCrashHandler()
             Client.shared?.environment = CactusConfig.environment.rawValue
-            let testEvent = Sentry.Event(level: .info)
-            testEvent.message = "App Starting"
-            testEvent.environment = CactusConfig.environment.rawValue
-            testEvent.extra = ["ios": true]
-            
-            Client.shared?.send(event: testEvent)
         } catch let error {
             print("\(error)")
         }
@@ -102,6 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
         NotificationService.sharedInstance.registerForPushIfEnabled()
+        NotificationService.sharedInstance.clearIconBadge()
         
     }
 
@@ -149,127 +142,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return false
     }
-        
-    func showErrorAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title,
-                                      message: message,
-                                      preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
-        self.rootViewController.present(alert, animated: true)
-    }
-    
-    func signinWithEmail(_ email: String, link: String) {
-        if !isValidEmail(email) {
-            self.confirmEmailAddress(link: link, message: "Please enter a valid email address")
-            return
-        }
-        
-        Auth.auth().signIn(withEmail: email, link: link) { (authResult, error) in
-            if let error = error {
-                if let errorCode = AuthErrorCode(rawValue: error._code) {
-                    print("errorCode \(errorCode)")
-                    switch errorCode {
-                    case .invalidEmail:
-                        return self.confirmEmailAddress(link: link, message: "\(email) does not match the email address the sign in link was sent to. Please try again.")
-                    case .invalidActionCode:
-                        self.showErrorAlert(title: "Unable to sign in", message: "This link may have been use already, is expired, or malformed. Please try again.")
-                    default:
-                        print("Error logging in", error.localizedDescription)
-                        self.showErrorAlert(title: "Oops! Unable to sign in", message: error.localizedDescription)
-                    }
-                }
-                
-            } else if let authResult = authResult {
-                print("AuthResult, \(authResult.user.email ?? "no email found")" )
-            }
-            
-            UserDefaults.standard.removeObject(forKey: "MagicLinkEmail")
-        }
-    }
-    
-    func confirmEmailAddress(link: String, message: String = "Please enter your email address") {
-        let emailAlert = UIAlertController(title: "Confirm your Email", message: message, preferredStyle: .alert)
-        
-        let submitAction = UIAlertAction(title: "Done", style: .default, handler: { _ in
-            if let inputEmail = emailAlert.textFields?.first?.text {
-                self.signinWithEmail(inputEmail, link: link)
-            }
-        })
-        submitAction.isEnabled = false
-        
-        emailAlert.addTextField { (textField) in
-            textField.placeholder = "Enter your email"
-            textField.layer.borderColor = CactusColor.green.cgColor
-            textField.frame = CGRect(textField.frame.minX, textField.frame.minY, textField.frame.width, 40)
-            textField.layer.cornerRadius = 20
-            textField.keyboardType = .emailAddress
-            textField.textContentType = .emailAddress
-            textField.returnKeyType = .done
-            textField.layoutIfNeeded()
-            textField.addTarget(emailAlert, action: #selector(emailAlert.textDidChangeInEmailConfirmAlert), for: .editingChanged)
-        }
-        
-        emailAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
-        emailAlert.addAction(submitAction)
-        
-        self.rootViewController.present(emailAlert, animated: true)
-    }
-    
+      
     //handle firebase dynamic links
     func application(_ application: UIApplication, continue userActivity: NSUserActivity,
                      restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        print("User activity webpageurl \(userActivity.webpageURL?.absoluteString ?? "none")")
+        self.logger.info("User activity webpageurl \(userActivity.webpageURL?.absoluteString ?? "none")")
+        
+        if let url = userActivity.webpageURL, CactusMemberService.sharedInstance.currentUser == nil {
+            let queryParams = url.getQueryParams()
+            self.logger.info("Adding signup query params \(String(describing: queryParams))")
+            StorageService.sharedInstance.setLocalSignupQueryParams(queryParams)
+        }
+
         let handled = DynamicLinks.dynamicLinks().handleUniversalLink(userActivity.webpageURL!) { (dynamiclink, error) in
+            //TODO: What the holy hell is this all even for??
             if let error = error {
-                print("error getting dynamic link", error)
+                self.logger.error("error getting dynamic link", error)
             }
-            print("handling dynamic link", dynamiclink ?? "No link found")
+            self.logger.info("handling dynamic link \(String(describing: dynamiclink))")
             guard let dynamiclink = dynamiclink, let url = dynamiclink.url else {return}
             let host = url.host
             let path = url.path
-            var parameters: [String: String] = [:]
+            let parameters = url.getQueryParams()
             let link = parameters["link"]
-            URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems?.forEach {
-                parameters[$0.name] = $0.value
-            }
-            print("host", host ?? "no host found")
-            print("path", path)
-            print("Parameters", parameters)
-            print("Link", link ?? "no links")
+            self.logger.info("host: \(host ?? "no host found")")
+            self.logger.info("path: \(path)")
+            self.logger.info("Parameters \(parameters)")
+            self.logger.info("Link \(link ?? "no links")")
         }
-        print("link handled = \(handled)")
+        self.logger.info("link handled via dynamic link... = \(handled)")
         
         if let activityUrl = userActivity.webpageURL {
-            var params: [String: String] = [:]
-            URLComponents(url: activityUrl, resolvingAgainstBaseURL: false)?.queryItems?.forEach {
-                params[$0.name] = $0.value
-            }
-            var signinUrl: URL?
-            if let linkParam = params["link"] {
-                 signinUrl = URL(string: linkParam)
-            }
-            
-            let promptHandler = LinkHandlerUtil.handlePromptContent(activityUrl)
-            
-            if Auth.auth().isSignIn(withEmailLink: activityUrl.absoluteString) {
-                let email = UserDefaults.standard.string(forKey: "MagicLinkEmail")
-                if let email = email {
-                    self.signinWithEmail(email, link: activityUrl.absoluteString)
-                } else {
-                    self.confirmEmailAddress(link: activityUrl.absoluteString)
-                }
+            if UserService.sharedInstance.handleActivityURL(activityUrl) {
                 return true
-            } else if let signinUrl = signinUrl {
-                if FUIAuth.defaultAuthUI()?.handleOpen(signinUrl, sourceApplication: nil) ?? false {
-                    print("Handled by firebase auth ui")
-                    return true
-                }
-            } else if promptHandler.handled && promptHandler.promptContentEntryId != nil {
-                self.rootViewController.loadPromptContent(promptContentEntryId: promptHandler.promptContentEntryId!, link: activityUrl.absoluteString)
+            } else if LinkHandlerUtil.handlePromptContent(activityUrl) {
+                return true
+            } else if LinkHandlerUtil.handleSharedResponse(activityUrl) {
                 return true
             } else {
-                print("url not supported, sending back to the browser")
+                self.logger.warn("url not supported, sending back to the browser")
                 application.open(activityUrl)
             }
         }

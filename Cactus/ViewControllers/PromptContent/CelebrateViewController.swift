@@ -60,7 +60,15 @@ class CelebrateViewController: UIViewController {
                 
         self.initElements()
         self.configureDescription()
-        
+        self.configureShareNoteButton()
+    }
+    
+    func configureShareNoteButton() {
+        if FormatUtils.isBlank(self.reflectionResponse?.content.text) {
+            self.shareNoteButton.isHidden = true
+        } else {
+            self.shareNoteButton.isHidden = false
+        }
     }
     
     func configureDescription() {

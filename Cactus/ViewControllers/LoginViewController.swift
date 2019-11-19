@@ -27,6 +27,7 @@ class LoginViewController: UIViewController {
     var authViewController: UIViewController?
     
     var authHandler: AuthStateDidChangeListenerHandle?
+    var logger = Logger("LoginViewController")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +46,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func magicLinkNext(_ sender: Any) {
         let email = self.emailInputView.text
-        self.submitMagicLinkEMail(email)
+        self.submitMagicLinkEmail(email)
     }
     
     func showInvalidEmail() {
@@ -54,18 +55,18 @@ class LoginViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func submitMagicLinkEMail(_ email: String?) {
+    func submitMagicLinkEmail(_ email: String?) {
         self.submitEmailButton.setEnabled(false)
         self.submitEmailButton.setTitle("Submitting...", for: .disabled)
         guard let email = email?.trimmingCharacters(in: .whitespacesAndNewlines),
             isValidEmail(email) else {
-            self.showInvalidEmail()
-            self.submitEmailButton.setEnabled(true)
-            return
+                self.showInvalidEmail()
+                self.submitEmailButton.setEnabled(true)
+                return
         }
         
         print("submitting magic link \(email)")
-        UserDefaults.standard.set(email, forKey: "MagicLinkEmail")
+        UserDefaults.standard.set(email, forKey: UserDefaultsKey.magicLinkEmail)
         let magicLinkRequest = MagicLinkRequest(email: email, continuePath: "/home")
         ApiService.sharedInstance.sendMagicLink(magicLinkRequest) { (response) in
             DispatchQueue.main.async {
@@ -76,6 +77,7 @@ class LoginViewController: UIViewController {
         }
     }
     
+    //TODO: make this show a custom screen
     func handleMagicLinkResponse(_ magicLinkResponse: MagicLinkResponse) {
         let greeting = magicLinkResponse.exists ? "Welcome Back!" : "Welcome!"
         let alert = UIAlertController(title: greeting, message: "An email has been sent to \(magicLinkResponse.email).", preferredStyle: .alert)
@@ -122,16 +124,16 @@ class LoginViewController: UIViewController {
     
     func showLoggedInUI(_ user: User) {
         self.removeAuthViewController()
-//        self.titleLabel.text = user.email
+        //        self.titleLabel.text = user.email
         self.titleLabel.isHidden = true
         self.subTextLabel.isHidden = true
         
         self.emailInputView.isHidden = true
         self.submitEmailButton.isHidden = true
         self.otherProviderLabel.isHidden = true
-            
+        
         self.activityIndicator.startAnimating()
-//        self.activityIndicator.isHidden = false
+        //        self.activityIndicator.isHidden = false
     }
     
     func configureAuthView() {
@@ -162,7 +164,7 @@ class LoginViewController: UIViewController {
             subView.bottomAnchor.constraint(equalTo: parent.bottomAnchor),
             subView.leadingAnchor.constraint(equalTo: parent.leadingAnchor),
             subView.trailingAnchor.constraint(equalTo: parent.trailingAnchor)
-            ])
+        ])
         parent.layoutIfNeeded()
     }
     
@@ -188,7 +190,7 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
-
+    
     func getTwitterProvider() -> FUIOAuth {
         let twitterImage = CactusImage.twitter.ofWidth(newWidth: 25)
         if #available(iOS 13.0, *) {
@@ -196,17 +198,17 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
         } else {
             // Fallback on earlier versions
         }
-//        twitterImage?.resizingMode = .aspectFit
-//        twitterImage?.setSize = CGSize(width: 25, height: 25)
+        //        twitterImage?.resizingMode = .aspectFit
+        //        twitterImage?.setSize = CGSize(width: 25, height: 25)
         let twitterProvider = FUIOAuth(authUI: self.authUI,
-                                                  providerID: "twitter.com",
-                                                  buttonLabelText: "Sign in with Twitter",
-                                                  shortName: "Twitter",
-                                                  buttonColor: CactusColor.twitter,
-                                                  iconImage: twitterImage!,
-                                                  scopes: ["user.readwrite"],
-                                                  customParameters: ["prompt": "consent"],
-                                                  loginHintKey: nil)
+                                       providerID: "twitter.com",
+                                       buttonLabelText: "Sign in with Twitter",
+                                       shortName: "Twitter",
+                                       buttonColor: CactusColor.twitter,
+                                       iconImage: twitterImage!,
+                                       scopes: ["user.readwrite"],
+                                       customParameters: ["prompt": "consent"],
+                                       loginHintKey: nil)
         return twitterProvider
     }
     
@@ -221,7 +223,7 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
         let providers: [FUIAuthProvider] = [
             FUIFacebookAuth(),
             FUIGoogleAuth(),
-//            self.getTwitterProvider()
+            //            self.getTwitterProvider()
         ]
         
         authUI.providers = providers
@@ -237,7 +239,7 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
             // Merge conflict error, discard the anonymous user and login as the existing
             // non-anonymous user.
             guard let credential = error.userInfo[FUIAuthCredentialKey] as? AuthCredential else {
-                print("Received merge conflict error without auth credential!")
+                self.logger.error("Received merge conflict error without auth credential!")
                 return
             }
             
@@ -250,23 +252,43 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
                 
                 // Handle successful login
                 //todo: create user profile?
+                let providerId = dataResult?.additionalUserInfo?.providerID
                 let isNewUser = dataResult?.additionalUserInfo?.isNewUser
+                
                 if isNewUser ?? false {
-                    print("signed up with provider", dataResult?.additionalUserInfo?.providerID ?? "unknown")
-                    
+                    self.logger.info("signed up with provider \(providerId ?? "unknown")")
                     Analytics.logEvent(AnalyticsEventSignUp, parameters: [
                         AnalyticsParameterMethod: dataResult?.additionalUserInfo?.providerID ?? "unknown",
                         "screen": ScreenID.Login.name,
                         "anonyomousUpgrade": true
-                        ])
+                    ])
                 } else {
-                    print("logged in with provider", dataResult?.additionalUserInfo?.providerID ?? "unknown")
+                    self.logger.info("logged in with provider \(dataResult?.additionalUserInfo?.providerID ?? "unknown")")
                     Analytics.logEvent(AnalyticsEventLogin, parameters: [
                         AnalyticsParameterMethod: dataResult?.additionalUserInfo?.providerID ?? "unknown",
                         "screen": ScreenID.Login.name,
                         "anonyomousUpgrade": true
-                        ])
+                    ])
                 }
+                
+                if let authData = dataResult {
+                    UserService.sharedInstance.handleSuccessfulLogIn(authData)
+                } else {
+                    self.logger.warn("No auth data was found in the signin handler", functionName: #function, line: #line)
+                }
+                                
+//                var loginEvent = LoginEvent()
+//                loginEvent.isNewUser = isNewUser ?? false
+//                loginEvent.providerId = providerId
+//                loginEvent.userId = dataResult?.user.uid
+//
+//                ApiService.sharedInstance.sendLoginEvent(loginEvent, completed: {error in
+//                    if let error = error {
+//                        self.logger.error("Failed to send login event", error)
+//                        return
+//                    }
+//                    self.logger.info("Anon Upgrade: LoginViewController login event completed")
+//                })
                 
             }
         } else if let error = error {
@@ -280,20 +302,30 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
         print("successful login")
         
         let isNewUser = authDataResult?.additionalUserInfo?.isNewUser
+        let providerId = authDataResult?.additionalUserInfo?.providerID
+        let userId = authDataResult?.user.uid
         if isNewUser ?? false {
             print("signed up with provider", authDataResult?.additionalUserInfo?.providerID ?? "unknown")
             
             Analytics.logEvent(AnalyticsEventSignUp, parameters: [
                 AnalyticsParameterMethod: authDataResult?.additionalUserInfo?.providerID ?? "unknown",
                 "screen": ScreenID.Login.name
-                ])
+            ])
         } else {
             print("logged in with provider", authDataResult?.additionalUserInfo?.providerID ?? "unknown")
             Analytics.logEvent(AnalyticsEventLogin, parameters: [
                 AnalyticsParameterMethod: authDataResult?.additionalUserInfo?.providerID ?? "unknown",
                 "screen": ScreenID.Login.name
-                ])
+            ])
         }
+        
+        var loginEvent = LoginEvent()
+        loginEvent.isNewUser = isNewUser ?? false
+        loginEvent.providerId = providerId
+        loginEvent.userId = userId
+       
+        AppDelegate.shared.rootViewController.sendLoginEvent(loginEvent)
+       
     }
 }
 
@@ -327,7 +359,7 @@ extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         //textField code
         textField.resignFirstResponder()  //if desired
-        self.submitMagicLinkEMail(textField.text)
+        self.submitMagicLinkEmail(textField.text)
         return true
     }
 }

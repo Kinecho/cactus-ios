@@ -93,7 +93,6 @@ class LoadablePromptContentViewController: UIViewController {
     }
     
     func showError(_ message: String, title: String?=nil) {
-        self.logger.error("Holy cow! What a cool test error!", message)
         self.stopLoading()
         self.errorStackView.isHidden = false
         self.errorDescriptionLabel.text = message

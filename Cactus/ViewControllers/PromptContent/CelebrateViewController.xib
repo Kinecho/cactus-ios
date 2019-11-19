@@ -89,13 +89,13 @@
                                             </constraints>
                                         </imageView>
                                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meaning-2" translatesAutoresizingMaskIntoConstraints="NO" id="OoS-hD-ENo">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="100"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="Hge-0w-qqc"/>
                                             </constraints>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="relationships-2" translatesAutoresizingMaskIntoConstraints="NO" id="uCm-0i-ArW">
-                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="WDd-0j-cNu"/>
                                             </constraints>

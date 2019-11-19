@@ -29,9 +29,20 @@ struct MagicLinkResponse: Codable {
     var error: String?
     var message: String?
     
-    init(email: String, success: Bool, message: String? = nil) {
+    init(email: String, success: Bool, exists: Bool=false, message: String?=nil, error: String?=nil) {
         self.email = email
         self.success = success
         self.message = message
+        self.error = error
+        self.exists = exists
     }
+}
+
+struct LoginEvent: Codable {
+    var userId: String?
+    var isNewUser: Bool = false
+    var providerId: String?
+    var referredByEmail: String?
+    var signupQueryParams: [String: String]?
+    var reflectionResponseIds: [String]?
 }
