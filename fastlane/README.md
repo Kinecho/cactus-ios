@@ -71,6 +71,11 @@ fastlane ios finalize_release
 fastlane ios upload_symbols
 ```
 
+### ios upload_symbols_stage
+```
+fastlane ios upload_symbols_stage
+```
+
 
 ----
 

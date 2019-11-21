@@ -135,5 +135,19 @@ platform :ios do
 			project_slug: 'cactus-ios',
 		)
 	end
+
+	lane :upload_symbols_stage do 
+		get_version_number(xcodeproj: "Cactus.xcodeproj", target: "Cactus Stage")
+		get_build_number
+		download_dsyms(version: lane_context[SharedValues::VERSION_NUMBER], build_number: lane_context[SharedValues::BUILD_NUMBER])
+		version = "#{lane_context[SharedValues::VERSION_NUMBER]}.#{lane_context[SharedValues::BUILD_NUMBER]}"
+		release = "com.cactus.StageCactus-#{version}"
+		sh("echo", version)
+		sentry_upload_dsym(
+			auth_token: $SENTRY_AUTH_TOKEN,
+			org_slug: 'kinecho',
+			project_slug: 'cactus-ios',
+		)
+	end
 end
 

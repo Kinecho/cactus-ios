@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Sentry
 
 class SettingsTableViewController: UITableViewController {
 
@@ -49,7 +50,7 @@ class SettingsTableViewController: UITableViewController {
     
     func configureFooter() {
         let footerView = UIView(frame: CGRect(0, 0, 50, self.view.bounds.width))
-        
+                
         logoutButton.setTitle("Log Out", for: .normal)
         logoutButton.borderRadius = 18
         logoutButton.backgroundColor = .white
