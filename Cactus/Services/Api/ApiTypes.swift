@@ -45,4 +45,5 @@ struct LoginEvent: Codable {
     var referredByEmail: String?
     var signupQueryParams: [String: String]?
     var reflectionResponseIds: [String]?
+    var email: String?
 }

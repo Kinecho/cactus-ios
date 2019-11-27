@@ -229,103 +229,48 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
         authUI.providers = providers
     }
     
-    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
-        print("AUTHDATA RESULT")
-        //anonymous auth upgrade
-        if let error = error as NSError?,
-            error.code == FUIAuthErrorCode.mergeConflict.rawValue {
-            print("there was an error logging in... handing different cases" )
-            
-            // Merge conflict error, discard the anonymous user and login as the existing
-            // non-anonymous user.
-            guard let credential = error.userInfo[FUIAuthCredentialKey] as? AuthCredential else {
-                self.logger.error("Received merge conflict error without auth credential!")
+    func handleAnonymousUpgrade(error: NSError) {
+        logger.info("handling anonymous user upgrade flow")
+        
+        // Merge conflict error, discard the anonymous user and login as the existing
+        // non-anonymous user.
+        guard let credential = error.userInfo[FUIAuthCredentialKey] as? AuthCredential else {
+            self.logger.error("Received merge conflict error without auth credential!", error)
+            return
+        }
+        
+        Auth.auth().signIn(with: credential) { (dataResult, error) in
+            print("completed signinandretrievedata method")
+            if let error = error as NSError? {
+                print("Failed to re-login: \(error)")
                 return
             }
             
-            Auth.auth().signIn(with: credential) { (dataResult, error) in
-                print("completed signinandretrievedata method")
-                if let error = error as NSError? {
-                    print("Failed to re-login: \(error)")
-                    return
-                }
-                
-                // Handle successful login
-                //todo: create user profile?
-                let providerId = dataResult?.additionalUserInfo?.providerID
-                let isNewUser = dataResult?.additionalUserInfo?.isNewUser
-                
-                if isNewUser ?? false {
-                    self.logger.info("signed up with provider \(providerId ?? "unknown")")
-                    Analytics.logEvent(AnalyticsEventSignUp, parameters: [
-                        AnalyticsParameterMethod: dataResult?.additionalUserInfo?.providerID ?? "unknown",
-                        "screen": ScreenID.Login.name,
-                        "anonyomousUpgrade": true
-                    ])
-                } else {
-                    self.logger.info("logged in with provider \(dataResult?.additionalUserInfo?.providerID ?? "unknown")")
-                    Analytics.logEvent(AnalyticsEventLogin, parameters: [
-                        AnalyticsParameterMethod: dataResult?.additionalUserInfo?.providerID ?? "unknown",
-                        "screen": ScreenID.Login.name,
-                        "anonyomousUpgrade": true
-                    ])
-                }
-                
-                if let authData = dataResult {
-                    UserService.sharedInstance.handleSuccessfulLogIn(authData)
-                } else {
-                    self.logger.warn("No auth data was found in the signin handler", functionName: #function, line: #line)
-                }
-                                
-//                var loginEvent = LoginEvent()
-//                loginEvent.isNewUser = isNewUser ?? false
-//                loginEvent.providerId = providerId
-//                loginEvent.userId = dataResult?.user.uid
-//
-//                ApiService.sharedInstance.sendLoginEvent(loginEvent, completed: {error in
-//                    if let error = error {
-//                        self.logger.error("Failed to send login event", error)
-//                        return
-//                    }
-//                    self.logger.info("Anon Upgrade: LoginViewController login event completed")
-//                })
-                
+            if let authData = dataResult {
+                UserService.sharedInstance.handleSuccessfulLogIn(authData, screen: ScreenID.Login, anonymousUpgrade: true)
+            } else {
+                self.logger.warn("No auth data was found in the signin handler", functionName: #function, line: #line)
             }
-        } else if let error = error {
-            // Some non-merge conflict error happened.
-            print("Failed to log in: \(error)")
-            return
         }
-        // end anon user upgrade
-        
-        // Handle successful login
-        print("successful login")
-        
-        let isNewUser = authDataResult?.additionalUserInfo?.isNewUser
-        let providerId = authDataResult?.additionalUserInfo?.providerID
-        let userId = authDataResult?.user.uid
-        if isNewUser ?? false {
-            print("signed up with provider", authDataResult?.additionalUserInfo?.providerID ?? "unknown")
-            
-            Analytics.logEvent(AnalyticsEventSignUp, parameters: [
-                AnalyticsParameterMethod: authDataResult?.additionalUserInfo?.providerID ?? "unknown",
-                "screen": ScreenID.Login.name
-            ])
+    }
+    
+    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
+        print("AUTHDATA RESULT")
+        //anonymous auth upgrade
+        if let error = error as NSError?, error.code == FUIAuthErrorCode.mergeConflict.rawValue {
+            let code = UInt(error.code)
+            switch code {
+            case FUIAuthErrorCode.mergeConflict.rawValue:
+                self.handleAnonymousUpgrade(error: error)
+            default:
+                self.logger.error("There was an error while logging in.", error)
+            }
+        } else if let authResult = authDataResult {
+            self.logger.info("successful login")
+            UserService.sharedInstance.handleSuccessfulLogIn(authResult)
         } else {
-            print("logged in with provider", authDataResult?.additionalUserInfo?.providerID ?? "unknown")
-            Analytics.logEvent(AnalyticsEventLogin, parameters: [
-                AnalyticsParameterMethod: authDataResult?.additionalUserInfo?.providerID ?? "unknown",
-                "screen": ScreenID.Login.name
-            ])
+            self.logger.warn("No auth result was found, but there was no error. This should never occur", functionName: #function, line: #line)
         }
-        
-        var loginEvent = LoginEvent()
-        loginEvent.isNewUser = isNewUser ?? false
-        loginEvent.providerId = providerId
-        loginEvent.userId = userId
-       
-        AppDelegate.shared.rootViewController.sendLoginEvent(loginEvent)
-       
     }
 }
 

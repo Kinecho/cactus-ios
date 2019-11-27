@@ -40,6 +40,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             try Client.shared?.startCrashHandler()
             Client.shared?.environment = CactusConfig.environment.rawValue
             Client.shared?.releaseName = getReleaseName()
+            Client.shared?.dist = getBuildVersion()
+            Client.shared?.beforeSerializeEvent = { event in
+                guard let email = Auth.auth().currentUser?.email else {
+                    return
+                }
+                var tags = event.tags ?? [:]
+                tags["user.email"] = email
+                event.tags = tags
+            }
         } catch let error {
             print("\(error)")
         }
@@ -54,11 +63,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let sentryUser = SentryUser(userId: user.uid)
                 sentryUser.email = user.email
                 Client.shared?.user = sentryUser
-                let loginEvent = Sentry.Event(level: .info)
-                loginEvent.message = "\(user.email ?? user.uid) has logged in"
-                Client.shared?.send(event: loginEvent)
-            } else {
+                self.logger.sentryInfo("\(user.email ?? user.uid) has logged in or started the app")
                 
+            } else {
+//                Analytics.logEvent("log_out", parameters: ["userId": self.currentUser?.uid ?? ""])
                 if let currentUser = self.currentUser {
                     let logoutEvent = Sentry.Event(level: .info)
                     logoutEvent.message = "\(currentUser.email ?? currentUser.uid) has logged out of the app"

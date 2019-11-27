@@ -85,16 +85,22 @@ class Logger {
         self.printLog("\(message)", icon: Emoji.info, fileName: fileName, functionName: functionName, line: line)
     }
     
+    func sentryInfo(_ message: String, fileName: String?=nil, functionName: String?=nil, line: Int?=nil) {
+        guard self.showLogLevel(LogLevel.info) else {return}
+        self.printLog("\(message)", icon: Emoji.info, fileName: fileName, functionName: functionName, line: line)
+        self.sendSentryEvent(message, level: .info, fileName: fileName, functionName: functionName, line: line)
+    }
+    
     func warn(_ message: String, fileName: String?=nil, functionName: String?=nil, line: Int?=nil) {
         guard self.showLogLevel(LogLevel.warn) else {return}
         self.printLog(message, icon: Emoji.warning, fileName: fileName, functionName: functionName, line: line)
+        self.sendSentryEvent(message, level: .warning, fileName: fileName, functionName: functionName, line: line)
     }
     
     func error(_ message: String, _ error: Any?=nil, fileName: String?=nil, functionName: String?=nil, line: Int?=nil) {
         guard self.showLogLevel(LogLevel.error) else {return}
         let errorMessage = "\(message)\n\(String(describing: error))".trimmingCharacters(in: .whitespacesAndNewlines)
         self.printLog(errorMessage, icon: Emoji.error, fileName: fileName, functionName: functionName, line: line)
-        
         self.sendSentryEvent(errorMessage, level: .error, extra: error, fileName: fileName, functionName: functionName, line: line)
    }
     
@@ -136,29 +142,29 @@ class Logger {
         var prefix = ""
         switch level {
         case .error:
-            prefix = "\(Emoji.cactus)\(Emoji.error) Error"
+            prefix = "\(Emoji.cactus)\(Emoji.error)"
         case .fatal:
-            prefix = "\(Emoji.cactus)\(Emoji.exclamationDouble) Fatal"
+            prefix = "\(Emoji.cactus)\(Emoji.exclamationDouble)"
         case .debug:
-            prefix = "\(Emoji.cactus)\(Emoji.debug) Debug"
+            prefix = "\(Emoji.cactus)\(Emoji.debug)"
         case .info:
-            prefix = "\(Emoji.cactus)\(Emoji.info) Info"
+            prefix = "\(Emoji.cactus)\(Emoji.info)"
         case .warning:
-            prefix = "\(Emoji.cactus)\(Emoji.warning) Warning"
+            prefix = "\(Emoji.cactus)\(Emoji.warning)"
         default:
             prefix = "\(Emoji.cactus)"
         }
         
         let contextArray = [fileName ?? self.fileName, functionName ?? self.functionName].compactMap {$0}
         if let context = contextArray.isEmpty ? nil : contextArray.joined(separator: ".") {
-            prefix = "\(prefix) | \(context)"
+            prefix = "\(prefix) [\(context)]"
         }
         
         if let line = line {
             prefix = ":\(line)"
         }
         
-        let eventMessage = "\(prefix) | \(message)"
+        let eventMessage = "\(prefix) \(message)"
         print("sending sentry event: \(eventMessage)")
         
         let event = Sentry.Event(level: level)

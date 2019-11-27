@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 
 class ShareNoteViewController: UIViewController {
-
+    
     @IBOutlet weak var shareSubTextView: UITextView!
     @IBOutlet weak var noteContainerView: UIView!
     @IBOutlet weak var shareLinkButton: PrimaryButton!
@@ -55,7 +56,7 @@ class ShareNoteViewController: UIViewController {
         vc.view.bottomAnchor.constraint(equalTo: self.noteContainerView.bottomAnchor).isActive = true
         self.didMove(toParent: self)
     }
-
+    
     func configureSharing() {
         if self.reflectionResponse?.shared == true {
             self.shareLinkButton.isHidden = true
@@ -80,6 +81,12 @@ class ShareNoteViewController: UIViewController {
         }
     }
     @IBAction func shareTapped(_ sender: Any) {
+        Analytics.logEvent(AnalyticsEventShare, parameters: [
+            AnalyticsParameterContentType: "shareReflectionNote",
+            AnalyticsParameterItemID: self.promptContent.promptId!
+        ])
+        
+        
         let items: [Any] = [ReflectionShareItem(self.reflectionResponse, self.promptContent)]
         let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
         ac.excludedActivityTypes = [.addToReadingList, .airDrop, .assignToContact, .openInIBooks]

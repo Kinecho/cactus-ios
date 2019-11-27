@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import FirebaseAuth
 import FirebaseUI
+import FirebaseAnalytics
 
 class UserService {
     static let sharedInstance = UserService()
@@ -77,15 +78,34 @@ class UserService {
                     }
                 }
             } else if let authResult = authResult {
-                //login success
                 self.handleSuccessfulLogIn(authResult)
-                
                 self.logger.info("Successfully logged in. AuthResult, \(authResult.user.email ?? "no email found")" )
             }
         }
     }
     
-    func handleSuccessfulLogIn(_ authResult: AuthDataResult) {
+    func sendLoginAnalyticsEvent(_ loginEvent: LoginEvent, screen: ScreenID?=nil, anonymousUpgrade: Bool = false) {
+        var analyticsParams: [String: Any] = [AnalyticsParameterMethod: loginEvent.providerId ?? "unknown"]
+        if let screen = screen {
+            analyticsParams["screen"] = screen.name
+        }
+        
+        if anonymousUpgrade {
+            analyticsParams["anonyomousUpgrade"] = true
+        }
+        
+        let providerId = loginEvent.providerId ?? "unknown provider"
+        let email = loginEvent.email ?? "unknown"
+        if loginEvent.isNewUser {
+            self.logger.sentryInfo(":wave: \(email) signed up on iOS via \(providerId). Email: \(email)")
+            Analytics.logEvent(AnalyticsEventSignUp, parameters: analyticsParams)
+        } else {
+            self.logger.sentryInfo("\(email) logged in on iOS via \(providerId)")
+            Analytics.logEvent(AnalyticsEventLogin, parameters: analyticsParams)
+        }
+    }
+    
+    func handleSuccessfulLogIn(_ authResult: AuthDataResult, screen: ScreenID?=nil, anonymousUpgrade: Bool=false) {
         DispatchQueue.global(qos: .background).async {
             var loginEvent = LoginEvent()
             loginEvent.isNewUser = authResult.additionalUserInfo?.isNewUser ?? false
@@ -93,8 +113,11 @@ class UserService {
             loginEvent.userId = authResult.user.uid
             loginEvent.signupQueryParams = StorageService.sharedInstance.getLocalSignupQueryParams()
             loginEvent.referredByEmail = StorageService.sharedInstance.getLocalSignupQueryParams()?["ref"]
+            loginEvent.email = authResult.user.email
             
-            self.logger.info("Referred By Email \(loginEvent.referredByEmail ?? "none")")
+            self.logger.info("User login success. Referred By Email \(loginEvent.referredByEmail ?? "none")")
+            
+            self.sendLoginAnalyticsEvent(loginEvent, screen: screen, anonymousUpgrade: anonymousUpgrade)
             
             self.loginMemberListener = CactusMemberService.sharedInstance.observeCurrentMember { (member, _, _) in
                 if member != nil {

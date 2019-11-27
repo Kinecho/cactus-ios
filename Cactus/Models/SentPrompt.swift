@@ -15,6 +15,8 @@ class SentPromptField: BaseModelField {
     static let cactusMemberId = "cactusMemberId"
     static let firstSentAt = "firstSentAt"
     static let lastSentAt = "lastSentAt"
+    static let completed = "completed"
+    static let completedAt = "completedAt"
 }
 
 class SentPrompt: FirestoreIdentifiable, Hashable {
@@ -31,6 +33,8 @@ class SentPrompt: FirestoreIdentifiable, Hashable {
     var deletedAt: Date?
     var createdAt: Date?
     var updatedAt: Date?
+    var completed: Bool? = false
+    var completedAt: Date?
     
     static func == (lhs: SentPrompt, rhs: SentPrompt) -> Bool {
         return lhs.id != nil && rhs.id != nil && lhs.id == rhs.id

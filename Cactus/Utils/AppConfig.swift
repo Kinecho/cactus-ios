@@ -22,6 +22,11 @@ struct FlamelinkConfig {
  Example: com.cactus.CactusApp-1.0.88
  - Returns: The release name.  If the bundle id can not be found, this returns nil
  */
+func getBuildVersion() -> String? {
+    let buildVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
+    return buildVersion
+}
+
 func getReleaseName() -> String? {
     guard let buildVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String,
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
