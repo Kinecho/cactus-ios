@@ -34,6 +34,7 @@ class LoadableSharedReflectionViewController: UIViewController {
     }
     
     func loadReflectionResponse() {
+        self.startLoading()
         guard let reflectionId = self.reflectionId else {
             self.showError("Invalid URL. Unable to load a reflection response", title: "Whoops! Something isn't right.")
             return
