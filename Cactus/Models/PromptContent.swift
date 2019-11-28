@@ -151,6 +151,10 @@ class PromptContent: FlamelinkIdentifiable {
         self.content.first {$0.contentType == .reflect}?.text
     }
     
+    func getIntroText() -> String? {
+        return self.content.first?.text
+    }
+    
     func getQuestionMarkdown() -> String? {
         let content = self.content.first {$0.contentType == .reflect}
         return FormatUtils.isBlank(content?.text_md) ? content?.text : content?.text_md

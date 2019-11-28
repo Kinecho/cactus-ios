@@ -31,7 +31,10 @@ func getPromptShareLink(_ promptContent: PromptContent) -> String {
 }
 
 func getPromptShareText(_ promptContent: PromptContent) -> String {
-    guard let subject = promptContent.subjectLine else {return "Check out this prompt on Cactus"}
+    guard let subject = promptContent.subjectLine ?? promptContent.getIntroText() else {
+        return "Cactus Mindful Moment"
+        
+    }
     return subject
 }
 
@@ -80,25 +83,24 @@ class InviteShareItem: NSObject, UIActivityItemSource {
     func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
         return getInviteLink()
     }
-
+    
     func activityViewController(_ activityViewController: UIActivityViewController, subjectForActivityType activityType: UIActivity.ActivityType?) -> String {
         return getInviteText()
     }
-        
+    
     func getURL() -> URL? {        
         return URL(string: getInviteLink())
     }
     
     func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
-        
-        let defaultItem = getInviteLink()
+        let defaultItem = "\(getInviteText())"
         guard let activityType = activityType else {
             return defaultItem
         }
-        
+
         switch activityType {
-        case .message:
-            return "\(getInviteText())\n\n\(getInviteLink())"
+        case .copyToPasteboard:
+            return nil
         default:
             return defaultItem
         }
@@ -115,7 +117,7 @@ class PromptShareItem: NSObject, UIActivityItemSource {
     func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
         return getPromptShareLink(self.promptContent)
     }
-
+    
     func activityViewController(_ activityViewController: UIActivityViewController, subjectForActivityType activityType: UIActivity.ActivityType?) -> String {
         return getPromptShareText(self.promptContent)
     }
@@ -126,12 +128,14 @@ class PromptShareItem: NSObject, UIActivityItemSource {
     }
     
     func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
-        let defaultItem: Any = self.getShareURL() ?? "\(getPromptShareText(self.promptContent))"
+        let defaultItem: Any = "\(getPromptShareText(self.promptContent))"
         guard let activityType = activityType else {
-            return defaultItem
+            return nil
         }
         
         switch activityType {
+        case .copyToPasteboard:
+            return nil
         default:
             return defaultItem
         }
@@ -148,11 +152,17 @@ class ReflectionShareItem: NSObject, UIActivityItemSource {
     }
     
     func getShareTitle() -> String {
-        return "Read my private note on Cactus"
+        let member = CactusMemberService.sharedInstance.currentMember
+        var pronoun = "my"
+        if let firstName = member?.firstName {
+            pronoun = "\(firstName)'s"
+        }
+        
+        return "Read \(pronoun) private note"
     }
     
-    func getShareBody() -> String {
-        return self.promptContent.getQuestion() ?? ""
+    func getPromptQuestion() -> String {
+        return self.promptContent.getQuestion() ?? self.reflectionResponse?.promptQuestion ?? ""
     }
     
     func getLink() -> String? {
@@ -164,27 +174,35 @@ class ReflectionShareItem: NSObject, UIActivityItemSource {
     
     func getShareURL() -> URL? {
         guard let link = self.getLink() else {
-            return nil;
+            return nil
         }
         return URL(string: link)
     }
     
     func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
-        return self.getLink() ?? ""
+        return self.getShareURL() ?? self.getLink() ?? self.getShareTitle()
     }
-
+    
     func activityViewController(_ activityViewController: UIActivityViewController, subjectForActivityType activityType: UIActivity.ActivityType?) -> String {
         return getShareTitle()
     }
     
     func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
         
-        let defaultItem = "\(self.getShareTitle())\n\(self.getShareBody())".trimmingCharacters(in: .whitespacesAndNewlines)
+        var subject = ""
+        if let topic = self.reflectionResponse?.promptQuestion ?? self.promptContent.getQuestion() {
+            subject = "on \"\(topic)\""
+        }
+        
+        let defaultItem = "\(self.getShareTitle()) \(subject)".trimmingCharacters(in: .whitespacesAndNewlines)
         guard let activityType = activityType else {
             return defaultItem
         }
         
         switch activityType {
+        case .copyToPasteboard:
+//            return self.getShareURL() ?? defaultItem
+            return nil
         default:
             return defaultItem
         }
@@ -192,7 +210,7 @@ class ReflectionShareItem: NSObject, UIActivityItemSource {
 }
 
 /**
-    A Service to share items in a consistent manner across the app
+ A Service to share items in a consistent manner across the app
  */
 class SharingService {
     static var shared = SharingService()
@@ -219,8 +237,8 @@ class SharingService {
     
     /**
      Present the she sheet for a prompt content item. This method will handle logging analytics events
-        - Parameter promptContent: PromptContent - the PromptContent to share
-        - Parameter target: The UIViewController that should present the share sheet
+     - Parameter promptContent: PromptContent - the PromptContent to share
+     - Parameter target: The UIViewController that should present the share sheet
      */
     func sharePromptContent(promptContent: PromptContent, target: UIViewController) {
         let subjectLine = promptContent.subjectLine ?? ""
