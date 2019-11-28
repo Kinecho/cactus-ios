@@ -187,7 +187,11 @@ class NavigationMenuViewController: UIViewController {
 //        let vc = AppDelegate.shared.rootViewController.getScreen(ScreenID.inviteScreen)
 //        self.navigationController?.pushViewController(vc, animated: true)
         
-        let items: [Any] = [InviteShareItem()]
+        let shareItem = InviteShareItem()
+        var items: [Any] = [shareItem]
+        if let shareURL = shareItem.getURL() {
+            items.append(shareURL)
+        }
         let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
         ac.excludedActivityTypes = [.addToReadingList, .airDrop, .assignToContact, .openInIBooks]
         present(ac, animated: true)

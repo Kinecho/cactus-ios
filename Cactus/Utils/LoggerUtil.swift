@@ -164,7 +164,7 @@ class Logger {
             prefix = ":\(line)"
         }
         
-        let eventMessage = "\(prefix) \(message)"
+        let eventMessage = "\(message)"
         print("sending sentry event: \(eventMessage)")
         
         let event = Sentry.Event(level: level)

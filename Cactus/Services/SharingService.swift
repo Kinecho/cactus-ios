@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import FirebaseAnalytics
+
 func getInviteLink() -> String {
     let member = CactusMemberService.sharedInstance.currentMember
     let email = member?.email ?? ""
@@ -33,6 +35,47 @@ func getPromptShareText(_ promptContent: PromptContent) -> String {
     return subject
 }
 
+func getShareActivityTypeDisplayName(_ activityType: UIActivity.ActivityType?) -> String {
+    guard let activityType = activityType else {
+        return "unknown"
+    }
+    
+    switch activityType {
+    case .copyToPasteboard:
+        return "Copy to Pasteboard"
+    case .addToReadingList:
+        return "Add to Reading List"
+    case .airDrop:
+        return "AirDrop"
+    case .assignToContact:
+        return "Assign to Contact"
+    case .mail:
+        return "Mail"
+    case .markupAsPDF:
+        return "Markup as PDF"
+    case .message:
+        return "Message"
+    case .openInIBooks:
+        return "Open In iBooks"
+    case .postToFacebook:
+        return "Post to Facebook"
+    case .postToFlickr:
+        return "Post to Flickr"
+    case .postToTwitter:
+        return "Post to Twitter"
+    case .postToVimeo:
+        return "Post to Vimeo"
+    case .postToWeibo:
+        return "Post to Webio"
+    case .print:
+        return "Print"
+    case .saveToCameraRoll:
+        return "Save to Camera Roll"
+    default:
+        return activityType.rawValue
+    }
+}
+
 class InviteShareItem: NSObject, UIActivityItemSource {
     func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
         return getInviteLink()
@@ -42,6 +85,10 @@ class InviteShareItem: NSObject, UIActivityItemSource {
         return getInviteText()
     }
         
+    func getURL() -> URL? {        
+        return URL(string: getInviteLink())
+    }
+    
     func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
         
         let defaultItem = getInviteLink()
@@ -72,10 +119,14 @@ class PromptShareItem: NSObject, UIActivityItemSource {
     func activityViewController(_ activityViewController: UIActivityViewController, subjectForActivityType activityType: UIActivity.ActivityType?) -> String {
         return getPromptShareText(self.promptContent)
     }
-        
+    
+    func getShareURL() -> URL? {
+        let link = getPromptShareLink(self.promptContent)
+        return URL(string: link)
+    }
+    
     func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
-        
-        let defaultItem = "\(getPromptShareText(self.promptContent))\n\n\(getPromptShareLink(self.promptContent))"
+        let defaultItem: Any = self.getShareURL() ?? "\(getPromptShareText(self.promptContent))"
         guard let activityType = activityType else {
             return defaultItem
         }
@@ -111,6 +162,13 @@ class ReflectionShareItem: NSObject, UIActivityItemSource {
         return "\(CactusConfig.webDomain)/reflection/\(id)?utm_source=cactus_ios&utm_medium=share-note"
     }
     
+    func getShareURL() -> URL? {
+        guard let link = self.getLink() else {
+            return nil;
+        }
+        return URL(string: link)
+    }
+    
     func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
         return self.getLink() ?? ""
     }
@@ -121,7 +179,7 @@ class ReflectionShareItem: NSObject, UIActivityItemSource {
     
     func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
         
-        let defaultItem = "\(self.getShareTitle())\n\(self.getShareBody())\n\(self.getLink() ?? "")".trimmingCharacters(in: .whitespacesAndNewlines)
+        let defaultItem = "\(self.getShareTitle())\n\(self.getShareBody())".trimmingCharacters(in: .whitespacesAndNewlines)
         guard let activityType = activityType else {
             return defaultItem
         }
@@ -130,5 +188,107 @@ class ReflectionShareItem: NSObject, UIActivityItemSource {
         default:
             return defaultItem
         }
+    }
+}
+
+/**
+    A Service to share items in a consistent manner across the app
+ */
+class SharingService {
+    static var shared = SharingService()
+    
+    let logger = Logger("SharingService")
+    
+    func sharePromptCompleted(_ promptContent: PromptContent, activityType: UIActivity.ActivityType?) {
+        let subjectLine = promptContent.subjectLine ?? ""
+        let promptId = promptContent.promptId ?? "unknown"
+        let typeString = getShareActivityTypeDisplayName(activityType)
+        self.logger.sentryInfo(":share: :white_check_mark: Prompt shared via \(typeString). " +
+            "SubjectLine=\"\(subjectLine)\" promptId=\(promptId)")
+        Analytics.logEvent(AnalyticsEventShare, parameters: [
+            AnalyticsParameterContentType: "sharePrompt",
+            AnalyticsParameterItemID: promptId
+        ])
+    }
+    
+    func sharePromptCanceled(_ promptContent: PromptContent) {
+        let subjectLine = promptContent.subjectLine ?? ""
+        let promptId = promptContent.promptId ?? "unknown"
+        self.logger.sentryInfo(":share: :x: Share Prompt action canceled. SubjectLine=\"\(subjectLine)\" promptId=\(promptId)")
+    }
+    
+    /**
+     Present the she sheet for a prompt content item. This method will handle logging analytics events
+        - Parameter promptContent: PromptContent - the PromptContent to share
+        - Parameter target: The UIViewController that should present the share sheet
+     */
+    func sharePromptContent(promptContent: PromptContent, target: UIViewController) {
+        let subjectLine = promptContent.subjectLine ?? ""
+        let promptId = promptContent.promptId ?? "unknown"
+        self.logger.sentryInfo(":share: :hourglass: Share Prompt share sheet presented. SubjectLine=\"\(subjectLine)\" promptId=\(promptId)")
+        
+        var items: [Any] = [PromptShareItem(promptContent)]
+        if let shareUrl = URL(string: getPromptShareLink(promptContent)) {
+            items.append(shareUrl)
+        }
+        
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        ac.excludedActivityTypes = [.addToReadingList, .airDrop, .assignToContact, .openInIBooks]
+        
+        ac.completionWithItemsHandler = { activityType, completed, items, error in
+            if completed {
+                self.sharePromptCompleted(promptContent, activityType: activityType)
+            } else {
+                self.sharePromptCanceled(promptContent)
+            }
+            
+            if let error = error {
+                self.logger.error("Failed to share prompt", error)
+            }
+        }
+        
+        target.present(ac, animated: true)
+    }
+    
+    func shareNoteCompleted(promptContent: PromptContent, activityType: UIActivity.ActivityType?) {
+        let subjectLine = promptContent.subjectLine ?? ""
+        let promptId = promptContent.promptId ?? "unknown"
+        let typeString = getShareActivityTypeDisplayName(activityType)
+        self.logger.sentryInfo(":share: :white_check_mark: Note shared via \(typeString). " +
+            "SubjectLine=\"\(subjectLine)\" promptId=\(promptId)")
+        Analytics.logEvent(AnalyticsEventShare, parameters: [
+            AnalyticsParameterContentType: "shareReflectionNote",
+            AnalyticsParameterItemID: promptId
+        ])
+    }
+    
+    func shareNote(response: ReflectionResponse, promptContent: PromptContent, target: UIViewController) {
+        let subjectLine = promptContent.subjectLine ?? ""
+        let promptId = promptContent.promptId ?? "unknown"
+        
+        self.logger.sentryInfo(":share: :hourglass: Share Note share sheet tapped. SubjectLine=\"\(promptContent.subjectLine ?? "")\" promptId=\(promptId)")
+        
+        let shareItem = ReflectionShareItem(response, promptContent)
+        var items: [Any] = [shareItem]
+        if let shareUrl = shareItem.getShareURL() {
+            items.append(shareUrl)
+        }
+        
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        ac.excludedActivityTypes = [.addToReadingList, .airDrop, .assignToContact, .openInIBooks]
+        
+        ac.completionWithItemsHandler = { activityType, completed, items, error in
+            if completed {
+                self.shareNoteCompleted(promptContent: promptContent, activityType: activityType)
+                
+            } else {
+                self.logger.sentryInfo(":share: :x: Share Note action canceled. SubjectLine=\"\(subjectLine)\" promptId=\(promptId)")
+            }
+            
+            if let error = error {
+                self.logger.error("Failed to share note", error)
+            }
+        }
+        target.present(ac, animated: true)
     }
 }

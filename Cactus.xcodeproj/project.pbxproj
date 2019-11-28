@@ -221,6 +221,7 @@
 		303C9E4623847A3B006B9786 /* MemberProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9E4523847A3B006B9786 /* MemberProfileService.swift */; };
 		303C9E4723847A3B006B9786 /* MemberProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9E4523847A3B006B9786 /* MemberProfileService.swift */; };
 		303C9E4823847A3B006B9786 /* MemberProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9E4523847A3B006B9786 /* MemberProfileService.swift */; };
+		303C9E4A238F29E6006B9786 /* SharingServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9E49238F29E6006B9786 /* SharingServiceTest.swift */; };
 		303EB0882343A0B800AC8741 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EB0872343A0B800AC8741 /* RoundedView.swift */; };
 		303EB0892343A0B800AC8741 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EB0872343A0B800AC8741 /* RoundedView.swift */; };
 		304EA2F32343B730001FB8AD /* CountProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304EA2F22343B730001FB8AD /* CountProcess.swift */; };
@@ -540,6 +541,7 @@
 		303C9E3F23841FAD006B9786 /* ReflectionResponseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionResponseTest.swift; sourceTree = "<group>"; };
 		303C9E412384778A006B9786 /* MemberProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberProfile.swift; sourceTree = "<group>"; };
 		303C9E4523847A3B006B9786 /* MemberProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberProfileService.swift; sourceTree = "<group>"; };
+		303C9E49238F29E6006B9786 /* SharingServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingServiceTest.swift; sourceTree = "<group>"; };
 		303EB0872343A0B800AC8741 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		304EA2F22343B730001FB8AD /* CountProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountProcess.swift; sourceTree = "<group>"; };
 		305130D2234FE9F10088B51F /* InviteSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteSettingsViewController.swift; sourceTree = "<group>"; };
@@ -797,6 +799,7 @@
 				303C9DBD237F5E34006B9786 /* URLExtensionTest.swift */,
 				303C9DC0237F6288006B9786 /* StorageServiceTest.swift */,
 				303C9E3F23841FAD006B9786 /* ReflectionResponseTest.swift */,
+				303C9E49238F29E6006B9786 /* SharingServiceTest.swift */,
 			);
 			path = "Cactus UnitTests";
 			sourceTree = "<group>";
@@ -1607,6 +1610,7 @@
 				30D0E44F236C920C00EFC0E3 /* ViewControllerExtensions.swift in Sources */,
 				303C9DBE237F5E34006B9786 /* URLExtensionTest.swift in Sources */,
 				303C9DF523841ABB006B9786 /* NotificationsTableViewController.swift in Sources */,
+				303C9E4A238F29E6006B9786 /* SharingServiceTest.swift in Sources */,
 				303C9E3A23841AFC006B9786 /* UIImage+SwiftyGif.swift in Sources */,
 				30D0E44C236C920000EFC0E3 /* ColorExtensions.swift in Sources */,
 				30D0E449236C89DA00EFC0E3 /* CactusConstants.swift in Sources */,
@@ -2082,7 +2086,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Cactus Prod.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 82;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
@@ -2095,7 +2099,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cactus.CactusApp;
 				PRODUCT_NAME = Cactus;
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.cactus.CactusApp";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.cactus.CactusApp";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

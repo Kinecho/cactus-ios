@@ -208,17 +208,7 @@ class PromptContentPageViewController: UIPageViewController {
     }
     
     @objc func sharePrompt() {
-        if let promptId = self.promptContent.promptId {
-            Analytics.logEvent(AnalyticsEventShare, parameters: [
-                AnalyticsParameterContentType: "sharePrompt",
-                AnalyticsParameterItemID: promptId
-            ])
-        }
-        
-        let items: [Any] = [PromptShareItem(self.promptContent)]
-        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
-        ac.excludedActivityTypes = [.addToReadingList, .airDrop, .assignToContact, .openInIBooks]
-        present(ac, animated: true)
+        SharingService.shared.sharePromptContent(promptContent: self.promptContent, target: self)
     }
     
     func addCloseButton() {

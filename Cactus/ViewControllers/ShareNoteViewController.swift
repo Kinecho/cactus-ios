@@ -73,6 +73,7 @@ class ShareNoteViewController: UIViewController {
                 self.logger.error("Failed to share reflection response", error)
             }
             if let shared = saved {
+                Analytics.logEvent("generate_note_share_link", parameters: ["prompt_id": self.promptContent.promptId ?? ""])
                 self.reflectionResponse = shared
             }
             
@@ -81,15 +82,6 @@ class ShareNoteViewController: UIViewController {
         }
     }
     @IBAction func shareTapped(_ sender: Any) {
-        Analytics.logEvent(AnalyticsEventShare, parameters: [
-            AnalyticsParameterContentType: "shareReflectionNote",
-            AnalyticsParameterItemID: self.promptContent.promptId!
-        ])
-        
-        
-        let items: [Any] = [ReflectionShareItem(self.reflectionResponse, self.promptContent)]
-        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
-        ac.excludedActivityTypes = [.addToReadingList, .airDrop, .assignToContact, .openInIBooks]
-        present(ac, animated: true)
+        SharingService.shared.shareNote(response: self.reflectionResponse, promptContent: self.promptContent, target: self)
     }
 }

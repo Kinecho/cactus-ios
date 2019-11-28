@@ -66,10 +66,17 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         return !(self.journalEntry?.loadingComplete ?? false)
     }
     let cornerRadius: CGFloat = 12
+    let logger = Logger("JournalEntryCollectionViewCell")
+    
     @IBAction func moreButtonTapped(_ sender: Any) {
         let duration: Double = 0.5
         let activeColor = CactusColor.darkGreen
         let normalColor = CactusColor.lightGreen
+        
+        let responseText = FormatUtils.responseText(self.responses)
+        let isComplete = self.responses?.isEmpty ?? true
+        let hasNote = !FormatUtils.isBlank(responseText)
+        
         
         UIView.animate(withDuration: duration,
                        delay: 0,
@@ -97,26 +104,32 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         }
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
-            closeAnimation()
-        }))
         
         alert.addAction(UIAlertAction(title: "Reflect", style: .default, handler: { _ in
-            print("Reflect tapped")
+            self.logger.info("Reflect tapped")
             closeAnimation()
             self.reflectTapped()
             
         }))
+        
+        if isComplete {
+                   let label = FormatUtils.isBlank(responseText) ? "Add Note" : "Edit Note"
+                   alert.addAction(UIAlertAction(title: label, style: .default) { _ in
+                       print("Edit reflection tapped")
+                       closeAnimation()
+                       self.startEdit()
+                   })
+               }
                 
-        if !(self.responses?.isEmpty ?? true) {
-            let responseText = FormatUtils.responseText(self.responses)
-            let label = FormatUtils.isBlank(responseText) ? "Add Note" : "Edit Note"
-            alert.addAction(UIAlertAction(title: label, style: .default) { _ in
-                print("Edit reflection tapped")
+        if let promptContent = self.promptContent {
+            alert.addAction(UIAlertAction(title: "Share Prompt", style: .default) { _ in
                 closeAnimation()
-                self.startEdit()
-            })
-            
+                self.logger.info("Share Prompt tapped")
+                SharingService.shared.sharePromptContent(promptContent: promptContent, target: AppDelegate.shared.rootViewController)
+           })
+        }
+        
+        if hasNote {
             alert.addAction(UIAlertAction(title: "Share Note", style: .default, handler: { _ in
                 closeAnimation()
                 guard let reflectionResponse = self.responses?.first, let promptContent = self.promptContent else {
@@ -128,8 +141,12 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
                 vc.promptContent = promptContent
                 AppDelegate.shared.rootViewController.present(vc, animated: true)
             }))
-            
         }
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+            closeAnimation()
+        }))
+        
         
         self.window?.rootViewController?.present(alert, animated: true)
     }

@@ -52,7 +52,10 @@ platform :ios do
 
 	lane :add_devices do 
 		register_devices(
-			devices: {"Neil iPhone X" => "a47308bf873c8253a9f63144ef4e79e4f912c93a"}			
+			devices: {
+				"Neil iPhone X" => "a47308bf873c8253a9f63144ef4e79e4f912c93a",
+				"Erics iPhone" => "45d94802778a55b65e633461d702131f2250fd3c"
+			}			
 		)
 		match(app_identifier: ["com.cactus.StageCactus", "com.cactus.CactusApp"], type: "adhoc", force_for_new_devices: true)
 
