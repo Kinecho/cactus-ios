@@ -47,7 +47,10 @@ class ReflectionResponseService {
         
     }
     
-    func save(_ response: ReflectionResponse, _ onData: @escaping (ReflectionResponse?, Any?) -> Void) {
+    func save(_ response: ReflectionResponse, addReflectionLog: Bool=true, _ onData: @escaping (ReflectionResponse?, Any?) -> Void) {
+        if addReflectionLog {
+            _ = response.addReflectionLog(Date())
+        }
         self.firestoreService.save(response, onComplete: onData)
     }
     
