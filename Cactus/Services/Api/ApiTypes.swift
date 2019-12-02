@@ -47,3 +47,25 @@ struct LoginEvent: Codable {
     var reflectionResponseIds: [String]?
     var email: String?
 }
+
+enum ListMemberStatus: String, Codable {
+    case subscribed
+    case unsubscribed
+    case cleaned
+    case pending
+}
+
+struct EmailNotificationStatusRequest: Codable {
+    var status: ListMemberStatus = .subscribed
+    var email: String
+    
+    init(_ email: String, status: ListMemberStatus = .subscribed) {
+        self.status = status
+        self.email = email
+    }
+}
+
+struct EmailNotificationStatusResposne: Codable {
+    var success: Bool = false
+    var error: String?
+}

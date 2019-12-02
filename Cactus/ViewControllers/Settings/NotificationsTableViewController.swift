@@ -26,7 +26,8 @@ class NotificationsTableViewController: UITableViewController {
     var notificationObserver: NSObjectProtocol?
     var managePermissionsInSettings = false
     var memberUnsubscriber: Unsubscriber?
-    
+    let logger = Logger("NotificationsTableViewController")
+        
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
     }
@@ -82,6 +83,39 @@ class NotificationsTableViewController: UITableViewController {
         self.memberUnsubscriber?()
     }
     
+    @IBAction func emailSettingsToggled(_ sender: Any) {
+        let isOn = emailSwitch.isOn
+        guard let email = self.member?.email else {
+            self.logger.warn("No email found on cactus member. Can not update the email settings")
+            return
+        }
+        
+        let subscribed: ListMemberStatus = isOn ? .subscribed : .unsubscribed
+        
+        let request = EmailNotificationStatusRequest(email, status: subscribed)
+        
+        ApiService.sharedInstance.updateEmailSubscriptionStatus(request, completed: { response in
+            if response.success {
+                self.logger.info("Successfully updated email notification settings")
+                return
+            }
+            
+            guard let error = response.error else {
+                self.logger.error("An unexpected error occurred while updating the email response. The response was not successful but no error provided")
+                self.showError("We were un able to update your email preferences at this time. If you continue to get this error, please try updating your settings on the Cactus website.")
+                return
+            }
+            self.logger.error("completed email status update", error)
+            self.showError(error)
+        })
+    }
+    
+    func showError(_ message: String) {
+        let alert = UIAlertController(title: "Oops, something went wrong", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+        
     @IBAction func pushToggleTriggered(_ sender: Any) {
         let isOn = pushSwitch.isOn
         
@@ -117,17 +151,17 @@ class NotificationsTableViewController: UITableViewController {
                     print("authorized")
                     self.pushSwitch.setOn(true, animated: animated)
                     self.managePermissionsInSettings = true
-                    self.pushErrorLabel.isHidden = false
+//                    self.pushErrorLabel.isHidden = false
                 case .denied:
                     print("denied")
                     self.managePermissionsInSettings = true
                     self.pushSwitch.setOn(false, animated: animated)
-                    self.pushErrorLabel.isHidden = false
+//                    self.pushErrorLabel.isHidden = false
                 case .notDetermined:
                     print("not determined, ask user for permission now")
                     self.managePermissionsInSettings = false
                     self.pushSwitch.setOn(false, animated: animated)
-                    self.pushErrorLabel.isHidden = true
+//                    self.pushErrorLabel.isHidden = true
                 @unknown default:
                     break
                 }

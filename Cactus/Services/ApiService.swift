@@ -19,6 +19,7 @@ enum HttpMethod: String {
 enum ApiPath: String {
     case loginEvent = "/signup/login-event"
     case sendMagicLink = "/signup/magic-link"
+    case updateEmailSubscriberStatus = "/mailchimp/status"
 }
 
 ///A service for interacting with the Cactus JSON Api
@@ -116,7 +117,7 @@ public class ApiService {
             path = "/\(path)"
         }
         let absoluteUrl = "\(self.apiDomain)\(path)"
-        
+        self.logger.info("Sending message to url \(absoluteUrl)")
         guard let url = URL(string: absoluteUrl) else {
             let errorMessage = "Unable to create a URL for for absoluteUrl \(absoluteUrl)"
             self.logger.warn(errorMessage)
@@ -190,14 +191,14 @@ public class ApiService {
     
     /**
      When login is successfully performed, send data to the API so we perform post-login actions on the backend
-        - Parameter loginEvent: The login event object
-        - Parameter onTask: A callback that returns the URLSessionDataTask. Useful if you need to be able to cancel a request
-        - Parameter completed: A completion callback fired when the request finishes. Passes an optional Error object
+     - Parameter loginEvent: The login event object
+     - Parameter onTask: A callback that returns the URLSessionDataTask. Useful if you need to be able to cancel a request
+     - Parameter completed: A completion callback fired when the request finishes. Passes an optional Error object
      */
     func sendLoginEvent(_ loginEvent: LoginEvent,
                         onTask: ((URLSessionDataTask) -> Void)?=nil,
                         ///on completed handler
-                        completed: ((_ error: Any?) -> Void)?=nil) {
+        completed: ((_ error: Any?) -> Void)?=nil) {
         self.createRequest(ApiPath.loginEvent, method: .POST, authenticated: true, body: loginEvent) { (request, error) in
             guard let request = request, error == nil else {
                 completed?(error)
@@ -214,6 +215,59 @@ public class ApiService {
                     self.logger.info("Login Event submitted successfully")
                 }
                 completed?(error)
+            }
+            onTask?(task)
+            task.resume()
+        }
+    }
+    
+    func updateEmailSubscriptionStatus(_ payload: EmailNotificationStatusRequest,
+                                       onTask: ((URLSessionDataTask) -> Void)? = nil,
+                                       completed: ((_ updateResponse: EmailNotificationStatusResposne) -> Void)? = nil
+    ) {
+        var updateResponse = EmailNotificationStatusResposne()
+        self.createRequest(ApiPath.updateEmailSubscriberStatus,
+                           method: .PUT,
+                           authenticated: true,
+                           body: payload) { (request, error) in
+            guard let request = request, error == nil else {
+                updateResponse.error = "Unable to update your email settings. Please try again later."
+                updateResponse.success = false
+                completed?(updateResponse)
+                return
+            }
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                self.logger.info("Login Event Data \(String(describing: data))")
+                if let error = error {
+                    self.logger.error("Update Email Subscription Status Event API returned an error", error)
+                    updateResponse.error = "Unable to update your email settings at this time. Please try again later."
+                    updateResponse.success = false
+                    completed?(updateResponse)
+                    return
+                }
+                self.logger.info("Update Email Subscription Status returned successfully")
+                if let response = response as? HTTPURLResponse {
+                    self.logger.info("Login Event Response status \(response.statusCode)")
+                    if response.statusCode > 299 || response.statusCode < 200 {
+                        updateResponse.error = "An unexpected error occurred while attempting to update your email settings. Please try again later."
+                        updateResponse.success = false
+                        completed?(updateResponse)
+                        return
+                    }
+                    guard let data = data,
+                        let body: EmailNotificationStatusResposne = self.deserializeJSON(data) else {
+                        updateResponse.success = true
+                        self.logger.warn("Unable to deserialize the response")
+                        completed?(updateResponse)
+                        return
+                    }
+                    updateResponse.success = body.success
+                    completed?(updateResponse)
+                    return
+                }
+                updateResponse.success = false
+                updateResponse.error = "An unexpected error occurred while attempting to update your email settings. Please try again later."
+                completed?(updateResponse)
             }
             onTask?(task)
             task.resume()
