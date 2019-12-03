@@ -248,9 +248,9 @@ class PromptContentPageViewController: UIPageViewController {
         pageControl.backgroundColor = .clear
         pageControl.numberOfPages = self.screens.count
         pageControl.currentPage = 0
-        pageControl.tintColor = CactusColor.darkestPink
-        pageControl.pageIndicatorTintColor = CactusColor.darkPink
-        pageControl.currentPageIndicatorTintColor = CactusColor.darkestPink
+        pageControl.tintColor = CactusColor.green
+        pageControl.pageIndicatorTintColor = CactusColor.darkestGreen
+        pageControl.currentPageIndicatorTintColor = CactusColor.green
         
         self.pageControl = pageControl
         self.view.addSubview(pageControl)
