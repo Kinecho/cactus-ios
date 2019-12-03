@@ -42,7 +42,7 @@ class PromptContentPageViewController: UIPageViewController {
         self.dataSource = self
         self.delegate = self        
         self.configureScreens()
-        self.view.backgroundColor = CactusColor.lightBlue
+        self.view.backgroundColor = CactusColor.beige
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -118,7 +118,7 @@ class PromptContentPageViewController: UIPageViewController {
     
     func getContentViewController(_ content: Content) -> UIViewController? {
         var viewController: PromptContentViewController?
-        var backgroundColor: UIColor? = CactusColor.lightBlue
+        var backgroundColor: UIColor? = CactusColor.beige
         switch content.contentType {
         case .text:
             let textViewController = TextContentViewController.loadFromNib()
@@ -248,9 +248,9 @@ class PromptContentPageViewController: UIPageViewController {
         pageControl.backgroundColor = .clear
         pageControl.numberOfPages = self.screens.count
         pageControl.currentPage = 0
-        pageControl.tintColor = CactusColor.darkestPink
-        pageControl.pageIndicatorTintColor = CactusColor.darkPink
-        pageControl.currentPageIndicatorTintColor = CactusColor.darkestPink
+        pageControl.tintColor = CactusColor.green
+        pageControl.pageIndicatorTintColor = CactusColor.darkestGreen
+        pageControl.currentPageIndicatorTintColor = CactusColor.green
         
         self.pageControl = pageControl
         self.view.addSubview(pageControl)

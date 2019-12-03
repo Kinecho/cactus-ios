@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -26,13 +26,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7HD-bg-GiU" userLabel="containerView">
-                    <rect key="frame" x="150" y="56.5" width="100" height="287.5"/>
+                    <rect key="frame" x="150" y="64" width="100" height="272.5"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energyPot" translatesAutoresizingMaskIntoConstraints="NO" id="WKX-C8-5q6" userLabel="pot">
-                            <rect key="frame" x="0.0" y="187.5" width="100" height="100"/>
+                            <rect key="frame" x="0.0" y="187.5" width="100" height="85"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="100" id="Axi-56-C1l"/>
-                                <constraint firstAttribute="height" constant="100" id="gMo-Bq-r6V"/>
+                                <constraint firstAttribute="height" constant="85" id="gMo-Bq-r6V"/>
                             </constraints>
                         </imageView>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energy6" translatesAutoresizingMaskIntoConstraints="NO" id="h9f-bz-dIu" userLabel="leaf 6">
@@ -126,6 +126,6 @@
         <image name="energy5" width="58" height="38"/>
         <image name="energy6" width="36" height="42"/>
         <image name="energy7" width="27" height="63"/>
-        <image name="energyPot" width="49" height="43"/>
+        <image name="energyPot" width="48" height="37"/>
     </resources>
 </document>

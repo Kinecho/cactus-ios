@@ -3,7 +3,7 @@
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -29,7 +29,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Lw3-Rb-dxn">
                     <rect key="frame" x="0.0" y="114" width="320" height="340.5"/>
                     <subviews>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="This is a video about cats" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="91e-N7-VTk">
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="This is a video about cats" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="91e-N7-VTk">
                             <rect key="frame" x="20" y="0.0" width="280" height="37.5"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="textColor" name="GreenDarkest"/>
@@ -56,7 +56,7 @@
                     </constraints>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" name="BlueLight"/>
+            <color key="backgroundColor" name="Beige"/>
             <constraints>
                 <constraint firstItem="Lw3-Rb-dxn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hps-Kj-g8M"/>
                 <constraint firstItem="Lw3-Rb-dxn" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="qgA-eq-5WJ"/>
@@ -67,8 +67,8 @@
         </view>
     </objects>
     <resources>
-        <namedColor name="BlueLight">
-            <color red="0.90196078431372551" green="0.97647058823529409" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="Beige">
+            <color red="0.94117647058823528" green="0.92549019607843142" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="GreenDarkest">
             <color red="0.027000000700354576" green="0.27099999785423279" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

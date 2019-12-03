@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -153,6 +153,6 @@
         <image name="experience2" width="25" height="32"/>
         <image name="experience3" width="22" height="39"/>
         <image name="experience4" width="28" height="49"/>
-        <image name="experiencePot" width="52" height="43"/>
+        <image name="experiencePot" width="45" height="37"/>
     </resources>
 </document>
