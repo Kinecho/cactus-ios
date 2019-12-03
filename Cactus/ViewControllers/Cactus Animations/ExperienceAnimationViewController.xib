@@ -153,6 +153,6 @@
         <image name="experience2" width="25" height="32"/>
         <image name="experience3" width="22" height="39"/>
         <image name="experience4" width="28" height="49"/>
-        <image name="experiencePot" width="52" height="43"/>
+        <image name="experiencePot" width="45" height="37"/>
     </resources>
 </document>

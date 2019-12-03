@@ -33,7 +33,7 @@
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blob3" translatesAutoresizingMaskIntoConstraints="NO" id="tbd-wr-MpV">
                     <rect key="frame" x="-140" y="388" width="200" height="200"/>
-                    <color key="tintColor" name="Pink"/>
+                    <color key="tintColor" name="BeigeDark"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="2W6-zl-usT"/>
                         <constraint firstAttribute="width" constant="200" id="5Uz-qf-uLv"/>
@@ -41,7 +41,7 @@
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blobNeedle" translatesAutoresizingMaskIntoConstraints="NO" id="Z7M-NV-7xD" userLabel="blobNeedle3">
                     <rect key="frame" x="-190" y="323" width="250" height="250"/>
-                    <color key="tintColor" name="GreenDark"/>
+                    <color key="tintColor" name="Beige"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="250" id="EDj-mq-xf8"/>
                         <constraint firstAttribute="height" constant="250" id="tNf-x7-WNz"/>
@@ -49,7 +49,7 @@
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blob1" translatesAutoresizingMaskIntoConstraints="NO" id="GGN-Rc-luJ">
                     <rect key="frame" x="364" y="-50" width="400" height="400"/>
-                    <color key="tintColor" name="Yellow"/>
+                    <color key="tintColor" name="BeigeDark"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="400" id="COJ-sH-nqs"/>
                         <constraint firstAttribute="height" constant="400" id="P99-mh-GyS"/>
@@ -57,7 +57,7 @@
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blobNeedle" translatesAutoresizingMaskIntoConstraints="NO" id="mHL-au-wC2" userLabel="blobNeedle1">
                     <rect key="frame" x="354" y="55" width="250" height="250"/>
-                    <color key="tintColor" name="YellowDark"/>
+                    <color key="tintColor" name="Beige"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="250" id="UYL-dD-3cO"/>
                         <constraint firstAttribute="width" constant="250" id="hxn-G2-yTc"/>
@@ -86,7 +86,7 @@
                     </constraints>
                 </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="What brings out your creative side? Long questions will oberflow and keep going and going below the video" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kau-mV-hyr">
-                    <rect key="frame" x="20" y="144" width="374" height="131.5"/>
+                    <rect key="frame" x="20" y="144" width="374" height="131"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="textColor" name="GreenDarkest"/>
                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
@@ -127,10 +127,10 @@
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="45X-z1-aZS" userLabel="Shared Note Stack View">
-                    <rect key="frame" x="119" y="768" width="176" height="22"/>
+                    <rect key="frame" x="116" y="769" width="182" height="21"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="users" translatesAutoresizingMaskIntoConstraints="NO" id="Pyi-cX-7bU">
-                            <rect key="frame" x="0.0" y="1" width="20" height="20"/>
+                            <rect key="frame" x="0.0" y="0.5" width="20" height="20"/>
                             <color key="tintColor" name="GreenDark"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="BeO-UV-fRp"/>
@@ -138,7 +138,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This note is shared" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHU-di-dY2" userLabel="Shared Label">
-                            <rect key="frame" x="30" y="0.0" width="146" height="22"/>
+                            <rect key="frame" x="30" y="0.0" width="152" height="21"/>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                             <color key="textColor" name="TextLight"/>
                             <nil key="highlightedColor"/>
@@ -203,23 +203,17 @@
         <namedColor name="Beige">
             <color red="0.94117647058823528" green="0.92549019607843142" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <namedColor name="BeigeDark">
+            <color red="0.89803921568627454" green="0.87450980392156863" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="GreenDark">
             <color red="0.16099999845027924" green="0.63899999856948853" blue="0.53700000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="GreenDarkest">
             <color red="0.027000000700354576" green="0.27099999785423279" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Pink">
-            <color red="1" green="0.83899998664855957" blue="0.77999997138977051" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="TextLight">
             <color red="0.45899999141693115" green="0.45899999141693115" blue="0.45899999141693115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Yellow">
-            <color red="0.97600001096725464" green="0.92199999094009399" blue="0.5690000057220459" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="YellowDark">
-            <color red="0.9570000171661377" green="0.86699998378753662" blue="0.28200000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
