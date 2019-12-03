@@ -65,7 +65,43 @@ struct EmailNotificationStatusRequest: Codable {
     }
 }
 
-struct EmailNotificationStatusResposne: Codable {
+struct EmailNotificationStatusResponseError: Codable {
+    var title: String?
+    var message: String?
+    
+    init(_ message: String?) {
+        self.message = message
+    }
+}
+
+struct EmailNotificationStatusResponse: Codable {
     var success: Bool = false
-    var error: String?
+    var error: EmailNotificationStatusResponseError?
+    enum CodingKeys: CodingKey {
+        case success
+        case error
+    }
+    
+    init() {
+        
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.success = (try? values.decode(Bool.self, forKey: .success)) ?? false
+        if let errorString = try? values.decode(String.self, forKey: .error) {
+            self.error = EmailNotificationStatusResponseError(errorString)
+        } else {
+            self.error = try? values.decode(EmailNotificationStatusResponseError.self, forKey: .error)
+        }
+    }
+    
+    var errorMessage: String? {
+        return self.error?.message
+    }
+    
+    var isInComplianceState: Bool? {
+        return self.error?.title?.contains("Member In Compliance State")
+    }
+    
 }

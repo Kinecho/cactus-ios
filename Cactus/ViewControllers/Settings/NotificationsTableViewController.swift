@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import MessageUI
 
-class NotificationsTableViewController: UITableViewController {
-
+class NotificationsTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
+    
     @IBOutlet weak var pushSwitch: UISwitch!
     @IBOutlet weak var emailSwitch: UISwitch!
     @IBOutlet weak var pushCell: UITableViewCell!
@@ -27,14 +28,14 @@ class NotificationsTableViewController: UITableViewController {
     var managePermissionsInSettings = false
     var memberUnsubscriber: Unsubscriber?
     let logger = Logger("NotificationsTableViewController")
-        
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.tableFooterView = UIView()
         self.updateNotificationTime()
         self.notificationObserver = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [unowned self] _ in
@@ -62,7 +63,7 @@ class NotificationsTableViewController: UITableViewController {
         guard let denverDate = getDenverCalendar().date(bySettingHour: 2, minute: 45, second: 0, of: Date()) else {return}
         let format = DateFormatter()
         format.dateFormat = "H:mm aa"
-        self.pushTimeOfDayLabel.text = format.string(from: denverDate)
+        self.pushTimeOfDayLabel.text = "Daily at \(format.string(from: denverDate))"
     }
     
     func updateEmailSwitch(animated: Bool = false) {
@@ -95,27 +96,88 @@ class NotificationsTableViewController: UITableViewController {
         let request = EmailNotificationStatusRequest(email, status: subscribed)
         
         ApiService.sharedInstance.updateEmailSubscriptionStatus(request, completed: { response in
-            if response.success {
-                self.logger.info("Successfully updated email notification settings")
-                return
+            DispatchQueue.main.async {
+                if response.success {
+                    self.logger.info("Successfully updated email notification settings")
+                    self.updateEmailSwitch()
+                    return
+                }
+                
+                if response.isInComplianceState == true {
+                    self.logger.warn("Member is in compliance state and can not update their subscription via the API.")
+                    self.showError(message: "Cactus is unable to subscribe you to receive email notifications because you previously unsubscribed." +
+                        " Please email help@cactus.app to resolve this issue.",
+                                   showHelpEmail: true)
+                    self.updateEmailSwitch()
+                    return
+                }
+                
+                guard let error = response.error else {
+                    self.logger.error("An unexpected error occurred while updating the email response. " +
+                        "The response was not successful but no error provided")
+                    self.showError(message: "We were un able to update your email preferences at this time. " +
+                        "If you continue to get this error, please try updating your settings on the Cactus website.")
+                    self.updateEmailSwitch()
+                    return
+                }
+                self.logger.error("Email Status Update API returned an error", error)
+                self.showError(message: error.message ?? "We were unable to update your email preferences at this time. " +
+                "If you continue to get this error, please try updating your settings on the Cactus website." )
+                self.updateEmailSwitch()
             }
-            
-            guard let error = response.error else {
-                self.logger.error("An unexpected error occurred while updating the email response. The response was not successful but no error provided")
-                self.showError("We were un able to update your email preferences at this time. If you continue to get this error, please try updating your settings on the Cactus website.")
-                return
-            }
-            self.logger.error("completed email status update", error)
-            self.showError(error)
         })
     }
     
-    func showError(_ message: String) {
-        let alert = UIAlertController(title: "Oops, something went wrong", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+    func showError(title: String = "Oops! Unable to save email settings", message: String, showHelpEmail: Bool=false) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
+        
+        if showHelpEmail {
+            alert.addAction(UIAlertAction(title: "Send Email", style: .default, handler: { _ in
+                self.sendEmail(self)
+            }))
+        }
+        
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func sendEmail(_ sender: Any) {
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        let buildVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
+        let versionText = "Cactus \(appVersion ?? "") (\(buildVersion ?? "1"))"
         
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["help@cactus.app"])
+            mail.setSubject("Help for \(versionText)")
+            //            mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
+            
+            present(mail, animated: true)
+        } else {
+            // show failure alert
+            let alert = UIAlertController(title: "Unable to open email client", message: "Please send us an email to help@cactus.app", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Copy Email Address", style: .default, handler: { _ in
+                let pasteboard = UIPasteboard.general
+                pasteboard.string = "help@cactus.app"
+            }))
+            alert.addAction(UIAlertAction(title: "Done", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
+        }
+        //        if let url = URL(string: "mailto:feedback@cactus.app?subject=iOS%20App%20Feedback%20for%20\(versionText)") {
+        //            if #available(iOS 10.0, *) {
+        //              UIApplication.shared.open(url)
+        //            } else {
+        //              UIApplication.shared.openURL(url)
+        //            }
+        //        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+    }
+    
     @IBAction func pushToggleTriggered(_ sender: Any) {
         let isOn = pushSwitch.isOn
         
@@ -151,17 +213,14 @@ class NotificationsTableViewController: UITableViewController {
                     print("authorized")
                     self.pushSwitch.setOn(true, animated: animated)
                     self.managePermissionsInSettings = true
-//                    self.pushErrorLabel.isHidden = false
                 case .denied:
                     print("denied")
                     self.managePermissionsInSettings = true
                     self.pushSwitch.setOn(false, animated: animated)
-//                    self.pushErrorLabel.isHidden = false
                 case .notDetermined:
                     print("not determined, ask user for permission now")
                     self.managePermissionsInSettings = false
                     self.pushSwitch.setOn(false, animated: animated)
-//                    self.pushErrorLabel.isHidden = true
                 @unknown default:
                     break
                 }

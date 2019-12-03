@@ -223,24 +223,25 @@ public class ApiService {
     
     func updateEmailSubscriptionStatus(_ payload: EmailNotificationStatusRequest,
                                        onTask: ((URLSessionDataTask) -> Void)? = nil,
-                                       completed: ((_ updateResponse: EmailNotificationStatusResposne) -> Void)? = nil
+                                       completed: ((_ updateResponse: EmailNotificationStatusResponse) -> Void)? = nil
     ) {
-        var updateResponse = EmailNotificationStatusResposne()
+        var updateResponse = EmailNotificationStatusResponse()
+        let email = payload.email
         self.createRequest(ApiPath.updateEmailSubscriberStatus,
                            method: .PUT,
                            authenticated: true,
                            body: payload) { (request, error) in
             guard let request = request, error == nil else {
-                updateResponse.error = "Unable to update your email settings. Please try again later."
+                updateResponse.error = EmailNotificationStatusResponseError("Unable to update your email settings. Please try again later.")
                 updateResponse.success = false
                 completed?(updateResponse)
                 return
             }
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                self.logger.info("Login Event Data \(String(describing: data))")
+                self.logger.info("Update Email Subscription Status Event Data \(String(describing: data))")
                 if let error = error {
                     self.logger.error("Update Email Subscription Status Event API returned an error", error)
-                    updateResponse.error = "Unable to update your email settings at this time. Please try again later."
+                    updateResponse.error = EmailNotificationStatusResponseError("Unable to update your email settings at this time. Please try again later.")
                     updateResponse.success = false
                     completed?(updateResponse)
                     return
@@ -249,24 +250,28 @@ public class ApiService {
                 if let response = response as? HTTPURLResponse {
                     self.logger.info("Login Event Response status \(response.statusCode)")
                     if response.statusCode > 299 || response.statusCode < 200 {
-                        updateResponse.error = "An unexpected error occurred while attempting to update your email settings. Please try again later."
+                        updateResponse.error = EmailNotificationStatusResponseError("An unexpected error occurred while attempting to update your email settings. Please try again later.")
                         updateResponse.success = false
+                        self.logger.error("Failed to update email status for member \(email). Response status \(response.statusCode)")
                         completed?(updateResponse)
                         return
                     }
                     guard let data = data,
-                        let body: EmailNotificationStatusResposne = self.deserializeJSON(data) else {
-                        updateResponse.success = true
-                        self.logger.warn("Unable to deserialize the response")
+                        let body: EmailNotificationStatusResponse = self.deserializeJSON(data) else {
+                        updateResponse.success = true //true because it was a successful response code
+
+                        self.logger.warn("[Update Email settings] Unable to deserialize the response", functionName: #function, line: #line)
                         completed?(updateResponse)
                         return
                     }
                     updateResponse.success = body.success
+                    updateResponse.error = body.error
+                  
                     completed?(updateResponse)
                     return
                 }
                 updateResponse.success = false
-                updateResponse.error = "An unexpected error occurred while attempting to update your email settings. Please try again later."
+                updateResponse.error = EmailNotificationStatusResponseError("An unexpected error occurred while attempting to update your email settings. Please try again later.")
                 completed?(updateResponse)
             }
             onTask?(task)
