@@ -160,7 +160,7 @@
                     </userDefinedRuntimeAttributes>
                 </textView>
             </subviews>
-            <color key="backgroundColor" name="BlueLight"/>
+            <color key="backgroundColor" name="Beige"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="KbP-hJ-CGv" secondAttribute="bottom" constant="22" id="0jt-Ql-8UX"/>
                 <constraint firstItem="ggY-Bf-lGx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1R0-7k-pcb"/>
@@ -200,8 +200,8 @@
         <image name="pencil" width="24" height="24"/>
         <image name="pottedCactus" width="150" height="150"/>
         <image name="users" width="48" height="48"/>
-        <namedColor name="BlueLight">
-            <color red="0.90196078431372551" green="0.97647058823529409" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="Beige">
+            <color red="0.94117647058823528" green="0.92549019607843142" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="GreenDark">
             <color red="0.16099999845027924" green="0.63899999856948853" blue="0.53700000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

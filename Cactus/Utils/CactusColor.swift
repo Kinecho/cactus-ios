@@ -46,6 +46,7 @@ struct CactusColor {
     
     static let white: UIColor = UIColor(hex: "FFFFFF")
     
+    static let beige: UIColor = UIColor(hex: "F0ECEA")
 }
 
 extension UIColor {
