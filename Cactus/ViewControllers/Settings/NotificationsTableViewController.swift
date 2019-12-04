@@ -68,7 +68,9 @@ class NotificationsTableViewController: UITableViewController, MFMailComposeView
             return
         }
         let format = DateFormatter()
-        format.dateFormat = "H:mm aa"
+        format.dateFormat = "h:mm a"
+        format.amSymbol = "am"
+        format.pmSymbol = "pm"
         let tz = self.member?.getPreferredTimeZone() ?? Calendar.current.timeZone
         let label = "Daily at \(format.string(from: notificationDate)) \(getTimeZoneGenericNameShort(tz) ?? "")".trimmingCharacters(in: .whitespacesAndNewlines)
         
