@@ -17,7 +17,7 @@ class CactusMemberService {
     var currentMember: CactusMember?
     var currentUser: User?
     static let sharedInstance = CactusMemberService()
-    
+    let logger = Logger("CactusMemberService")
     private init() {
         self.firestoreService = FirestoreService.sharedInstance
         self.memberListener = self.observeCurrentMember { (member, _, user) in
@@ -25,6 +25,7 @@ class CactusMemberService {
             if let member = member, member != self.currentMember {
                 DispatchQueue.main.async {
                     self.addFCMToken(member: member)
+                    self.setTimeZone(member: member)
                 }
             }
             self.currentUser = user
@@ -92,6 +93,24 @@ class CactusMemberService {
                         print("Successfully updated tokens on cactus member")
                     }
                 })
+            }
+        }
+    }
+    
+    /**
+     Update the member's timezone if they do not already have one.
+     */
+    func setTimeZone(member: CactusMember, timeZone: String?=nil) {
+        
+        guard member.timeZone == nil else {
+            self.logger.info("the member already has a timezone set, not setting it", functionName: #function, line: #line)
+            return
+        }
+        
+        member.timeZone = timeZone ?? Calendar.current.timeZone.identifier
+        self.save(member) { (_, error) in
+            if let error = error {
+                self.logger.error("Failed to update the user's timezone", error)
             }
         }
     }

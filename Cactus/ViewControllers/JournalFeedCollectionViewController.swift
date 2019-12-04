@@ -26,15 +26,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
                                              right: 15.0)
     
     @IBOutlet weak var layout: JournalFeedFlowLayout!
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        if #available(iOS 13.0, *) {
-            return .darkContent
-        } else {
-            return .default
-        }
-    }
-    
+   
     func getCellEstimatedSize() -> CGSize {
         let contentInsetWidth = self.collectionView.contentInset.left + self.collectionView.contentInset.right
         return CGSize(width: self.view.bounds.size.width - sectionInsets.left - sectionInsets.right - contentInsetWidth, height: defaultCellHeight)

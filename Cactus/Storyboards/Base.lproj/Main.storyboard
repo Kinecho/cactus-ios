@@ -197,7 +197,6 @@
                         <viewLayoutGuide key="safeArea" id="ZBF-X5-P48"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="containerView" destination="Z8U-Me-3LH" id="KfG-U9-xGL"/>
                         <outlet property="headerContainerView" destination="hbu-p9-et4" id="iYo-bs-85g"/>

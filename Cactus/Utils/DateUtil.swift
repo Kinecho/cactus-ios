@@ -20,13 +20,53 @@ func getDenverCalendar() -> Calendar {
     return denverCalendar
 }
 
+func getDeviceTimeZone() -> TimeZone {
+    return Calendar.current.timeZone
+}
+
+func getTimeZoneFulllName(_ tz: TimeZone, date: Date = Date(), locale: Locale = Locale.current) -> String? {
+    if tz.isDaylightSavingTime(for: date) {
+        return tz.localizedName(for: .daylightSaving, locale: locale)
+    } else {
+        return tz.localizedName(for: .standard, locale: locale)
+    }
+}
+
+func getTimeZoneShortName(_ tz: TimeZone, date: Date = Date(), locale: Locale = Locale.current) -> String? {
+    if tz.isDaylightSavingTime(for: date) {
+        return tz.localizedName(for: .shortDaylightSaving, locale: locale)
+    } else {
+        return tz.localizedName(for: .shortStandard, locale: locale)
+    }
+}
+
+func getTimeZoneGenericName(_ tz: TimeZone, locale: Locale = Locale.current) -> String? {
+    return tz.localizedName(for: .generic, locale: locale)
+}
+
+func getTimeZoneGenericNameShort(_ tz: TimeZone, locale: Locale = Locale.current) -> String? {
+    return tz.localizedName(for: .shortGeneric, locale: locale)
+}
+
+func getMemberCalendar(member: CactusMember?) -> Calendar {
+    guard let tz = member?.getPreferredTimeZone() else {
+        return getDenverCalendar()
+    }
+    var memberCalendar = Calendar.current
+    memberCalendar.timeZone = tz
+    return memberCalendar
+}
+
 func getDenverTimeZone() -> TimeZone {
     let denverTz = TimeZone(identifier: "America/Denver")!
     return denverTz
 }
 
-func getDefaultNotificationDate() -> Date? {
-    return getDenverCalendar().date(bySettingHour: 2, minute: 45, second: 0, of: Date())
+func getDefaultNotificationDate(member: CactusMember?) -> Date? {
+    let hour = member?.promptSendTime?.hour ?? 2
+    let minute = member?.promptSendTime?.minute ?? 45
+        
+    return getMemberCalendar(member: member).date(bySettingHour: hour, minute: minute, second: 0, of: Date())
 }
 
 func calculateStreak(_ dates: [Date]) -> Int {

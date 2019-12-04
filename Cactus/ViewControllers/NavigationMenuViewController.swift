@@ -115,7 +115,7 @@ class NavigationMenuViewController: UIViewController {
     }
     
     func finishedClosing() {
-        self.resetNumbers()
+        self.resetNumbers()        
     }
     
     func finishedOpening() {

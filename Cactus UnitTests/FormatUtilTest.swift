@@ -35,5 +35,27 @@ class FormatUtilTest: XCTestCase {
         XCTAssertFalse(FormatUtils.hasChanges(nil, " "))
         
     }
+    
+    func testDateTimezoneFormat() {
+        let tzName = "America/Denver"
+        let isoDate = "2019-12-03T10:00:00+0000"
+
+        let dateFormatter = ISO8601DateFormatter()
+        let date = dateFormatter.date(from:isoDate)!
+        
+        let tz = TimeZone(identifier: tzName)
+        let locale = Locale.init(identifier: "en_US")        
+        let standard = tz!.localizedName(for: .standard, locale: locale)
+        let generic = tz!.localizedName(for: .generic, locale: locale)
+        
+        XCTAssertEqual(tz!.abbreviation(for: date), "MST")
+        XCTAssertEqual(tz!.isDaylightSavingTime(for: date), false)
+        XCTAssertEqual(standard!, "Mountain Standard Time")
+        XCTAssertEqual(generic!, "Mountain Time")
+        XCTAssertEqual(tz!.localizedName(for: .shortGeneric, locale: locale)!, "MT")
+        XCTAssertEqual(tz!.localizedName(for: .shortStandard, locale: locale)!, "MST")
+        XCTAssertEqual(tz!.localizedName(for: .daylightSaving, locale: locale)!, "Mountain Daylight Time")
+        XCTAssertEqual(tz!.localizedName(for: .shortDaylightSaving, locale: locale)!, "MDT")
+    }
 
 }

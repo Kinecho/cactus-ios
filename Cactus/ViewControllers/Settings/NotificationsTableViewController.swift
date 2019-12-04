@@ -29,15 +29,11 @@ class NotificationsTableViewController: UITableViewController, MFMailComposeView
     var memberUnsubscriber: Unsubscriber?
     let logger = Logger("NotificationsTableViewController")
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .default
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.tableFooterView = UIView()
-        self.updateNotificationTime()
+        self.updateNotificationTimeLabel()
         self.notificationObserver = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [unowned self] _ in
             DispatchQueue.main.async {
                 self.refreshPermissionsToggle()
@@ -49,21 +45,35 @@ class NotificationsTableViewController: UITableViewController, MFMailComposeView
                 print("error fetching member \(error)")
             }
             self.member = member
+            self.updateNotificationTimeLabel()
         })
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.refreshPermissionsToggle()
         self.updateEmailSwitch()
-        self.updateNotificationTime()
+        self.updateNotificationTimeLabel()
         self.setNeedsStatusBarAppearanceUpdate()
     }
     
-    func updateNotificationTime() {
-        guard let denverDate = getDenverCalendar().date(bySettingHour: 2, minute: 45, second: 0, of: Date()) else {return}
+    func updateNotificationTimeLabel() {
+        let date: Date?
+        let calendar = getMemberCalendar(member: self.member)
+        if let timePreference = self.member?.promptSendTime {
+            date = calendar.date(bySettingHour: timePreference.hour, minute: timePreference.minute, second: 0, of: Date())
+        } else {
+            date = calendar.date(bySettingHour: 2, minute: 45, second: 0, of: Date())
+        }
+        
+        guard let notificationDate = date else {
+            return
+        }
         let format = DateFormatter()
         format.dateFormat = "H:mm aa"
-        self.pushTimeOfDayLabel.text = "Daily at \(format.string(from: denverDate))"
+        let tz = self.member?.getPreferredTimeZone() ?? Calendar.current.timeZone
+        let label = "Daily at \(format.string(from: notificationDate)) \(getTimeZoneGenericNameShort(tz) ?? "")".trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        self.pushTimeOfDayLabel.text = label
     }
     
     func updateEmailSwitch(animated: Bool = false) {

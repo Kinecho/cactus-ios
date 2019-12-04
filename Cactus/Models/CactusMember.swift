@@ -63,6 +63,16 @@ struct MemberStats: Codable {
     var reflections: ReflectionStats?
 }
 
+struct PromptSendTime: Codable {
+    var hour: Int
+    var minute: Int
+    
+    init(hour: Int, minute: Int) {
+        self.hour = hour
+        self.minute = minute
+    }
+}
+
 class CactusMember: FirestoreIdentifiable, Hashable {
     static let collectionName = FirestoreCollectionName.members
     static let Field = CactusMemberField.self
@@ -81,14 +91,23 @@ class CactusMember: FirestoreIdentifiable, Hashable {
     var mailchimpListMember: ListMember?
     var languageCode: String?
     var notificationSettings: [String: String]? = [:]
-
     var stats: MemberStats?
-    
+    var timeZone: String?
+    var promptSendTime: PromptSendTime?
+        
     static func == (lhs: CactusMember, rhs: CactusMember) -> Bool {
         return lhs.id != nil && rhs.id != nil && lhs.id == rhs.id
     }
     
     func hash(into hasher: inout Hasher) {
         id.hash(into: &hasher)
+    }
+    
+    func getPreferredTimeZone() -> TimeZone? {
+        guard let userTimeZone = self.timeZone else {
+            return nil
+        }
+        
+        return TimeZone(identifier: userTimeZone)
     }
 }

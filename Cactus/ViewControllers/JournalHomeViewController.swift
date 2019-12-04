@@ -16,7 +16,18 @@ class JournalHomeViewController: UIViewController {
     var journalFeedViewController: JournalFeedCollectionViewController?
     var emptyStateViewController: JournalHomeEmptyStateViewController?
     var menuDrawerViewController: NavigationMenuViewController!
-    var isMenuExpanded = false
+    var isMenuExpanded = false {
+        didSet {
+            if self.isMenuExpanded {
+                AppDelegate.shared.rootViewController.setStatusBarStyle(.default)
+            } else {
+                if #available(iOS 13.0, *) {
+                    AppDelegate.shared.rootViewController.setStatusBarStyle(.darkContent)
+                }
+            }
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
+    }
     var memberListener:(() -> Void)?
     let overlayView = UIVisualEffectView()
     var alphaView: UIView!
@@ -43,17 +54,14 @@ class JournalHomeViewController: UIViewController {
         }
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        if #available(iOS 13.0, *) {
-            return .darkContent
-        } else {
-            // Fallback on earlier versions
-            return .default
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if #available(iOS 13.0, *) {
+            AppDelegate.shared.rootViewController.setStatusBarStyle(.darkContent)
+        }
+        self.setNeedsStatusBarAppearanceUpdate()
+        
         self.logger.info("Creating journal feed data source with member \(self.member.email ?? "none")", functionName: #function)
         self.journalFeedDataSource = JournalFeedDataSource(member: self.member)
         self.journalFeedDataSource.delegate = self
@@ -87,7 +95,6 @@ class JournalHomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.logger.info("View Will Appear")
-        
         self.navigationController?.setNavigationBarHidden(true, animated: false)        
     }
     
@@ -139,7 +146,7 @@ class JournalHomeViewController: UIViewController {
         self.menuDrawerViewController.delegate = self
         self.menuContainer.frame = CGRect(x: self.view.bounds.maxX, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
         self.menuDrawerViewController.view.frame =  CGRect(x: 0, y: 0, width: self.menuWidth, height: self.view.bounds.height)
-        
+        self.menuDrawerViewController.modalPresentationCapturesStatusBarAppearance = true
         self.addChild(self.menuDrawerViewController)
         
         self.menuContainer.addSubview(self.menuDrawerViewController.view)
@@ -183,14 +190,12 @@ class JournalHomeViewController: UIViewController {
                 self.menuContainer.frame = CGRect(x: menuX, y: 0, width: self.view.bounds.width, height: bounds.height)
         }, completion: {_ in
             self.overlayView.isHidden = !self.isMenuExpanded
-        })
-        
-        if self.isMenuExpanded {
-            self.menuDrawerViewController.finishedOpening()
-        } else {
-            self.menuDrawerViewController.finishedClosing()
-        }
-        
+            if self.isMenuExpanded {
+                self.menuDrawerViewController.finishedOpening()
+            } else {
+                self.menuDrawerViewController.finishedClosing()
+            }
+        })        
     }
     
     func setupAvatarGestures() {

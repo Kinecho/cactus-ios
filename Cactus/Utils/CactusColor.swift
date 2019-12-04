@@ -43,7 +43,7 @@ struct CactusColor {
     
     static let facebook: UIColor = UIColor(hex: "3b5998")
     static let twitter: UIColor = UIColor(hex: "1da1f2")
-    
+        
     static let white: UIColor = UIColor(hex: "FFFFFF")
     
     static let beige: UIColor = UIColor(hex: "F0ECEA")

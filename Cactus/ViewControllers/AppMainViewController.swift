@@ -8,23 +8,30 @@
 
 import UIKit
 import FirebaseAuth
-
+//import FirebaseFirestore
 class AppMainViewController: UIViewController {
     var current: UIViewController
     let logger = Logger(fileName: "AppMainViewController")
     var hasUser = false
     var authHasLoaded = false
     var member: CactusMember?
+    var memberUnsubscriber: Unsubscriber?
+    
+    var currentStatusBarStyle: UIStatusBarStyle = .default
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         if #available(iOS 13.0, *) {
-            return .darkContent
+            return self.currentStatusBarStyle
         } else {
             // Fallback on earlier versions
             return .default
         }
     }
 
+    func setStatusBarStyle(_ updatedStyle: UIStatusBarStyle) {
+        self.currentStatusBarStyle = updatedStyle
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 //        self.setNeedsStatusBarAppearanceUpdate()
@@ -55,7 +62,7 @@ class AppMainViewController: UIViewController {
     }
     
     func setupAuth() {        
-        _ = CactusMemberService.sharedInstance.observeCurrentMember { (member, _, _) in
+        self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember { (member, _, _) in
             self.logger.info("setup auth onData \(member?.email ?? "no email")" )
             
             if member == nil {
