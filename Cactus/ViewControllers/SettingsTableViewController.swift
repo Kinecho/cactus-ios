@@ -21,21 +21,10 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.setNeedsStatusBarAppearanceUpdate()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        if #available(iOS 13.0, *) {
-            self.overrideUserInterfaceStyle = .dark
-        } else {
-            // Fallback on earlier versions
-        }
-        self.setNeedsStatusBarAppearanceUpdate()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()        
-        self.setNeedsStatusBarAppearanceUpdate()
         self.configureFooter()
         
         self.tableView.tableFooterView = self.footerView

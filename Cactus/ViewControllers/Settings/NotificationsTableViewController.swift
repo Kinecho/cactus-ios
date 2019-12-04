@@ -53,7 +53,6 @@ class NotificationsTableViewController: UITableViewController, MFMailComposeView
         self.refreshPermissionsToggle()
         self.updateEmailSwitch()
         self.updateNotificationTimeLabel()
-        self.setNeedsStatusBarAppearanceUpdate()
     }
     
     func updateNotificationTimeLabel() {
