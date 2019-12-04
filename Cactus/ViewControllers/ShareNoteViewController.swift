@@ -25,7 +25,7 @@ class ShareNoteViewController: UIViewController {
         self.embedSharedReflection()
         self.shareSubTextView.attributedText = MarkdownUtil.centeredMarkdown("Become more courageous and **build trust and connection** with others.",
                                                                              font: CactusFont.normal,
-                                                                             color: CactusColor.darkestGreen)
+                                                                             color: CactusColor.lightGreen)
         self.configureSharing()
     }
     
