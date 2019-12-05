@@ -355,6 +355,9 @@
 		30AB8ED6237C86380048CFD2 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30AB8ED4237C86380048CFD2 /* Onboarding.storyboard */; };
 		30AB8ED9237C86910048CFD2 /* NotificationOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB8ED8237C86910048CFD2 /* NotificationOnboardingViewController.swift */; };
 		30AB8EDA237C86910048CFD2 /* NotificationOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB8ED8237C86910048CFD2 /* NotificationOnboardingViewController.swift */; };
+		30B04DE023989DDB000268A0 /* InvertableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B04DDF23989DDB000268A0 /* InvertableImageView.swift */; };
+		30B04DE123989DDB000268A0 /* InvertableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B04DDF23989DDB000268A0 /* InvertableImageView.swift */; };
+		30B04DE223989DDB000268A0 /* InvertableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B04DDF23989DDB000268A0 /* InvertableImageView.swift */; };
 		30B6EA6F22EA5A9F00443E46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */; };
 		30B6EA7322EA5A9F00443E46 /* JournalEntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA7222EA5A9F00443E46 /* JournalEntryDetailViewController.swift */; };
 		30B6EA7622EA5A9F00443E46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7422EA5A9F00443E46 /* Main.storyboard */; };
@@ -610,6 +613,7 @@
 		30A281F722EA65EC0041158E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30AB8ED4237C86380048CFD2 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		30AB8ED8237C86910048CFD2 /* NotificationOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOnboardingViewController.swift; sourceTree = "<group>"; };
+		30B04DDF23989DDB000268A0 /* InvertableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvertableImageView.swift; sourceTree = "<group>"; };
 		30B6EA6B22EA5A9F00443E46 /* Cactus Stage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cactus Stage.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30B6EA7222EA5A9F00443E46 /* JournalEntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryDetailViewController.swift; sourceTree = "<group>"; };
@@ -850,6 +854,7 @@
 				30FA2C9823741A3300F671AF /* JournalFeedFlowLayout.swift */,
 				300F2370237A629800F35CDE /* CircleView.swift */,
 				300F2373237A6F7500F35CDE /* ShadowView.swift */,
+				30B04DDF23989DDB000268A0 /* InvertableImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1696,6 +1701,7 @@
 				303C9DF923841ABB006B9786 /* AppIconSettingsViewController.swift in Sources */,
 				30F7168D237A4B9C004989DB /* AppConfig.swift in Sources */,
 				303C9E2D23841ACC006B9786 /* UIImageViewAligned.swift in Sources */,
+				30B04DE223989DDB000268A0 /* InvertableImageView.swift in Sources */,
 				305B187123319F42003E1561 /* FileUtilsTest.swift in Sources */,
 				305B18772331A906003E1561 /* FlamelinkTypes.swift in Sources */,
 				303C9DD6238419D5006B9786 /* NotificationService.swift in Sources */,
@@ -1779,6 +1785,7 @@
 				303C9DB8237F595A006B9786 /* UserServiceFile.swift in Sources */,
 				30BF2E332328C7AD00A49EB6 /* MarkdownTypes.swift in Sources */,
 				3084E95F234810B300788279 /* FeedbackViewController.swift in Sources */,
+				30B04DE123989DDB000268A0 /* InvertableImageView.swift in Sources */,
 				300F236D237A61F100F35CDE /* SharedReflectionViewController.swift in Sources */,
 				30934FA422EBF4E6007C4E6C /* FormatUtils.swift in Sources */,
 				303C9DC4237F6799006B9786 /* StorageService.swift in Sources */,
@@ -1904,6 +1911,7 @@
 				303C9DB7237F595A006B9786 /* UserServiceFile.swift in Sources */,
 				30E9B0BD22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
 				3084E95E234810B300788279 /* FeedbackViewController.swift in Sources */,
+				30B04DE023989DDB000268A0 /* InvertableImageView.swift in Sources */,
 				300F236C237A61F100F35CDE /* SharedReflectionViewController.swift in Sources */,
 				30BF2E2F2328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */,
 				303C9DC3237F6799006B9786 /* StorageService.swift in Sources */,

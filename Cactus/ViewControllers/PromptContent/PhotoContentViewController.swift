@@ -9,7 +9,8 @@
 import UIKit
 import Cloudinary
 class PhotoContentViewController: PromptContentViewController {
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: InvertableImageView!
+    var originalImageView: UIImageView?
     @IBOutlet weak var textView: UITextView!
     
     override func viewDidLoad() {
@@ -36,8 +37,26 @@ class PhotoContentViewController: PromptContentViewController {
     
     func configurePhoto(_ photo: ImageFile) {
 //        self.imageView.isHidden = true
+        self.originalImageView = UIImageView()
+        self.originalImageView?.setImageFile(photo)
         self.imageView.setImageFile(photo)
+//        self.imageView.did
     }
+    
+    // MARK: - Dark Mode Support
+    private func updateImageForCurrentTraitCollection() {
+        if traitCollection.userInterfaceStyle == .dark {
+            self.imageView.image = originalImageView?.image?.invertedColors()
+        } else {
+            self.imageView.image = originalImageView?.image
+        }
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        updateImageForCurrentTraitCollection()
+    }
+    
     /*
     // MARK: - Navigation
 
