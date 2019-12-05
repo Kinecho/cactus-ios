@@ -23,7 +23,7 @@ class AuthService {
         
     }
     
-    func logOut(_ vc: UIViewController) {
+    func logOut(_ vc: UIViewController, sender: UIView) {
         
         var  message = "Are you sure you want to log out?"
         if let user = getCurrentUser(), (user.displayName != nil || user.email != nil) {
@@ -37,6 +37,8 @@ class AuthService {
         }
         
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
+        alert.popoverPresentationController?.sourceView = sender
+        
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Log Out", style: .destructive) { _ in
             CactusMemberService.sharedInstance.removeFCMToken(onCompleted: { (error) in

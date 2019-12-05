@@ -208,7 +208,7 @@ class PromptContentPageViewController: UIPageViewController {
     }
     
     @objc func sharePrompt() {
-        SharingService.shared.sharePromptContent(promptContent: self.promptContent, target: self)
+        SharingService.shared.sharePromptContent(promptContent: self.promptContent, target: self, sender: self.sharePromptButton)
     }
     
     func addCloseButton() {

@@ -27,20 +27,25 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     
     @IBOutlet weak var layout: JournalFeedFlowLayout!
    
-    func getCellEstimatedSize() -> CGSize {
+    func getCellEstimatedSize(_ size: CGSize) -> CGSize {
         let contentInsetWidth = self.collectionView.contentInset.left + self.collectionView.contentInset.right
-        return CGSize(width: self.view.bounds.size.width - sectionInsets.left - sectionInsets.right - contentInsetWidth, height: defaultCellHeight)
+        let width = min(760, size.width)
+        return CGSize(width: width - sectionInsets.left - sectionInsets.right - contentInsetWidth, height: defaultCellHeight)
     }
  
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.prefetchDataSource = self
-        layout.estimatedItemSize = getCellEstimatedSize()
+        layout.estimatedItemSize = getCellEstimatedSize(self.view.bounds.size)
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(self.appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(self.appMovedToBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
         
         self.collectionView.reloadData()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        layout.estimatedItemSize = getCellEstimatedSize(size)
     }
     
     override func viewWillLayoutSubviews() {
@@ -133,7 +138,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         let journalEntry = self.dataSource.get(at: indexPath.row)
         journalCell.journalEntry = journalEntry
         journalCell.updateView()
-        journalCell.setCellWidth(self.getCellEstimatedSize().width)
+        journalCell.setCellWidth(self.getCellEstimatedSize(self.view.bounds.size).width)
         journalCell.delegate = self
         return journalCell
     }

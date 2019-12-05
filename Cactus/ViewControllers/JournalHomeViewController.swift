@@ -13,6 +13,7 @@ class JournalHomeViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var headerContainerView: UIView!
     @IBOutlet weak var containerView: UIView!
+    var menuWidthConstraint: NSLayoutConstraint?
     var journalFeedViewController: JournalFeedCollectionViewController?
     var emptyStateViewController: JournalHomeEmptyStateViewController?
     var menuDrawerViewController: NavigationMenuViewController!
@@ -40,7 +41,9 @@ class JournalHomeViewController: UIViewController {
     let blurEffectDuration: TimeInterval = 0.2
     let logger = Logger(fileName: "JournalHomeViewController")
     var menuWidth: CGFloat {
-        return self.view.bounds.width * 4/5
+        let bounds = self.view.bounds
+        let width = getMenuWidth(bounds.size)
+        return width        
     }
     var member: CactusMember! {
         didSet {
@@ -52,6 +55,21 @@ class JournalHomeViewController: UIViewController {
         didSet {
             self.updateViewForUser(user: self.user)
         }
+    }
+    
+    func getMenuWidth(_ size: CGSize) -> CGFloat {
+        return min(400, size.width * 4/5)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        let menuWidth = getMenuWidth(size)
+        if isMenuExpanded {
+            self.menuContainer.frame = CGRect(x: size.width - menuWidth, y: 0, width: menuWidth, height: size.height)
+        } else {
+            self.menuContainer.frame = CGRect(x: size.width, y: 0, width: size.width, height: size.height)
+        }
+        self.menuWidthConstraint?.constant = menuWidth
     }
     
     override func viewDidLoad() {
@@ -144,13 +162,21 @@ class JournalHomeViewController: UIViewController {
     func setupDrawer() {
         self.menuDrawerViewController = NavigationMenuViewController.loadFromNib()
         self.menuDrawerViewController.delegate = self
-        self.menuContainer.frame = CGRect(x: self.view.bounds.maxX, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
         self.menuDrawerViewController.view.frame =  CGRect(x: 0, y: 0, width: self.menuWidth, height: self.view.bounds.height)
+        self.menuContainer.frame = CGRect(x: self.view.bounds.maxX, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
         self.menuDrawerViewController.modalPresentationCapturesStatusBarAppearance = true
         self.addChild(self.menuDrawerViewController)
         
         self.menuContainer.addSubview(self.menuDrawerViewController.view)
         self.view.addSubview(menuContainer)
+        
+        self.menuDrawerViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        self.menuDrawerViewController.view.leadingAnchor.constraint(equalTo: menuContainer.leadingAnchor).isActive = true
+        self.menuDrawerViewController.view.topAnchor.constraint(equalTo: menuContainer.topAnchor).isActive = true
+        self.menuDrawerViewController.view.bottomAnchor.constraint(equalTo: menuContainer.bottomAnchor).isActive = true
+        
+        self.menuWidthConstraint = self.menuDrawerViewController.view.widthAnchor.constraint(equalToConstant: self.menuWidth)
+        self.menuWidthConstraint?.isActive = true
         self.menuDrawerViewController.didMove(toParent: self)
         
         self.menuContainer.backgroundColor = self.menuDrawerViewController.view.backgroundColor

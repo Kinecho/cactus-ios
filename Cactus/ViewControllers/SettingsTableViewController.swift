@@ -93,6 +93,6 @@ class SettingsTableViewController: UITableViewController {
     }
     
     @IBAction func logOutTapped(_ sender: Any) {
-        AuthService.sharedInstance.logOut(self)
+        AuthService.sharedInstance.logOut(self, sender: self.logoutButton)
     }
 }

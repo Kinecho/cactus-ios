@@ -183,16 +183,14 @@ class NavigationMenuViewController: UIViewController {
         })
     }
     
-    @IBAction func inviteTapped(_ sender: Any) {
-//        let vc = AppDelegate.shared.rootViewController.getScreen(ScreenID.inviteScreen)
-//        self.navigationController?.pushViewController(vc, animated: true)
-        
+    @IBAction func inviteTapped(_ sender: UIButton) {
         let shareItem = InviteShareItem()
         var items: [Any] = [shareItem]
         if let shareURL = shareItem.getURL() {
             items.append(shareURL)
         }
         let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        ac.popoverPresentationController?.sourceView = sender
         ac.excludedActivityTypes = [.addToReadingList, .airDrop, .assignToContact, .openInIBooks]
         present(ac, animated: true)
     }

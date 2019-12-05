@@ -72,7 +72,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXPERIENCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ch-3r-Ml4" userLabel="ElementLabel">
-                                            <rect key="frame" x="138.5" y="80" width="97.5" height="0.0"/>
+                                            <rect key="frame" x="139" y="80" width="96" height="0.0"/>
                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
                                             <color key="textColor" name="GreenDarkest"/>
                                             <nil key="highlightedColor"/>
@@ -123,7 +123,7 @@
         </view>
     </objects>
     <resources>
-        <image name="experienceFull" width="69" height="122"/>
+        <image name="experienceFull" width="69" height="116"/>
         <namedColor name="Beige">
             <color red="0.94117647058823528" green="0.92549019607843142" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

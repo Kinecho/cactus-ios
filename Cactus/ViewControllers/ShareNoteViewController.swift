@@ -67,7 +67,7 @@ class ShareNoteViewController: UIViewController {
         }
     }
     
-    @IBAction func getShareableLinkTapped(_ sender: Any) {
+    @IBAction func getShareableLinkTapped(_ sender: PrimaryButton) {
         ReflectionResponseService.sharedInstance.shareReflection(self.reflectionResponse) { (saved, error) in
             if let error = error {
                 self.logger.error("Failed to share reflection response", error)
@@ -81,7 +81,7 @@ class ShareNoteViewController: UIViewController {
             self.shareTapped(sender)
         }
     }
-    @IBAction func shareTapped(_ sender: Any) {
-        SharingService.shared.shareNote(response: self.reflectionResponse, promptContent: self.promptContent, target: self)
+    @IBAction func shareTapped(_ sender: UIView) {
+        SharingService.shared.shareNote(response: self.reflectionResponse, promptContent: self.promptContent, target: self, sender: sender)
     }
 }

@@ -68,7 +68,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     let cornerRadius: CGFloat = 12
     let logger = Logger("JournalEntryCollectionViewCell")
     
-    @IBAction func moreButtonTapped(_ sender: Any) {
+    @IBAction func moreButtonTapped(_ sender: UIButton) {
         let duration: Double = 0.5
         let activeColor = CactusColor.darkGreen
         let normalColor = CactusColor.lightGreen
@@ -76,7 +76,6 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         let responseText = FormatUtils.responseText(self.responses)
         let isComplete = self.responses?.isEmpty ?? true
         let hasNote = !FormatUtils.isBlank(responseText)
-        
         
         UIView.animate(withDuration: duration,
                        delay: 0,
@@ -105,6 +104,10 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
+        if let popoverController = alert.popoverPresentationController {
+            popoverController.sourceView = sender
+        }
+        
         alert.addAction(UIAlertAction(title: "Reflect", style: .default, handler: { _ in
             self.logger.info("Reflect tapped")
             closeAnimation()
@@ -125,7 +128,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
             alert.addAction(UIAlertAction(title: "Share Prompt", style: .default) { _ in
                 closeAnimation()
                 self.logger.info("Share Prompt tapped")
-                SharingService.shared.sharePromptContent(promptContent: promptContent, target: AppDelegate.shared.rootViewController)
+                SharingService.shared.sharePromptContent(promptContent: promptContent, target: AppDelegate.shared.rootViewController, sender: sender)
            })
         }
         
@@ -146,8 +149,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
             closeAnimation()
         }))
-        
-        
+       
         self.window?.rootViewController?.present(alert, animated: true)
     }
     
@@ -425,7 +427,6 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         self.questionLabelHeightConstraint?.identifier = "QuestionLabel.height"
         self.questionLabelHeightConstraint?.isActive = false
 
-//        self.responseTextViewHeightConstraint?.priority
         self.responseTextViewHeightConstraint?.isActive = false
         
         self.configureViewAppearance()

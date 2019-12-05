@@ -240,7 +240,7 @@ class SharingService {
      - Parameter promptContent: PromptContent - the PromptContent to share
      - Parameter target: The UIViewController that should present the share sheet
      */
-    func sharePromptContent(promptContent: PromptContent, target: UIViewController) {
+    func sharePromptContent(promptContent: PromptContent, target: UIViewController, sender: UIView?) {
         let subjectLine = promptContent.subjectLine ?? ""
         let promptId = promptContent.promptId ?? "unknown"
         self.logger.sentryInfo(":share: :hourglass: Share Prompt share sheet presented. SubjectLine=\"\(subjectLine)\" promptId=\(promptId)")
@@ -251,6 +251,8 @@ class SharingService {
         }
         
         let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        ac.popoverPresentationController?.sourceView = sender
+        
         ac.excludedActivityTypes = [.addToReadingList, .airDrop, .assignToContact, .openInIBooks]
         
         ac.completionWithItemsHandler = { activityType, completed, items, error in
@@ -280,7 +282,7 @@ class SharingService {
         ])
     }
     
-    func shareNote(response: ReflectionResponse, promptContent: PromptContent, target: UIViewController) {
+    func shareNote(response: ReflectionResponse, promptContent: PromptContent, target: UIViewController, sender: UIView) {
         let subjectLine = promptContent.subjectLine ?? ""
         let promptId = promptContent.promptId ?? "unknown"
         
@@ -293,6 +295,7 @@ class SharingService {
         }
         
         let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        ac.popoverPresentationController?.sourceView = sender
         ac.excludedActivityTypes = [.addToReadingList, .airDrop, .assignToContact, .openInIBooks]
         
         ac.completionWithItemsHandler = { activityType, completed, items, error in
