@@ -68,20 +68,14 @@ class JournalEntryDetailViewController: UIViewController {
         self.responseTextView.layer.borderWidth = 1
         self.responseTextView.layer.cornerRadius = 6
         
-//        self.promptContentEntryIdLabel.text = self.prompt?.promptContentEntryId ?? "No Content"
         self.promptContentEntryIdLabel.text = nil
         
         if self.contentLoading {
-//            self.promptContentText.text = "Loading Prompt Content..."
             self.promptContentText.text = nil
         }
         
-        if let promptContent = self.promptContent {
+        if self.promptContent != nil {
             self.reflectButton.isHidden = false
-//            let videoIds = promptContent.content.first?.video?.fileIds.joined(separator: ", ")
-//            let videoId =  promptContent.content.first?.video?.fileId
-//            self.promptContentText.text = "\(promptContent.content.first?.text ?? "no id found") \n"
-//                + "FileIds: \(videoIds ?? "no video Ids")\nVideo File ID (computed) \(videoId ?? "none")"
         } else {
             self.reflectButton.isHidden = true
         }
