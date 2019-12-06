@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let sentryUser = SentryUser(userId: user.uid)
                 sentryUser.email = user.email
                 Client.shared?.user = sentryUser
-                self.logger.sentryInfo("\(user.email ?? user.uid) has logged in or started the app")
+//                self.logger.sentryInfo("\(user.email ?? user.uid) has logged in or started the app")
                 
             } else {
 //                Analytics.logEvent("log_out", parameters: ["userId": self.currentUser?.uid ?? ""])
@@ -137,6 +137,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return false
         }
         
+        if UserService.sharedInstance.handleActivityURL(url) {
+            return true
+        } else if LinkHandlerUtil.handlePromptContent(url) {
+            return true
+        } else if LinkHandlerUtil.handleSharedResponse(url) {
+            return true
+        } else {
+            self.logger.warn("url not supported, sending back to the browser")
+        }
+        
         if let scheme = url.scheme,
             scheme.localizedCaseInsensitiveCompare("app.cactus") == .orderedSame,
             let viewName = url.host {
@@ -145,7 +155,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems?.forEach {
                 parameters[$0.name] = $0.value
             }
-            print("handling deep link:", viewName, parameters)
+            self.logger.info("handling deep link: \(viewName), \(parameters)")
         }
         
         return false

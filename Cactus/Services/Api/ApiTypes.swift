@@ -12,6 +12,7 @@ struct MagicLinkRequest: Codable {
     var email: String
     var continuePath: String
     var referredBy: String?
+    var sourceApp: String = "ios"
 //    var reflectionResponseIds: String[]?
 //    var queryParams: [String: String]
     

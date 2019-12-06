@@ -28,8 +28,6 @@
                         <color key="backgroundColor" name="Pink"/>
                         <constraints>
                             <constraint firstItem="cA1-9x-8rs" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="M9y-aJ-f1c"/>
-                            <constraint firstItem="cA1-9x-8rs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="Y5T-84-p1j"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cA1-9x-8rs" secondAttribute="trailing" constant="87" id="e5r-fW-EUp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="centerY" secondItem="cA1-9x-8rs" secondAttribute="centerY" id="uBM-Hc-wXC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

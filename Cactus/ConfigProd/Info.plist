@@ -40,6 +40,16 @@
 				<string>fb1303868239764571</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>Cactus</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>app.cactus</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>88</string>

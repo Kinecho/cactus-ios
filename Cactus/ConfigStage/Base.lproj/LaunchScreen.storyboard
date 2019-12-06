@@ -33,19 +33,35 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="gS7-UT-N4E"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="gS7-UT-N4E"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="gS7-UT-N4E"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" name="Pink"/>
                         <constraints>
-                            <constraint firstItem="5UC-5p-a2V" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="BLk-BZ-5kf"/>
+                            <constraint firstItem="5UC-5p-a2V" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="BLk-BZ-5kf"/>
                             <constraint firstItem="5UC-5p-a2V" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="100" id="DpA-2W-eUh"/>
                             <constraint firstItem="fpj-IW-DP0" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="WCB-9W-wbR"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5UC-5p-a2V" secondAttribute="trailing" constant="87" id="bN7-Vl-77m"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5UC-5p-a2V" secondAttribute="trailing" constant="87" id="bN7-Vl-77m"/>
                             <constraint firstItem="5UC-5p-a2V" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="gbZ-Jt-BfZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" relation="lessThanOrEqual" secondItem="5UC-5p-a2V" secondAttribute="top" constant="-100" id="zJh-fV-2R4"/>
                             <constraint firstItem="fpj-IW-DP0" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="zUZ-j4-xKK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <exclude reference="bN7-Vl-77m"/>
+                                <exclude reference="BLk-BZ-5kf"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
