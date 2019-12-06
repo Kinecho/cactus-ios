@@ -90,6 +90,8 @@ class LinkedAccountsTableViewController: UITableViewController {
             return "Facebook"
         case "password":
             return "Email/Password"
+        case "apple.com":
+            return "Apple"
         default:
             return nil
         }

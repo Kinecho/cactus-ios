@@ -29,6 +29,7 @@ enum CactusImage: String {
     case twitter = "Twitter"
     case facebook = "Facebook"
     case google = "Google"
+    case apple = "Apple"
     case envelope
 
     //Illustraions
@@ -154,6 +155,8 @@ enum CactusImage: String {
             return CactusImage.twitter.getImage()
         case "password":
             return CactusImage.envelope.getImage()
+        case "apple.com":
+            return CactusImage.apple.getImage()
         default:
             return nil
         }

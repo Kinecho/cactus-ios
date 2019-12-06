@@ -9,13 +9,14 @@
 import UIKit
 import FirebaseUI
 import Firebase
+import AuthenticationServices
 
 class LoginViewController: UIViewController {
     var authUI: FUIAuth!
     var loggedOutTitle = "Sign In"
     var anonymousUserTitle = "Create an Account"
-    var anonymousSubtitle = "Start with a happier mindset toady."
-    var loggedOutSubtitle = "Start with a happier mindset today."
+    var anonymousSubtitle = "Boost your focus and health."
+    var loggedOutSubtitle = "Boost your focus and health."
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var otherProviderLabel: UILabel!
@@ -219,12 +220,15 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
         authUI.delegate = self
         authUI.shouldAutoUpgradeAnonymousUsers = true
         self.authUI = authUI
-        
-        let providers: [FUIAuthProvider] = [
+//        FUIApple
+//        FUIOAuth.twitter
+        var providers: [FUIAuthProvider] = [
             FUIFacebookAuth(),
             FUIGoogleAuth(),
-            //            self.getTwitterProvider()
         ]
+        if #available(iOS 13.0, *) {
+            providers.insert(FUIOAuth.appleAuthProvider(), at: 0)
+        }
         
         authUI.providers = providers
     }
@@ -296,7 +300,7 @@ class CustomAuthPickerViewController: FUIAuthPickerViewController {
                 textView.textAlignment = .center
                 textView.textColor = UIColor.darkText
             }
-        })        
+        })
     }
 }
 
