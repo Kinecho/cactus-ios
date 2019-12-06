@@ -104,6 +104,45 @@ class Content: Codable {
     var link: ContentLink?
     var actionButton: ActionButton?
     var showElementIcon: Bool?
+    
+    enum ContentCodingKeys: CodingKey {
+        case contentType
+        case quote
+        case text
+        case text_md
+        case backgroundImage
+        case label
+        case title
+        case video
+        case photo
+        case audio
+        case link
+        case actionButton
+        case showElementIcon
+    }
+    
+    public required init(from decoder: Decoder) throws {
+//        try super.init(from: decoder)
+        do {
+            let container = try decoder.container(keyedBy: ContentCodingKeys.self)
+            self.contentType = (try? container.decode(ContentType.self, forKey: ContentCodingKeys.contentType)) ?? ContentType.text
+            self.quote = try? container.decode(Quote.self, forKey: ContentCodingKeys.quote)
+            self.text = try? container.decode(String.self, forKey: ContentCodingKeys.text)
+            self.text_md = try? container.decode(String.self, forKey: ContentCodingKeys.text_md)
+            self.backgroundImage = try? container.decode(ContentBackgroundImage.self, forKey: ContentCodingKeys.backgroundImage)
+            self.label = try? container.decode(String.self, forKey: ContentCodingKeys.label)
+            self.title = try? container.decode(String.self, forKey: ContentCodingKeys.title)
+            self.video = try? container.decode(VideoFile.self, forKey: ContentCodingKeys.video)
+            self.photo = try? container.decode(ImageFile.self, forKey: ContentCodingKeys.photo)
+            self.audio = try? container.decode(AudioFile.self, forKey: ContentCodingKeys.audio)
+            self.link = try? container.decode(ContentLink.self, forKey: ContentCodingKeys.link)
+            self.actionButton = try? container.decode(ActionButton.self, forKey: ContentCodingKeys.actionButton)
+            self.showElementIcon = try? container.decode(Bool.self, forKey: ContentCodingKeys.showElementIcon)
+        } catch {
+            self.contentType = ContentType.text
+            Logger.shared.error("error decoding ImageFile", error)
+        }
+    }
 }
 
 class PromptContent: FlamelinkIdentifiable {

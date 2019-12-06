@@ -41,7 +41,7 @@ class FlamelinkFile: Codable {
                 self.fileIds.append(fileId)
             }
         } catch {
-            print("error init FlamelinkFile", error)
+            Logger.shared.error("error decoding FlamelinkFile", error)
         }
     }
 }
@@ -75,13 +75,13 @@ class AudioFile: FlamelinkFile {
 class ImageFile: FlamelinkFile {
     var url: String?
     var storageUrl: String?
-    var allowDarkModeInvert: Bool? = false
+//    var allowDarkModeInvert: Bool? = false
     
     enum ImageCodingKeys: String, CodingKey {
         case fileIds
         case url
         case storageUrl
-        case allowDarkModeInvert
+//        case allowDarkModeInvert
     }
     
     public required init(from decoder: Decoder) throws {
@@ -90,9 +90,9 @@ class ImageFile: FlamelinkFile {
             let container = try decoder.container(keyedBy: ImageCodingKeys.self)
             self.url = try? container.decode(String.self, forKey: ImageCodingKeys.url)
             self.storageUrl = try? container.decode(String.self, forKey: ImageCodingKeys.storageUrl)
-            self.allowDarkModeInvert = try? container.decode(Bool.self, forKey: ImageCodingKeys.allowDarkModeInvert)
+//            self.allowDarkModeInvert = try? container.decode(Bool.self, forKey: ImageCodingKeys.allowDarkModeInvert)
         } catch {
-            print("error init ImageFile", error)
+            Logger.shared.error("error decoding ImageFile", error)
         }
     }
     
