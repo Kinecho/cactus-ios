@@ -24,14 +24,14 @@ class AuthProviderTableViewCell: UITableViewCell {
     }
     
     func sharedConfig() {
-//        self.contentView.translatesAutoresizingMaskIntoConstraints = false
+        self.contentView.translatesAutoresizingMaskIntoConstraints = false
         if let imageView = self.imageView {
             imageView.translatesAutoresizingMaskIntoConstraints = false
             imageView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10).isActive = true
             imageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10).isActive = true
             imageView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10).isActive = true
-            imageView.heightAnchor.constraint(equalToConstant: 25).isActive = true
-            imageView.widthAnchor.constraint(equalToConstant: 25).isActive = true
+            imageView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+            imageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
         }
         
         if let textLabel = self.textLabel {

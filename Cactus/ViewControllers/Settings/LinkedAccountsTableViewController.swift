@@ -26,7 +26,8 @@ class LinkedAccountsTableViewController: UITableViewController {
         })
         
         self.tableView.rowHeight = UITableView.automaticDimension
-        self.tableView.estimatedRowHeight = 44
+        self.tableView.estimatedRowHeight = 75
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

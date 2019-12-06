@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="cA1-9x-8rs">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logomark" translatesAutoresizingMaskIntoConstraints="NO" id="cA1-9x-8rs">
                                 <rect key="frame" x="87" y="353" width="240" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="6d5-Y0-OQp"/>
@@ -25,7 +25,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" name="Pink"/>
+                        <color key="backgroundColor" name="GreenDarkest"/>
                         <constraints>
                             <constraint firstItem="cA1-9x-8rs" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="M9y-aJ-f1c"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="centerY" secondItem="cA1-9x-8rs" secondAttribute="centerY" id="uBM-Hc-wXC"/>
@@ -39,9 +39,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="705" height="348"/>
-        <namedColor name="Pink">
-            <color red="1" green="0.83899998664855957" blue="0.77999997138977051" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="logomark" width="152" height="348"/>
+        <namedColor name="GreenDarkest">
+            <color red="0.027000000700354576" green="0.27099999785423279" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
