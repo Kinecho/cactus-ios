@@ -9,6 +9,7 @@
 import Foundation
 
 class FlamelinkFile: Codable {
+    static let logger = Logger("FlamelinkFile")
     var fileIds: [String] = []
     var fileId: String? {
         get {
@@ -22,6 +23,10 @@ class FlamelinkFile: Codable {
         }
     }
     
+    var isEmpty: Bool {
+        isBlank(fileId) && fileIds.isEmpty
+    }
+
     enum CodingKeys: String, CodingKey {
         case fileIds
     }
@@ -41,7 +46,7 @@ class FlamelinkFile: Codable {
                 self.fileIds.append(fileId)
             }
         } catch {
-            Logger.shared.error("error decoding FlamelinkFile", error)
+            FlamelinkFile.logger.error("error decoding FlamelinkFile", error)
         }
     }
 }
@@ -49,6 +54,10 @@ class FlamelinkFile: Codable {
 class VideoFile: FlamelinkFile {
     var youtubeVideoId: String?
     var url: String?
+    
+    override var isEmpty: Bool {
+        super.isEmpty && isBlank(youtubeVideoId) && isBlank(url)
+    }
     
     enum VideoCodingKeys: String, CodingKey {
         case youtubeVideoId
@@ -63,25 +72,33 @@ class VideoFile: FlamelinkFile {
             self.youtubeVideoId = try? container.decode(String.self, forKey: VideoCodingKeys.youtubeVideoId)
             
         } catch {
-            print("error init VideoFile", error)
+            FlamelinkFile.logger.error("error init VideoFile", error)
         }
     }
 }
 
 class AudioFile: FlamelinkFile {
     var url: String?
+    
+    override var isEmpty: Bool {
+        super.isEmpty && isBlank(url)
+    }
 }
 
 class ImageFile: FlamelinkFile {
     var url: String?
     var storageUrl: String?
-//    var allowDarkModeInvert: Bool? = false
+    var allowDarkModeInvert: Bool? = false
+    
+    override var isEmpty: Bool {
+        super.isEmpty && FormatUtils.isBlank(self.url) && FormatUtils.isBlank(storageUrl) && FormatUtils.isBlank(self.fileId) && self.fileIds.isEmpty
+    }
     
     enum ImageCodingKeys: String, CodingKey {
         case fileIds
         case url
         case storageUrl
-//        case allowDarkModeInvert
+        case allowDarkModeInvert
     }
     
     public required init(from decoder: Decoder) throws {
@@ -90,13 +107,9 @@ class ImageFile: FlamelinkFile {
             let container = try decoder.container(keyedBy: ImageCodingKeys.self)
             self.url = try? container.decode(String.self, forKey: ImageCodingKeys.url)
             self.storageUrl = try? container.decode(String.self, forKey: ImageCodingKeys.storageUrl)
-//            self.allowDarkModeInvert = try? container.decode(Bool.self, forKey: ImageCodingKeys.allowDarkModeInvert)
+            self.allowDarkModeInvert = try? container.decode(Bool.self, forKey: ImageCodingKeys.allowDarkModeInvert)
         } catch {
-            Logger.shared.error("error decoding ImageFile", error)
+            FlamelinkFile.logger.error("error decoding ImageFile", error)
         }
-    }
-    
-    func isEmpty() -> Bool {
-        return FormatUtils.isBlank(self.url) && FormatUtils.isBlank(storageUrl) && FormatUtils.isBlank(self.fileId) && self.fileIds.isEmpty
     }
 }

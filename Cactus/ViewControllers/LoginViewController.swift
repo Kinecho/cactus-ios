@@ -66,12 +66,12 @@ class LoginViewController: UIViewController {
                 return
         }
         
-        print("submitting magic link \(email)")
+        self.logger.info("submitting magic link \(email)")
         UserDefaults.standard.set(email, forKey: UserDefaultsKey.magicLinkEmail)
         let magicLinkRequest = MagicLinkRequest(email: email, continuePath: "/home")
         ApiService.sharedInstance.sendMagicLink(magicLinkRequest) { (response) in
             DispatchQueue.main.async {
-                print("Got magic link ")
+                self.logger.debug("Got magic link response from server")
                 self.submitEmailButton.setEnabled(true)
                 self.handleMagicLinkResponse(response)
             }            
@@ -141,7 +141,7 @@ class LoginViewController: UIViewController {
         if self.authViewController == nil {
             self.authViewController = CustomAuthPickerViewController(authUI: self.authUI)
         } else {
-            print("auth already added")
+            self.logger.debug("auth already added")
             return
         }
         
@@ -244,9 +244,9 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
         }
         
         Auth.auth().signIn(with: credential) { (dataResult, error) in
-            print("completed signinandretrievedata method")
+            self.logger.info("completed signinandretrievedata method")
             if let error = error as NSError? {
-                print("Failed to re-login: \(error)")
+                self.logger.error("Failed to re-login: \(error)")
                 return
             }
             
@@ -259,15 +259,15 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
     }
     
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
-        print("AUTHDATA RESULT")
+        self.logger.info("Auth did sign in finished... handling result now.", functionName: #function)
         //anonymous auth upgrade
-        if let error = error as NSError?, error.code == FUIAuthErrorCode.mergeConflict.rawValue {
+        if let error = error as NSError? {
             let code = UInt(error.code)
             switch code {
             case FUIAuthErrorCode.mergeConflict.rawValue:
                 self.handleAnonymousUpgrade(error: error)
             default:
-                self.logger.error("There was an error while logging in.", error)
+                self.logger.error("There was an unhandled error while logging.", error, functionName: #function)
             }
         } else if let authResult = authDataResult {
             self.logger.info("successful login")

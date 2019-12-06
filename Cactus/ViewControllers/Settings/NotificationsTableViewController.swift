@@ -42,7 +42,7 @@ class NotificationsTableViewController: UITableViewController, MFMailComposeView
         
         self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, error, _) in
             if let error = error {
-                print("error fetching member \(error)")
+                self.logger.error("error fetching member \(error)")
             }
             self.member = member
             self.updateNotificationTimeLabel()
@@ -221,15 +221,15 @@ class NotificationsTableViewController: UITableViewController, MFMailComposeView
             DispatchQueue.main.async {
                 switch status {
                 case .authorized, .provisional:
-                    print("authorized")
+                    self.logger.debug("authorized", functionName: "refreshPermissionsToggle")
                     self.pushSwitch.setOn(true, animated: animated)
                     self.managePermissionsInSettings = true
                 case .denied:
-                    print("denied")
+                    self.logger.debug("denied",functionName: "refreshPermissionsToggle")
                     self.managePermissionsInSettings = true
                     self.pushSwitch.setOn(false, animated: animated)
                 case .notDetermined:
-                    print("not determined, ask user for permission now")
+                    self.logger.debug("not determined, ask user for permission now" , functionName: "refreshPermissionsToggle")
                     self.managePermissionsInSettings = false
                     self.pushSwitch.setOn(false, animated: animated)
                 @unknown default:

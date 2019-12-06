@@ -11,7 +11,7 @@ import FirebaseFirestore
 
 class FlamelinkService {
     let firestoreService: FirestoreService
-    
+    let logger = Logger("FlamelinkServce")
     static let sharedInstance = FlamelinkService()
     
     private init() {
@@ -118,7 +118,7 @@ class FlamelinkService {
                     let object = try document.decode(as: T.self, includingId: false)
                     results.append(object)
                 } catch {
-                    print("error decodding document", error)
+                    self.logger.error("error decodding document", error)
                 }
             })
             return onData(results, nil)

@@ -55,7 +55,6 @@ class AppMainViewController: UIViewController {
         current.view.frame = view.bounds
         view.addSubview(current.view)
         current.didMove(toParent: self)
-        // Do any additional setup after loading the view.
         logger.info("***** setting up auth*****")
         self.setupAuth()
     }

@@ -65,6 +65,33 @@ class Quote: Codable {
     var authorName: String?
     var authorTitle: String?
     var authorAvatar: ImageFile?
+    
+    var isEmpty: Bool {
+        isBlank(text) && isBlank(authorName) && isBlank(authorTitle) && (authorAvatar?.isEmpty ?? true)
+    }
+    
+    enum QuoteCodingKey: CodingKey {
+        case text
+        case authorName
+        case authorTitle
+        case authorAvatar
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        do {
+            let container = try decoder.container(keyedBy: QuoteCodingKey.self)
+            self.text = try? container.decode(String.self, forKey: .text)
+            self.authorName = try? container.decode(String.self, forKey: .authorName)
+            self.authorTitle = try? container.decode(String.self, forKey: .authorTitle)
+            if (try? container.decode(String.self, forKey: .authorAvatar)) == nil {
+                self.authorAvatar = try? container.decode(ImageFile.self, forKey: .authorAvatar)
+            }
+        } catch {
+            Logger.shared.error("error decoding Quote content", error)
+        }
+    }
+    
+    
 }
 
 class ContentLink: Codable {
@@ -122,18 +149,30 @@ class Content: Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-//        try super.init(from: decoder)
         do {
             let container = try decoder.container(keyedBy: ContentCodingKeys.self)
             self.contentType = (try? container.decode(ContentType.self, forKey: ContentCodingKeys.contentType)) ?? ContentType.text
             self.quote = try? container.decode(Quote.self, forKey: ContentCodingKeys.quote)
+            if self.quote?.isEmpty == true {
+                self.quote = nil
+            }
+            
             self.text = try? container.decode(String.self, forKey: ContentCodingKeys.text)
             self.text_md = try? container.decode(String.self, forKey: ContentCodingKeys.text_md)
             self.backgroundImage = try? container.decode(ContentBackgroundImage.self, forKey: ContentCodingKeys.backgroundImage)
             self.label = try? container.decode(String.self, forKey: ContentCodingKeys.label)
             self.title = try? container.decode(String.self, forKey: ContentCodingKeys.title)
+            
             self.video = try? container.decode(VideoFile.self, forKey: ContentCodingKeys.video)
+            if video?.isEmpty == true {
+                self.video = nil
+            }
+            
             self.photo = try? container.decode(ImageFile.self, forKey: ContentCodingKeys.photo)
+            if self.photo?.isEmpty == true {
+                self.photo = nil
+            }
+            
             self.audio = try? container.decode(AudioFile.self, forKey: ContentCodingKeys.audio)
             self.link = try? container.decode(ContentLink.self, forKey: ContentCodingKeys.link)
             self.actionButton = try? container.decode(ActionButton.self, forKey: ContentCodingKeys.actionButton)

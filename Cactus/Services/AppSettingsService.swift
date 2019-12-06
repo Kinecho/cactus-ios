@@ -14,14 +14,14 @@ class AppSettingsService {
     let schema = FlamelinkSchema.appSettings_ios
     var currentSettings: AppSettings?
     fileprivate var settingsObserver: ListenerRegistration?
-    
     static let sharedInstance = AppSettingsService()
+    let logger = Logger("AppSettingsService")
     
     private init() {
         self.flamelinkService = FlamelinkService.sharedInstance
         self.settingsObserver = self.observeSettings { (settings, error) in
             if let error = error {
-                print("Failed to observe settings", error)
+                self.logger.error("Failed to observe settings", error)
             }
             self.currentSettings = settings
         }
@@ -35,7 +35,7 @@ class AppSettingsService {
         let query = flamelinkService.getQuery(self.schema)
         return self.flamelinkService.observeQuery(query) { (settings: [AppSettings]?, error) in
             if let error = error {
-                print("Error fetching settings", error)
+                self.logger.error("Error fetching settings", error)
             }
             onData(settings?.first, error)
         }
@@ -45,7 +45,7 @@ class AppSettingsService {
         let query = flamelinkService.getQuery(self.schema)
         self.flamelinkService.getFirst(query) { (settings: AppSettings?, error) in
             if let error = error {
-                print("Error fetching settings", error)
+                self.logger.error("Error fetching settings", error)
             }
             onData(settings, error)
         }

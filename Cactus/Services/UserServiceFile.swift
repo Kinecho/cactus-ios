@@ -65,7 +65,7 @@ class UserService {
         Auth.auth().signIn(withEmail: email, link: link) { (authResult, error) in
             if let error = error {
                 if let errorCode = AuthErrorCode(rawValue: error._code) {
-                    print("errorCode \(errorCode)")
+                    self.logger.error("Auth sign in with email errorCode \(errorCode)", functionName: #function, line: #line)
                     switch errorCode {
                     case .invalidEmail:
                         return self.confirmEmailAddress(link: link, message: "\(email) does not match the email address the sign in link was sent to. Please try again.")

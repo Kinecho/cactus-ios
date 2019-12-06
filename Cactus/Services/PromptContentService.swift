@@ -12,7 +12,7 @@ import FirebaseFirestore
 
 class PromptContentService {
     let flamelinkService: FlamelinkService
-    
+    let logger = Logger("PromptContentService")
     let schema = FlamelinkSchema.promptContent
     
     static let sharedInstance = PromptContentService()
@@ -27,9 +27,9 @@ class PromptContentService {
     
     func getByEntryId(id: String, _ onData: @escaping (PromptContent?, Any?) -> Void) {
         flamelinkService.getByEntryId(id, schema: self.schema) { (promptContent: PromptContent?, error) in
-            print("Fetched prompt content")
+            self.logger.debug("Fetched prompt content for entryId \(id)")
             if let error = error {
-                print("Failed to fetch prompt content", error)
+                self.logger.error("Failed to fetch prompt content", error)
             }
             onData(promptContent, error)
         }

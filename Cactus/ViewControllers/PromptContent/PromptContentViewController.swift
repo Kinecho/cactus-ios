@@ -17,14 +17,13 @@ protocol PromptContentViewControllerDelegate: class {
 
 // Super Class for various Prompt Content cards
 class PromptContentViewController: UIViewController {
-
     weak var delegate: PromptContentViewControllerDelegate?
     var content: Content!
     var promptContent: PromptContent!
     var tapNavigationEnabled = true
-    
     var hasTextSelection = false
     var selectedTextView: UITextView?
+    var logger = Logger("PromptContentViewController")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +47,7 @@ class PromptContentViewController: UIViewController {
             if tapNavigationEnabled {
                 self.delegate?.handleTapGesture(touch: touch)
             } else {
-                print("Tap Navigation is disabled")
+                self.logger.debug("Tap Navigation is disabled", functionName: #function)
             }
         }
     }

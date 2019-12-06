@@ -29,7 +29,7 @@ struct PageResult<T: FirestoreIdentifiable> {
 
 class FirestoreService {
     let db: Firestore
-    
+    let logger = Logger("FirestoreService")
     static let sharedInstance = FirestoreService()
     
     private init() {
@@ -120,7 +120,7 @@ class FirestoreService {
             result.updated = []
             snapshot?.documentChanges.forEach({ (change) in
                 guard let model = try? change.document.decode(as: T.self) else {
-                    print("Failed to decode document")
+                    self.logger.error("Failed to decode document for \(T.self)")
                     return
                 }
                 switch change.type {
@@ -139,7 +139,7 @@ class FirestoreService {
                     let object = try document.decode(as: T.self)
                     models.append(object)
                 } catch {
-                    print("error decodding document", error)
+                    self.logger.error("error decodding document", error)
                 }
             })
             
@@ -172,7 +172,7 @@ class FirestoreService {
                     let object = try document.decode(as: T.self)
                     results.append(object)
                 } catch {
-                    print("error decodding document", error)
+                    self.logger.error("error decodding document", error)
                 }
             })
             return onData(results, nil)
@@ -207,15 +207,15 @@ class FirestoreService {
             ref.setData(json, merge: true) { (error) in
                 var savedObject = object
                 savedObject.id = ref.documentID
-                print("Saved Document. IsNew = \(isNew)")
+                self.logger.debug("Saved Document. IsNew = \(isNew)")
                 
                 if let error = error {
-                    print("Failed to save document", error)
+                    self.logger.error("Failed to save document", error)
                 }
                 onComplete(savedObject, error)
             }
         } catch {
-            print("ERROR SAVING \(error)")
+            self.logger.error("ERROR SAVING \(error)")
             onComplete(nil, error)
         }
     }
@@ -231,7 +231,7 @@ class FirestoreService {
                 let object = try documemntSnapshot?.decode(as: T.self)
                 return completion(object, nil)
             } catch {
-                print("error decoding object", error)
+                self.logger.error("error decoding object", error)
                 return completion(nil, error)
             }
         }
@@ -244,7 +244,7 @@ class FirestoreService {
             BaseModelField.deletedAt: Timestamp()
         ]) { err in
             if let err = err {
-                print("Failed to delete document", err)
+                self.logger.error("Failed to delete document", err)
             }
             onComplete(err)
         }
@@ -270,10 +270,10 @@ class FirestoreService {
             
             batch.commit { err in
                 if let err = err {
-                    print("failed to delete documents", err)
+                    self.logger.error("failed to delete documents", err)
                     return completion(nil, err)
                 } else {
-                    print("deleted batch successfully")
+                    self.logger.error("deleted batch successfully")
                     return completion(deletedCount, nil)
                 }
             }

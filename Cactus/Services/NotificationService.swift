@@ -15,6 +15,7 @@ class NotificationService {
     
     let firestoreService: FirestoreService
     let notificationCenter = NotificationCenter.default
+    let logger = Logger("NotificationService")
     
     private init() {
         firestoreService = FirestoreService.sharedInstance
@@ -25,8 +26,7 @@ class NotificationService {
     public static var sharedInstance = NotificationService()
     
     @objc func appMovedToForeground() {
-        //test
-        print("Notification service - app moved to foreground, removing badge count")
+        self.logger.debug("Notification service - app moved to foreground, removing badge count")
         self.clearIconBadge()
     }
     
@@ -62,14 +62,14 @@ class NotificationService {
     
     func requestPushPermissions(onFinished: @escaping (Bool) -> Void) {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {hasPermission, _ in
-            print("Has permission", hasPermission)
+            self.logger.debug("Has permission \(hasPermission)")
             self.registerForPushIfEnabled()
             onFinished(hasPermission)
         }
     }
     
     func handlePushMessage(_ message: [AnyHashable: Any]) {
-        print("Cactus Notification service is handling message \(message)")
+        self.logger.info("Cactus Notification service is handling message \(message)")
         
     }
     

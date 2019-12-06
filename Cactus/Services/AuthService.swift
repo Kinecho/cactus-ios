@@ -13,6 +13,7 @@ class AuthService {
     
     static let sharedInstance = AuthService()
     let firestore: FirestoreService
+    let logger = Logger("AuthService")
     
     private init() {
         self.firestore = FirestoreService.sharedInstance
@@ -42,24 +43,22 @@ class AuthService {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Log Out", style: .destructive) { _ in
             CactusMemberService.sharedInstance.removeFCMToken(onCompleted: { (error) in
-                if error != nil {
-                    print("Failed to remove tokens from Cactus User. Oh well - still logging out", error!)
+                if let error = error {
+                    self.logger.error("Failed to remove tokens from Cactus User. Oh well - still logging out", error)
                 }
                 do {
                     try Auth.auth().signOut()
                     vc.dismiss(animated: false, completion: nil)
                     _ = AppDelegate.shared.rootViewController.showScreen(ScreenID.Login)
                 } catch {
-                    print("error signing out", error)
+                    self.logger.error("error signing out", error)
                     let alert = UIAlertController(title: "Error Logging Out", message: "An unexpected error occurred while logging out. \n\n\(error)", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                     vc.present(alert, animated: true)
                 }
             })
         })
-        
         vc.present(alert, animated: true)
-        
     }
     
     func getAuthStateChangeHandler(completion: @escaping (Auth, User?) -> Void) -> AuthStateDidChangeListenerHandle {

@@ -55,18 +55,18 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     func reloadVisibleViews() {
         let visibleIds = self.collectionView.indexPathsForVisibleItems
         if  !visibleIds.isEmpty {
-            print("reloading \(visibleIds)")
+            self.logger.info("reloading \(visibleIds)")
             self.collectionView.reloadItems(at: visibleIds)
         }
     }
     
     @objc func appMovedToForeground() {
-        print("App moved to ForeGround!")
+        self.logger.debug("App moved to ForeGround!")
         self.reloadVisibleViews()
     }
     
     @objc func appMovedToBackground() {
-        print("App Moved to background")
+        self.logger.debug("App Moved to background")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,19 +92,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
                     response = ReflectionResponseService.sharedInstance.createReflectionResponse(prompt, medium: .PROMPT_IOS)
                 }
                 vc.reflectionResponse = response                
-            }
-            
-        //depracated
-        case "JournalEntryDetail":
-            guard let cell = sender as? JournalEntryCollectionViewCell else {
-                return
-            }
-            
-            let detailController = segue.destination as? JournalEntryDetailViewController
-            detailController?.prompt = cell.prompt
-            detailController?.responses = cell.responses
-            detailController?.sentPrompt = cell.sentPrompt
-            detailController?.promptContent = cell.promptContent
+            }        
         default:
             break
         }
@@ -117,7 +105,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == self.dataSource.count - 1 {
             // Last cell is visible
-            print("Loading next page")
+            self.logger.info("Loading next page")
             DispatchQueue.main.async {
                 self.dataSource.loadNextPage()
             }
@@ -156,9 +144,6 @@ class JournalFeedCollectionViewController: UICollectionViewController {
             ])
             
             self.performSegue(withIdentifier: "PromptContentCards", sender: cell)
-        } else {
-            // If no prompt content, don't do anything
-            // self.performSegue(withIdentifier: "JournalEntryDetail", sender: cell)
         }
     }
 
@@ -166,14 +151,14 @@ class JournalFeedCollectionViewController: UICollectionViewController {
 
 extension JournalFeedCollectionViewController: UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        print("Prefetch indexes called for \(indexPaths.map({$0.row}))")
+        self.logger.info("Prefetch indexes called for \(indexPaths.map({$0.row}))")
         if indexPaths.contains(where: self.isLoadingCell) {
             self.dataSource.loadNextPage()
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
-        print("Cancel prefetchign for \(indexPaths)")
+        self.logger.info("Cancel prefetching for \(indexPaths)")
     }
     
     func isLoadingCell(for indexPath: IndexPath) -> Bool {

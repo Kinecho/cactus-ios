@@ -26,6 +26,7 @@ struct Emoji {
     static let outbox = "📤"
     static let inbox = "📥"
     static let tada = "🎉"
+    static let flame = "🔥"
 }
 
 enum LogLevel: Int {

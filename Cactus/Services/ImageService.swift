@@ -12,7 +12,7 @@ import Cloudinary
 
 class ImageService {
     static var shared = ImageService()
-    
+    let logger = Logger("ImageService")
     let cloudinary: CLDCloudinary
     init() {
         let config = CLDConfiguration(cloudName: "cactus-app", secure: true)
@@ -70,7 +70,7 @@ class ImageService {
             return
         }
         
-        guard !photo.isEmpty() else {
+        guard !photo.isEmpty else {
             imageView.isHidden = true
             return
         }
@@ -89,6 +89,6 @@ class ImageService {
 
 extension ImageService: SwiftyGifDelegate {
     func gifURLDidFail(sender: UIImageView, url: URL, error: Error?) {
-        print("Gif URL failed to load", url, String(describing: error))
+        self.logger.error("Gif URL failed to load \(url)", String(describing: error))
     }
 }

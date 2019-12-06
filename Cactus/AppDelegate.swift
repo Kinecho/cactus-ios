@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 event.tags = tags
             }
         } catch let error {
-            print("\(error)")
+            self.logger.error("error setting up the sentry client \(error)")
         }
         
         // Override point for customization after application launch.
@@ -122,18 +122,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String? else {
             return false
         }
-        print("Starting application open url method (line 79)")
+        self.logger.debug("Starting application open url method (line 79)", functionName: #function, line: #line)
         if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
-            print("Handled by firebase auth ui")
+            self.logger.debug("Handled by firebase auth ui")
             return true
         }
         // other URL handling goes here.
-        print("handling custom link scheme", url )
+        self.logger.debug("handling custom link scheme \(url)", functionName: #function, line: #line)
         if let dynamicLink = DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: url) {
             // Handle the deep link. For example, show the deep-linked content or
             // apply a promotional offer to the user's account.
             // ...
-            print("handling dynamic link", dynamicLink)
+            self.logger.debug("handling dynamic link \(dynamicLink)", functionName: #function, line: #line)
             return false
         }
         
@@ -235,11 +235,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 //        vc.journalFeedDataSource.checkForNewPrompts { (sentPrompts) in
 //            if (sentPrompts?.count ?? 0) > 0 {
-//                print("Background fetch found new data")
+//                self.logger.info("Background fetch found new data")
 //                completionHandler(.newData)
 //                vc.journalFeedViewController?.reloadVisibleViews()
 //            } else {
-//                print("Background fetch did not have any new data")
+//                self.logger.info("Background fetch did not have any new data")
 //                completionHandler(.noData)
 //            }
 //        }
@@ -249,7 +249,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: MessagingDelegate {
     // [START refresh_token]
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-        print("Firebase registration token: \(fcmToken)")
+        self.logger.info("\(Emoji.flame) Firebase registration token: \(fcmToken)")
         self.fcmToken = fcmToken
         let dataDict: [String: String] = ["token": fcmToken]
         NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
@@ -261,7 +261,7 @@ extension AppDelegate: MessagingDelegate {
     // Receive data messages on iOS 10+ directly from FCM (bypassing APNs) when the app is in the foreground.
     // To enable direct data messages, you can set Messaging.messaging().shouldEstablishDirectChannel to true.
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
-        print("Received data message: \(remoteMessage.appData)")
+        self.logger.debug("Received data message: \(remoteMessage.appData)")
     }
     // [END ios_10_data_message]
 }
@@ -281,12 +281,12 @@ extension AppDelegate {
 @available(iOS 10, *)
 extension AppDelegate: UNUserNotificationCenterDelegate {
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("Unable to register for remote notifications: \(error.localizedDescription)")
+        self.logger.warn("Unable to register for remote notifications: \(error.localizedDescription)", functionName: #function, line: #line)
     }
     
     // [START receive_message]
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
-        print("didReceiveRemoteNotification triggered line 243")
+        self.logger.debug("didReceiveRemoteNotification triggered line 243", functionName: #function, line: #line)
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
         // TODO: Handle data of notification
@@ -294,16 +294,16 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
+            self.logger.debug("Message ID: \(messageID)", functionName: #function, line: #line)
         }
         
         // Print full message.
-        print(userInfo)
+        self.logger.debug("Message Info: \(userInfo)", functionName: #function, line: #line)
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        print("didReceiveRemoteNotification triggered line 260")
+        self.logger.info("didReceiveRemoteNotification triggered line 260", functionName: #function, line: #line)
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
         // TODO: Handle data of notification
@@ -311,11 +311,11 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
+            self.logger.debug("Message ID: \(messageID)", functionName: #function, line: #line)
         }
         
         // Print full message.
-        print(userInfo)
+        self.logger.debug("Message Info: \(userInfo)", functionName: #function, line: #line)
         
         completionHandler(UIBackgroundFetchResult.newData)
     }
@@ -326,16 +326,16 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let userInfo = notification.request.content.userInfo
-        print("Receive displayed notificications for ios 10" )
+        self.logger.info("Receive displayed notificications for ios 10", functionName: #function, line: #line)
         // With swizzling disabled you must let Messaging know about the message, for Analytics
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
+            self.logger.debug("Message ID: \(messageID)", functionName: #function, line: #line)
         }
         
         // Print full message.
-        print(userInfo)
+        self.logger.debug("Message Info: \(userInfo)", functionName: #function, line: #line)
         NotificationService.sharedInstance.handlePushMessage(userInfo)
         // Change this to your preferred presentation option
         completionHandler([])
@@ -346,13 +346,12 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
         // Print message ID.
-        print("User notification received")
+        self.logger.info("User notification received", functionName: #function, line: #line)
         if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
+            self.logger.debug("Message ID: \(messageID)", functionName: #function, line: #line)
         }
-        
         // Print full message.
-        print(userInfo)
+        self.logger.debug("Message Info: \(userInfo)", functionName: #function, line: #line)
         
         completionHandler()
     }

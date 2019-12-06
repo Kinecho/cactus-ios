@@ -139,7 +139,7 @@ class PromptContentPageViewController: UIPageViewController {
         case .video:
             viewController = VideoContentViewController.loadFromNib()
         default:
-            print("PromptContentPageViewController: ContentType not handled: \(content.contentType)")
+            self.logger.warn("PromptContentPageViewController: ContentType not handled: \(content.contentType)")
         }
         
         if let vc = viewController {

@@ -10,9 +10,8 @@ import Foundation
 import FirebaseFirestore
 
 class ReflectionResponseService {
-    
     let firestoreService: FirestoreService
-    
+    let logger = Logger("ReflectionResponseService")
     static let sharedInstance = ReflectionResponseService()
     
     private init() {
@@ -73,7 +72,7 @@ class ReflectionResponseService {
                 response.mailchimpUniqueEmailId = listMember.unique_email_id
             }
         } else {
-            print("Warning: no cactus member was found")
+            self.logger.warn("Warning: no cactus member was found", functionName: #function, line: #line)
         }
         
         return response

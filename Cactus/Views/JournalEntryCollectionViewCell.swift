@@ -42,7 +42,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     var editViewController: EditReflectionViewController?
     var responseTextViewHeightConstraint: NSLayoutConstraint?
     var showingBackgroundImage = false
-//    var cellWidthConstraint: NSLayoutConstraint?
+    //    var cellWidthConstraint: NSLayoutConstraint?
     var responseBottomConstraint: NSLayoutConstraint?
     var textViewBottomPadding: CGFloat = 20
     var journalEntry: JournalEntry?
@@ -83,10 +83,10 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
                        initialSpringVelocity: -1,
                        options: .curveEaseOut,
                        animations: {
-                            self.moreButton?.transform = CGAffineTransform(rotationAngle: .pi/2)
-                        }, completion: { _ in
-                            self.moreButton?.transform = CGAffineTransform(rotationAngle: .pi/2)
-                        }
+                        self.moreButton?.transform = CGAffineTransform(rotationAngle: .pi/2)
+        }, completion: { _ in
+            self.moreButton?.transform = CGAffineTransform(rotationAngle: .pi/2)
+        }
         )
         
         func closeAnimation() {
@@ -96,10 +96,10 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
                            initialSpringVelocity: -1,
                            options: .curveEaseOut,
                            animations: {
-                                self.moreButton?.transform = CGAffineTransform.identity
-                            }, completion: { _ in
-                                self.moreButton?.transform = CGAffineTransform.identity
-                            })
+                            self.moreButton?.transform = CGAffineTransform.identity
+            }, completion: { _ in
+                self.moreButton?.transform = CGAffineTransform.identity
+            })
         }
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -116,20 +116,20 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         }))
         
         if isComplete {
-                   let label = FormatUtils.isBlank(responseText) ? "Add Note" : "Edit Note"
-                   alert.addAction(UIAlertAction(title: label, style: .default) { _ in
-                       print("Edit reflection tapped")
-                       closeAnimation()
-                       self.startEdit()
-                   })
-               }
-                
+            let label = FormatUtils.isBlank(responseText) ? "Add Note" : "Edit Note"
+            alert.addAction(UIAlertAction(title: label, style: .default) { _ in
+                self.logger.debug("Edit reflection tapped")
+                closeAnimation()
+                self.startEdit()
+            })
+        }
+        
         if let promptContent = self.promptContent {
             alert.addAction(UIAlertAction(title: "Share Prompt", style: .default) { _ in
                 closeAnimation()
                 self.logger.info("Share Prompt tapped")
                 SharingService.shared.sharePromptContent(promptContent: promptContent, target: AppDelegate.shared.rootViewController, sender: sender)
-           })
+            })
         }
         
         if hasNote {
@@ -149,31 +149,18 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
             closeAnimation()
         }))
-       
+        
         self.window?.rootViewController?.present(alert, animated: true)
     }
     
     func startEdit() {
         guard let vc = self.createEditReflectionModal() else {
-            print("Unable to get the edit modal ")
+            self.logger.warn("Unable to get the edit modal", functionName: #function)
             return
         }
-        //            self.isEditing = true
         self.editViewController = vc
         AppDelegate.shared.rootViewController.present(vc, animated: true)
 
-        //        responseTextView.isEditable = true
-//        responseTextView.backgroundColor = .white
-//        self.responseTextView.layer.borderWidth = 1
-//        let bar = UIToolbar()
-//        let save = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(self.saveEdit))
-//        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-//        let cancel = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.cancelEdit))
-//        bar.items = [cancel, spacer, save]
-//        bar.sizeToFit()
-//
-//        responseTextView.inputAccessoryView = bar
-//        responseTextView.becomeFirstResponder()
     }
     
     @objc func saveEdit(_ sender: Any?) {
@@ -195,20 +182,20 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
             if r.id != response?.id {
                 ReflectionResponseService.sharedInstance.delete(r, { (error) in
                     if let error = error {
-                        print("failed to delete reflection response \(r.id ?? "id unknown")", error)
+                        self.logger.error("failed to delete reflection response \(r.id ?? "id unknown")", error)
                     } else {
-                        print("Successfully deleted reflection response")
+                        self.logger.debug("Successfully deleted reflection response")
                     }
                 })
             }
         }
         
         guard let toSave = response else {
-            print("No response found while trying to save... exiting")
+            self.logger.info("No response found while trying to save... exiting")
             return
         }
         ReflectionResponseService.sharedInstance.save(toSave) { (saved, _) in
-            print("Saved the response! \(saved?.id ?? "no id found")")
+            self.logger.debug("Saved the response! \(saved?.id ?? "no id found")")
         }
         
     }
@@ -249,14 +236,14 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     }
     
     func configureBackgroundImage(show: Bool) {
-        if show, let contentImage = self.promptContent?.content.first?.backgroundImage, !contentImage.isEmpty() {
+        if show, let contentImage = self.promptContent?.content.first?.backgroundImage, !contentImage.isEmpty {
             self.showingBackgroundImage = true
             ImageService.shared.setPhoto(self.backgroundImageView, photo: contentImage)
             self.backgroundImageView.isHidden = false
             self.backgroundBlobImageView.isHidden = false
             self.backgroundImageTopToQuestionBottomConstraint.isActive = self.subTextLabel.isHidden
             self.backgroundImageTopSubTextBottomConstraint.isActive = !self.subTextLabel.isHidden
-                        
+            
             self.reflectButtonTopQuestionConstraint.isActive = false
             self.reflectButtonTopToSubTextConstraint.isActive = false
             self.backgroundImageHeightConstraint.isActive = true
@@ -276,7 +263,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         let reflectContent = self.promptContent?.content.first(where: { (content) -> Bool in
             content.contentType == .reflect
         })
-                        
+        
         let reflectText = FormatUtils.isBlank(reflectContent?.text) ? nil : reflectContent?.text
         let questionText = reflectText ?? self.prompt?.question
         return questionText
@@ -337,7 +324,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
                 self.responseTextView.hideSkeleton()
                 self.removeResponseView()
             }
-    
+            
             self.configureBackgroundImage(show: !reflectionCompleted)
             self.configureReflectButton(show: !reflectionCompleted && promptContent != nil)
         } else {
@@ -352,7 +339,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
             self.showResponseView()
             self.responseTextView.text = nil
             self.responseBottomConstraint?.constant = self.textViewBottomPadding
-//            self.responseTextViewHeightConstraint.priority = UILayoutPriority(999)
+            //            self.responseTextViewHeightConstraint.priority = UILayoutPriority(999)
             self.responseTextViewHeightConstraint?.isActive = true
             self.responseTextView.showAnimatedGradientSkeleton()
             
@@ -403,7 +390,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     }
     
     func configureViewAppearance() {
-         if self.responseTextView != nil {
+        if self.responseTextView != nil {
             self.responseTextView.layer.borderColor = CactusColor.borderLight.cgColor
             self.responseTextView.layer.borderWidth = 0
             self.responseTextView.layer.cornerRadius = self.cornerRadius
@@ -426,7 +413,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         self.questionLabelHeightConstraint = self.questionLabel.heightAnchor.constraint(equalToConstant: 30)
         self.questionLabelHeightConstraint?.identifier = "QuestionLabel.height"
         self.questionLabelHeightConstraint?.isActive = false
-
+        
         self.responseTextViewHeightConstraint?.isActive = false
         
         self.configureViewAppearance()
@@ -469,7 +456,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
         frame.size.height = ceil(size.height) + 1
         layoutAttributes.frame = frame
-
+        
         return layoutAttributes
     }
 }
@@ -496,20 +483,19 @@ extension JournalEntryCollectionViewCell: EditReflectionViewControllerDelegate {
     }
     
     func done(text: String?) {
-        print("Saving text: \(text ?? "None provided")")
         guard let response = self.editViewController?.response else {return}
         
         response.content.text = text
         self.updateView()
         
         ReflectionResponseService.sharedInstance.save(response) { (saved, error) in
-            print("Saved the response! \(saved?.id ?? "no id found")")
+            self.logger.debug("Saved the response! \(saved?.id ?? "no id found")")
             self.editViewController?.isSaving = false
-             if error == nil {
-                 self.editViewController?.dismiss(animated: true, completion: nil)
-             }
+            if error == nil {
+                self.editViewController?.dismiss(animated: true, completion: nil)
+            }
         }
-
+        
     }
     
     func cancel() {

@@ -27,6 +27,9 @@ class NavigationMenuViewController: UIViewController {
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var displayNameLabel: UILabel!
+    
+    let logger = Logger("NavigationMenuViewController")
+    
     var member: CactusMember?
     var user: User?
     var reflectionsCountProcess: CountProcess?
@@ -75,7 +78,7 @@ class NavigationMenuViewController: UIViewController {
         
         self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, error, user) in
             if let error = error {
-                print("Failed to get member in NavMenu", error)
+                self.logger.error("Failed to get member in NavMenu", error)
             }
             self.updateMemberInfo(member, user)
             self.member = member

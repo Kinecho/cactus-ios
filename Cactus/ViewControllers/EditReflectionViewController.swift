@@ -21,7 +21,7 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var buttonWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var sharedStackView: UIStackView!
-    
+    let logger = Logger("EditReflectionViewController")
     let padding: CGFloat = 10
     var response: ReflectionResponse!
     var questionText: String?
@@ -111,12 +111,12 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
-        print("cancel tapped")
+        self.logger.info("cancel tapped")
         self.handleDismiss()
     }
     
     @IBAction func doneButtonTapped(_ sender: Any) {
-        print("done tapped")
+        self.logger.info("done tapped")
         self.delegate?.done(text: self.responseTextView.text)
     }
 }

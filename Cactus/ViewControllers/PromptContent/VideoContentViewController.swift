@@ -9,9 +9,9 @@
 import UIKit
 import WebKit
 class VideoContentViewController: PromptContentViewController {
-
     @IBOutlet weak var videoWebKitView: WKWebView!
     @IBOutlet weak var textView: UITextView!
+    let videoLogger = Logger("VideoContentViewController")
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,12 +25,12 @@ class VideoContentViewController: PromptContentViewController {
     
     func configureVideo() {
         if let youtubeId = content.video?.youtubeVideoId, let url = URL(string: "https://www.youtube.com/embed/\(youtubeId)") {
-            print("Youtube id is \(youtubeId)")
+            self.videoLogger.debug("Youtube id is \(youtubeId)")
             let request = URLRequest(url: url)
             self.videoWebKitView.load(request)
             self.videoWebKitView.isHidden = false
         } else {
-            print("Unable to get youtube video")
+            self.videoLogger.warn("Unable to get youtube video")
             self.videoWebKitView.isHidden = true
         }
     }

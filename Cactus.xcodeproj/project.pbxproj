@@ -163,7 +163,6 @@
 		303C9E0923841AC1006B9786 /* VideoContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF539623732EC300578B22 /* VideoContentViewController.swift */; };
 		303C9E0A23841AC1006B9786 /* VideoContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CF539723732EC300578B22 /* VideoContentViewController.xib */; };
 		303C9E0B23841AC1006B9786 /* LoadablePromptContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303C9DA9237E1470006B9786 /* LoadablePromptContentViewController.xib */; };
-		303C9E0C23841AC6006B9786 /* JournalEntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA7222EA5A9F00443E46 /* JournalEntryDetailViewController.swift */; };
 		303C9E0D23841AC6006B9786 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0AE22EADD04005B25FD /* LoginViewController.swift */; };
 		303C9E0E23841AC6006B9786 /* PromptContentPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E1723289D1200A49EB6 /* PromptContentPageViewController.swift */; };
 		303C9E0F23841AC6006B9786 /* JournalHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC17B23397A77005C6555 /* JournalHomeViewController.swift */; };
@@ -344,7 +343,6 @@
 		309561A422EE16D7009357BD /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309561A322EE16D7009357BD /* AppConfig.swift */; };
 		309561A522EE172B009357BD /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309561A322EE16D7009357BD /* AppConfig.swift */; };
 		30A266DA2329BB73003C708E /* config.yml in Resources */ = {isa = PBXBuildFile; fileRef = 30A266D92329BB73003C708E /* config.yml */; };
-		30A281DA22EA61A30041158E /* JournalEntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA7222EA5A9F00443E46 /* JournalEntryDetailViewController.swift */; };
 		30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */; };
 		30A281E222EA61A30041158E /* SharedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */; };
 		30A281E322EA61A30041158E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7422EA5A9F00443E46 /* Main.storyboard */; };
@@ -356,7 +354,6 @@
 		30AB8ED9237C86910048CFD2 /* NotificationOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB8ED8237C86910048CFD2 /* NotificationOnboardingViewController.swift */; };
 		30AB8EDA237C86910048CFD2 /* NotificationOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB8ED8237C86910048CFD2 /* NotificationOnboardingViewController.swift */; };
 		30B6EA6F22EA5A9F00443E46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */; };
-		30B6EA7322EA5A9F00443E46 /* JournalEntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA7222EA5A9F00443E46 /* JournalEntryDetailViewController.swift */; };
 		30B6EA7622EA5A9F00443E46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7422EA5A9F00443E46 /* Main.storyboard */; };
 		30B6EA7822EA5AA100443E46 /* SharedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */; };
 		30B6EA7B22EA5AA100443E46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7922EA5AA100443E46 /* LaunchScreen.storyboard */; };
@@ -612,7 +609,6 @@
 		30AB8ED8237C86910048CFD2 /* NotificationOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOnboardingViewController.swift; sourceTree = "<group>"; };
 		30B6EA6B22EA5A9F00443E46 /* Cactus Stage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cactus Stage.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		30B6EA7222EA5A9F00443E46 /* JournalEntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryDetailViewController.swift; sourceTree = "<group>"; };
 		30B6EA7522EA5A9F00443E46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SharedAssets.xcassets; sourceTree = "<group>"; };
 		30B6EA7A22EA5AA100443E46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1050,7 +1046,6 @@
 				300AC185233A850B005C6555 /* JournalEntrySkeletonViewController.swift */,
 				300AC186233A850B005C6555 /* JournalEntrySkeletonViewController.xib */,
 				30BF2E2123289E1E00A49EB6 /* PromptContent */,
-				30B6EA7222EA5A9F00443E46 /* JournalEntryDetailViewController.swift */,
 				30E9B0A822EAD68B005B25FD /* AppMainViewController.swift */,
 				30E9B0AE22EADD04005B25FD /* LoginViewController.swift */,
 				30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */,
@@ -1702,7 +1697,6 @@
 				305B18782331A906003E1561 /* CactusMember.swift in Sources */,
 				303C9DF023841ABB006B9786 /* TermsOfServiceViewController.swift in Sources */,
 				303C9DDE23841A3E006B9786 /* LoadableSharedReflectionViewController.swift in Sources */,
-				303C9E0C23841AC6006B9786 /* JournalEntryDetailViewController.swift in Sources */,
 				303C9E2623841ACC006B9786 /* MarkdownTypes.swift in Sources */,
 				305B187B2331A906003E1561 /* ReflectionPrompt.swift in Sources */,
 				303C9E3D23841B01006B9786 /* JournalEntryData.swift in Sources */,
@@ -1773,7 +1767,6 @@
 				3014A38C2378CA0300121729 /* TertiaryButton.swift in Sources */,
 				303EB0892343A0B800AC8741 /* RoundedView.swift in Sources */,
 				30CF53902370FBB800578B22 /* RelationshipsAnimationViewController.swift in Sources */,
-				30A281DA22EA61A30041158E /* JournalEntryDetailViewController.swift in Sources */,
 				305B186C23319A72003E1561 /* ImageExtensions.swift in Sources */,
 				303C9DBB237F5DCC006B9786 /* URLExtensions.swift in Sources */,
 				303C9DB8237F595A006B9786 /* UserServiceFile.swift in Sources */,
@@ -1880,7 +1873,6 @@
 				30934F9F22EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift in Sources */,
 				30934F9922EBF235007C4E6C /* BorderedButton.swift in Sources */,
 				30934FAC22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */,
-				30B6EA7322EA5A9F00443E46 /* JournalEntryDetailViewController.swift in Sources */,
 				305B186E23319E09003E1561 /* FileUtils.swift in Sources */,
 				301C1A90236F7E9700F06A3D /* MeaningAnimationViewController.swift in Sources */,
 				30E2D37A23432B21003D2B27 /* NavigationMenuViewController.swift in Sources */,

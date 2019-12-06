@@ -18,26 +18,16 @@ class TextContentViewController: PromptContentViewController {
     @IBOutlet weak var elementStackView: UIStackView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.initTextView(self.text)
         self.configureView()
     }
     
-    func configureView() {
-        self.initTextView(self.text)
-        
-        self.text.text = self.content.text
-        var textString: String? = self.content.text_md
-        if textString == nil || textString?.isEmpty ?? true {
-            textString = self.content.text
-        }
-        
-        if let mdText = MarkdownUtil.centeredMarkdown(textString, font: CactusFont.normal(24)) {
-            self.text.attributedText = mdText
-        } 
-
-        self.backgroundImageView.setImageFile(self.content.backgroundImage)
-        
-        if self.content.backgroundImage?.isEmpty() ?? true {
+    override func viewDidLayoutSubviews() {
+        self.updateConstraints()
+    }
+    
+    func updateConstraints() {
+        if self.content.backgroundImage?.isEmpty ?? true {
             self.stackViewContainerBottomToImageConstraint.isActive = false
             self.stackContainerBottomToSuperviewConstraint.isActive = true
         } else {
@@ -55,6 +45,22 @@ class TextContentViewController: PromptContentViewController {
         } else {
             self.elementStackView.isHidden = true
         }
+        
+    }
+    
+    func configureView() {
+        self.text.text = self.content.text
+        var textString: String? = self.content.text_md
+        if textString == nil || textString?.isEmpty ?? true {
+            textString = self.content.text
+        }
+        
+        if let mdText = MarkdownUtil.centeredMarkdown(textString, font: CactusFont.normal(24)) {
+            self.text.attributedText = mdText
+        } 
+
+        self.backgroundImageView.setImageFile(self.content.backgroundImage)
+        self.updateConstraints()
         
     }
     

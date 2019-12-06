@@ -13,8 +13,11 @@ func toEmptyString(_ input: String?) -> String {
     return input ?? ""
 }
 
+func isBlank(_ input: String? ) -> Bool {
+    return FormatUtils.isBlank(input);
+}
+
 struct FormatUtils {
-    
     static func hasChanges(_ input: String?, _ original: String?) -> Bool {
         return toEmptyString(input).trimmingCharacters(in: .whitespacesAndNewlines) != toEmptyString(original).trimmingCharacters(in: .whitespacesAndNewlines)
     }

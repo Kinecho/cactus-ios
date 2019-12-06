@@ -15,6 +15,8 @@ class LinkedAccountsTableViewController: UITableViewController {
     let reuseIdentifier = "accountCell"
     var userListener: AuthStateDidChangeListenerHandle?
     var currentUser: User?
+    let logger = Logger("LinkedAccountsTableViewController")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView()
@@ -30,7 +32,7 @@ class LinkedAccountsTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.currentUser?.reload(completion: { (error) in
             if let error = error {
-                print("Error refreshing profile", error)
+                self.logger.error("Error refreshing profile", error)
             }
             self.tableView.reloadData()
         })
@@ -39,20 +41,9 @@ class LinkedAccountsTableViewController: UITableViewController {
     deinit {
         AuthService.sharedInstance.removeAuthStateChangeListener(self.userListener)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.currentUser?.providerData.filter({ (_) -> Bool in
-//            return info.providerID != "password"
             return true
         }).count ?? 0
     }

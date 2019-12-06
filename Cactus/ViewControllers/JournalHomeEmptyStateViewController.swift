@@ -10,11 +10,10 @@ import UIKit
 import FirebaseFirestore
 class JournalHomeEmptyStateViewController: UIViewController {
     @IBOutlet weak var letsBeginButton: PrimaryButton!
-    
+    let logger = Logger("JournalHomeEmptyStateViewController")
     var promptContent: PromptContent?
     var reflectionResponses: [ReflectionResponse]?
     var responseListener: ListenerRegistration?
-    
     var promptContentVC: PromptContentPageViewController?
     
     override func viewDidLoad() {
@@ -26,16 +25,16 @@ class JournalHomeEmptyStateViewController: UIViewController {
     func fetchPromptContent() {
         AppSettingsService.sharedInstance.getSettings { (settings, error) in
             if let error = error {
-                print("JournalHomeEmptyStateViewController: Failed to get app settings", error)
+                self.logger.error("JournalHomeEmptyStateViewController: Failed to get app settings", error)
                 return
             }
             guard let promptContentEntryId = settings?.firstPromptContentEntryId else {
-                print("Could not find first promptId on the settings object")
+                self.logger.error("Could not find first promptId on the settings object")
                 return
             }
             PromptContentService.sharedInstance.getByEntryId(id: promptContentEntryId) { (promptContent, error) in
                 if let error = error {
-                    print("Failed to get prompt content", error)
+                    self.logger.error("Failed to get prompt content", error)
                 }
                 self.promptContent = promptContent
                 guard let promptId = promptContent?.promptId else {
@@ -43,7 +42,7 @@ class JournalHomeEmptyStateViewController: UIViewController {
                 }
                 self.responseListener = ReflectionResponseService.sharedInstance.observeForPromptId(id: promptId, { (responses, error) in
                     if let error = error {
-                        print("Error loading reflection responses on EmptyState", error)
+                        self.logger.error("Error loading reflection responses on EmptyState", error)
                     }
                     self.reflectionResponses = responses
                 })
@@ -56,8 +55,8 @@ class JournalHomeEmptyStateViewController: UIViewController {
     }
     
     @IBAction func beginTapped(_ sender: Any) {
-        print("let's begin was tapped")
-        print("navigating to \(self.promptContent?.entryId ?? "none found")")
+        self.logger.info("let's begin was tapped")
+        self.logger.info("navigating to \(self.promptContent?.entryId ?? "none found")")
         
         guard let promptContent = self.promptContent else {return}
         guard let vc = AppDelegate.shared.rootViewController.getScreen(ScreenID.promptContentPageView) as? PromptContentPageViewController else {return}
@@ -67,17 +66,5 @@ class JournalHomeEmptyStateViewController: UIViewController {
         vc.modalPresentationStyle = .fullScreen //this is needed to trigger the viewDidApper on the journal home
         vc.modalTransitionStyle = .crossDissolve
         AppDelegate.shared.rootViewController.present(vc, animated: true, completion: nil)
-//        _ = AppDelegate.shared.rootViewController.showScreen(vc, wrapInNav: true)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
