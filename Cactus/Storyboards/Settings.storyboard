@@ -506,19 +506,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your Language" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBW-X3-cZK">
-                                <rect key="frame" x="20" y="138" width="374" height="37.5"/>
+                                <rect key="frame" x="20" y="138" width="374" height="38.5"/>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="32"/>
                                 <color key="textColor" name="GreenDarkest"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d67-Rl-E22">
-                                <rect key="frame" x="0.0" y="225.5" width="414" height="100"/>
+                                <rect key="frame" x="0.0" y="226.5" width="414" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="dy5-ZH-nD3"/>
                                 </constraints>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cactus currently only supports English" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6U5-Pi-TTO">
-                                <rect key="frame" x="20" y="345.5" width="374" height="21.5"/>
+                                <rect key="frame" x="20" y="346.5" width="374" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" name="GreenDarkest"/>
                                 <nil key="highlightedColor"/>
@@ -947,6 +947,7 @@
                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" image="Facebook" translatesAutoresizingMaskIntoConstraints="NO" id="1WZ-D6-cph">
                                             <rect key="frame" x="20" y="0.0" width="75" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
