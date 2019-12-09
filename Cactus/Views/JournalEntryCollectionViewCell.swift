@@ -74,7 +74,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         let normalColor = CactusColor.lightGreen
         
         let responseText = FormatUtils.responseText(self.responses)
-        let isComplete = self.responses?.isEmpty ?? true
+        let isComplete = !(self.responses?.isEmpty ?? true)
         let hasNote = !FormatUtils.isBlank(responseText)
         
         UIView.animate(withDuration: duration,
@@ -86,8 +86,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
                         self.moreButton?.transform = CGAffineTransform(rotationAngle: .pi/2)
         }, completion: { _ in
             self.moreButton?.transform = CGAffineTransform(rotationAngle: .pi/2)
-        }
-        )
+        })
         
         func closeAnimation() {
             UIView.animate(withDuration: duration * 0.75,
@@ -116,7 +115,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         }))
         
         if isComplete {
-            let label = FormatUtils.isBlank(responseText) ? "Add Note" : "Edit Note"
+            let label = hasNote ? "Edit Note" : "Add Note"
             alert.addAction(UIAlertAction(title: label, style: .default) { _ in
                 self.logger.debug("Edit reflection tapped")
                 closeAnimation()
@@ -167,13 +166,14 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         self.isEditing = false
         self.contentView.dismissKeyboard()
         
+        var questionText = self.promptContent?.getQuestion() ?? self.prompt?.question
         responseTextView.isEditable = false
         self.responseTextView.layer.borderWidth = 0
         self.contentView.backgroundColor = .clear
         var response = self.responses?.first
         if response == nil, let promptId = self.sentPrompt?.promptId {
             let element = self.promptContent?.cactusElement
-            response = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: self.prompt?.question, element: element)
+            response = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: questionText, element: element)
         }
         
         response?.content.text = self.responseTextView.text
@@ -469,7 +469,8 @@ extension JournalEntryCollectionViewCell: EditReflectionViewControllerDelegate {
         var response = self.responses?.first
         if response == nil, let promptId = self.sentPrompt?.promptId {
             let element = self.promptContent?.cactusElement
-            response = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: self.prompt?.question, element: element)
+            let questionText = self.promptContent?.getQuestion() ?? self.prompt?.question
+            response = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: questionText, element: element)
         }
         
         guard let reflectionResponse = response else {
