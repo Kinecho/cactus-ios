@@ -123,8 +123,9 @@ class JournalHomeViewController: UIViewController {
         self.setNeedsStatusBarAppearanceUpdate()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     func presentPermissionsOnboardingIfNeeded() {

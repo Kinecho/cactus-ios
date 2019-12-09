@@ -162,53 +162,6 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
 
     }
     
-    @objc func saveEdit(_ sender: Any?) {
-        self.isEditing = false
-        self.contentView.dismissKeyboard()
-        
-        var questionText = self.promptContent?.getQuestion() ?? self.prompt?.question
-        responseTextView.isEditable = false
-        self.responseTextView.layer.borderWidth = 0
-        self.contentView.backgroundColor = .clear
-        var response = self.responses?.first
-        if response == nil, let promptId = self.sentPrompt?.promptId {
-            let element = self.promptContent?.cactusElement
-            response = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: questionText, element: element)
-        }
-        
-        response?.content.text = self.responseTextView.text
-        
-        self.responses?.forEach { r in
-            if r.id != response?.id {
-                ReflectionResponseService.sharedInstance.delete(r, { (error) in
-                    if let error = error {
-                        self.logger.error("failed to delete reflection response \(r.id ?? "id unknown")", error)
-                    } else {
-                        self.logger.debug("Successfully deleted reflection response")
-                    }
-                })
-            }
-        }
-        
-        guard let toSave = response else {
-            self.logger.info("No response found while trying to save... exiting")
-            return
-        }
-        ReflectionResponseService.sharedInstance.save(toSave) { (saved, _) in
-            self.logger.debug("Saved the response! \(saved?.id ?? "no id found")")
-        }
-        
-    }
-    
-    @objc func cancelEdit(_ sender: Any?) {
-        self.isEditing = false
-        responseTextView.isEditable = false
-        responseTextView.backgroundColor = .clear
-        self.responseTextView.layer.borderWidth = 0
-        self.contentView.backgroundColor = .white
-        self.contentView.dismissKeyboard()
-    }
-    
     func removeResponseView() {
         self.responseTextView.isHidden = true
         self.borderView.isHidden = true
@@ -470,7 +423,7 @@ extension JournalEntryCollectionViewCell: EditReflectionViewControllerDelegate {
         if response == nil, let promptId = self.sentPrompt?.promptId {
             let element = self.promptContent?.cactusElement
             let questionText = self.promptContent?.getQuestion() ?? self.prompt?.question
-            response = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: questionText, element: element)
+            response = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: questionText, element: element, medium: .JOURNAL_IOS)
         }
         
         guard let reflectionResponse = response else {

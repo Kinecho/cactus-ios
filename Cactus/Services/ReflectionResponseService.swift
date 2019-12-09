@@ -78,7 +78,7 @@ class ReflectionResponseService {
         return response
     }
     
-    func createReflectionResponse(_ promptId: String, promptQuestion: String?, element: CactusElement?) -> ReflectionResponse? {
+    func createReflectionResponse(_ promptId: String, promptQuestion: String?, element: CactusElement?, medium: ResponseMedium) -> ReflectionResponse? {
         guard let member = CactusMemberService.sharedInstance.currentMember else {
             return nil
         }

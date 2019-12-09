@@ -37,7 +37,7 @@ class ReflectContentViewController: PromptContentViewController {
         if let promptId = self.promptContent.promptId, self.reflectionResponse == nil {
             let question = self.promptContent.getQuestion()
             let element = self.promptContent.cactusElement
-            self.reflectionResponse = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: question, element: element)
+            self.reflectionResponse = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: question, element: element, medium: .PROMPT_IOS)
         }
         self.configureView()
         self.videoView.isHidden = true
