@@ -272,23 +272,10 @@ class CustomAuthPickerViewController: FUIAuthPickerViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        FUIAuth. kButtonContainerTopMargin = 0
-        
         let scrollView = view.subviews.first
         scrollView?.backgroundColor = .clear
         
         let contentContainerView = scrollView?.subviews.first
-//
-//        if contentContainerView != nil {
-//            let originalFrame = contentContainerView!.frame
-//            contentContainerView!.frame = CGRect(x: originalFrame.minX, y: 0, width: originalFrame.width, height: originalFrame.height - originalFrame.minY)
-//        }
-//
-//        if let buttonWrapperView = contentContainerView?.subviews.first {
-//            let originalFrame = buttonWrapperView.frame
-//            buttonWrapperView.frame = CGRect(x: originalFrame.minX, y: 0, width: originalFrame.width, height: originalFrame.height - originalFrame.minY)
-//        }
-        
         contentContainerView?.backgroundColor = .clear
         
         scrollView?.subviews.forEach({ (view) in
@@ -326,6 +313,13 @@ class CustomAuthPickerViewController: FUIAuthPickerViewController {
         if let buttonWrapperView = contentContainerView?.subviews.first {
             let originalFrame = buttonWrapperView.frame
             buttonWrapperView.frame = CGRect(x: originalFrame.minX, y: 0, width: originalFrame.width, height: originalFrame.height - originalFrame.minY)
+            
+            buttonWrapperView.subviews.forEach { (subview) in
+                if let button = subview as? UIButton {
+                    button.layer.cornerRadius = 4
+                }
+            }
+            
         }
     }
 }

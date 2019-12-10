@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="skj-bj-glJ">
-    <device id="ipad10_2" orientation="landscape" layout="fullscreen" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
@@ -23,7 +23,7 @@
             <objects>
                 <viewController storyboardIdentifier="AppMain" id="skj-bj-glJ" customClass="AppMainViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EpZ-UL-MZr">
-                        <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="F72-cu-vfx"/>
@@ -38,24 +38,24 @@
             <objects>
                 <viewController storyboardIdentifier="JournalHome" id="TYZ-Ys-0y2" userLabel="Journal Home" customClass="JournalHomeViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BSA-pu-uSy">
-                        <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z8U-Me-3LH">
-                                <rect key="frame" x="0.0" y="90" width="1080" height="720"/>
+                                <rect key="frame" x="0.0" y="134" width="414" height="762"/>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbu-p9-et4">
-                                <rect key="frame" x="0.0" y="0.0" width="1080" height="80"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="124"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="a8S-uZ-lk2">
-                                        <rect key="frame" x="20" y="20" width="120" height="40"/>
+                                        <rect key="frame" x="20" y="64" width="120" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="c8q-6a-FZ3"/>
                                             <constraint firstAttribute="width" constant="120" id="m0b-ib-v2I"/>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar3" translatesAutoresizingMaskIntoConstraints="NO" id="cWM-Up-Dm8">
-                                        <rect key="frame" x="1020" y="20" width="40" height="40"/>
+                                        <rect key="frame" x="354" y="64" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="15x-gP-G9u"/>
                                             <constraint firstAttribute="width" secondItem="cWM-Up-Dm8" secondAttribute="height" multiplier="1:1" id="z8Z-cx-8WM"/>
@@ -103,32 +103,32 @@
             <objects>
                 <viewController storyboardIdentifier="journalEmpty" id="Dmd-WB-xa0" customClass="JournalHomeEmptyStateViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WFs-qk-8et">
-                        <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nf0-67-wAF">
-                                <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Hxl-JO-r3i">
-                                        <rect key="frame" x="20" y="210.5" width="1040" height="389"/>
+                                        <rect key="frame" x="20" y="204.5" width="374" height="409.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="center" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ibz-w3-gNj" userLabel="Copy Stack View">
-                                                <rect key="frame" x="0.0" y="0.0" width="1040" height="149"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="169.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Cactus" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8E-Kd-lvh" userLabel="Welcome Label">
-                                                        <rect key="frame" x="381.5" y="0.0" width="277.5" height="38.5"/>
+                                                        <rect key="frame" x="48.5" y="0.0" width="277.5" height="38.5"/>
                                                         <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="32"/>
                                                         <color key="textColor" name="GreenDarkest"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To get started, you'll learn about how Cactus works and reflect on your first question of the day." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ecc-M4-fbT" userLabel="Into Label">
-                                                        <rect key="frame" x="170.5" y="58.5" width="699.5" height="20.5"/>
+                                                        <rect key="frame" x="2.5" y="58.5" width="369" height="41"/>
                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                         <color key="textColor" name="GreenDarkest"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmD-zI-Lke" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
-                                                        <rect key="frame" x="472.5" y="99" width="95" height="50"/>
+                                                        <rect key="frame" x="139.5" y="119.5" width="95" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="4su-rf-UT4"/>
                                                         </constraints>
@@ -141,7 +141,7 @@
                                                 </subviews>
                                             </stackView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="journalEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="Hjj-3G-eVg">
-                                                <rect key="frame" x="0.0" y="189" width="1040" height="200"/>
+                                                <rect key="frame" x="0.0" y="209.5" width="374" height="200"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="Dij-SN-Mgn"/>
                                                 </constraints>
@@ -469,23 +469,23 @@
             <objects>
                 <viewController id="cBA-wN-TGD" userLabel="Welcome Page" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UV7-pr-crN">
-                        <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_darkBlobs" translatesAutoresizingMaskIntoConstraints="NO" id="5wI-1N-mZx" userLabel="Background Image View">
-                                <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="oiA-wK-jhz">
-                                <rect key="frame" x="50" y="334.5" width="980" height="141.5"/>
+                                <rect key="frame" x="50" y="364" width="314" height="168"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-ondark" translatesAutoresizingMaskIntoConstraints="NO" id="ddb-41-Ob6">
-                                        <rect key="frame" x="137.5" y="0.0" width="705" height="75"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="75"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="75" id="5EI-PX-b5X"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your private journal for mindfulness." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dc0-xT-rrz">
-                                        <rect key="frame" x="315.5" y="115" width="349" height="26.5"/>
+                                        <rect key="frame" x="43" y="115" width="228" height="53"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="22"/>
                                         <color key="textColor" name="White"/>
                                         <nil key="highlightedColor"/>
@@ -538,42 +538,42 @@
             <objects>
                 <viewController storyboardIdentifier="Login" id="4zv-1f-KPm" customClass="LoginViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hCJ-wF-fbO">
-                        <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_darkBlobs" translatesAutoresizingMaskIntoConstraints="NO" id="twe-f9-jsW" userLabel="Background Image View">
-                                <rect key="frame" x="0.0" y="-400" width="1080" height="1210"/>
+                                <rect key="frame" x="-450" y="0.0" width="864" height="896"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9R0-s8-91l">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="810"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9R0-s8-91l">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-ondark" translatesAutoresizingMaskIntoConstraints="NO" id="7bt-2B-ArE">
-                                        <rect key="frame" x="187.5" y="40" width="705" height="100"/>
+                                        <rect key="frame" x="-145.5" y="40" width="705" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="K01-eT-aMU">
+                                            <constraint firstAttribute="height" constant="70" id="K01-eT-aMU">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="100"/>
                                             </constraint>
                                         </constraints>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="center" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="JP6-tG-hyL" userLabel="Container Stack View">
-                                        <rect key="frame" x="340" y="220" width="400" height="521"/>
+                                    <stackView opaque="NO" contentMode="center" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="JP6-tG-hyL" userLabel="Container Stack View">
+                                        <rect key="frame" x="0.0" y="170" width="414" height="505.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="dia-5i-NZT" userLabel="TitleStack View">
-                                                <rect key="frame" x="0.0" y="0.0" width="400" height="59"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dt5-xk-ofP">
-                                                        <rect key="frame" x="0.0" y="0.0" width="400" height="32.5"/>
-                                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="27"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="36"/>
                                                         <color key="textColor" name="White"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RUy-x4-bJ7" userLabel="Email Input Stack">
-                                                <rect key="frame" x="20" y="79" width="360" height="85"/>
+                                                <rect key="frame" x="20" y="63.5" width="374" height="85"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email address" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="S96-g0-ejQ" customClass="CactusTextInputField" customModule="Cactus" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="360" height="45"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="45"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="VPW-tA-2jb"/>
@@ -589,7 +589,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ey-8b-Wmd" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="55" width="360" height="30"/>
+                                                        <rect key="frame" x="0.0" y="55" width="374" height="30"/>
                                                         <state key="normal" title="Next"/>
                                                         <connections>
                                                             <action selector="magicLinkNext:" destination="4zv-1f-KPm" eventType="touchUpInside" id="XWC-S7-8tN"/>
@@ -602,13 +602,13 @@
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or choose from one of the following:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYq-wW-wiI" userLabel="Choose Provider">
-                                                <rect key="frame" x="20" y="184" width="360" height="17"/>
+                                                <rect key="frame" x="20" y="168.5" width="374" height="17"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                                 <color key="textColor" name="White"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7x3-lF-lM2" userLabel="Login Buttons Container">
-                                                <rect key="frame" x="20" y="221" width="360" height="300"/>
+                                                <rect key="frame" x="20" y="205.5" width="374" height="300"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="300" id="9hh-r5-2L7"/>
                                                 </constraints>
@@ -656,7 +656,7 @@
                                 </variation>
                             </scrollView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="HgO-8a-DtY">
-                                <rect key="frame" x="521.5" y="386.5" width="37" height="37"/>
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
                                 <color key="color" name="GreenDarkest"/>
                             </activityIndicatorView>
                         </subviews>
@@ -666,11 +666,11 @@
                             <constraint firstItem="HgO-8a-DtY" firstAttribute="centerY" secondItem="hCJ-wF-fbO" secondAttribute="centerY" id="5TD-83-02X"/>
                             <constraint firstItem="LzH-Nd-xKw" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9R0-s8-91l" secondAttribute="trailing" id="5V7-t0-Cxm"/>
                             <constraint firstAttribute="trailing" secondItem="twe-f9-jsW" secondAttribute="trailing" id="7g1-n9-bIo"/>
-                            <constraint firstItem="twe-f9-jsW" firstAttribute="leading" secondItem="hCJ-wF-fbO" secondAttribute="leading" id="DQC-lw-BQX"/>
+                            <constraint firstItem="twe-f9-jsW" firstAttribute="leading" secondItem="hCJ-wF-fbO" secondAttribute="leading" constant="-450" id="DQC-lw-BQX"/>
                             <constraint firstAttribute="bottom" secondItem="twe-f9-jsW" secondAttribute="bottom" id="Nj6-f1-Q33"/>
                             <constraint firstItem="LzH-Nd-xKw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9R0-s8-91l" secondAttribute="leading" id="SRo-Mk-A4S"/>
                             <constraint firstItem="9R0-s8-91l" firstAttribute="bottom" secondItem="LzH-Nd-xKw" secondAttribute="bottom" id="TaO-9z-8XW"/>
-                            <constraint firstItem="twe-f9-jsW" firstAttribute="top" secondItem="hCJ-wF-fbO" secondAttribute="top" constant="-400" id="gve-L2-wm5"/>
+                            <constraint firstItem="twe-f9-jsW" firstAttribute="top" secondItem="hCJ-wF-fbO" secondAttribute="top" id="gve-L2-wm5"/>
                             <constraint firstItem="9R0-s8-91l" firstAttribute="centerX" secondItem="hCJ-wF-fbO" secondAttribute="centerX" id="pTv-1Y-3Qr"/>
                             <constraint firstItem="LzH-Nd-xKw" firstAttribute="top" secondItem="9R0-s8-91l" secondAttribute="top" id="qcI-CO-z5I"/>
                         </constraints>
@@ -688,7 +688,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w0h-2p-zJp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-794" y="120"/>
+            <point key="canvasLocation" x="-383" y="122"/>
         </scene>
         <!--Prompt Content Page View Controller-->
         <scene sceneID="ebg-Xv-86K">
@@ -707,7 +707,7 @@
     </scenes>
     <resources>
         <image name="avatar3" width="100" height="100"/>
-        <image name="background_darkBlobs" width="2048" height="1366"/>
+        <image name="background_darkBlobs" width="828" height="896"/>
         <image name="blob4" width="434" height="304"/>
         <image name="dots" width="48" height="48"/>
         <image name="journalEmpty" width="1217" height="687"/>

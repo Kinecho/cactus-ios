@@ -77,7 +77,8 @@ class AppMainViewController: UIViewController {
         }
     }
     
-    func showWelcomeScreen(){
+    func showWelcomeScreen() {
+        self.setStatusBarStyle(.lightContent)
         _ = self.showScreen(ScreenID.Welcome, wrapInNav: false)
     }
     
