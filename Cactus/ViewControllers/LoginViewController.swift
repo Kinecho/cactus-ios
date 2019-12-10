@@ -316,7 +316,7 @@ class CustomAuthPickerViewController: FUIAuthPickerViewController {
             
             buttonWrapperView.subviews.forEach { (subview) in
                 if let button = subview as? UIButton {
-                    button.layer.cornerRadius = 4
+                    button.layer.cornerRadius = 6
                 }
             }
             
