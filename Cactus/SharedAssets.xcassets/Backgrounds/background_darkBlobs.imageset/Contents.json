@@ -1,0 +1,24 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "filename" : "loginBG-ipad13-1.pdf"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "loginBG-iphone11ProMax.pdf"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "loginBG-ipad13.pdf"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  },
+  "properties" : {
+    "template-rendering-intent" : "original",
+    "preserves-vector-representation" : true
+  }
+}

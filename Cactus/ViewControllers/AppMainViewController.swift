@@ -65,7 +65,7 @@ class AppMainViewController: UIViewController {
             
             if member == nil {
                 self.logger.info("found member is null. showing loign screen.")
-                _ = self.showScreen(ScreenID.Login, wrapInNav: true)
+                self.showWelcomeScreen()
                 self.hasUser = false
             } else if let member = member, member.id != self.member?.id {
                 self.logger.info("Found member, not null. showing journal home page")
@@ -75,6 +75,10 @@ class AppMainViewController: UIViewController {
             self.authHasLoaded = true
             self.member = member
         }
+    }
+    
+    func showWelcomeScreen(){
+        _ = self.showScreen(ScreenID.Welcome, wrapInNav: false)
     }
     
     func getJournalFeedViewController() -> JournalFeedCollectionViewController {

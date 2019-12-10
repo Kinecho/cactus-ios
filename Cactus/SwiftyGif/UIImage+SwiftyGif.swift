@@ -6,6 +6,7 @@ import ImageIO
 import UIKit
 
 public typealias GifLevelOfIntegrity = Float
+fileprivate var gifLogger = Logger("UIImage+SwiftyGif")
 
 extension GifLevelOfIntegrity {
     public static let highestNoFrameSkipping: GifLevelOfIntegrity = 1
@@ -43,6 +44,7 @@ public extension UIImage {
         do {
             try self.init(gifData: imageData, levelOfIntegrity: levelOfIntegrity)
         } catch {
+            gifLogger.error("Error initializing the GIF image with level of integrity \(levelOfIntegrity). Will attempt to init with just just data, not gif data", error)
             self.init(data: imageData)
         }
     }

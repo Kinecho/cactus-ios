@@ -19,6 +19,7 @@ enum ScreenID: String {
     case elementsPageView
     case journalEmpty
     case promptContentPageView
+    case Welcome
     //settings
     case settingsTable
     case inviteScreen
