@@ -282,12 +282,24 @@ class CustomAuthPickerViewController: FUIAuthPickerViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        FUIAuth. kButtonContainerTopMargin = 0
         
         let scrollView = view.subviews.first
         scrollView?.backgroundColor = .clear
         
-        let pickerView = scrollView?.subviews.first
-        pickerView?.backgroundColor = .clear
+        let contentContainerView = scrollView?.subviews.first
+//
+//        if contentContainerView != nil {
+//            let originalFrame = contentContainerView!.frame
+//            contentContainerView!.frame = CGRect(x: originalFrame.minX, y: 0, width: originalFrame.width, height: originalFrame.height - originalFrame.minY)
+//        }
+//
+//        if let buttonWrapperView = contentContainerView?.subviews.first {
+//            let originalFrame = buttonWrapperView.frame
+//            buttonWrapperView.frame = CGRect(x: originalFrame.minX, y: 0, width: originalFrame.width, height: originalFrame.height - originalFrame.minY)
+//        }
+        
+        contentContainerView?.backgroundColor = .clear
         
         scrollView?.subviews.forEach({ (view) in
             if let textView = view as? UITextView {
@@ -295,7 +307,7 @@ class CustomAuthPickerViewController: FUIAuthPickerViewController {
             }
         })
         
-        pickerView?.subviews.forEach({ (view) in
+        contentContainerView?.subviews.forEach({ (view) in
             if let textView = view as? UITextView {
                 textView.textAlignment = .center
                 textView.textColor = CactusColor.white
@@ -307,6 +319,24 @@ class CustomAuthPickerViewController: FUIAuthPickerViewController {
                 ]
             }
         })
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let scrollView = view.subviews.first
+        scrollView?.backgroundColor = .clear
+    
+        let contentContainerView = scrollView?.subviews.first
+
+        if contentContainerView != nil {
+            let originalFrame = contentContainerView!.frame
+            contentContainerView!.frame = CGRect(x: originalFrame.minX, y: 0, width: originalFrame.width, height: originalFrame.height - originalFrame.minY)
+        }
+
+        if let buttonWrapperView = contentContainerView?.subviews.first {
+            let originalFrame = buttonWrapperView.frame
+            buttonWrapperView.frame = CGRect(x: originalFrame.minX, y: 0, width: originalFrame.width, height: originalFrame.height - originalFrame.minY)
+        }
     }
 }
 
