@@ -298,7 +298,13 @@ class CustomAuthPickerViewController: FUIAuthPickerViewController {
         pickerView?.subviews.forEach({ (view) in
             if let textView = view as? UITextView {
                 textView.textAlignment = .center
-                textView.textColor = UIColor.darkText
+                textView.textColor = CactusColor.white
+                textView.tintColor = CactusColor.white
+                textView.linkTextAttributes = [
+                    NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue,
+                    NSAttributedString.Key.underlineColor: CactusColor.white,
+                    NSAttributedString.Key.foregroundColor: CactusColor.white,
+                ]
             }
         })
     }
