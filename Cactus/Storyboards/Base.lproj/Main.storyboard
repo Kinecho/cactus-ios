@@ -567,12 +567,6 @@
                                                         <color key="textColor" name="White"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boost your focus and health" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afq-L6-2C3">
-                                                        <rect key="frame" x="0.0" y="38.5" width="400" height="20.5"/>
-                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                                        <color key="textColor" name="GreenDarkest"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RUy-x4-bJ7" userLabel="Email Input Stack">
@@ -688,7 +682,6 @@
                         <outlet property="containerView" destination="7x3-lF-lM2" id="QXe-bV-ZLC"/>
                         <outlet property="emailInputView" destination="S96-g0-ejQ" id="aP2-hs-jI8"/>
                         <outlet property="otherProviderLabel" destination="vYq-wW-wiI" id="Bqb-Tw-yao"/>
-                        <outlet property="subTextLabel" destination="afq-L6-2C3" id="XOi-aB-u8x"/>
                         <outlet property="submitEmailButton" destination="8ey-8b-Wmd" id="yE8-XT-gxd"/>
                         <outlet property="titleLabel" destination="dt5-xk-ofP" id="cIy-ir-B5m"/>
                     </connections>

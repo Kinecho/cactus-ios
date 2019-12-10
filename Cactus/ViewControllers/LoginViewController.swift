@@ -14,15 +14,11 @@ import AuthenticationServices
 class LoginViewController: UIViewController {
     var authUI: FUIAuth!
     var loggedOutTitle = "Sign In"
-    var anonymousUserTitle = "Create an Account"
-    var anonymousSubtitle = "Boost your focus and health."
-    var loggedOutSubtitle = "Boost your focus and health."
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var otherProviderLabel: UILabel!
     @IBOutlet weak var emailInputView: CactusTextInputField!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var subTextLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var submitEmailButton: PrimaryButton!
     var authViewController: UIViewController?
@@ -105,18 +101,14 @@ class LoginViewController: UIViewController {
     }
     
     func showAnonymousUserUI(_ user: User) {
-        self.titleLabel.text = anonymousUserTitle
-        self.subTextLabel.text = anonymousSubtitle
+        self.titleLabel.text = loggedOutTitle
         self.titleLabel.isHidden = false
-        self.subTextLabel.isHidden = false
         self.configureAuthView()
     }
     
     func showLoggedOutUI() {
         self.titleLabel.text = loggedOutTitle
-        self.subTextLabel.text = loggedOutSubtitle
         self.titleLabel.isHidden = false
-        self.subTextLabel.isHidden = false
         self.emailInputView.isHidden = false
         self.submitEmailButton.isHidden = false
         self.otherProviderLabel.isHidden = false
@@ -125,9 +117,7 @@ class LoginViewController: UIViewController {
     
     func showLoggedInUI(_ user: User) {
         self.removeAuthViewController()
-        //        self.titleLabel.text = user.email
         self.titleLabel.isHidden = true
-        self.subTextLabel.isHidden = true
         
         self.emailInputView.isHidden = true
         self.submitEmailButton.isHidden = true
