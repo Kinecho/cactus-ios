@@ -243,6 +243,8 @@ extension ReflectContentViewController: EditReflectionViewControllerDelegate {
                 self.editViewController?.dismiss(animated: true, completion: {
                     self.delegate?.nextScreen()
                 })
+            } else {
+                self.reflectLogger.error("Failed to save the reflection response", error)
             }
         }
     }

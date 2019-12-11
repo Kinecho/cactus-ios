@@ -50,9 +50,11 @@ class NotificationsTableViewController: UITableViewController, MFMailComposeView
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.refreshPermissionsToggle()
         self.updateEmailSwitch()
         self.updateNotificationTimeLabel()
+        
     }
     
     func updateNotificationTimeLabel() {

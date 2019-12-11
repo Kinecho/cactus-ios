@@ -57,6 +57,10 @@ class ShareNoteViewController: UIViewController {
         self.didMove(toParent: self)
     }
     
+    @IBAction func closeTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     func configureSharing() {
         if self.reflectionResponse?.shared == true {
             self.shareLinkButton.isHidden = true
