@@ -25,7 +25,11 @@ class PhotoContentViewController: PromptContentViewController {
             self.imageView.isHidden = true
         }
         
-        if let mdText = MarkdownUtil.centeredMarkdown(content.text, font: CactusFont.normal(24)) {
+        var textString = content.text_md?.preventOrphanedWords()
+        if (isBlank(textString)) {
+            textString = content.text?.preventOrphanedWords()
+        }
+        if let mdText = MarkdownUtil.centeredMarkdown(textString, font: CactusFont.normal(24)) {
             self.textView.attributedText = mdText
             self.textView.isHidden = false
         } else {

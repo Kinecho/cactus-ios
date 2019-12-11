@@ -24,7 +24,7 @@ class QuoteContentViewController: PromptContentViewController {
         self.initTextView(self.authorNameTextView)
         self.initTextView(self.authorTitleTextView)
         
-        if let quote = content.quote, let textString = quote.text, let wrappedText = FormatUtils.wrapInDoubleQuotes(input: textString) {
+        if let quote = content.quote, let textString = quote.text, let wrappedText = FormatUtils.wrapInDoubleQuotes(input: textString.preventOrphanedWords()) {
             if let mdText = MarkdownUtil.centeredMarkdown(wrappedText, font: CactusFont.normal(24), color: CactusColor.darkestGreen) {
                 self.quoteText.attributedText = mdText
             }

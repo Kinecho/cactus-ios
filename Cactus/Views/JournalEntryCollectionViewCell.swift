@@ -219,7 +219,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         
         let reflectText = FormatUtils.isBlank(reflectContent?.text) ? nil : reflectContent?.text
         let questionText = reflectText ?? self.prompt?.question
-        return questionText
+        return questionText?.preventOrphanedWords()
     }
     
     func updateView() {

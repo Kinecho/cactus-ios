@@ -87,8 +87,6 @@ class ReflectContentViewController: PromptContentViewController {
         guard self.isViewLoaded else {
             return
         }
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -192,7 +190,7 @@ class ReflectContentViewController: PromptContentViewController {
     
     func configureView() {
         let questionText = !FormatUtils.isBlank(content.text_md) ? content.text_md : content.text
-        self.questionTextView.attributedText = MarkdownUtil.centeredMarkdown(questionText, font: CactusFont.normal(24))
+        self.questionTextView.attributedText = MarkdownUtil.centeredMarkdown(questionText?.preventOrphanedWords(), font: CactusFont.normal(24))
         self.view.backgroundColor = CactusColor.beige
         self.reflectionTextView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.addNoteTapped)))
         self.reflectionTextView.layer.borderWidth = 1

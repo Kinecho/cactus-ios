@@ -30,14 +30,11 @@ class NotificationOnboardingViewController: UIViewController {
         }
         
         self.enableLabel.attributedText = self.enableLabel.attributedText?.withColor(CactusColor.lightBlue)
+        self.authorizedLabel.attributedText = NSAttributedString(string: "You currently have push notifications turned on. You can change this in your\u{00A0}settings.")
+            .withColor(CactusColor.lightBlue).withItalics(forSubstring: "You can change this in your\u{00A0}settings")
         
-        if let authorizedText = self.authorizedLabel.attributedText {
-            self.authorizedLabel.attributedText = authorizedText.withColor(CactusColor.lightBlue).withItalics(forSubstring: "You can change this in your settings")
-        }
-        
-        if let deniedText = self.deniedLabel.attributedText {
-            self.deniedLabel.attributedText = deniedText.withItalics(forSubstring: "You can enable this in your settings").withColor(CactusColor.lightBlue)
-        }
+        self.deniedLabel.attributedText = NSAttributedString(string: "Turn on push notifications so you know when it's time to reflect. You can change this in your\u{00A0}settings.")
+            .withColor(CactusColor.lightBlue).withItalics(forSubstring: "You can change this in your\u{00A0}settings")
         
         self.configureView()
     }
@@ -78,7 +75,7 @@ class NotificationOnboardingViewController: UIViewController {
     }
     
     func handleNotDetermined() {
-        self.notificationTitleLabel.text = "Never miss a reflection"
+        self.notificationTitleLabel.text = "Practice makes perfect"
         self.deniedLabel.isHidden = true
         self.authorizedLabel.isHidden = true
         self.enableLabel.isHidden = false

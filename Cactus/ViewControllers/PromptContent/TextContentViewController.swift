@@ -55,7 +55,7 @@ class TextContentViewController: PromptContentViewController {
             textString = self.content.text
         }
         
-        if let mdText = MarkdownUtil.centeredMarkdown(textString, font: CactusFont.normal(24)) {
+        if let mdText = MarkdownUtil.centeredMarkdown(textString?.preventOrphanedWords(), font: CactusFont.normal(24)) {
             self.text.attributedText = mdText
         } 
 

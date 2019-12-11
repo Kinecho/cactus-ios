@@ -134,15 +134,15 @@ class JournalHomeViewController: UIViewController {
     }
     
     func presentPermissionsOnboardingIfNeeded() {
-//        guard self.journalFeedDataSource.count > 0 else {
-//            self.logger.info("The data source is empty, not attempting to show onboarding", functionName: #function)
-//            return
-//        }
+        guard self.journalFeedDataSource.count > 0 else {
+            self.logger.info("The data source is empty, not attempting to show onboarding", functionName: #function)
+            return
+        }
         
         let hasSeenOnboarding = UserDefaults.standard.bool(forKey: UserDefaultsKey.notificationOnboarding)
         if hasSeenOnboarding {
             logger.info("User has seen onboarding via UserDefeaults[\"NotificationOnboarding\"]", functionName: #function)
-//            return
+            return
         }
         
         NotificationService.sharedInstance.hasPushPermissions { (status) in

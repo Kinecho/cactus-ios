@@ -15,6 +15,16 @@ extension NSMutableAttributedString {
     }
 }
 
+extension String {
+    func preventOrphanedWords() -> String {
+        var string = String(self)
+        if let index = self.lastIndex(of: " ") {
+            string.replaceSubrange(index...index, with: "\u{00A0}")
+        }
+        return string
+    }
+}
+
 extension NSAttributedString {
     
     var fullRange: NSRange { return NSRange(location: 0, length: self.length) }
