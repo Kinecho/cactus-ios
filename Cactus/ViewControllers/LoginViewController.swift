@@ -77,7 +77,7 @@ class LoginViewController: UIViewController {
     //TODO: make this show a custom screen
     func handleMagicLinkResponse(_ magicLinkResponse: MagicLinkResponse) {
         let greeting = magicLinkResponse.exists ? "Welcome Back!" : "Welcome!"
-        let alert = UIAlertController(title: greeting, message: "An email has been sent to \(magicLinkResponse.email).", preferredStyle: .alert)
+        let alert = UIAlertController(title: greeting, message: "Next, \(magicLinkResponse.email) will receive an email from Cactus with a special link. Tap it to sign in.", preferredStyle: .alert)
         if magicLinkResponse.success == false {
             alert.title = "Oops! Something's not right."
             alert.message = magicLinkResponse.error ?? "Something unexpected happened. Please try again later"
@@ -269,7 +269,7 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
 }
 
 class CustomAuthPickerViewController: FUIAuthPickerViewController {
-    
+    var hasAdjustedFrame = false
     override func viewDidLoad() {
         super.viewDidLoad()
         let scrollView = view.subviews.first
@@ -299,28 +299,33 @@ class CustomAuthPickerViewController: FUIAuthPickerViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+        
         let scrollView = view.subviews.first
         scrollView?.backgroundColor = .clear
     
         let contentContainerView = scrollView?.subviews.first
-
-        if contentContainerView != nil {
-            let originalFrame = contentContainerView!.frame
-            contentContainerView!.frame = CGRect(x: originalFrame.minX, y: 0, width: originalFrame.width, height: originalFrame.height - originalFrame.minY)
-        }
-
-        if let buttonWrapperView = contentContainerView?.subviews.first {
-            let originalFrame = buttonWrapperView.frame
-            buttonWrapperView.frame = CGRect(x: originalFrame.minX, y: 0, width: originalFrame.width, height: originalFrame.height - originalFrame.minY)
-            
-            buttonWrapperView.subviews.forEach { (subview) in
-                if let button = subview as? UIButton {
-                    button.layer.cornerRadius = 6
-                }
+        let buttonWrapperView = contentContainerView?.subviews.first
+        
+        if !hasAdjustedFrame {
+            super.viewDidLayoutSubviews()
+            if let containerOriginalFrame = contentContainerView?.frame {
+                contentContainerView!.frame = CGRect(x: containerOriginalFrame.minX, y: 0, width: containerOriginalFrame.width, height: containerOriginalFrame.height - containerOriginalFrame.minY)
             }
-            
+                        
+            if let buttonWrapperOriginalFrame = buttonWrapperView?.frame {
+                buttonWrapperView?.frame = CGRect(x: buttonWrapperOriginalFrame.minX,
+                                                  y: 0,
+                                                  width: buttonWrapperOriginalFrame.width,
+                                                  height: buttonWrapperOriginalFrame.height - buttonWrapperOriginalFrame.minY)
+            }
         }
+
+        buttonWrapperView?.subviews.forEach { (subview) in
+            if let button = subview as? UIButton {
+                button.layer.cornerRadius = 6
+            }
+        }
+        self.hasAdjustedFrame = true
     }
 }
 
