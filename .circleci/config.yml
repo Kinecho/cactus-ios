@@ -227,6 +227,7 @@ jobs:
       - run:
           name: Deploy to TestFlight
           command: bundle exec fastlane beta
+          no_output_timeout: 20m
       - slack/notify:
           <<: *webhook-url
           color: 'good'
@@ -355,6 +356,7 @@ workflows:
               ignore: master      
       - notify-branch-workflow-finished:
           name: Notify Success
+          workflow_name: *workflow_name
           requires:
             - *test-name      
 
