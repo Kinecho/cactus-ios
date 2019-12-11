@@ -31,7 +31,7 @@
                                     <constraint firstAttribute="height" constant="50" id="1Xf-z9-o2g"/>
                                     <constraint firstAttribute="width" constant="50" id="5KO-g9-7Uq"/>
                                 </constraints>
-                                <color key="tintColor" name="PinkDarkest"/>
+                                <color key="tintColor" name="White"/>
                                 <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <state key="normal" image="close"/>
                                 <connections>
@@ -40,7 +40,7 @@
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blob3" translatesAutoresizingMaskIntoConstraints="NO" id="Cse-hb-epR">
                                 <rect key="frame" x="-203" y="-137" width="303" height="317"/>
-                                <color key="tintColor" name="PinkDark"/>
+                                <color key="tintColor" name="GreenDarkest"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="303" id="BbE-wv-6QP"/>
                                     <constraint firstAttribute="height" constant="317" id="kHT-1F-MKL"/>
@@ -48,26 +48,26 @@
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blobNeedle" translatesAutoresizingMaskIntoConstraints="NO" id="sze-OD-lKJ">
                                 <rect key="frame" x="160" y="360" width="400" height="400"/>
-                                <color key="tintColor" name="GreenDarker"/>
+                                <color key="tintColor" name="GreenDarkest"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="400" id="aXU-gj-DSy"/>
                                     <constraint firstAttribute="height" constant="400" id="hFo-8F-KFP"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="t2a-kg-Fhq" userLabel="ContentStack View">
-                                <rect key="frame" x="20" y="21" width="280" height="438"/>
+                                <rect key="frame" x="20" y="27.5" width="280" height="425"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8Op-eM-NFE" userLabel="Messages Stack View">
-                                        <rect key="frame" x="22.5" y="8" width="235.5" height="322"/>
+                                        <rect key="frame" x="24.5" y="8" width="231.5" height="309"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eg6-dq-Mur">
-                                                <rect key="frame" x="0.0" y="0.0" width="235.5" height="23.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="231.5" height="24"/>
                                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="20"/>
-                                                <color key="textColor" name="PinkDarkest"/>
+                                                <color key="textColor" name="White"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyy-A7-2j1" userLabel="Authorized Label">
-                                                <rect key="frame" x="0.0" y="33.5" width="235.5" height="84"/>
+                                                <rect key="frame" x="0.0" y="34" width="231.5" height="65"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="You currently have push notifications ">
                                                         <attributes>
@@ -111,11 +111,11 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcx-Lh-HCN" userLabel="Denied Label">
-                                                <rect key="frame" x="0.0" y="127.5" width="235.5" height="79.5"/>
+                                                <rect key="frame" x="0.0" y="109" width="231.5" height="82"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="Turn on push notifications so you know when it's time to reflect. You can enable this in your settings.">
                                                         <attributes>
-                                                            <color key="NSColor" red="0.028353048488497734" green="0.26966866850852966" blue="0.30119732022285461" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="NSColor" red="0.90196078431372551" green="0.97647058823529409" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <font key="NSFont" size="17" name="Lato-Regular"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
@@ -123,16 +123,16 @@
                                                 </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Every day brings a new prompt to reflect on and beecome more mindful. Turn on push notifications so you never miss a day." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkC-1F-qGO" userLabel="New Notification Label">
-                                                <rect key="frame" x="0.0" y="217" width="235.5" height="105"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Every day brings a new prompt to reflect on and become more mindful. Turn on push notifications so you never miss a day." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkC-1F-qGO" userLabel="New Notification Label">
+                                                <rect key="frame" x="0.0" y="201" width="231.5" height="108"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
-                                                <color key="textColor" name="GreenDarkest"/>
+                                                <color key="textColor" name="GreenLightest"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="H0V-7V-5hz" userLabel="Actions Stack View">
-                                        <rect key="frame" x="76" y="370" width="128" height="60"/>
+                                        <rect key="frame" x="76" y="357" width="128" height="60"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbC-G6-C2k" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="128" height="30"/>
@@ -170,7 +170,7 @@
                                 <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="20"/>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" name="PinkLight"/>
+                        <color key="backgroundColor" name="GreenDarker"/>
                         <constraints>
                             <constraint firstItem="t2a-kg-Fhq" firstAttribute="trailing" secondItem="keV-aa-4TR" secondAttribute="trailing" constant="-20" id="Mls-wb-ezx"/>
                             <constraint firstItem="t2a-kg-Fhq" firstAttribute="leading" secondItem="keV-aa-4TR" secondAttribute="leading" constant="20" id="eFs-4o-aNA"/>
@@ -195,7 +195,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="egL-9R-n9T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-223.18840579710147" y="89.732142857142847"/>
+            <point key="canvasLocation" x="-225" y="88.75"/>
         </scene>
     </scenes>
     <resources>
@@ -208,14 +208,11 @@
         <namedColor name="GreenDarkest">
             <color red="0.027000000700354576" green="0.27099999785423279" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="PinkDark">
-            <color red="0.99215686274509807" green="0.73725490196078436" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="GreenLightest">
+            <color red="0.84200000762939453" green="0.89399999380111694" blue="0.90299999713897705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="PinkDarkest">
-            <color red="0.4779999852180481" green="0.2199999988079071" blue="0.078000001609325409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="PinkLight">
-            <color red="1" green="0.89399999380111694" blue="0.85500001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

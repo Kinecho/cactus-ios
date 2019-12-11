@@ -29,12 +29,14 @@ class NotificationOnboardingViewController: UIViewController {
             }
         }
         
+        self.enableLabel.attributedText = self.enableLabel.attributedText?.withColor(CactusColor.lightBlue)
+        
         if let authorizedText = self.authorizedLabel.attributedText {
-            self.authorizedLabel.attributedText = authorizedText.withColor(CactusColor.darkestGreen).withItalics(forSubstring: "You can change this in your settings")            
+            self.authorizedLabel.attributedText = authorizedText.withColor(CactusColor.lightBlue).withItalics(forSubstring: "You can change this in your settings")
         }
         
         if let deniedText = self.deniedLabel.attributedText {
-            self.deniedLabel.attributedText = deniedText.withItalics(forSubstring: "You can enable this in your settings").withColor(CactusColor.darkestGreen)
+            self.deniedLabel.attributedText = deniedText.withItalics(forSubstring: "You can enable this in your settings").withColor(CactusColor.lightBlue)
         }
         
         self.configureView()
