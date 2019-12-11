@@ -21,10 +21,30 @@ platform :ios do
     	setup_circle_ci
   	end
 
+  	# Bump build number
   	lane :bump do 
   		increment_build_number(xcodeproj: "Cactus.xcodeproj")
   	end
-  
+
+  	lane :print_version do 
+		get_version_number(xcodeproj: "Cactus.xcodeproj", target: "Cactus Prod")
+		get_build_number		
+		version = "#{lane_context[SharedValues::VERSION_NUMBER]}.#{lane_context[SharedValues::BUILD_NUMBER]}"
+		sh("echo", version)
+  	end
+
+  	lane :patch do 
+  		version = get_version_number(xcodeproj: "Cactus.xcodeproj", target: "Cactus Prod")
+  		sh("echo", "version number is...")
+  		sh("echo", version)
+		increment_version_number(version_number: version)
+		# increment_version_number()
+  		increment_version_number(
+  			# xcodeproj: "Cactus.xcodeproj",
+  			# bump_type: "patch"
+		)
+  	end
+
 
   	lane :version_bump do 
 	    increment_build_number(xcodeproj: "Cactus.xcodeproj")
