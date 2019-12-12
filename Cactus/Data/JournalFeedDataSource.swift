@@ -261,8 +261,12 @@ class JournalFeedDataSource {
         var newPromptIds: [String] = []
         var updatedOrderedPromptIds = [String]()
         self.sentPrompts.forEach { sentPrompt in
-            guard let promptId = sentPrompt.promptId, !updatedOrderedPromptIds.contains(promptId) else {
-                self.logger.warn("ordered prompt ids already contains this prompt. something is wrong.")
+            guard let promptId = sentPrompt.promptId else {
+                self.logger.warn("No prompt ID found for SentPrompt.id = \(sentPrompt.id ?? "unknown")")
+                return
+            }
+            guard !updatedOrderedPromptIds.contains(promptId) else {
+                self.logger.warn("ordered prompt ids already contains this prompt. This shouldn't happen, but will not affect user experience. PromptID = \(sentPrompt.promptId ?? "unknown")")
                 return
             }
             if self.journalEntryDataBySentPromptId[promptId] == nil {
@@ -310,7 +314,18 @@ class JournalFeedDataSource {
 
 extension JournalFeedDataSource: JournalEntryDataDelegate {
     func onData(_ journalEntry: JournalEntry) {
-        let index = self.indexOf(journalEntry)
-        self.delegate?.updateEntry(journalEntry, at: index)
+        if journalEntry.loadingComplete {
+            let index = self.indexOf(journalEntry)
+            
+            if index == nil {
+                print("No index found for journal entry")
+            }
+            
+//            self.delegate?.updateEntry(journalEntry, at: index)
+        }
+        
+        if self.loadingCompleted {
+            self.delegate?.dataLoaded()
+        }
     }
 }

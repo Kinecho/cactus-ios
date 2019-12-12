@@ -48,7 +48,6 @@ class PromptContentPageViewController: UIPageViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setNeedsStatusBarAppearanceUpdate()
-        self.configureScreens()
     }
     
     @objc func tapGestureHandler(touch: UITapGestureRecognizer) {

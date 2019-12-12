@@ -45,8 +45,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 guard let email = Auth.auth().currentUser?.email else {
                     return
                 }
+                
                 var tags = event.tags ?? [:]
                 tags["user.email"] = email
+                if let member = CactusMemberService.sharedInstance.currentMember, let memberId = member.id {
+                    tags["cactusMemberId"] = memberId
+                }
                 event.tags = tags
             }
         } catch let error {

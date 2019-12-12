@@ -72,6 +72,11 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.collectionView.reloadData()
         self.setNeedsStatusBarAppearanceUpdate()
+        self.reloadVisibleViews()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
     }
     
     @IBAction func showPromptContentCards(segue: UIStoryboardSegue) { }
@@ -202,6 +207,8 @@ extension JournalFeedCollectionViewController: JournalFeedDataSourceDelegate {
         let indexPath = IndexPath(row: index, section: 0)
         self.logger.debug("Updating entry at \(indexPath)", functionName: #function)
         self.collectionView.reloadItems(at: [indexPath])
+//        let visibleCells = self.collectionView.indexPathsForVisibleItems
+        self.reloadVisibleViews()
     }
     
     func dataLoaded() {
