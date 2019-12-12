@@ -41,7 +41,7 @@
                             </subviews>
                             <constraints>
                                 <constraint firstItem="4yr-JA-CMf" firstAttribute="centerX" secondItem="6aE-ss-NOn" secondAttribute="centerX" id="G0k-Mc-yAg"/>
-                                <constraint firstItem="4yr-JA-CMf" firstAttribute="top" secondItem="6aE-ss-NOn" secondAttribute="top" id="Luc-xz-xUx"/>
+                                <constraint firstItem="4yr-JA-CMf" firstAttribute="top" secondItem="6aE-ss-NOn" secondAttribute="top" constant="10" id="Luc-xz-xUx"/>
                                 <constraint firstAttribute="trailing" secondItem="4yr-JA-CMf" secondAttribute="trailing" id="PwF-2y-VzI"/>
                                 <constraint firstItem="4yr-JA-CMf" firstAttribute="leading" secondItem="6aE-ss-NOn" secondAttribute="leading" id="bCA-vu-Erw"/>
                                 <constraint firstAttribute="height" constant="200" id="pSb-Tl-iRE"/>

@@ -36,6 +36,7 @@ class ExperienceAnimationViewController: GenericCactusElementAnimationViewContro
             return
         }
         self.animationStarted = true
+        super.isAnimating = true
         let firstEndsAt =  totalDuration/2
         self.animateStem1(delay: 0, finishEarly: firstEndsAt)
         self.animateStem2(delay: 2, finishEarly: 5)

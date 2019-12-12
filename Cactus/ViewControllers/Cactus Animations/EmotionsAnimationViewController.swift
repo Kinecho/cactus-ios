@@ -33,6 +33,7 @@ class EmotionsAnimationViewController: GenericCactusElementAnimationViewControll
             return
         }
         self.animationStarted = true
+        super.isAnimating = true
         self.animateLeaf1()
         self.animateContainer()
         self.animateLeaf2(delay: 5)

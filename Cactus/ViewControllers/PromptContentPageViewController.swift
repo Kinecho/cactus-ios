@@ -28,15 +28,6 @@ class PromptContentPageViewController: UIPageViewController {
         
     fileprivate lazy var screens: [UIViewController] = []
     
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//        if #available(iOS 13.0, *) {
-//            return .darkContent
-//        } else {
-//            // Fallback on earlier versions
-//            return .default
-//        }
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataSource = self
@@ -44,12 +35,7 @@ class PromptContentPageViewController: UIPageViewController {
         self.configureScreens()
         self.view.backgroundColor = CactusColor.beige
     }
-//
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        self.setNeedsStatusBarAppearanceUpdate()
-//    }
-    
+
     @objc func tapGestureHandler(touch: UITapGestureRecognizer) {
         guard self.tapNavigationEnabled == true else {return}
         let touchPoint = touch.location(in: self.view)

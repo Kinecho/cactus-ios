@@ -39,6 +39,7 @@ class RelationshipsAnimationViewController: GenericCactusElementAnimationViewCon
             return
         }
         self.animationStarted = true
+        super.isAnimating = true
         self.animateContainer()
         self.standard(image: leaf1, direction: .center, duration: 12, yOffset: 10)
         self.standard(image: leaf2, direction: .right, delay: 2, duration: 12, xOffset: 20, yOffset: 10)

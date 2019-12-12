@@ -34,6 +34,7 @@ class EnergyAnimationViewController: GenericCactusElementAnimationViewController
             return
         }
         self.animationStarted = true
+        super.isAnimating = true
         self.animateContainer()
         self.animateLeaf1(delay: 0)
         self.standard(image: leaf2, delay: 4, scaleX: 0.0, scaleY: 0.0)

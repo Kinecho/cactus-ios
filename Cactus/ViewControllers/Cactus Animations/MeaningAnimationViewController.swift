@@ -32,6 +32,7 @@ class MeaningAnimationViewController: GenericCactusElementAnimationViewControlle
             return
         }
         self.animationStarted = true
+        super.isAnimating = true
         self.animateStem1(delay: 0, finishEarly: 5)
         self.animateStem2(delay: 10)
         self.animateContainer()
