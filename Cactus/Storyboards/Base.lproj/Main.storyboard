@@ -546,13 +546,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_darkBlobs" translatesAutoresizingMaskIntoConstraints="NO" id="twe-f9-jsW" userLabel="Background Image View">
-                                <rect key="frame" x="-453" y="0.0" width="828" height="667"/>
+                                <rect key="frame" x="-1281" y="0.0" width="1656" height="667"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9R0-s8-91l">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-ondark" translatesAutoresizingMaskIntoConstraints="NO" id="7bt-2B-ArE">
-                                        <rect key="frame" x="-165" y="40" width="705" height="70"/>
+                                        <rect key="frame" x="-517.5" y="40" width="1410" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="K01-eT-aMU">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="100"/>
