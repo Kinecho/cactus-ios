@@ -195,15 +195,16 @@
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" reuseIdentifier="JournalEntryCell" id="hi3-X9-dKc" userLabel="Question Card" customClass="JournalEntryCollectionViewCell" customModule="Cactus" customModuleProvider="target">
                                 <rect key="frame" x="3" y="8" width="408" height="229"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <collectionViewCellContentView key="contentView" verifyAmbiguity="ignoreSizes" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" placeholderIntrinsicWidth="402" placeholderIntrinsicHeight="200" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qW-dd-S1T">
+                                <collectionViewCellContentView key="contentView" verifyAmbiguity="ignoreSizes" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="402" placeholderIntrinsicHeight="200" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" id="0qW-dd-S1T">
                                     <rect key="frame" x="0.0" y="0.0" width="408" height="229"/>
+                                    <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blob4" translatesAutoresizingMaskIntoConstraints="NO" id="lDj-iq-UJ4" userLabel="Background Blob">
-                                            <rect key="frame" x="-25" y="148" width="472.5" height="120"/>
+                                            <rect key="frame" x="-25" y="159" width="458" height="120"/>
                                             <color key="tintColor" name="PinkLightest"/>
                                         </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="me6-iG-DkW" userLabel="Background Image View">
-                                            <rect key="frame" x="-25" y="148" width="472.5" height="70"/>
+                                            <rect key="frame" x="-25" y="159" width="458" height="70"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" priority="999" constant="200" identifier="JournalFeed.BackgroundImage.Height" id="laF-kS-zV3"/>
                                             </constraints>
@@ -239,7 +240,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="754" text="May 14, 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOB-lq-qx1">
-                                            <rect key="frame" x="20" y="60" width="382.5" height="22"/>
+                                            <rect key="frame" x="20" y="60" width="368" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="veS-Gu-PeT"/>
                                             </constraints>
@@ -251,7 +252,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Placeholder Question" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ud-An-1HM">
-                                            <rect key="frame" x="20" y="102" width="382.5" height="26"/>
+                                            <rect key="frame" x="20" y="102" width="368" height="37"/>
                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="22"/>
                                             <color key="textColor" name="GreenDarkest"/>
                                             <nil key="highlightedColor"/>
@@ -263,35 +264,35 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sub Text Label WIth lots of question context" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Prt-fK-hhC" userLabel="Sub Text Label">
-                                            <rect key="frame" x="20" y="138" width="382.5" height="24"/>
+                                            <rect key="frame" x="20" y="149" width="368" height="48"/>
                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
                                             <color key="textColor" name="GreenDarkest"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLH-Hu-Fx0" customClass="BorderedButton" customModule="Cactus" customModuleProvider="target">
-                                            <rect key="frame" x="366.5" y="20" width="36" height="36"/>
+                                        <button contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLH-Hu-Fx0" customClass="BorderedButton" customModule="Cactus" customModuleProvider="target">
+                                            <rect key="frame" x="366.5" y="20" width="40" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="36" id="ab8-UZ-8ce"/>
-                                                <constraint firstAttribute="width" constant="36" id="bqo-PG-SsK"/>
+                                                <constraint firstAttribute="height" constant="40" id="ab8-UZ-8ce"/>
+                                                <constraint firstAttribute="width" constant="40" id="bqo-PG-SsK"/>
                                             </constraints>
-                                            <color key="tintColor" name="GreenDark"/>
+                                            <color key="tintColor" name="GreenDarkest"/>
                                             <state key="normal" title="" image="dots"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
-                                                    <integer key="value" value="18"/>
+                                                    <real key="value" value="25"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                    <integer key="value" value="1"/>
+                                                    <real key="value" value="0.0"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                    <color key="value" name="GreenLightest"/>
+                                                    <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="imageWidth">
-                                                    <real key="value" value="20"/>
+                                                    <real key="value" value="30"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="imageHeight">
-                                                    <real key="value" value="20"/>
+                                                    <real key="value" value="50"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
@@ -299,7 +300,7 @@
                                             </connections>
                                         </button>
                                         <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="748" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" editable="NO" text="my response to the question" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIY-zE-sMO">
-                                            <rect key="frame" x="18" y="148" width="384.5" height="50"/>
+                                            <rect key="frame" x="18" y="159" width="370" height="50"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="textColor" name="GreenDarkest"/>
                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
@@ -315,14 +316,14 @@
                                             </userDefinedRuntimeAttributes>
                                         </textView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFa-Yu-OSz" userLabel="Border View">
-                                            <rect key="frame" x="-5" y="148" width="10" height="50"/>
+                                            <rect key="frame" x="-5" y="159" width="10" height="50"/>
                                             <color key="backgroundColor" name="YellowDark"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="10" id="pRO-h5-NZ6"/>
                                             </constraints>
                                         </view>
                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vu-J4-LLw" userLabel="Reflect Button" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="148" width="382.5" height="50"/>
+                                            <rect key="frame" x="20" y="159" width="368" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" identifier="ReflectButton.Height" id="8cM-D4-eRz"/>
                                             </constraints>
@@ -341,6 +342,7 @@
                                     <constraints>
                                         <constraint firstItem="bFa-Yu-OSz" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="-5" id="0i4-lg-c9x"/>
                                         <constraint firstAttribute="trailing" secondItem="lDj-iq-UJ4" secondAttribute="trailing" constant="-25" id="1um-HJ-PUP"/>
+                                        <constraint firstItem="xLH-Hu-Fx0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="e7Y-9t-Q3G" secondAttribute="trailing" constant="20" id="2WK-gf-4zf"/>
                                         <constraint firstItem="0ud-An-1HM" firstAttribute="top" secondItem="XOB-lq-qx1" secondAttribute="bottom" constant="20" id="2hh-nA-B9O"/>
                                         <constraint firstItem="6vu-J4-LLw" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="20" id="39S-nh-1LB"/>
                                         <constraint firstItem="me6-iG-DkW" firstAttribute="top" secondItem="Prt-fK-hhC" secondAttribute="bottom" constant="20" id="3ye-R8-wrG"/>
@@ -367,13 +369,13 @@
                                         <constraint firstItem="fIY-zE-sMO" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="18" id="gkI-LN-uVJ"/>
                                         <constraint firstAttribute="bottom" secondItem="me6-iG-DkW" secondAttribute="bottom" identifier="JournalFeedCell.BackgroundImage.BottomToContentViewBottom" id="i4D-IU-BkX"/>
                                         <constraint firstItem="me6-iG-DkW" firstAttribute="top" secondItem="0ud-An-1HM" secondAttribute="bottom" constant="20" id="nuF-VB-GJL"/>
-                                        <constraint firstAttribute="trailing" secondItem="xLH-Hu-Fx0" secondAttribute="trailing" constant="20" id="oXt-3Y-tpH"/>
+                                        <constraint firstAttribute="trailing" secondItem="xLH-Hu-Fx0" secondAttribute="trailing" constant="10" id="oXt-3Y-tpH"/>
                                         <constraint firstAttribute="trailing" secondItem="fIY-zE-sMO" secondAttribute="trailing" constant="20" id="pgD-zz-UXd"/>
                                         <constraint firstItem="XOB-lq-qx1" firstAttribute="top" secondItem="0qW-dd-S1T" secondAttribute="top" constant="20" identifier="dateTopContainer" id="ptt-Kp-uU6"/>
                                         <constraint firstAttribute="trailing" secondItem="XOB-lq-qx1" secondAttribute="trailing" constant="20" id="tZr-iI-erT"/>
                                         <constraint firstAttribute="trailing" secondItem="0ud-An-1HM" secondAttribute="trailing" constant="20" id="umD-hz-9BQ"/>
                                         <constraint firstItem="Prt-fK-hhC" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="20" id="uma-7Y-8Pm"/>
-                                        <constraint firstItem="xLH-Hu-Fx0" firstAttribute="top" secondItem="0qW-dd-S1T" secondAttribute="top" constant="20" id="vRV-Op-D8r"/>
+                                        <constraint firstItem="xLH-Hu-Fx0" firstAttribute="top" secondItem="0qW-dd-S1T" secondAttribute="top" constant="10" id="vRV-Op-D8r"/>
                                         <constraint firstItem="lDj-iq-UJ4" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="-25" id="vqw-P4-yPD"/>
                                         <constraint firstItem="lDj-iq-UJ4" firstAttribute="top" secondItem="me6-iG-DkW" secondAttribute="top" id="ygy-2x-EfF"/>
                                         <constraint firstAttribute="height" constant="229" placeholder="YES" id="zxl-Bq-ctl"/>
@@ -718,17 +720,11 @@
         <image name="journalEmpty" width="1217" height="687"/>
         <image name="logo" width="705" height="348"/>
         <image name="logo-ondark" width="705" height="348"/>
-        <namedColor name="GreenDark">
-            <color red="0.16099999845027924" green="0.63899999856948853" blue="0.53700000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="GreenDarkest">
             <color red="0.027000000700354576" green="0.27099999785423279" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="GreenLight">
             <color red="0.72500002384185791" green="0.93699997663497925" blue="0.91399997472763062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="GreenLightest">
-            <color red="0.84200000762939453" green="0.89399999380111694" blue="0.90299999713897705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="PinkLightest">
             <color red="1" green="0.94901960784313721" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

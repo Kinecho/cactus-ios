@@ -55,7 +55,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     func reloadVisibleViews() {
         let visibleIds = self.collectionView.indexPathsForVisibleItems
         if  !visibleIds.isEmpty {
-            self.logger.info("reloading \(visibleIds)")
+            self.logger.info("reloading visible ids \(visibleIds)")
             self.collectionView.reloadItems(at: visibleIds)
         }
     }
@@ -207,8 +207,6 @@ extension JournalFeedCollectionViewController: JournalFeedDataSourceDelegate {
         let indexPath = IndexPath(row: index, section: 0)
         self.logger.debug("Updating entry at \(indexPath)", functionName: #function)
         self.collectionView.reloadItems(at: [indexPath])
-//        let visibleCells = self.collectionView.indexPathsForVisibleItems
-        self.reloadVisibleViews()
     }
     
     func dataLoaded() {

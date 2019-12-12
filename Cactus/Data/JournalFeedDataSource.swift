@@ -315,17 +315,12 @@ class JournalFeedDataSource {
 extension JournalFeedDataSource: JournalEntryDataDelegate {
     func onData(_ journalEntry: JournalEntry) {
         if journalEntry.loadingComplete {
-            let index = self.indexOf(journalEntry)
-            
-            if index == nil {
-                print("No index found for journal entry")
+            guard let index = self.indexOf(journalEntry) else {
+                self.logger.warn("No index foud for journalEntry.promptId \(journalEntry.sentPrompt.promptId ?? "unknown")")
+                return
             }
             
-//            self.delegate?.updateEntry(journalEntry, at: index)
-        }
-        
-        if self.loadingCompleted {
-            self.delegate?.dataLoaded()
+            self.delegate?.updateEntry(journalEntry, at: index)
         }
     }
 }

@@ -30,7 +30,7 @@
                             <rect key="frame" x="10" y="0.0" width="100" height="200"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meaning1" translatesAutoresizingMaskIntoConstraints="NO" id="4yr-JA-CMf" customClass="UIImageViewAligned" customModule="Cactus" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="100" height="200"/>
+                                    <rect key="frame" x="0.0" y="10" width="100" height="200"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="200" id="mHT-1e-JKK"/>
                                     </constraints>

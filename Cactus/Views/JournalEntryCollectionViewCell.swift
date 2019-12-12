@@ -248,7 +248,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         
         if allLoaded {
             if self.questionLabel.isSkeletonActive {
-                self.questionLabel.hideSkeleton()
+                self.questionLabel.hideSkeleton(reloadDataAfter: true, transition: .none)
             }
             
             if reflectionCompleted {
@@ -346,10 +346,10 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         if self.responseTextView != nil {
             self.responseTextView.layer.borderColor = CactusColor.borderLight.cgColor
             self.responseTextView.layer.borderWidth = 0
-            self.responseTextView.layer.cornerRadius = self.cornerRadius
         }
         
         self.contentView.layer.cornerRadius = self.cornerRadius
+        self.questionLabel.layer.cornerRadius = 6
         self.layer.borderColor = UIColor.clear.cgColor
         self.layer.borderWidth = 0
         self.skeletonViewController.view.layoutSubviews()
