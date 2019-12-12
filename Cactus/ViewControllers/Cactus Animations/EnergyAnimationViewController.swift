@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EnergyAnimationViewController: UIViewController, CactusElementAnimationViewController {
+class EnergyAnimationViewController: GenericCactusElementAnimationViewController {
     @IBOutlet weak var containerView: UIView!
         
     @IBOutlet weak var leaf1: UIImageViewAligned!
@@ -18,7 +18,7 @@ class EnergyAnimationViewController: UIViewController, CactusElementAnimationVie
     @IBOutlet weak var leaf5: UIImageView!
     @IBOutlet weak var leaf6: UIImageView!
     @IBOutlet weak var leaf7: UIImageView!
-    
+    var animationStarted = false
     var totalDuration: TimeInterval = 20
     
     override func viewDidLoad() {
@@ -27,7 +27,13 @@ class EnergyAnimationViewController: UIViewController, CactusElementAnimationVie
 //        self.startAnimation()
     }
     
-    func startAnimations() {
+    override func startAnimations() {
+        guard self.animationStarted == false else {
+            //animations already running, not restarting
+            self.resumeAnimations()
+            return
+        }
+        self.animationStarted = true
         self.animateContainer()
         self.animateLeaf1(delay: 0)
         self.standard(image: leaf2, delay: 4, scaleX: 0.0, scaleY: 0.0)

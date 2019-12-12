@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EmotionsAnimationViewController: UIViewController, CactusElementAnimationViewController {
+class EmotionsAnimationViewController: GenericCactusElementAnimationViewController {
     @IBOutlet weak var leaf1Container: UIView!
     @IBOutlet weak var leaf1: UIImageViewAligned!
     @IBOutlet weak var pot: UIImageView!
@@ -19,14 +19,20 @@ class EmotionsAnimationViewController: UIViewController, CactusElementAnimationV
     @IBOutlet weak var leaf3Container: UIView!
     @IBOutlet weak var leaf3: UIImageViewAligned!
     var totalDuration: TimeInterval = 20
-    
+    var animationStarted = false
     override func viewDidLoad() {
         super.viewDidLoad()
 
 //        self.startAnimation()
     }
 
-    func startAnimations() {
+    override func startAnimations() {
+        guard self.animationStarted == false else {
+            //animations already running, not restarting
+            self.resumeAnimations()
+            return
+        }
+        self.animationStarted = true
         self.animateLeaf1()
         self.animateContainer()
         self.animateLeaf2(delay: 5)

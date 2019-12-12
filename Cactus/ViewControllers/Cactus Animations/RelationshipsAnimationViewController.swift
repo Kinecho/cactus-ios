@@ -14,7 +14,7 @@ enum GrowDirectionX {
     case center
 }
 
-class RelationshipsAnimationViewController: UIViewController, CactusElementAnimationViewController {
+class RelationshipsAnimationViewController: GenericCactusElementAnimationViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var leaf1: UIImageView!
     @IBOutlet weak var leaf2: UIImageView!
@@ -25,15 +25,20 @@ class RelationshipsAnimationViewController: UIViewController, CactusElementAnima
     @IBOutlet weak var leaf7: UIImageView!
     @IBOutlet weak var leaf8: UIImageView!
     @IBOutlet weak var leaf9: UIImageView!
-    
+    var animationStarted = false
     var totalDuration: TimeInterval = 20
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.startAnimation()
     }
     
-    func startAnimations() {
-//        self.animateLeaf1()
+    override func startAnimations() {
+        guard self.animationStarted == false else {
+            //animations already running, not restarting
+            self.resumeAnimations()
+            return
+        }
+        self.animationStarted = true
         self.animateContainer()
         self.standard(image: leaf1, direction: .center, duration: 12, yOffset: 10)
         self.standard(image: leaf2, direction: .right, delay: 2, duration: 12, xOffset: 20, yOffset: 10)

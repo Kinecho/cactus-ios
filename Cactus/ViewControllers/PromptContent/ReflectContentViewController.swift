@@ -18,7 +18,7 @@ class ReflectContentViewController: PromptContentViewController {
     @IBOutlet weak var cactusAnimationContainerView: UIView!
     @IBOutlet weak var sharedNoteStackView: UIStackView!
     var reflectLogger = Logger(fileName: "ReflectionContentViewController")
-    var animationVc: CactusElementAnimationViewController?
+    var animationVc: GenericCactusElementAnimationViewController?
     var player: AVPlayer!
     var reflectionResponse: ReflectionResponse? {
         didSet {
@@ -47,7 +47,7 @@ class ReflectContentViewController: PromptContentViewController {
     func createAnimation() {
         let container = self.cactusAnimationContainerView!
         
-        var cactusVc: CactusElementAnimationViewController?
+        var cactusVc: GenericCactusElementAnimationViewController?
         
         switch self.promptContent.cactusElement {
         case .meaning:
@@ -97,7 +97,12 @@ class ReflectContentViewController: PromptContentViewController {
         
         self.startTime = Date()
         self.endTime = nil
-        self.animationVc?.startAnimations()
+        self.animationVc?.startAnimations()        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.animationVc?.pauseAnimations()
     }
     
     @IBAction func addNoteTapped(_ sender: Any) {

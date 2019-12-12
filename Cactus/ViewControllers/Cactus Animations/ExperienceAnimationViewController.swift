@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExperienceAnimationViewController: UIViewController, CactusElementAnimationViewController {
+class ExperienceAnimationViewController: GenericCactusElementAnimationViewController {
     @IBOutlet weak var pot: UIImageView!
     
     @IBOutlet weak var containerView: UIView!
@@ -20,7 +20,7 @@ class ExperienceAnimationViewController: UIViewController, CactusElementAnimatio
     @IBOutlet weak var stem3: UIImageViewAligned!
     @IBOutlet weak var stem4Container: UIView!
     @IBOutlet weak var stem4: UIImageViewAligned!
-    
+    var animationStarted = false
     var totalDuration: TimeInterval = 20
     
     override func viewDidLoad() {
@@ -29,7 +29,13 @@ class ExperienceAnimationViewController: UIViewController, CactusElementAnimatio
 //        self.startAnimation()
     }
 
-    func startAnimations() {
+    override func startAnimations() {
+        guard self.animationStarted == false else {
+            //animations already running, not restarting
+            self.resumeAnimations()
+            return
+        }
+        self.animationStarted = true
         let firstEndsAt =  totalDuration/2
         self.animateStem1(delay: 0, finishEarly: firstEndsAt)
         self.animateStem2(delay: 2, finishEarly: 5)

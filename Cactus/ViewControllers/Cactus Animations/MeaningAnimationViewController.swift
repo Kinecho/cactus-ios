@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MeaningAnimationViewController: UIViewController, CactusElementAnimationViewController {
+class MeaningAnimationViewController: GenericCactusElementAnimationViewController {
     @IBOutlet weak var stem1: UIImageView!
     @IBOutlet weak var stem2: UIImageView!
     @IBOutlet weak var pot: UIImageView!
@@ -16,16 +16,22 @@ class MeaningAnimationViewController: UIViewController, CactusElementAnimationVi
     @IBOutlet weak var stem2Container: UIView!
     @IBOutlet weak var containerView: UIView!
     
+    var animationStarted = false
     let totalDuration: TimeInterval = 20
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.pot.layer.cornerRadius = 10
-//        self.startAnimation()
     }
     
-    func startAnimations() {
+    override func startAnimations() {
+        guard self.animationStarted == false else {
+            //animations already running, not restarting
+            self.resumeAnimations()
+            return
+        }
+        self.animationStarted = true
         self.animateStem1(delay: 0, finishEarly: 5)
         self.animateStem2(delay: 10)
         self.animateContainer()
