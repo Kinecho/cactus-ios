@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -55,19 +55,19 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="t2a-kg-Fhq" userLabel="ContentStack View">
-                                <rect key="frame" x="20" y="21" width="280" height="438"/>
+                                <rect key="frame" x="20" y="31.5" width="280" height="417"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8Op-eM-NFE" userLabel="Messages Stack View">
-                                        <rect key="frame" x="26.5" y="8" width="227.5" height="322"/>
+                                        <rect key="frame" x="23" y="8" width="234.5" height="301"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Practice makes perfect" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eg6-dq-Mur">
-                                                <rect key="frame" x="0.0" y="0.0" width="227.5" height="23.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="234.5" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="20"/>
                                                 <color key="textColor" name="White"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyy-A7-2j1" userLabel="Authorized Label">
-                                                <rect key="frame" x="0.0" y="33.5" width="227.5" height="84"/>
+                                                <rect key="frame" x="0.0" y="33.5" width="234.5" height="84"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="You currently have push notifications ">
                                                         <attributes>
@@ -130,7 +130,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcx-Lh-HCN" userLabel="Denied Label">
-                                                <rect key="frame" x="0.0" y="127.5" width="227.5" height="79.5"/>
+                                                <rect key="frame" x="0.0" y="127.5" width="234.5" height="79.5"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="Turn on push notifications so you know when it's time to reflect. You can enable this in your">
                                                         <attributes>
@@ -160,8 +160,8 @@
                                                 </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Every day brings a new, mindful question. Allow notifications and we’ll help you make this a daily\u00A0routine." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkC-1F-qGO" userLabel="New Notification Label">
-                                                <rect key="frame" x="0.0" y="217" width="227.5" height="105"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Every day brings a new, mindful question. Allow notifications and we’ll help you make this a daily routine." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkC-1F-qGO" userLabel="New Notification Label">
+                                                <rect key="frame" x="0.0" y="217" width="234.5" height="84"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                                 <color key="textColor" name="GreenLightest"/>
                                                 <nil key="highlightedColor"/>
@@ -169,7 +169,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="H0V-7V-5hz" userLabel="Actions Stack View">
-                                        <rect key="frame" x="76" y="370" width="128" height="60"/>
+                                        <rect key="frame" x="76" y="349" width="128" height="60"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbC-G6-C2k" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="128" height="30"/>

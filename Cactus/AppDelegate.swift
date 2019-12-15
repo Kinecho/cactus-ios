@@ -84,7 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Messaging.messaging().delegate = self
         
         NotificationService.sharedInstance.clearIconBadge()
-        NotificationService.sharedInstance.registerForPushIfEnabled()
+        NotificationService.sharedInstance.registerForPushIfEnabled(application: application)
         return true
     }
 
@@ -105,7 +105,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-        NotificationService.sharedInstance.registerForPushIfEnabled()
+        NotificationService.sharedInstance.registerForPushIfEnabled(application: application)
         NotificationService.sharedInstance.clearIconBadge()
         
     }
@@ -219,7 +219,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
             UNUserNotificationCenter.current().requestAuthorization(
                 options: authOptions,
-                completionHandler: {_, _ in })
+                completionHandler: {success, error in
+                    self.logger.info("Register for notifications permissions: bool = \(success)")
+                    if let error = error {
+                        self.logger.error("Failed to register for nofitications", error)
+                    }
+            })
         } else {
             let settings: UIUserNotificationSettings =
                 UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
@@ -286,6 +291,13 @@ extension AppDelegate {
 extension AppDelegate: UNUserNotificationCenterDelegate {
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         self.logger.warn("Unable to register for remote notifications: \(error.localizedDescription)", functionName: #function, line: #line)
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        self.logger.info("APNs token retrieved: \(deviceToken)")
+
+      // With swizzling disabled you must set the APNs token here.
+      // Messaging.messaging().apnsToken = deviceToken
     }
     
     // [START receive_message]

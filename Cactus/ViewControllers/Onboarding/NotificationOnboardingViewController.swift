@@ -29,7 +29,8 @@ class NotificationOnboardingViewController: UIViewController {
             }
         }
         
-        self.enableLabel.attributedText = self.enableLabel.attributedText?.withColor(CactusColor.lightBlue)
+        self.enableLabel.attributedText = NSAttributedString(string: "Every day brings a new, mindful question. Allow notifications and we’ll help you make this a daily\u{00A0}routine.").withColor(CactusColor.lightBlue)
+        
         self.authorizedLabel.attributedText = NSAttributedString(string: "You currently have push notifications turned on. You can change this in your\u{00A0}settings.")
             .withColor(CactusColor.lightBlue).withItalics(forSubstring: "You can change this in your\u{00A0}settings")
         

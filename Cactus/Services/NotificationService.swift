@@ -38,11 +38,11 @@ class NotificationService {
         UIApplication.shared.applicationIconBadgeNumber = 0
     }
     
-    func registerForPushIfEnabled() {
+    func registerForPushIfEnabled(application: UIApplication) {
         self.hasPushPermissions { (status) in
             if status == .authorized {
                 DispatchQueue.main.async {
-                    AppDelegate.shared.registerForPushNotifications(UIApplication.shared)
+                    AppDelegate.shared.registerForPushNotifications(application)
                 }
             }
         }
@@ -63,7 +63,7 @@ class NotificationService {
     func requestPushPermissions(onFinished: @escaping (Bool) -> Void) {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {hasPermission, _ in
             self.logger.debug("Has permission \(hasPermission)")
-            self.registerForPushIfEnabled()
+            self.registerForPushIfEnabled(application: UIApplication.shared)
             onFinished(hasPermission)
         }
     }
