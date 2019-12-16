@@ -94,9 +94,14 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
         return currentText != originalText
     }
     
-    func handleDismiss() {
+    func handleDismiss(_ sender: UIView?) {
         if self.hasChanges() {
-            let alert = UIAlertController(title: "You have unsaved changes", message: "Are you sure you want to close this window? Your changes will be lost.", preferredStyle: .actionSheet)
+            let alert = UIAlertController(title: "You have unsaved changes",
+                                          message: "Are you sure you want to close this window? Your changes will be lost.",
+                                          preferredStyle: .actionSheet)
+            
+            alert.popoverPresentationController?.sourceView = sender
+            
             alert.addAction(UIAlertAction(title: "Don't Save", style: .destructive, handler: { (_) in
                 self.delegate?.cancel()
             }))
@@ -110,9 +115,9 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
         }
     }
     
-    @IBAction func cancelButtonTapped(_ sender: Any) {
+    @IBAction func cancelButtonTapped(_ sender: UIButton) {
         self.logger.info("cancel tapped")
-        self.handleDismiss()
+        self.handleDismiss(sender)
     }
     
     @IBAction func doneButtonTapped(_ sender: Any) {

@@ -204,6 +204,7 @@ class NotificationsTableViewController: UITableViewController, MFMailComposeView
             let message = "Notification settings are managed in the App's Settings."
             
             let alert = UIAlertController(title: "Manage Notifications", message: message, preferredStyle: .actionSheet)
+            alert.popoverPresentationController?.sourceView = sender as? UIView
             alert.addAction(UIAlertAction(title: "Go to App Settings", style: .default, handler: { (_) in
                 NotificationService.sharedInstance.goToSettings()
                 self.refreshPermissionsToggle(animated: true)
