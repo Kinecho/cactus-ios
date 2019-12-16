@@ -49,6 +49,11 @@ struct CactusColor {
     static let beige: UIColor = UIColor(hex: "F0ECEA")
     static let darkBeige: UIColor = UIColor(hex: "E5DFDB")
     static let magenta: UIColor = UIColor(hex: "CC33A1")
+    
+    static let promptBackground: UIColor = UIColor(named: "PromptBackground")!
+    static let elementCircle: UIColor = UIColor(named: "ElementCircle")!
+    static let progressBackground: UIColor = UIColor(named: "ProgressBackground")!
+
 }
 
 extension UIColor {
