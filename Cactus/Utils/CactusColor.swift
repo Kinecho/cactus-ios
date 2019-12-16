@@ -14,7 +14,6 @@ struct CactusColor {
     
     static let lightText: UIColor = UIColor(hex: "757575")
     static let darkText: UIColor = UIColor(hex: "444444")
-    static let textDefault: UIColor = CactusColor.darkestGreen
     static let placeholderText: UIColor = UIColor(hex: "757575")
     
     static let lightGray: UIColor = UIColor(hex: "E2E2E2")
@@ -51,8 +50,9 @@ struct CactusColor {
     static let magenta: UIColor = UIColor(hex: "CC33A1")
     
     static let promptBackground: UIColor = UIColor(named: "PromptBackground")!
-    static let elementCircle: UIColor = UIColor(named: "ElementCircle")!
+    static let accentBeige: UIColor = UIColor(named: "AccentBeige")!
     static let progressBackground: UIColor = UIColor(named: "ProgressBackground")!
+    static let textDefault: UIColor = UIColor(named: "TextDefault")!
 
 }
 

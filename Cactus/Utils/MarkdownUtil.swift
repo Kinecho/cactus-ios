@@ -11,7 +11,7 @@ import MarkdownKit
 import UIKit
 
 public class MarkdownUtil {
-    static func centered(_ aText: NSAttributedString?, color: UIColor?=CactusColor.darkestGreen) -> NSAttributedString? {
+    static func centered(_ aText: NSAttributedString?, color: UIColor?=CactusColor.textDefault) -> NSAttributedString? {
         guard let aText = aText else {
             return nil
         }
@@ -30,7 +30,7 @@ public class MarkdownUtil {
         }
     }
     
-    static func centeredMarkdown(_ input: String?, font: UIFont = CactusFont.normal, color: UIColor?=CactusColor.darkestGreen) -> NSAttributedString? {
+    static func centeredMarkdown(_ input: String?, font: UIFont = CactusFont.normal, color: UIColor?=CactusColor.textDefault) -> NSAttributedString? {
         guard let md = MarkdownUtil.toMarkdown(input, font: font)  else {
             return nil
         }        
@@ -43,7 +43,7 @@ public class MarkdownUtil {
         
     }
     
-    static func toMarkdown(_ input: String?, font: UIFont = CactusFont.normal, color: UIColor? = CactusColor.darkestGreen) -> NSAttributedString? {
+    static func toMarkdown(_ input: String?, font: UIFont = CactusFont.normal, color: UIColor? = CactusColor.textDefault) -> NSAttributedString? {
         guard let input = input, !input.isEmpty else {
             return nil
         }
