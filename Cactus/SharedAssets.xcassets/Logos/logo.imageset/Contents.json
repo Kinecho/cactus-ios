@@ -2,7 +2,27 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "logo.pdf"
+      "filename" : "logo-1.pdf"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "logo.pdf",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "light"
+        }
+      ]
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "logo-ondark.pdf",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ]
     }
   ],
   "info" : {
