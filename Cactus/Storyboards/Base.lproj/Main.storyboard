@@ -128,7 +128,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmD-zI-Lke" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
-                                                        <rect key="frame" x="120" y="140" width="95" height="50"/>
+                                                        <rect key="frame" x="107" y="140" width="121" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="4su-rf-UT4"/>
                                                         </constraints>
@@ -216,13 +216,13 @@
                                         </imageView>
                                         <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DONE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7Y-9t-Q3G" userLabel="Status Label" customClass="PillLabelView" customModule="Cactus" customModuleProvider="target">
                                             <rect key="frame" x="20" y="20" width="43.5" height="20"/>
-                                            <color key="backgroundColor" name="GreenLight"/>
+                                            <color key="backgroundColor" name="DoneBackground"/>
                                             <color key="tintColor" name="TextLight"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="wMH-wL-aXg"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="15"/>
-                                            <color key="textColor" name="GreenDarkest"/>
+                                            <color key="textColor" name="TextDefault"/>
                                             <nil key="highlightedColor"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="topInset">
@@ -726,14 +726,14 @@
         <namedColor name="CardBackground">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="DoneBackground">
+            <color red="0.72156862745098038" green="0.93333333333333335" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="GreenDarkest">
             <color red="0.027000000700354576" green="0.27099999785423279" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="GreenLight">
-            <color red="0.72500002384185791" green="0.93699997663497925" blue="0.91399997472763062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="HighContrast">
-            <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.027000000700354576" green="0.27099999785423279" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TextDefault">
             <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -742,7 +742,7 @@
             <color red="0.45899999141693115" green="0.45899999141693115" blue="0.45899999141693115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TextMinimized">
-            <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="0.80000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="White">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
