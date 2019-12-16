@@ -84,7 +84,7 @@ class CelebrateViewController: UIViewController {
         }
         let description = getElementDescription(element).lowercased()
         let fullDescription_md = "Today's reflection focused on **\(element.rawValue)**, which is about \(description)."
-        self.descriptionTextView.attributedText = MarkdownUtil.centeredMarkdown(fullDescription_md, font: CactusFont.normal(18), color: CactusColor.darkText)
+        self.descriptionTextView.attributedText = MarkdownUtil.centeredMarkdown(fullDescription_md, font: CactusFont.normal(18), color: CactusColor.textMinimized)
         self.descriptionTextView.isHidden = false
     }
     
