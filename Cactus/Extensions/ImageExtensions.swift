@@ -16,6 +16,10 @@ extension UIImageView {
             return
         }
         
+        if let invertableImageView = self as? InvertableImageView {
+            invertableImageView.allowInvert = image.allowDarkModeInvert ?? false
+        }
+        
         ImageService.shared.setPhoto(self, photo: image)
     }
     
@@ -35,5 +39,14 @@ extension UIImage {
         UIGraphicsEndImageContext()
 
         return newImage
+    }
+        
+    /// Inverts the colors from the current image. Black turns white, white turns black etc.
+    func invertedColors() -> UIImage? {
+        guard let ciImage = CIImage(image: self) ?? ciImage, let filter = CIFilter(name: "CIColorInvert") else { return nil }
+        filter.setValue(ciImage, forKey: kCIInputImageKey)
+
+        guard let outputImage = filter.outputImage else { return nil }
+        return UIImage(ciImage: outputImage)
     }
 }

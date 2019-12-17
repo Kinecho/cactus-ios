@@ -17,18 +17,7 @@ class JournalHomeViewController: UIViewController {
     var journalFeedViewController: JournalFeedCollectionViewController?
     var emptyStateViewController: JournalHomeEmptyStateViewController?
     var menuDrawerViewController: NavigationMenuViewController!
-    var isMenuExpanded = false {
-        didSet {
-            if self.isMenuExpanded {
-                AppDelegate.shared.rootViewController.setStatusBarStyle(.default)
-            } else {
-                if #available(iOS 13.0, *) {
-                    AppDelegate.shared.rootViewController.setStatusBarStyle(.darkContent)
-                }
-            }
-            self.setNeedsStatusBarAppearanceUpdate()
-        }
-    }
+    var isMenuExpanded = false
     var memberListener:(() -> Void)?
     let overlayView = UIVisualEffectView()
     var alphaView: UIView!
@@ -76,7 +65,7 @@ class JournalHomeViewController: UIViewController {
         super.viewDidLoad()
         
         if #available(iOS 13.0, *) {
-            AppDelegate.shared.rootViewController.setStatusBarStyle(.darkContent)
+            AppDelegate.shared.rootViewController.setStatusBarStyle(.default)
         }
         self.setNeedsStatusBarAppearanceUpdate()
         
@@ -262,7 +251,7 @@ class JournalHomeViewController: UIViewController {
         let blurredView = UIVisualEffectView()
         
         if #available(iOS 13.0, *) {
-            let effect = UIBlurEffect(style: .light)
+            let effect = UIBlurEffect(style: .regular)
             blurredView.effect = effect
         } else if #available(iOS 8.0, *) {
             // Fallback on earlier versions

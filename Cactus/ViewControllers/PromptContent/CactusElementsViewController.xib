@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -41,7 +41,7 @@
                             <subviews>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="My Text" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yeE-Y3-545">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="49.5"/>
-                                    <color key="textColor" name="GreenDarkest"/>
+                                    <color key="textColor" name="TextDefault"/>
                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="28"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
@@ -61,7 +61,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ENERGY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCL-Y7-fJl" userLabel="Energy">
                                                     <rect key="frame" x="0.0" y="110" width="100" height="19"/>
                                                     <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
-                                                    <color key="textColor" name="PinkDarkest"/>
+                                                    <color key="textColor" name="TextDefault"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -78,7 +78,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXPERIENCE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ql-dn-EJl" userLabel="Experience">
                                                             <rect key="frame" x="1" y="110" width="97.5" height="19"/>
                                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
-                                                            <color key="textColor" name="PinkDarkest"/>
+                                                            <color key="textColor" name="TextDefault"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -98,7 +98,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RELATIONSHIPS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vze-gd-GgK" userLabel="Relationships">
                                                             <rect key="frame" x="0.0" y="110" width="122.5" height="19"/>
                                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
-                                                            <color key="textColor" name="PinkDarkest"/>
+                                                            <color key="textColor" name="TextDefault"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -117,7 +117,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMOTIONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NUw-Ld-aED">
                                                             <rect key="frame" x="0.0" y="110" width="100" height="19"/>
                                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
-                                                            <color key="textColor" name="PinkDarkest"/>
+                                                            <color key="textColor" name="TextDefault"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -137,7 +137,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MEANING" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4R-wJ-ObL">
                                                             <rect key="frame" x="0.0" y="109" width="100" height="19"/>
                                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
-                                                            <color key="textColor" name="PinkDarkest"/>
+                                                            <color key="textColor" name="TextDefault"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -179,7 +179,7 @@
                     <viewLayoutGuide key="frameLayoutGuide" id="nOX-L3-6Zb"/>
                 </scrollView>
             </subviews>
-            <color key="backgroundColor" name="PinkLightest"/>
+            <color key="backgroundColor" name="PromptBackground"/>
             <constraints>
                 <constraint firstItem="bsi-Rk-Ff8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="6od-1J-FT6"/>
                 <constraint firstItem="bsi-Rk-Ff8" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="gcX-fz-qPh"/>
@@ -191,19 +191,16 @@
         </view>
     </objects>
     <resources>
-        <image name="emotionsFull" width="62" height="121"/>
-        <image name="energyFull" width="126" height="120"/>
-        <image name="experienceFull" width="69" height="122"/>
-        <image name="meaningFull" width="43" height="122"/>
-        <image name="relationshipsFull" width="109" height="122"/>
-        <namedColor name="GreenDarkest">
-            <color red="0.027000000700354576" green="0.27099999785423279" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="emotionsFull" width="62" height="114"/>
+        <image name="energyFull" width="126" height="114"/>
+        <image name="experienceFull" width="69" height="116"/>
+        <image name="meaningFull" width="43" height="115"/>
+        <image name="relationshipsFull" width="109" height="115"/>
+        <namedColor name="PromptBackground">
+            <color red="0.94901960784313721" green="0.92156862745098034" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="PinkDarkest">
-            <color red="0.4779999852180481" green="0.2199999988079071" blue="0.078000001609325409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="PinkLightest">
-            <color red="1" green="0.94901960784313721" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="TextDefault">
+            <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

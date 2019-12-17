@@ -196,11 +196,11 @@ class ReflectContentViewController: PromptContentViewController {
     func configureView() {
         let questionText = !FormatUtils.isBlank(content.text_md) ? content.text_md : content.text
         self.questionTextView.attributedText = MarkdownUtil.centeredMarkdown(questionText?.preventOrphanedWords(), font: CactusFont.normal(24))
-        self.view.backgroundColor = CactusColor.beige
+        self.view.backgroundColor = CactusColor.promptBackground
         self.reflectionTextView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.addNoteTapped)))
         self.reflectionTextView.layer.borderWidth = 1
         self.reflectionTextView.layer.cornerRadius = 12
-        self.reflectionTextView.layer.borderColor = CactusColor.green.cgColor
+        self.reflectionTextView.layer.borderColor = CactusColor.textMinimized.cgColor
         
         self.configureResponseView()
     }
@@ -224,7 +224,7 @@ class ReflectContentViewController: PromptContentViewController {
     }
     
     override func viewWillLayoutSubviews() {
-        self.view.backgroundColor = CactusColor.beige
+        self.view.backgroundColor = CactusColor.promptBackground
     }
 }
 

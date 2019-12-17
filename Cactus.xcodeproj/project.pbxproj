@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30051A4C23A86306005F812B /* InvertableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051A4B23A86306005F812B /* InvertableImageView.swift */; };
+		30051A4D23A86306005F812B /* InvertableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051A4B23A86306005F812B /* InvertableImageView.swift */; };
+		30051A4E23A86306005F812B /* InvertableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051A4B23A86306005F812B /* InvertableImageView.swift */; };
 		300AC17C23397A77005C6555 /* JournalHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC17B23397A77005C6555 /* JournalHomeViewController.swift */; };
 		300AC17D23397A77005C6555 /* JournalHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC17B23397A77005C6555 /* JournalHomeViewController.swift */; };
 		300AC17F2339839A005C6555 /* CactusImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC17E2339839A005C6555 /* CactusImage.swift */; };
@@ -485,6 +488,7 @@
 
 /* Begin PBXFileReference section */
 		05E8C1EB665F6286E3CD0BE5 /* Pods_Cactus_Prod.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cactus_Prod.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		30051A4B23A86306005F812B /* InvertableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvertableImageView.swift; sourceTree = "<group>"; };
 		300AC17B23397A77005C6555 /* JournalHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalHomeViewController.swift; sourceTree = "<group>"; };
 		300AC17E2339839A005C6555 /* CactusImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusImage.swift; sourceTree = "<group>"; };
 		300AC185233A850B005C6555 /* JournalEntrySkeletonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JournalEntrySkeletonViewController.swift; path = Cactus/ViewControllers/JournalEntrySkeletonViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -846,6 +850,7 @@
 				30FA2C9823741A3300F671AF /* JournalFeedFlowLayout.swift */,
 				300F2370237A629800F35CDE /* CircleView.swift */,
 				300F2373237A6F7500F35CDE /* ShadowView.swift */,
+				30051A4B23A86306005F812B /* InvertableImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1658,6 +1663,7 @@
 				303C9E0D23841AC6006B9786 /* LoginViewController.swift in Sources */,
 				303C9E3423841AEB006B9786 /* ReflectionPromptService.swift in Sources */,
 				303C9DDF23841A67006B9786 /* JournalEntryCollectionViewCell.swift in Sources */,
+				30051A4E23A86306005F812B /* InvertableImageView.swift in Sources */,
 				303C9DBC237F5DCC006B9786 /* URLExtensions.swift in Sources */,
 				303C9DF323841ABB006B9786 /* FeedbackViewController.swift in Sources */,
 				303C9DF123841ABB006B9786 /* PrivacyPolicyViewController.swift in Sources */,
@@ -1798,6 +1804,7 @@
 				30BF2E1923289D1200A49EB6 /* PromptContentPageViewController.swift in Sources */,
 				3072742C236950AC00309B3C /* SharingService.swift in Sources */,
 				309561A522EE172B009357BD /* AppConfig.swift in Sources */,
+				30051A4D23A86306005F812B /* InvertableImageView.swift in Sources */,
 				30265C6123453CB100934041 /* UIImage+SwiftyGif.swift in Sources */,
 				300F2372237A629800F35CDE /* CircleView.swift in Sources */,
 				3020DD9923640BE300EC40AE /* CactusElementsViewController.swift in Sources */,
@@ -1922,6 +1929,7 @@
 				30934FA922EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
 				3072742B236950AC00309B3C /* SharingService.swift in Sources */,
 				30BF2E2A23289F9F00A49EB6 /* TextContentViewController.swift in Sources */,
+				30051A4C23A86306005F812B /* InvertableImageView.swift in Sources */,
 				30265C6023453CB100934041 /* UIImage+SwiftyGif.swift in Sources */,
 				300F2371237A629800F35CDE /* CircleView.swift in Sources */,
 				3020DD9823640BE300EC40AE /* CactusElementsViewController.swift in Sources */,

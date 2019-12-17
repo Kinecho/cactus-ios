@@ -33,7 +33,7 @@ class PromptContentPageViewController: UIPageViewController {
         self.dataSource = self
         self.delegate = self        
         self.configureScreens()
-        self.view.backgroundColor = CactusColor.beige
+        self.view.backgroundColor = CactusColor.promptBackground
     }
 
     @objc func tapGestureHandler(touch: UITapGestureRecognizer) {
@@ -103,7 +103,7 @@ class PromptContentPageViewController: UIPageViewController {
     
     func getContentViewController(_ content: Content) -> UIViewController? {
         var viewController: PromptContentViewController?
-        var backgroundColor: UIColor? = CactusColor.beige
+        var backgroundColor: UIColor? = CactusColor.promptBackground
         switch content.contentType {
         case .text:
             let textViewController = TextContentViewController.loadFromNib()
@@ -176,7 +176,7 @@ class PromptContentPageViewController: UIPageViewController {
         let button = UIButton(frame: CGRect(x: xPos, y: yPos, width: 80, height: 80))
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(CactusImage.share.getImage(), for: .normal)
-        button.tintColor = CactusColor.darkGreen
+        button.tintColor = CactusColor.green
         
         let contentInset: CGFloat = 10
         button.contentEdgeInsets = UIEdgeInsets.init(top: contentInset, left: contentInset, bottom: contentInset, right: contentInset)
@@ -206,7 +206,7 @@ class PromptContentPageViewController: UIPageViewController {
         let button = UIButton(frame: CGRect(x: xPos, y: yPos, width: 80, height: 80))
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(CactusImage.close.getImage(), for: .normal)
-        button.tintColor = CactusColor.darkGreen
+        button.tintColor = CactusColor.green
         
         let contentInset: CGFloat = 10
         button.contentEdgeInsets = UIEdgeInsets.init(top: contentInset, left: contentInset, bottom: contentInset, right: contentInset)
@@ -234,7 +234,7 @@ class PromptContentPageViewController: UIPageViewController {
         pageControl.numberOfPages = self.screens.count
         pageControl.currentPage = 0
         pageControl.tintColor = CactusColor.green
-        pageControl.pageIndicatorTintColor = CactusColor.darkestGreen
+        pageControl.pageIndicatorTintColor = CactusColor.progressBackground
         pageControl.currentPageIndicatorTintColor = CactusColor.green
         
         self.pageControl = pageControl

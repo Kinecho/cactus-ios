@@ -14,7 +14,6 @@ struct CactusColor {
     
     static let lightText: UIColor = UIColor(hex: "757575")
     static let darkText: UIColor = UIColor(hex: "444444")
-    static let textDefault: UIColor = CactusColor.darkestGreen
     static let placeholderText: UIColor = UIColor(hex: "757575")
     
     static let lightGray: UIColor = UIColor(hex: "E2E2E2")
@@ -27,6 +26,7 @@ struct CactusColor {
     static let darkPink: UIColor = UIColor(hex: "FDBCA3")
     static let darkestPink: UIColor = UIColor(hex: "7A3814")
     
+    static let lightestGreen: UIColor = UIColor(hex: "D6E3E6")
     static let lightGreen: UIColor = UIColor(hex: "B9EFE9")
     static let green: UIColor = UIColor(hex: "33CCAB")
     static let darkGreen: UIColor = UIColor(hex: "29A389")
@@ -45,10 +45,21 @@ struct CactusColor {
     static let twitter: UIColor = UIColor(hex: "1da1f2")
         
     static let white: UIColor = UIColor(hex: "FFFFFF")
+    static let background: UIColor = UIColor(named: "Background")!
     
     static let beige: UIColor = UIColor(hex: "F0ECEA")
     static let darkBeige: UIColor = UIColor(hex: "E5DFDB")
     static let magenta: UIColor = UIColor(hex: "CC33A1")
+    
+    static let promptBackground: UIColor = UIColor(named: "PromptBackground")!
+    static let accentBeige: UIColor = UIColor(named: "AccentBeige")!
+    static let progressBackground: UIColor = UIColor(named: "ProgressBackground")!
+    static let textDefault: UIColor = UIColor(named: "TextDefault")!
+    static let textWhite: UIColor = UIColor(named: "TextWhite")!
+    static let textMinimized: UIColor = UIColor(named: "TextMinimized")!
+    static let secondaryButtonBackground: UIColor = UIColor(named: "SecondaryButtonBackground")!
+    static let secondaryBorder: UIColor = UIColor(named: "SecondaryBorder")!
+    static let skeletonBase = UIColor(named: "SkeletonBase")!
 }
 
 extension UIColor {
