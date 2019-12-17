@@ -16,6 +16,8 @@ class TextContentViewController: PromptContentViewController {
     @IBOutlet weak var elementLabel: UILabel!
     @IBOutlet weak var backgroundImageView: UIImageViewAligned!
     @IBOutlet weak var elementStackView: UIStackView!
+    @IBOutlet weak var elementImageContainerView: RoundedView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initTextView(self.text)
@@ -35,12 +37,7 @@ class TextContentViewController: PromptContentViewController {
             self.stackViewContainerBottomToImageConstraint.isActive = true
         }
         
-        if (self.content.showElementIcon ?? false), let element = self.promptContent.cactusElement {
-            self.elementLabel.text = element.rawValue.uppercased()
-            self.elementImage.image = element.getImage()
-            
-            self.elementStackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.elementTapped)))
-            
+        if self.content.showElementIcon == true {
             self.elementStackView.isHidden = false
         } else {
             self.elementStackView.isHidden = true
@@ -60,8 +57,15 @@ class TextContentViewController: PromptContentViewController {
         } 
 
         self.backgroundImageView.setImageFile(self.content.backgroundImage)
-        self.updateConstraints()
         
+         if (self.content.showElementIcon ?? false), let element = self.promptContent.cactusElement {
+            self.elementLabel.text = element.rawValue.uppercased()
+            self.elementImage.image = element.getImage()
+            self.elementImageContainerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.elementTapped)))
+            self.elementLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.elementTapped)))
+        }
+        
+        self.updateConstraints()
     }
     
     @objc func elementTapped() {

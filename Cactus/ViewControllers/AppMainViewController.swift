@@ -29,7 +29,7 @@ class AppMainViewController: UIViewController {
     }
 
     func setStatusBarStyle(_ updatedStyle: UIStatusBarStyle) {
-        self.currentStatusBarStyle = updatedStyle
+//        self.currentStatusBarStyle = updatedStyle
     }
     
     override func viewWillAppear(_ animated: Bool) {
