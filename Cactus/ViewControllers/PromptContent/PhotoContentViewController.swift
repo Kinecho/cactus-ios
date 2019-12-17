@@ -9,7 +9,7 @@
 import UIKit
 import Cloudinary
 class PhotoContentViewController: PromptContentViewController {
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: InvertableImageView!
     @IBOutlet weak var textView: UITextView!
     
     override func viewDidLoad() {
@@ -26,7 +26,7 @@ class PhotoContentViewController: PromptContentViewController {
         }
         
         var textString = content.text_md?.preventOrphanedWords()
-        if (isBlank(textString)) {
+        if isBlank(textString) {
             textString = content.text?.preventOrphanedWords()
         }
         if let mdText = MarkdownUtil.centeredMarkdown(textString, font: CactusFont.normal(24)) {

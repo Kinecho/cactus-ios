@@ -27,7 +27,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="center" axis="vertical" distribution="equalSpacing" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="cmg-8h-hbn">
-                    <rect key="frame" x="0.0" y="208.5" width="414" height="479"/>
+                    <rect key="frame" x="0.0" y="201" width="414" height="494"/>
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Here's an image title!" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="r9p-d4-BlA">
                             <rect key="frame" x="20" y="0.0" width="374" height="45"/>
@@ -36,8 +36,8 @@
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7qr-6t-ImQ">
-                            <rect key="frame" x="10" y="85" width="394" height="394"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7qr-6t-ImQ" customClass="InvertableImageView" customModule="Cactus" customModuleProvider="target">
+                            <rect key="frame" x="10" y="85" width="394" height="409"/>
                         </imageView>
                     </subviews>
                     <constraints>
@@ -52,6 +52,7 @@
             <constraints>
                 <constraint firstItem="cmg-8h-hbn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="EH7-u5-sHP"/>
                 <constraint firstItem="cmg-8h-hbn" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="M4q-Lg-Wwv"/>
+                <constraint firstItem="7qr-6t-ImQ" firstAttribute="height" secondItem="fnl-2z-Ty3" secondAttribute="height" multiplier="0.5" id="U3x-7u-WXt"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cmg-8h-hbn" secondAttribute="trailing" id="uRm-Lr-ZQF"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
