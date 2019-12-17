@@ -200,7 +200,7 @@ class ReflectContentViewController: PromptContentViewController {
         self.reflectionTextView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.addNoteTapped)))
         self.reflectionTextView.layer.borderWidth = 1
         self.reflectionTextView.layer.cornerRadius = 12
-        self.reflectionTextView.layer.borderColor = CactusColor.green.cgColor
+        self.reflectionTextView.layer.borderColor = CactusColor.textMinimized.cgColor
         
         self.configureResponseView()
     }

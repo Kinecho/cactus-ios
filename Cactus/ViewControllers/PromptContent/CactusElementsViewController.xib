@@ -41,7 +41,7 @@
                             <subviews>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="My Text" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yeE-Y3-545">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="49.5"/>
-                                    <color key="textColor" name="GreenDarkest"/>
+                                    <color key="textColor" name="TextDefault"/>
                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="28"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
@@ -196,9 +196,6 @@
         <image name="experienceFull" width="69" height="116"/>
         <image name="meaningFull" width="43" height="115"/>
         <image name="relationshipsFull" width="109" height="115"/>
-        <namedColor name="GreenDarkest">
-            <color red="0.027000000700354576" green="0.27099999785423279" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="PromptBackground">
             <color red="0.94901960784313721" green="0.92156862745098034" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
