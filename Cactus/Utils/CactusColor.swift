@@ -44,6 +44,7 @@ struct CactusColor {
     static let twitter: UIColor = UIColor(hex: "1da1f2")
         
     static let white: UIColor = UIColor(hex: "FFFFFF")
+    static let background: UIColor = UIColor(named: "Background")!
     
     static let beige: UIColor = UIColor(hex: "F0ECEA")
     static let darkBeige: UIColor = UIColor(hex: "E5DFDB")
@@ -54,6 +55,7 @@ struct CactusColor {
     static let progressBackground: UIColor = UIColor(named: "ProgressBackground")!
     static let textDefault: UIColor = UIColor(named: "TextDefault")!
     static let textMinimized: UIColor = UIColor(named: "TextMinimized")!
+    static let secondaryButtonBackground: UIColor = UIColor(named: "SecondaryButtonBackground")!
 
 }
 

@@ -89,7 +89,7 @@ class SharedReflectionViewController: UIViewController {
     
     func configureQuestionView() {
         if let question = self.promptContent?.getQuestionMarkdown(), !FormatUtils.isBlank(question) {
-            self.questionTextView.attributedText = MarkdownUtil.toMarkdown(question, font: CactusFont.bold(FontSize.normal), color: CactusColor.darkestGreen)
+            self.questionTextView.attributedText = MarkdownUtil.toMarkdown(question, font: CactusFont.bold(FontSize.normal), color: CactusColor.textDefault)
             self.questionTextView.isHidden = false
         } else {
             self.questionTextView.isHidden = true
