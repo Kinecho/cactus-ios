@@ -47,12 +47,12 @@ class SettingsTableViewController: UITableViewController {
         let footerView = UIView(frame: CGRect(0, 0, 50, self.view.bounds.width))
                 
         logoutButton.setTitle("Log Out", for: .normal)
-        logoutButton.borderRadius = 18
-        logoutButton.backgroundColor = .white
-        logoutButton.titleLabel?.font = CactusFont.normalBold
+        logoutButton.borderRadius = 20
+        logoutButton.backgroundColor = CactusColor.secondaryButtonBackground
+        logoutButton.titleLabel?.font = CactusFont.normal
         logoutButton.layer.borderWidth = 1
-        logoutButton.layer.borderColor = CactusColor.darkGreen.cgColor
-        logoutButton.setTitleColor(CactusColor.darkGreen, for: .normal)
+        logoutButton.layer.borderColor = CactusColor.secondaryBorder.cgColor
+        logoutButton.setTitleColor(CactusColor.textDefault, for: .normal)
         logoutButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 12, bottom: 10, right: 12)
         
         footerView.addSubview(logoutButton)

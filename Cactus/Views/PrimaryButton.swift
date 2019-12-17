@@ -33,7 +33,7 @@ class PrimaryButton: UIButton {
     @IBInspectable var thickness: CGFloat = 4
     @IBInspectable var imageWidth: CGFloat = 25
     @IBInspectable var imageHeight: CGFloat = 25
-    @IBInspectable var fontSize: CGFloat = 17
+    @IBInspectable var fontSize: CGFloat = 18
     @IBInspectable var horizontalPadding: CGFloat = 20
     @IBInspectable var verticalPadding: CGFloat = 12
     @IBInspectable var showBorder: Bool = true

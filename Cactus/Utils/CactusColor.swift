@@ -26,6 +26,7 @@ struct CactusColor {
     static let darkPink: UIColor = UIColor(hex: "FDBCA3")
     static let darkestPink: UIColor = UIColor(hex: "7A3814")
     
+    static let lightestGreen: UIColor = UIColor(hex: "D6E3E6")
     static let lightGreen: UIColor = UIColor(hex: "B9EFE9")
     static let green: UIColor = UIColor(hex: "33CCAB")
     static let darkGreen: UIColor = UIColor(hex: "29A389")
@@ -57,6 +58,7 @@ struct CactusColor {
     static let textWhite: UIColor = UIColor(named: "TextWhite")!
     static let textMinimized: UIColor = UIColor(named: "TextMinimized")!
     static let secondaryButtonBackground: UIColor = UIColor(named: "SecondaryButtonBackground")!
+    static let secondaryBorder: UIColor = UIColor(named: "SecondaryBorder")!
     static let skeletonBase = UIColor(named: "SkeletonBase")!
 }
 

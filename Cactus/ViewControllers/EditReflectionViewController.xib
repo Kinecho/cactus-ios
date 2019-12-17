@@ -45,10 +45,10 @@
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="B2i-o6-0JJ" userLabel="Question Stack View">
-                    <rect key="frame" x="20" y="64" width="324" height="74"/>
+                    <rect key="frame" x="20" y="64" width="324" height="73.5"/>
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="How will you change the world in this crazy time?" translatesAutoresizingMaskIntoConstraints="NO" id="GG4-cB-g9a">
-                            <rect key="frame" x="0.0" y="0.0" width="324" height="74"/>
+                            <rect key="frame" x="0.0" y="0.0" width="324" height="73.5"/>
                             <color key="textColor" name="TextDefault"/>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -56,7 +56,7 @@
                     </subviews>
                 </stackView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1w7-mK-MMI" userLabel="Response Text View">
-                    <rect key="frame" x="15" y="158" width="384" height="335"/>
+                    <rect key="frame" x="15" y="157.5" width="384" height="335.5"/>
                     <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -72,7 +72,7 @@
                     <rect key="frame" x="20" y="503" width="374" height="50"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ERl-Tw-7jt" userLabel="Shared Stack View">
-                            <rect key="frame" x="0.0" y="15" width="176" height="20"/>
+                            <rect key="frame" x="0.0" y="15" width="182" height="20"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="users" translatesAutoresizingMaskIntoConstraints="NO" id="dKc-FJ-FHW">
                                     <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -83,7 +83,7 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This note is shared" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJO-Vx-TRB">
-                                    <rect key="frame" x="30" y="0.0" width="146" height="20"/>
+                                    <rect key="frame" x="30" y="0.0" width="152" height="20"/>
                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                     <color key="textColor" name="TextMinimized"/>
                                     <nil key="highlightedColor"/>
