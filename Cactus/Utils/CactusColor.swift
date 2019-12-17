@@ -54,6 +54,7 @@ struct CactusColor {
     static let accentBeige: UIColor = UIColor(named: "AccentBeige")!
     static let progressBackground: UIColor = UIColor(named: "ProgressBackground")!
     static let textDefault: UIColor = UIColor(named: "TextDefault")!
+    static let textWhite: UIColor = UIColor(named: "TextWhite")!
     static let textMinimized: UIColor = UIColor(named: "TextMinimized")!
     static let secondaryButtonBackground: UIColor = UIColor(named: "SecondaryButtonBackground")!
     static let skeletonBase = UIColor(named: "SkeletonBase")!

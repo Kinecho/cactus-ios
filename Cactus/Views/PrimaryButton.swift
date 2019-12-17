@@ -69,7 +69,7 @@ class PrimaryButton: UIButton {
             self.backgroundColor = CactusColor.gray
         }
         
-        self.setTitleColor(.white, for: .normal)
+        self.setTitleColor(CactusColor.textWhite, for: .normal)
         self.titleLabel?.font = CactusFont.normal(self.fontSize)
         
         self.layoutSubviews()
