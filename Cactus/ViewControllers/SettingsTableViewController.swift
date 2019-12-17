@@ -60,7 +60,16 @@ class SettingsTableViewController: UITableViewController {
         footerView.addSubview(versionTitleLabel)
         
         logoutButton.leadingAnchor.constraint(equalTo: footerView.leadingAnchor, constant: 20).isActive = true
-        logoutButton.trailingAnchor.constraint(equalTo: footerView.trailingAnchor, constant: -20).isActive = true
+        
+        switch self.traitCollection.horizontalSizeClass {
+        case .regular:
+            logoutButton.widthAnchor.constraint(equalToConstant: 250).isActive = true
+            logoutButton.trailingAnchor.constraint(lessThanOrEqualTo: footerView.trailingAnchor, constant: -20).isActive = true
+            break
+        default:
+            logoutButton.trailingAnchor.constraint(equalTo: footerView.trailingAnchor, constant: -20).isActive = true
+            break
+        }
         
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
         versionTitleLabel.translatesAutoresizingMaskIntoConstraints = false

@@ -37,7 +37,7 @@ class VideoContentViewController: PromptContentViewController {
     
     func configureText() {
         if let textContent = self.content.text_md ?? self.content.text {
-            let mdText = MarkdownUtil.centeredMarkdown(textContent, font: CactusFont.normal(32), color: CactusColor.darkestGreen)
+            let mdText = MarkdownUtil.centeredMarkdown(textContent, font: CactusFont.normal(32), color: CactusColor.textDefault)
             self.textView.attributedText = mdText
             self.textView.isHidden = false
         } else {

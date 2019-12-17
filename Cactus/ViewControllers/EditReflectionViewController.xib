@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -39,27 +39,29 @@
                     </constraints>
                     <color key="tintColor" name="Green"/>
                     <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                    <state key="normal" image="close"/>
+                    <state key="normal" image="close">
+                        <color key="titleColor" name="DoneBackground"/>
+                    </state>
                     <connections>
                         <action selector="cancelButtonTapped:" destination="-1" eventType="primaryActionTriggered" id="wIH-vb-tBH"/>
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="B2i-o6-0JJ" userLabel="Question Stack View">
-                    <rect key="frame" x="20" y="20" width="324" height="74"/>
+                    <rect key="frame" x="20" y="64" width="324" height="74"/>
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="How will you change the world in this crazy time?" translatesAutoresizingMaskIntoConstraints="NO" id="GG4-cB-g9a">
                             <rect key="frame" x="0.0" y="0.0" width="324" height="74"/>
-                            <color key="backgroundColor" name="White"/>
-                            <color key="textColor" name="GreenDarkest"/>
+                            <color key="backgroundColor" name="Background"/>
+                            <color key="textColor" name="TextDefault"/>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                     </subviews>
                 </stackView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1w7-mK-MMI" userLabel="Response Text View">
-                    <rect key="frame" x="15" y="114" width="384" height="379"/>
-                    <color key="backgroundColor" name="White"/>
-                    <color key="textColor" name="GreenDarkest"/>
+                    <rect key="frame" x="15" y="158" width="384" height="335"/>
+                    <color key="backgroundColor" name="Background"/>
+                    <color key="textColor" name="TextDefault"/>
                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
@@ -87,7 +89,7 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This note is shared" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJO-Vx-TRB">
                                     <rect key="frame" x="30" y="0.0" width="146" height="20"/>
                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
-                                    <color key="textColor" name="TextLight"/>
+                                    <color key="textColor" name="TextMinimized"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -135,7 +137,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" name="White"/>
+            <color key="backgroundColor" name="Background"/>
             <constraints>
                 <constraint firstItem="2xV-dh-mpp" firstAttribute="top" secondItem="aqD-HS-cmV" secondAttribute="top" constant="10" id="7aT-2Q-UW7"/>
                 <constraint firstItem="B2i-o6-0JJ" firstAttribute="top" secondItem="aqD-HS-cmV" secondAttribute="top" constant="20" id="DjL-1z-rUU"/>
@@ -159,8 +161,14 @@
         <image name="check" width="24" height="24"/>
         <image name="close" width="48" height="48"/>
         <image name="users" width="48" height="48"/>
+        <namedColor name="Background">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="BlueLight">
             <color red="0.90196078431372551" green="0.97647058823529409" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="DoneBackground">
+            <color red="0.72156862745098038" green="0.93333333333333335" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Green">
             <color red="0.20000000298023224" green="0.80000001192092896" blue="0.67100000381469727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -168,17 +176,14 @@
         <namedColor name="GreenDark">
             <color red="0.16099999845027924" green="0.63899999856948853" blue="0.53700000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="GreenDarkest">
-            <color red="0.027000000700354576" green="0.27099999785423279" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="TextDefault">
+            <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="TextLight">
-            <color red="0.45899999141693115" green="0.45899999141693115" blue="0.45899999141693115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="TextMinimized">
+            <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="0.80000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TextPlaceholder">
             <color red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-        <namedColor name="White">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
