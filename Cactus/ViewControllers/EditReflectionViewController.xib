@@ -39,9 +39,7 @@
                     </constraints>
                     <color key="tintColor" name="Green"/>
                     <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                    <state key="normal" image="close">
-                        <color key="titleColor" name="DoneBackground"/>
-                    </state>
+                    <state key="normal" image="close"/>
                     <connections>
                         <action selector="cancelButtonTapped:" destination="-1" eventType="primaryActionTriggered" id="wIH-vb-tBH"/>
                     </connections>
@@ -51,7 +49,6 @@
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="How will you change the world in this crazy time?" translatesAutoresizingMaskIntoConstraints="NO" id="GG4-cB-g9a">
                             <rect key="frame" x="0.0" y="0.0" width="324" height="74"/>
-                            <color key="backgroundColor" name="Background"/>
                             <color key="textColor" name="TextDefault"/>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -60,8 +57,7 @@
                 </stackView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1w7-mK-MMI" userLabel="Response Text View">
                     <rect key="frame" x="15" y="158" width="384" height="335"/>
-                    <color key="backgroundColor" name="Background"/>
-                    <color key="textColor" name="TextDefault"/>
+                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
@@ -137,7 +133,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" name="Background"/>
+            <color key="backgroundColor" name="CardBackground"/>
             <constraints>
                 <constraint firstItem="2xV-dh-mpp" firstAttribute="top" secondItem="aqD-HS-cmV" secondAttribute="top" constant="10" id="7aT-2Q-UW7"/>
                 <constraint firstItem="B2i-o6-0JJ" firstAttribute="top" secondItem="aqD-HS-cmV" secondAttribute="top" constant="20" id="DjL-1z-rUU"/>
@@ -161,14 +157,11 @@
         <image name="check" width="24" height="24"/>
         <image name="close" width="48" height="48"/>
         <image name="users" width="48" height="48"/>
-        <namedColor name="Background">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="BlueLight">
             <color red="0.90196078431372551" green="0.97647058823529409" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <namedColor name="DoneBackground">
-            <color red="0.72156862745098038" green="0.93333333333333335" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="CardBackground">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Green">
             <color red="0.20000000298023224" green="0.80000001192092896" blue="0.67100000381469727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

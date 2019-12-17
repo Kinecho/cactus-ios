@@ -44,7 +44,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grainy" translatesAutoresizingMaskIntoConstraints="NO" id="bG9-dC-CMJ" userLabel="background blobNeedle">
-                    <rect key="frame" x="0.0" y="408.5" width="414" height="800"/>
+                    <rect key="frame" x="0.0" y="408.5" width="414" height="1600"/>
                     <color key="backgroundColor" name="CelebrateBackground"/>
                     <color key="tintColor" name="GreenDarkest"/>
                 </imageView>
