@@ -97,7 +97,7 @@
                                 <constraint firstAttribute="width" constant="50" id="Pr7-I6-BLR"/>
                                 <constraint firstAttribute="height" constant="50" id="jRu-al-1Eg"/>
                             </constraints>
-                            <color key="tintColor" name="BlueLight"/>
+                            <color key="tintColor" name="TextWhite"/>
                             <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                             <state key="normal" image="check">
                                 <color key="titleColor" name="BlueLight"/>
@@ -177,6 +177,9 @@
         </namedColor>
         <namedColor name="TextPlaceholder">
             <color red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="TextWhite">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

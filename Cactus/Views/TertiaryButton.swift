@@ -52,7 +52,7 @@ class TertiaryButton: UIButton {
     func setEnabled(_ enabled: Bool) {
         if enabled == true {
 //            self.borderColor = CactusColor.white
-            self.backgroundColor = CactusColor.white
+            self.backgroundColor = CactusColor.secondaryButtonBackground
         } else {
 //            self.borderColor = CactusColor.lightGray
             self.backgroundColor = CactusColor.lightGray
@@ -63,14 +63,14 @@ class TertiaryButton: UIButton {
     
     func sharedInit() {
         self.clipsToBounds = true
-        self.backgroundColor = CactusColor.white
+        self.backgroundColor = CactusColor.secondaryButtonBackground
         if self.isEnabled == false {
             self.backgroundColor = CactusColor.gray
         }
         
-        self.setTitleColor(.white, for: .normal)
+        self.setTitleColor(CactusColor.textDefault, for: .normal)
         self.titleLabel?.font = CactusFont.normal(self.fontSize)
-        self.setTitleColor(CactusColor.darkestGreen, for: .normal)
+        self.setTitleColor(CactusColor.textDefault, for: .normal)
         self.setTitleColor(CactusColor.darkText, for: .disabled)
         
         self.layoutSubviews()
