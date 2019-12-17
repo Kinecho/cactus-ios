@@ -56,7 +56,7 @@ struct CactusColor {
     static let textDefault: UIColor = UIColor(named: "TextDefault")!
     static let textMinimized: UIColor = UIColor(named: "TextMinimized")!
     static let secondaryButtonBackground: UIColor = UIColor(named: "SecondaryButtonBackground")!
-
+    static let skeletonBase = UIColor(named: "SkeletonBase")!
 }
 
 extension UIColor {

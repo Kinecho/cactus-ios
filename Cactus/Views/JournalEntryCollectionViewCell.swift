@@ -38,7 +38,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cellWidthConstraint: NSLayoutConstraint!
     
     weak var delegate: JournalEntryCollectionVieweCellDelegate?
-    
+    var skeletonGradient = SkeletonGradient(baseColor: CactusColor.skeletonBase)
     var editViewController: EditReflectionViewController?
     var responseTextViewHeightConstraint: NSLayoutConstraint?
     var showingBackgroundImage = false
@@ -229,7 +229,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
             self.dateLabel.hideSkeleton()
         } else {
             self.dateLabel.text = nil
-            self.dateLabel.showAnimatedGradientSkeleton()
+            self.dateLabel.showAnimatedGradientSkeleton(usingGradient: self.skeletonGradient)
         }
         
         let questionText = self.getQuestionText()
@@ -285,7 +285,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
             self.questionLabel.numberOfLines = 1
             self.configureBackgroundImage(show: false)
             self.configureReflectButton(show: false)
-            self.questionLabel.showAnimatedGradientSkeleton()
+            self.questionLabel.showAnimatedGradientSkeleton(usingGradient: self.skeletonGradient)
             self.questionLabelHeightConstraint?.isActive = true
             
             //responses loading still
@@ -294,7 +294,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
             self.responseBottomConstraint?.constant = self.textViewBottomPadding
             //            self.responseTextViewHeightConstraint.priority = UILayoutPriority(999)
             self.responseTextViewHeightConstraint?.isActive = true
-            self.responseTextView.showAnimatedGradientSkeleton()
+            self.responseTextView.showAnimatedGradientSkeleton(usingGradient: self.skeletonGradient)
             
         }
         
