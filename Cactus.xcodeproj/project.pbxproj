@@ -230,6 +230,9 @@
 		304EA2F42343B730001FB8AD /* CountProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304EA2F22343B730001FB8AD /* CountProcess.swift */; };
 		305130D3234FE9F10088B51F /* InviteSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305130D2234FE9F10088B51F /* InviteSettingsViewController.swift */; };
 		305130D4234FE9F10088B51F /* InviteSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305130D2234FE9F10088B51F /* InviteSettingsViewController.swift */; };
+		305424EA23AC0432003F82A2 /* UIStackViewExtensionis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305424E923AC0432003F82A2 /* UIStackViewExtensionis.swift */; };
+		305424EB23AC0432003F82A2 /* UIStackViewExtensionis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305424E923AC0432003F82A2 /* UIStackViewExtensionis.swift */; };
+		305424EC23AC0432003F82A2 /* UIStackViewExtensionis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305424E923AC0432003F82A2 /* UIStackViewExtensionis.swift */; };
 		3054B5BD23313EAA00AA7272 /* MarkdownUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */; };
 		3054B5BE2331424000AA7272 /* MarkdownUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */; };
 		305B1863233175DC003E1561 /* PhotoContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1861233175DC003E1561 /* PhotoContentViewController.swift */; };
@@ -546,6 +549,7 @@
 		303EB0872343A0B800AC8741 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		304EA2F22343B730001FB8AD /* CountProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountProcess.swift; sourceTree = "<group>"; };
 		305130D2234FE9F10088B51F /* InviteSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteSettingsViewController.swift; sourceTree = "<group>"; };
+		305424E923AC0432003F82A2 /* UIStackViewExtensionis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExtensionis.swift; sourceTree = "<group>"; };
 		3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownUtil.swift; sourceTree = "<group>"; };
 		305B1861233175DC003E1561 /* PhotoContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoContentViewController.swift; sourceTree = "<group>"; };
 		305B1862233175DC003E1561 /* PhotoContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoContentViewController.xib; sourceTree = "<group>"; };
@@ -1091,6 +1095,7 @@
 				30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */,
 				30D0E453236C98C100EFC0E3 /* StringExtensions.swift */,
 				303C9DB9237F5DCC006B9786 /* URLExtensions.swift */,
+				305424E923AC0432003F82A2 /* UIStackViewExtensionis.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1667,6 +1672,7 @@
 				303C9DBC237F5DCC006B9786 /* URLExtensions.swift in Sources */,
 				303C9DF323841ABB006B9786 /* FeedbackViewController.swift in Sources */,
 				303C9DF123841ABB006B9786 /* PrivacyPolicyViewController.swift in Sources */,
+				305424EC23AC0432003F82A2 /* UIStackViewExtensionis.swift in Sources */,
 				303C9DEC23841AB6006B9786 /* RelationshipsAnimationViewController.swift in Sources */,
 				303C9DD7238419DD006B9786 /* LinkHandlerUtil.swift in Sources */,
 				303C9E1423841AC6006B9786 /* CactusElementDetailViewController.swift in Sources */,
@@ -1813,6 +1819,7 @@
 				3084E956234802C300788279 /* TermsOfServiceViewController.swift in Sources */,
 				3054B5BE2331424000AA7272 /* MarkdownUtil.swift in Sources */,
 				3018B1212376041A0005333A /* LoggerUtil.swift in Sources */,
+				305424EB23AC0432003F82A2 /* UIStackViewExtensionis.swift in Sources */,
 				30727435236A295300309B3C /* AppSettingsService.swift in Sources */,
 				303C9DCF237FD7D1006B9786 /* ViewSharedReflectionViewController.swift in Sources */,
 				30E9B0A422EAC204005B25FD /* AuthService.swift in Sources */,
@@ -1938,6 +1945,7 @@
 				3084E955234802C300788279 /* TermsOfServiceViewController.swift in Sources */,
 				3054B5BD23313EAA00AA7272 /* MarkdownUtil.swift in Sources */,
 				3018B1202376041A0005333A /* LoggerUtil.swift in Sources */,
+				305424EA23AC0432003F82A2 /* UIStackViewExtensionis.swift in Sources */,
 				30727434236A295300309B3C /* AppSettingsService.swift in Sources */,
 				303C9DCE237FD7D1006B9786 /* ViewSharedReflectionViewController.swift in Sources */,
 				30E9B09D22EA7FC3005B25FD /* CactusMember.swift in Sources */,

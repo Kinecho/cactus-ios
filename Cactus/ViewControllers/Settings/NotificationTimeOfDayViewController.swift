@@ -25,6 +25,7 @@ class NotificationTimeOfDayViewController: UIViewController {
 
         self.configureTimezone()
         self.configureDatePicker()
+        self.configureeTimeZoneWarningStackView()
         
         self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, error, _) in
             if let error = error {
@@ -42,10 +43,23 @@ class NotificationTimeOfDayViewController: UIViewController {
         
     }
 
+    func configureeTimeZoneWarningStackView() {
+        self.timezoneWarningStackView.addBackground(color: CactusColor.accentBeige, cornerRadius: 10)
+    }
+    
     func configureTimezone() {
         let deviceTzOffset = getDeviceTimeZone().secondsFromGMT()
         
         if let memberTzOffset = self.member?.getPreferredTimeZone()?.secondsFromGMT(), memberTzOffset != deviceTzOffset {
+            let warningBase = "It looks like you're in a different time zone than usual. Would you like to update"
+            var warningAttributed = NSAttributedString(string: warningBase)
+            if let tzName = getTimeZoneGenericName(getDeviceTimeZone()) {
+                warningAttributed = NSAttributedString(string: "\(warningBase) to \(tzName)?".preventOrphanedWords()).withBold(forSubstring: tzName.preventOrphanedWords())
+            } else {
+                warningAttributed = NSAttributedString(string: "\(warningBase) it?".preventOrphanedWords())
+            }
+            
+            self.timeZoneWarningLabel.attributedText = warningAttributed
             self.timezoneWarningStackView.isHidden = false
         } else {
             self.timezoneWarningStackView.isHidden = true

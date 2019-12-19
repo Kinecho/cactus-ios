@@ -26,7 +26,6 @@ extension String {
 }
 
 extension NSAttributedString {
-    
     var fullRange: NSRange { return NSRange(location: 0, length: self.length) }
     
     func toMutable() -> NSMutableAttributedString {
@@ -49,6 +48,16 @@ extension NSAttributedString {
         let font: UIFont? = self.attribute(NSAttributedString.Key.font, at: 0, effectiveRange: nil) as? UIFont
                 
         return self.withAttributes([NSAttributedString.Key.font: CactusFont.italic(font?.pointSize ?? FontSize.normal)], range: range)
+    }
+    
+    func withBold(forSubstring input: String) -> NSAttributedString {
+        guard let range = self.firstRange(of: input) else {
+            return self
+        }
+        
+        let font: UIFont? = self.attribute(NSAttributedString.Key.font, at: 0, effectiveRange: nil) as? UIFont
+                
+        return self.withAttributes([NSAttributedString.Key.font: CactusFont.bold(font?.pointSize ?? FontSize.normal)], range: range)
     }
     
     func withColor(_ color: UIColor) -> NSAttributedString {
