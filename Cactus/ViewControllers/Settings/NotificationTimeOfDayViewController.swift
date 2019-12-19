@@ -44,7 +44,7 @@ class NotificationTimeOfDayViewController: UIViewController {
     }
 
     func configureeTimeZoneWarningStackView() {
-        self.timezoneWarningStackView.addBackground(color: CactusColor.accentBeige, cornerRadius: 10)
+        self.timezoneWarningStackView.addBackground(color: CactusColor.alertYellow, cornerRadius: 10)
     }
     
     func configureTimezone() {
