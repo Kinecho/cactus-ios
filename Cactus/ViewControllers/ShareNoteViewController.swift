@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FirebaseAnalytics
+//import FirebaseAnalytics
 
 class ShareNoteViewController: UIViewController {
     
@@ -77,7 +77,7 @@ class ShareNoteViewController: UIViewController {
                 self.logger.error("Failed to share reflection response", error)
             }
             if let shared = saved {
-                Analytics.logEvent("generate_note_share_link", parameters: ["prompt_id": self.promptContent.promptId ?? ""])
+//                Analytics.logEvent("generate_note_share_link", parameters: ["prompt_id": self.promptContent.promptId ?? ""])
                 self.reflectionResponse = shared
             }
             

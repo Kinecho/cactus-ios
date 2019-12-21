@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import FirebaseAuth
 import FirebaseUI
-import FirebaseAnalytics
+//import FirebaseAnalytics
 
 class UserService {
     static let sharedInstance = UserService()
@@ -85,24 +85,24 @@ class UserService {
     }
     
     func sendLoginAnalyticsEvent(_ loginEvent: LoginEvent, screen: ScreenID?=nil, anonymousUpgrade: Bool = false) {
-        var analyticsParams: [String: Any] = [AnalyticsParameterMethod: loginEvent.providerId ?? "unknown"]
-        if let screen = screen {
-            analyticsParams["screen"] = screen.name
-        }
-        
-        if anonymousUpgrade {
-            analyticsParams["anonyomousUpgrade"] = true
-        }
-        
-        let providerId = loginEvent.providerId ?? "unknown provider"
-        let email = loginEvent.email ?? "unknown"
-        if loginEvent.isNewUser {
-            self.logger.sentryInfo(":wave: \(email) signed up on iOS via \(providerId). Email: \(email)")
-            Analytics.logEvent(AnalyticsEventSignUp, parameters: analyticsParams)
-        } else {
-            self.logger.sentryInfo("\(email) logged in on iOS via \(providerId)")
-            Analytics.logEvent(AnalyticsEventLogin, parameters: analyticsParams)
-        }
+//        var analyticsParams: [String: Any] = [AnalyticsParameterMethod: loginEvent.providerId ?? "unknown"]
+//        if let screen = screen {
+//            analyticsParams["screen"] = screen.name
+//        }
+//
+//        if anonymousUpgrade {
+//            analyticsParams["anonyomousUpgrade"] = true
+//        }
+//
+//        let providerId = loginEvent.providerId ?? "unknown provider"
+//        let email = loginEvent.email ?? "unknown"
+//        if loginEvent.isNewUser {
+//            self.logger.sentryInfo(":wave: \(email) signed up on iOS via \(providerId). Email: \(email)")
+//            Analytics.logEvent(AnalyticsEventSignUp, parameters: analyticsParams)
+//        } else {
+//            self.logger.sentryInfo("\(email) logged in on iOS via \(providerId)")
+//            Analytics.logEvent(AnalyticsEventLogin, parameters: analyticsParams)
+//        }
     }
     
     func handleSuccessfulLogIn(_ authResult: AuthDataResult, screen: ScreenID?=nil, anonymousUpgrade: Bool=false) {

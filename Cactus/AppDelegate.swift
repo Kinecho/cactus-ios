@@ -11,8 +11,8 @@ import Firebase
 import FirebaseDynamicLinks
 import FirebaseUI
 import FirebaseMessaging
-import Fabric
-import Crashlytics
+//import Fabric
+//import Crashlytics
 import Sentry
 
 typealias SentryUser = Sentry.User
@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 //        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         logger.info("Loading app will start", functionName: #function)
-        Fabric.with([Crashlytics.self])
+//        Fabric.with([Crashlytics.self])
         // Create a Sentry client and start crash handler
         do {
             Client.shared = try Client(dsn: "https://728bdc63f41d4c93a6ce0884a01b58ea@sentry.io/1515431")
@@ -59,10 +59,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Override point for customization after application launch.
         Auth.auth().addStateDidChangeListener {_, user in
-            Analytics.logEvent("auth_state_changed", parameters: ["userId": user?.uid ?? "", "previousUserId": self.currentUser?.uid ?? ""])
-            Crashlytics.sharedInstance().setUserEmail(user?.email)
-            Crashlytics.sharedInstance().setUserIdentifier(user?.uid)
-            Crashlytics.sharedInstance().setUserName(user?.displayName)
+//            Analytics.logEvent("auth_state_changed", parameters: ["userId": user?.uid ?? "", "previousUserId": self.currentUser?.uid ?? ""])
+//            Crashlytics.sharedInstance().setUserEmail(user?.email)
+//            Crashlytics.sharedInstance().setUserIdentifier(user?.uid)
+//            Crashlytics.sharedInstance().setUserName(user?.displayName)
             if let user = user {
                 let sentryUser = SentryUser(userId: user.uid)
                 sentryUser.email = user.email

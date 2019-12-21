@@ -8,7 +8,7 @@
 
 import UIKit
 import FirebaseFirestore
-import FirebaseAnalytics
+//import FirebaseAnalytics
 import SkeletonView
 
 @IBDesignable
@@ -143,10 +143,10 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         }
         
         if let promptContent =  journalCell.promptContent {
-            Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
-                AnalyticsParameterContentType: "promptContent",
-                AnalyticsParameterItemID: promptContent.promptId ?? ""
-            ])
+//            Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+//                AnalyticsParameterContentType: "promptContent",
+//                AnalyticsParameterItemID: promptContent.promptId ?? ""
+//            ])
             
             self.performSegue(withIdentifier: "PromptContentCards", sender: cell)
         }

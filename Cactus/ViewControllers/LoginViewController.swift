@@ -213,9 +213,14 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
 //        FUIApple
 //        FUIOAuth.twitter
         var providers: [FUIAuthProvider] = [
-            FUIFacebookAuth(),
-            FUIGoogleAuth(),
+            
+//            FUIGoogleAuth(),
         ]
+        
+        #if !targetEnvironment(macCatalyst)
+//            providers.insert(FUIFacebookAuth(), at: 0)
+        #endif
+        
         if #available(iOS 13.0, *) {
             providers.insert(FUIOAuth.appleAuthProvider(), at: 0)
         }

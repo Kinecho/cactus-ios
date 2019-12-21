@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FirebaseAnalytics
+//import FirebaseAnalytics
 
 class PromptContentPageViewController: UIPageViewController {
     

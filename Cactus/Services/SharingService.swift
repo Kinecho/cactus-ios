@@ -8,8 +8,7 @@
 
 import Foundation
 import UIKit
-import FirebaseAnalytics
-
+//import FirebaseAnalytics
 func getInviteLink() -> String {
     let member = CactusMemberService.sharedInstance.currentMember
     let email = member?.email ?? ""
@@ -223,10 +222,10 @@ class SharingService {
         let typeString = getShareActivityTypeDisplayName(activityType)
         self.logger.sentryInfo(":share: :white_check_mark: Prompt shared via \(typeString). " +
             "SubjectLine=\"\(subjectLine)\" promptId=\(promptId)")
-        Analytics.logEvent(AnalyticsEventShare, parameters: [
-            AnalyticsParameterContentType: "sharePrompt",
-            AnalyticsParameterItemID: promptId
-        ])
+//        Analytics.logEvent(AnalyticsEventShare, parameters: [
+//            AnalyticsParameterContentType: "sharePrompt",
+//            AnalyticsParameterItemID: promptId
+//        ])
     }
     
     func sharePromptCanceled(_ promptContent: PromptContent) {
@@ -276,10 +275,10 @@ class SharingService {
         let typeString = getShareActivityTypeDisplayName(activityType)
         self.logger.sentryInfo(":share: :white_check_mark: Note shared via \(typeString). " +
             "SubjectLine=\"\(subjectLine)\" promptId=\(promptId)")
-        Analytics.logEvent(AnalyticsEventShare, parameters: [
-            AnalyticsParameterContentType: "shareReflectionNote",
-            AnalyticsParameterItemID: promptId
-        ])
+//        Analytics.logEvent(AnalyticsEventShare, parameters: [
+//            AnalyticsParameterContentType: "shareReflectionNote",
+//            AnalyticsParameterItemID: promptId
+//        ])
     }
     
     func shareNote(response: ReflectionResponse, promptContent: PromptContent, target: UIViewController, sender: UIView) {

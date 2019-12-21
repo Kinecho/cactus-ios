@@ -130,7 +130,12 @@ platform :ios do
   	end
 
   	lane :certificates do
-		match(app_identifier: ["com.cactus.StageCactus", "com.cactus.CactusApp"], force: true)
+		match(app_identifier: [
+			"com.cactus.StageCactus", 
+			"com.cactus.CactusApp",
+			# "maccatalyst.com.cactus.StageCactus",
+			# "maccatalyst.com.cactus.CactusApp"
+		], force: false)
 	end
 
 	lane :create_release do 
