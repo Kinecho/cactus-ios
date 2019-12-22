@@ -327,6 +327,8 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         self.addShadows()
+        
+        self.updateView()
     }
     
     func addShadows() {
