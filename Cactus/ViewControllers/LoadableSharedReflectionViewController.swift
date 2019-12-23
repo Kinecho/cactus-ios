@@ -126,7 +126,7 @@ class LoadableSharedReflectionViewController: UIViewController {
     func hideError() {
         self.errorStackView.isHidden = true
         UIView.animate(withDuration: 0.5) {
-            self.view.backgroundColor = CactusColor.yellow
+            self.view.backgroundColor = CactusColor.background
         }
     }
     

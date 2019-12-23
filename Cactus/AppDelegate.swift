@@ -332,7 +332,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         
         // Print full message.
         self.logger.debug("Message Info: \(userInfo)", functionName: #function, line: #line)
-        
+        if let promptContentEntryId = userInfo["promptEntryId"] as? String {
+            AppDelegate.shared.rootViewController.loadPromptContent(promptContentEntryId: promptContentEntryId, link: nil)
+        }
         completionHandler(UIBackgroundFetchResult.newData)
     }
     // [END receive_message]
@@ -354,6 +356,10 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         self.logger.debug("Message Info: \(userInfo)", functionName: #function, line: #line)
         NotificationService.sharedInstance.handlePushMessage(userInfo)
         // Change this to your preferred presentation option
+        if let promptContentEntryId = userInfo["promptEntryId"] as? String {
+            AppDelegate.shared.rootViewController.loadPromptContent(promptContentEntryId: promptContentEntryId, link: nil)
+        }
+        
         completionHandler([])
     }
     
@@ -368,6 +374,10 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         }
         // Print full message.
         self.logger.debug("Message Info: \(userInfo)", functionName: #function, line: #line)
+        
+        if let promptContentEntryId = userInfo["promptEntryId"] as? String {
+            AppDelegate.shared.rootViewController.loadPromptContent(promptContentEntryId: promptContentEntryId, link: nil)
+        }
         
         completionHandler()
     }

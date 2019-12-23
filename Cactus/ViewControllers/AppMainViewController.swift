@@ -18,6 +18,7 @@ class AppMainViewController: UIViewController {
     var memberUnsubscriber: Unsubscriber?
     
     var currentStatusBarStyle: UIStatusBarStyle = .default
+    var pendingAction: (() -> Void)?
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         if #available(iOS 13.0, *) {
@@ -74,7 +75,23 @@ class AppMainViewController: UIViewController {
             }
             self.authHasLoaded = true
             self.member = member
+            
+            self.runPendingActions()
         }
+    }
+    
+    func runPendingActions() {
+        DispatchQueue.global(qos: .background).async {
+            guard self.authHasLoaded else {
+                return
+            }
+            self.pendingAction?()
+        }
+    }
+    
+    func addPendingAction(_ action: @escaping () -> Void) {
+        self.pendingAction = action
+        self.runPendingActions()
     }
     
     func showWelcomeScreen() {
@@ -111,23 +128,23 @@ class AppMainViewController: UIViewController {
     }
     
     func loadPromptContent(promptContentEntryId: String, link: String?=nil) {
-//        let link = "https://cactus-app-stage.web.app/prompts/IAOrt4jq7sXilcpyprdG"
-        
-        let vc = LoadablePromptContentViewController.loadFromNib()
-        vc.originalLink = link
-        vc.promptContentEntryId = promptContentEntryId
-        vc.modalPresentationStyle = .overFullScreen
-        vc.modalTransitionStyle = .coverVertical
-        self.present(vc, animated: true, completion: nil)
+        self.addPendingAction {                    
+            let vc = LoadablePromptContentViewController.loadFromNib()
+            vc.originalLink = link
+            vc.promptContentEntryId = promptContentEntryId
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .coverVertical
+            self.present(vc, animated: true, completion: nil)
+        }
     }
     
     func loadSharedReflection(reflectionId: String, link: String?=nil) {
-        let vc = LoadableSharedReflectionViewController.loadFromNib()
-        vc.originalLink = link
-        vc.reflectionId = reflectionId
-//        vc.modalPresentationStyle = .overFullScreen
-//        vc.modalTransitionStyle = .coverVertical
-        self.present(vc, animated: true, completion: nil)
+        self.addPendingAction {
+            let vc = LoadableSharedReflectionViewController.loadFromNib()
+            vc.originalLink = link
+            vc.reflectionId = reflectionId
+            self.present(vc, animated: true, completion: nil)
+        }
     }
     
     func sendLoginEvent(_ loginEvent: LoginEvent) {
