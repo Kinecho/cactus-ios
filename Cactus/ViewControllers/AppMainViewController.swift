@@ -86,6 +86,7 @@ class AppMainViewController: UIViewController {
                 return
             }
             self.pendingAction?()
+            self.pendingAction = nil
         }
     }
     
@@ -128,7 +129,7 @@ class AppMainViewController: UIViewController {
     }
     
     func loadPromptContent(promptContentEntryId: String, link: String?=nil) {
-        self.addPendingAction {                    
+        self.addPendingAction {
             let vc = LoadablePromptContentViewController.loadFromNib()
             vc.originalLink = link
             vc.promptContentEntryId = promptContentEntryId
