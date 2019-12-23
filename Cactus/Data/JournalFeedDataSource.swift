@@ -260,13 +260,21 @@ class JournalFeedDataSource {
         var createdEntries: [JournalEntryData] = []
         var newPromptIds: [String] = []
         var updatedOrderedPromptIds = [String]()
+        
+        let promptIds = self.sentPrompts.map { (sentPrompt) -> String in
+            return sentPrompt.promptId ?? "unknkown"
+        }
+        self.logger.info("configurePages, sentPrompt.promptIds \(promptIds.joined(separator: "\n"))")
+        
         self.sentPrompts.forEach { sentPrompt in
             guard let promptId = sentPrompt.promptId else {
                 self.logger.warn("No prompt ID found for SentPrompt.id = \(sentPrompt.id ?? "unknown")")
                 return
             }
             guard !updatedOrderedPromptIds.contains(promptId) else {
-                self.logger.warn("ordered prompt ids already contains this prompt. This shouldn't happen, but will not affect user experience. PromptID = \(sentPrompt.promptId ?? "unknown")")
+                let existingIndex = updatedOrderedPromptIds.firstIndex(of: promptId)
+                self.logger.info("sentPrompts.forEach, orderedPromptIds: \(updatedOrderedPromptIds.joined(separator: "\n"))")
+                self.logger.warn("ordered prompt ids already contains promptId \(promptId) at index \(existingIndex ?? -1). SentPromptId = \(sentPrompt.id ?? "unknown") This shouldn't happen, but will not affect user experience. PromptID = \(sentPrompt.promptId ?? "unknown")")
                 return
             }
             if self.journalEntryDataBySentPromptId[promptId] == nil {
