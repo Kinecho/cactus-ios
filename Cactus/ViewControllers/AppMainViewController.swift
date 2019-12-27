@@ -81,7 +81,7 @@ class AppMainViewController: UIViewController {
     }
     
     func runPendingActions() {
-        DispatchQueue.global(qos: .background).async {
+        DispatchQueue.main.async {
             guard self.authHasLoaded else {
                 return
             }
