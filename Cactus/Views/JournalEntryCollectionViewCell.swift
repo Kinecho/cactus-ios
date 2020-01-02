@@ -243,7 +243,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         //adding for good measure....
         self.backgroundImageHeightConstraint.isActive = false
         
-        self.subTextLabel.text = firstText
+        self.subTextLabel.text = firstText?.preventOrphanedWords()
         let responseText = FormatUtils.responseText(self.responses)
         
         if allLoaded {
