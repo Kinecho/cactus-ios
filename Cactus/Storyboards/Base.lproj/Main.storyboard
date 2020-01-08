@@ -214,33 +214,8 @@
                                                 </mask>
                                             </variation>
                                         </imageView>
-                                        <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DONE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7Y-9t-Q3G" userLabel="Status Label" customClass="PillLabelView" customModule="Cactus" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="20" width="43.5" height="20"/>
-                                            <color key="backgroundColor" name="DoneBackground"/>
-                                            <color key="tintColor" name="TextLight"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="20" id="wMH-wL-aXg"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="15"/>
-                                            <color key="textColor" name="TextDefault"/>
-                                            <nil key="highlightedColor"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="topInset">
-                                                    <real key="value" value="3"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="bottomInset">
-                                                    <real key="value" value="3"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="leftInset">
-                                                    <real key="value" value="10"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="rightInset">
-                                                    <real key="value" value="10"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="754" text="May 14, 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOB-lq-qx1">
-                                            <rect key="frame" x="20" y="60" width="368" height="22"/>
+                                            <rect key="frame" x="20" y="20" width="368" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="veS-Gu-PeT"/>
                                             </constraints>
@@ -252,7 +227,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Placeholder Question" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ud-An-1HM">
-                                            <rect key="frame" x="20" y="102" width="368" height="37"/>
+                                            <rect key="frame" x="20" y="62" width="368" height="77"/>
                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="22"/>
                                             <color key="textColor" name="TextDefault"/>
                                             <nil key="highlightedColor"/>
@@ -348,17 +323,15 @@
                                     <constraints>
                                         <constraint firstItem="bFa-Yu-OSz" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="-5" id="0i4-lg-c9x"/>
                                         <constraint firstAttribute="trailing" secondItem="lDj-iq-UJ4" secondAttribute="trailing" constant="-25" id="1um-HJ-PUP"/>
-                                        <constraint firstItem="xLH-Hu-Fx0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="e7Y-9t-Q3G" secondAttribute="trailing" constant="20" id="2WK-gf-4zf"/>
                                         <constraint firstItem="0ud-An-1HM" firstAttribute="top" secondItem="XOB-lq-qx1" secondAttribute="bottom" constant="20" id="2hh-nA-B9O"/>
                                         <constraint firstItem="6vu-J4-LLw" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="20" id="39S-nh-1LB"/>
                                         <constraint firstItem="me6-iG-DkW" firstAttribute="top" secondItem="Prt-fK-hhC" secondAttribute="bottom" constant="20" id="3ye-R8-wrG"/>
                                         <constraint firstAttribute="trailing" secondItem="6vu-J4-LLw" secondAttribute="trailing" constant="20" id="6gT-NZ-B2Z"/>
                                         <constraint firstAttribute="trailing" secondItem="me6-iG-DkW" secondAttribute="trailing" constant="-25" id="7Qa-YF-rEL"/>
                                         <constraint firstItem="bFa-Yu-OSz" firstAttribute="top" secondItem="fIY-zE-sMO" secondAttribute="top" id="8fk-jM-QbO"/>
-                                        <constraint firstItem="e7Y-9t-Q3G" firstAttribute="top" secondItem="0qW-dd-S1T" secondAttribute="top" constant="20" id="9Xd-9a-aR3"/>
                                         <constraint firstItem="fIY-zE-sMO" firstAttribute="top" secondItem="0ud-An-1HM" secondAttribute="bottom" priority="999" constant="20" identifier="questionLabel.bottom.toResponseText.top" id="A56-Dk-He5"/>
                                         <constraint firstAttribute="bottom" secondItem="6vu-J4-LLw" secondAttribute="bottom" constant="20" id="BI7-jG-rCu"/>
-                                        <constraint firstItem="xLH-Hu-Fx0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="e7Y-9t-Q3G" secondAttribute="trailing" constant="26" id="C7g-PW-9wQ"/>
+                                        <constraint firstItem="XOB-lq-qx1" firstAttribute="top" secondItem="0qW-dd-S1T" secondAttribute="top" constant="20" id="C1X-Tq-33u"/>
                                         <constraint firstItem="XOB-lq-qx1" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="20" id="HE6-he-Dmj"/>
                                         <constraint firstItem="0ud-An-1HM" firstAttribute="bottom" secondItem="Prt-fK-hhC" secondAttribute="top" constant="-10" identifier="questionLabel.bottom.to.subText.top" id="KF5-WU-Q9i"/>
                                         <constraint firstItem="bFa-Yu-OSz" firstAttribute="bottom" secondItem="fIY-zE-sMO" secondAttribute="bottom" id="LIc-zH-bKm"/>
@@ -369,8 +342,6 @@
                                         <constraint firstItem="6vu-J4-LLw" firstAttribute="top" secondItem="Prt-fK-hhC" secondAttribute="bottom" constant="20" id="ZF8-xM-iS6"/>
                                         <constraint firstItem="0ud-An-1HM" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="20" id="ZUT-ez-gxV"/>
                                         <constraint firstAttribute="bottom" secondItem="lDj-iq-UJ4" secondAttribute="bottom" constant="-50" id="cIS-jc-kzw"/>
-                                        <constraint firstAttribute="leading" secondItem="e7Y-9t-Q3G" secondAttribute="leading" constant="-20" identifier="status.leading" id="cPU-dS-zYC"/>
-                                        <constraint firstItem="XOB-lq-qx1" firstAttribute="top" secondItem="e7Y-9t-Q3G" secondAttribute="bottom" constant="20" identifier="status.bottom.to.date.top" id="d2D-vf-hFb"/>
                                         <constraint firstAttribute="trailing" secondItem="Prt-fK-hhC" secondAttribute="trailing" constant="20" id="exz-bl-u3b"/>
                                         <constraint firstItem="fIY-zE-sMO" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="18" id="gkI-LN-uVJ"/>
                                         <constraint firstAttribute="bottom" secondItem="me6-iG-DkW" secondAttribute="bottom" identifier="JournalFeedCell.BackgroundImage.BottomToContentViewBottom" id="i4D-IU-BkX"/>
@@ -394,7 +365,6 @@
                                             <exclude reference="ptt-Kp-uU6"/>
                                             <exclude reference="ZF8-xM-iS6"/>
                                             <exclude reference="3ye-R8-wrG"/>
-                                            <exclude reference="C7g-PW-9wQ"/>
                                         </mask>
                                     </variation>
                                     <variation key="heightClass=regular-widthClass=compact">
@@ -423,7 +393,6 @@
                                     <outlet property="borderView" destination="bFa-Yu-OSz" id="tfb-fB-2ks"/>
                                     <outlet property="cellWidthConstraint" destination="MMt-os-ubL" id="kH8-au-fwJ"/>
                                     <outlet property="dateLabel" destination="XOB-lq-qx1" id="Apq-GM-yLb"/>
-                                    <outlet property="dateTopContainerConstraint" destination="ptt-Kp-uU6" id="SJZ-5K-kZA"/>
                                     <outlet property="editTextTopQuestionConstraint" destination="A56-Dk-He5" id="egE-i9-SWi"/>
                                     <outlet property="moreButton" destination="xLH-Hu-Fx0" id="tcN-fN-sEr"/>
                                     <outlet property="questionLabel" destination="0ud-An-1HM" id="Jv0-cx-mwF"/>
@@ -432,8 +401,6 @@
                                     <outlet property="reflectButtonTopQuestionConstraint" destination="LLf-nw-hRq" id="pYo-Ll-RxS"/>
                                     <outlet property="reflectButtonTopToSubTextConstraint" destination="ZF8-xM-iS6" id="nN3-s4-91V"/>
                                     <outlet property="responseTextView" destination="fIY-zE-sMO" id="oTV-Xo-kpv"/>
-                                    <outlet property="statusLabel" destination="e7Y-9t-Q3G" id="0Ph-Yy-kmo"/>
-                                    <outlet property="statusLabelBottomToDateLabelConstraint" destination="d2D-vf-hFb" id="G7W-by-M4K"/>
                                     <outlet property="subTextLabel" destination="Prt-fK-hhC" id="3CF-Ot-adc"/>
                                 </connections>
                             </collectionViewCell>
@@ -744,9 +711,6 @@
         <namedColor name="CardBackground">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="DoneBackground">
-            <color red="0.72156862745098038" green="0.93333333333333335" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="GreenDarkest">
             <color red="0.027000000700354576" green="0.27099999785423279" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -758,9 +722,6 @@
         </namedColor>
         <namedColor name="TextDefault">
             <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="TextLight">
-            <color red="0.45899999141693115" green="0.45899999141693115" blue="0.45899999141693115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TextMinimized">
             <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="0.80000001192092896" colorSpace="custom" customColorSpace="sRGB"/>

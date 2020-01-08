@@ -20,12 +20,9 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var responseTextView: UITextView!
     @IBOutlet weak var borderView: UIView!
-    @IBOutlet weak var statusLabel: UILabel!
-    @IBOutlet weak var dateTopContainerConstraint: NSLayoutConstraint!
     @IBOutlet weak var backgroundBlobImageView: UIImageView!
     @IBOutlet weak var subTextLabel: UILabel!
     @IBOutlet weak var backgroundImageHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var statusLabelBottomToDateLabelConstraint: NSLayoutConstraint!
     @IBOutlet weak var backgroundImageTopToQuestionBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var backgroundImageTopSubTextBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var reflectButton: PrimaryButton!
@@ -42,7 +39,6 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     var editViewController: EditReflectionViewController?
     var responseTextViewHeightConstraint: NSLayoutConstraint?
     var showingBackgroundImage = false
-    //    var cellWidthConstraint: NSLayoutConstraint?
     var responseBottomConstraint: NSLayoutConstraint?
     var textViewBottomPadding: CGFloat = 20
     var journalEntry: JournalEntry?
@@ -303,16 +299,6 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
             self.showResponseView()
             self.responseTextView.hideSkeleton()
             self.responseTextView.text = responseText
-        }
-        
-        if self.responses?.isEmpty == false && self.journalEntry?.responsesLoaded == true {
-            self.statusLabel.isHidden = false
-            self.dateTopContainerConstraint.isActive = false
-            self.statusLabelBottomToDateLabelConstraint.isActive = true
-        } else {
-            self.statusLabel.isHidden = true
-            self.statusLabelBottomToDateLabelConstraint.isActive = false
-            self.dateTopContainerConstraint.isActive = true
         }
         
         self.setNeedsLayout()
