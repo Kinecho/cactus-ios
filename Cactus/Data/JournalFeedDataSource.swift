@@ -152,6 +152,7 @@ class JournalFeedDataSource {
         self.logger.debug("currentDateString=\(currentDateString ?? "unknown") | storedDateString=\(self.todayDateString ?? "unknown")")
         ///ensure the dates are different, otherwise do nothing
         guard self.todayDateString != currentDateString else {
+            self.todayLoaded = true
             self.logger.debug("The stored date and the current dates strings are equal, so we will not process the today prompt")
             return
         }
@@ -176,7 +177,7 @@ class JournalFeedDataSource {
                 oldData.stop()
                 if let oldPromptId = oldData.promptId {
                     self.journalEntryDataByPromptId.removeValue(forKey: oldPromptId)
-                }                
+                }
             }
             
             self.todayDateString = currentDateString
