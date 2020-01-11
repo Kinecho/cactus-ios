@@ -46,7 +46,7 @@ class FlamelinkFile: Codable {
                 self.fileIds.append(fileId)
             }
         } catch {
-            FlamelinkFile.logger.error("error decoding FlamelinkFile", error)
+//            FlamelinkFile.logger.error("error decoding FlamelinkFile", error)
         }
     }
 }
@@ -72,7 +72,7 @@ class VideoFile: FlamelinkFile {
             self.youtubeVideoId = try? container.decode(String.self, forKey: VideoCodingKeys.youtubeVideoId)
             
         } catch {
-            FlamelinkFile.logger.error("error init VideoFile", error)
+//            FlamelinkFile.logger.error("error init VideoFile", error)
         }
     }
 }
@@ -109,7 +109,7 @@ class ImageFile: FlamelinkFile {
             self.storageUrl = try? container.decode(String.self, forKey: ImageCodingKeys.storageUrl)
             self.allowDarkModeInvert = try? container.decode(Bool.self, forKey: ImageCodingKeys.allowDarkModeInvert)
         } catch {
-            FlamelinkFile.logger.error("error decoding ImageFile", error)
+//            FlamelinkFile.logger.error("error decoding ImageFile", error)
         }
     }
 }

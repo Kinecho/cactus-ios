@@ -182,12 +182,17 @@ class JournalFeedDataSource {
         let nextIndex = self.pages.count
         let previousResult = self.pages.last?.result
         
+        guard nextIndex == 0 || previousResult?.mightHaveMore == true else {
+            logger.info("Previous page did not have more results, not attempting to fetch the next page")
+            return
+        }
+        
         if previousResult == nil && nextIndex != 0 {
             logger.info("Page hasn't finished loading yet, can't fetch next page", functionName: #function, line: #line)
             return
         }
         
-        self.logger.info("Creating page loader. This will be the \(self.pages.count) page", functionName: #function, line: #line)
+        self.logger.info("Creating page loader. This will be page \(nextIndex)", functionName: #function, line: #line)
         let page = PageLoader<SentPrompt>()
         self.pages.append(page)
         page.listener = SentPromptService.sharedInstance.observeSentPromptsPage(member: member, limit: self.pageSize, lastResult: previousResult, { (pageResult) in
@@ -256,25 +261,29 @@ class JournalFeedDataSource {
             self.logger.warn("No member or memberId was found on the data feed", functionName: #function, line: #line)
             return
         }
-
+        ///make a copy of sent prompts so that it doesn't get changed out from underneath us while iterating.
+        let sentPrompts = self.sentPrompts
         var createdEntries: [JournalEntryData] = []
         var newPromptIds: [String] = []
         var updatedOrderedPromptIds = [String]()
         
-        let promptIds = self.sentPrompts.map { (sentPrompt) -> String in
+        let promptIds = sentPrompts.map { (sentPrompt) -> String in
             return sentPrompt.promptId ?? "unknkown"
         }
         self.logger.info("configurePages, sentPrompt.promptIds \(promptIds.joined(separator: "\n"))")
-        
-        self.sentPrompts.forEach { sentPrompt in
+        var sentPromptIndex = 0
+        sentPrompts.forEach { sentPrompt in
+            defer {
+                sentPromptIndex += 1
+            }
             guard let promptId = sentPrompt.promptId else {
                 self.logger.warn("No prompt ID found for SentPrompt.id = \(sentPrompt.id ?? "unknown")")
                 return
             }
             guard !updatedOrderedPromptIds.contains(promptId) else {
                 let existingIndex = updatedOrderedPromptIds.firstIndex(of: promptId)
-                self.logger.info("sentPrompts.forEach, orderedPromptIds: \(updatedOrderedPromptIds.joined(separator: "\n"))")
-                self.logger.warn("ordered prompt ids already contains promptId \(promptId) at index \(existingIndex ?? -1). SentPromptId = \(sentPrompt.id ?? "unknown") This shouldn't happen, but will not affect user experience. PromptID = \(sentPrompt.promptId ?? "unknown")")
+//                self.logger.info("sentPrompts.forEach, orderedPromptIds: \(updatedOrderedPromptIds.joined(separator: "\n"))")
+                self.logger.warn("\(Emoji.redFlag) (Not fixed) Index=\(sentPromptIndex). ordered prompt ids already contains promptId \(promptId) at index \(existingIndex ?? -1). SentPromptId = \(sentPrompt.id ?? "unknown") This shouldn't happen, but will not affect user experience. PromptID = \(sentPrompt.promptId ?? "unknown")")
                 return
             }
             if self.journalEntryDataBySentPromptId[promptId] == nil {

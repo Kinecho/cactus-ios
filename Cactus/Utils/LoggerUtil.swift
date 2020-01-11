@@ -166,7 +166,7 @@ class Logger {
         }
         
         let eventMessage = "\(message)"
-        print("sending sentry event: \(eventMessage)")
+//        print("sending sentry event: \(eventMessage)")
         
         let event = Sentry.Event(level: level)
         event.message = eventMessage

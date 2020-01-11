@@ -87,7 +87,7 @@ class Quote: Codable {
                 self.authorAvatar = try? container.decode(ImageFile.self, forKey: .authorAvatar)
             }
         } catch {
-            Logger.shared.error("error decoding Quote content", error)
+//            Logger.shared.error("error decoding Quote content", error)
         }
     }
     
