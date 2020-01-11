@@ -100,7 +100,7 @@ class JournalFeedDataSource {
         (self.pages.isEmpty ? !self.hasLoaded : self.pages.contains { !$0.finishedLoading })
     }
     
-    var isLoading: Bool {!isTodayLoading && !pagesLoading }
+    var isLoading: Bool {isTodayLoading || pagesLoading }
     
     deinit {
         logger.info("Deinit JournalFeedDataSource. Unsubscribing from all data")
@@ -189,6 +189,7 @@ class JournalFeedDataSource {
             todayEntry.delegate = self
             self.initSentPrompts()
             todayEntry.start()
+            self.todayLoaded = true
         }
     }
     
