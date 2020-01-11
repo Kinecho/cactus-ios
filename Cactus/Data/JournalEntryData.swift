@@ -38,6 +38,9 @@ class JournalEntryData {
     var reflectionPromptData = PromptData()
     var responseData = ResponseData()
     var contentData = ContentData()
+    var journalDate: Date?
+    var isTodaysPrompt: Bool = false
+    
     private var wontLoad: Bool = false
     weak var delegate: JournalEntryDataDelegate?
     var loadingComplete: Bool {
@@ -53,16 +56,23 @@ class JournalEntryData {
         self.sentPrompt = sentPrompt
         self.promptId = sentPrompt.promptId
         self.memberId = memberId
+        self.journalDate = sentPrompt.firstSentAt
     }
     
-    init(promptId: String?, memberId: String) {
+    init(promptId: String?, memberId: String, journalDate: Date) {
         JournalEntryData.logger.debug("Setting up Journal Entry without a SentPrompt for promptId \(promptId ?? "unknown")", functionName: #function, line: #line)
         self.promptId = promptId
         self.memberId = memberId
+        self.journalDate = journalDate
     }
     
     deinit {
         JournalEntryData.logger.info("JournalEntryData deinit called for promptId \(self.promptId ?? "unknown")")
+        self.stop()
+    }
+    
+    func stop() {
+        JournalEntryData.logger.info("Stopping the journal entry observers")
         self.reflectionPromptData.unsubscriber?.remove()
         self.responseData.unsubscriber?.remove()
         self.contentData.unsubscriber?.remove()
@@ -86,7 +96,8 @@ class JournalEntryData {
         entry.promptContentLoaded = self.contentData.hasLoaded
         entry.promptLoaded = self.reflectionPromptData.hasLoaded
         entry.responsesLoaded = self.responseData.hasLoaded
-        
+        entry.journalDate = self.journalDate
+        entry.isTodaysPrompt = self.isTodaysPrompt
         return entry
     }
     
@@ -152,9 +163,21 @@ struct JournalEntry: Equatable {
     var promptContentLoaded: Bool = false
     var promptId: String?
     var loadingComplete: Bool = false
+    var journalDate: Date?
+    var isTodaysPrompt: Bool = false
     
     init(promptId: String?) {
         self.promptId = promptId
     }
+    
+//    var isTodaysPrompt: Bool {
+//        guard let date = self.journalDate, self.sentPrompt == nil else {
+//            return false
+//        }
+//
+//        let journalString = getFlamelinkDateStringAtMidnight(for: date)
+//        let currentString = getFlamelinkDateStringAtMidnight(for: Date())
+//        return journalString == currentString
+//    }
     
 }

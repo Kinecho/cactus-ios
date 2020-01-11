@@ -219,13 +219,17 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     }
     
     func updateView() {
-        if let sentDate = self.sentPrompt?.firstSentAt {
+        if self.journalEntry?.isTodaysPrompt == true {
+            self.dateLabel.isHidden = false
+            self.dateLabel.text = "Today"
+            self.dateLabel.hideSkeleton()
+        } else if let sentDate = self.sentPrompt?.firstSentAt {
+            self.dateLabel.isHidden = false
             let dateString = FormatUtils.formatDate(sentDate)
             self.dateLabel.text = dateString
             self.dateLabel.hideSkeleton()
         } else {
-            self.dateLabel.text = "Today"
-            self.dateLabel.hideSkeleton()
+            self.dateLabel.isHidden = true
         }
         
         let questionText = self.getQuestionText()

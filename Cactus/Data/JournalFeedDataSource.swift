@@ -87,6 +87,9 @@ class JournalFeedDataSource {
     var pages: [PageLoader<SentPrompt>] = []
     var pageSize: Int = 10
     var mightHaveMore: Bool {self.pages.last?.result?.mightHaveMore ?? false}
+    
+//    var todayCurrentDate: Date?
+    var todayDateString: String?
     var todayData: JournalEntryData?
     var todayLoaded: Bool = false
     
@@ -127,6 +130,14 @@ class JournalFeedDataSource {
         self.hasStarted = true
         self.initializePages()
         self.initializeToday()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.dayChanged), name: .NSCalendarDayChanged, object: nil)
+        
+    }
+    
+    @objc func dayChanged() {
+        self.logger.debug("Day changed called")
+        self.initializeToday()
     }
     
     func initializeToday() {
@@ -136,7 +147,16 @@ class JournalFeedDataSource {
             return
         }
         
-        PromptContentService.sharedInstance.getPromptContent(for: Date(), status: .published) { (promptContent, error) in
+        let currentDate = Date()
+        let currentDateString = getFlamelinkDateStringAtMidnight(for: currentDate)
+        self.logger.debug("currentDateString=\(currentDateString ?? "unknown") | storedDateString=\(self.todayDateString ?? "unknown")")
+        ///ensure the dates are different, otherwise do nothing
+        guard self.todayDateString != currentDateString else {
+            self.logger.debug("The stored date and the current dates strings are equal, so we will not process the today prompt")
+            return
+        }
+        
+        PromptContentService.sharedInstance.getPromptContent(for: currentDate, status: .published) { (promptContent, error) in
             defer {
                 self.todayLoaded = true
             }
@@ -149,9 +169,20 @@ class JournalFeedDataSource {
                 self.logger.error("There was no error loading todays prompt content, but no promptId was found.")
                 return
             }
+            ///TODO: do we want to remove the todayData object if no new prompt is found?
+            if let oldData = self.todayData {
+                oldData.isTodaysPrompt = false
+                oldData.delegate?.onData(oldData.getJournalEntry())
+                oldData.stop()
+                if let oldPromptId = oldData.promptId {
+                    self.journalEntryDataByPromptId.removeValue(forKey: oldPromptId)
+                }                
+            }
             
+            self.todayDateString = currentDateString
             
-            let todayEntry = JournalEntryData(promptId: promptId, memberId: memberId)
+            let todayEntry = JournalEntryData(promptId: promptId, memberId: memberId, journalDate: currentDate)
+            todayEntry.isTodaysPrompt = true
             self.todayData = todayEntry
             self.journalEntryDataByPromptId[promptId] = todayEntry
             todayEntry.delegate = self
