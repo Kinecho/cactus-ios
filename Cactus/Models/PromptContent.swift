@@ -8,6 +8,23 @@
 
 import Foundation
 
+enum ContentStatus: String, Codable {
+    case in_progress
+    case submitted
+    case processing
+    case needs_changes
+    case published
+    case unknown
+    
+    public init(from decoder: Decoder) {
+        do {
+            self = try ContentStatus(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .unknown
+        } catch {
+            self = .unknown
+        }
+    }
+}
+
 enum ContentType: String, Codable {
     case text
     case quote
@@ -90,7 +107,6 @@ class Quote: Codable {
 //            Logger.shared.error("error decoding Quote content", error)
         }
     }
-    
     
 }
 
@@ -184,6 +200,13 @@ class Content: Codable {
     }
 }
 
+struct PromptContentField {
+    static let scheduledSendAt = "scheduledSendAt"
+    static let entryId = "entryId"
+    static let promptId = "promptId"
+    static let contentStatus = "contentStatus"
+}
+
 class PromptContent: FlamelinkIdentifiable {
     static var schema = FlamelinkSchema.promptContent
     var _fl_meta_: FlamelinkMeta?
@@ -197,6 +220,7 @@ class PromptContent: FlamelinkIdentifiable {
     var topic: String?
     var shareReflectionCopy_md: String?
     var cactusElement: CactusElement?
+    var contentStatus: ContentStatus = .unknown
     
     enum CodingKeys: String, CodingKey {
         case _fl_meta_
@@ -209,6 +233,7 @@ class PromptContent: FlamelinkIdentifiable {
         case topic
         case shareReflectionCopy_md
         case cactusElement
+        case contentStatus
     }
     
     public required init(from decoder: Decoder) throws {
@@ -223,6 +248,7 @@ class PromptContent: FlamelinkIdentifiable {
         self.topic = try? values.decode(String.self, forKey: .topic)
         self.shareReflectionCopy_md = try? values.decode(String.self, forKey: .shareReflectionCopy_md)
         self.cactusElement = try? values.decode(CactusElement.self, forKey: .cactusElement)
+        self.contentStatus = (try? values.decode(ContentStatus.self, forKey: .contentStatus)) ?? .unknown
     }
     
     func getQuestion() -> String? {

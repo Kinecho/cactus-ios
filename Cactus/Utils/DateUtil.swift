@@ -62,6 +62,23 @@ func getDenverTimeZone() -> TimeZone {
     return denverTz
 }
 
+func getFlamelinkDateStringAtMidnight(for date: Date) -> String? {
+    guard let date = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: date) else {
+        return nil
+    }
+    
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm"
+    return formatter.string(from: date)
+}
+
+func getPromptContentDateRangeStrings(for date: Date) -> (startAt: String?, endAt: String?) {
+    let endString = getFlamelinkDateStringAtMidnight(for: date)
+    let startDate = Calendar.current.date(byAdding: .day, value: 1, to: date)!
+    let startString = getFlamelinkDateStringAtMidnight(for: startDate)
+    return (startAt: startString, endAt: endString)
+}
+
 func getDefaultNotificationDate(member: CactusMember?) -> Date? {
     let hour = member?.promptSendTime?.hour ?? 2
     let minute = member?.promptSendTime?.minute ?? 45

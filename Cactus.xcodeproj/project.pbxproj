@@ -10,6 +10,7 @@
 		30051A4C23A86306005F812B /* InvertableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051A4B23A86306005F812B /* InvertableImageView.swift */; };
 		30051A4D23A86306005F812B /* InvertableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051A4B23A86306005F812B /* InvertableImageView.swift */; };
 		30051A4E23A86306005F812B /* InvertableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051A4B23A86306005F812B /* InvertableImageView.swift */; };
+		3009EE5B23C98F4400002CCB /* DateUtilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3009EE5A23C98F4400002CCB /* DateUtilTests.swift */; };
 		300AC17C23397A77005C6555 /* JournalHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC17B23397A77005C6555 /* JournalHomeViewController.swift */; };
 		300AC17D23397A77005C6555 /* JournalHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC17B23397A77005C6555 /* JournalHomeViewController.swift */; };
 		300AC17F2339839A005C6555 /* CactusImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC17E2339839A005C6555 /* CactusImage.swift */; };
@@ -492,6 +493,7 @@
 /* Begin PBXFileReference section */
 		05E8C1EB665F6286E3CD0BE5 /* Pods_Cactus_Prod.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cactus_Prod.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30051A4B23A86306005F812B /* InvertableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvertableImageView.swift; sourceTree = "<group>"; };
+		3009EE5A23C98F4400002CCB /* DateUtilTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtilTests.swift; sourceTree = "<group>"; };
 		300AC17B23397A77005C6555 /* JournalHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalHomeViewController.swift; sourceTree = "<group>"; };
 		300AC17E2339839A005C6555 /* CactusImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusImage.swift; sourceTree = "<group>"; };
 		300AC185233A850B005C6555 /* JournalEntrySkeletonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JournalEntrySkeletonViewController.swift; path = Cactus/ViewControllers/JournalEntrySkeletonViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -804,6 +806,7 @@
 				303C9DC0237F6288006B9786 /* StorageServiceTest.swift */,
 				303C9E3F23841FAD006B9786 /* ReflectionResponseTest.swift */,
 				303C9E49238F29E6006B9786 /* SharingServiceTest.swift */,
+				3009EE5A23C98F4400002CCB /* DateUtilTests.swift */,
 			);
 			path = "Cactus UnitTests";
 			sourceTree = "<group>";
@@ -1664,6 +1667,7 @@
 				30D0E44B236C91F500EFC0E3 /* CGExtensions.swift in Sources */,
 				303C9E3023841AEB006B9786 /* AppSettingsService.swift in Sources */,
 				303C9E2A23841ACC006B9786 /* AuthProviderTableViewCell.swift in Sources */,
+				3009EE5B23C98F4400002CCB /* DateUtilTests.swift in Sources */,
 				305B187D2331A906003E1561 /* MailchimpModels.swift in Sources */,
 				303C9E0D23841AC6006B9786 /* LoginViewController.swift in Sources */,
 				303C9E3423841AEB006B9786 /* ReflectionPromptService.swift in Sources */,

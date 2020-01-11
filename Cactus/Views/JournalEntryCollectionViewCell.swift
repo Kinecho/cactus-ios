@@ -224,8 +224,8 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
             self.dateLabel.text = dateString
             self.dateLabel.hideSkeleton()
         } else {
-            self.dateLabel.text = nil
-            self.dateLabel.showAnimatedGradientSkeleton(usingGradient: self.skeletonGradient)
+            self.dateLabel.text = "Today"
+            self.dateLabel.hideSkeleton()
         }
         
         let questionText = self.getQuestionText()

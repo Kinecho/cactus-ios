@@ -12,6 +12,8 @@ import FirebaseFirestore
 class FlamelinkService {
     let firestoreService: FirestoreService
     let logger = Logger("FlamelinkServce")
+    let locale = "en-US"
+    
     static let sharedInstance = FlamelinkService()
     
     private init() {
@@ -24,6 +26,7 @@ class FlamelinkService {
     
     func getContentQuery() -> Query {
         return self.getContentRef().whereField("_fl_meta_.env", isEqualTo: CactusConfig.flamelink.environmentId)
+            .whereField("_fl_meta_.locale", isEqualTo: self.locale)
     }
     
     func getQuery(_ schema: FlamelinkSchema) -> Query {

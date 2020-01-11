@@ -44,6 +44,7 @@ class SentPromptService {
     
     func observeSentPromptsPage(member: CactusMember,
                                 beforeOrEqualTo: Date?=nil,
+                                onlyCompleted: Bool=true,
                                 limit: Int?=nil,
                                 lastResult: PageResult<SentPrompt>?=nil,
                                 _ onData: @escaping (PageResult<SentPrompt>) -> Void) -> ListenerRegistration? {
@@ -59,7 +60,11 @@ class SentPromptService {
             .order(by: SentPrompt.Field.firstSentAt, descending: true)
         
         if let before = beforeOrEqualTo {
-            query.whereField(SentPrompt.Field.firstSentAt, isLessThanOrEqualTo: Timestamp(date: before))
+            query = query.whereField(SentPrompt.Field.firstSentAt, isLessThanOrEqualTo: Timestamp(date: before))
+        }
+        
+        if onlyCompleted {
+            query = query.whereField(SentPrompt.Field.completed, isEqualTo: true)
         }
         
         if let limit = limit {
@@ -69,7 +74,11 @@ class SentPromptService {
         return self.firestoreService.addPaginatedListener(query, limit: limit, lastResult: lastResult, onData)
     }
     
-    func observeFuturePrompts(member: CactusMember, since: Date=Date(), limit: Int?=nil, _ onData: @escaping (PageResult<SentPrompt>) -> Void) -> ListenerRegistration? {
+    func observeFuturePrompts(member: CactusMember,
+                              since: Date=Date(),
+                              onlyCompleted: Bool=true,
+                              limit: Int?=nil,
+                              _ onData: @escaping (PageResult<SentPrompt>) -> Void) -> ListenerRegistration? {
         guard let memberId = member.id else {
             var result = PageResult<SentPrompt>()
             result.error = "No Member ID found on cactus member"
@@ -81,6 +90,10 @@ class SentPromptService {
             .whereField(SentPrompt.Field.cactusMemberId, isEqualTo: memberId)
             .whereField(SentPrompt.Field.firstSentAt, isGreaterThan: Timestamp(date: since))
             .order(by: SentPrompt.Field.firstSentAt, descending: true)
+        
+        if onlyCompleted {
+            query = query.whereField(SentPrompt.Field.completed, isEqualTo: true)
+        }
         
         if let limit = limit {
             query = query.limit(to: limit)

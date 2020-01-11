@@ -33,7 +33,7 @@ protocol JournalFeedDataSourceDelegate: class {
 class JournalFeedDataSource {
     var logger = Logger("JournalFeedDataSource")
     var currentMember: CactusMember?
-    var journalEntryDataBySentPromptId: [String: JournalEntryData] = [:]
+    var journalEntryDataByPromptId: [String: JournalEntryData] = [:]
     var sentPrompts: [SentPrompt] = []
     var count: Int {
         return self.orderedPromptIds.count
@@ -48,7 +48,7 @@ class JournalFeedDataSource {
     func resetData() {
         self.orderedPromptIds.removeAll()
         self.unsubscribeAll()
-        journalEntryDataBySentPromptId.removeAll()
+        journalEntryDataByPromptId.removeAll()
         self.delegate?.dataLoaded()
     }
     
@@ -62,7 +62,7 @@ class JournalFeedDataSource {
     }
     
     var responses: [ReflectionResponse] {
-        return journalEntryDataBySentPromptId.values.flatMap { (entry) -> [ReflectionResponse] in
+        return journalEntryDataByPromptId.values.flatMap { (entry) -> [ReflectionResponse] in
             return entry.responseData.responses
         }
     }
@@ -78,17 +78,26 @@ class JournalFeedDataSource {
     }
     
     var loadingCompleted: Bool {
-        return !journalEntryDataBySentPromptId.values.contains(where: { (entry) -> Bool in
+        return !journalEntryDataByPromptId.values.contains(where: { (entry) -> Bool in
             return !entry.loadingComplete
-        })
+        }) && todayData?.loadingComplete == true
     }
     
     var pageListeners: [ListenerRegistration] = []
     var pages: [PageLoader<SentPrompt>] = []
     var pageSize: Int = 10
     var mightHaveMore: Bool {self.pages.last?.result?.mightHaveMore ?? false}
+    var todayData: JournalEntryData?
+    var todayLoaded: Bool = false
     
-    var isLoading: Bool {self.pages.isEmpty ? !self.hasLoaded : self.pages.contains { !$0.finishedLoading } }
+    var isTodayLoading: Bool {
+        !todayLoaded || todayData?.loadingComplete != true
+    }
+    var pagesLoading: Bool {
+        (self.pages.isEmpty ? !self.hasLoaded : self.pages.contains { !$0.finishedLoading })
+    }
+    
+    var isLoading: Bool {!isTodayLoading && !pagesLoading }
     
     deinit {
         logger.info("Deinit JournalFeedDataSource. Unsubscribing from all data")
@@ -117,17 +126,38 @@ class JournalFeedDataSource {
         self.logger.info("Starting journal feed data source")
         self.hasStarted = true
         self.initializePages()
+        self.initializeToday()
+    }
     
-//        logger.info("Creating JournalFeedDataSource", functionName: #function)
-//        self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, _, _) in
-//            if self.currentMember != member {
-//                self.logger.info("No member found, resetting data", functionName: #function)
-//                self.resetData()
-//            }
-//            self.currentMember = member
-//            self.initializePages()
-////            self.loadNextPage()
-//        })
+    func initializeToday() {
+        guard let memberId = self.currentMember?.id else {
+            self.logger.warn("[JouranlFeedDataSource] No current member found, can't initialize today entry")
+            self.todayLoaded = true
+            return
+        }
+        
+        PromptContentService.sharedInstance.getPromptContent(for: Date(), status: .published) { (promptContent, error) in
+            defer {
+                self.todayLoaded = true
+            }
+            if let error = error {
+                self.logger.error("Failed to fetch todays prompt content", error)
+                return
+            }
+
+            guard let promptId = promptContent?.promptId else {
+                self.logger.error("There was no error loading todays prompt content, but no promptId was found.")
+                return
+            }
+            
+            
+            let todayEntry = JournalEntryData(promptId: promptId, memberId: memberId)
+            self.todayData = todayEntry
+            self.journalEntryDataByPromptId[promptId] = todayEntry
+            todayEntry.delegate = self
+            self.initSentPrompts()
+            todayEntry.start()
+        }
     }
     
     func initializePages() {
@@ -241,7 +271,7 @@ class JournalFeedDataSource {
             return nil
         }
         let promptId = self.orderedPromptIds[index]
-        guard let data = self.journalEntryDataBySentPromptId[promptId] else {
+        guard let data = self.journalEntryDataByPromptId[promptId] else {
             return nil
         }
         
@@ -249,7 +279,7 @@ class JournalFeedDataSource {
     }
     
     func indexOf(_ journalEntry: JournalEntry) -> Int? {
-        guard let promptId = journalEntry.sentPrompt.promptId else {
+        guard let promptId = journalEntry.promptId else {
             return nil
         }
         
@@ -267,9 +297,17 @@ class JournalFeedDataSource {
         var newPromptIds: [String] = []
         var updatedOrderedPromptIds = [String]()
         
-        let promptIds = sentPrompts.map { (sentPrompt) -> String in
+        var promptIds = sentPrompts.map { (sentPrompt) -> String in
             return sentPrompt.promptId ?? "unknkown"
         }
+        
+        let todayPromptId = self.todayData?.promptId
+        
+        if todayPromptId != nil {
+            self.logger.debug("Inserting today's promptId (\(todayPromptId!)) to the promptId array at position 0")
+            promptIds.insert(todayPromptId!, at: 0)
+        }
+        
         self.logger.info("configurePages, sentPrompt.promptIds \(promptIds.joined(separator: "\n"))")
         var sentPromptIndex = 0
         sentPrompts.forEach { sentPrompt in
@@ -283,20 +321,29 @@ class JournalFeedDataSource {
             guard !updatedOrderedPromptIds.contains(promptId) else {
                 let existingIndex = updatedOrderedPromptIds.firstIndex(of: promptId)
 //                self.logger.info("sentPrompts.forEach, orderedPromptIds: \(updatedOrderedPromptIds.joined(separator: "\n"))")
-                self.logger.warn("\(Emoji.redFlag) (Not fixed) Index=\(sentPromptIndex). ordered prompt ids already contains promptId \(promptId) at index \(existingIndex ?? -1). SentPromptId = \(sentPrompt.id ?? "unknown") This shouldn't happen, but will not affect user experience. PromptID = \(sentPrompt.promptId ?? "unknown")")
+                self.logger.warn("\(Emoji.redFlag) (Not fixed) Index=\(sentPromptIndex). ordered prompt ids already contains promptId \(promptId) at index \(existingIndex ?? -1). " +
+                    "SentPromptId = \(sentPrompt.id ?? "unknown") This shouldn't happen, but will not affect user experience. PromptID = \(sentPrompt.promptId ?? "unknown")")
                 return
             }
-            if self.journalEntryDataBySentPromptId[promptId] == nil {
+            if self.journalEntryDataByPromptId[promptId] == nil {
                 self.logger.debug("Setting up journal entry data source for promptId \(promptId)")
                 let journalEntry = JournalEntryData(sentPrompt: sentPrompt, memberId: memberId)
                 journalEntry.delegate = self
                 createdEntries.append(journalEntry)
-                self.journalEntryDataBySentPromptId[promptId] = journalEntry
+                self.journalEntryDataByPromptId[promptId] = journalEntry
                 newPromptIds.append(promptId)
             }
             updatedOrderedPromptIds.append(promptId)
         }
-                
+             
+        if let todayPromptId = self.todayData?.promptId {
+            ///remove all existing entries that have the same prompt ID as today's prompt
+            updatedOrderedPromptIds.removeAll { (id) -> Bool in
+                id == todayPromptId
+            }
+            updatedOrderedPromptIds.insert(todayPromptId, at: 0)
+        }
+        
         self.logger.info("Adding new prompts: \(newPromptIds)")
         var insertedIndexes: [Int] = []
         for (index, id) in updatedOrderedPromptIds.enumerated() {
@@ -333,7 +380,7 @@ extension JournalFeedDataSource: JournalEntryDataDelegate {
     func onData(_ journalEntry: JournalEntry) {
         if journalEntry.loadingComplete {
             guard let index = self.indexOf(journalEntry) else {
-                self.logger.warn("No index foud for journalEntry.promptId \(journalEntry.sentPrompt.promptId ?? "unknown")")
+                self.logger.warn("No index foud for journalEntry.promptId \(journalEntry.promptId ?? "unknown")")
                 return
             }
             

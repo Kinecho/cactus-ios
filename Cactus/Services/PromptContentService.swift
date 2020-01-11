@@ -46,4 +46,29 @@ class PromptContentService {
             onData(promptContentItems?.first, error)
         }
     }
+    
+    func getPromptContent(for date: Date=Date(), status: ContentStatus?=nil, _ onData: @escaping (PromptContent?, Any?) -> Void) {
+        let dateRange = getPromptContentDateRangeStrings(for: date)
+        
+        guard let startAt = dateRange.startAt, let endAt = dateRange.endAt else {
+            self.logger.error("Unable to fetch a valid date range for the PromptConent by date query. StartAt = \(dateRange.startAt ?? "undefined") | endAt = \(dateRange.endAt ?? "undefined")")
+            onData(nil, "Unable to build a vaild date range")
+            return
+        }
+        
+        self.logger.debug("Fetching prompt content for date range: \(endAt) -> \(startAt)")
+        
+        var query = self.getBaseQuery()
+            .order(by: PromptContentField.scheduledSendAt, descending: true)
+            
+//        if let filterStatus = status {
+//            query = query.whereField(PromptContentField.contentStatus, isEqualTo: filterStatus.rawValue)
+//        }
+
+        query = query.start(at: [startAt])
+            .end(at: [endAt])
+            
+        self.flamelinkService.getFirst(query, onData)
+        
+    }
 }

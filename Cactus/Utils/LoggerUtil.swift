@@ -42,7 +42,7 @@ class Logger {
     static var shared = Logger()
     var fileName: String?
     var functionName: String?
-    var logLevel = LogLevel.info
+    var logLevel = LogLevel.debug
     let dateFormatter = DateFormatter()
     
     func showLogLevel(_ logLevel: LogLevel) -> Bool {

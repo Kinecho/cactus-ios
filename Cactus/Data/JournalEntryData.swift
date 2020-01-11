@@ -34,7 +34,7 @@ class JournalEntryData {
     static var logger = Logger(fileName: "JournalEntryData")
     var promptId: String?
     var memberId: String
-    var sentPrompt: SentPrompt
+    var sentPrompt: SentPrompt?
     var reflectionPromptData = PromptData()
     var responseData = ResponseData()
     var contentData = ContentData()
@@ -55,8 +55,14 @@ class JournalEntryData {
         self.memberId = memberId
     }
     
+    init(promptId: String?, memberId: String) {
+        JournalEntryData.logger.debug("Setting up Journal Entry without a SentPrompt for promptId \(promptId ?? "unknown")", functionName: #function, line: #line)
+        self.promptId = promptId
+        self.memberId = memberId
+    }
+    
     deinit {
-        JournalEntryData.logger.info("JournalEntryData deinit called for promptId \(sentPrompt.promptId ?? "unknown")")
+        JournalEntryData.logger.info("JournalEntryData deinit called for promptId \(self.promptId ?? "unknown")")
         self.reflectionPromptData.unsubscriber?.remove()
         self.responseData.unsubscriber?.remove()
         self.contentData.unsubscriber?.remove()
@@ -70,7 +76,8 @@ class JournalEntryData {
     }
     
     func getJournalEntry() -> JournalEntry {
-        var entry = JournalEntry(self.sentPrompt)
+        var entry = JournalEntry(promptId: self.promptId)
+        entry.sentPrompt = self.sentPrompt
         entry.prompt = self.reflectionPromptData.prompt
         entry.responses = self.responseData.responses
         entry.promptContent = self.contentData.promptContent
@@ -129,7 +136,8 @@ class JournalEntryData {
 struct JournalEntry: Equatable {
     static func == (lhs: JournalEntry, rhs: JournalEntry) -> Bool {
         return lhs.prompt?.id == rhs.prompt?.id
-            && lhs.sentPrompt.id == rhs.sentPrompt.id
+            && lhs.sentPrompt?.id == rhs.sentPrompt?.id
+            && lhs.promptId == rhs.promptId
             && lhs.responses?.count == rhs.responses?.count
             && lhs.promptContent?.entryId == rhs.promptContent?.entryId
             && lhs.loadingComplete == rhs.loadingComplete
@@ -137,15 +145,16 @@ struct JournalEntry: Equatable {
     
     var prompt: ReflectionPrompt?
     var promptLoaded: Bool = false
-    var sentPrompt: SentPrompt
+    var sentPrompt: SentPrompt?
     var responses: [ReflectionResponse]?
     var responsesLoaded: Bool = false
     var promptContent: PromptContent?
     var promptContentLoaded: Bool = false
-    
+    var promptId: String?
     var loadingComplete: Bool = false
     
-    init(_ sentPrompt: SentPrompt) {
-        self.sentPrompt = sentPrompt
+    init(promptId: String?) {
+        self.promptId = promptId
     }
+    
 }
