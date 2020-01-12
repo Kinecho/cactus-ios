@@ -187,7 +187,7 @@ class JournalFeedDataSource {
             self.todayData = todayEntry
             self.journalEntryDataByPromptId[promptId] = todayEntry
             todayEntry.delegate = self
-            self.initSentPrompts()
+            self.configureDataFeed()
             todayEntry.start()
             self.todayLoaded = true
         }
@@ -270,7 +270,7 @@ class JournalFeedDataSource {
         let prompts: [SentPrompt] = self.pages.compactMap {$0.result?.results}.flatMap {$0}
         self.sentPrompts = prompts
         
-        self.initSentPrompts()
+        self.configureDataFeed()
     }
     
     func checkForNewPrompts(_ completed: (([SentPrompt]?) -> Void)? = nil) {
@@ -295,7 +295,7 @@ class JournalFeedDataSource {
                     self.sentPrompts.insert(sentPrompt, at: 0)
                 }
             }
-            self.initSentPrompts()
+            self.configureDataFeed()
         }
     }
     
@@ -319,7 +319,7 @@ class JournalFeedDataSource {
         return self.orderedPromptIds.firstIndex(of: promptId)
     }
     
-    func initSentPrompts() {
+    func configureDataFeed() {
         guard let memberId = self.currentMember?.id else {
             self.logger.warn("No member or memberId was found on the data feed", functionName: #function, line: #line)
             return
