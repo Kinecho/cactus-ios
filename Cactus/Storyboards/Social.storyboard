@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Send Invites-->
+        <scene sceneID="2LU-9P-70x">
+            <objects>
+                <viewController storyboardIdentifier="inviteFriend" id="JkA-cq-Xy4" userLabel="Send Invites" customClass="SendFriendInviteViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="y8O-zo-Tih">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="qG1-NH-sS6">
+                                <rect key="frame" x="0.0" y="83.5" width="320" height="401"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="2QE-8Q-3dx">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="92"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite a Friend" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgd-xP-bhj">
+                                                <rect key="frame" x="20" y="8" width="280" height="28"/>
+                                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="24"/>
+                                                <color key="textColor" name="TextDefault"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="They'll get just one email inviting them to Cactus" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BmV-KM-O66">
+                                                <rect key="frame" x="20" y="42" width="280" height="42"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="20"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ldo-WM-yLZ">
+                                        <rect key="frame" x="0.0" y="118" width="320" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49z-Dw-ZWk" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
+                                                <rect key="frame" x="113" y="0.0" width="94" height="30"/>
+                                                <state key="normal" title="Add Contacts"/>
+                                                <connections>
+                                                    <action selector="addContactsTapped:" destination="JkA-cq-Xy4" eventType="primaryActionTriggered" id="xws-bl-IAM"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MDI-vu-Ktt">
+                                        <rect key="frame" x="0.0" y="171" width="320" height="10"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="0Kq-yS-lHq"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="9Wu-3E-FQq" kind="embed" identifier="embedSelectedContacts" id="sGI-Zs-Bet"/>
+                                        </connections>
+                                    </containerView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Ukc-gz-H5H">
+                                        <rect key="frame" x="0.0" y="210" width="320" height="191"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter an optional message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mm-p2-vEU">
+                                                <rect key="frame" x="20" y="8" width="280" height="19"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
+                                                <color key="textColor" name="TextMinimized"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Optional Text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5UY-n2-7p9">
+                                                <rect key="frame" x="20" y="33" width="280" height="150"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="150" id="rwN-eu-ahw"/>
+                                                </constraints>
+                                                <color key="textColor" name="TextDefault"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="20"/>
+                                    </stackView>
+                                </subviews>
+                                <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="qG1-NH-sS6" firstAttribute="centerY" secondItem="y8O-zo-Tih" secondAttribute="centerY" id="LIG-bY-3KB"/>
+                            <constraint firstItem="qG1-NH-sS6" firstAttribute="leading" secondItem="y8O-zo-Tih" secondAttribute="leading" id="emY-5e-jSW"/>
+                            <constraint firstAttribute="trailing" secondItem="qG1-NH-sS6" secondAttribute="trailing" id="gMw-mq-mgh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fWY-Ak-FKW"/>
+                    </view>
+                    <connections>
+                        <outlet property="addContactsButton" destination="49z-Dw-ZWk" id="ebE-6d-vtc"/>
+                        <outlet property="messageTextView" destination="5UY-n2-7p9" id="Gtz-mE-oyZ"/>
+                        <outlet property="tableViewContainerView" destination="MDI-vu-Ktt" id="UlM-Jq-NKi"/>
+                        <outlet property="tableViewHeightContraint" destination="0Kq-yS-lHq" id="yYJ-Si-g3c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tIb-p6-szK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="35" y="44"/>
+        </scene>
+        <!--Selected Contacts Table Vieiw Controller-->
+        <scene sceneID="uRc-ou-0LK">
+            <objects>
+                <tableViewController id="9Wu-3E-FQq" userLabel="Selected Contacts Table Vieiw Controller" customClass="ContactsTableViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4zI-VS-OLz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="10"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" textLabel="K74-hq-3NE" detailTextLabel="1gn-sy-t5W" style="IBUITableViewCellStyleSubtitle" id="xTs-D3-oDN">
+                                <rect key="frame" x="0.0" y="28" width="320" height="55.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xTs-D3-oDN" id="aGm-1P-wAX">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="55.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" text="Neil Poulin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="K74-hq-3NE">
+                                            <rect key="frame" x="15" y="10" width="80.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" text="neil@cactus.app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1gn-sy-t5W">
+                                            <rect key="frame" x="15" y="31.5" width="93.5" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9Wu-3E-FQq" id="kLH-PO-voB"/>
+                            <outlet property="delegate" destination="9Wu-3E-FQq" id="jod-H3-wVw"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P2u-Mn-I38" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="838" y="-114"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="TextDefault">
+            <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextMinimized">
+            <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="0.80000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

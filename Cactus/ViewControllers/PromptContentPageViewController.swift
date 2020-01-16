@@ -123,6 +123,8 @@ class PromptContentPageViewController: UIPageViewController {
             viewController = CactusElementsViewController.loadFromNib()
         case .video:
             viewController = VideoContentViewController.loadFromNib()
+        case .invite:
+            viewController = InviteContentViewController.loadFromNib()
         default:
             self.logger.warn("PromptContentPageViewController: ContentType not handled: \(content.contentType)")
         }

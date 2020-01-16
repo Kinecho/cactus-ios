@@ -28,6 +28,9 @@ enum ScreenID: String {
     //Onboarding
     case notificationOnboarding
     
+    //Social
+    case inviteFriend
+    
     var name: String {
         return self.rawValue
     }
@@ -40,6 +43,8 @@ enum ScreenID: String {
             return StoryboardID.Settings
         case .notificationOnboarding:
             return StoryboardID.Onboarding
+        case .inviteFriend:
+            return StoryboardID.Social
         default:
             return StoryboardID.Main
         }
@@ -69,6 +74,7 @@ enum StoryboardID: String {
     case Main
     case Settings
     case Onboarding
+    case Social
 
     var name: String {
         return self.rawValue

@@ -42,4 +42,28 @@ extension UIView {
         let timeSincePause: CFTimeInterval = layer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
         layer.beginTime = timeSincePause
     }
+    
+    func loadViewFromNib() -> UIView {
+        let bundle = Bundle(for: type(of: self))
+        let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)
+        //swiftlint:disable force_cast
+        let view = nib.instantiate(withOwner: self, options: nil).first as! UIView
+        view.frame = bounds
+        view.autoresizingMask = [
+            UIView.AutoresizingMask.flexibleWidth,
+            UIView.AutoresizingMask.flexibleHeight
+        ]        
+        return view
+    }
+    
+    func addShadows() {
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 10.0)
+        self.layer.shadowRadius = self.layer.cornerRadius
+        self.layer.shadowOpacity = 0.15
+        self.layer.masksToBounds = false
+        
+        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.layer.cornerRadius).cgPath
+    }
+   
 }

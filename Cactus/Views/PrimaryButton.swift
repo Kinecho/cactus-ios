@@ -39,7 +39,6 @@ class PrimaryButton: UIButton {
     @IBInspectable var showBorder: Bool = true
     
     var borderColor: UIColor = CactusColor.darkGreen
-//    var mainColor: UIColor = CactusColor.green
     
     @IBInspectable var borderRadius: CGFloat {
         get {
@@ -74,6 +73,7 @@ class PrimaryButton: UIButton {
         
         self.layoutSubviews()
         if let imageView = self.imageView {
+            imageView.tintColor = CactusColor.textWhite
             self.bringSubviewToFront(imageView)
         }
     }
@@ -120,7 +120,12 @@ class PrimaryButton: UIButton {
             border.fillColor = UIColor.clear.cgColor
             border.strokeColor = self.borderColor.cgColor
             border.lineWidth = thickness
-            self.contentEdgeInsets = UIEdgeInsets(top: self.verticalPadding - offset, left: self.horizontalPadding, bottom: self.verticalPadding, right: self.horizontalPadding)
+            var left = self.horizontalPadding
+            if self.imageView?.image != nil {
+                left -= self.imageWidth / 2
+            }
+            
+            self.contentEdgeInsets = UIEdgeInsets(top: self.verticalPadding - offset, left: left, bottom: self.verticalPadding, right: self.horizontalPadding)
             self.border = border
         }
     }
