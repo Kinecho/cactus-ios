@@ -28,15 +28,11 @@ class SendFriendInviteViewController: UIViewController, CNContactPickerDelegate 
     var tableViewController: ContactsTableViewController!
     let logger = Logger("SendFriendInviteViewController")
     var selectedContacts: [SocialContact] = []
-    var messageBottomConstraintConstantInitial: CGFloat = 20.0
-    var messageBottomConstraintConstant: CGFloat = 0.0
-    var messageViewBottomOffset: CGFloat = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureViews()
         self.addKeyboardNotification()
-        self.messageBottomConstraintConstant = self.textViewBottomConstraint.constant
-        self.messageBottomConstraintConstantInitial = self.textViewBottomConstraint.constant
     }
     
     deinit {
@@ -72,7 +68,6 @@ class SendFriendInviteViewController: UIViewController, CNContactPickerDelegate 
         let toolbarItems = [flexSpace, doneButton]
         toolbar.setItems(toolbarItems, animated: false)
         toolbar.sizeToFit()
-//        toolbar.
         self.messageTextView.inputAccessoryView = toolbar
         
         let contactPicker = CNContactPickerViewController()
@@ -80,10 +75,9 @@ class SendFriendInviteViewController: UIViewController, CNContactPickerDelegate 
         contactPicker.predicateForEnablingContact = NSPredicate(
             format: "emailAddresses.@count > 0")
         self.contactPickerController = contactPicker
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-//        self.contactPickerController.
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
+
     }
     
     @objc func dismissKeyboard() {
@@ -111,11 +105,6 @@ class SendFriendInviteViewController: UIViewController, CNContactPickerDelegate 
             self.selectedContactsLabel.isHidden = false
             self.selectedContactsLabel.text = "Send Invites (\(tableViewController.contacts.count))"
         }
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        self.messageViewBottomOffset = self.view.frame.maxY - self.messageStackView.frame.maxY
     }
     
     @IBAction func inviteTapped(_ sender: Any) {
@@ -201,6 +190,13 @@ class SendFriendInviteViewController: UIViewController, CNContactPickerDelegate 
         self.configureEditTableButton()
     }
     
+    @objc func appMovedToBackground() {
+        self.logger.debug("App moved to background")
+        self.logger.debug("Dismissing contacat picker as the app is in the background")
+        self.contactPickerController.dismiss(animated: false, completion: nil)
+        self.dismissKeyboard()
+    }
+    
     func configureEditTableButton() {
         let isEditing = self.tableViewController.isEditing
         if isEditing {
@@ -229,21 +225,20 @@ class SendFriendInviteViewController: UIViewController, CNContactPickerDelegate 
     
     @objc func keyboardWillShow(_ notification: Notification) {
         var translateY: CGFloat = 0
-        if let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
-            self.messageBottomConstraintConstant <= self.messageBottomConstraintConstantInitial {
-            translateY = keyboardFrame.height - self.messageViewBottomOffset
+        if let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let messageViewBottomOffset = self.view.frame.maxY - self.messageStackView.frame.maxY
+            self.logger.debug("messageViewBottomOffset is \(messageViewBottomOffset)")
+            translateY = keyboardFrame.height - messageViewBottomOffset
             self.logger.debug("Keybord Frame.height = \(keyboardFrame.height)")
             self.logger.debug("Translating keyboard by \(translateY)")
         }
         
-//        let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey]
-//        let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey]        
         UIView.animate(
             withDuration: 0.3,
             delay: 0.05,
             options: .curveEaseOut,
             animations: {
-                self.messageStackView.transform = CGAffineTransform(translationX: 0, y: -translateY)
+                self.messageStackView.transform = self.messageStackView.transform.concatenating(CGAffineTransform(translationX: 0, y: -translateY))
             })
     }
     
