@@ -15,12 +15,14 @@ class InviteContentViewController: PromptContentViewController, CNContactPickerD
     @IBOutlet weak var inviteDescriptionLabel: UILabel!
     @IBOutlet weak var inviteButton: PrimaryButton!
     let log = Logger("InviteConentViewController")
-    
+    var sendInviteViewController: SendFriendInviteViewController?
     var selectedContacts: [SocialContact] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.sendInviteViewController = AppDelegate.shared.rootViewController.getScreen(.inviteFriend) as? SendFriendInviteViewController
+        self.sendInviteViewController?.delegate = self
         self.configureView()
     }
 
@@ -79,9 +81,17 @@ class InviteContentViewController: PromptContentViewController, CNContactPickerD
     }
     
     func showInviteScreen() {
-        let vc = AppDelegate.shared.rootViewController.getScreen(.inviteFriend)
+        guard let vc = sendInviteViewController else {
+            return
+        }
         
         self.present(vc, animated: true, completion: nil)
     }
         
+}
+
+extension InviteContentViewController: SendFriendInviteViewControllerDelegate {
+    func invitesSentSuccessfully() {
+        self.delegate?.nextScreen()
+    }
 }

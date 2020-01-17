@@ -48,23 +48,3 @@ struct SocialContact {
         return "\(firstName ?? "") \(lastName ?? "")".trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }
-
-class ContactService: NSObject, CNContactPickerDelegate {
-    static var sharedInstance = ContactService()
-    
-//    func getContact(_ vc: UIViewController, limit: Int = 1, _ onData: @escaping ([NativeContact]) -> Void) {
-//
-//        onData([])
-//    }
-    
-//    func contactPicker(_ picker: CNContactPickerViewController,
-//                       didSelect contacts: [CNContact]) {
-//      let newFriends = contacts.compactMap { Friend(contact: $0) }
-//      for friend in newFriends {
-//        if !friendsList.contains(friend) {
-//          friendsList.append(friend)
-//        }
-//      }
-//      tableView.reloadData()
-//    }
-}

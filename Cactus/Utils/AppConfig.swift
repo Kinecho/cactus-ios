@@ -17,6 +17,12 @@ struct FlamelinkConfig {
     var environmentId: String = "production"
 }
 
+enum AppType: String, Codable {
+    case WEB
+    case IOS
+    case ANDROID
+}
+
 /**
  Get the name of the release for reporting purposes, in the format of [BundleID].[Version].[Build]
  Example: com.cactus.CactusApp-1.0.88
@@ -43,4 +49,5 @@ protocol AppConfig {
     static var environment: AppEnvironment {get}
     static var actionCodeDomain: String {get}
     static var apiDomain: String {get}
+    static var appType: AppType {get}
 }

@@ -20,6 +20,7 @@ enum ApiPath: String {
     case loginEvent = "/signup/login-event"
     case sendMagicLink = "/signup/magic-link"
     case updateEmailSubscriberStatus = "/mailchimp/status"
+    case sendSocialInvite = "/social/send-invite"
 }
 
 ///A service for interacting with the Cactus JSON Api
@@ -189,15 +190,52 @@ public class ApiService {
         }
     }
     
+    
+    func post<R: Codable, T: Codable>(
+        path: ApiPath,
+        body: R,
+        responseType: T.Type,
+        authenticated: Bool = true,
+        onTask: ((URLSessionDataTask) -> Void)?=nil,
+        _ onCompleted: ((T?, Any?) -> Void)?=nil ) {
+        self.logger.debug("Sending POST request to \(path)")
+        self.createRequest(path, method: .POST, authenticated: authenticated, body: body) { (request, error) in
+            guard let request = request, error == nil else {
+                onCompleted?(nil, error)
+                return
+            }
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                let statusCode = (response as? HTTPURLResponse)?.statusCode
+                self.logger.info("POST to \(path) returned status \(statusCode ?? -1) with data \(String(describing: data))")
+                if let error = error {
+                    self.logger.error("Error sending POST to \(path)", error)
+                    onCompleted?(nil, error)
+                    return
+                }
+                if let data = data {
+                    let responseBody: T? = self.deserializeJSON(data)
+                    onCompleted?(responseBody, error)
+                    return
+                } else {
+                    onCompleted?(nil, nil)
+                    return
+                }                
+            }
+            onTask?(task)
+            task.resume()
+        }
+    }
+    
     /**
      When login is successfully performed, send data to the API so we perform post-login actions on the backend
      - Parameter loginEvent: The login event object
      - Parameter onTask: A callback that returns the URLSessionDataTask. Useful if you need to be able to cancel a request
      - Parameter completed: A completion callback fired when the request finishes. Passes an optional Error object
      */
-    func sendLoginEvent(_ loginEvent: LoginEvent,
-                        onTask: ((URLSessionDataTask) -> Void)?=nil,
-                        ///on completed handler
+    func sendLoginEvent(
+        _ loginEvent: LoginEvent,
+        onTask: ((URLSessionDataTask) -> Void)?=nil,
         completed: ((_ error: Any?) -> Void)?=nil) {
         self.createRequest(ApiPath.loginEvent, method: .POST, authenticated: true, body: loginEvent) { (request, error) in
             guard let request = request, error == nil else {

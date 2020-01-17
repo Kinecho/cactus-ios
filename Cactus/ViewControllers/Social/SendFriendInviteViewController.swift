@@ -9,6 +9,10 @@
 import UIKit
 import ContactsUI
 
+protocol SendFriendInviteViewControllerDelegate:class {
+    func invitesSentSuccessfully()
+}
+
 class SendFriendInviteViewController: UIViewController, CNContactPickerDelegate {
 
     @IBOutlet weak var emptyStateContainerView: UIView!
@@ -28,6 +32,13 @@ class SendFriendInviteViewController: UIViewController, CNContactPickerDelegate 
     var tableViewController: ContactsTableViewController!
     let logger = Logger("SendFriendInviteViewController")
     var selectedContacts: [SocialContact] = []
+    weak var delegate: SendFriendInviteViewControllerDelegate?
+    
+    var isSending: Bool = false {
+        didSet {
+            self.configureActionButtons()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,11 +116,61 @@ class SendFriendInviteViewController: UIViewController, CNContactPickerDelegate 
             self.selectedContactsLabel.isHidden = false
             self.selectedContactsLabel.text = "Send Invites (\(tableViewController.contacts.count))"
         }
+        
+        self.inviteButton.setTitle("Sending...", for: .disabled)
+        self.inviteButton.setEnabled(!self.isSending)
+        
     }
     
     @IBAction func inviteTapped(_ sender: Any) {
-        self.logger.info("Send Invites NOT IMPLEMENTED YET")
-        
+        self.isSending = true
+        let message = self.messageTextView.text
+        let contacts = self.tableViewController.contacts
+        guard let member = CactusMemberService.sharedInstance.currentMember else {
+            self.logger.warn("User is not logged in, can not send invites")
+            self.handleSendInviteError(message: "You must be logged in to send invitations.")
+            return
+        }
+        SocialInviteService.sharedInstance.sendInvites(to: contacts, from: member, message: message) {result, error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    self.logger.error("Failed to send social invites.", error)
+                    self.handleSendInviteError(message: nil)
+                    return
+                }
+                
+                guard let result = result else {
+                    self.handleSendInviteError(message: nil)
+                    return
+                }
+                        
+                if result.success {
+                    self.handleSendInviteSuccess()
+                } else {
+                    self.handleSendInviteError(message: result.message)
+                }
+            }
+            
+        }
+    }
+    
+    func handleSendInviteError(message: String?) {
+        self.isSending = false
+        let alert = UIAlertController(title: "Unable to send invitations", message: message ?? "We were unable to send invitations at this time. Please try again later.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Skip Sending", style: .destructive, handler: { _ in
+            alert.dismiss(animated: true) {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func handleSendInviteSuccess() {
+        self.logger.info("Successfully sent invites via API. Updating view")
+        self.dismiss(animated: true, completion: {
+            self.delegate?.invitesSentSuccessfully()
+        })
     }
     
     @IBAction func addContactsTapped(_ sender: Any) {

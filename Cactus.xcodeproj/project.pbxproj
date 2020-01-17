@@ -10,6 +10,9 @@
 		30051A4C23A86306005F812B /* InvertableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051A4B23A86306005F812B /* InvertableImageView.swift */; };
 		30051A4D23A86306005F812B /* InvertableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051A4B23A86306005F812B /* InvertableImageView.swift */; };
 		30051A4E23A86306005F812B /* InvertableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051A4B23A86306005F812B /* InvertableImageView.swift */; };
+		3006442423D26BAB00712ED1 /* SocialInviteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3006442323D26BAB00712ED1 /* SocialInviteService.swift */; };
+		3006442523D26BAB00712ED1 /* SocialInviteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3006442323D26BAB00712ED1 /* SocialInviteService.swift */; };
+		3006442623D26BAB00712ED1 /* SocialInviteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3006442323D26BAB00712ED1 /* SocialInviteService.swift */; };
 		3009EE5B23C98F4400002CCB /* DateUtilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3009EE5A23C98F4400002CCB /* DateUtilTests.swift */; };
 		300AC17C23397A77005C6555 /* JournalHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC17B23397A77005C6555 /* JournalHomeViewController.swift */; };
 		300AC17D23397A77005C6555 /* JournalHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC17B23397A77005C6555 /* JournalHomeViewController.swift */; };
@@ -523,6 +526,7 @@
 /* Begin PBXFileReference section */
 		05E8C1EB665F6286E3CD0BE5 /* Pods_Cactus_Prod.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cactus_Prod.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30051A4B23A86306005F812B /* InvertableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvertableImageView.swift; sourceTree = "<group>"; };
+		3006442323D26BAB00712ED1 /* SocialInviteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialInviteService.swift; sourceTree = "<group>"; };
 		3009EE5A23C98F4400002CCB /* DateUtilTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtilTests.swift; sourceTree = "<group>"; };
 		300AC17B23397A77005C6555 /* JournalHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalHomeViewController.swift; sourceTree = "<group>"; };
 		300AC17E2339839A005C6555 /* CactusImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusImage.swift; sourceTree = "<group>"; };
@@ -1092,6 +1096,7 @@
 				303C9DB6237F595A006B9786 /* UserServiceFile.swift */,
 				303C9DC2237F6799006B9786 /* StorageService.swift */,
 				305CB0FB23D03C080046E8A8 /* ContactService.swift */,
+				3006442323D26BAB00712ED1 /* SocialInviteService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1704,6 +1709,7 @@
 				303C9E0723841AC1006B9786 /* CactusElementsViewController.swift in Sources */,
 				305B18752331A8F5003E1561 /* CactusColor.swift in Sources */,
 				303C9E4023841FAD006B9786 /* ReflectionResponseTest.swift in Sources */,
+				3006442623D26BAB00712ED1 /* SocialInviteService.swift in Sources */,
 				30D7385F23CFFC62006F4DA6 /* InviteContentViewController.swift in Sources */,
 				303C9E3B23841AFC006B9786 /* UIImageView+SwiftyGif.swift in Sources */,
 				303C9E1223841AC6006B9786 /* SettingsTableViewController.swift in Sources */,
@@ -1928,6 +1934,7 @@
 				3021B67623623010002634A8 /* ApiTypes.swift in Sources */,
 				30D7F70A236BAAB100379EE0 /* EditReflectionViewController.swift in Sources */,
 				3020DD952363F37D00EC40AE /* UIImageViewAligned.swift in Sources */,
+				3006442523D26BAB00712ED1 /* SocialInviteService.swift in Sources */,
 				30C7E57C233FEB5800145111 /* FontExtensions.swift in Sources */,
 				3084E9622348118000788279 /* LanguageSettingsViewController.swift in Sources */,
 				300AC188233A850B005C6555 /* JournalEntrySkeletonViewController.swift in Sources */,
@@ -2061,6 +2068,7 @@
 				3021B67523623010002634A8 /* ApiTypes.swift in Sources */,
 				30D7F709236BAAB100379EE0 /* EditReflectionViewController.swift in Sources */,
 				3020DD942363F37D00EC40AE /* UIImageViewAligned.swift in Sources */,
+				3006442423D26BAB00712ED1 /* SocialInviteService.swift in Sources */,
 				30C7E57B233FEB5800145111 /* FontExtensions.swift in Sources */,
 				3084E9612348118000788279 /* LanguageSettingsViewController.swift in Sources */,
 				300AC187233A850B005C6555 /* JournalEntrySkeletonViewController.swift in Sources */,
