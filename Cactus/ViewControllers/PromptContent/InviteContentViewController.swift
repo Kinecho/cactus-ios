@@ -16,7 +16,7 @@ class InviteContentViewController: PromptContentViewController, CNContactPickerD
     @IBOutlet weak var inviteButton: PrimaryButton!
     let log = Logger("InviteConentViewController")
     
-    var selectedContacts: [NativeContact] = []
+    var selectedContacts: [SocialContact] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +61,7 @@ class InviteContentViewController: PromptContentViewController, CNContactPickerD
             
             self.log.info("\(contact.givenName) \(contact.familyName) - \(contact.emailAddresses.first?.value ?? "no emails")")
             
-            var c = NativeContact()
+            var c = SocialContact()
             c.email = contact.emailAddresses.first?.value as String?
             c.firstName = contact.givenName
             c.lastName = contact.familyName

@@ -332,6 +332,9 @@
 		3084E96A234BACE300788279 /* FormatUtilTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E969234BACE300788279 /* FormatUtilTest.swift */; };
 		3084E96C234BC5FE00788279 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E96B234BC5FE00788279 /* PrimaryButton.swift */; };
 		3084E96D234BC5FE00788279 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E96B234BC5FE00788279 /* PrimaryButton.swift */; };
+		308505A523D0E490001179E2 /* SocialContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308505A423D0E490001179E2 /* SocialContactTableViewCell.swift */; };
+		308505A623D0E490001179E2 /* SocialContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308505A423D0E490001179E2 /* SocialContactTableViewCell.swift */; };
+		308505A723D0E490001179E2 /* SocialContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308505A423D0E490001179E2 /* SocialContactTableViewCell.swift */; };
 		30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
 		30934F9322EBE7DF007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
 		30934F9622EBF146007C4E6C /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9522EBF146007C4E6C /* RoundedButton.swift */; };
@@ -624,6 +627,7 @@
 		3084E9642348FE9C00788279 /* CelebrateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CelebrateViewController.xib; sourceTree = "<group>"; };
 		3084E969234BACE300788279 /* FormatUtilTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatUtilTest.swift; sourceTree = "<group>"; };
 		3084E96B234BC5FE00788279 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		308505A423D0E490001179E2 /* SocialContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialContactTableViewCell.swift; sourceTree = "<group>"; };
 		30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFeedCollectionViewController.swift; sourceTree = "<group>"; };
 		30934F9522EBF146007C4E6C /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		30934F9822EBF235007C4E6C /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
@@ -1061,6 +1065,7 @@
 			children = (
 				30D7387123D00F7B006F4DA6 /* SocialActivityCardView.xib */,
 				30D7387523D00F96006F4DA6 /* SocialActivityCardView.swift */,
+				308505A423D0E490001179E2 /* SocialContactTableViewCell.swift */,
 			);
 			path = Social;
 			sourceTree = "<group>";
@@ -1774,6 +1779,7 @@
 				303C9E0923841AC1006B9786 /* VideoContentViewController.swift in Sources */,
 				303C9E2823841ACC006B9786 /* PillLabelView.swift in Sources */,
 				303C9DEA23841AB6006B9786 /* EnergyAnimationViewController.swift in Sources */,
+				308505A723D0E490001179E2 /* SocialContactTableViewCell.swift in Sources */,
 				305B18732331A8E8003E1561 /* FormatUtils.swift in Sources */,
 				303C9DE223841A9A006B9786 /* DateUtil.swift in Sources */,
 				305CB10223D048B60046E8A8 /* SendFriendInviteViewController.swift in Sources */,
@@ -1844,6 +1850,7 @@
 				305CB0FD23D03C080046E8A8 /* ContactService.swift in Sources */,
 				3023FE3122ECD0A300F753A7 /* NotificationService.swift in Sources */,
 				30E9B0AD22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
+				308505A623D0E490001179E2 /* SocialContactTableViewCell.swift in Sources */,
 				30934FA022EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift in Sources */,
 				305B186F23319E09003E1561 /* FileUtils.swift in Sources */,
 				301C1A91236F7E9700F06A3D /* MeaningAnimationViewController.swift in Sources */,
@@ -1976,6 +1983,7 @@
 				305CB0FC23D03C080046E8A8 /* ContactService.swift in Sources */,
 				30934F9922EBF235007C4E6C /* BorderedButton.swift in Sources */,
 				30934FAC22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */,
+				308505A523D0E490001179E2 /* SocialContactTableViewCell.swift in Sources */,
 				305B186E23319E09003E1561 /* FileUtils.swift in Sources */,
 				301C1A90236F7E9700F06A3D /* MeaningAnimationViewController.swift in Sources */,
 				30E2D37A23432B21003D2B27 /* NavigationMenuViewController.swift in Sources */,

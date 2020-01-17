@@ -20,92 +20,233 @@
         <!--Send Invites-->
         <scene sceneID="2LU-9P-70x">
             <objects>
-                <viewController storyboardIdentifier="inviteFriend" id="JkA-cq-Xy4" userLabel="Send Invites" customClass="SendFriendInviteViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="inviteFriend" title="Invite Friends" id="JkA-cq-Xy4" userLabel="Send Invites" customClass="SendFriendInviteViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y8O-zo-Tih">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="qG1-NH-sS6">
-                                <rect key="frame" x="0.0" y="83.5" width="320" height="401"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZqZ-4y-3Qt" userLabel="Empty State View">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="475"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="2QE-8Q-3dx">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="92"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5N1-AO-a9r" userLabel="Close Button">
+                                        <rect key="frame" x="260" y="10" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="Ajh-sp-yWb"/>
+                                            <constraint firstAttribute="height" constant="50" id="KJ0-1Z-Pob"/>
+                                        </constraints>
+                                        <color key="tintColor" name="Green"/>
+                                        <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                        <state key="normal" image="close">
+                                            <color key="titleColor" name="GreenDark"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closeTapped:" destination="JkA-cq-Xy4" eventType="primaryActionTriggered" id="BcC-ds-KIq"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2QE-8Q-3dx" userLabel="Intro Stack View">
+                                        <rect key="frame" x="0.0" y="165.5" width="320" height="144.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite a Friend" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgd-xP-bhj">
-                                                <rect key="frame" x="20" y="8" width="280" height="28"/>
-                                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="24"/>
-                                                <color key="textColor" name="TextDefault"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="They'll get just one email inviting them to Cactus" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BmV-KM-O66">
-                                                <rect key="frame" x="20" y="42" width="280" height="42"/>
-                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="emg-PO-dzE">
+                                                <rect key="frame" x="20" y="8" width="280" height="78.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite a Friend" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgd-xP-bhj">
+                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="29"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="24"/>
+                                                        <color key="textColor" name="TextDefault"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="They'll get just one email inviting them to Cactus" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BmV-KM-O66">
+                                                        <rect key="frame" x="0.0" y="35" width="280" height="43.5"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="D9f-yH-b3A" userLabel="Choose Contacts Stack View">
+                                                <rect key="frame" x="20" y="106.5" width="280" height="30"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49z-Dw-ZWk" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
+                                                        <rect key="frame" x="80.5" y="0.0" width="119" height="30"/>
+                                                        <state key="normal" title="Choose Contacts"/>
+                                                        <connections>
+                                                            <action selector="chooseContactsTapped:" destination="JkA-cq-Xy4" eventType="primaryActionTriggered" id="xws-bl-IAM"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="20"/>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ldo-WM-yLZ">
-                                        <rect key="frame" x="0.0" y="118" width="320" height="30"/>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="2QE-8Q-3dx" firstAttribute="centerY" secondItem="ZqZ-4y-3Qt" secondAttribute="centerY" id="AHb-SX-9rq"/>
+                                    <constraint firstAttribute="trailing" secondItem="5N1-AO-a9r" secondAttribute="trailing" constant="10" id="Dxh-fi-WSq"/>
+                                    <constraint firstItem="2QE-8Q-3dx" firstAttribute="leading" secondItem="ZqZ-4y-3Qt" secondAttribute="leading" id="VfX-9Q-gtL"/>
+                                    <constraint firstAttribute="trailing" secondItem="2QE-8Q-3dx" secondAttribute="trailing" id="kwq-gG-j10"/>
+                                    <constraint firstItem="5N1-AO-a9r" firstAttribute="top" secondItem="ZqZ-4y-3Qt" secondAttribute="top" constant="10" id="ztq-cl-vMA"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T4q-ss-p4d" userLabel="Contacts View">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="475"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wED-16-yfv">
+                                        <rect key="frame" x="20" y="20" width="280" height="26.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49z-Dw-ZWk" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
-                                                <rect key="frame" x="113" y="0.0" width="94" height="30"/>
-                                                <state key="normal" title="Add Contacts"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite (2)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0S6-vl-HEp" userLabel="Selectd Contacts Label">
+                                                <rect key="frame" x="0.0" y="0.0" width="87.5" height="26.5"/>
+                                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgz-CJ-4qH">
+                                                <rect key="frame" x="87.5" y="0.0" width="192.5" height="26.5"/>
+                                                <color key="tintColor" name="GreenDark"/>
+                                                <state key="normal" title="Edit">
+                                                    <color key="titleColor" name="GreenDark"/>
+                                                </state>
                                                 <connections>
-                                                    <action selector="addContactsTapped:" destination="JkA-cq-Xy4" eventType="primaryActionTriggered" id="xws-bl-IAM"/>
+                                                    <action selector="editContactsTapped:" destination="JkA-cq-Xy4" eventType="primaryActionTriggered" id="B56-OC-i7f"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MDI-vu-Ktt">
-                                        <rect key="frame" x="0.0" y="171" width="320" height="10"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="10" id="0Kq-yS-lHq"/>
-                                        </constraints>
-                                        <connections>
-                                            <segue destination="9Wu-3E-FQq" kind="embed" identifier="embedSelectedContacts" id="sGI-Zs-Bet"/>
-                                        </connections>
-                                    </containerView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Ukc-gz-H5H">
-                                        <rect key="frame" x="0.0" y="210" width="320" height="191"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VT7-5U-vfR" userLabel="Bottom Stack View">
+                                        <rect key="frame" x="0.0" y="66" width="320" height="153.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter an optional message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mm-p2-vEU">
-                                                <rect key="frame" x="20" y="8" width="280" height="19"/>
+                                            <containerView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="700" translatesAutoresizingMaskIntoConstraints="NO" id="MDI-vu-Ktt">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" priority="999" constant="120" id="0Kq-yS-lHq"/>
+                                                </constraints>
+                                                <connections>
+                                                    <segue destination="9Wu-3E-FQq" kind="embed" identifier="embedSelectedContacts" id="sGI-Zs-Bet"/>
+                                                </connections>
+                                            </containerView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tD9-h4-2TK">
+                                                <rect key="frame" x="0.0" y="130" width="320" height="23.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ER8-KN-AxI">
+                                                        <rect key="frame" x="20" y="8" width="280" height="7.5"/>
+                                                        <color key="tintColor" name="GreenDark"/>
+                                                        <inset key="titleEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <state key="normal" title="Add more contacts" image="plus" catalog="system">
+                                                            <color key="titleColor" name="GreenDark"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="addContactsTapped:" destination="JkA-cq-Xy4" eventType="primaryActionTriggered" id="CiM-TL-dtJ"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="20"/>
+                                            </stackView>
+                                        </subviews>
+                                        <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Ukc-gz-H5H" userLabel="Message Text Stack View">
+                                        <rect key="frame" x="0.0" y="274" width="320" height="135.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Include a message with your note (not required)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mm-p2-vEU">
+                                                <rect key="frame" x="20" y="8" width="280" height="38.5"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                                 <color key="textColor" name="TextMinimized"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Optional Text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5UY-n2-7p9">
-                                                <rect key="frame" x="20" y="33" width="280" height="150"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5UY-n2-7p9">
+                                                <rect key="frame" x="20" y="52.5" width="280" height="75"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="150" id="rwN-eu-ahw"/>
+                                                    <constraint firstAttribute="height" constant="75" id="rwN-eu-ahw"/>
                                                 </constraints>
                                                 <color key="textColor" name="TextDefault"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                         </subviews>
+                                        <color key="backgroundColor" name="PromptBackground"/>
                                         <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="20"/>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Gfp-1Y-XUw" userLabel="Actions Stack View">
+                                        <rect key="frame" x="0.0" y="415" width="320" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzY-jj-8Io">
+                                                <rect key="frame" x="20" y="8" width="130" height="24"/>
+                                                <color key="tintColor" name="GreenDark"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleColor" name="GreenDark"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="cancelTapped:" destination="JkA-cq-Xy4" eventType="primaryActionTriggered" id="XYz-z0-0Qv"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fae-vq-KPp" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
+                                                <rect key="frame" x="170" y="8" width="130" height="24"/>
+                                                <state key="normal" title="Invite" image="check"/>
+                                                <connections>
+                                                    <action selector="inviteTapped:" destination="JkA-cq-Xy4" eventType="primaryActionTriggered" id="F9O-VT-Hle"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="5c5-jy-uAA"/>
+                                            <constraint firstAttribute="height" constant="50" id="k76-jb-ZBU"/>
+                                        </constraints>
+                                        <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="20"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="k76-jb-ZBU"/>
+                                            </mask>
+                                        </variation>
+                                    </stackView>
                                 </subviews>
-                                <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
-                            </stackView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Ukc-gz-H5H" firstAttribute="leading" secondItem="T4q-ss-p4d" secondAttribute="leading" id="3aj-c4-Zms"/>
+                                    <constraint firstItem="VT7-5U-vfR" firstAttribute="leading" secondItem="T4q-ss-p4d" secondAttribute="leading" id="CfZ-AH-g5B"/>
+                                    <constraint firstItem="wED-16-yfv" firstAttribute="leading" secondItem="T4q-ss-p4d" secondAttribute="leading" constant="20" id="GYc-aa-Y2n"/>
+                                    <constraint firstAttribute="bottom" secondItem="Gfp-1Y-XUw" secondAttribute="bottom" constant="20" id="MoV-Ow-iMd"/>
+                                    <constraint firstAttribute="trailing" secondItem="wED-16-yfv" secondAttribute="trailing" constant="20" id="QLV-fP-gDR"/>
+                                    <constraint firstItem="Ukc-gz-H5H" firstAttribute="top" relation="greaterThanOrEqual" secondItem="VT7-5U-vfR" secondAttribute="bottom" constant="40" id="TIF-2j-eLi"/>
+                                    <constraint firstAttribute="trailing" secondItem="VT7-5U-vfR" secondAttribute="trailing" id="W2d-Gq-SeF"/>
+                                    <constraint firstItem="wED-16-yfv" firstAttribute="top" secondItem="T4q-ss-p4d" secondAttribute="top" constant="20" id="XOg-KO-wxa"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ukc-gz-H5H" secondAttribute="trailing" id="ZTU-fh-Vfb"/>
+                                    <constraint firstItem="VT7-5U-vfR" firstAttribute="top" secondItem="wED-16-yfv" secondAttribute="bottom" constant="19.5" id="iy2-cJ-yu9"/>
+                                    <constraint firstItem="Gfp-1Y-XUw" firstAttribute="leading" secondItem="T4q-ss-p4d" secondAttribute="leading" id="mGq-tZ-PLB"/>
+                                    <constraint firstItem="Gfp-1Y-XUw" firstAttribute="top" secondItem="Ukc-gz-H5H" secondAttribute="bottom" constant="20" id="uub-G8-8Om"/>
+                                    <constraint firstAttribute="trailing" secondItem="Gfp-1Y-XUw" secondAttribute="trailing" id="vlH-8s-NXC"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="PromptBackground"/>
                         <constraints>
-                            <constraint firstItem="qG1-NH-sS6" firstAttribute="centerY" secondItem="y8O-zo-Tih" secondAttribute="centerY" id="LIG-bY-3KB"/>
-                            <constraint firstItem="qG1-NH-sS6" firstAttribute="leading" secondItem="y8O-zo-Tih" secondAttribute="leading" id="emY-5e-jSW"/>
-                            <constraint firstAttribute="trailing" secondItem="qG1-NH-sS6" secondAttribute="trailing" id="gMw-mq-mgh"/>
+                            <constraint firstItem="fWY-Ak-FKW" firstAttribute="leading" secondItem="T4q-ss-p4d" secondAttribute="leading" id="4tB-rH-cX6"/>
+                            <constraint firstItem="T4q-ss-p4d" firstAttribute="trailing" secondItem="fWY-Ak-FKW" secondAttribute="trailing" id="9Nd-eA-zEx"/>
+                            <constraint firstItem="ZqZ-4y-3Qt" firstAttribute="leading" secondItem="fWY-Ak-FKW" secondAttribute="leading" id="Jyh-IT-uZd"/>
+                            <constraint firstItem="fWY-Ak-FKW" firstAttribute="bottom" secondItem="ZqZ-4y-3Qt" secondAttribute="bottom" id="OZN-LW-sxE"/>
+                            <constraint firstItem="ZqZ-4y-3Qt" firstAttribute="top" secondItem="fWY-Ak-FKW" secondAttribute="top" id="nQe-t6-9V4"/>
+                            <constraint firstItem="fWY-Ak-FKW" firstAttribute="bottom" secondItem="T4q-ss-p4d" secondAttribute="bottom" id="oLr-i8-RHp"/>
+                            <constraint firstItem="T4q-ss-p4d" firstAttribute="top" secondItem="fWY-Ak-FKW" secondAttribute="top" id="oRj-fw-11P"/>
+                            <constraint firstItem="fWY-Ak-FKW" firstAttribute="trailing" secondItem="ZqZ-4y-3Qt" secondAttribute="trailing" id="rzp-wL-Grd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fWY-Ak-FKW"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="addContactsButton" destination="49z-Dw-ZWk" id="ebE-6d-vtc"/>
+                        <outlet property="addContactsButton" destination="ER8-KN-AxI" id="ffv-Rf-ohu"/>
+                        <outlet property="chooseContactsButton" destination="49z-Dw-ZWk" id="ebE-6d-vtc"/>
+                        <outlet property="contactsViewContainer" destination="T4q-ss-p4d" id="SA0-NG-FM0"/>
+                        <outlet property="editTableButton" destination="Pgz-CJ-4qH" id="QWd-Oc-Bmx"/>
+                        <outlet property="emptyStateContainerView" destination="ZqZ-4y-3Qt" id="gig-U2-Dc5"/>
+                        <outlet property="inviteButton" destination="fae-vq-KPp" id="MAs-lK-5kJ"/>
+                        <outlet property="messageStackView" destination="Ukc-gz-H5H" id="LYs-Iw-Tn3"/>
                         <outlet property="messageTextView" destination="5UY-n2-7p9" id="Gtz-mE-oyZ"/>
+                        <outlet property="selectedContactsLabel" destination="0S6-vl-HEp" id="nwn-ON-if5"/>
                         <outlet property="tableViewContainerView" destination="MDI-vu-Ktt" id="UlM-Jq-NKi"/>
-                        <outlet property="tableViewHeightContraint" destination="0Kq-yS-lHq" id="yYJ-Si-g3c"/>
+                        <outlet property="tableViewHeightContraint" destination="0Kq-yS-lHq" id="6o4-5D-Mc3"/>
+                        <outlet property="textViewBottomConstraint" destination="uub-G8-8Om" id="KfE-Na-a5K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tIb-p6-szK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -116,33 +257,37 @@
         <scene sceneID="uRc-ou-0LK">
             <objects>
                 <tableViewController id="9Wu-3E-FQq" userLabel="Selected Contacts Table Vieiw Controller" customClass="ContactsTableViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4zI-VS-OLz">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="10"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4zI-VS-OLz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" textLabel="K74-hq-3NE" detailTextLabel="1gn-sy-t5W" style="IBUITableViewCellStyleSubtitle" id="xTs-D3-oDN">
-                                <rect key="frame" x="0.0" y="28" width="320" height="55.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" textLabel="K74-hq-3NE" detailTextLabel="1gn-sy-t5W" imageView="hYF-Pn-1oL" style="IBUITableViewCellStyleSubtitle" id="xTs-D3-oDN" customClass="SocialContactTableViewCell" customModule="Cactus" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="61.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xTs-D3-oDN" id="aGm-1P-wAX">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="55.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="61.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" text="Neil Poulin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="K74-hq-3NE">
-                                            <rect key="frame" x="15" y="10" width="80.5" height="20.5"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Neil Poulin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="K74-hq-3NE">
+                                            <rect key="frame" x="93" y="9" width="86" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                            <color key="textColor" name="TextDefault"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" text="neil@cactus.app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1gn-sy-t5W">
-                                            <rect key="frame" x="15" y="31.5" width="93.5" height="14.5"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="neil@cactus.app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1gn-sy-t5W">
+                                            <rect key="frame" x="93" y="34" width="99" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                            <color key="textColor" name="TextDefault"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="avatar3" id="hYF-Pn-1oL">
+                                            <rect key="frame" x="16" y="0.0" width="62" height="61.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -155,10 +300,23 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P2u-Mn-I38" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="838" y="-114"/>
+            <point key="canvasLocation" x="1003" y="-79"/>
         </scene>
     </scenes>
     <resources>
+        <image name="avatar3" width="100" height="100"/>
+        <image name="check" width="24" height="24"/>
+        <image name="close" width="48" height="48"/>
+        <image name="plus" catalog="system" width="64" height="56"/>
+        <namedColor name="Green">
+            <color red="0.20000000298023224" green="0.80000001192092896" blue="0.67100000381469727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GreenDark">
+            <color red="0.16099999845027924" green="0.63899999856948853" blue="0.53700000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PromptBackground">
+            <color red="0.94901960784313721" green="0.92156862745098034" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="TextDefault">
             <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

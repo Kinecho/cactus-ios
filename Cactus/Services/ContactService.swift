@@ -9,7 +9,7 @@
 import Foundation
 import ContactsUI
 
-struct NativeContact {
+struct SocialContact {
     
     private var _email: String?
     
@@ -24,6 +24,21 @@ struct NativeContact {
     var firstName: String?
     var lastName: String?
     var phoneNumber: String?
+    
+    var avatarImage: UIImage?
+    
+    var avatarImageData: Data? {
+        set {
+            if let data = newValue {
+                self.avatarImage = UIImage.init(data: data)
+            } else {
+                self.avatarImage = nil
+            }            
+        }
+        get {
+            self.avatarImage?.imageData
+        }
+    }
     
     var fullName: String? {
         guard firstName != nil || lastName != nil else {

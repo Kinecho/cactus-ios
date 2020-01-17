@@ -53,9 +53,11 @@ class PrimaryButton: UIButton {
         if enabled == true {
             self.borderColor = CactusColor.darkGreen
             self.backgroundColor = CactusColor.green
+            self.showBorder = true
         } else {
             self.borderColor = CactusColor.darkGray
             self.backgroundColor = CactusColor.gray
+            self.showBorder = false
         }
         
         self.isEnabled = enabled
