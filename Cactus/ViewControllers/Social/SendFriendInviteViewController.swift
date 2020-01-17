@@ -24,6 +24,7 @@ class SendFriendInviteViewController: UIViewController, CNContactPickerDelegate 
     @IBOutlet weak var inviteButton: PrimaryButton!
     @IBOutlet weak var addContactsButton: SecondaryButton!
     @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
+    var contactPickerController: CNContactPickerViewController!
     var tableViewController: ContactsTableViewController!
     let logger = Logger("SendFriendInviteViewController")
     var selectedContacts: [SocialContact] = []
@@ -49,7 +50,6 @@ class SendFriendInviteViewController: UIViewController, CNContactPickerDelegate 
     }
 
     fileprivate func removeKeyboardNotification() {
-//        Notification.keyboar
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -64,13 +64,26 @@ class SendFriendInviteViewController: UIViewController, CNContactPickerDelegate 
         self.configureActionButtons()
         self.view.setupKeyboardDismissRecognizer()
         
-        let toolbar = UIToolbar()
+        let toolbar = UIToolbar(frame: CGRect(0, 0, 100, 100))
+        toolbar.barStyle = .default
+        toolbar.isUserInteractionEnabled = true
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.dismissKeyboard))
-        toolbar.items = [flexSpace, doneButton]
+        let toolbarItems = [flexSpace, doneButton]
+        toolbar.setItems(toolbarItems, animated: false)
         toolbar.sizeToFit()
 //        toolbar.
         self.messageTextView.inputAccessoryView = toolbar
+        
+        let contactPicker = CNContactPickerViewController()
+        contactPicker.delegate = self
+        contactPicker.predicateForEnablingContact = NSPredicate(
+            format: "emailAddresses.@count > 0")
+        self.contactPickerController = contactPicker
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+//        self.contactPickerController.
     }
     
     @objc func dismissKeyboard() {
@@ -133,19 +146,25 @@ class SendFriendInviteViewController: UIViewController, CNContactPickerDelegate 
             }
             
             DispatchQueue.main.async {
-                let contactPicker = CNContactPickerViewController()
-                contactPicker.delegate = self
-                contactPicker.predicateForEnablingContact = NSPredicate(
-                    format: "emailAddresses.@count > 0")
-                self.present(contactPicker, animated: true, completion: nil)
+                self.present(self.contactPickerController, animated: true, completion: nil)
             }
         }
     }
+    
+    ///Select multiple contacts. Implement this method to use muti select. Note: search bar will not be available
+    //    func contactPicker(_ picker: CNContactPickerViewController,
+    //                       didSelect contacts: [CNContact]) {
+    //
+    //        self.logger.info("Selected \(contacts.count) contacts")
+    //        self.handleContactsSelected(contacts: contacts)
+    //    }
+
+    ///Select a single contact. A search bar will be visible
     func contactPicker(_ picker: CNContactPickerViewController,
-                       didSelect contacts: [CNContact]) {
+                       didSelect contact: CNContact) {
         
-        self.logger.info("Selected contact")
-        self.handleContactsSelected(contacts: contacts)
+        self.logger.info("Selected single contact")
+        self.handleContactsSelected(contacts: [contact])
     }
     
     func handleContactsSelected(contacts: [CNContact]) {
@@ -209,23 +228,28 @@ class SendFriendInviteViewController: UIViewController, CNContactPickerDelegate 
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {
-        if let keboardFrame = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue, self.messageBottomConstraintConstant <= self.messageBottomConstraintConstantInitial {
-            self.messageBottomConstraintConstant = keboardFrame.height - self.messageViewBottomOffset //(Add 45 if your keyboard have toolBar if not then remove it)
+        var translateY: CGFloat = 0
+        if let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
+            self.messageBottomConstraintConstant <= self.messageBottomConstraintConstantInitial {
+            translateY = keyboardFrame.height - self.messageViewBottomOffset
+            self.logger.debug("Keybord Frame.height = \(keyboardFrame.height)")
+            self.logger.debug("Translating keyboard by \(translateY)")
         }
         
-        UIView.animate(withDuration: 0.3, animations: {
-//            self.textViewBottomConstraint.constant = self.messageBottomConstraintConstant
-            self.messageStackView.transform = CGAffineTransform.init(translationX: 0, y: -self.messageBottomConstraintConstant)
-        }, completion: { (_) in
-            
-        })
+//        let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey]
+//        let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey]        
+        UIView.animate(
+            withDuration: 0.3,
+            delay: 0.05,
+            options: .curveEaseOut,
+            animations: {
+                self.messageStackView.transform = CGAffineTransform(translationX: 0, y: -translateY)
+            })
     }
     
     @objc func keyboardWillHide(_ notification: Notification) {
         UIView.animate(withDuration: 0.3, animations: {
-//            self.textViewBottomConstraint.constant = self.messageBottomConstraintConstantInitial
             self.messageStackView.transform = CGAffineTransform.identity
-        }, completion: { (_) in
         })
     }
     
