@@ -24,5 +24,23 @@ class DateUtilTests: XCTestCase {
         XCTAssertEqual(getFlamelinkDateStringAtMidnight(for: dateInput!), "2020-01-10T00:00")
     }
 
-
+    func getActivityDates(difference: Int) -> (activity: Date, current: Date) {
+        let activityDate = Date()
+        let current = Calendar.current.date(byAdding: Calendar.Component.second, value: difference, to: activityDate)!
+        return (activityDate, current)
+    }
+    
+    func getDuration(_ seconds: Int) -> String? {
+        let one = getActivityDates(difference: seconds)
+        return formatDuaration(one.activity, one.current)
+    }
+    
+    func testFormatDuration() {
+        XCTAssertEqual(getDuration(90), "2 minutes")
+        XCTAssertEqual(getDuration(50), "50 seconds")
+        XCTAssertEqual(getDuration(60), "1 minute")
+        XCTAssertEqual(getDuration(345600), "4 days")
+        XCTAssertEqual(getDuration(60 * 9 + 20), "9 minutes")
+    }
+    
 }

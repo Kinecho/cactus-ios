@@ -106,3 +106,51 @@ struct EmailNotificationStatusResponse: Codable {
     }
     
 }
+
+struct SocialInviteRequest: Codable {
+    let app: AppType = AppType.IOS
+    let toContacts: [EmailContact]
+    let message: String?
+        
+    init(to contacts: [EmailContact], message: String?) {
+        self.toContacts = contacts
+        self.message = message
+    }
+}
+
+struct EmailContact: Codable {
+    let email: String
+    let first_name: String?
+    let last_name: String?
+    
+    init(email: String, firstName: String?, lastName: String?) {
+        self.email = email
+        self.last_name = lastName
+        self.first_name = firstName
+    }
+    
+    static func from(contact: SocialContact) -> EmailContact? {
+        guard let email = contact.email else {
+            return nil
+        }
+        return EmailContact(email: email, firstName: contact.firstName, lastName: contact.lastName)
+    }
+}
+
+struct InvitationSendResult: Codable {
+    let toEmail: String
+    let toFisrtName: String?
+    let toLastName: String?
+    let success: Bool
+    let sentSuccess: Bool
+    let errorMessage: String?
+    let socialInviteId: String?
+}
+
+struct SocialInviteResponse: Codable {
+    let success: Bool
+    var toEmails: [String] = []
+    let fromEmail: String?
+    let results: Dictionary<String, InvitationSendResult>
+    let message: String?
+}

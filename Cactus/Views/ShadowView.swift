@@ -42,16 +42,13 @@ class ShadowView: UIView {
         self.addShadows()
     }
     
-    func addShadows() {
-//        self.contentView.layer.cornerRadius = self.layer.cornerRadius
-//        self.contentView.layer.borderWidth = 0.0
-//        self.contentView.layer.borderColor = UIColor.clear.cgColor
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 10.0)
-        self.layer.shadowRadius = 12.0
-        self.layer.shadowOpacity = 0.15
-        self.layer.masksToBounds = false
-        
-        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.layer.cornerRadius).cgPath
-    }
+//    func addShadows() {
+//        self.layer.shadowColor = UIColor.black.cgColor
+//        self.layer.shadowOffset = CGSize(width: 0, height: 10.0)
+//        self.layer.shadowRadius = 12.0
+//        self.layer.shadowOpacity = 0.15
+//        self.layer.masksToBounds = false
+//
+//        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.layer.cornerRadius).cgPath
+//    }
 }

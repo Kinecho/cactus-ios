@@ -34,6 +34,7 @@ enum ContentType: String, Codable {
     case reflect
     case share_reflection
     case elements
+    case invite    
     case unknown
     public init(from decoder: Decoder) {
         do {

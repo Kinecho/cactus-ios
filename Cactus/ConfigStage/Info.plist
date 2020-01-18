@@ -83,6 +83,8 @@
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSContactsUsageDescription</key>
+	<string>Access to your contacts may be requested to connect with friends.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Your location is used while using the app</string>
 	<key>UIAppFonts</key>

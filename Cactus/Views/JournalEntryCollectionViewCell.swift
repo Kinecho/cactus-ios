@@ -316,22 +316,16 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.addShadows()
+        self.configureShadows()
         
         self.updateView()
     }
     
-    func addShadows() {
+    func configureShadows() {
         self.contentView.layer.cornerRadius = self.layer.cornerRadius
         self.contentView.layer.borderWidth = 0.0
         self.contentView.layer.borderColor = UIColor.clear.cgColor
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 10.0)
-        self.layer.shadowRadius = 12.0
-        self.layer.shadowOpacity = 0.15
-        self.layer.masksToBounds = false
-        
-        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath
+        self.addShadows()
     }
     
     func configureViewAppearance() {

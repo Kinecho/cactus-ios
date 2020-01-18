@@ -8,6 +8,22 @@
 
 import Foundation
 
+func formatDuaration(_ date: Date?, _ current: Date=Date()) -> String? {
+    guard let date = date else {
+        return nil
+    }
+        
+    let ageSeconds = current.timeIntervalSince(date)
+    
+    let formatter = DateComponentsFormatter()
+    formatter.allowedUnits = [.day, .hour, .minute, .second]
+    formatter.unitsStyle = .full
+    formatter.maximumUnitCount = 1
+
+    return formatter.string(from: ageSeconds)
+    
+}
+
 func numDaysAgoFromMidnight(_ date: Date, _ today: Date) -> Int {
     let diffInDays = Calendar.current.dateComponents([.day], from: date, to: today).day
     return diffInDays ?? 0

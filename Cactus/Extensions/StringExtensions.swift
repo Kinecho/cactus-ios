@@ -60,6 +60,10 @@ extension NSAttributedString {
         return self.withAttributes([NSAttributedString.Key.font: CactusFont.bold(font?.pointSize ?? FontSize.normal)], range: range)
     }
     
+    func withFont(_ font: UIFont) -> NSAttributedString {
+        return self.withAttributes([NSAttributedString.Key.font: font])
+    }
+    
     func withColor(_ color: UIColor) -> NSAttributedString {
         return self.withAttributes([NSAttributedString.Key.foregroundColor: color])
     }
