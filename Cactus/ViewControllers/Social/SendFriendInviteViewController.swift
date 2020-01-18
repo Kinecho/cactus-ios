@@ -44,6 +44,7 @@ class SendFriendInviteViewController: UIViewController, CNContactPickerDelegate 
         super.viewDidLoad()
         self.configureViews()
         self.addKeyboardNotification()
+        self.isSending = false
     }
     
     deinit {
@@ -170,6 +171,9 @@ class SendFriendInviteViewController: UIViewController, CNContactPickerDelegate 
         self.logger.info("Successfully sent invites via API. Updating view")
         self.dismiss(animated: true, completion: {
             self.delegate?.invitesSentSuccessfully()
+            self.isSending = false
+            self.tableViewController?.reset()
+            
         })
     }
     

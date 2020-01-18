@@ -52,6 +52,11 @@ class ContactsTableViewController: UITableViewController {
         self.notifyHeightChanged()
     }
     
+    func reset() {
+        self.contacts.removeAll()
+        self.tableView.reloadData()
+    }
+    
     func notifyHeightChanged() {
         let calculatedHeight = self.tableView.contentSize.height + self.tableView.contentInset.top + self.tableView.contentInset.bottom
         self.logger.info("Heigt using contentSize: \(calculatedHeight)")
