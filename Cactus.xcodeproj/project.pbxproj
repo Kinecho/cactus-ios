@@ -2465,7 +2465,7 @@
 			baseConfigurationReference = D14693BF62072D546C012854 /* Pods-Cactus Today Prod.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Cactus Developer (26UAQFK66N)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
 				INFOPLIST_FILE = "Cactus Today/Info.plist";
@@ -2477,6 +2477,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cactus.CactusApp.Cactus-Today";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.cactus.CactusApp.Cactus-Today";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2488,7 +2489,7 @@
 			baseConfigurationReference = BD842038BC923978C8A55BF1 /* Pods-Cactus Today Prod.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
 				INFOPLIST_FILE = "Cactus Today/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -2499,6 +2500,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cactus.CactusApp.Cactus-Today";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "com.cactus.CactusApp.Cactus-Today AppStore";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

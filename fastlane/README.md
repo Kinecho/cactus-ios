@@ -96,6 +96,11 @@ fastlane ios upload_symbols
 fastlane ios upload_symbols_stage
 ```
 
+### ios ext
+```
+fastlane ios ext
+```
+
 
 ----
 

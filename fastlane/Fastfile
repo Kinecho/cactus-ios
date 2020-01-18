@@ -67,7 +67,11 @@ platform :ios do
 
 	desc "Push a new beta build to TestFlight"
   	lane :beta do  	
-		match(type: "appstore", readonly: is_ci)
+		match(
+			type: "appstore", 
+			readonly: is_ci, 
+			app_identifier: ["com.cactus.CactusApp", "com.cactus.CactusApp.Cactus-Today"]
+		)
 		sync_code_signing(type: "appstore")    
 	    build_app(workspace: "Cactus.xcworkspace", scheme: "Cactus Prod", xcargs: "-UseModernBuildSystem=NO")
 	    changelog_from_git_commits	    
@@ -130,7 +134,7 @@ platform :ios do
   	end
 
   	lane :certificates do
-		match(app_identifier: ["com.cactus.StageCactus", "com.cactus.CactusApp"], force: true)
+		match(app_identifier: ["com.cactus.StageCactus", "com.cactus.CactusApp", "com.cactus.CactusApp.Cactus-Today"], force: false)
 	end
 
 	lane :create_release do 
@@ -193,5 +197,29 @@ platform :ios do
 			project_slug: 'cactus-ios',
 		)
 	end
+
+	lane :ext do 
+		['com.cactus.CactusApp'].each do |i|
+			produce(
+				app_identifier: "#{i}.Cactus-Today",
+				app_name: "#{i} Today Extension",
+				skip_itc: true
+			)
+		end
+		{
+			'com.cactus.CactusApp': 'appstore'
+		}.each do |k, v|
+			sigh(app_identifier: "#{k}.Cactus-Today")
+			sigh(app_identifier: "#{k}")
+		end
+
+		{
+			'com.cactus.CactusApp': 'development'
+		}.each do |k, v|
+			sigh(app_identifier: "#{k}.Cactus-Today", development: true)
+			sigh(app_identifier: "#{k}", development: true)
+		end
+
+	end 
 end
 
