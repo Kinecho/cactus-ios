@@ -193,4 +193,41 @@ class AppMainViewController: UIViewController {
         }
     }
     
+    func logOut(_ vc: UIViewController, sender: UIView) {
+        
+        var  message = "Are you sure you want to log out?"
+        if let user = AuthService.sharedInstance.getCurrentUser(), (user.displayName != nil || user.email != nil) {
+            var name = user.email
+            if name == nil {
+                name = user.displayName
+            }
+            if name != nil {
+                message = "Are you sure you want to log out of \(name!)?"
+            }
+        }
+        
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
+        alert.popoverPresentationController?.sourceView = sender
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Log Out", style: .destructive) { _ in
+            CactusMemberService.sharedInstance.removeFCMToken(onCompleted: { (error) in
+                if let error = error {
+                    self.logger.error("Failed to remove tokens from Cactus User. Oh well - still logging out", error)
+                }
+                do {
+                    try Auth.auth().signOut()
+                    vc.dismiss(animated: false, completion: nil)
+                    _ = self.showScreen(ScreenID.Login)
+                } catch {
+                    self.logger.error("error signing out", error)
+                    let alert = UIAlertController(title: "Error Logging Out", message: "An unexpected error occurred while logging out. \n\n\(error)", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    vc.present(alert, animated: true)
+                }
+            })
+        })
+        vc.present(alert, animated: true)
+    }
+    
 }

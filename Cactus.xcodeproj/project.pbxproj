@@ -230,6 +230,87 @@
 		303C9E4A238F29E6006B9786 /* SharingServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9E49238F29E6006B9786 /* SharingServiceTest.swift */; };
 		303EB0882343A0B800AC8741 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EB0872343A0B800AC8741 /* RoundedView.swift */; };
 		303EB0892343A0B800AC8741 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EB0872343A0B800AC8741 /* RoundedView.swift */; };
+		304B210623D383E1007B016C /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 304B210523D383E1007B016C /* NotificationCenter.framework */; };
+		304B210923D383E1007B016C /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304B210823D383E1007B016C /* TodayViewController.swift */; };
+		304B210C23D383E1007B016C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 304B210A23D383E1007B016C /* MainInterface.storyboard */; };
+		304B211023D383E1007B016C /* Cactus Today Prod.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 304B210423D383E1007B016C /* Cactus Today Prod.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		304B212923D38F5A007B016C /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B09822EA6A81005B25FD /* BaseModel.swift */; };
+		304B212A23D38F65007B016C /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30727430236A289900309B3C /* AppSettings.swift */; };
+		304B212B23D38F65007B016C /* FlamelinkTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0E23281CAA00A49EB6 /* FlamelinkTypes.swift */; };
+		304B212C23D38F65007B016C /* CactusMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B09C22EA7FC3005B25FD /* CactusMember.swift */; };
+		304B212D23D38F65007B016C /* SentPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0B922EAF153005B25FD /* SentPrompt.swift */; };
+		304B212E23D38F65007B016C /* PromptContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0C2328171200A49EB6 /* PromptContent.swift */; };
+		304B212F23D38F65007B016C /* ReflectionPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FA522EBFF27007C4E6C /* ReflectionPrompt.swift */; };
+		304B213023D38F65007B016C /* ReflectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FA822EC0001007C4E6C /* ReflectionResponse.swift */; };
+		304B213123D38F65007B016C /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
+		304B213223D38F65007B016C /* CactusConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30727436236A312800309B3C /* CactusConstants.swift */; };
+		304B213323D38F65007B016C /* MemberProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9E412384778A006B9786 /* MemberProfile.swift */; };
+		304B213423D38F79007B016C /* FormatUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FA222EBF4E6007C4E6C /* FormatUtils.swift */; };
+		304B213523D38F79007B016C /* CactusColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */; };
+		304B213623D38F79007B016C /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309561A322EE16D7009357BD /* AppConfig.swift */; };
+		304B213723D38F79007B016C /* MarkdownUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */; };
+		304B213823D38F79007B016C /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B186D23319E09003E1561 /* FileUtils.swift */; };
+		304B213923D38F79007B016C /* CactusImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC17E2339839A005C6555 /* CactusImage.swift */; };
+		304B213A23D38F79007B016C /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F4B2347E25A00798560 /* DateUtil.swift */; };
+		304B213B23D38F79007B016C /* LoggerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018B11F2376041A0005333A /* LoggerUtil.swift */; };
+		304B213D23D39136007B016C /* CactusConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3095619F22EE16B5009357BD /* CactusConfig.swift */; };
+		304B213E23D3914C007B016C /* CGExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0B222EADE2D005B25FD /* CGExtensions.swift */; };
+		304B213F23D3914C007B016C /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9B22EBF2AB007C4E6C /* ColorExtensions.swift */; };
+		304B214023D3914C007B016C /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3322EC299300A2EA95 /* ViewExtensions.swift */; };
+		304B214123D3914C007B016C /* FirebaseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E10232822E600A49EB6 /* FirebaseExtensions.swift */; };
+		304B214223D3914C007B016C /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E2E2328A8AD00A49EB6 /* ViewControllerExtensions.swift */; };
+		304B214323D3914C007B016C /* ImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B186A23319A72003E1561 /* ImageExtensions.swift */; };
+		304B214423D3914C007B016C /* FontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C7E57A233FEB5800145111 /* FontExtensions.swift */; };
+		304B214523D3914C007B016C /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */; };
+		304B214623D3914C007B016C /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D0E453236C98C100EFC0E3 /* StringExtensions.swift */; };
+		304B214723D3914C007B016C /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9DB9237F5DCC006B9786 /* URLExtensions.swift */; };
+		304B214823D3914C007B016C /* UIStackViewExtensionis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305424E923AC0432003F82A2 /* UIStackViewExtensionis.swift */; };
+		304B214923D39233007B016C /* SwiftyGifManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30265C5C23453C8D00934041 /* SwiftyGifManager.swift */; };
+		304B214A23D39233007B016C /* UIImage+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30265C5F23453CB100934041 /* UIImage+SwiftyGif.swift */; };
+		304B214B23D39233007B016C /* UIImageView+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30265C6223453CD100934041 /* UIImageView+SwiftyGif.swift */; };
+		304B214C23D392B8007B016C /* InvertableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051A4B23A86306005F812B /* InvertableImageView.swift */; };
+		304B214D23D392C2007B016C /* AuthProviderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC2CFF234EA63E00AB7B89 /* AuthProviderTableViewCell.swift */; };
+		304B214E23D392C2007B016C /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9822EBF235007C4E6C /* BorderedButton.swift */; };
+		304B214F23D392C2007B016C /* BorderedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F2377237B4DE400F35CDE /* BorderedTextView.swift */; };
+		304B215023D392C2007B016C /* CactusTextInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67723623AE3002634A8 /* CactusTextInputField.swift */; };
+		304B215123D392C2007B016C /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F2370237A629800F35CDE /* CircleView.swift */; };
+		304B215223D392C2007B016C /* GrowingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1884233273C4003E1561 /* GrowingTextView.swift */; };
+		304B215423D392C2007B016C /* JournalFeedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FA2C9823741A3300F671AF /* JournalFeedFlowLayout.swift */; };
+		304B215523D392C2007B016C /* MarkdownTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E312328C7AD00A49EB6 /* MarkdownTypes.swift */; };
+		304B215623D392C2007B016C /* PillLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2D375234311C6003D2B27 /* PillLabelView.swift */; };
+		304B215723D392C2007B016C /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E96B234BC5FE00788279 /* PrimaryButton.swift */; };
+		304B215823D392C2007B016C /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9522EBF146007C4E6C /* RoundedButton.swift */; };
+		304B215923D392C2007B016C /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EB0872343A0B800AC8741 /* RoundedView.swift */; };
+		304B215A23D392C2007B016C /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F2376237A7C8600F35CDE /* SecondaryButton.swift */; };
+		304B215B23D392C2007B016C /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F2373237A6F7500F35CDE /* ShadowView.swift */; };
+		304B215C23D392C2007B016C /* TertiaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3014A38B2378CA0300121729 /* TertiaryButton.swift */; };
+		304B215D23D392C2007B016C /* UIImageViewAligned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3020DD932363F37D00EC40AE /* UIImageViewAligned.swift */; };
+		304B215E23D392C2007B016C /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D7386C23D00C0C006F4DA6 /* CircleImageView.swift */; };
+		304B215F23D392C8007B016C /* SocialActivityCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D7387123D00F7B006F4DA6 /* SocialActivityCardView.xib */; };
+		304B216023D392C8007B016C /* SocialActivityCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D7387523D00F96006F4DA6 /* SocialActivityCardView.swift */; };
+		304B216123D392C8007B016C /* SocialContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308505A423D0E490001179E2 /* SocialContactTableViewCell.swift */; };
+		304B216523D3943F007B016C /* FlamelinkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E13232824AB00A49EB6 /* FlamelinkService.swift */; };
+		304B216623D39444007B016C /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B09522EA68AC005B25FD /* FirestoreService.swift */; };
+		304B216723D39448007B016C /* PromptContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0A232816CC00A49EB6 /* PromptContentService.swift */; };
+		304B216823D3947F007B016C /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67023622FE7002634A8 /* ApiService.swift */; };
+		304B216923D3947F007B016C /* AppSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30727433236A295300309B3C /* AppSettingsService.swift */; };
+		304B216B23D3947F007B016C /* CactusMemberService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B09F22EABFBD005B25FD /* CactusMemberService.swift */; };
+		304B216C23D3947F007B016C /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1867233178A8003E1561 /* ImageService.swift */; };
+		304B216E23D3947F007B016C /* MemberProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9E4523847A3B006B9786 /* MemberProfileService.swift */; };
+		304B216F23D3947F007B016C /* ReflectionPromptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FAB22EC02A6007C4E6C /* ReflectionPromptService.swift */; };
+		304B217023D3947F007B016C /* ReflectionResponseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FAE22EC0558007C4E6C /* ReflectionResponseService.swift */; };
+		304B217123D3947F007B016C /* SentPromptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */; };
+		304B217223D39484007B016C /* SharingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072742A236950AC00309B3C /* SharingService.swift */; };
+		304B217423D39484007B016C /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9DC2237F6799006B9786 /* StorageService.swift */; };
+		304B217523D39484007B016C /* ContactService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305CB0FB23D03C080046E8A8 /* ContactService.swift */; };
+		304B217623D39484007B016C /* SocialInviteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3006442323D26BAB00712ED1 /* SocialInviteService.swift */; };
+		304B217723D394B5007B016C /* ApiTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67423623010002634A8 /* ApiTypes.swift */; };
+		304B217823D394E4007B016C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0A222EAC204005B25FD /* AuthService.swift */; };
+		304B217923D39570007B016C /* ProdAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30A281EB22EA61FA0041158E /* ProdAssets.xcassets */; };
+		304B217A23D39575007B016C /* SharedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */; };
+		304B217B23D39AA4007B016C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30A281F722EA65EC0041158E /* Info.plist */; };
+		304B217C23D39AA4007B016C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3095619922ECF1CD009357BD /* GoogleService-Info.plist */; };
+		304B217D23D39AA4007B016C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30A281EF22EA62650041158E /* LaunchScreen.storyboard */; };
 		304EA2F32343B730001FB8AD /* CountProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304EA2F22343B730001FB8AD /* CountProcess.swift */; };
 		304EA2F42343B730001FB8AD /* CountProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304EA2F22343B730001FB8AD /* CountProcess.swift */; };
 		305130D3234FE9F10088B51F /* InviteSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305130D2234FE9F10088B51F /* InviteSettingsViewController.swift */; };
@@ -508,6 +589,7 @@
 		30F7168D237A4B9C004989DB /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309561A322EE16D7009357BD /* AppConfig.swift */; };
 		30FA2C9923741A3300F671AF /* JournalFeedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FA2C9823741A3300F671AF /* JournalFeedFlowLayout.swift */; };
 		30FA2C9A23741A3300F671AF /* JournalFeedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FA2C9823741A3300F671AF /* JournalFeedFlowLayout.swift */; };
+		5512428B40A08648C6DB9597 /* Pods_Cactus_Today_Prod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF42047A52C0B132A7800F58 /* Pods_Cactus_Today_Prod.framework */; };
 		76F23F2602ADC65094F1CF3B /* Pods_Cactus_Prod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E8C1EB665F6286E3CD0BE5 /* Pods_Cactus_Prod.framework */; };
 		95087B85A8F99A3282E6AE87 /* Pods_Cactus_Stage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 518BD147DF40E10B6D005DB2 /* Pods_Cactus_Stage.framework */; };
 		C08E3AB862BAFCA7CA61D1A2 /* Pods_Cactus_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2B03820008735B26EA3B1D8 /* Pods_Cactus_UnitTests.framework */; };
@@ -521,7 +603,28 @@
 			remoteGlobalIDString = 30B6EA6A22EA5A9F00443E46;
 			remoteInfo = "Cactus Stage";
 		};
+		304B210E23D383E1007B016C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 30B6EA6322EA5A9F00443E46 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 304B210323D383E1007B016C;
+			remoteInfo = "Cactus Today";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		304B211123D383E1007B016C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				304B211023D383E1007B016C /* Cactus Today Prod.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		05E8C1EB665F6286E3CD0BE5 /* Pods_Cactus_Prod.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cactus_Prod.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -583,6 +686,11 @@
 		303C9E4523847A3B006B9786 /* MemberProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberProfileService.swift; sourceTree = "<group>"; };
 		303C9E49238F29E6006B9786 /* SharingServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingServiceTest.swift; sourceTree = "<group>"; };
 		303EB0872343A0B800AC8741 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		304B210423D383E1007B016C /* Cactus Today Prod.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Cactus Today Prod.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		304B210523D383E1007B016C /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		304B210823D383E1007B016C /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		304B210B23D383E1007B016C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		304B210D23D383E1007B016C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		304EA2F22343B730001FB8AD /* CountProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountProcess.swift; sourceTree = "<group>"; };
 		305130D2234FE9F10088B51F /* InviteSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteSettingsViewController.swift; sourceTree = "<group>"; };
 		305424E923AC0432003F82A2 /* UIStackViewExtensionis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExtensionis.swift; sourceTree = "<group>"; };
@@ -723,8 +831,11 @@
 		74F3C20610CFC85363610D59 /* Pods-Cactus Stage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus Stage.release.xcconfig"; path = "Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage.release.xcconfig"; sourceTree = "<group>"; };
 		86D6B8A9F7309EC3280399A0 /* Pods-Cactus Prod.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus Prod.debug.xcconfig"; path = "Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod.debug.xcconfig"; sourceTree = "<group>"; };
 		AA14FEC6B72B3AE2B74A1CAA /* Pods-Cactus UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus UnitTests.release.xcconfig"; path = "Target Support Files/Pods-Cactus UnitTests/Pods-Cactus UnitTests.release.xcconfig"; sourceTree = "<group>"; };
+		BD842038BC923978C8A55BF1 /* Pods-Cactus Today Prod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus Today Prod.release.xcconfig"; path = "Target Support Files/Pods-Cactus Today Prod/Pods-Cactus Today Prod.release.xcconfig"; sourceTree = "<group>"; };
+		D14693BF62072D546C012854 /* Pods-Cactus Today Prod.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus Today Prod.debug.xcconfig"; path = "Target Support Files/Pods-Cactus Today Prod/Pods-Cactus Today Prod.debug.xcconfig"; sourceTree = "<group>"; };
 		D2B03820008735B26EA3B1D8 /* Pods_Cactus_UnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cactus_UnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCC1E9602C00EDA73D829630 /* Pods-Cactus UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cactus UnitTests.debug.xcconfig"; path = "Target Support Files/Pods-Cactus UnitTests/Pods-Cactus UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EF42047A52C0B132A7800F58 /* Pods_Cactus_Today_Prod.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cactus_Today_Prod.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -733,6 +844,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C08E3AB862BAFCA7CA61D1A2 /* Pods_Cactus_UnitTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		304B210123D383E1007B016C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				304B210623D383E1007B016C /* NotificationCenter.framework in Frameworks */,
+				5512428B40A08648C6DB9597 /* Pods_Cactus_Today_Prod.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -763,6 +883,8 @@
 				05E8C1EB665F6286E3CD0BE5 /* Pods_Cactus_Prod.framework */,
 				518BD147DF40E10B6D005DB2 /* Pods_Cactus_Stage.framework */,
 				D2B03820008735B26EA3B1D8 /* Pods_Cactus_UnitTests.framework */,
+				304B210523D383E1007B016C /* NotificationCenter.framework */,
+				EF42047A52C0B132A7800F58 /* Pods_Cactus_Today_Prod.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -853,6 +975,16 @@
 				3009EE5A23C98F4400002CCB /* DateUtilTests.swift */,
 			);
 			path = "Cactus UnitTests";
+			sourceTree = "<group>";
+		};
+		304B210723D383E1007B016C /* Cactus Today */ = {
+			isa = PBXGroup;
+			children = (
+				304B210823D383E1007B016C /* TodayViewController.swift */,
+				304B210A23D383E1007B016C /* MainInterface.storyboard */,
+				304B210D23D383E1007B016C /* Info.plist */,
+			);
+			path = "Cactus Today";
 			sourceTree = "<group>";
 		};
 		30673B85233FDEB600EDE7BD /* Fonts */ = {
@@ -983,6 +1115,7 @@
 				308446F222ECB23B00FB0683 /* Cactus Stage.entitlements */,
 				30B6EA6D22EA5A9F00443E46 /* Cactus */,
 				303BF742232A986A00164539 /* Cactus UnitTests */,
+				304B210723D383E1007B016C /* Cactus Today */,
 				30B6EA6C22EA5A9F00443E46 /* Products */,
 				7D73091CC55662ADF17682E8 /* Pods */,
 				19CA97E6FF714D2347BC4076 /* Frameworks */,
@@ -995,6 +1128,7 @@
 				30B6EA6B22EA5A9F00443E46 /* Cactus Stage.app */,
 				30A281E722EA61A30041158E /* Cactus.app */,
 				303BF741232A986A00164539 /* Cactus UnitTests.xctest */,
+				304B210423D383E1007B016C /* Cactus Today Prod.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1183,6 +1317,8 @@
 				74F3C20610CFC85363610D59 /* Pods-Cactus Stage.release.xcconfig */,
 				DCC1E9602C00EDA73D829630 /* Pods-Cactus UnitTests.debug.xcconfig */,
 				AA14FEC6B72B3AE2B74A1CAA /* Pods-Cactus UnitTests.release.xcconfig */,
+				D14693BF62072D546C012854 /* Pods-Cactus Today Prod.debug.xcconfig */,
+				BD842038BC923978C8A55BF1 /* Pods-Cactus Today Prod.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1198,8 +1334,8 @@
 				303BF73D232A986A00164539 /* Sources */,
 				303BF73E232A986A00164539 /* Frameworks */,
 				303BF73F232A986A00164539 /* Resources */,
-				DFD245AB27A232280A286D00 /* [CP] Copy Pods Resources */,
-				6B8105465EEDE3242CB46627 /* [CP] Embed Pods Frameworks */,
+				D8FC80C8B61F8AE57E436042 /* [CP] Embed Pods Frameworks */,
+				6C35C70A57724D439843EFC7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1210,6 +1346,24 @@
 			productName = "Cactus UnitTests";
 			productReference = 303BF741232A986A00164539 /* Cactus UnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		304B210323D383E1007B016C /* Cactus Today Prod */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 304B211423D383E1007B016C /* Build configuration list for PBXNativeTarget "Cactus Today Prod" */;
+			buildPhases = (
+				E26202BD282FCF3E6E47BF3F /* [CP] Check Pods Manifest.lock */,
+				304B210023D383E1007B016C /* Sources */,
+				304B210123D383E1007B016C /* Frameworks */,
+				304B210223D383E1007B016C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Cactus Today Prod";
+			productName = "Cactus Today";
+			productReference = 304B210423D383E1007B016C /* Cactus Today Prod.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 		30A281D722EA61A30041158E /* Cactus Prod */ = {
 			isa = PBXNativeTarget;
@@ -1223,10 +1377,12 @@
 				30BF2E37232993C200A49EB6 /* Install Crashlytics */,
 				A0481A0FD7FA5E2DFD65F1EC /* [CP] Embed Pods Frameworks */,
 				66560279FA0B87D716AD6DD3 /* [CP] Copy Pods Resources */,
+				304B211123D383E1007B016C /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				304B210F23D383E1007B016C /* PBXTargetDependency */,
 			);
 			name = "Cactus Prod";
 			productName = Cactus;
@@ -1261,12 +1417,16 @@
 		30B6EA6322EA5A9F00443E46 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1030;
+				DefaultBuildSystemTypeForWorkspace = Original;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = Cactus;
 				TargetAttributes = {
 					303BF740232A986A00164539 = {
 						CreatedOnToolsVersion = 10.3;
+					};
+					304B210323D383E1007B016C = {
+						CreatedOnToolsVersion = 11.3.1;
 					};
 					30A281D722EA61A30041158E = {
 						SystemCapabilities = {
@@ -1307,6 +1467,7 @@
 				30B6EA6A22EA5A9F00443E46 /* Cactus Stage */,
 				30A281D722EA61A30041158E /* Cactus Prod */,
 				303BF740232A986A00164539 /* Cactus UnitTests */,
+				304B210323D383E1007B016C /* Cactus Today Prod */,
 			);
 		};
 /* End PBXProject section */
@@ -1340,6 +1501,20 @@
 				303C9E1B23841AC6006B9786 /* ShareNoteViewController.xib in Resources */,
 				303C9DFF23841AC1006B9786 /* QuoteContentViewController.xib in Resources */,
 				30D7386223CFFC62006F4DA6 /* InviteContentViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		304B210223D383E1007B016C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				304B215F23D392C8007B016C /* SocialActivityCardView.xib in Resources */,
+				304B210C23D383E1007B016C /* MainInterface.storyboard in Resources */,
+				304B217923D39570007B016C /* ProdAssets.xcassets in Resources */,
+				304B217B23D39AA4007B016C /* Info.plist in Resources */,
+				304B217D23D39AA4007B016C /* LaunchScreen.storyboard in Resources */,
+				304B217A23D39575007B016C /* SharedAssets.xcassets in Resources */,
+				304B217C23D39AA4007B016C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1536,21 +1711,21 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6B8105465EEDE3242CB46627 /* [CP] Embed Pods Frameworks */ = {
+		6C35C70A57724D439843EFC7 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Cactus UnitTests/Pods-Cactus UnitTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Cactus UnitTests/Pods-Cactus UnitTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Cactus UnitTests/Pods-Cactus UnitTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Cactus UnitTests/Pods-Cactus UnitTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cactus UnitTests/Pods-Cactus UnitTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cactus UnitTests/Pods-Cactus UnitTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		94E6ABEF1163C08E11A34C1D /* [CP] Check Pods Manifest.lock */ = {
@@ -1614,6 +1789,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D8FC80C8B61F8AE57E436042 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cactus UnitTests/Pods-Cactus UnitTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cactus UnitTests/Pods-Cactus UnitTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cactus UnitTests/Pods-Cactus UnitTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DA5DF682C8A5FDF934F3ADC4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1636,21 +1828,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DFD245AB27A232280A286D00 /* [CP] Copy Pods Resources */ = {
+		E26202BD282FCF3E6E47BF3F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Cactus UnitTests/Pods-Cactus UnitTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Copy Pods Resources";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Cactus UnitTests/Pods-Cactus UnitTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cactus Today Prod-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cactus UnitTests/Pods-Cactus UnitTests-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F53AA8C173963B1A418B715C /* [CP] Embed Pods Frameworks */ = {
@@ -1829,6 +2026,85 @@
 				305B18792331A906003E1561 /* SentPrompt.swift in Sources */,
 				303C9E1C23841AC6006B9786 /* SharedReflectionViewController.swift in Sources */,
 				303C9E0223841AC1006B9786 /* ReflectContentViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		304B210023D383E1007B016C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				304B216623D39444007B016C /* FirestoreService.swift in Sources */,
+				304B214223D3914C007B016C /* ViewControllerExtensions.swift in Sources */,
+				304B215423D392C2007B016C /* JournalFeedFlowLayout.swift in Sources */,
+				304B215023D392C2007B016C /* CactusTextInputField.swift in Sources */,
+				304B213423D38F79007B016C /* FormatUtils.swift in Sources */,
+				304B213623D38F79007B016C /* AppConfig.swift in Sources */,
+				304B213223D38F65007B016C /* CactusConstants.swift in Sources */,
+				304B217623D39484007B016C /* SocialInviteService.swift in Sources */,
+				304B213B23D38F79007B016C /* LoggerUtil.swift in Sources */,
+				304B213323D38F65007B016C /* MemberProfile.swift in Sources */,
+				304B215923D392C2007B016C /* RoundedView.swift in Sources */,
+				304B214723D3914C007B016C /* URLExtensions.swift in Sources */,
+				304B215D23D392C2007B016C /* UIImageViewAligned.swift in Sources */,
+				304B213D23D39136007B016C /* CactusConfig.swift in Sources */,
+				304B214123D3914C007B016C /* FirebaseExtensions.swift in Sources */,
+				304B210923D383E1007B016C /* TodayViewController.swift in Sources */,
+				304B212E23D38F65007B016C /* PromptContent.swift in Sources */,
+				304B216023D392C8007B016C /* SocialActivityCardView.swift in Sources */,
+				304B214323D3914C007B016C /* ImageExtensions.swift in Sources */,
+				304B215A23D392C2007B016C /* SecondaryButton.swift in Sources */,
+				304B213723D38F79007B016C /* MarkdownUtil.swift in Sources */,
+				304B214C23D392B8007B016C /* InvertableImageView.swift in Sources */,
+				304B214523D3914C007B016C /* UIAlertControllerExtensions.swift in Sources */,
+				304B215223D392C2007B016C /* GrowingTextView.swift in Sources */,
+				304B213523D38F79007B016C /* CactusColor.swift in Sources */,
+				304B217223D39484007B016C /* SharingService.swift in Sources */,
+				304B215523D392C2007B016C /* MarkdownTypes.swift in Sources */,
+				304B217723D394B5007B016C /* ApiTypes.swift in Sources */,
+				304B216823D3947F007B016C /* ApiService.swift in Sources */,
+				304B213823D38F79007B016C /* FileUtils.swift in Sources */,
+				304B216B23D3947F007B016C /* CactusMemberService.swift in Sources */,
+				304B212D23D38F65007B016C /* SentPrompt.swift in Sources */,
+				304B214623D3914C007B016C /* StringExtensions.swift in Sources */,
+				304B214023D3914C007B016C /* ViewExtensions.swift in Sources */,
+				304B217123D3947F007B016C /* SentPromptService.swift in Sources */,
+				304B216C23D3947F007B016C /* ImageService.swift in Sources */,
+				304B216123D392C8007B016C /* SocialContactTableViewCell.swift in Sources */,
+				304B215B23D392C2007B016C /* ShadowView.swift in Sources */,
+				304B214B23D39233007B016C /* UIImageView+SwiftyGif.swift in Sources */,
+				304B217823D394E4007B016C /* AuthService.swift in Sources */,
+				304B214D23D392C2007B016C /* AuthProviderTableViewCell.swift in Sources */,
+				304B213023D38F65007B016C /* ReflectionResponse.swift in Sources */,
+				304B214A23D39233007B016C /* UIImage+SwiftyGif.swift in Sources */,
+				304B216523D3943F007B016C /* FlamelinkService.swift in Sources */,
+				304B214E23D392C2007B016C /* BorderedButton.swift in Sources */,
+				304B213F23D3914C007B016C /* ColorExtensions.swift in Sources */,
+				304B212B23D38F65007B016C /* FlamelinkTypes.swift in Sources */,
+				304B217023D3947F007B016C /* ReflectionResponseService.swift in Sources */,
+				304B212C23D38F65007B016C /* CactusMember.swift in Sources */,
+				304B213923D38F79007B016C /* CactusImage.swift in Sources */,
+				304B216F23D3947F007B016C /* ReflectionPromptService.swift in Sources */,
+				304B212F23D38F65007B016C /* ReflectionPrompt.swift in Sources */,
+				304B213123D38F65007B016C /* MailchimpModels.swift in Sources */,
+				304B216E23D3947F007B016C /* MemberProfileService.swift in Sources */,
+				304B212923D38F5A007B016C /* BaseModel.swift in Sources */,
+				304B214923D39233007B016C /* SwiftyGifManager.swift in Sources */,
+				304B215123D392C2007B016C /* CircleView.swift in Sources */,
+				304B216723D39448007B016C /* PromptContentService.swift in Sources */,
+				304B214823D3914C007B016C /* UIStackViewExtensionis.swift in Sources */,
+				304B217523D39484007B016C /* ContactService.swift in Sources */,
+				304B216923D3947F007B016C /* AppSettingsService.swift in Sources */,
+				304B217423D39484007B016C /* StorageService.swift in Sources */,
+				304B213A23D38F79007B016C /* DateUtil.swift in Sources */,
+				304B212A23D38F65007B016C /* AppSettings.swift in Sources */,
+				304B215723D392C2007B016C /* PrimaryButton.swift in Sources */,
+				304B214F23D392C2007B016C /* BorderedTextView.swift in Sources */,
+				304B215623D392C2007B016C /* PillLabelView.swift in Sources */,
+				304B215E23D392C2007B016C /* CircleImageView.swift in Sources */,
+				304B215823D392C2007B016C /* RoundedButton.swift in Sources */,
+				304B215C23D392C2007B016C /* TertiaryButton.swift in Sources */,
+				304B214423D3914C007B016C /* FontExtensions.swift in Sources */,
+				304B213E23D3914C007B016C /* CGExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2108,9 +2384,22 @@
 			target = 30B6EA6A22EA5A9F00443E46 /* Cactus Stage */;
 			targetProxy = 303BF74B232ABA7F00164539 /* PBXContainerItemProxy */;
 		};
+		304B210F23D383E1007B016C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 304B210323D383E1007B016C /* Cactus Today Prod */;
+			targetProxy = 304B210E23D383E1007B016C /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		304B210A23D383E1007B016C /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				304B210B23D383E1007B016C /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		30B6EA7422EA5A9F00443E46 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2171,10 +2460,57 @@
 			};
 			name = Release;
 		};
+		304B211223D383E1007B016C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D14693BF62072D546C012854 /* Pods-Cactus Today Prod.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Cactus Developer (26UAQFK66N)";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
+				INFOPLIST_FILE = "Cactus Today/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cactus.CactusApp.Cactus-Today";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		304B211323D383E1007B016C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD842038BC923978C8A55BF1 /* Pods-Cactus Today Prod.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
+				INFOPLIST_FILE = "Cactus Today/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cactus.CactusApp.Cactus-Today";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		30A281E522EA61A30041158E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 86D6B8A9F7309EC3280399A0 /* Pods-Cactus Prod.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Cactus Prod.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Cactus Developer (26UAQFK66N)";
@@ -2202,6 +2538,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5F7497B6D87D04BF0ED03305 /* Pods-Cactus Prod.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Cactus Prod.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -2414,6 +2752,15 @@
 			buildConfigurations = (
 				303BF749232A986A00164539 /* Debug */,
 				303BF74A232A986A00164539 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		304B211423D383E1007B016C /* Build configuration list for PBXNativeTarget "Cactus Today Prod" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				304B211223D383E1007B016C /* Debug */,
+				304B211323D383E1007B016C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
