@@ -50,4 +50,5 @@ protocol AppConfig {
     static var actionCodeDomain: String {get}
     static var apiDomain: String {get}
     static var appType: AppType {get}
+    static var customScheme: String {get}
 }

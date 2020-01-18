@@ -16,4 +16,5 @@ struct CactusConfig: AppConfig {
     static let actionCodeDomain = "https://cactus-app-stage.web.app"
 //    static var apiDomain = "https://us-central1-cactus-app-stage.cloudfunctions.net"
     static var apiDomain = "https://cactuslocal.ngrok.io/cactus-app-stage/us-central1"
+    static let customScheme = "app.cactus-stage"
 }

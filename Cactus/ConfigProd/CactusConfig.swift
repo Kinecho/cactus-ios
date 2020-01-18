@@ -15,4 +15,5 @@ struct CactusConfig: AppConfig {
     static let environment = AppEnvironment.prod
     static let actionCodeDomain = "https://cactus.app"
     static var apiDomain = "https://us-central1-cactus-app-prod.cloudfunctions.net"
+    static let customScheme = "app.cactus"
 }
