@@ -51,4 +51,5 @@ protocol AppConfig {
     static var apiDomain: String {get}
     static var appType: AppType {get}
     static var customScheme: String {get}
+    static var branchPublicKey: String {get}
 }

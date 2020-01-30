@@ -14,6 +14,9 @@
 		<string>applinks:cactus-app-prod.web.app</string>
 		<string>applinks:cactus-app-prod.firebaseapp.com</string>
 		<string>applinks:cactusapp.page.link</string>
+		<string>applinks:cactus-app.app.link</string>
+		<string>applinks:cactus-app-alternate.app.link</string>
+		<string>applinks:get.cactus.app</string>
 	</array>
 </dict>
 </plist>

@@ -34,7 +34,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
             
         super.viewDidLoad()
-        self.showLoading()
+//        self.showLoading()
         self.loadToday()
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.openPromptInApp)))
     }

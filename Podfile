@@ -18,7 +18,12 @@ def app_pods
   pod 'MarkdownKit'
   pod 'Cloudinary', '~> 2.0'
   pod 'SwiftLint'
-#  pod 'SwiftyGif' implemented on our own
+  pod 'FBSDKCoreKit'
+  pod 'FacebookCore'
+  pod 'Branch'
+#  pod 'FBSDKLoginKit'
+#  pod 'FBSDKShareKit'
+
   pod 'SkeletonView'
 end
 

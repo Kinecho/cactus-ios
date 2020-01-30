@@ -38,6 +38,34 @@ class StorageService {
         self.userDefaults.set(updatedParams, forKey: UserDefaultsKey.signupQueryParams)
     }
     
+    func setBranchParameters(_ params: [AnyHashable: Any]?) {
+        guard let params = params else {
+            return
+        }
+        
+        self.logger.info("Setting branch params to storage service")
+
+        var signupParams: [String: String] = [:]
+        
+        if let ref = params["ref"] as? String {
+            signupParams["ref"] = ref
+        }
+        
+        if let channel = params["~channel"] as? String {
+            signupParams["utm_channel"] = channel
+        }
+        
+        if let medium = params["~feature"] as? String {
+            signupParams["utm_medium"] = medium
+        }
+        
+        if let source = params["~source"] as? String {
+            signupParams["utm_source"] = source
+        }
+        
+        self.setLocalSignupQueryParams(signupParams)
+    }
+    
     func removeLocalSignupQueryParams() {
         self.userDefaults.removeObject(forKey: UserDefaultsKey.signupQueryParams)
     }

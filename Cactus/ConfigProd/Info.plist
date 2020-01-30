@@ -138,5 +138,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>branch_app_domain</key>
+	<string>get.cactus.app</string>
+	<key>branch_key</key>
+	<string>key_live_heLJqNeQvEOgkUX3XUF92hadCFi7uWW0</string>
 </dict>
 </plist>

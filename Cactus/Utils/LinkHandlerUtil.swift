@@ -57,4 +57,8 @@ class LinkHandlerUtil {
         return false
         
     }
+    
+    static func handleSignupUrl(_ url: URL) -> Bool {
+        return url.path == "/signup" || url.path == "/login"
+    }
 }

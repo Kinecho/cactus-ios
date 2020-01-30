@@ -11,6 +11,8 @@ import UIKit
 import FirebaseAuth
 import FirebaseUI
 import FirebaseAnalytics
+import FacebookCore
+import FBSDKCoreKit
 
 class UserService {
     static let sharedInstance = UserService()
@@ -19,12 +21,14 @@ class UserService {
     var loginMemberListener: Unsubscriber?
     
     func handleActivityURL(_ activityUrl: URL) -> Bool {
-        let params = activityUrl.getQueryParams()
+        var params = activityUrl.getQueryParams()
         var signinUrl: URL?
         let path = activityUrl.path
         if let linkParam = params["link"] {
             signinUrl = URL(string: linkParam)
+            params = signinUrl?.getQueryParams() ?? params
         }
+        logger.info("Setting local signup query params to \(String(describing: params) )")
         StorageService.sharedInstance.setLocalSignupQueryParams(params)
         
         if Auth.auth().isSignIn(withEmailLink: activityUrl.absoluteString) {
@@ -99,10 +103,21 @@ class UserService {
         if loginEvent.isNewUser {
             self.logger.sentryInfo(":wave: \(email) signed up on iOS via \(providerId). Email: \(email)")
             Analytics.logEvent(AnalyticsEventSignUp, parameters: analyticsParams)
+            logCompleteRegistrationFacebookEvent(registrationMethod: providerId)
         } else {
             self.logger.sentryInfo("\(email) logged in on iOS via \(providerId)")
             Analytics.logEvent(AnalyticsEventLogin, parameters: analyticsParams)
         }
+    }
+    
+    /**
+     * For more details, please take a look at:
+     * developers.facebook.com/docs/swift/appevents
+     */
+    func logCompleteRegistrationFacebookEvent(registrationMethod: String) {
+        AppEvents.logEvent(.completedRegistration, parameters: [
+            AppEvents.ParameterName.registrationMethod.rawValue: registrationMethod
+        ])
     }
     
     func handleSuccessfulLogIn(_ authResult: AuthDataResult, screen: ScreenID?=nil, anonymousUpgrade: Bool=false) {

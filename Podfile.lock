@@ -170,12 +170,17 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.3):
     - BoringSSL-GRPC/Interface (= 0.0.3)
   - BoringSSL-GRPC/Interface (0.0.3)
+  - Branch (0.31.3):
+    - Branch/Core (= 0.31.3)
+  - Branch/Core (0.31.3)
   - Cloudinary (2.8.0):
     - Alamofire (~> 4.8.2)
   - CodableFirebase (0.2.1)
   - Crashlytics (3.14.0):
     - Fabric (~> 1.10.2)
   - Fabric (1.10.2)
+  - FacebookCore (0.9.0):
+    - FBSDKCoreKit (~> 5.0)
   - FBSDKCoreKit (5.12.0):
     - FBSDKCoreKit/Basics (= 5.12.0)
     - FBSDKCoreKit/Core (= 5.12.0)
@@ -416,10 +421,13 @@ PODS:
   - SwiftLint (0.38.0)
 
 DEPENDENCIES:
+  - Branch
   - Cloudinary (~> 2.0)
   - CodableFirebase
   - Crashlytics
   - Fabric
+  - FacebookCore
+  - FBSDKCoreKit
   - Firebase/Auth
   - Firebase/Core
   - Firebase/DynamicLinks
@@ -440,10 +448,12 @@ SPEC REPOS:
     - Alamofire
     - AppAuth
     - BoringSSL-GRPC
+    - Branch
     - Cloudinary
     - CodableFirebase
     - Crashlytics
     - Fabric
+    - FacebookCore
     - FBSDKCoreKit
     - FBSDKLoginKit
     - Firebase
@@ -497,10 +507,12 @@ SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   AppAuth: 73574f3013a1e65b9601a3ddc8b3158cce68c09d
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
+  Branch: 9b299693ee54b308ff8c18146afe1f711c2069ec
   Cloudinary: 57c51232648d18bd242db1774c8fa80476c58795
   CodableFirebase: 0bf201991eeec35eb9fcd987d271ea463cf34a80
   Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
+  FacebookCore: ba86524b66cfa86d0f8e65d08faa8504a9f732dd
   FBSDKCoreKit: fa3ac4dc9b1afc9ae70b3de4dd704d1b6aeeed0d
   FBSDKLoginKit: 0e4572e0279e477103b57978e3ea05fac1dd673d
   Firebase: 458d109512200d1aca2e1b9b6cf7d68a869a4a46
@@ -540,6 +552,6 @@ SPEC CHECKSUMS:
   SkeletonView: bb27c39857e5492136f02ee8a3aa78de55d12ecd
   SwiftLint: 4105f061f9812b214568b736dab580ab2c73a582
 
-PODFILE CHECKSUM: 09b1b2d1b74d4caa2ac8a04c4f406ea8adf38b2a
+PODFILE CHECKSUM: d0a128ec64813f80bcd9fced9b5a7c38ae590392
 
 COCOAPODS: 1.8.4

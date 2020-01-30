@@ -64,7 +64,10 @@ class LoginViewController: UIViewController {
         
         self.logger.info("submitting magic link \(email)")
         UserDefaults.standard.set(email, forKey: UserDefaultsKey.magicLinkEmail)
-        let magicLinkRequest = MagicLinkRequest(email: email, continuePath: "/home")
+        let params = StorageService.sharedInstance.getLocalSignupQueryParams()
+        var magicLinkRequest = MagicLinkRequest(email: email, continuePath: "/home")
+        magicLinkRequest.referredBy = params?["ref"]
+        magicLinkRequest.queryParams = params
         ApiService.sharedInstance.sendMagicLink(magicLinkRequest) { (response) in
             DispatchQueue.main.async {
                 self.logger.debug("Got magic link response from server")

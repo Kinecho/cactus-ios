@@ -14,7 +14,7 @@ struct MagicLinkRequest: Codable {
     var referredBy: String?
     var sourceApp: String = "ios"
 //    var reflectionResponseIds: String[]?
-//    var queryParams: [String: String]
+    var queryParams: [String: String]?
     
     init(email: String, continuePath: String, referredBy: String? = nil) {
         self.email = email
@@ -47,6 +47,7 @@ struct LoginEvent: Codable {
     var signupQueryParams: [String: String]?
     var reflectionResponseIds: [String]?
     var email: String?
+    var app: AppType = AppType.IOS
 }
 
 enum ListMemberStatus: String, Codable {

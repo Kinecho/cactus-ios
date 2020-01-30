@@ -138,5 +138,9 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+	<key>branch_app_domain</key>
+	<string>cactus-app-stage.app.link</string>
+	<key>branch_key</key>
+	<string>key_test_hnUHuOjICDVjjN3W0PIRxlnfsyeXRjbe</string>
 </dict>
 </plist>

@@ -14,6 +14,8 @@ import FirebaseMessaging
 import Fabric
 import Crashlytics
 import Sentry
+import FacebookCore
+import Branch
 
 typealias SentryUser = Sentry.User
 
@@ -22,17 +24,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let logger = Logger(fileName: String(describing: AppDelegate.self))
     var fcmToken: String?
     var window: UIWindow?
+    var branchInstance: Branch?
+    
     private var currentUser: FirebaseAuth.User?
     let gcmMessageIDKey = "gcm.message_id"
-
+    
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         return true
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        //        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         logger.info("Loading app will start", functionName: #function)
+        
+        FacebookCore.ApplicationDelegate.shared.application(
+            application,
+            didFinishLaunchingWithOptions: launchOptions
+        )
+        
+        // if you are using the TEST key
+//        Branch.setUseTestBranchKey(true)
+        Branch.setBranchKey(CactusConfig.branchPublicKey)
+        
+        // listener for Branch Deep Link data
+        let branchInstance = Branch.getInstance()
+        self.branchInstance = branchInstance
+        branchInstance.initSession(launchOptions: launchOptions) { (params, error) in
+            // do stuff with deep link data (nav to page, display content, etc)
+            if let error = error {
+                self.logger.error("Failed to initialize Branch", error)
+            }
+            self.logger.info("Branch started")
+            self.logger.info("Branch init params: \(String(describing: params))")
+//            let params = params as? [String: AnyObject] ?? [:]
+            
+            StorageService.sharedInstance.setBranchParameters(params)
+        }
+        
         Fabric.with([Crashlytics.self])
         // Create a Sentry client and start crash handler
         do {
@@ -67,27 +96,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let sentryUser = SentryUser(userId: user.uid)
                 sentryUser.email = user.email
                 Client.shared?.user = sentryUser
-//                self.logger.sentryInfo("\(user.email ?? user.uid) has logged in or started the app")
+                self.branchInstance?.setIdentity(user.uid, withCallback: { (params, error) in
+                    if let error = error {
+                        self.logger.error("Failed to set branch identity", error)
+                    }
+                    self.logger.info("Branch set identity params are \(String(describing: params))")
+                    StorageService.sharedInstance.setBranchParameters(params)
+                })
                 
             } else {
-//                Analytics.logEvent("log_out", parameters: ["userId": self.currentUser?.uid ?? ""])
                 if let currentUser = self.currentUser {
                     let logoutEvent = Sentry.Event(level: .info)
                     logoutEvent.message = "\(currentUser.email ?? currentUser.uid) has logged out of the app"
                     Client.shared?.send(event: logoutEvent)
                 }
                 Client.shared?.user = nil
+                self.branchInstance?.logout()
             }
             self.currentUser = user
         }
-    
+        
         Messaging.messaging().delegate = self
         
         NotificationService.sharedInstance.clearIconBadge()
         NotificationService.sharedInstance.registerForPushIfEnabled(application: application)
         return true
     }
-
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state.
         // This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message)
@@ -95,34 +130,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks.
         // Games should use this method to pause the game.
     }
-
+    
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application
         // state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate:
         // when the user quits.
     }
-
+    
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
         NotificationService.sharedInstance.registerForPushIfEnabled(application: application)
         NotificationService.sharedInstance.clearIconBadge()
         
     }
-
+    
     func applicationDidBecomeActive(_ application: UIApplication) {
+        AppEvents.activateApp()
         // Restart any tasks that were paused (or not yet started) while the application was inactive.
         // If the application was previously in the background, optionally refresh the user interface.
     }
-
+    
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate.
         // See also applicationDidEnterBackground:.
     }
-        
+    
     //handle handler for result of URL signup flows
-    func application(_ app: UIApplication, open url: URL,
+    func application(_ app: UIApplication,
+                     open url: URL,
                      options: [UIApplication.OpenURLOptionsKey: Any]) -> Bool {
+        FacebookCore.ApplicationDelegate.shared.application(
+            app,
+            open: url,
+            options: options
+        )
+        
+        Branch.getInstance().application(app, open: url, options: options)
         guard let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String? else {
             return false
         }
@@ -147,8 +191,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return true
         } else if LinkHandlerUtil.handleSharedResponse(url) {
             return true
+        } else if LinkHandlerUtil.handleSignupUrl(url) {
+            return true
         } else {
-            self.logger.warn("url not supported, sending back to the browser")
+            self.logger.warn("url \(url.absoluteString) not supported, sending back to the browser")
         }
         
         if let scheme = url.scheme,
@@ -164,18 +210,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return false
     }
-      
+    
     //handle firebase dynamic links
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity,
+    func application(_ application: UIApplication,
+                     continue userActivity: NSUserActivity,
                      restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         self.logger.info("User activity webpageurl \(userActivity.webpageURL?.absoluteString ?? "none")")
+        
+        Branch.getInstance().continue(userActivity)
         
         if let url = userActivity.webpageURL, CactusMemberService.sharedInstance.currentUser == nil {
             let queryParams = url.getQueryParams()
             self.logger.info("Adding signup query params \(String(describing: queryParams))")
             StorageService.sharedInstance.setLocalSignupQueryParams(queryParams)
         }
-
+        
         let handled = DynamicLinks.dynamicLinks().handleUniversalLink(userActivity.webpageURL!) { (dynamiclink, error) in
             //TODO: What the holy hell is this all even for??
             if let error = error {
@@ -235,24 +284,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // Support for background fetch
-//    func application(_ application: UIApplication,
-//                     performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-//        guard let vc = (AppDelegate.shared.rootViewController.current as? UINavigationController)?.viewControllers.first as? JournalHomeViewController else {
-//            completionHandler(.noData)
-//            return
-//        }
-        
-//        vc.journalFeedDataSource.checkForNewPrompts { (sentPrompts) in
-//            if (sentPrompts?.count ?? 0) > 0 {
-//                self.logger.info("Background fetch found new data")
-//                completionHandler(.newData)
-//                vc.journalFeedViewController?.reloadVisibleViews()
-//            } else {
-//                self.logger.info("Background fetch did not have any new data")
-//                completionHandler(.noData)
-//            }
-//        }
-//    }
+    //    func application(_ application: UIApplication,
+    //                     performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    //        guard let vc = (AppDelegate.shared.rootViewController.current as? UINavigationController)?.viewControllers.first as? JournalHomeViewController else {
+    //            completionHandler(.noData)
+    //            return
+    //        }
+    
+    //        vc.journalFeedDataSource.checkForNewPrompts { (sentPrompts) in
+    //            if (sentPrompts?.count ?? 0) > 0 {
+    //                self.logger.info("Background fetch found new data")
+    //                completionHandler(.newData)
+    //                vc.journalFeedViewController?.reloadVisibleViews()
+    //            } else {
+    //                self.logger.info("Background fetch did not have any new data")
+    //                completionHandler(.noData)
+    //            }
+    //        }
+    //    }
 }
 
 extension AppDelegate: MessagingDelegate {
@@ -295,9 +344,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         self.logger.info("APNs token retrieved: \(deviceToken)")
-
-      // With swizzling disabled you must set the APNs token here.
-      // Messaging.messaging().apnsToken = deviceToken
+        
+        // With swizzling disabled you must set the APNs token here.
+        // Messaging.messaging().apnsToken = deviceToken
     }
     
     // [START receive_message]

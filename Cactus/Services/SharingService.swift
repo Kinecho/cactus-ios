@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import FirebaseAnalytics
+import FBSDKCoreKit
 
 func getInviteLink() -> String {
     let member = CactusMemberService.sharedInstance.currentMember
@@ -145,6 +146,7 @@ class PromptShareItem: NSObject, UIActivityItemSource {
 class ReflectionShareItem: NSObject, UIActivityItemSource {
     let promptContent: PromptContent!
     let reflectionResponse: ReflectionResponse!
+    let logger = Logger("ReflectShareItem")
     
     init(_ reflectionResponse: ReflectionResponse, _ promptContent: PromptContent) {
         self.promptContent = promptContent
@@ -152,13 +154,17 @@ class ReflectionShareItem: NSObject, UIActivityItemSource {
     }
     
     func getShareTitle() -> String {
-        let member = CactusMemberService.sharedInstance.currentMember
-        var pronoun = "my"
-        if let firstName = member?.firstName {
-            pronoun = "\(firstName)'s"
-        }
+//        let member = CactusMemberService.sharedInstance.currentMember
+        let pronoun = "my"
+//        if let firstName = member?.firstName {
+//            pronoun = "\(firstName)'s"
+//        }
         
-        return "Read \(pronoun) private note"
+        var subject = ""
+        if self.question != nil {
+            subject = "on \"\(self.question!)\""
+        }
+        return "Read \(pronoun) private note \(subject)".trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
     func getPromptQuestion() -> String {
@@ -187,26 +193,100 @@ class ReflectionShareItem: NSObject, UIActivityItemSource {
         return getShareTitle()
     }
     
+    var question: String? {
+         self.reflectionResponse?.promptQuestion ?? self.promptContent.getQuestion()
+    }
+    
+    var questionAndResponseText: String {
+        "\(self.question ?? "")\n\n\(self.reflectionResponse.content.text ?? "")".trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
     func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
-        
-        var subject = ""
-        if let topic = self.reflectionResponse?.promptQuestion ?? self.promptContent.getQuestion() {
-            subject = "on \"\(topic)\""
-        }
-        
-        let defaultItem = "\(self.getShareTitle()) \(subject)".trimmingCharacters(in: .whitespacesAndNewlines)
         guard let activityType = activityType else {
-            return defaultItem
+            return getShareURL()
         }
-        
+           
+        let questionNoteAndLink = "\(self.questionAndResponseText)\n\n\(self.getLink() ?? "")"
+        let introAndLink = "\(getShareTitle())\n\n\(getLink() ?? "")".trimmingCharacters(in: .whitespacesAndNewlines)
         switch activityType {
-        case .copyToPasteboard:
-//            return self.getShareURL() ?? defaultItem
-            return nil
+        case UIActivity.ActivityType("com.tinyspeck.chatlyio.share"):
+            return introAndLink
+        case .postToFacebook:
+            return introAndLink
+        case UIActivity.ActivityType("com.bloombuilt.dayone-ios.Share"):
+            return questionNoteAndLink
+        case UIActivity.ActivityType("com.google.Gmail.ShareExtension"):
+            return questionNoteAndLink
         default:
-            return defaultItem
+            return getShareURL()
         }
     }
+}
+
+class CopyLinkActivity: UIActivity {
+    var url: URL?
+    var title = "Copy Link"
+        
+    override var activityType: UIActivity.ActivityType? {ActivityType("com.cactus.copyLink")}
+    override var activityTitle: String? {self.title}
+    override var activityImage: UIImage? {
+        if #available(iOS 13.0, *) {
+            return UIImage(systemName: "link")
+        } else {
+            return UIImage(named: "link")
+        }
+    }
+    override func canPerform(withActivityItems activityItems: [Any]) -> Bool {
+        return activityItems.contains { (item) -> Bool in
+            return item is URL
+        }
+    }
+    
+    override func prepare(withActivityItems activityItems: [Any]) {
+        let url = activityItems.first { (item) -> Bool in
+            return item is URL
+        }
+        self.url = url as? URL
+    }
+    
+    override func perform() {
+        if let link = self.url?.absoluteString {
+            UIPasteboard.general.string = link
+        }
+        activityDidFinish(true)
+    }
+    
+}
+
+class CopyTextActivity: UIActivity {
+    var text: String
+    var title = "Copy Note"
+    
+    init(_ text: String, title: String?=nil) {
+        self.text = text
+        if let title = title {
+            self.title = title
+        }
+    }
+    
+    override var activityType: UIActivity.ActivityType? {ActivityType("app.cactus.copyText")}
+    override var activityTitle: String? {self.title}
+    override var activityImage: UIImage? {
+        if #available(iOS 13.0, *) {
+            return UIImage(systemName: "doc.on.clipboard.fill")
+        } else {
+            return UIImage(named: "doc")
+        }
+    }
+    override func canPerform(withActivityItems activityItems: [Any]) -> Bool {
+        return true
+    }
+    
+    override func perform() {
+        UIPasteboard.general.string = self.text
+        activityDidFinish(true)
+    }
+    
 }
 
 /**
@@ -287,16 +367,19 @@ class SharingService {
         let promptId = promptContent.promptId ?? "unknown"
         
         self.logger.sentryInfo(":share: :hourglass: Share Note share sheet tapped. SubjectLine=\"\(promptContent.subjectLine ?? "")\" promptId=\(promptId)")
-        
+        var items: [Any] = []
         let shareItem = ReflectionShareItem(response, promptContent)
-        var items: [Any] = [shareItem]
-        if let shareUrl = shareItem.getShareURL() {
-            items.append(shareUrl)
+        items.append(shareItem)
+
+        var activities: [UIActivity] = [CopyLinkActivity()]
+        
+        if let note = response.content.text {
+            activities.append(CopyTextActivity(note))
         }
         
-        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: activities)
         ac.popoverPresentationController?.sourceView = sender
-        ac.excludedActivityTypes = [.addToReadingList, .airDrop, .assignToContact, .openInIBooks]
+        ac.excludedActivityTypes = [.addToReadingList, .airDrop, .assignToContact, .openInIBooks, .copyToPasteboard]
         
         ac.completionWithItemsHandler = { activityType, completed, items, error in
             if completed {
