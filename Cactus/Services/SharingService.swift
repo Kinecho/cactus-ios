@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import FirebaseAnalytics
-import FBSDKCoreKit
 
 func getInviteLink() -> String {
     let member = CactusMemberService.sharedInstance.currentMember
