@@ -358,10 +358,6 @@
 		305CB10423D049E30046E8A8 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305CB10323D049E30046E8A8 /* ContactsTableViewController.swift */; };
 		305CB10523D049E30046E8A8 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305CB10323D049E30046E8A8 /* ContactsTableViewController.swift */; };
 		305CB10623D049E30046E8A8 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305CB10323D049E30046E8A8 /* ContactsTableViewController.swift */; };
-		3062200623EA97A8002FAAD9 /* FirebaseInAppMessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062200523EA97A8002FAAD9 /* FirebaseInAppMessageDelegate.swift */; };
-		3062200723EA97A8002FAAD9 /* FirebaseInAppMessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062200523EA97A8002FAAD9 /* FirebaseInAppMessageDelegate.swift */; };
-		3062200823EA97A8002FAAD9 /* FirebaseInAppMessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062200523EA97A8002FAAD9 /* FirebaseInAppMessageDelegate.swift */; };
-		3062200923EA97A8002FAAD9 /* FirebaseInAppMessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062200523EA97A8002FAAD9 /* FirebaseInAppMessageDelegate.swift */; };
 		3062200A23EAB128002FAAD9 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B87233FDEC300EDE7BD /* Lato-Italic.ttf */; };
 		3062200B23EAB12B002FAAD9 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B88233FDEC300EDE7BD /* Lato-LightItalic.ttf */; };
 		3062200C23EAB12B002FAAD9 /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B89233FDEC300EDE7BD /* Lato-Thin.ttf */; };
@@ -373,6 +369,9 @@
 		3062201223EAB12B002FAAD9 /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B8F233FDEC300EDE7BD /* Lato-BoldItalic.ttf */; };
 		3062201323EAB12B002FAAD9 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B90233FDEC300EDE7BD /* Lato-Light.ttf */; };
 		3062201423EAB12B002FAAD9 /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B91233FDEC300EDE7BD /* Lato-ThinItalic.ttf */; };
+		3062201623EB1B68002FAAD9 /* FirebaseInAppMessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062201523EB1B68002FAAD9 /* FirebaseInAppMessageDelegate.swift */; };
+		3062201723EB1B68002FAAD9 /* FirebaseInAppMessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062201523EB1B68002FAAD9 /* FirebaseInAppMessageDelegate.swift */; };
+		3062201823EB1B68002FAAD9 /* FirebaseInAppMessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062201523EB1B68002FAAD9 /* FirebaseInAppMessageDelegate.swift */; };
 		30673B92233FDEC300EDE7BD /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B87233FDEC300EDE7BD /* Lato-Italic.ttf */; };
 		30673B93233FDEC300EDE7BD /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B87233FDEC300EDE7BD /* Lato-Italic.ttf */; };
 		30673B94233FDEC300EDE7BD /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B88233FDEC300EDE7BD /* Lato-LightItalic.ttf */; };
@@ -722,7 +721,7 @@
 		305CB0FB23D03C080046E8A8 /* ContactService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactService.swift; sourceTree = "<group>"; };
 		305CB0FF23D048B60046E8A8 /* SendFriendInviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendFriendInviteViewController.swift; sourceTree = "<group>"; };
 		305CB10323D049E30046E8A8 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
-		3062200523EA97A8002FAAD9 /* FirebaseInAppMessageDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseInAppMessageDelegate.swift; sourceTree = "<group>"; };
+		3062201523EB1B68002FAAD9 /* FirebaseInAppMessageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseInAppMessageDelegate.swift; sourceTree = "<group>"; };
 		30673B87233FDEC300EDE7BD /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
 		30673B88233FDEC300EDE7BD /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
 		30673B89233FDEC300EDE7BD /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
@@ -1227,6 +1226,7 @@
 		30E9B09422EA688D005B25FD /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3062201523EB1B68002FAAD9 /* FirebaseInAppMessageDelegate.swift */,
 				3021B67323623000002634A8 /* Api */,
 				3021B67023622FE7002634A8 /* ApiService.swift */,
 				30727433236A295300309B3C /* AppSettingsService.swift */,
@@ -1247,7 +1247,6 @@
 				303C9DC2237F6799006B9786 /* StorageService.swift */,
 				305CB0FB23D03C080046E8A8 /* ContactService.swift */,
 				3006442323D26BAB00712ED1 /* SocialInviteService.swift */,
-				3062200523EA97A8002FAAD9 /* FirebaseInAppMessageDelegate.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1957,7 +1956,7 @@
 				303C9DEF23841ABB006B9786 /* EmailSettingsViewController.swift in Sources */,
 				303C9E2F23841ACC006B9786 /* ShadowView.swift in Sources */,
 				303C9E2723841ACC006B9786 /* GrowingTextView.swift in Sources */,
-				3062200823EA97A8002FAAD9 /* FirebaseInAppMessageDelegate.swift in Sources */,
+				3062201823EB1B68002FAAD9 /* FirebaseInAppMessageDelegate.swift in Sources */,
 				303C9E3223841AEB006B9786 /* ImageService.swift in Sources */,
 				303C9E1823841AC6006B9786 /* EditReflectionViewController.swift in Sources */,
 				303C9DE623841AB6006B9786 /* EmotionsAnimationViewController.swift in Sources */,
@@ -2113,7 +2112,6 @@
 				304B212C23D38F65007B016C /* CactusMember.swift in Sources */,
 				304B213923D38F79007B016C /* CactusImage.swift in Sources */,
 				304B216F23D3947F007B016C /* ReflectionPromptService.swift in Sources */,
-				3062200923EA97A8002FAAD9 /* FirebaseInAppMessageDelegate.swift in Sources */,
 				304B212F23D38F65007B016C /* ReflectionPrompt.swift in Sources */,
 				304B213123D38F65007B016C /* MailchimpModels.swift in Sources */,
 				304B216E23D3947F007B016C /* MemberProfileService.swift in Sources */,
@@ -2188,7 +2186,7 @@
 				30BF2E332328C7AD00A49EB6 /* MarkdownTypes.swift in Sources */,
 				3084E95F234810B300788279 /* FeedbackViewController.swift in Sources */,
 				300F236D237A61F100F35CDE /* SharedReflectionViewController.swift in Sources */,
-				3062200723EA97A8002FAAD9 /* FirebaseInAppMessageDelegate.swift in Sources */,
+				3062201723EB1B68002FAAD9 /* FirebaseInAppMessageDelegate.swift in Sources */,
 				30934FA422EBF4E6007C4E6C /* FormatUtils.swift in Sources */,
 				303C9DC4237F6799006B9786 /* StorageService.swift in Sources */,
 				300F2378237B4DE400F35CDE /* BorderedTextView.swift in Sources */,
@@ -2323,7 +2321,7 @@
 				30E9B0BD22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
 				3084E95E234810B300788279 /* FeedbackViewController.swift in Sources */,
 				300F236C237A61F100F35CDE /* SharedReflectionViewController.swift in Sources */,
-				3062200623EA97A8002FAAD9 /* FirebaseInAppMessageDelegate.swift in Sources */,
+				3062201623EB1B68002FAAD9 /* FirebaseInAppMessageDelegate.swift in Sources */,
 				30BF2E2F2328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */,
 				303C9DC3237F6799006B9786 /* StorageService.swift in Sources */,
 				300F2379237B4DE400F35CDE /* BorderedTextView.swift in Sources */,

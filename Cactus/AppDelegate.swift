@@ -31,9 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-//        let inAppDelegate = FirebaseInAppMessageDelegate()
-//        inAppDelegate.fetchId()
-//        InAppMessaging.inAppMessaging().delegate = inAppDelegate
         return true
     }
     
@@ -101,7 +98,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
        
         Messaging.messaging().delegate = self
-        
+        let inAppDelegate = FirebaseInAppMessageDelegate()
+        inAppDelegate.fetchId()
+        InAppMessaging.inAppMessaging().delegate = inAppDelegate
+
         NotificationService.sharedInstance.clearIconBadge()
         NotificationService.sharedInstance.registerForPushIfEnabled(application: application)
                 
