@@ -61,7 +61,10 @@ platform :ios do
   	lane :version_bump do 
 	    increment_build_number(xcodeproj: "Cactus.xcodeproj")
 	    commit_version_bump(xcodeproj: "Cactus.xcodeproj", message: "[ci skip] Build Version Bump to #{lane_context[SharedValues::BUILD_NUMBER]}")
-	    push_to_git_remote
+	    tag
+	    push_to_git_remote(
+	    	tags: true
+    	)
   	end
 
 
@@ -85,7 +88,7 @@ platform :ios do
 		version = "#{lane_context[SharedValues::VERSION_NUMBER]}.#{lane_context[SharedValues::BUILD_NUMBER]}"
 		sh("echo", version)
   		add_git_tag(  			  		
-  			tag: "builds/#{lane_context[SharedValues::BUILD_NUMBER]}"
+  			tag: "builds/#{lane_context[SharedValues::BUILD_NUMBER]}"  			
 		)
   	end  	
 
