@@ -362,6 +362,17 @@
 		3062200723EA97A8002FAAD9 /* FirebaseInAppMessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062200523EA97A8002FAAD9 /* FirebaseInAppMessageDelegate.swift */; };
 		3062200823EA97A8002FAAD9 /* FirebaseInAppMessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062200523EA97A8002FAAD9 /* FirebaseInAppMessageDelegate.swift */; };
 		3062200923EA97A8002FAAD9 /* FirebaseInAppMessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062200523EA97A8002FAAD9 /* FirebaseInAppMessageDelegate.swift */; };
+		3062200A23EAB128002FAAD9 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B87233FDEC300EDE7BD /* Lato-Italic.ttf */; };
+		3062200B23EAB12B002FAAD9 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B88233FDEC300EDE7BD /* Lato-LightItalic.ttf */; };
+		3062200C23EAB12B002FAAD9 /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B89233FDEC300EDE7BD /* Lato-Thin.ttf */; };
+		3062200D23EAB12B002FAAD9 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B8A233FDEC300EDE7BD /* Lato-Bold.ttf */; };
+		3062200E23EAB12B002FAAD9 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B8B233FDEC300EDE7BD /* Lato-Black.ttf */; };
+		3062200F23EAB12B002FAAD9 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B8C233FDEC300EDE7BD /* Lato-Regular.ttf */; };
+		3062201023EAB12B002FAAD9 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B8D233FDEC300EDE7BD /* Lato-BlackItalic.ttf */; };
+		3062201123EAB12B002FAAD9 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 30673B8E233FDEC300EDE7BD /* OFL.txt */; };
+		3062201223EAB12B002FAAD9 /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B8F233FDEC300EDE7BD /* Lato-BoldItalic.ttf */; };
+		3062201323EAB12B002FAAD9 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B90233FDEC300EDE7BD /* Lato-Light.ttf */; };
+		3062201423EAB12B002FAAD9 /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B91233FDEC300EDE7BD /* Lato-ThinItalic.ttf */; };
 		30673B92233FDEC300EDE7BD /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B87233FDEC300EDE7BD /* Lato-Italic.ttf */; };
 		30673B93233FDEC300EDE7BD /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B87233FDEC300EDE7BD /* Lato-Italic.ttf */; };
 		30673B94233FDEC300EDE7BD /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B88233FDEC300EDE7BD /* Lato-LightItalic.ttf */; };
@@ -1484,22 +1495,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				303C9E0823841AC1006B9786 /* CactusElementsViewController.xib in Resources */,
+				3062200C23EAB12B002FAAD9 /* Lato-Thin.ttf in Resources */,
 				303C9DED23841AB6006B9786 /* RelationshipsAnimationViewController.xib in Resources */,
 				303C9E0B23841AC1006B9786 /* LoadablePromptContentViewController.xib in Resources */,
 				303C9DE523841AB6006B9786 /* MeaningAnimationViewController.xib in Resources */,
 				303C9DEB23841AB6006B9786 /* EnergyAnimationViewController.xib in Resources */,
 				303C9E1523841AC6006B9786 /* CactusElementDetailViewController.xib in Resources */,
+				3062200F23EAB12B002FAAD9 /* Lato-Regular.ttf in Resources */,
+				3062200D23EAB12B002FAAD9 /* Lato-Bold.ttf in Resources */,
 				303C9E1123841AC6006B9786 /* NavigationMenuViewController.xib in Resources */,
 				303C9DE923841AB6006B9786 /* ExperienceAnimationViewController.xib in Resources */,
 				303C9E1E23841AC6006B9786 /* LoadableSharedReflectionViewController.xib in Resources */,
 				303C9E2023841AC6006B9786 /* ViewSharedReflectionViewController.xib in Resources */,
 				303C9E0A23841AC1006B9786 /* VideoContentViewController.xib in Resources */,
 				303C9E0323841AC1006B9786 /* ReflectContentViewController.xib in Resources */,
+				3062201223EAB12B002FAAD9 /* Lato-BoldItalic.ttf in Resources */,
 				30D7386623D00AC6006F4DA6 /* Social.storyboard in Resources */,
+				3062201323EAB12B002FAAD9 /* Lato-Light.ttf in Resources */,
 				303C9DFB23841ABB006B9786 /* JournalEntrySkeletonViewController.xib in Resources */,
 				303C9E0523841AC1006B9786 /* CelebrateViewController.xib in Resources */,
+				3062200A23EAB128002FAAD9 /* Lato-Italic.ttf in Resources */,
 				303C9DFD23841AC1006B9786 /* TextContentViewController.xib in Resources */,
+				3062201423EAB12B002FAAD9 /* Lato-ThinItalic.ttf in Resources */,
 				303C9E1D23841AC6006B9786 /* SharedReflectionViewController.xib in Resources */,
+				3062200E23EAB12B002FAAD9 /* Lato-Black.ttf in Resources */,
+				3062201123EAB12B002FAAD9 /* OFL.txt in Resources */,
 				30D7387423D00F7C006F4DA6 /* SocialActivityCardView.xib in Resources */,
 				303C9DE723841AB6006B9786 /* EmotionsAnimationViewController.xib in Resources */,
 				303C9E1923841AC6006B9786 /* EditReflectionViewController.xib in Resources */,
@@ -1507,6 +1527,8 @@
 				303C9E1B23841AC6006B9786 /* ShareNoteViewController.xib in Resources */,
 				303C9DFF23841AC1006B9786 /* QuoteContentViewController.xib in Resources */,
 				30D7386223CFFC62006F4DA6 /* InviteContentViewController.xib in Resources */,
+				3062200B23EAB12B002FAAD9 /* Lato-LightItalic.ttf in Resources */,
+				3062201023EAB12B002FAAD9 /* Lato-BlackItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

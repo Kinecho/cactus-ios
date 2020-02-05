@@ -57,5 +57,4 @@ class FormatUtilTest: XCTestCase {
         XCTAssertEqual(tz!.localizedName(for: .daylightSaving, locale: locale)!, "Mountain Daylight Time")
         XCTAssertEqual(tz!.localizedName(for: .shortDaylightSaving, locale: locale)!, "MDT")
     }
-
 }

@@ -17,7 +17,7 @@ def app_pods
   pod 'FirebaseUI'
   pod 'FirebaseUI/Storage'
   pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '4.4.1'
-  pod 'MarkdownKit'
+  pod 'MarkdownKit', '1.5'
   pod 'Cloudinary', '~> 2.0'
   pod 'SwiftLint'
   pod 'FBSDKCoreKit'
@@ -38,7 +38,7 @@ def today_pods
     pod 'Firebase/Storage'
     pod 'Cloudinary', '~> 2.0'
     pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '4.4.1'
-    pod 'MarkdownKit'
+    pod 'MarkdownKit', '1.5'
     pod 'SkeletonView'
 end
 

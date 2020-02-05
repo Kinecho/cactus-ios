@@ -14,7 +14,7 @@ func toEmptyString(_ input: String?) -> String {
 }
 
 func isBlank(_ input: String? ) -> Bool {
-    return FormatUtils.isBlank(input);
+    return FormatUtils.isBlank(input)
 }
 
 struct FormatUtils {

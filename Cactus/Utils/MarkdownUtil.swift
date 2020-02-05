@@ -48,7 +48,8 @@ public class MarkdownUtil {
             return nil
         }
         
-        let markdownParser = MarkdownParser(font: font)
+        let markdownParser = MarkdownParser(font: font, color: color ?? CactusColor.textDefault)
+        
         let aString = markdownParser.parse(input)
         if let color = color {
             return aString.withColor(color)
