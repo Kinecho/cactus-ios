@@ -16,6 +16,7 @@ import Crashlytics
 import Sentry
 import FacebookCore
 import Branch
+import FirebaseInAppMessaging
 
 typealias SentryUser = Sentry.User
 
@@ -25,12 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var fcmToken: String?
     var window: UIWindow?
     var branchInstance: Branch?
-    
     private var currentUser: FirebaseAuth.User?
     let gcmMessageIDKey = "gcm.message_id"
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        let inAppDelegate = FirebaseInAppMessageDelegate()
+        inAppDelegate.fetchId()
+        InAppMessaging.inAppMessaging().delegate = inAppDelegate
         return true
     }
     

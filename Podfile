@@ -12,6 +12,8 @@ def app_pods
   pod 'Firebase/Performance'
   pod 'Firebase/Storage'
   pod 'Firebase/Firestore'
+  pod 'Firebase/InAppMessaging'
+  pod 'Firebase/Analytics'
   pod 'FirebaseUI'
   pod 'FirebaseUI/Storage'
   pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '4.4.1'

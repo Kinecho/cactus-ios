@@ -88,6 +88,7 @@ class CactusMember: FirestoreIdentifiable, Hashable {
     var createdAt: Date?
     var updatedAt: Date?
     var fcmTokens: [String]?
+    var firebaseInstanceIds: [String]?
     var mailchimpListMember: ListMember?
     var languageCode: String?
     var notificationSettings: [String: String]? = [:]
