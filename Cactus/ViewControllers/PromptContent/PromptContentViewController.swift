@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PromptContentViewControllerDelegate: class {
-    func save(_ response: ReflectionResponse)
+    func save(_ response: ReflectionResponse, nextPageOnSuccess: Bool, addReflectionLog: Bool, completion: ((ReflectionResponse?, Any?) -> Void)?)
     func previousScreen()
     func handleTapGesture(touch: UITapGestureRecognizer)
     func nextScreen()

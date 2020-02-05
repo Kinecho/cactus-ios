@@ -149,7 +149,7 @@ class ReflectContentViewController: PromptContentViewController {
     }
     
     func saveResponse(nextPageOnSuccess: Bool=true, silent: Bool = false, _ completion: ((ReflectionResponse?, Any?) -> Void)?=nil) {
-        //Note: The text must be set on the response object, we will not grab it from here.
+        //Note: The text must be set on the ReflectionResponse object, we will not grab it from the text input here.
         self.reflectLogger.debug("saving response...")
         guard let response = self.reflectionResponse else {
             self.reflectLogger.warn("No reflection Response found on the ReflectContentCardViewControler. Unable to save the response")

@@ -34,8 +34,36 @@ class PromptContentPageViewController: UIPageViewController {
         self.delegate = self        
         self.configureScreens()
         self.view.backgroundColor = CactusColor.promptBackground
+        
+        if self.createReflectionResponseIfNeeded(), let response = self.reflectionResponse {
+            self.save(response, nextPageOnSuccess: false, addReflectionLog: false) { saved, error in
+                if let error = error {
+                    self.logger.error("Failed to save placeholder reflection response", error)
+                    return
+                }
+                if let saved = saved {
+                    self.logger.info("Created & saved placeholder reflection response successfully")
+                    self.reflectionResponse = saved
+                    self.configureScreens()
+                }
+            }
+        }
     }
 
+    /** Create a reflection response if it wasn't present. Return true if it was created
+        - Returns: Bool if a new prompt was created
+     */
+    func createReflectionResponseIfNeeded() -> Bool {
+        //set up the reflection response if it didn't exist yet
+        if let promptId = self.promptContent.promptId, self.reflectionResponse == nil {
+            let question = self.promptContent.getQuestion()
+            let element = self.promptContent.cactusElement
+            self.reflectionResponse = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: question, element: element, medium: .PROMPT_IOS)
+            return true
+        }
+        return false
+    }
+    
     @objc func tapGestureHandler(touch: UITapGestureRecognizer) {
         guard self.tapNavigationEnabled == true else {return}
         let touchPoint = touch.location(in: self.view)
@@ -317,10 +345,19 @@ extension PromptContentPageViewController: UIPageViewControllerDelegate {
     }
 }
 
-extension PromptContentPageViewController: PromptContentViewControllerDelegate {
-    func save(_ response: ReflectionResponse) {
-        
+extension PromptContentPageViewController: PromptContentViewControllerDelegate {    
+    func save(_ response: ReflectionResponse, nextPageOnSuccess: Bool=false, addReflectionLog: Bool=true, completion: ((ReflectionResponse?, Any?) -> Void)?=nil) {
+        ReflectionResponseService.sharedInstance.save(response, addReflectionLog: addReflectionLog) { (saved, error) in
+            if let error = error {
+                self.logger.error("Error saving reflection response", error)
+            }
+            completion?(saved, error)
+            if error == nil, nextPageOnSuccess {
+                self.nextScreen()
+            }
+        }
     }
+    
     func nextScreen() {
         self.goToNextPage()
     }

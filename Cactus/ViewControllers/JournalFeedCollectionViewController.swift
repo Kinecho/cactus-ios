@@ -92,10 +92,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
             if let vc = segue.destination as? PromptContentPageViewController {
                 vc.promptContent = cell.promptContent
                 vc.journalDataSource = self.dataSource
-                var response = cell.responses?.first
-                if response == nil, let prompt = cell.prompt {
-                    response = ReflectionResponseService.sharedInstance.createReflectionResponse(prompt, medium: .PROMPT_IOS)
-                }
+                var response = cell.responses?.first                
                 vc.reflectionResponse = response                
             }        
         default:
