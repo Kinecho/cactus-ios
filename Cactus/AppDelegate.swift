@@ -63,6 +63,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.logger.error("Failed to initialize Branch", error)
                 return
             }
+            
+            if let originalParams = branchInstance.getFirstReferringParams() {
+                StorageService.sharedInstance.setBranchParameters(originalParams)
+            }
+            
             self.logger.info("Branch started")
             self.logger.info("Branch init params: \(String(describing: params as? [String: Any]))")
             StorageService.sharedInstance.setBranchParameters(params)
@@ -111,14 +116,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let sentryUser = SentryUser(userId: user.uid)
                 sentryUser.email = user.email
                 Client.shared?.user = sentryUser
-                self.branchInstance?.setIdentity(user.uid, withCallback: { (params, error) in
-                    if let error = error {
-                        self.logger.error("Failed to set branch identity", error)
-                    }
-                    self.logger.info("Branch set identity params are \(String(describing: params))")
-                    StorageService.sharedInstance.setBranchParameters(params)
-                })
-                
+//                self.branchInstance?.setIdentity(user.uid, withCallback: { (params, error) in
+//                    if let error = error {
+//                        self.logger.error("Failed to set branch identity", error)
+//                    }
+//                    self.logger.info("Branch set identity params are \(String(describing: params))")
+//                    StorageService.sharedInstance.setBranchParameters(params)
+//                })
+//
             } else {
                 if let currentUser = self.currentUser {
                     let logoutEvent = Sentry.Event(level: .info)
@@ -126,7 +131,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     Client.shared?.send(event: logoutEvent)
                 }
                 Client.shared?.user = nil
-                self.branchInstance?.logout()
+//                self.branchInstance?.logout()
             }
             self.currentUser = user
         }
