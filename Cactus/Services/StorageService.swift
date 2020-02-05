@@ -52,15 +52,15 @@ class StorageService {
         }
         
         if let channel = params["~channel"] as? String {
-            signupParams["utm_channel"] = channel
+            signupParams["utm_source"] = channel
         }
         
         if let medium = params["~feature"] as? String {
             signupParams["utm_medium"] = medium
         }
         
-        if let source = params["~source"] as? String {
-            signupParams["utm_source"] = source
+        if let source = params["~campaign"] as? String {
+            signupParams["utm_campaign"] = source
         }
         
         self.setLocalSignupQueryParams(signupParams)
