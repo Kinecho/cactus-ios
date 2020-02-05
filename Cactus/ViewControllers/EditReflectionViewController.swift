@@ -15,7 +15,7 @@ protocol EditReflectionViewControllerDelegate: class {
 
 class EditReflectionViewController: UIViewController, UIAdaptivePresentationControllerDelegate {
     @IBOutlet weak var questionTextView: UITextView!
-    @IBOutlet weak var responseTextView: GrowingTextView!
+    @IBOutlet weak var responseTextView: UITextView!
     @IBOutlet var editTextBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var doneButton: BorderedButton!
     @IBOutlet weak var cancelButton: UIButton!
@@ -41,18 +41,24 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
         if #available(iOS 13.0, *) {
             self.isModalInPresentation = true
         }
-//        self.responseTextView.placeholder = "Add a note"
-//        self.responseTextView.placeholderColor = CactusColor.placeholderText
-//
-//        self.responseTextView.textInputView.placehol
-//        self.questionTextView.placeholder
+        
         self.questionTextView.text = questionText
         self.responseTextView.text = response.content.text
         
         self.configureView()
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillChangeFrame), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.appMovedToBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
     }
 
+    @objc func appMovedToForeground() {
+        self.responseTextView.becomeFirstResponder()
+    }
+    
+    @objc func appMovedToBackground() {
+        self.responseTextView.resignFirstResponder()
+    }
+    
     func configureView() {
         self.configureSaving()
         self.responseTextView.textContainerInset = UIEdgeInsets(top: 0, left: 6, bottom: 0, right: 6)
@@ -61,7 +67,10 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
         
     }
         
+    
+    
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.responseTextView.becomeFirstResponder()
     }
     
@@ -77,6 +86,11 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
             self.buttonWidthConstraint.constant = 50
             self.doneButton.backgroundColor = CactusColor.green
         }
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        self.configureSaving()
     }
     
     @objc private func keyboardWillChangeFrame(_ notification: Notification) {

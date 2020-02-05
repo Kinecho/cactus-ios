@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -45,10 +45,10 @@
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="B2i-o6-0JJ" userLabel="Question Stack View">
-                    <rect key="frame" x="20" y="64" width="324" height="73.5"/>
+                    <rect key="frame" x="20" y="64" width="324" height="45"/>
                     <subviews>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="How will you change the world in this crazy time?" translatesAutoresizingMaskIntoConstraints="NO" id="GG4-cB-g9a">
-                            <rect key="frame" x="0.0" y="0.0" width="324" height="73.5"/>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GG4-cB-g9a">
+                            <rect key="frame" x="0.0" y="0.0" width="324" height="45"/>
                             <color key="textColor" name="TextDefault"/>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -56,17 +56,11 @@
                     </subviews>
                 </stackView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1w7-mK-MMI" userLabel="Response Text View">
-                    <rect key="frame" x="15" y="157.5" width="384" height="335.5"/>
+                    <rect key="frame" x="15" y="129" width="384" height="364"/>
                     <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Add a note"/>
-                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                            <color key="value" name="TextPlaceholder"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                 </textView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sKE-om-Mcf">
                     <rect key="frame" x="20" y="503" width="374" height="50"/>
@@ -174,9 +168,6 @@
         </namedColor>
         <namedColor name="TextMinimized">
             <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="0.80000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="TextPlaceholder">
-            <color red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="TextWhite">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

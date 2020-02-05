@@ -35,9 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        //        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         logger.info("Loading app will start", functionName: #function)
-        
         let isFacebokIntent = FacebookCore.ApplicationDelegate.shared.application(
             application,
             didFinishLaunchingWithOptions: launchOptions
@@ -45,20 +43,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         logger.debug("Is facebook intent: \(isFacebokIntent)", functionName: #function, line: #line)
         
-        // if you are using the TEST key
-//        Branch.setUseTestBranchKey(true)
         Branch.setBranchKey(CactusConfig.branchPublicKey)
         
-        // listener for Branch Deep Link data
-        // Wait to start auth listener until branch finishes
-        Branch.getInstance().setDebug()
         let branchInstance = Branch.getInstance()
         self.branchInstance = branchInstance
         branchInstance.initSession(launchOptions: launchOptions) { (params, error) in
             defer {
                 self.startAuthListener()
             }
-            // do stuff with deep link data (nav to page, display content, etc)
             if let error = error {
                 self.logger.error("Failed to initialize Branch", error)
                 return
