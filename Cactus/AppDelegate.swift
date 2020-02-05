@@ -16,6 +16,7 @@ import Crashlytics
 import Sentry
 import FacebookCore
 import Branch
+import FirebaseInAppMessaging
 
 typealias SentryUser = Sentry.User
 
@@ -25,12 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var fcmToken: String?
     var window: UIWindow?
     var branchInstance: Branch?
-    
     private var currentUser: FirebaseAuth.User?
     let gcmMessageIDKey = "gcm.message_id"
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        let inAppDelegate = FirebaseInAppMessageDelegate()
+        inAppDelegate.fetchId()
+        InAppMessaging.inAppMessaging().delegate = inAppDelegate
         return true
     }
     
@@ -38,27 +41,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         logger.info("Loading app will start", functionName: #function)
         
-        FacebookCore.ApplicationDelegate.shared.application(
+        let isFacebokIntent = FacebookCore.ApplicationDelegate.shared.application(
             application,
             didFinishLaunchingWithOptions: launchOptions
         )
+        
+        logger.debug("Is facebook intent: \(isFacebokIntent)", functionName: #function, line: #line)
         
         // if you are using the TEST key
 //        Branch.setUseTestBranchKey(true)
         Branch.setBranchKey(CactusConfig.branchPublicKey)
         
         // listener for Branch Deep Link data
+        // Wait to start auth listener until branch finishes
+        Branch.getInstance().setDebug()
         let branchInstance = Branch.getInstance()
         self.branchInstance = branchInstance
         branchInstance.initSession(launchOptions: launchOptions) { (params, error) in
+            defer {
+                self.startAuthListener()
+            }
             // do stuff with deep link data (nav to page, display content, etc)
             if let error = error {
                 self.logger.error("Failed to initialize Branch", error)
+                return
             }
-            self.logger.info("Branch started")
-            self.logger.info("Branch init params: \(String(describing: params))")
-//            let params = params as? [String: AnyObject] ?? [:]
             
+            if let originalParams = branchInstance.getFirstReferringParams() {
+                StorageService.sharedInstance.setBranchParameters(originalParams)
+            }
+            
+            self.logger.info("Branch started")
+            self.logger.info("Branch init params: \(String(describing: params as? [String: Any]))")
             StorageService.sharedInstance.setBranchParameters(params)
         }
         
@@ -85,8 +99,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch let error {
             self.logger.error("error setting up the sentry client \(error)")
         }
+       
+        Messaging.messaging().delegate = self
         
-        // Override point for customization after application launch.
+        NotificationService.sharedInstance.clearIconBadge()
+        NotificationService.sharedInstance.registerForPushIfEnabled(application: application)
+                
+        return true
+    }
+    
+    func startAuthListener() {
+        self.logger.debug("Starting auth listener")
         Auth.auth().addStateDidChangeListener {_, user in
             Analytics.logEvent("auth_state_changed", parameters: ["userId": user?.uid ?? "", "previousUserId": self.currentUser?.uid ?? ""])
             Crashlytics.sharedInstance().setUserEmail(user?.email)
@@ -96,14 +119,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let sentryUser = SentryUser(userId: user.uid)
                 sentryUser.email = user.email
                 Client.shared?.user = sentryUser
-                self.branchInstance?.setIdentity(user.uid, withCallback: { (params, error) in
-                    if let error = error {
-                        self.logger.error("Failed to set branch identity", error)
-                    }
-                    self.logger.info("Branch set identity params are \(String(describing: params))")
-                    StorageService.sharedInstance.setBranchParameters(params)
-                })
-                
+//                self.branchInstance?.setIdentity(user.uid, withCallback: { (params, error) in
+//                    if let error = error {
+//                        self.logger.error("Failed to set branch identity", error)
+//                    }
+//                    self.logger.info("Branch set identity params are \(String(describing: params))")
+//                    StorageService.sharedInstance.setBranchParameters(params)
+//                })
+//
             } else {
                 if let currentUser = self.currentUser {
                     let logoutEvent = Sentry.Event(level: .info)
@@ -111,16 +134,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     Client.shared?.send(event: logoutEvent)
                 }
                 Client.shared?.user = nil
-                self.branchInstance?.logout()
+//                self.branchInstance?.logout()
             }
             self.currentUser = user
         }
-        
-        Messaging.messaging().delegate = self
-        
-        NotificationService.sharedInstance.clearIconBadge()
-        NotificationService.sharedInstance.registerForPushIfEnabled(application: application)
-        return true
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -165,8 +182,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             open: url,
             options: options
         )
-        
-        Branch.getInstance().application(app, open: url, options: options)
+       
         guard let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String? else {
             return false
         }
@@ -177,14 +193,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         // other URL handling goes here.
         self.logger.debug("handling custom link scheme \(url)", functionName: #function, line: #line)
-        if let dynamicLink = DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: url) {
-            // Handle the deep link. For example, show the deep-linked content or
-            // apply a promotional offer to the user's account.
-            // ...
-            self.logger.debug("handling dynamic link \(dynamicLink)", functionName: #function, line: #line)
-            return false
+//        if let dynamicLink = DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: url) {
+//            // Handle the deep link. For example, show the deep-linked content or
+//            // apply a promotional offer to the user's account.
+//            // ...
+//            self.logger.debug("handling dynamic link \(dynamicLink)", functionName: #function, line: #line)
+//            return false
+//        }
+                
+        if Branch.getInstance().application(app, open: url, options: options) {
+            self.logger.info("Branch handled the URL open \(url.absoluteString)", functionName: #function)
+            return true
         }
-        
+           
         if UserService.sharedInstance.handleActivityURL(url) {
             return true
         } else if LinkHandlerUtil.handlePromptContent(url) {
@@ -215,9 +236,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      continue userActivity: NSUserActivity,
                      restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        self.logger.info("User activity webpageurl \(userActivity.webpageURL?.absoluteString ?? "none")")
-        
-        Branch.getInstance().continue(userActivity)
+        self.logger.info("continue User activity webpageurl \(userActivity.webpageURL?.absoluteString ?? "none")", functionName: #function, line: #line)
         
         if let url = userActivity.webpageURL, CactusMemberService.sharedInstance.currentUser == nil {
             let queryParams = url.getQueryParams()
@@ -225,26 +244,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             StorageService.sharedInstance.setLocalSignupQueryParams(queryParams)
         }
         
-        let handled = DynamicLinks.dynamicLinks().handleUniversalLink(userActivity.webpageURL!) { (dynamiclink, error) in
-            //TODO: What the holy hell is this all even for??
-            if let error = error {
-                self.logger.error("error getting dynamic link", error)
-            }
-            self.logger.info("handling dynamic link \(String(describing: dynamiclink))")
-            guard let dynamiclink = dynamiclink, let url = dynamiclink.url else {return}
-            let host = url.host
-            let path = url.path
-            let parameters = url.getQueryParams()
-            let link = parameters["link"]
-            self.logger.info("host: \(host ?? "no host found")")
-            self.logger.info("path: \(path)")
-            self.logger.info("Parameters \(parameters)")
-            self.logger.info("Link \(link ?? "no links")")
-        }
-        self.logger.info("link handled via dynamic link... = \(handled)")
+//        let handled = DynamicLinks.dynamicLinks().handleUniversalLink(userActivity.webpageURL!) { (dynamiclink, error) in
+//            //TODO: What the holy hell is this all even for??
+//            if let error = error {
+//                self.logger.error("error getting dynamic link", error)
+//            }
+//            self.logger.info("handling dynamic link \(String(describing: dynamiclink))")
+//            guard let dynamiclink = dynamiclink, let url = dynamiclink.url else {return}
+//            let host = url.host
+//            let path = url.path
+//            let parameters = url.getQueryParams()
+//            let link = parameters["link"]
+//            self.logger.info("host: \(host ?? "no host found")")
+//            self.logger.info("path: \(path)")
+//            self.logger.info("Parameters \(parameters)")
+//            self.logger.info("Link \(link ?? "no links")")
+//        }
+//        self.logger.info("link handled via dynamic link... = \(handled)")
+        
+        if Branch.getInstance().continue(userActivity) {
+           return true
+       }
         
         if let activityUrl = userActivity.webpageURL {
-            if UserService.sharedInstance.handleActivityURL(activityUrl) {
+            if Branch.getInstance().handleDeepLink(activityUrl) {
+                self.logger.info("URL was a branch link, letting branch handle it.")
+                return true
+            } else if UserService.sharedInstance.handleActivityURL(activityUrl) {
                 return true
             } else if LinkHandlerUtil.handlePromptContent(activityUrl) {
                 return true
@@ -256,7 +282,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        return handled
+        return false
     }
     
     //NOTE: See https://github.com/firebase/quickstart-ios/blob/master/messaging/MessagingExampleSwift/AppDelegate.swift

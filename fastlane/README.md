@@ -46,6 +46,11 @@ fastlane ios version_bump
 fastlane ios beta
 ```
 Push a new beta build to TestFlight
+### ios tag
+```
+fastlane ios tag
+```
+
 ### ios beta_stage
 ```
 fastlane ios beta_stage
