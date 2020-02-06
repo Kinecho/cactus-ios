@@ -34,6 +34,10 @@
 		300F2375237A6F7500F35CDE /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F2373237A6F7500F35CDE /* ShadowView.swift */; };
 		300F2378237B4DE400F35CDE /* BorderedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F2377237B4DE400F35CDE /* BorderedTextView.swift */; };
 		300F2379237B4DE400F35CDE /* BorderedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F2377237B4DE400F35CDE /* BorderedTextView.swift */; };
+		300FCCEA23ECB5D300089CFB /* FancyLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCE923ECB3D000089CFB /* FancyLinkButton.swift */; };
+		300FCCEB23ECB5D400089CFB /* FancyLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCE923ECB3D000089CFB /* FancyLinkButton.swift */; };
+		300FCCEC23ECB5D500089CFB /* FancyLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCE923ECB3D000089CFB /* FancyLinkButton.swift */; };
+		300FCCED23ECB5D600089CFB /* FancyLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCE923ECB3D000089CFB /* FancyLinkButton.swift */; };
 		3014A38C2378CA0300121729 /* TertiaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3014A38B2378CA0300121729 /* TertiaryButton.swift */; };
 		3014A38D2378CA0300121729 /* TertiaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3014A38B2378CA0300121729 /* TertiaryButton.swift */; };
 		3018B11D23751DE70005333A /* AppIconSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018B11C23751DE70005333A /* AppIconSettingsViewController.swift */; };
@@ -664,6 +668,7 @@
 		300F2373237A6F7500F35CDE /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		300F2376237A7C8600F35CDE /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 		300F2377237B4DE400F35CDE /* BorderedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedTextView.swift; sourceTree = "<group>"; };
+		300FCCE923ECB3D000089CFB /* FancyLinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyLinkButton.swift; sourceTree = "<group>"; };
 		3014A38B2378CA0300121729 /* TertiaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TertiaryButton.swift; sourceTree = "<group>"; };
 		3018B11C23751DE70005333A /* AppIconSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSettingsViewController.swift; sourceTree = "<group>"; };
 		3018B11F2376041A0005333A /* LoggerUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerUtil.swift; sourceTree = "<group>"; };
@@ -1054,6 +1059,7 @@
 				30BF2E312328C7AD00A49EB6 /* MarkdownTypes.swift */,
 				30E2D375234311C6003D2B27 /* PillLabelView.swift */,
 				3084E96B234BC5FE00788279 /* PrimaryButton.swift */,
+				300FCCE923ECB3D000089CFB /* FancyLinkButton.swift */,
 				30934F9522EBF146007C4E6C /* RoundedButton.swift */,
 				303EB0872343A0B800AC8741 /* RoundedView.swift */,
 				300F2376237A7C8600F35CDE /* SecondaryButton.swift */,
@@ -1931,6 +1937,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3062202123EC7A0A002FAAD9 /* MarkdownTextView.swift in Sources */,
+				300FCCEC23ECB5D500089CFB /* FancyLinkButton.swift in Sources */,
 				303C9E3623841AEB006B9786 /* SentPromptService.swift in Sources */,
 				30D0E44F236C920C00EFC0E3 /* ViewControllerExtensions.swift in Sources */,
 				303C9DBE237F5E34006B9786 /* URLExtensionTest.swift in Sources */,
@@ -2134,6 +2141,7 @@
 				304B214923D39233007B016C /* SwiftyGifManager.swift in Sources */,
 				304B215123D392C2007B016C /* CircleView.swift in Sources */,
 				304B216723D39448007B016C /* PromptContentService.swift in Sources */,
+				300FCCED23ECB5D600089CFB /* FancyLinkButton.swift in Sources */,
 				304B214823D3914C007B016C /* UIStackViewExtensionis.swift in Sources */,
 				3062202223EC7A0A002FAAD9 /* MarkdownTextView.swift in Sources */,
 				304B217523D39484007B016C /* ContactService.swift in Sources */,
@@ -2169,6 +2177,7 @@
 				30E9B0AA22EAD68B005B25FD /* AppMainViewController.swift in Sources */,
 				30727447236A4A3200309B3C /* CactusElementDetailViewController.swift in Sources */,
 				30BF2E122328230E00A49EB6 /* FirebaseExtensions.swift in Sources */,
+				300FCCEB23ECB5D400089CFB /* FancyLinkButton.swift in Sources */,
 				30BF2E2B23289F9F00A49EB6 /* TextContentViewController.swift in Sources */,
 				30934FA722EBFF27007C4E6C /* ReflectionPrompt.swift in Sources */,
 				30D0E455236C98C100EFC0E3 /* StringExtensions.swift in Sources */,
@@ -2306,6 +2315,7 @@
 				30BF2E0B232816CC00A49EB6 /* PromptContentService.swift in Sources */,
 				30727446236A4A3200309B3C /* CactusElementDetailViewController.swift in Sources */,
 				30E9B0A922EAD68B005B25FD /* AppMainViewController.swift in Sources */,
+				300FCCEA23ECB5D300089CFB /* FancyLinkButton.swift in Sources */,
 				30934FA622EBFF27007C4E6C /* ReflectionPrompt.swift in Sources */,
 				30E9B0AC22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
 				30D0E454236C98C100EFC0E3 /* StringExtensions.swift in Sources */,

@@ -17,6 +17,7 @@ class TextContentViewController: PromptContentViewController {
     @IBOutlet weak var backgroundImageView: UIImageViewAligned!
     @IBOutlet weak var elementStackView: UIStackView!
     @IBOutlet weak var elementImageContainerView: RoundedView!
+    @IBOutlet weak var mainStackView: UIStackView!
     weak var textTouchDelegate: UIGestureRecognizerDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +66,10 @@ class TextContentViewController: PromptContentViewController {
             self.elementImage.image = element.getImage()
             self.elementImageContainerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.elementTapped)))
             self.elementLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.elementTapped)))
+        }
+        
+        if let contentButton = self.createContentLink() {
+            self.mainStackView.addArrangedSubview(contentButton)
         }
         
         self.updateConstraints()

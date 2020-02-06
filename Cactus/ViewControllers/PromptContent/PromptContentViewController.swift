@@ -53,6 +53,45 @@ class PromptContentViewController: UIViewController {
             self.logger.debug("Tap Navigation is disabled", functionName: #function)
         }
     }
+    
+    func createContentLink() -> UIButton? {
+        guard let link = self.content.link,
+            let href = link.destinationHref,
+            let label = link.linkLabel else {
+            return nil
+        }
+        guard URL(string: href) != nil else {
+            self.logger.warn("content link's href was not a valid URL. Link.destinationHref=\(href)")
+            return nil
+        }
+        var button:UIButton
+        let style: LinkStyle = link.linkStyle ?? .link
+        switch style {
+        case .buttonPrimary:
+            button = PrimaryButton()
+        case .buttonSecondary:
+            button = SecondaryButton()
+        case .fancyLink:
+            button = FancyLinkButton()
+        case .link:
+            button = UIButton()
+            button.setTitleColor(CactusColor.linkColor, for: .normal)
+        }
+        
+        button.setTitle(label, for: .normal)
+        button.addTarget(self, action: #selector(self.contentLinkTapped(sender:)), for: .primaryActionTriggered)
+        
+        return button
+    }
+    
+    @objc func contentLinkTapped(sender: UIButton) {
+        guard let href = self.content.link?.destinationHref,
+            let url = URL(string: href) else {
+                self.logger.warn("content link's href was not a valid URL. Link.destinationHref=\(self.content.link?.destinationHref ?? "undefined")")
+            return
+        }
+        UIApplication.shared.open(url)
+    }
 }
 
 extension PromptContentViewController: UITextViewDelegate {

@@ -11,6 +11,7 @@ import Cloudinary
 class PhotoContentViewController: PromptContentViewController {
     @IBOutlet weak var imageView: InvertableImageView!
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var mainStackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()        
@@ -34,6 +35,10 @@ class PhotoContentViewController: PromptContentViewController {
             self.textView.isHidden = false
         } else {
             self.textView.isHidden = true
+        }
+        
+        if let contentButton = self.createContentLink() {
+            self.mainStackView.addArrangedSubview(contentButton)
         }
     }
     

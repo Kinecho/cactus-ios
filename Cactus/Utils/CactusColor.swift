@@ -51,6 +51,7 @@ struct CactusColor {
     static let darkBeige: UIColor = UIColor(hex: "E5DFDB")
     static let magenta: UIColor = UIColor(hex: "CC33A1")
     
+    static let fancyLinkHighlight = CactusColor.darkPink
     static let promptBackground: UIColor = UIColor(named: "PromptBackground")!
     static let accentBeige: UIColor = UIColor(named: "AccentBeige")!
     static let alertYellow: UIColor = UIColor(named: "AlertYellow")!
@@ -61,6 +62,7 @@ struct CactusColor {
     static let secondaryButtonBackground: UIColor = UIColor(named: "SecondaryButtonBackground")!
     static let secondaryBorder: UIColor = UIColor(named: "SecondaryBorder")!
     static let skeletonBase = UIColor(named: "SkeletonBase")!
+    static let linkColor = CactusColor.green
 }
 
 extension UIColor {

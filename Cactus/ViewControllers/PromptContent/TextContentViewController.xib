@@ -21,6 +21,7 @@
                 <outlet property="elementImageContainerView" destination="nP6-KH-Fhm" id="lqG-Gk-HCv"/>
                 <outlet property="elementLabel" destination="0Ch-3r-Ml4" id="Dlq-CV-iBa"/>
                 <outlet property="elementStackView" destination="iFz-q0-UFF" id="MVU-bl-rmn"/>
+                <outlet property="mainStackView" destination="Jkg-eq-lya" id="ixM-AR-gsO"/>
                 <outlet property="stackContainerBottomToSuperviewConstraint" destination="JoK-k7-TnU" id="ZAH-AF-iQR"/>
                 <outlet property="stackViewContainerBottomToImageConstraint" destination="xd9-z0-zL0" id="2lo-6L-bSa"/>
                 <outlet property="text" destination="vdy-jl-RMz" id="FrK-pO-Hn2"/>
@@ -41,7 +42,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d93-l8-nrE">
                     <rect key="frame" x="0.0" y="84" width="414" height="758"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Jkg-eq-lya">
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Jkg-eq-lya">
                             <rect key="frame" x="20" y="342.5" width="374" height="73.5"/>
                             <subviews>
                                 <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="iFz-q0-UFF" userLabel="Element StackView">
@@ -70,7 +71,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXPERIENCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ch-3r-Ml4" userLabel="ElementLabel">
-                                            <rect key="frame" x="139" y="80" width="96" height="0.0"/>
+                                            <rect key="frame" x="138.5" y="80" width="97.5" height="0.0"/>
                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
                                             <color key="textColor" name="TextMinimized"/>
                                             <nil key="highlightedColor"/>

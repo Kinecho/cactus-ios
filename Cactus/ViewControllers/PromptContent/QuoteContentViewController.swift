@@ -13,6 +13,7 @@ class QuoteContentViewController: PromptContentViewController {
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var authorNameTextView: UITextView!
     @IBOutlet weak var authorTitleTextView: UITextView!
+    @IBOutlet weak var mainSackView: UIStackView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureView()
@@ -36,6 +37,10 @@ class QuoteContentViewController: PromptContentViewController {
             self.quoteText.text = nil
             self.authorTitleTextView.text = nil
             self.authorNameTextView.text = nil
+        }
+        
+        if let linkButton = self.createContentLink() {
+            self.mainSackView.addArrangedSubview(linkButton)
         }
     }
 }

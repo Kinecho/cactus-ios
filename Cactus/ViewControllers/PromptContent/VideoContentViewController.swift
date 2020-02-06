@@ -11,6 +11,8 @@ import WebKit
 class VideoContentViewController: PromptContentViewController {
     @IBOutlet weak var videoWebKitView: WKWebView!
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var mainStackView: UIStackView!
+    
     let videoLogger = Logger("VideoContentViewController")
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +23,10 @@ class VideoContentViewController: PromptContentViewController {
     func setupViews() {
         self.configureText()
         self.configureVideo()
+        
+        if let contentLink = self.createContentLink() {
+            self.mainStackView.addArrangedSubview(contentLink)
+        }
     }
     
     func configureVideo() {
