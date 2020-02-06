@@ -48,16 +48,22 @@ public class MarkdownUtil {
             return nil
         }
         
-        let markdownParser = MarkdownParser(font: font, color: color ?? CactusColor.textDefault)
-        markdownParser.link.color = CactusColor.green
-        markdownParser.automaticLink.color = CactusColor.green
-//        markdownParser.automaticLink.att
-//        markdownParser.link.
+        let markdownParser = MarkdownParser(font: font, color: color ?? CactusColor.textDefault, customElements: [CactusMarkdownLink()])
+        markdownParser.enabledElements.remove( .link)
+
         let aString = markdownParser.parse(input)
+                
         if let color = color {
             return aString.withColor(color)
         } else {
             return aString
         }
+    }
+}
+
+class CactusMarkdownLink: MarkdownLink {
+    override func formatText(_ attributedString: NSMutableAttributedString, range: NSRange, link: String) {
+        super.formatText(attributedString, range: range, link: link)
+        attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: range)
     }
 }
