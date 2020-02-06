@@ -33,8 +33,7 @@ extension NSAttributedString {
         if let index = self.string.lastIndex(of: " ") {
             let range = NSRange(location: index.utf16Offset(in: string.string), length: 1)
             string.replaceCharacters(in: range, with: "\u{00A0}")
-        }
-        
+        }        
         return string.toAttributedString()
     }
     
