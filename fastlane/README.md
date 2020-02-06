@@ -26,6 +26,11 @@ fastlane ios bump
 fastlane ios print_version
 ```
 
+### ios tag_version
+```
+fastlane ios tag_version
+```
+
 ### ios patch
 ```
 fastlane ios patch
