@@ -376,10 +376,6 @@
 		3062201623EB1B68002FAAD9 /* FirebaseInAppMessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062201523EB1B68002FAAD9 /* FirebaseInAppMessageDelegate.swift */; };
 		3062201723EB1B68002FAAD9 /* FirebaseInAppMessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062201523EB1B68002FAAD9 /* FirebaseInAppMessageDelegate.swift */; };
 		3062201823EB1B68002FAAD9 /* FirebaseInAppMessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062201523EB1B68002FAAD9 /* FirebaseInAppMessageDelegate.swift */; };
-		3062201A23EB93B3002FAAD9 /* TextViewUrlTouchGestureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062201923EB93B3002FAAD9 /* TextViewUrlTouchGestureDelegate.swift */; };
-		3062201B23EB93B3002FAAD9 /* TextViewUrlTouchGestureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062201923EB93B3002FAAD9 /* TextViewUrlTouchGestureDelegate.swift */; };
-		3062201C23EB93B3002FAAD9 /* TextViewUrlTouchGestureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062201923EB93B3002FAAD9 /* TextViewUrlTouchGestureDelegate.swift */; };
-		3062201D23EB93B3002FAAD9 /* TextViewUrlTouchGestureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062201923EB93B3002FAAD9 /* TextViewUrlTouchGestureDelegate.swift */; };
 		3062201F23EC7A0A002FAAD9 /* MarkdownTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062201E23EC7A0A002FAAD9 /* MarkdownTextView.swift */; };
 		3062202023EC7A0A002FAAD9 /* MarkdownTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062201E23EC7A0A002FAAD9 /* MarkdownTextView.swift */; };
 		3062202123EC7A0A002FAAD9 /* MarkdownTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062201E23EC7A0A002FAAD9 /* MarkdownTextView.swift */; };
@@ -735,7 +731,6 @@
 		305CB0FF23D048B60046E8A8 /* SendFriendInviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendFriendInviteViewController.swift; sourceTree = "<group>"; };
 		305CB10323D049E30046E8A8 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
 		3062201523EB1B68002FAAD9 /* FirebaseInAppMessageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseInAppMessageDelegate.swift; sourceTree = "<group>"; };
-		3062201923EB93B3002FAAD9 /* TextViewUrlTouchGestureDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewUrlTouchGestureDelegate.swift; sourceTree = "<group>"; };
 		3062201E23EC7A0A002FAAD9 /* MarkdownTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownTextView.swift; sourceTree = "<group>"; };
 		30673B87233FDEC300EDE7BD /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
 		30673B88233FDEC300EDE7BD /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
@@ -1066,7 +1061,6 @@
 				300F2373237A6F7500F35CDE /* ShadowView.swift */,
 				30D7387023D00EBF006F4DA6 /* Social */,
 				3014A38B2378CA0300121729 /* TertiaryButton.swift */,
-				3062201923EB93B3002FAAD9 /* TextViewUrlTouchGestureDelegate.swift */,
 				3020DD932363F37D00EC40AE /* UIImageViewAligned.swift */,
 				3062201E23EC7A0A002FAAD9 /* MarkdownTextView.swift */,
 			);
@@ -2024,7 +2018,6 @@
 				303C9E3E23841B1B006B9786 /* AppSettings.swift in Sources */,
 				303C9E1A23841AC6006B9786 /* ShareNoteViewController.swift in Sources */,
 				303C9DDD23841A38006B9786 /* LoadablePromptContentViewController.swift in Sources */,
-				3062201C23EB93B3002FAAD9 /* TextViewUrlTouchGestureDelegate.swift in Sources */,
 				303C9E1323841AC6006B9786 /* CactusElementPageViewController.swift in Sources */,
 				303C9E2423841ACC006B9786 /* TertiaryButton.swift in Sources */,
 				303C9DD4238419BC006B9786 /* CactusMemberService.swift in Sources */,
@@ -2136,7 +2129,6 @@
 				304B212F23D38F65007B016C /* ReflectionPrompt.swift in Sources */,
 				304B213123D38F65007B016C /* MailchimpModels.swift in Sources */,
 				304B216E23D3947F007B016C /* MemberProfileService.swift in Sources */,
-				3062201D23EB93B3002FAAD9 /* TextViewUrlTouchGestureDelegate.swift in Sources */,
 				304B212923D38F5A007B016C /* BaseModel.swift in Sources */,
 				304B214923D39233007B016C /* SwiftyGifManager.swift in Sources */,
 				304B215123D392C2007B016C /* CircleView.swift in Sources */,
@@ -2253,7 +2245,6 @@
 				30E9B0A422EAC204005B25FD /* AuthService.swift in Sources */,
 				30AB8EDA237C86910048CFD2 /* NotificationOnboardingViewController.swift in Sources */,
 				30E9B09A22EA6A81005B25FD /* BaseModel.swift in Sources */,
-				3062201B23EB93B3002FAAD9 /* TextViewUrlTouchGestureDelegate.swift in Sources */,
 				30BF2E302328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */,
 				30CF537E2370B10F00578B22 /* EmotionsAnimationViewController.swift in Sources */,
 				305B1864233175DC003E1561 /* PhotoContentViewController.swift in Sources */,
@@ -2391,7 +2382,6 @@
 				30E9B09D22EA7FC3005B25FD /* CactusMember.swift in Sources */,
 				30AB8ED9237C86910048CFD2 /* NotificationOnboardingViewController.swift in Sources */,
 				30E9B0A322EAC204005B25FD /* AuthService.swift in Sources */,
-				3062201A23EB93B3002FAAD9 /* TextViewUrlTouchGestureDelegate.swift in Sources */,
 				30B6EA6F22EA5A9F00443E46 /* AppDelegate.swift in Sources */,
 				30CF537D2370B10F00578B22 /* EmotionsAnimationViewController.swift in Sources */,
 				305B1863233175DC003E1561 /* PhotoContentViewController.swift in Sources */,
