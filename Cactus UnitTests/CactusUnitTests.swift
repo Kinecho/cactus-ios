@@ -18,16 +18,14 @@ class CactusUnitTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
+    func testStringExtensions() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+        let initial = "Cactus is the best"
+        let initialOrphaned = initial.preventOrphanedWords()
+        XCTAssertEqual(initialOrphaned, "Cactus is the\u{00A0}best")
+        let aInitial = NSAttributedString(string: initial)
+        XCTAssertEqual(aInitial.preventOrphanedWords().string, initialOrphaned)        
     }
 
 }

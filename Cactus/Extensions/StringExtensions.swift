@@ -28,6 +28,16 @@ extension String {
 extension NSAttributedString {
     var fullRange: NSRange { return NSRange(location: 0, length: self.length) }
     
+    func preventOrphanedWords() -> NSAttributedString {
+        let string = self.toMutable()
+        if let index = self.string.lastIndex(of: " ") {
+            let range = NSRange(location: index.utf16Offset(in: string.string), length: 1)
+            string.replaceCharacters(in: range, with: "\u{00A0}")
+        }
+        
+        return string.toAttributedString()
+    }
+    
     func toMutable() -> NSMutableAttributedString {
         let mText = NSMutableAttributedString.init(attributedString: self)
         return mText
