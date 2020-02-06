@@ -62,7 +62,7 @@ struct CactusColor {
     static let secondaryButtonBackground: UIColor = UIColor(named: "SecondaryButtonBackground")!
     static let secondaryBorder: UIColor = UIColor(named: "SecondaryBorder")!
     static let skeletonBase = UIColor(named: "SkeletonBase")!
-    static let linkColor = CactusColor.green
+    static let linkColor = CactusColor.darkGreen
 }
 
 extension UIColor {

@@ -64,7 +64,7 @@ class PromptContentViewController: UIViewController {
             self.logger.warn("content link's href was not a valid URL. Link.destinationHref=\(href)")
             return nil
         }
-        var button:UIButton
+        var button: UIButton
         let style: LinkStyle = link.linkStyle ?? .link
         switch style {
         case .buttonPrimary:
@@ -76,6 +76,8 @@ class PromptContentViewController: UIViewController {
         case .link:
             button = UIButton()
             button.setTitleColor(CactusColor.linkColor, for: .normal)
+            let underlinedTitle = NSAttributedString(string: label).withColor(CactusColor.linkColor).withUnderline()
+            button.setAttributedTitle(underlinedTitle, for: .normal)
         }
         
         button.setTitle(label, for: .normal)

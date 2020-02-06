@@ -74,6 +74,10 @@ extension NSAttributedString {
         return self.withAttributes([NSAttributedString.Key.paragraphStyle: paragraph])
     }
     
+    func withUnderline() -> NSAttributedString {
+        return self.withAttributes([NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue])
+    }
+    
     func withAttributes(_ attributes: [NSAttributedString.Key: Any], range: NSRange?=nil) -> NSAttributedString {
         let range = range ?? self.fullRange
         let mText = self.toMutable()

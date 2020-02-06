@@ -33,36 +33,36 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="qRQ-FR-cYC">
-                    <rect key="frame" x="20" y="321.5" width="374" height="263.5"/>
+                    <rect key="frame" x="20" y="322" width="374" height="262.5"/>
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="&quot;Early to bed, early to rise makes a man healthy, wealthy and wise&quot;" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UuU-rg-2RG">
-                            <rect key="frame" x="2" y="0.0" width="370" height="74"/>
+                            <rect key="frame" x="2" y="0.0" width="370.5" height="73.5"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="textColor" name="TextDefault"/>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="DPh-Qk-pgd">
-                            <rect key="frame" x="76" y="117" width="222" height="146.5"/>
+                            <rect key="frame" x="75.5" y="116.5" width="223" height="146"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_cactusOG" translatesAutoresizingMaskIntoConstraints="NO" id="fQk-Kf-hA6">
-                                    <rect key="frame" x="71" y="0.0" width="80" height="80"/>
+                                    <rect key="frame" x="71.5" y="0.0" width="80" height="80"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="80" id="obC-35-e7u"/>
                                         <constraint firstAttribute="width" constant="80" id="qR6-Aa-xMd"/>
                                     </constraints>
                                 </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="-13" translatesAutoresizingMaskIntoConstraints="NO" id="psm-3f-cAl">
-                                    <rect key="frame" x="0.0" y="86" width="222" height="60.5"/>
+                                    <rect key="frame" x="0.0" y="86" width="223" height="60"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" contentInsetAdjustmentBehavior="never" editable="NO" text="Benjamin Frankin" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2A5-E3-lSG" userLabel="Author Name TextView">
-                                            <rect key="frame" x="35.5" y="0.0" width="151" height="38"/>
+                                            <rect key="frame" x="37" y="0.0" width="149.5" height="37.5"/>
                                             <color key="textColor" name="TextDefault"/>
                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="18"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" contentInsetAdjustmentBehavior="never" editable="NO" text="American writer and Politician" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WTS-uL-2xm">
-                                            <rect key="frame" x="0.0" y="25" width="222" height="35.5"/>
+                                            <rect key="frame" x="0.0" y="24.5" width="223" height="35.5"/>
                                             <color key="textColor" name="TextMinimized"/>
                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

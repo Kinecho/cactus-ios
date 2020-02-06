@@ -57,7 +57,7 @@ class TextContentViewController: PromptContentViewController {
             self.text.attributedText = mdText
         }
         
-        self.text.tintColor = CactusColor.green
+        self.text.tintColor = CactusColor.darkGreen
 
         self.backgroundImageView.setImageFile(self.content.backgroundImage)
         
