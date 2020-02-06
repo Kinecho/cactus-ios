@@ -21,13 +21,20 @@ class PromptContentViewController: UIViewController {
     var content: Content!
     var promptContent: PromptContent!
     var tapNavigationEnabled = true
-    var hasTextSelection = false
     var selectedTextView: UITextView?
     var logger = Logger("PromptContentViewController")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapGestureHandler(touch:))))
+        NotificationCenter.default.addObserver(self, selector: #selector(self.appMovedToBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        
+    }
+    
+    @objc func appMovedToBackground() {
+        self.selectedTextView?.endEditing(true)
+        self.selectedTextView?.resignFirstResponder()
+        self.selectedTextView = nil
     }
     
     @objc func tapGestureHandler(touch: UITapGestureRecognizer) {
@@ -36,28 +43,28 @@ class PromptContentViewController: UIViewController {
     
     func initTextView(_ textView: UITextView) {
         textView.delegate = self
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapGestureHandler(touch:)))
-        textView.addGestureRecognizer(tapRecognizer)
     }
     
     func handleViewTapped(touch: UITapGestureRecognizer) {
-        if self.hasTextSelection, let textView = self.selectedTextView {
-            textView.selectedTextRange = nil
+        self.logger.info("Handle view tapped called")
+        if tapNavigationEnabled {
+            self.delegate?.handleTapGesture(touch: touch)
         } else {
-            if tapNavigationEnabled {
-                self.delegate?.handleTapGesture(touch: touch)
-            } else {
-                self.logger.debug("Tap Navigation is disabled", functionName: #function)
-            }
+            self.logger.debug("Tap Navigation is disabled", functionName: #function)
         }
     }
 }
 
 extension PromptContentViewController: UITextViewDelegate {
     func textViewDidChangeSelection(_ textView: UITextView) {
-        self.hasTextSelection = textView.selectedTextRange != nil && !(textView.selectedTextRange?.isEmpty ?? false)
-        if self.hasTextSelection {
-            self.selectedTextView = textView
-        }
+        self.logger.debug("TextView selection changed")
+        self.selectedTextView = textView
+    }
+    
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        self.logger.debug("TextView should interact with url \(URL.absoluteString)")
+        UIApplication.shared.open(URL)
+        
+        return false
     }
 }

@@ -49,7 +49,10 @@ public class MarkdownUtil {
         }
         
         let markdownParser = MarkdownParser(font: font, color: color ?? CactusColor.textDefault)
-        
+        markdownParser.link.color = CactusColor.green
+        markdownParser.automaticLink.color = CactusColor.green
+//        markdownParser.automaticLink.att
+//        markdownParser.link.
         let aString = markdownParser.parse(input)
         if let color = color {
             return aString.withColor(color)
