@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wlu-G6-Xeg">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Manage Subscription-->
+        <scene sceneID="NS9-Hm-UzW">
+            <objects>
+                <viewController storyboardIdentifier="ManageSubscription" id="wlu-G6-Xeg" userLabel="Manage Subscription" customClass="ManageSubscriptionViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ai6-Ij-s74">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="wvf-ef-nZX">
+                                <rect key="frame" x="40" y="84" width="334" height="114"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="QrN-Yf-3kG">
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="44"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscription Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYx-Kx-eNe">
+                                                <rect key="frame" x="0.0" y="0.0" width="152.5" height="22"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                <color key="textColor" name="TextDefault"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscribed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y98-nY-XO7" userLabel="Current Status">
+                                                <rect key="frame" x="0.0" y="22" width="87.5" height="22"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                <color key="textColor" name="TextDefault"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="PaymentStoryboard" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBu-gI-8HO" userLabel="Upgrade Button" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="84" width="334" height="30"/>
+                                        <state key="normal" title="Upgrade to Plus"/>
+                                        <connections>
+                                            <action selector="upgradeTapped:" destination="wlu-G6-Xeg" eventType="primaryActionTriggered" id="cgo-Kh-Nos"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="wvf-ef-nZX" firstAttribute="leading" secondItem="4dj-bf-e06" secondAttribute="leading" constant="40" id="PNm-YU-3YC"/>
+                            <constraint firstItem="wvf-ef-nZX" firstAttribute="top" secondItem="4dj-bf-e06" secondAttribute="top" constant="40" id="eh7-MV-Pn5"/>
+                            <constraint firstItem="4dj-bf-e06" firstAttribute="trailing" secondItem="wvf-ef-nZX" secondAttribute="trailing" constant="40" id="vZc-5h-12a"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4dj-bf-e06"/>
+                    </view>
+                    <connections>
+                        <outlet property="currentStatusLabel" destination="Y98-nY-XO7" id="JvP-6c-xyC"/>
+                        <outlet property="upgradeButton" destination="WBu-gI-8HO" id="5Yp-5D-6DP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="792-JK-ZtF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-136.23188405797103" y="105.80357142857143"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="TextDefault">
+            <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

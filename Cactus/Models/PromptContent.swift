@@ -243,6 +243,7 @@ class PromptContent: FlamelinkIdentifiable {
         self.documentId = try? values.decode(String.self, forKey: .documentId)
         self.entryId = self._fl_meta_?.fl_id
         self.order = try? values.decode(Int.self, forKey: .order)
+        
         self.content = (try? values.decode([Content].self, forKey: .content)) ?? []
         self.promptId = try? values.decode(String.self, forKey: .promptId)
         self.subjectLine = try? values.decode(String.self, forKey: .subjectLine)
