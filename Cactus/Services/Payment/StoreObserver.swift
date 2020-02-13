@@ -19,9 +19,9 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
     }
 
     //Observe transaction updates.
-    func paymentQueue(_ queue: SKPaymentQueue,updatedTransactions transactions: [SKPaymentTransaction]) {
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         //Handle transaction states here.
-        logger.info("Payment transaction recieved")
+        logger.info("Payment transaction recieved \(transactions)")
     }
                 
 }
