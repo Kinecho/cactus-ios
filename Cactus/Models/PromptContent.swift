@@ -117,6 +117,36 @@ class ContentLink: Codable {
     var linkTarget: LinkTarget?
     var linkStyle: LinkStyle?
     
+    enum ContentLinkCodingKey: CodingKey {
+        case linkLabel
+        case destinationHref
+        case linkTarget
+        case linkStyle
+    }
+    
+    public required init(from decoder: Decoder) throws {
+            do {
+                let container = try decoder.container(keyedBy: ContentLinkCodingKey.self)
+                if let linkLabel = try? container.decode(String.self, forKey: .linkLabel), !isBlank(linkLabel) {
+                    self.linkLabel = linkLabel
+                }
+                
+                if let href = try? container.decode(String.self, forKey: .destinationHref), !isBlank(href) {
+                    self.destinationHref = href
+                }
+                
+                if let linkTarget = try? container.decode(LinkTarget.self, forKey: .linkTarget) {
+                    self.linkTarget = linkTarget
+                }
+                
+                if let linkStyle = try? container.decode(LinkStyle.self, forKey: .linkStyle) {
+                    self.linkStyle = linkStyle
+                }                
+            } catch {
+    //            Logger.shared.error("error decoding Quote content", error)
+            }
+        }
+    
 }
 
 class ActionButton: Codable {

@@ -66,6 +66,7 @@ class SocialActivityCardView: UIStackView {
             .withFont(CactusFont.normal)
             .withBold(forSubstring: name)
             .withBold(forSubstring: question)
+            .withColor(CactusColor.textDefault)
         
         self.contentTextView.attributedText = attributedText
         
