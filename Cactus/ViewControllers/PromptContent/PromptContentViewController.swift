@@ -57,7 +57,10 @@ class PromptContentViewController: UIViewController {
     func createContentLink() -> UIButton? {
         guard let link = self.content.link,
             let href = link.destinationHref,
-            let label = link.linkLabel else {
+            let label = link.linkLabel,
+            !isBlank(href),
+            !isBlank(label)
+        else {
             return nil
         }
         guard URL(string: href) != nil else {
