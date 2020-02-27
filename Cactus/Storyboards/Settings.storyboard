@@ -39,10 +39,16 @@
                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                         <color key="textColor" name="TextDefault"/>
                                                         <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSl-Ik-Jl0" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="76" width="128" height="30"/>
                                                         <state key="normal" title="Update Time Zone"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="udpateTimeZoneTapped:" destination="V8b-El-CMB" eventType="primaryActionTriggered" id="S92-z3-7lE"/>
                                                         </connections>
@@ -53,6 +59,9 @@
                                                     <constraint firstAttribute="width" constant="440" id="up5-eN-7if"/>
                                                 </constraints>
                                                 <edgeInsets key="layoutMargins" top="20" left="20" bottom="20" right="20"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <variation key="default">
                                                     <mask key="constraints">
                                                         <exclude reference="up5-eN-7if"/>
@@ -74,12 +83,18 @@
                                                         <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="24"/>
                                                         <color key="textColor" name="TextDefault"/>
                                                         <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLz-8o-AzT">
                                                         <rect key="frame" x="14" y="102" width="320" height="216"/>
                                                         <date key="date" timeIntervalSinceReferenceDate="592303500.08243299">
                                                             <!--2019-10-09 08:45:00 +0000-->
                                                         </date>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="timePickerEditingDidEnd:" destination="V8b-El-CMB" eventType="valueChanged" id="nHI-wD-HMR"/>
                                                         </connections>
@@ -108,9 +123,15 @@
                                                     <constraint firstItem="TBy-j7-gEh" firstAttribute="leading" secondItem="33b-rM-UmM" secondAttribute="leading" constant="20" id="YxP-2w-HBo"/>
                                                     <constraint firstItem="mNf-AU-Udp" firstAttribute="leading" secondItem="33b-rM-UmM" secondAttribute="leading" constant="20" id="jhs-yb-ANZ"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
                                             </stackView>
                                         </subviews>
                                         <edgeInsets key="layoutMargins" top="40" left="20" bottom="40" right="20"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -122,6 +143,9 @@
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="iKn-mH-pLJ"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="Nb5-so-5Sn"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -132,6 +156,9 @@
                             <constraint firstItem="0jR-g2-Quw" firstAttribute="bottom" secondItem="HVx-YA-OSM" secondAttribute="bottom" id="s9Y-a6-ecr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0jR-g2-Quw"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="hSb-Lm-poK"/>
                     <connections>
@@ -170,12 +197,18 @@
                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily at 2:45 AM MST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJ2-fm-DGA">
                                                     <rect key="frame" x="197" y="21.5" width="166" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -184,7 +217,13 @@
                                                 <constraint firstItem="fAU-oa-hCI" firstAttribute="leading" secondItem="P4d-Iv-80P" secondAttribute="leading" constant="20" id="jkh-bP-rQC"/>
                                                 <constraint firstItem="SJ2-fm-DGA" firstAttribute="centerY" secondItem="P4d-Iv-80P" secondAttribute="centerY" id="k1S-qt-f73"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                            </userDefinedRuntimeAttributes>
                                         </tableViewCellContentView>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="V8b-El-CMB" kind="show" id="dBv-Dq-5Es"/>
                                         </connections>
@@ -227,7 +266,13 @@
                                                 <constraint firstItem="3ax-0Z-Qnp" firstAttribute="centerY" secondItem="3ik-DW-yuh" secondAttribute="centerY" id="fQ7-Ld-yDS"/>
                                                 <constraint firstAttribute="trailing" secondItem="3ax-0Z-Qnp" secondAttribute="trailing" constant="20" id="q4a-1Y-wVj"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                            </userDefinedRuntimeAttributes>
                                         </tableViewCellContentView>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="64" id="4Fr-C0-s3Z" userLabel="Email Settings Cell">
                                         <rect key="frame" x="0.0" y="156" width="414" height="64"/>
@@ -267,11 +312,20 @@
                                                 <constraint firstItem="cEN-hz-u3M" firstAttribute="centerY" secondItem="vy3-bW-LEh" secondAttribute="centerY" id="Ndj-Xn-r19"/>
                                                 <constraint firstItem="cTb-fh-GS3" firstAttribute="centerY" secondItem="vy3-bW-LEh" secondAttribute="centerY" id="mlq-iL-dGh"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                            </userDefinedRuntimeAttributes>
                                         </tableViewCellContentView>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="dataSource" destination="Ofc-Xs-qU7" id="f2G-LG-n7W"/>
                             <outlet property="delegate" destination="Ofc-Xs-qU7" id="DGy-0h-Fxx"/>
@@ -291,7 +345,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ehI-S8-ZTE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2635" y="-332"/>
+            <point key="canvasLocation" x="-2938" y="-408"/>
         </scene>
         <!--Invite View Controller-->
         <scene sceneID="FN9-08-AmX">

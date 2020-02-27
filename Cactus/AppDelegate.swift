@@ -11,7 +11,6 @@ import Firebase
 import FirebaseDynamicLinks
 import FirebaseUI
 import FirebaseMessaging
-import Fabric
 import Crashlytics
 import Sentry
 import FacebookCore
@@ -32,7 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-//        Analytics.level
         return true
     }
     
@@ -69,7 +67,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             StorageService.sharedInstance.setBranchParameters(params)
         }
         
-        Fabric.with([Crashlytics.self])
         // Create a Sentry client and start crash handler
         do {
             Client.shared = try Client(dsn: "https://728bdc63f41d4c93a6ce0884a01b58ea@sentry.io/1515431")

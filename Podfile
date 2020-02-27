@@ -4,7 +4,6 @@
 def app_pods
   pod 'Crashlytics'
   pod 'CodableFirebase'
-  pod 'Fabric'
   pod 'Firebase/Auth'
   pod 'Firebase/Core'
   pod 'Firebase/DynamicLinks'

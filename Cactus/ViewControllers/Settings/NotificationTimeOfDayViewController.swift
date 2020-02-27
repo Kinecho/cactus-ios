@@ -25,7 +25,7 @@ class NotificationTimeOfDayViewController: UIViewController {
 
         self.configureTimezone()
         self.configureDatePicker()
-        self.configureeTimeZoneWarningStackView()
+        self.configureTimeZoneWarningStackView()
         
         self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, error, _) in
             if let error = error {
@@ -43,7 +43,7 @@ class NotificationTimeOfDayViewController: UIViewController {
         
     }
 
-    func configureeTimeZoneWarningStackView() {
+    func configureTimeZoneWarningStackView() {
         self.timezoneWarningStackView.addBackground(color: CactusColor.alertYellow, cornerRadius: 10)
     }
     
@@ -97,6 +97,7 @@ class NotificationTimeOfDayViewController: UIViewController {
         guard let defaultDate = getDefaultNotificationDate(member: self.member) else {return}
         self.timePicker.minuteInterval = 15
         self.timePicker.setDate(defaultDate, animated: true)
+//        self.timePicker.delega
     }
    
     @IBAction func udpateTimeZoneTapped(_ sender: Any) {

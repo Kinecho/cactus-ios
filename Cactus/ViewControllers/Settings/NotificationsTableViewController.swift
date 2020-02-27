@@ -28,11 +28,11 @@ class NotificationsTableViewController: UITableViewController, MFMailComposeView
     var managePermissionsInSettings = false
     var memberUnsubscriber: Unsubscriber?
     let logger = Logger("NotificationsTableViewController")
-    
+    let footerView: UIView = UIView()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.tableFooterView = UIView()
+        tableView.hideSkeleton();
+        tableView.tableFooterView = footerView
         self.updateNotificationTimeLabel()
         self.notificationObserver = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [unowned self] _ in
             DispatchQueue.main.async {
