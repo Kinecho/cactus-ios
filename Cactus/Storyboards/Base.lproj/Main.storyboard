@@ -177,16 +177,6 @@
             </objects>
             <point key="canvasLocation" x="1021.6" y="-1368.4729064039409"/>
         </scene>
-        <!--Payment-->
-        <scene sceneID="3pJ-do-g4X">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Payment" id="h7z-Lj-ksA" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="blp-5u-nh5"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lIe-bH-Z6H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1870" y="-1323"/>
-        </scene>
         <!--Journal Feed-->
         <scene sceneID="Gr6-KQ-PFf">
             <objects>
@@ -442,7 +432,7 @@
                                             <rect key="frame" x="20" y="88.5" width="146" height="30"/>
                                             <state key="normal" title="Learn More"/>
                                             <connections>
-                                                <segue destination="h7z-Lj-ksA" kind="presentation" id="TzD-Yb-MSq"/>
+                                                <action selector="upgradeTapped:" destination="GWJ-to-hjF" eventType="primaryActionTriggered" id="Zh2-r4-S4W"/>
                                             </connections>
                                         </button>
                                     </subviews>

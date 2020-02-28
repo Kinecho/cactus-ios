@@ -36,7 +36,6 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         return CGSize(width: width - sectionInsets.left - sectionInsets.right - contentInsetWidth, height: defaultCellHeight)
     }
  
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
 
         // Get the view for the first header
@@ -78,9 +77,8 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         
     }
     
-    
     @IBAction func upgradeTapped(_ sender: Any) {
-        
+        SubscriptionService.sharedInstance.learnMoreAboutUpgradeTapped(target: self)
     }
     
     func getHeaderView() -> UICollectionReusableView {

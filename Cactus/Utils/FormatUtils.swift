@@ -17,15 +17,21 @@ func isBlank(_ input: String? ) -> Bool {
     return FormatUtils.isBlank(input)
 }
 
-func formatPriceCents(_ price: Int?) -> String? {
+func formatPriceCents(_ price: Int?, truncateWholeDollar: Bool = true) -> String? {
     guard let price = price else {
         return nil
     }
     let currencyFormatter = NumberFormatter()
     currencyFormatter.usesGroupingSeparator = true
-    currencyFormatter.numberStyle = .currency
+    if price % 100 == 0 && truncateWholeDollar {
+        currencyFormatter.numberStyle = .currency
+        currencyFormatter.maximumFractionDigits = 0
+    } else {
+        currencyFormatter.numberStyle = .currency
+    }
+    
     currencyFormatter.locale = Locale.init(identifier: "en-US")
-    return currencyFormatter.string(from: NSNumber(value: Double(price)/100))    
+    return currencyFormatter.string(from: NSNumber(value: Double(price)/100))
 }
 
 struct FormatUtils {
