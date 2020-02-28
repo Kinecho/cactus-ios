@@ -9,39 +9,52 @@
 import UIKit
 
 class PricingViewController: UIViewController {
-
+    
     @IBOutlet weak var planStackView: UIStackView!
     let logger = Logger("PricingViewController")
+    var productsLoaded = false
+    var productGroupEntryMap: SubscriptionProductGroupEntryMap? {
+        didSet {
+            DispatchQueue.main.async {
+                self.configureProductsView()
+            }
+        }
+    }
+    
     
     @IBOutlet weak var closeButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         self.closeButton.isHidden = !self.isBeingPresented
         
-        let plan1 = SubscriptionPlanOptionView()
-        plan1.priceLabel.text = "$29"
-        plan1.titleLabel.text = "Annual"
-        plan1.periodLabel.text = "year"
+        self.loadSubscriptionProducts()
         
-        let plan2 = SubscriptionPlanOptionView()
-        plan2.priceLabel.text = "$1.99"
-        plan2.titleLabel.text = "Weekly"
-        plan2.periodLabel.text = "week"
+    }
+    
+    func loadSubscriptionProducts() {
+        SubscriptionService.sharedInstance.getSubscriptionProductGroupEntryMap { (entryMap) in
+            self.productGroupEntryMap = entryMap
+        }
+    }
+    
+    func configureProductsView() {
+        guard let groupEntry = self.productGroupEntryMap?[SubscriptionTier.PLUS] else {
+            self.planStackView.arrangedSubviews.forEach { (planView) in
+                self.planStackView.removeArrangedSubview(planView)
+            }
+            return
+        }
         
-        let plan3 = SubscriptionPlanOptionView()
-        plan3.priceLabel.text = "$4.99"
-        plan3.titleLabel.text = "Monthly"
-        plan3.periodLabel.text = "month"
-        plan3.selected = true
-        
-        self.planStackView.addArrangedSubview(plan2)
-        self.planStackView.addArrangedSubview(plan3)
-        self.planStackView.addArrangedSubview(plan1)
-        
-        self.configurePlanTapGesture(planView: plan1)
-        self.configurePlanTapGesture(planView: plan2)
-        self.configurePlanTapGesture(planView: plan3)
+        groupEntry.products.forEach { (product) in
+            let planView = SubscriptionPlanOptionView()
+            planView.priceLabel.text = formatPriceCents(product.priceCentsUsd)
+            planView.titleLabel.text = product.billingPeriod.rawValue
+            planView.periodLabel.text = product.billingPeriod.rawValue
+            
+            self.configurePlanTapGesture(planView: planView)
+            self.planStackView.addArrangedSubview(planView)
+        }
         
         self.planStackView.isHidden = false
     }

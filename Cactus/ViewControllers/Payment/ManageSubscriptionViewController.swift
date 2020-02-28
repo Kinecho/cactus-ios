@@ -69,7 +69,7 @@ class ManageSubscriptionViewController: UIViewController {
     }
     
     func fetchProducts() {
-        SubscriptionProductService.sharedInstance.getAll { result in
+        SubscriptionProductService.sharedInstance.getAllForSale { result in
             if let error = result.error {
                 self.logger.error("Failed to ofetch subscription products", error)
                 return

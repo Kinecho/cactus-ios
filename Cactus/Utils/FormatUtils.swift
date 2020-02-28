@@ -17,6 +17,17 @@ func isBlank(_ input: String? ) -> Bool {
     return FormatUtils.isBlank(input)
 }
 
+func formatPriceCents(_ price: Int?) -> String? {
+    guard let price = price else {
+        return nil
+    }
+    let currencyFormatter = NumberFormatter()
+    currencyFormatter.usesGroupingSeparator = true
+    currencyFormatter.numberStyle = .currency
+    currencyFormatter.locale = Locale.init(identifier: "en-US")
+    return currencyFormatter.string(from: NSNumber(value: Double(price)/100))    
+}
+
 struct FormatUtils {
     static func hasChanges(_ input: String?, _ original: String?) -> Bool {
         return toEmptyString(input).trimmingCharacters(in: .whitespacesAndNewlines) != toEmptyString(original).trimmingCharacters(in: .whitespacesAndNewlines)

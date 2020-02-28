@@ -1,8 +1,8 @@
 //
-//  SubscriptionProductService.swift
+//  SubscriptionProductGroupService.swift
 //  Cactus
 //
-//  Created by Neil Poulin on 2/7/20.
+//  Created by Neil Poulin on 2/28/20.
 //  Copyright © 2020 Cactus. All rights reserved.
 //
 
@@ -10,15 +10,16 @@ import Foundation
 import Firebase
 import FirebaseFirestore
 
-class SubscriptionProductService {
-    static var sharedInstance = SubscriptionProductService()
+class SubscriptionProductGroupService {
+    static var sharedInstance = SubscriptionProductGroupService()
     let flamelinkService: FlamelinkService
-    let logger = Logger("SubscriptionProductService")
-    let schema = FlamelinkSchema.subscriptionProducts
+    var logger = Logger("SubscriptionProductGroupService")
+    let schema = FlamelinkSchema.subscriptionProductGroups
     
     private init() {
         self.flamelinkService = FlamelinkService.sharedInstance
     }
+    
     
     func getBaseQuery() -> Query {
         return self.flamelinkService.getQuery(self.schema)
@@ -34,8 +35,8 @@ class SubscriptionProductService {
         }
     }
     
-    func getAllForSale(_ completed: @escaping (FlamelinkQueryResult<SubscriptionProduct>) -> Void) {
-        let query = self.getBaseQuery().whereField(SubscriptionProduct.Fields.availableForSale, isEqualTo: true)
+    func getAll(_ completed: @escaping (FlamelinkQueryResult<SubscriptionProductGroup>) -> Void) {
+        let query = self.getBaseQuery()
         self.flamelinkService.executeQuery(query) { (results, error) in
             completed(FlamelinkQueryResult(results, error))
         }

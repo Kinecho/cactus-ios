@@ -27,8 +27,12 @@ enum BillingPeriod: String, Codable {
     }
 }
 
+class SubscriptionProductField {
+    public static let availableForSale = "availableForSale"
+}
+
 class SubscriptionProduct: FlamelinkIdentifiable {
-    
+    static var Fields = SubscriptionProductField.self
     static var schema = FlamelinkSchema.subscriptionProducts
     var _fl_meta_: FlamelinkMeta?
     var order: Int?
@@ -37,6 +41,10 @@ class SubscriptionProduct: FlamelinkIdentifiable {
     
     var displayName: String
     var priceCentsUsd: Int
+    var subscriptionTier: SubscriptionTier = SubscriptionTier.UNKNOWN
     var billingPeriod: BillingPeriod
     var appleProductId: String?
+    var availableForSale: Bool = false
+    var savingsCopy: String?
+    var stripePlanId: String?
 }

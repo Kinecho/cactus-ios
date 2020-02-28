@@ -9,6 +9,19 @@
 import Foundation
 import UIKit
 
+enum IconType: String, Codable {
+    case heart
+    case check
+    case lock
+    case calendar
+    case journal
+    case unknown
+    
+    public init(from decoder: Decoder) throws {
+        self = try IconType(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .unknown
+    }
+}
+
 enum CactusImage: String {
     
     //Avatars
