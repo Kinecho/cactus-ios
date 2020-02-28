@@ -27,25 +27,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="wvf-ef-nZX">
-                                <rect key="frame" x="40" y="84" width="334" height="44"/>
+                                <rect key="frame" x="40" y="84" width="334" height="42"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="QrN-Yf-3kG">
-                                        <rect key="frame" x="0.0" y="0.0" width="334" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="42"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscription Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYx-Kx-eNe">
-                                                <rect key="frame" x="0.0" y="0.0" width="152.5" height="22"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="21"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                                 <color key="textColor" name="TextDefault"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscribed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y98-nY-XO7" userLabel="Current Status">
-                                                <rect key="frame" x="0.0" y="22" width="87.5" height="22"/>
+                                                <rect key="frame" x="0.0" y="21" width="92.5" height="21"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                                 <color key="textColor" name="TextDefault"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HcO-De-e0n" userLabel="Features StackView">
-                                                <rect key="frame" x="0.0" y="44" width="110" height="0.0"/>
+                                                <rect key="frame" x="0.0" y="42" width="110" height="0.0"/>
                                             </stackView>
                                         </subviews>
                                     </stackView>
@@ -165,14 +165,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8Yu-ca-ivi">
-                            <size key="itemSize" width="275" height="175"/>
+                            <size key="itemSize" width="466" height="175"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SubscriptionProductCell" translatesAutoresizingMaskIntoConstraints="NO" id="4ve-kS-0DE" customClass="SubscriptionProductCell" customModule="Cactus" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="SubscriptionProductCell" translatesAutoresizingMaskIntoConstraints="NO" id="4ve-kS-0DE" customClass="SubscriptionProductCell" customModule="Cactus" customModuleProvider="target">
+                                <rect key="frame" x="-26" y="0.0" width="466" height="175"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gX-uJ-TgP">
+                                    <rect key="frame" x="0.0" y="0.0" width="466" height="175"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="120" translatesAutoresizingMaskIntoConstraints="NO" id="mlg-un-mwi">
                                             <rect key="frame" x="20" y="20" width="118.5" height="166.5"/>
@@ -201,10 +203,10 @@
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <constraints>
-                                    <constraint firstItem="9gX-uJ-TgP" firstAttribute="leading" secondItem="4ve-kS-0DE" secondAttribute="leadingMargin" constant="-8" id="yNg-Jr-Kzv"/>
-                                    <constraint firstItem="9gX-uJ-TgP" firstAttribute="top" secondItem="4ve-kS-0DE" secondAttribute="topMargin" constant="-8" id="zzY-cs-92c"/>
+                                    <constraint firstItem="9gX-uJ-TgP" firstAttribute="leading" secondItem="4ve-kS-0DE" secondAttribute="leadingMargin" constant="-8" id="AXn-fx-Veh"/>
+                                    <constraint firstItem="9gX-uJ-TgP" firstAttribute="top" secondItem="4ve-kS-0DE" secondAttribute="topMargin" constant="-8" id="MeI-82-hsc"/>
                                 </constraints>
-                                <size key="customSize" width="275" height="175"/>
+                                <size key="customSize" width="466" height="175"/>
                                 <connections>
                                     <outlet property="priceLabel" destination="aJk-lZ-T8S" id="aoh-n5-odS"/>
                                     <outlet property="title" destination="lTn-dm-DMZ" id="K3U-ty-fBe"/>
@@ -222,7 +224,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iaZ-iC-J5o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1191" y="316"/>
+            <point key="canvasLocation" x="1189.8550724637682" y="315.40178571428572"/>
         </scene>
     </scenes>
     <resources>

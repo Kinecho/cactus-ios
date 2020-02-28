@@ -9,12 +9,21 @@
 import Foundation
 
 enum BillingPeriod: String, Codable {
+    case never
+    case once
+    case weekly
     case monthly
     case yearly
     case unknown
     
     public init (from decoder: Decoder) throws {
         self = try BillingPeriod(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .unknown
+    }
+    
+    static let displaySortOrder: [BillingPeriod] = [BillingPeriod.never, BillingPeriod.once, BillingPeriod.weekly, BillingPeriod.monthly, BillingPeriod.yearly]
+    
+    var displaySortOrder: Int {
+        return BillingPeriod.displaySortOrder.firstIndex(of: self) ?? 0
     }
 }
 

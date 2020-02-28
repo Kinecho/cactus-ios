@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 public class CactusMemberField: BaseModelField {
-
     static public let email = "email"
     static public let firstName = "firstName"
     static public let lastName = "lastName"
@@ -73,6 +72,10 @@ struct PromptSendTime: Codable {
     }
 }
 
+struct MemberStripeDetails: Codable {
+    var customerId: String?
+}
+
 class CactusMember: FirestoreIdentifiable, Hashable {
     static let collectionName = FirestoreCollectionName.members
     static let Field = CactusMemberField.self
@@ -90,12 +93,17 @@ class CactusMember: FirestoreIdentifiable, Hashable {
     var fcmTokens: [String]?
     var firebaseInstanceIds: [String]?
     var mailchimpListMember: ListMember?
-    var languageCode: String?
+    
     var notificationSettings: [String: String]? = [:]
     var stats: MemberStats?
+    
     var timeZone: String?
+    var locale: String?
     var promptSendTime: PromptSendTime?
-        
+    
+    var subscription: MemberSubscription?
+    var stripe: MemberStripeDetails?
+    
     static func == (lhs: CactusMember, rhs: CactusMember) -> Bool {
         return lhs.id != nil && rhs.id != nil && lhs.id == rhs.id
     }

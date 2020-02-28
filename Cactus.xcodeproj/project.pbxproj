@@ -438,6 +438,16 @@
 		3072744D236A56AD00309B3C /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072744B236A56AD00309B3C /* ModalViewController.swift */; };
 		3072744F236B504B00309B3C /* JournalHomeEmptyStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072744E236B504B00309B3C /* JournalHomeEmptyStateViewController.swift */; };
 		30727450236B504B00309B3C /* JournalHomeEmptyStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072744E236B504B00309B3C /* JournalHomeEmptyStateViewController.swift */; };
+		307ED78B24084085008D26C6 /* MemberSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED78A24084085008D26C6 /* MemberSubscription.swift */; };
+		307ED78C24084085008D26C6 /* MemberSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED78A24084085008D26C6 /* MemberSubscription.swift */; };
+		307ED78D24084085008D26C6 /* MemberSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED78A24084085008D26C6 /* MemberSubscription.swift */; };
+		307ED78F24086E82008D26C6 /* SubscriptionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED78E24086E82008D26C6 /* SubscriptionUtil.swift */; };
+		307ED79024086E82008D26C6 /* SubscriptionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED78E24086E82008D26C6 /* SubscriptionUtil.swift */; };
+		307ED79124086E82008D26C6 /* SubscriptionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED78E24086E82008D26C6 /* SubscriptionUtil.swift */; };
+		307ED7952408748C008D26C6 /* MemberSubscriptionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED7922408748C008D26C6 /* MemberSubscriptionTest.swift */; };
+		307ED79B24088C7E008D26C6 /* UpgradeJournalFeedCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED79A24088C7E008D26C6 /* UpgradeJournalFeedCollectionReusableView.swift */; };
+		307ED79C24088C7E008D26C6 /* UpgradeJournalFeedCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED79A24088C7E008D26C6 /* UpgradeJournalFeedCollectionReusableView.swift */; };
+		307ED79D24088C7E008D26C6 /* UpgradeJournalFeedCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED79A24088C7E008D26C6 /* UpgradeJournalFeedCollectionReusableView.swift */; };
 		308446F122ECAE0100FB0683 /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
 		3084E955234802C300788279 /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E954234802C300788279 /* TermsOfServiceViewController.swift */; };
 		3084E956234802C300788279 /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E954234802C300788279 /* TermsOfServiceViewController.swift */; };
@@ -779,6 +789,10 @@
 		30727448236A4AC200309B3C /* CactusElementPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusElementPageViewController.swift; sourceTree = "<group>"; };
 		3072744B236A56AD00309B3C /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		3072744E236B504B00309B3C /* JournalHomeEmptyStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalHomeEmptyStateViewController.swift; sourceTree = "<group>"; };
+		307ED78A24084085008D26C6 /* MemberSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberSubscription.swift; sourceTree = "<group>"; };
+		307ED78E24086E82008D26C6 /* SubscriptionUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionUtil.swift; sourceTree = "<group>"; };
+		307ED7922408748C008D26C6 /* MemberSubscriptionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberSubscriptionTest.swift; sourceTree = "<group>"; };
+		307ED79A24088C7E008D26C6 /* UpgradeJournalFeedCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeJournalFeedCollectionReusableView.swift; sourceTree = "<group>"; };
 		308446F022ECAE0100FB0683 /* MailchimpModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailchimpModels.swift; sourceTree = "<group>"; };
 		308446F222ECB23B00FB0683 /* Cactus Stage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cactus Stage.entitlements"; sourceTree = "<group>"; };
 		308446F322ECB24F00FB0683 /* Cactus Prod.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cactus Prod.entitlements"; sourceTree = "<group>"; };
@@ -1044,6 +1058,7 @@
 				303C9E3F23841FAD006B9786 /* ReflectionResponseTest.swift */,
 				303C9E49238F29E6006B9786 /* SharingServiceTest.swift */,
 				3009EE5A23C98F4400002CCB /* DateUtilTests.swift */,
+				307ED7922408748C008D26C6 /* MemberSubscriptionTest.swift */,
 			);
 			path = "Cactus UnitTests";
 			sourceTree = "<group>";
@@ -1110,6 +1125,7 @@
 				3020DD932363F37D00EC40AE /* UIImageViewAligned.swift */,
 				3062201E23EC7A0A002FAAD9 /* MarkdownTextView.swift */,
 				300FCD0523EE811200089CFB /* SubscriptionProductCell.swift */,
+				307ED79A24088C7E008D26C6 /* UpgradeJournalFeedCollectionReusableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1126,6 +1142,7 @@
 				302C4F4B2347E25A00798560 /* DateUtil.swift */,
 				3018B11F2376041A0005333A /* LoggerUtil.swift */,
 				303C9DB0237E2AB4006B9786 /* LinkHandlerUtil.swift */,
+				307ED78E24086E82008D26C6 /* SubscriptionUtil.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1328,6 +1345,7 @@
 				30727436236A312800309B3C /* CactusConstants.swift */,
 				303C9E412384778A006B9786 /* MemberProfile.swift */,
 				300FCCFC23EE3B5F00089CFB /* SubscriptionProduct.swift */,
+				307ED78A24084085008D26C6 /* MemberSubscription.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1993,6 +2011,7 @@
 				303C9DBE237F5E34006B9786 /* URLExtensionTest.swift in Sources */,
 				303C9DF523841ABB006B9786 /* NotificationsTableViewController.swift in Sources */,
 				303C9E4A238F29E6006B9786 /* SharingServiceTest.swift in Sources */,
+				307ED78D24084085008D26C6 /* MemberSubscription.swift in Sources */,
 				303C9E3A23841AFC006B9786 /* UIImage+SwiftyGif.swift in Sources */,
 				30D0E44C236C920000EFC0E3 /* ColorExtensions.swift in Sources */,
 				30D0E449236C89DA00EFC0E3 /* CactusConstants.swift in Sources */,
@@ -2029,6 +2048,7 @@
 				3062201823EB1B68002FAAD9 /* FirebaseInAppMessageDelegate.swift in Sources */,
 				303C9E3223841AEB006B9786 /* ImageService.swift in Sources */,
 				303C9E1823841AC6006B9786 /* EditReflectionViewController.swift in Sources */,
+				307ED79124086E82008D26C6 /* SubscriptionUtil.swift in Sources */,
 				303C9DE623841AB6006B9786 /* EmotionsAnimationViewController.swift in Sources */,
 				303C9DDB23841A1B006B9786 /* AppMainViewController.swift in Sources */,
 				305CB10623D049E30046E8A8 /* ContactsTableViewController.swift in Sources */,
@@ -2056,11 +2076,13 @@
 				303C9DF323841ABB006B9786 /* FeedbackViewController.swift in Sources */,
 				303C9DF123841ABB006B9786 /* PrivacyPolicyViewController.swift in Sources */,
 				305424EC23AC0432003F82A2 /* UIStackViewExtensionis.swift in Sources */,
+				307ED79D24088C7E008D26C6 /* UpgradeJournalFeedCollectionReusableView.swift in Sources */,
 				303C9DEC23841AB6006B9786 /* RelationshipsAnimationViewController.swift in Sources */,
 				303C9DD7238419DD006B9786 /* LinkHandlerUtil.swift in Sources */,
 				303C9E1423841AC6006B9786 /* CactusElementDetailViewController.swift in Sources */,
 				303C9DF623841ABB006B9786 /* NotificationTimeOfDayViewController.swift in Sources */,
 				305B18742331A8F0003E1561 /* MarkdownUtil.swift in Sources */,
+				307ED7952408748C008D26C6 /* MemberSubscriptionTest.swift in Sources */,
 				30D0E451236C921200EFC0E3 /* FontExtensions.swift in Sources */,
 				303C9DC5237F6799006B9786 /* StorageService.swift in Sources */,
 				303C9DE823841AB6006B9786 /* ExperienceAnimationViewController.swift in Sources */,
@@ -2222,6 +2244,7 @@
 				30D7385E23CFFC62006F4DA6 /* InviteContentViewController.swift in Sources */,
 				30D7386E23D00C0C006F4DA6 /* CircleImageView.swift in Sources */,
 				304EA2F42343B730001FB8AD /* CountProcess.swift in Sources */,
+				307ED78C24084085008D26C6 /* MemberSubscription.swift in Sources */,
 				30E9B0AA22EAD68B005B25FD /* AppMainViewController.swift in Sources */,
 				30727447236A4A3200309B3C /* CactusElementDetailViewController.swift in Sources */,
 				30BF2E122328230E00A49EB6 /* FirebaseExtensions.swift in Sources */,
@@ -2279,6 +2302,7 @@
 				3084E96D234BC5FE00788279 /* PrimaryButton.swift in Sources */,
 				3072744D236A56AD00309B3C /* ModalViewController.swift in Sources */,
 				303C9E4723847A3B006B9786 /* MemberProfileService.swift in Sources */,
+				307ED79024086E82008D26C6 /* SubscriptionUtil.swift in Sources */,
 				30BF2E1523282BD600A49EB6 /* PromptContentService.swift in Sources */,
 				30BC2D01234EA63E00AB7B89 /* AuthProviderTableViewCell.swift in Sources */,
 				30E9B09B22EA6A84005B25FD /* FirestoreService.swift in Sources */,
@@ -2300,6 +2324,7 @@
 				3018B1212376041A0005333A /* LoggerUtil.swift in Sources */,
 				305424EB23AC0432003F82A2 /* UIStackViewExtensionis.swift in Sources */,
 				30727435236A295300309B3C /* AppSettingsService.swift in Sources */,
+				307ED79C24088C7E008D26C6 /* UpgradeJournalFeedCollectionReusableView.swift in Sources */,
 				303C9DCF237FD7D1006B9786 /* ViewSharedReflectionViewController.swift in Sources */,
 				30E9B0A422EAC204005B25FD /* AuthService.swift in Sources */,
 				30AB8EDA237C86910048CFD2 /* NotificationOnboardingViewController.swift in Sources */,
@@ -2366,6 +2391,7 @@
 				30D7385D23CFFC62006F4DA6 /* InviteContentViewController.swift in Sources */,
 				30D7386D23D00C0C006F4DA6 /* CircleImageView.swift in Sources */,
 				304EA2F32343B730001FB8AD /* CountProcess.swift in Sources */,
+				307ED78B24084085008D26C6 /* MemberSubscription.swift in Sources */,
 				30BF2E0B232816CC00A49EB6 /* PromptContentService.swift in Sources */,
 				30727446236A4A3200309B3C /* CactusElementDetailViewController.swift in Sources */,
 				30E9B0A922EAD68B005B25FD /* AppMainViewController.swift in Sources */,
@@ -2423,6 +2449,7 @@
 				3084E96C234BC5FE00788279 /* PrimaryButton.swift in Sources */,
 				3072744C236A56AD00309B3C /* ModalViewController.swift in Sources */,
 				303C9E4623847A3B006B9786 /* MemberProfileService.swift in Sources */,
+				307ED78F24086E82008D26C6 /* SubscriptionUtil.swift in Sources */,
 				30C49D3822EC2D4C00A2EA95 /* CactusColor.swift in Sources */,
 				30BC2D00234EA63E00AB7B89 /* AuthProviderTableViewCell.swift in Sources */,
 				30BF2E11232822E600A49EB6 /* FirebaseExtensions.swift in Sources */,
@@ -2444,6 +2471,7 @@
 				3018B1202376041A0005333A /* LoggerUtil.swift in Sources */,
 				305424EA23AC0432003F82A2 /* UIStackViewExtensionis.swift in Sources */,
 				30727434236A295300309B3C /* AppSettingsService.swift in Sources */,
+				307ED79B24088C7E008D26C6 /* UpgradeJournalFeedCollectionReusableView.swift in Sources */,
 				303C9DCE237FD7D1006B9786 /* ViewSharedReflectionViewController.swift in Sources */,
 				30E9B09D22EA7FC3005B25FD /* CactusMember.swift in Sources */,
 				30AB8ED9237C86910048CFD2 /* NotificationOnboardingViewController.swift in Sources */,

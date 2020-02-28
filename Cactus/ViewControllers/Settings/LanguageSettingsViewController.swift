@@ -9,12 +9,12 @@
 import UIKit
 
 struct LanguageChoice {
-    var value: String
+    var locale: String
     var title: String
     var enabled: Bool
     init(title: String, value: String, enabled: Bool = true) {
         self.title = title
-        self.value = value
+        self.locale = value
         self.enabled = enabled
     }
 }
@@ -22,7 +22,7 @@ struct LanguageChoice {
 class LanguageSettingsViewController: UIViewController {
     @IBOutlet weak var languagePickerView: UIPickerView!
     let languages: [LanguageChoice] = [
-            LanguageChoice(title: "English", value: "en"),
+            LanguageChoice(title: "English", value: "en-US"),
 //            LanguageChoice(title: "Spanish", value: "es", enabled: false),
        ]
     var chosenLanguage: LanguageChoice?
@@ -33,9 +33,9 @@ class LanguageSettingsViewController: UIViewController {
         languagePickerView.dataSource = self
         languagePickerView.delegate = self
         
-        let prefLangCode = CactusMemberService.sharedInstance.currentMember?.languageCode
+        let userLocale = CactusMemberService.sharedInstance.currentMember?.locale
         let currentIndex = self.languages.firstIndex(where: { (lang) -> Bool in
-            lang.value == prefLangCode
+            lang.locale == userLocale
         })
         
         languagePickerView.selectRow(currentIndex ?? 0, inComponent: 0, animated: false)

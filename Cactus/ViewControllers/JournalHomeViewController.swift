@@ -272,7 +272,12 @@ class JournalHomeViewController: UIViewController {
     
     func updateViewForMember(member: CactusMember?) {
 //        self.journalFeedDataSource?.curr
-        self.logger.info("Update view for member (nothing implemented)", functionName: #function)
+        self.logger.info("Update view for member", functionName: #function)
+        if member?.subscription?.isInTrial == true {
+            self.showTrialBanner()
+        } else {
+            self.hideTrialBanner()
+        }
     }
     
     func updateViewForUser(user: Firebase.User?) {
@@ -282,7 +287,15 @@ class JournalHomeViewController: UIViewController {
         } else {
             self.profileImageView.image = CactusImage.avatar3.getImage()
         }
-        
+    }
+    
+    func hideTrialBanner() {
+        self.logger.debug("hiding trial banner")
+    }
+    
+    func showTrialBanner() {
+        let daysLeft = self.member.subscription?.trialDaysLeft
+        self.logger.debug("showing trial banner with \(daysLeft ?? 0) days left")
     }
     
     @objc func profileImageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
