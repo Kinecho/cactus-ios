@@ -49,7 +49,7 @@ struct CactusColor {
     static let noteBackground: UIColor = UIColor(named: "NoteBackground")!
     static let beige: UIColor = UIColor(hex: "F0ECEA")
     static let darkBeige: UIColor = UIColor(hex: "E5DFDB")
-    static let magenta: UIColor = UIColor(hex: "CC33A1")
+    static let magenta: UIColor = UIColor(named: "Magenta")!
     
     static let fancyLinkHighlight = CactusColor.darkPink
     static let promptBackground: UIColor = UIColor(named: "PromptBackground")!

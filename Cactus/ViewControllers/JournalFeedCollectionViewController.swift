@@ -36,6 +36,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         return CGSize(width: width - sectionInsets.left - sectionInsets.right - contentInsetWidth, height: defaultCellHeight)
     }
  
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
 
         // Get the view for the first header
@@ -53,8 +54,8 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         
     }
     override func viewDidLoad() {
-        super.viewDidLoad()
-                        
+        super.viewDidLoad()                                
+        
         self.collectionView.prefetchDataSource = self
         layout.estimatedItemSize = getCellEstimatedSize(self.view.bounds.size)
         let notificationCenter = NotificationCenter.default
@@ -74,6 +75,11 @@ class JournalFeedCollectionViewController: UICollectionViewController {
                 self.collectionViewLayout.invalidateLayout()
             }
         })
+        
+    }
+    
+    
+    @IBAction func upgradeTapped(_ sender: Any) {
         
     }
     
@@ -157,6 +163,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         guard let upgradeView = headerView as? UpgradeJournalFeedCollectionReusableView else {
             return headerView
         }
+        
         let member = self.member
         let isActivated = member?.subscription?.isActivated ?? false
         let inTrial = member?.subscription?.isInTrial ?? false
@@ -169,7 +176,12 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         }
         
         if inTrial {
-            upgradeView.titleLabel.text = "\(daysLeft ?? 0) in trial"
+            if daysLeft == 1 {
+                upgradeView.titleLabel.text = "Trial ends today"
+            } else {
+                upgradeView.titleLabel.text = "\(daysLeft ?? 0) days left in trial"
+            }
+            
             upgradeView.descriptionLabel.text = "After your trial of Cactus Plus, you'll continue to get free prompts, but only occasionally."
                 + " Give your reflection practice momentum by receiving a fresh prompt, every day"
         } else {
