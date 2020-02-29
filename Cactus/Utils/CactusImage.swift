@@ -20,6 +20,19 @@ enum IconType: String, Codable {
     public init(from decoder: Decoder) throws {
         self = try IconType(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .unknown
     }
+    
+    var image: UIImage? {
+        switch self {
+        case .heart:
+            if #available(iOS 13.0, *) {
+                return UIImage(systemName: "heart.fill")
+            } else {
+                return nil
+            }
+        default:
+            return nil
+        }
+    }
 }
 
 enum CactusImage: String {

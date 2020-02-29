@@ -11,6 +11,11 @@ import UIKit
 class PricingViewController: UIViewController {
     
     @IBOutlet weak var planStackView: UIStackView!
+    @IBOutlet weak var footerStackView: UIStackView!
+    
+    @IBOutlet weak var footerDescriptionLabel: UILabel!
+    @IBOutlet weak var footerIcon: UIImageView!
+    
     let logger = Logger("PricingViewController")
     var productsLoaded = false
     var productGroupEntryMap: SubscriptionProductGroupEntryMap? {
@@ -20,7 +25,6 @@ class PricingViewController: UIViewController {
             }
         }
     }
-    
     
     @IBOutlet weak var closeButton: UIButton!
     override func viewDidLoad() {
@@ -45,11 +49,22 @@ class PricingViewController: UIViewController {
             }
             return
         }
+        if let footer = groupEntry.productGroup?.footer {
+            self.footerDescriptionLabel.attributedText = MarkdownUtil.toMarkdown(footer.textMarkdown)
+            self.footerIcon.image = footer.icon?.image
+            self.footerIcon.isHidden = footer.icon?.image == nil
+            self.footerStackView.isHidden = false
+        } else {
+            self.footerStackView.isHidden = true
+        }
         
         groupEntry.products.forEach { (product) in
             let planView = SubscriptionPlanOptionView()
             planView.subscriptionProduct = product
             self.configurePlanTapGesture(planView: planView)
+            if product.billingPeriod == groupEntry.defaultSelectedPeriod {
+                planView.selected = true
+            }
             self.planStackView.addArrangedSubview(planView)
         }
         

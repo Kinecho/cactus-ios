@@ -9,7 +9,7 @@
 import Foundation
 
 struct ProductGroupFooter: Codable {
-    var iconType: IconType?
+    var icon: IconType?
     var textMarkdown: String?
 }
 
