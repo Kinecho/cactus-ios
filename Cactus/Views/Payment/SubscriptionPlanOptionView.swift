@@ -16,7 +16,9 @@ class SubscriptionPlanOptionView: UIView {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var periodLabel: UILabel!
     @IBOutlet weak var dividerLabel: UILabel!
+    @IBOutlet weak var savingsCopyLabel: UILabel!
     
+    @IBOutlet weak var savingsContainerView: UIView!
     var subscriptionProduct: SubscriptionProduct? {
         didSet {
             self.configureProduct()
@@ -48,6 +50,7 @@ class SubscriptionPlanOptionView: UIView {
         let view = loadViewFromNib()
         view.frame = self.bounds
         self.view = view
+        self.view.clipsToBounds = true
         self.addSubview(view)
         self.configure()
                 
@@ -59,30 +62,44 @@ class SubscriptionPlanOptionView: UIView {
             return
         }
         
-        self.titleLabel.text = product.billingPeriod.productTitle
+        self.titleLabel.text = product.billingPeriod.productTitle?.uppercased()
         self.priceLabel.text = product.isFree ? "Free" : formatPriceCents(product.priceCentsUsd)
         
-        self.periodLabel.text = product.billingPeriod.displayName
+        self.periodLabel.text = "per \(product.billingPeriod.displayName ?? "")"
         self.periodLabel.isHidden = product.isFree
-        self.dividerLabel.isHidden = product.billingPeriod.displayName == nil
-         
+//        self.dividerLabel.isHidden = product.billingPeriod.displayName == nil
+        self.dividerLabel.isHidden = true
+        
+        if let savingsCopy = product.savingsCopy {
+            self.savingsCopyLabel.text = savingsCopy
+            self.savingsContainerView.isHidden = false
+            
+        } else {
+            self.savingsContainerView.isHidden = true
+        }
+        
         self.isHidden = false
     }
     
     func configure() {
-        self.layer.borderColor = CactusColor.white.withAlphaComponent(0.6).cgColor
-        self.layer.borderWidth = CGFloat(1)
-        self.layer.cornerRadius = CGFloat(12)
+//        self.layer.borderColor = CactusColor.white.withAlphaComponent(0.6).cgColor
+//        self.layer.borderWidth = CGFloat(1)
+//        self.layer.cornerRadius = CGFloat(12)
+        self.backgroundColor = .clear
+        self.view.backgroundColor = .clear
+        self.view.layer.borderColor = CactusColor.white.withAlphaComponent(0.6).cgColor
+        self.view.layer.borderWidth = CGFloat(1)
+        self.view.layer.cornerRadius = CGFloat(12)
     }
         
     override func layoutSubviews() {
         super.layoutSubviews()
         
         if self.selected {
-            self.backgroundColor = CactusColor.white
+            self.view.backgroundColor = CactusColor.white
             self.setTextColor(self.selectedTextColor)
         } else {
-            self.backgroundColor = .clear
+            self.view.backgroundColor = .clear
             self.setTextColor(self.defaultTextColor)
         }
     }

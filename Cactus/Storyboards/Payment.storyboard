@@ -229,9 +229,9 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="VNa-O1-1V1" userLabel="Plan StackVIew">
-                                                                        <rect key="frame" x="8" y="0.0" width="398" height="100"/>
+                                                                        <rect key="frame" x="8" y="0.0" width="398" height="130"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="100" id="iWt-nN-b4f"/>
+                                                                            <constraint firstAttribute="height" constant="130" id="iWt-nN-b4f"/>
                                                                         </constraints>
                                                                         <edgeInsets key="layoutMargins" top="0.0" left="20" bottom="0.0" right="20"/>
                                                                     </stackView>
