@@ -25,6 +25,40 @@ enum BillingPeriod: String, Codable {
     var displaySortOrder: Int {
         return BillingPeriod.displaySortOrder.firstIndex(of: self) ?? 0
     }
+    
+    var displayName: String? {
+        switch(self) {
+        case .never:
+            return nil
+        case .once:
+            return "once"
+        case .weekly:
+            return "week"
+        case .monthly:
+            return "month"
+        case .yearly:
+            return "year"
+        case .unknown:
+            return nil
+        }
+    }
+    
+    var productTitle: String? {
+        switch(self) {
+        case .never:
+            return "Free"
+        case .once:
+            return "One Time"
+        case .weekly:
+            return "Weekly"
+        case .monthly:
+            return "Monthly"
+        case .yearly:
+            return "Annual"
+        case .unknown:
+            return nil             
+        }
+    }
 }
 
 class SubscriptionProductField {
@@ -47,4 +81,8 @@ class SubscriptionProduct: FlamelinkIdentifiable {
     var availableForSale: Bool = false
     var savingsCopy: String?
     var stripePlanId: String?
+    
+    var isFree: Bool {
+        return self.billingPeriod == .never || self.priceCentsUsd == 0
+    }
 }

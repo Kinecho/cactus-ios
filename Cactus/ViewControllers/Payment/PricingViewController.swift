@@ -48,10 +48,7 @@ class PricingViewController: UIViewController {
         
         groupEntry.products.forEach { (product) in
             let planView = SubscriptionPlanOptionView()
-            planView.priceLabel.text = formatPriceCents(product.priceCentsUsd)
-            planView.titleLabel.text = product.billingPeriod.rawValue
-            planView.periodLabel.text = product.billingPeriod.rawValue
-            
+            planView.subscriptionProduct = product
             self.configurePlanTapGesture(planView: planView)
             self.planStackView.addArrangedSubview(planView)
         }

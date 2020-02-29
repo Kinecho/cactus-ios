@@ -19,6 +19,7 @@ class UpgradeJournalFeedCollectionReusableView: UICollectionReusableView {
     @IBInspectable var borderRadius: CGFloat = 0
     
     var addedBackground = false
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initSubviews()

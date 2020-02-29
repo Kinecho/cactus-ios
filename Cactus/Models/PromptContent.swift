@@ -236,6 +236,7 @@ struct PromptContentField {
     static let entryId = "entryId"
     static let promptId = "promptId"
     static let contentStatus = "contentStatus"
+    static let subscriptionTiers = "subscriptionTiers"
 }
 
 class PromptContent: FlamelinkIdentifiable {
@@ -252,6 +253,7 @@ class PromptContent: FlamelinkIdentifiable {
     var shareReflectionCopy_md: String?
     var cactusElement: CactusElement?
     var contentStatus: ContentStatus = .unknown
+    var subscriptionTiers: [SubscriptionTier] = []
     
     enum CodingKeys: String, CodingKey {
         case _fl_meta_
@@ -265,6 +267,7 @@ class PromptContent: FlamelinkIdentifiable {
         case shareReflectionCopy_md
         case cactusElement
         case contentStatus
+        case subscriptionTiers
     }
     
     public required init(from decoder: Decoder) throws {
@@ -281,6 +284,7 @@ class PromptContent: FlamelinkIdentifiable {
         self.shareReflectionCopy_md = try? values.decode(String.self, forKey: .shareReflectionCopy_md)
         self.cactusElement = try? values.decode(CactusElement.self, forKey: .cactusElement)
         self.contentStatus = (try? values.decode(ContentStatus.self, forKey: .contentStatus)) ?? .unknown
+        self.subscriptionTiers = (try? values.decode([SubscriptionTier].self, forKey: .subscriptionTiers)) ?? []
     }
     
     func getQuestion() -> String? {

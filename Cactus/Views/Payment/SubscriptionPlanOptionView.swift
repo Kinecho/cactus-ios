@@ -17,6 +17,12 @@ class SubscriptionPlanOptionView: UIView {
     @IBOutlet weak var periodLabel: UILabel!
     @IBOutlet weak var dividerLabel: UILabel!
     
+    var subscriptionProduct: SubscriptionProduct? {
+        didSet {
+            self.configureProduct()
+        }
+    }
+    
     var selectedTextColor: UIColor = CactusColor.textWhite
     var defaultTextColor: UIColor = CactusColor.textDefault
     
@@ -45,6 +51,22 @@ class SubscriptionPlanOptionView: UIView {
         self.addSubview(view)
         self.configure()
                 
+    }
+    
+    func configureProduct() {
+        guard let product = self.subscriptionProduct else {
+            self.isHidden = true
+            return
+        }
+        
+        self.titleLabel.text = product.billingPeriod.productTitle
+        self.priceLabel.text = product.isFree ? "Free" : formatPriceCents(product.priceCentsUsd)
+        
+        self.periodLabel.text = product.billingPeriod.displayName
+        self.periodLabel.isHidden = product.isFree
+        self.dividerLabel.isHidden = product.billingPeriod.displayName == nil
+         
+        self.isHidden = false
     }
     
     func configure() {
