@@ -33,34 +33,34 @@
                     <rect key="frame" x="0.0" y="0.0" width="200" height="130"/>
                     <subviews>
                         <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sOf-fc-uJO">
-                            <rect key="frame" x="0.0" y="17" width="200" height="76.5"/>
+                            <rect key="frame" x="0.0" y="17.5" width="200" height="75"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ANNUAL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSK-79-oeE">
-                                    <rect key="frame" x="67.5" y="0.0" width="65.5" height="19.5"/>
+                                    <rect key="frame" x="68" y="0.0" width="64.5" height="19"/>
                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                     <color key="textColor" name="TextMinimized"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="cQo-0Q-L0z" userLabel="Pricing Label StackView">
-                                    <rect key="frame" x="69.5" y="27.5" width="61.5" height="49"/>
+                                    <rect key="frame" x="69" y="27" width="62.5" height="48"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$29" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P28-YJ-AZ8" userLabel="Price Label">
-                                            <rect key="frame" x="11.5" y="0.0" width="38.5" height="26.5"/>
+                                            <rect key="frame" x="12.5" y="0.0" width="37" height="26"/>
                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="22"/>
                                             <color key="textColor" name="TextDefault"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="pJT-E8-d4C">
-                                            <rect key="frame" x="0.0" y="28.5" width="61.5" height="20.5"/>
+                                            <rect key="frame" x="0.0" y="28" width="62.5" height="20"/>
                                             <subviews>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="per" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Af-Ni-hiE" userLabel="Divider Label">
-                                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="20"/>
                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                                     <color key="textColor" name="TextDefault"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="per year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="342-5A-ZRM" userLabel="Period Label">
-                                                    <rect key="frame" x="0.0" y="0.0" width="61.5" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="62.5" height="20"/>
                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                     <color key="textColor" name="TextDefault"/>
                                                     <nil key="highlightedColor"/>

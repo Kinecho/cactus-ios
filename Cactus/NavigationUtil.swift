@@ -33,6 +33,7 @@ enum ScreenID: String {
     
     //payment
     case Pricing
+    case ManageSubscription
     
     var name: String {
         return self.rawValue
@@ -48,7 +49,8 @@ enum ScreenID: String {
             return StoryboardID.Onboarding
         case .inviteFriend:
             return StoryboardID.Social
-        case .Pricing:
+        case .Pricing,
+             .ManageSubscription:        
             return StoryboardID.Payment
         default:
             return StoryboardID.Main

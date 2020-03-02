@@ -24,11 +24,15 @@ enum IconType: String, Codable {
     var image: UIImage? {
         switch self {
         case .heart:
-            if #available(iOS 13.0, *) {
-                return UIImage(systemName: "heart.fill")
-            } else {
-                return nil
-            }
+            return CactusImage.heart.getImage()
+        case .check:
+            return CactusImage.check.getImage()
+        case .calendar:
+            return CactusImage.calendar.getImage()
+        case .journal:
+            return CactusImage.journal.getImage()
+        case .lock:
+            return CactusImage.lock.getImage()
         default:
             return nil
         }
@@ -121,6 +125,11 @@ enum CactusImage: String {
     case dots
     case share
     case creditCard
+    case check
+    case journal
+    case lock
+    case calendar
+    case heart
     
     func getImage() -> UIImage? {
         return UIImage(named: self.rawValue)

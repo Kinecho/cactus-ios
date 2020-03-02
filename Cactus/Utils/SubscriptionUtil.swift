@@ -44,7 +44,7 @@ func createSubscriptionProductGroupEntryMap(products: [SubscriptionProduct]?, gr
     }
         
     return groups.reduce([:]) { (map, group) -> SubscriptionProductGroupEntryMap in
-        var map = map;
+        var map = map
         guard let tier = group.subscriptionTier else {
             return map
         }

@@ -98,9 +98,17 @@ class SubscriptionPlanOptionView: UIView {
         if self.selected {
             self.view.backgroundColor = CactusColor.white
             self.setTextColor(self.selectedTextColor)
+            
+//            self.view.layer.borderColor = CactusColor.green.cgColor
+//            self.view.layer.borderWidth = CGFloat(4)
+//            self.view.layer.cornerRadius = CGFloat(12)
+            
         } else {
             self.view.backgroundColor = .clear
             self.setTextColor(self.defaultTextColor)
+//            self.view.layer.borderColor = CactusColor.white.withAlphaComponent(0.6).cgColor
+//            self.view.layer.borderWidth = CGFloat(1)
+//            self.view.layer.cornerRadius = CGFloat(12)
         }
     }
     

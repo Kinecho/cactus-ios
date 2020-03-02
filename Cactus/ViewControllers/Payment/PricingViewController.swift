@@ -15,6 +15,7 @@ class PricingViewController: UIViewController {
     
     @IBOutlet weak var footerDescriptionLabel: UILabel!
     @IBOutlet weak var footerIcon: UIImageView!
+    @IBOutlet weak var continueButton: PrimaryButton!
     
     let logger = Logger("PricingViewController")
     var productsLoaded = false

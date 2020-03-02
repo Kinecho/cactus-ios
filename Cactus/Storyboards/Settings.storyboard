@@ -1075,10 +1075,10 @@
             </objects>
             <point key="canvasLocation" x="649.27536231884062" y="-1013.1696428571428"/>
         </scene>
-        <!--Payment-->
+        <!--ManageSubscription-->
         <scene sceneID="fqF-Rb-a44">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="ManagePayment" storyboardName="Payment" id="Auc-ia-fPK" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="ManagePayment" storyboardName="Payment" referencedIdentifier="ManageSubscription" id="Auc-ia-fPK" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="z9S-RA-7be" userLabel="Settings"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xbj-2Y-sLE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
