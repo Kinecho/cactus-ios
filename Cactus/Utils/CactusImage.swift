@@ -62,6 +62,9 @@ enum CactusImage: String {
     case apple = "Apple"
     case envelope
 
+    //backgrounds
+    case plusBg
+    
     //Illustraions
     case pottedCactus
     

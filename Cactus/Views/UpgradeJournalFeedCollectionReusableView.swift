@@ -31,14 +31,24 @@ class UpgradeJournalFeedCollectionReusableView: UICollectionReusableView {
     }
 
     func initSubviews() {
-
+        
     }
 
     override func layoutSubviews() {
         self.titleLabel.font = CactusFont.bold(18)
         self.descriptionLabel.font = CactusFont.normal(18)
+        
         if !addedBackground {
-            self.mainStackView.addBackground(color: self.stackViewBackgroundColor, cornerRadius: self.borderRadius)
+            let imageView = UIImageView(image: CactusImage.plusBg.getImage())
+            imageView.contentMode = .scaleAspectFill
+            imageView.clipsToBounds = true
+            imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.mainStackView.insertSubview(imageView, at: 0)
+//            imageView.translatesAutoresizingMaskIntoConstraints = false
+//            imageView.topAnchor.constraint(equalTo: self.mainStackView.topAnchor, constant: 0).isActive = true
+//            imageView.bottomAnchor.constraint(equalTo: self.mainStackView.bottomAnchor, constant: 0).isActive = true
+//            imageView.leadingAnchor.constraint(equalTo: self.mainStackView.leadingAnchor, constant: 0).isActive = true
+//            imageView.trailingAnchor.constraint(equalTo: self.mainStackView.trailingAnchor, constant: 0).isActive = true
             self.addedBackground = true
         }
         

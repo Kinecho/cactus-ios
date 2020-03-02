@@ -28,7 +28,6 @@ class HelpViewController: UIViewController, MFMailComposeViewControllerDelegate 
                 mail.mailComposeDelegate = self
                 mail.setToRecipients(["help@cactus.app"])
                 mail.setSubject("Help for \(versionText)")
-    //            mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
 
                 present(mail, animated: true)
             } else {
@@ -41,26 +40,10 @@ class HelpViewController: UIViewController, MFMailComposeViewControllerDelegate 
                 alert.addAction(UIAlertAction(title: "Done", style: .cancel, handler: nil))
                 self.present(alert, animated: true)
             }
-    //        if let url = URL(string: "mailto:feedback@cactus.app?subject=iOS%20App%20Feedback%20for%20\(versionText)") {
-    //            if #available(iOS 10.0, *) {
-    //              UIApplication.shared.open(url)
-    //            } else {
-    //              UIApplication.shared.openURL(url)
-    //            }
-    //        }
         }
 
         func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
             controller.dismiss(animated: true)
         }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

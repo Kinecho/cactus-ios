@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class PricingViewController: UIViewController {
+class PricingViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var planStackView: UIStackView!
     @IBOutlet weak var footerStackView: UIStackView!
@@ -16,6 +17,9 @@ class PricingViewController: UIViewController {
     @IBOutlet weak var footerDescriptionLabel: UILabel!
     @IBOutlet weak var footerIcon: UIImageView!
     @IBOutlet weak var continueButton: PrimaryButton!
+    @IBOutlet weak var planContainerView: UIView!
+    @IBOutlet weak var continueStackView: UIStackView!
+    @IBOutlet weak var questionsTextView: UITextView!
     
     let logger = Logger("PricingViewController")
     var productsLoaded = false
@@ -32,9 +36,16 @@ class PricingViewController: UIViewController {
         super.viewDidLoad()
         
         self.closeButton.isHidden = !self.isBeingPresented
+        //Note: we are not showing products at the moment
+//        self.loadSubscriptionProducts()
         
-        self.loadSubscriptionProducts()
-        
+        self.configureQuestionsView()
+    }
+    
+    func configureQuestionsView() {
+        self.questionsTextView.delegate = self
+        self.questionsTextView.attributedText = MarkdownUtil.centeredMarkdown("Questions? Email us at [help@cactus.app](mailto:help@cactus.app).")
+        self.questionsTextView.tintColor = CactusColor.darkGreen
     }
     
     func loadSubscriptionProducts() {
@@ -50,8 +61,10 @@ class PricingViewController: UIViewController {
             }
             return
         }
+        self.planContainerView.isHidden = false
+        self.continueStackView.isHidden = false
         if let footer = groupEntry.productGroup?.footer {
-            self.footerDescriptionLabel.attributedText = MarkdownUtil.toMarkdown(footer.textMarkdown)
+            self.footerDescriptionLabel.attributedText = MarkdownUtil.toMarkdown(footer.textMarkdown)?.withColor(CactusColor.white)
             self.footerIcon.image = footer.icon?.image
             self.footerIcon.isHidden = footer.icon?.image == nil
             self.footerStackView.isHidden = false
@@ -95,5 +108,42 @@ class PricingViewController: UIViewController {
     
     @IBAction func closeTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func sendPricingEmail(_ sender: Any) {
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        let buildVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
+        let versionText = "Cactus \(appVersion ?? "") (\(buildVersion ?? "1"))"
+        
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["help@cactus.app"])
+            mail.setSubject("Help for \(versionText)")
+
+            present(mail, animated: true)
+        } else {
+            // show failure alert
+            let alert = UIAlertController(title: "Unable to open email client", message: "Please send us an email to help@cactus.app", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Copy Email Address", style: .default, handler: { _ in
+                let pasteboard = UIPasteboard.general
+                pasteboard.string = "help@cactus.app"
+            }))
+            alert.addAction(UIAlertAction(title: "Done", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
+        }
+    }
+
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+    }
+}
+
+extension PricingViewController: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
+        if URL.absoluteString.starts(with: "mailto:") {
+            self.sendPricingEmail(textView)
+        }
+        return false
     }
 }
