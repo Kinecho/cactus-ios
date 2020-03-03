@@ -31,7 +31,7 @@ class NotificationsTableViewController: UITableViewController, MFMailComposeView
     let footerView: UIView = UIView()
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.hideSkeleton();
+        tableView.hideSkeleton()
         tableView.tableFooterView = footerView
         self.updateNotificationTimeLabel()
         self.notificationObserver = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [unowned self] _ in
@@ -228,11 +228,11 @@ class NotificationsTableViewController: UITableViewController, MFMailComposeView
                     self.pushSwitch.setOn(true, animated: animated)
                     self.managePermissionsInSettings = true
                 case .denied:
-                    self.logger.debug("denied",functionName: "refreshPermissionsToggle")
+                    self.logger.debug("denied", functionName: "refreshPermissionsToggle")
                     self.managePermissionsInSettings = true
                     self.pushSwitch.setOn(false, animated: animated)
                 case .notDetermined:
-                    self.logger.debug("not determined, ask user for permission now" , functionName: "refreshPermissionsToggle")
+                    self.logger.debug("not determined, ask user for permission now", functionName: "refreshPermissionsToggle")
                     self.managePermissionsInSettings = false
                     self.pushSwitch.setOn(false, animated: animated)
                 @unknown default:

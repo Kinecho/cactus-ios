@@ -9,13 +9,13 @@
 import Foundation
 import FirebaseFirestore
 
-struct FlamelinkQueryResult<T:FlamelinkIdentifiable> {
+struct FlamelinkQueryResult<T: FlamelinkIdentifiable> {
     var results: [T]?
     var error: Any?
     
     init(_ results: [T]?, _ error: Any?=nil) {
         self.results = results
-        self.error = error;
+        self.error = error
     }
 }
 

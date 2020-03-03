@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import UIKit
+//import UIKit
 
 public class CactusMemberField: BaseModelField {
     static public let email = "email"

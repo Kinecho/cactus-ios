@@ -66,8 +66,6 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
         self.sharedStackView.isHidden = !(self.response.shared ?? false)
         
     }
-        
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

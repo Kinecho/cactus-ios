@@ -340,6 +340,21 @@
 		305424EC23AC0432003F82A2 /* UIStackViewExtensionis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305424E923AC0432003F82A2 /* UIStackViewExtensionis.swift */; };
 		3054B5BD23313EAA00AA7272 /* MarkdownUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */; };
 		3054B5BE2331424000AA7272 /* MarkdownUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */; };
+		3055D934240E902700981DA2 /* MemberSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED78A24084085008D26C6 /* MemberSubscription.swift */; };
+		3055D935240E921E00981DA2 /* SubscriptionProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCFC23EE3B5F00089CFB /* SubscriptionProduct.swift */; };
+		3055D936240E922000981DA2 /* SubscriptionProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCFC23EE3B5F00089CFB /* SubscriptionProduct.swift */; };
+		3055D937240E923C00981DA2 /* SubscriptionProductGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099D20124098EF400BD9CC4 /* SubscriptionProductGroup.swift */; };
+		3055D938240E924000981DA2 /* SubscriptionInvoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304A252B240DCC2200737C57 /* SubscriptionInvoice.swift */; };
+		3055D939240E924300981DA2 /* SubscriptionInvoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304A252B240DCC2200737C57 /* SubscriptionInvoice.swift */; };
+		3055D93A240E931900981DA2 /* SubscriptionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED78E24086E82008D26C6 /* SubscriptionUtil.swift */; };
+		3055D93B240E97AC00981DA2 /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099D1F62409740D00BD9CC4 /* SubscriptionService.swift */; };
+		3055D93D240E98BB00981DA2 /* PaymentNavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3055D93C240E98BB00981DA2 /* PaymentNavigationService.swift */; };
+		3055D93E240E98BB00981DA2 /* PaymentNavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3055D93C240E98BB00981DA2 /* PaymentNavigationService.swift */; };
+		3055D93F240E993F00981DA2 /* SubscriptionProductGroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099D1FD240974F200BD9CC4 /* SubscriptionProductGroupService.swift */; };
+		3055D940240E994400981DA2 /* SubscriptionProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCFF23EE3CD200089CFB /* SubscriptionProductService.swift */; };
+		3055D941240E994500981DA2 /* SubscriptionProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCFF23EE3CD200089CFB /* SubscriptionProductService.swift */; };
+		3055D942240E999F00981DA2 /* PaymentNavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3055D93C240E98BB00981DA2 /* PaymentNavigationService.swift */; };
+		3055D943240E99BD00981DA2 /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099D1F62409740D00BD9CC4 /* SubscriptionService.swift */; };
 		305B1863233175DC003E1561 /* PhotoContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1861233175DC003E1561 /* PhotoContentViewController.swift */; };
 		305B1864233175DC003E1561 /* PhotoContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1861233175DC003E1561 /* PhotoContentViewController.swift */; };
 		305B1865233175DC003E1561 /* PhotoContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 305B1862233175DC003E1561 /* PhotoContentViewController.xib */; };
@@ -766,6 +781,7 @@
 		305130D2234FE9F10088B51F /* InviteSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteSettingsViewController.swift; sourceTree = "<group>"; };
 		305424E923AC0432003F82A2 /* UIStackViewExtensionis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExtensionis.swift; sourceTree = "<group>"; };
 		3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownUtil.swift; sourceTree = "<group>"; };
+		3055D93C240E98BB00981DA2 /* PaymentNavigationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentNavigationService.swift; sourceTree = "<group>"; };
 		305B1861233175DC003E1561 /* PhotoContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoContentViewController.swift; sourceTree = "<group>"; };
 		305B1862233175DC003E1561 /* PhotoContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoContentViewController.xib; sourceTree = "<group>"; };
 		305B1867233178A8003E1561 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
@@ -998,6 +1014,7 @@
 			children = (
 				300FCCF223EE279500089CFB /* StoreObserver.swift */,
 				3099D1F62409740D00BD9CC4 /* SubscriptionService.swift */,
+				3055D93C240E98BB00981DA2 /* PaymentNavigationService.swift */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -2046,8 +2063,10 @@
 				307ED78D24084085008D26C6 /* MemberSubscription.swift in Sources */,
 				303C9E3A23841AFC006B9786 /* UIImage+SwiftyGif.swift in Sources */,
 				30D0E44C236C920000EFC0E3 /* ColorExtensions.swift in Sources */,
+				3055D938240E924000981DA2 /* SubscriptionInvoice.swift in Sources */,
 				30D0E449236C89DA00EFC0E3 /* CactusConstants.swift in Sources */,
 				305B187C2331A906003E1561 /* ReflectionResponse.swift in Sources */,
+				3055D935240E921E00981DA2 /* SubscriptionProduct.swift in Sources */,
 				303C9DF423841ABB006B9786 /* LanguageSettingsViewController.swift in Sources */,
 				303C9DE423841AB6006B9786 /* MeaningAnimationViewController.swift in Sources */,
 				303C9E2923841ACC006B9786 /* RoundedView.swift in Sources */,
@@ -2066,6 +2085,7 @@
 				303C9E3323841AEB006B9786 /* PromptContentService.swift in Sources */,
 				303C9DDA238419FE006B9786 /* ApiTypes.swift in Sources */,
 				303C9DEE23841AB6006B9786 /* CactusElementAnimationViewController.swift in Sources */,
+				3055D942240E999F00981DA2 /* PaymentNavigationService.swift in Sources */,
 				303C9E0023841AC1006B9786 /* PhotoContentViewController.swift in Sources */,
 				3084E96A234BACE300788279 /* FormatUtilTest.swift in Sources */,
 				303C9E0623841AC1006B9786 /* PromptContentViewController.swift in Sources */,
@@ -2077,6 +2097,7 @@
 				303C9DEF23841ABB006B9786 /* EmailSettingsViewController.swift in Sources */,
 				303C9E2F23841ACC006B9786 /* ShadowView.swift in Sources */,
 				303C9E2723841ACC006B9786 /* GrowingTextView.swift in Sources */,
+				3055D940240E994400981DA2 /* SubscriptionProductService.swift in Sources */,
 				3062201823EB1B68002FAAD9 /* FirebaseInAppMessageDelegate.swift in Sources */,
 				303C9E3223841AEB006B9786 /* ImageService.swift in Sources */,
 				303C9E1823841AC6006B9786 /* EditReflectionViewController.swift in Sources */,
@@ -2119,6 +2140,7 @@
 				30D0E451236C921200EFC0E3 /* FontExtensions.swift in Sources */,
 				303C9DC5237F6799006B9786 /* StorageService.swift in Sources */,
 				303C9DE823841AB6006B9786 /* ExperienceAnimationViewController.swift in Sources */,
+				3055D943240E99BD00981DA2 /* SubscriptionService.swift in Sources */,
 				303C9DE023841A71006B9786 /* JournalFeedFlowLayout.swift in Sources */,
 				303C9E2123841ACC006B9786 /* RoundedButton.swift in Sources */,
 				303C9E1723841AC6006B9786 /* JournalHomeEmptyStateViewController.swift in Sources */,
@@ -2189,8 +2211,11 @@
 			files = (
 				304B216623D39444007B016C /* FirestoreService.swift in Sources */,
 				304B214223D3914C007B016C /* ViewControllerExtensions.swift in Sources */,
+				3055D93A240E931900981DA2 /* SubscriptionUtil.swift in Sources */,
 				304B215423D392C2007B016C /* JournalFeedFlowLayout.swift in Sources */,
+				3055D941240E994500981DA2 /* SubscriptionProductService.swift in Sources */,
 				304B215023D392C2007B016C /* CactusTextInputField.swift in Sources */,
+				3055D939240E924300981DA2 /* SubscriptionInvoice.swift in Sources */,
 				304B213423D38F79007B016C /* FormatUtils.swift in Sources */,
 				304B213623D38F79007B016C /* AppConfig.swift in Sources */,
 				304B213223D38F65007B016C /* CactusConstants.swift in Sources */,
@@ -2208,9 +2233,12 @@
 				304B214323D3914C007B016C /* ImageExtensions.swift in Sources */,
 				304B215A23D392C2007B016C /* SecondaryButton.swift in Sources */,
 				304B213723D38F79007B016C /* MarkdownUtil.swift in Sources */,
+				3055D93F240E993F00981DA2 /* SubscriptionProductGroupService.swift in Sources */,
 				304B214C23D392B8007B016C /* InvertableImageView.swift in Sources */,
 				304B214523D3914C007B016C /* UIAlertControllerExtensions.swift in Sources */,
 				304B215223D392C2007B016C /* GrowingTextView.swift in Sources */,
+				3055D93B240E97AC00981DA2 /* SubscriptionService.swift in Sources */,
+				3055D937240E923C00981DA2 /* SubscriptionProductGroup.swift in Sources */,
 				304B213523D38F79007B016C /* CactusColor.swift in Sources */,
 				304B217223D39484007B016C /* SharingService.swift in Sources */,
 				304B215523D392C2007B016C /* MarkdownTypes.swift in Sources */,
@@ -2229,10 +2257,12 @@
 				304B217823D394E4007B016C /* AuthService.swift in Sources */,
 				304B214D23D392C2007B016C /* AuthProviderTableViewCell.swift in Sources */,
 				304B213023D38F65007B016C /* ReflectionResponse.swift in Sources */,
+				3055D936240E922000981DA2 /* SubscriptionProduct.swift in Sources */,
 				304B214A23D39233007B016C /* UIImage+SwiftyGif.swift in Sources */,
 				304B216523D3943F007B016C /* FlamelinkService.swift in Sources */,
 				304B214E23D392C2007B016C /* BorderedButton.swift in Sources */,
 				304B213F23D3914C007B016C /* ColorExtensions.swift in Sources */,
+				3055D934240E902700981DA2 /* MemberSubscription.swift in Sources */,
 				304B212B23D38F65007B016C /* FlamelinkTypes.swift in Sources */,
 				304B217023D3947F007B016C /* ReflectionResponseService.swift in Sources */,
 				304B212C23D38F65007B016C /* CactusMember.swift in Sources */,
@@ -2334,6 +2364,7 @@
 				302C4F4A2347D7A700798560 /* SettingsTableViewController.swift in Sources */,
 				305B18812331E162003E1561 /* ReflectContentViewController.swift in Sources */,
 				30E9B0BE22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
+				3055D93E240E98BB00981DA2 /* PaymentNavigationService.swift in Sources */,
 				300AC1802339839A005C6555 /* CactusImage.swift in Sources */,
 				30E9B0A122EABFBD005B25FD /* CactusMemberService.swift in Sources */,
 				30727450236B504B00309B3C /* JournalHomeEmptyStateViewController.swift in Sources */,
@@ -2485,6 +2516,7 @@
 				302C4F492347D7A700798560 /* SettingsTableViewController.swift in Sources */,
 				305B18802331E162003E1561 /* ReflectContentViewController.swift in Sources */,
 				30E9B0A022EABFBD005B25FD /* CactusMemberService.swift in Sources */,
+				3055D93D240E98BB00981DA2 /* PaymentNavigationService.swift in Sources */,
 				300AC17F2339839A005C6555 /* CactusImage.swift in Sources */,
 				30C49D3422EC299300A2EA95 /* ViewExtensions.swift in Sources */,
 				3072744F236B504B00309B3C /* JournalHomeEmptyStateViewController.swift in Sources */,

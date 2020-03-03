@@ -81,6 +81,11 @@ fastlane ios test
 fastlane ios lint
 ```
 
+### ios lintfix
+```
+fastlane ios lintfix
+```
+
 ### ios certificates
 ```
 fastlane ios certificates

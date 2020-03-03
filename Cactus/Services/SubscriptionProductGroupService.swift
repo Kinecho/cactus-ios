@@ -20,7 +20,6 @@ class SubscriptionProductGroupService {
         self.flamelinkService = FlamelinkService.sharedInstance
     }
     
-    
     func getBaseQuery() -> Query {
         return self.flamelinkService.getQuery(self.schema)
     }

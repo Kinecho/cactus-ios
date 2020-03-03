@@ -78,7 +78,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     }
     
     @IBAction func upgradeTapped(_ sender: Any) {
-        SubscriptionService.sharedInstance.learnMoreAboutUpgradeTapped(target: self)
+        learnMoreAboutUpgradeTapped(target: self)
     }
     
     func getHeaderView() -> UICollectionReusableView {

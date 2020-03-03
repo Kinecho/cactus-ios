@@ -27,7 +27,7 @@ enum BillingPeriod: String, Codable {
     }
     
     var displayName: String? {
-        switch(self) {
+        switch self {
         case .never:
             return nil
         case .once:
@@ -44,7 +44,7 @@ enum BillingPeriod: String, Codable {
     }
     
     var productTitle: String? {
-        switch(self) {
+        switch self {
         case .never:
             return "Free"
         case .once:
@@ -56,7 +56,7 @@ enum BillingPeriod: String, Codable {
         case .yearly:
             return "Annual"
         case .unknown:
-            return nil             
+            return nil
         }
     }
 }

@@ -28,7 +28,7 @@ class ManageSubscriptionViewController: UIViewController {
             }
         }
     }
-    
+    var member: CactusMember?
     var isAuthorizedForPayments: Bool {
         return false
     }
@@ -38,12 +38,13 @@ class ManageSubscriptionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.invoiceStackView.isHidden = true
-        self.paymentStackView.addBackground(color: CactusColor.lightest, cornerRadius: 6)
+        self.paymentStackView.addBackground(color: CactusColor.cardBackground, cornerRadius: 6)
         self.memberObserver = CactusMemberService.sharedInstance.observeCurrentMember { (member, error, _) in
             if let error = error {
                 self.logger.error("Failed to fetch cactus member", error)
                 return
             }
+            self.member = member
             SubscriptionService.sharedInstance.getSubscriptionDetails { (details, error) in
                 if let error = error {
                     self.logger.error("Failed to fetch subscription details", error)
@@ -61,7 +62,7 @@ class ManageSubscriptionViewController: UIViewController {
     }
     
     func configureUpcomingInvoice() {
-        guard let invoice = self.subscriptionDetails?.upcomingInvoice else {
+        guard self.member?.subscription?.isActivated == true, let invoice = self.subscriptionDetails?.upcomingInvoice else {
             self.invoiceStackView.isHidden = true
             return
         }
@@ -84,7 +85,7 @@ class ManageSubscriptionViewController: UIViewController {
             self.paymentStackView.isHidden = false
             paymentString += card.brand?.displayName ?? ""
             if let last4 = card.last4 {
-                paymentString += " ending in \(card.last4 ?? "")"
+                paymentString += " ending in \(last4)"
             }
             self.paymentMethodLabel.text = paymentString.trimmingCharacters(in: .whitespacesAndNewlines)
         } else {

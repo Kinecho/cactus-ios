@@ -46,7 +46,6 @@ class SharedReflectionViewController: UIViewController {
             return
         }
         
-        
         if FormatUtils.hasChanges(member.firstName, response.memberFirstName) ||
             FormatUtils.hasChanges(member.lastName, response.memberLastName) ||
             FormatUtils.hasChanges(member.email, response.memberEmail) {

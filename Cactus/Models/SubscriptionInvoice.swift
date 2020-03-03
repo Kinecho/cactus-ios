@@ -48,9 +48,7 @@ enum CardBrand: String, Codable {
         case .union_pay:
             return "UnionPay"
         case .visa:
-            return "Visa"
-        default:
-            return "Unknown"
+            return "Visa"        
         }
     }
 }

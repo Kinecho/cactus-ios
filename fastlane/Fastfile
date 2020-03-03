@@ -165,6 +165,13 @@ platform :ios do
 	  		)
   	end
 
+lane :lintfix do 
+	  	swiftlint(
+	  		mode: :autocorrect,
+	  		config_file: ".swiftlint.yml"
+	  	)
+  	end
+
   	lane :certificates do
 		match(app_identifier: [
 			# "com.cactus.StageCactus", 

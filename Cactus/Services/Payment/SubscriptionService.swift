@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 import StoreKit
 
 //Methods to help with the checkout process
@@ -49,21 +48,6 @@ class SubscriptionService: NSObject {
         }
         
         return
-    }
-    
-    func learnMoreAboutUpgradeTapped(target: UIViewController) {
-        AppSettingsService.sharedInstance.getSettings { (settings, _) in
-            let useWeb = settings?.checkoutSettings?.useWebForCheckout ?? false
-            let learnMorePath = settings?.checkoutSettings?.learnMorePath
-            let url: URL? = learnMorePath != nil ? URL(string: "\(CactusConfig.webDomain)\(learnMorePath!)") : nil
-                    
-            if useWeb, url != nil {
-                UIApplication.shared.open(url!, options: [:], completionHandler: nil)
-            } else {
-                let vc = AppDelegate.shared.rootViewController.getScreen(ScreenID.Pricing)
-                target.present(vc, animated: true, completion: nil)
-            }
-        }
     }
     
     fileprivate func fetchAppleProducts(appleProductIds identifiers: [String]) {

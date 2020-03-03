@@ -9,7 +9,7 @@
 import UIKit
 import ContactsUI
 
-protocol SendFriendInviteViewControllerDelegate:class {
+protocol SendFriendInviteViewControllerDelegate: class {
     func invitesSentSuccessfully()
 }
 
