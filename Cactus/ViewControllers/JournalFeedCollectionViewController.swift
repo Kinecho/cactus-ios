@@ -180,11 +180,10 @@ class JournalFeedCollectionViewController: UICollectionViewController {
                 upgradeView.titleLabel.text = "\(daysLeft ?? 0) days left in trial"
             }
             
-            upgradeView.descriptionLabel.text = "After your trial of Cactus Plus, you'll continue to get free prompts, but only occasionally."
-                + " Give your reflection practice momentum by receiving a fresh prompt, every day"
+            upgradeView.descriptionLabel.text = SubscriptionService.sharedInstance.upgradeTrialDescription
         } else {
             upgradeView.titleLabel.text = "Cactus Plus"
-            upgradeView.descriptionLabel.text = "Give your reflection practice momentum by receiving a fresh prompt, every day."
+            upgradeView.descriptionLabel.text = SubscriptionService.sharedInstance.upgradeBasicDescription
         }
         upgradeView.setNeedsLayout()
         return upgradeView

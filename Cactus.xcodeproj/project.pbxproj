@@ -50,12 +50,8 @@
 		300FCCFE23EE3B5F00089CFB /* SubscriptionProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCFC23EE3B5F00089CFB /* SubscriptionProduct.swift */; };
 		300FCD0023EE3CD200089CFB /* SubscriptionProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCFF23EE3CD200089CFB /* SubscriptionProductService.swift */; };
 		300FCD0123EE3CD200089CFB /* SubscriptionProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCFF23EE3CD200089CFB /* SubscriptionProductService.swift */; };
-		300FCD0323EE80A300089CFB /* SubscriptionProductCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCD0223EE80A300089CFB /* SubscriptionProductCollectionViewController.swift */; };
-		300FCD0423EE80A300089CFB /* SubscriptionProductCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCD0223EE80A300089CFB /* SubscriptionProductCollectionViewController.swift */; };
 		300FCD0623EE811200089CFB /* SubscriptionProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCD0523EE811200089CFB /* SubscriptionProductCell.swift */; };
 		300FCD0723EE811200089CFB /* SubscriptionProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCD0523EE811200089CFB /* SubscriptionProductCell.swift */; };
-		300FCD0923EE918400089CFB /* SubscriptionProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCD0823EE918400089CFB /* SubscriptionProductDetailViewController.swift */; };
-		300FCD0A23EE918400089CFB /* SubscriptionProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCD0823EE918400089CFB /* SubscriptionProductDetailViewController.swift */; };
 		3014A38C2378CA0300121729 /* TertiaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3014A38B2378CA0300121729 /* TertiaryButton.swift */; };
 		3014A38D2378CA0300121729 /* TertiaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3014A38B2378CA0300121729 /* TertiaryButton.swift */; };
 		3018B11D23751DE70005333A /* AppIconSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018B11C23751DE70005333A /* AppIconSettingsViewController.swift */; };
@@ -252,6 +248,8 @@
 		303C9E4A238F29E6006B9786 /* SharingServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9E49238F29E6006B9786 /* SharingServiceTest.swift */; };
 		303EB0882343A0B800AC8741 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EB0872343A0B800AC8741 /* RoundedView.swift */; };
 		303EB0892343A0B800AC8741 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EB0872343A0B800AC8741 /* RoundedView.swift */; };
+		304A252C240DCC2200737C57 /* SubscriptionInvoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304A252B240DCC2200737C57 /* SubscriptionInvoice.swift */; };
+		304A252D240DCC2200737C57 /* SubscriptionInvoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304A252B240DCC2200737C57 /* SubscriptionInvoice.swift */; };
 		304B210623D383E1007B016C /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 304B210523D383E1007B016C /* NotificationCenter.framework */; };
 		304B210923D383E1007B016C /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304B210823D383E1007B016C /* TodayViewController.swift */; };
 		304B210C23D383E1007B016C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 304B210A23D383E1007B016C /* MainInterface.storyboard */; };
@@ -713,9 +711,7 @@
 		300FCCF923EE2EF900089CFB /* ManageSubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageSubscriptionViewController.swift; sourceTree = "<group>"; };
 		300FCCFC23EE3B5F00089CFB /* SubscriptionProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionProduct.swift; sourceTree = "<group>"; };
 		300FCCFF23EE3CD200089CFB /* SubscriptionProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionProductService.swift; sourceTree = "<group>"; };
-		300FCD0223EE80A300089CFB /* SubscriptionProductCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionProductCollectionViewController.swift; sourceTree = "<group>"; };
 		300FCD0523EE811200089CFB /* SubscriptionProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionProductCell.swift; sourceTree = "<group>"; };
-		300FCD0823EE918400089CFB /* SubscriptionProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionProductDetailViewController.swift; sourceTree = "<group>"; };
 		3014A38B2378CA0300121729 /* TertiaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TertiaryButton.swift; sourceTree = "<group>"; };
 		3018B11C23751DE70005333A /* AppIconSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSettingsViewController.swift; sourceTree = "<group>"; };
 		3018B11F2376041A0005333A /* LoggerUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerUtil.swift; sourceTree = "<group>"; };
@@ -760,6 +756,7 @@
 		303C9E4523847A3B006B9786 /* MemberProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberProfileService.swift; sourceTree = "<group>"; };
 		303C9E49238F29E6006B9786 /* SharingServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingServiceTest.swift; sourceTree = "<group>"; };
 		303EB0872343A0B800AC8741 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		304A252B240DCC2200737C57 /* SubscriptionInvoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionInvoice.swift; sourceTree = "<group>"; };
 		304B210423D383E1007B016C /* Cactus Today Prod.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Cactus Today Prod.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		304B210523D383E1007B016C /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		304B210823D383E1007B016C /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -1380,6 +1377,7 @@
 				300FCCFC23EE3B5F00089CFB /* SubscriptionProduct.swift */,
 				307ED78A24084085008D26C6 /* MemberSubscription.swift */,
 				3099D20124098EF400BD9CC4 /* SubscriptionProductGroup.swift */,
+				304A252B240DCC2200737C57 /* SubscriptionInvoice.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1418,8 +1416,6 @@
 				303C9DC7237FCF06006B9786 /* LoadableSharedReflectionViewController.xib */,
 				303C9DCC237FD7D1006B9786 /* ViewSharedReflectionViewController.swift */,
 				303C9DCD237FD7D1006B9786 /* ViewSharedReflectionViewController.xib */,
-				300FCD0223EE80A300089CFB /* SubscriptionProductCollectionViewController.swift */,
-				300FCD0823EE918400089CFB /* SubscriptionProductDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -2294,6 +2290,7 @@
 				30BF2E35232964CD00A49EB6 /* FlamelinkTypes.swift in Sources */,
 				305CB0FD23D03C080046E8A8 /* ContactService.swift in Sources */,
 				3023FE3122ECD0A300F753A7 /* NotificationService.swift in Sources */,
+				304A252D240DCC2200737C57 /* SubscriptionInvoice.swift in Sources */,
 				30E9B0AD22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
 				308505A623D0E490001179E2 /* SocialContactTableViewCell.swift in Sources */,
 				3099D20324098EF400BD9CC4 /* SubscriptionProductGroup.swift in Sources */,
@@ -2336,7 +2333,6 @@
 				300FCD0123EE3CD200089CFB /* SubscriptionProductService.swift in Sources */,
 				302C4F4A2347D7A700798560 /* SettingsTableViewController.swift in Sources */,
 				305B18812331E162003E1561 /* ReflectContentViewController.swift in Sources */,
-				300FCD0423EE80A300089CFB /* SubscriptionProductCollectionViewController.swift in Sources */,
 				30E9B0BE22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
 				300AC1802339839A005C6555 /* CactusImage.swift in Sources */,
 				30E9B0A122EABFBD005B25FD /* CactusMemberService.swift in Sources */,
@@ -2391,7 +2387,6 @@
 				3084E9662348FE9C00788279 /* CelebrateViewController.swift in Sources */,
 				303C9E432384778A006B9786 /* MemberProfile.swift in Sources */,
 				3021B67223622FE7002634A8 /* ApiService.swift in Sources */,
-				300FCD0A23EE918400089CFB /* SubscriptionProductDetailViewController.swift in Sources */,
 				305CB10123D048B60046E8A8 /* SendFriendInviteViewController.swift in Sources */,
 				3021B67923623AE3002634A8 /* CactusTextInputField.swift in Sources */,
 				303BF751232D289A00164539 /* QuoteContentViewController.swift in Sources */,
@@ -2446,6 +2441,7 @@
 				30934F9F22EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift in Sources */,
 				305CB0FC23D03C080046E8A8 /* ContactService.swift in Sources */,
 				30934F9922EBF235007C4E6C /* BorderedButton.swift in Sources */,
+				304A252C240DCC2200737C57 /* SubscriptionInvoice.swift in Sources */,
 				30934FAC22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */,
 				308505A523D0E490001179E2 /* SocialContactTableViewCell.swift in Sources */,
 				3099D20224098EF400BD9CC4 /* SubscriptionProductGroup.swift in Sources */,
@@ -2488,7 +2484,6 @@
 				300FCD0023EE3CD200089CFB /* SubscriptionProductService.swift in Sources */,
 				302C4F492347D7A700798560 /* SettingsTableViewController.swift in Sources */,
 				305B18802331E162003E1561 /* ReflectContentViewController.swift in Sources */,
-				300FCD0323EE80A300089CFB /* SubscriptionProductCollectionViewController.swift in Sources */,
 				30E9B0A022EABFBD005B25FD /* CactusMemberService.swift in Sources */,
 				300AC17F2339839A005C6555 /* CactusImage.swift in Sources */,
 				30C49D3422EC299300A2EA95 /* ViewExtensions.swift in Sources */,
@@ -2543,7 +2538,6 @@
 				3021B67123622FE7002634A8 /* ApiService.swift in Sources */,
 				303C9E422384778A006B9786 /* MemberProfile.swift in Sources */,
 				3021B67823623AE3002634A8 /* CactusTextInputField.swift in Sources */,
-				300FCD0923EE918400089CFB /* SubscriptionProductDetailViewController.swift in Sources */,
 				305CB10023D048B60046E8A8 /* SendFriendInviteViewController.swift in Sources */,
 				303BF750232D289A00164539 /* QuoteContentViewController.swift in Sources */,
 				3026B29A234D3E2800CD2D34 /* PromptContentViewController.swift in Sources */,

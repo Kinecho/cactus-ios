@@ -20,6 +20,11 @@ class SubscriptionService: NSObject {
     var availableAppleProducts: [SKProduct] = []
     var invalidAppleProductIds: [String]?
         
+    var upgradeTrialDescription = "After your trial of Cactus Plus, you'll continue to get free prompts, but only occasionally."
+        + " Give your reflection practice momentum by receiving a fresh prompt, every day"
+    
+    var upgradeBasicDescription = "Give your reflection practice momentum by receiving a fresh prompt, every day"
+    
     func getSubscriptionProductGroupEntryMap(_ onData: @escaping (SubscriptionProductGroupEntryMap?) -> Void) {
         SubscriptionProductGroupService.sharedInstance.getAll { (groupResult) in
             if let error = groupResult.error {
@@ -71,6 +76,12 @@ class SubscriptionService: NSObject {
 
         // Send the request to the App Store.
         self.appleProductRequest?.start()
+    }
+    
+    func getSubscriptionDetails(_ onData: @escaping (SubscriptionDetails?, Any?) -> Void) {
+        ApiService.sharedInstance.get(path: .checkoutSubscriptionDetails, responseType: SubscriptionDetails.self, authenticated: true) { response, error in
+            onData(response, error)
+        }
     }
 }
 

@@ -7,35 +7,29 @@
 //
 
 import UIKit
-//import StoreKit
 class ManageSubscriptionViewController: UIViewController {
 
     @IBOutlet weak var currentStatusLabel: UILabel!
-    @IBOutlet weak var allOptionsButton: UIButton!
-    @IBOutlet weak var cactusPlusButton: PrimaryButton!
-    @IBOutlet weak var featureStackView: UIStackView!
+    @IBOutlet weak var learnMoreButton: PrimaryButton!
+    @IBOutlet weak var trialEndLabel: UILabel!
+    @IBOutlet weak var upgradeDescriptionLabel: UILabel!
+    @IBOutlet weak var upgradeStackView: UIStackView!
+    @IBOutlet weak var invoiceStackView: UIStackView!
+    @IBOutlet weak var nextInvoiceDescriptionLabel: UILabel!
+    @IBOutlet weak var paymentStackView: UIStackView!
+    @IBOutlet weak var paymentMethodLabel: UILabel!
+    @IBOutlet weak var changeBillingButton: UIButton!
     
     let logger = Logger("ManageSubscriptionViewContrller")
-//    var productRequest: SKProductsRequest?
-//    var availableProducts: [SKProduct] = []
-    var subscriptionProducts: [SubscriptionProduct] = []
-    var productEntries: [SubscriptionProductEntry] {
-//        let entries = availableProducts.compactMap { (skProduct) -> SubscriptionProductEntry? in
-//            let appleId = skProduct.productIdentifier
-//            let subProduct = subscriptionProducts.first { $0.appleProductId == appleId }
-//            guard let subscriptionProduct = subProduct else {
-//                return nil
-//            }
-//
-//            return SubscriptionProductEntry(subscriptionProduct: subscriptionProduct, skProduct: skProduct)
-//        }
-        
-//        return entries
-        return []
+    var subscriptionDetails: SubscriptionDetails? {
+        didSet {
+            DispatchQueue.main.async {
+                self.configureUpcomingInvoice()
+            }
+        }
     }
     
     var isAuthorizedForPayments: Bool {
-//        return SKPaymentQueue.canMakePayments()
         return false
     }
     
@@ -43,106 +37,86 @@ class ManageSubscriptionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.invoiceStackView.isHidden = true
+        self.paymentStackView.addBackground(color: CactusColor.lightest, cornerRadius: 6)
         self.memberObserver = CactusMemberService.sharedInstance.observeCurrentMember { (member, error, _) in
             if let error = error {
                 self.logger.error("Failed to fetch cactus member", error)
                 return
             }
+            SubscriptionService.sharedInstance.getSubscriptionDetails { (details, error) in
+                if let error = error {
+                    self.logger.error("Failed to fetch subscription details", error)
+                    self.subscriptionDetails = nil
+                } else {
+                    self.subscriptionDetails = details
+                }
+            }
             self.setupCurrentMembership(member: member)
         }
-//        self.setupCurrentMembership()
-        if self.isAuthorizedForPayments {
-            self.fetchProducts()
+    }
+    
+    @IBAction func changeBillingTapped(_ sender: Any) {
+        //no op yet
+    }
+    
+    func configureUpcomingInvoice() {
+        guard let invoice = self.subscriptionDetails?.upcomingInvoice else {
+            self.invoiceStackView.isHidden = true
+            return
         }
-        // Do any additional setup after loading the view.
+        
+        var dateString: String?
+        if let dateSeconds = invoice.nextPaymentDate_epoch_seconds {
+            let nextDate = Date(timeIntervalSince1970: TimeInterval(dateSeconds))
+            dateString = FormatUtils.formatDate(nextDate, currentYearFormat: "MMM d, yyyy")
+        }
+        let formattedPrice = formatPriceCents(invoice.amountCentsUsd, truncateWholeDollar: true) ?? "$0.00"
+        var description = "Your next bill is for **\(formattedPrice)**"
+        if let nextDueDate = dateString {
+            description += " on **\(nextDueDate)**"
+        }
+        
+        self.nextInvoiceDescriptionLabel.attributedText = MarkdownUtil.toMarkdown(description)
+        
+        var paymentString = ""
+        if let card = invoice.defaultPaymentMethod?.card {
+            self.paymentStackView.isHidden = false
+            paymentString += card.brand?.displayName ?? ""
+            if let last4 = card.last4 {
+                paymentString += " ending in \(card.last4 ?? "")"
+            }
+            self.paymentMethodLabel.text = paymentString.trimmingCharacters(in: .whitespacesAndNewlines)
+        } else {
+            self.paymentStackView.isHidden = true
+        }
+        
+        self.invoiceStackView.isHidden = false
     }
     
     func setupCurrentMembership(member: CactusMember?) {
         guard let member = member else {
-            self.logger.info("No member, removing sub info");
+            self.logger.info("No member, removing sub info")
             return
         }
+
+        self.learnMoreButton.isHidden = member.subscription?.isActivated ?? false
+        self.currentStatusLabel.text = member.subscription?.tier.displayName
+        self.trialEndLabel.isHidden = !(member.subscription?.isInTrial ?? false)
+        let daysLeft = member.subscription?.trialDaysLeft ?? 0
+        if daysLeft <= 1 {
+            self.trialEndLabel.text = "Trial ends today"
+        } else {
+            self.trialEndLabel.text = "\(daysLeft) days left in trial"
+        }
         
-//        self.currentStatusLabel = member.subs
-        
-    }
-    
-    func fetchProducts() {
-        SubscriptionProductService.sharedInstance.getAllForSale { result in
-            if let error = result.error {
-                self.logger.error("Failed to ofetch subscription products", error)
-                return
-            }
-            self.subscriptionProducts = result.results ?? []
-            let appleIds: [String] = self.subscriptionProducts.compactMap { (p) -> String? in
-                p.appleProductId
-            }
-            self.logger.info("[not fetching] Apple IDs to fetch.. \(appleIds)")
-//            self.fetchAppleProducts(matchingIdentifiers: appleIds)
-        }
-    }
-    
-    /* not using in this release
-    fileprivate func fetchAppleProducts(matchingIdentifiers identifiers: [String]) {
-        // Create a set for the product identifiers.
-        let productIdentifiers = Set(identifiers)
-
-        // Initialize the product request with the above identifiers.
-        productRequest = SKProductsRequest(productIdentifiers: productIdentifiers)
-        productRequest?.delegate = self
-
-        // Send the request to the App Store.
-        productRequest?.start()
-    }
-    */
-    
-    func updateProductButtons() {
-        DispatchQueue.main.async {
-            if self.productEntries.isEmpty {
-                self.allOptionsButton.isHidden = true
-                self.cactusPlusButton.isHidden = true
-            } else {
-                self.allOptionsButton.isHidden = false
-                self.cactusPlusButton.isHidden = false
-            }
-        }
-    }
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        if segue.identifier == "ShowUpgradeOptions", let vc = segue.destination as? SubscriptionProductCollectionViewController {
-            vc.dataSource = self.productEntries
-        } else if segue.identifier == "ShowSubProductDetail", let vc = segue.destination as? SubscriptionProductDetailViewController {
-            vc.product = self.productEntries[0]            
-        }
-    }
-    
-}
-
-/*
-extension ManageSubscriptionViewController: SKProductsRequestDelegate {
-    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        self.logger.info("Product request did return")
-        
-        // products contains products whose identifiers have been recognized by the App Store. As such, they can be purchased.
-        if !response.products.isEmpty {
-            self.logger.info("Found \(response.products.count): \(response.products)")
-            availableProducts = response.products
-//            storeResponse.append(Section(type: .availableProducts, elements: availableProducts))
-            self.updateProductButtons()
-        }
-
-        // invalidProductIdentifiers contains all product identifiers not recognized by the App Store.
-        if !response.invalidProductIdentifiers.isEmpty {
-            self.logger.warn("Fouond invalid products: \(response.invalidProductIdentifiers)")
-//            invalidProductIdentifiers = response.invalidProductIdentifiers
-//            storeResponse.append(Section(type: .invalidProductIdentifiers, elements: invalidProductIdentifiers))
+        if member.subscription?.isActivated ?? false {
+            self.upgradeStackView.isHidden = true
+        } else {
+            self.upgradeStackView.isHidden = false
+            self.upgradeDescriptionLabel.text = (member.subscription?.isInTrial ?? false)
+                ? SubscriptionService.sharedInstance.upgradeTrialDescription
+                : SubscriptionService.sharedInstance.upgradeBasicDescription
         }
     }
 }
-*/

@@ -39,17 +39,17 @@ class UpgradeJournalFeedCollectionReusableView: UICollectionReusableView {
         self.descriptionLabel.font = CactusFont.normal(18)
         
         if !addedBackground {
-            let imageView = UIImageView(image: CactusImage.plusBg.getImage())
-            imageView.contentMode = .scaleAspectFill
-            imageView.clipsToBounds = true
-            imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            self.mainStackView.insertSubview(imageView, at: 0)
+//            let imageView = UIImageView(image: CactusImage.plusBg.getImage())
+//            imageView.contentMode = .scaleToFill
+//            imageView.clipsToBounds = true
+//            imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//            self.mainStackView.insertSubview(imageView, at: 0)
 //            imageView.translatesAutoresizingMaskIntoConstraints = false
 //            imageView.topAnchor.constraint(equalTo: self.mainStackView.topAnchor, constant: 0).isActive = true
-//            imageView.bottomAnchor.constraint(equalTo: self.mainStackView.bottomAnchor, constant: 0).isActive = true
-//            imageView.leadingAnchor.constraint(equalTo: self.mainStackView.leadingAnchor, constant: 0).isActive = true
-//            imageView.trailingAnchor.constraint(equalTo: self.mainStackView.trailingAnchor, constant: 0).isActive = true
-            self.addedBackground = true
+//            imageView.bottomAnchor.constraint(equalTo: self.mainStackView.bottomAnchor, constant: 10).isActive = true
+//            imageView.leadingAnchor.constraint(equalTo: self.mainStackView.leadingAnchor, constant: -100).isActive = true
+//            imageView.trailingAnchor.constraint(equalTo: self.mainStackView.trailingAnchor, constant: 100).isActive = true
+//            self.addedBackground = true
         }
         
         super.layoutSubviews()

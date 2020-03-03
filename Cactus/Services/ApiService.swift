@@ -21,6 +21,7 @@ enum ApiPath: String {
     case sendMagicLink = "/signup/magic-link"
     case updateEmailSubscriberStatus = "/mailchimp/status"
     case sendSocialInvite = "/social/send-invite"
+    case checkoutSubscriptionDetails = "/checkout/subscription-details"
 }
 
 ///A service for interacting with the Cactus JSON Api
@@ -84,7 +85,8 @@ public class ApiService {
     
     fileprivate func createRequest<T: Encodable>(_ apiPath: ApiPath,
                                                  method: HttpMethod,
-                                                 authenticated: Bool=false, body: T?,
+                                                 authenticated: Bool=false,
+                                                 body: T?,
                                                  completed: @escaping (URLRequest?, Any?) -> Void ) {
         self.createRequest(path: apiPath.rawValue, method: method, authenticated: authenticated, body: body, completed: completed)
     }
@@ -99,7 +101,8 @@ public class ApiService {
      */
     fileprivate func createRequest<T: Encodable>(path: String,
                                                  method: HttpMethod,
-                                                 authenticated: Bool=false, body: T?,
+                                                 authenticated: Bool=false,
+                                                 body: T?,
                                                  completed: @escaping (URLRequest?, Any?) -> Void ) {
         var json: Data?
         
@@ -132,6 +135,56 @@ public class ApiService {
         request.allHTTPHeaderFields = headers
         request.httpMethod = method.rawValue
         request.httpBody = json
+        
+        if authenticated {
+            getAuthHeaders { (authHeaders) in
+                headers = headers.merging(authHeaders) { (_, new) in new }
+                request.allHTTPHeaderFields = headers
+                completed(request, nil)
+            }
+        } else {
+            completed(request, nil)
+        }
+    }
+    
+    fileprivate func createEmptyRequest(_ apiPath: ApiPath,
+                                        method: HttpMethod,
+                                        authenticated: Bool=false,
+                                        completed: @escaping (URLRequest?, Any?) -> Void ) {
+        self.createEmptyRequest(path: apiPath.rawValue, method: method, authenticated: authenticated, completed: completed)
+    }
+    
+    /**
+     Prepare an HTTP request. This will send to the configured environment's API Domain and can not be used for external requests
+     - Parameter path: The path of the URL the request is sent to. Should start with a leading slash, like `/test/endpoint`. If no leading slash if provided, this method will add one.
+     - Parameter method: The HTTP Method to be used
+     - Parameter authenticated: Boolean value if the request should be authenticated with the currently logged in user
+     - Parameter body: Optional. An object to be serialized into json and sent as the request's body.
+     - Parameter completed: Function that is called when the request has finished being prepared. Arguments are the request and any error
+     */
+    fileprivate func createEmptyRequest(path: String,
+                                        method: HttpMethod,
+                                        authenticated: Bool=false,
+                                        completed: @escaping (URLRequest?, Any?) -> Void ) {
+        
+        var path = path
+        if !path.starts(with: "/") {
+            path = "/\(path)"
+        }
+        let absoluteUrl = "\(self.apiDomain)\(path)"
+        self.logger.info("Sending message to url \(absoluteUrl)")
+        guard let url = URL(string: absoluteUrl) else {
+            let errorMessage = "Unable to create a URL for for absoluteUrl \(absoluteUrl)"
+            self.logger.warn(errorMessage)
+            completed(nil, errorMessage)
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        var headers = request.allHTTPHeaderFields ?? [:]
+        headers["Content-Type"] = "application/json"
+        request.allHTTPHeaderFields = headers
+        request.httpMethod = method.rawValue
         
         if authenticated {
             getAuthHeaders { (authHeaders) in
@@ -190,7 +243,6 @@ public class ApiService {
         }
     }
     
-    
     func post<R: Codable, T: Codable>(
         path: ApiPath,
         body: R,
@@ -221,6 +273,42 @@ public class ApiService {
                     onCompleted?(nil, nil)
                     return
                 }                
+            }
+            onTask?(task)
+            task.resume()
+        }
+    }
+    
+    func get<T: Codable>(
+        path: ApiPath,
+        responseType: T.Type,
+        authenticated: Bool = true,
+        onTask: ((URLSessionDataTask) -> Void)?=nil,
+        _ onCompleted: ((T?, Any?) -> Void)?=nil ) {
+        self.logger.debug("Sending GET request to \(path)")
+        self.createEmptyRequest(path, method: .GET, authenticated: authenticated) { (request, error) in
+            guard let request = request, error == nil else {
+                onCompleted?(nil, error)
+                return
+            }
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                let statusCode = (response as? HTTPURLResponse)?.statusCode
+                self.logger.info("GET to \(path) returned status \(statusCode ?? -1) with data \(String(describing: data))")
+                if let error = error {
+                    self.logger.error("Error sending GET to \(path)", error)
+                    onCompleted?(nil, error)
+                    return
+                }
+                if let data = data {
+                    let responseBody: T? = self.deserializeJSON(data)
+                    self.logger.info("response body \(String(describing: data))")
+                    onCompleted?(responseBody, error)
+                    return
+                } else {
+                    onCompleted?(nil, nil)
+                    return
+                }
             }
             onTask?(task)
             task.resume()

@@ -20,6 +20,7 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBOutlet weak var planContainerView: UIView!
     @IBOutlet weak var continueStackView: UIStackView!
     @IBOutlet weak var questionsTextView: UITextView!
+    @IBOutlet weak var headerStackView: UIStackView!
     
     let logger = Logger("PricingViewController")
     var productsLoaded = false
@@ -37,9 +38,21 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
         
         self.closeButton.isHidden = !self.isBeingPresented
         //Note: we are not showing products at the moment
-//        self.loadSubscriptionProducts()
+        // self.loadSubscriptionProducts()
         
         self.configureQuestionsView()
+        self.setupHeaderBackground()
+    }
+    
+    func setupHeaderBackground() {
+        let imageView = UIImageView(image: CactusImage.plusBg.getImage())
+        imageView.contentMode = .scaleToFill
+        self.headerStackView.insertSubview(imageView, at: 0)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.topAnchor.constraint(equalTo: self.headerStackView.topAnchor, constant: 0).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: self.headerStackView.bottomAnchor, constant: 40).isActive = true
+        imageView.leadingAnchor.constraint(equalTo: self.headerStackView.leadingAnchor, constant: -100).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: self.headerStackView.trailingAnchor, constant: 100).isActive = true
     }
     
     func configureQuestionsView() {
@@ -113,13 +126,14 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     func sendPricingEmail(_ sender: Any) {
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         let buildVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
-        let versionText = "Cactus \(appVersion ?? "") (\(buildVersion ?? "1"))"
-        
+        let versionText = "\(appVersion ?? "") (\(buildVersion ?? "1"))"
+        let systemVersion = UIDevice.current.systemVersion
+
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
             mail.setToRecipients(["help@cactus.app"])
-            mail.setSubject("Help for \(versionText)")
+            mail.setSubject("Cactus Plus - App version \(versionText) on iOS \(systemVersion)")
 
             present(mail, animated: true)
         } else {
