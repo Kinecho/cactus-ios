@@ -37,7 +37,9 @@ class FancyLinkButton: UIButton {
     
     @IBInspectable var showBorder: Bool = true
     
-    var borderColor: UIColor = CactusColor.fancyLinkHighlight
+    @IBInspectable var borderColor: UIColor = CactusColor.fancyLinkHighlight
+    @IBInspectable var textColorNormal: UIColor = CactusColor.textDefault
+    @IBInspectable var textColorDisabled: UIColor = CactusColor.gray
     
     @IBInspectable var borderRadius: CGFloat {
         get {
@@ -66,8 +68,8 @@ class FancyLinkButton: UIButton {
         self.clipsToBounds = true
         self.backgroundColor = .clear
         
-        self.setTitleColor(CactusColor.textDefault, for: .normal)
-        self.setTitleColor(CactusColor.textMinimized, for: .disabled)
+        self.setTitleColor(self.textColorNormal, for: .normal)
+        self.setTitleColor(self.textColorDisabled, for: .disabled)
         self.titleLabel?.font = CactusFont.normal(self.fontSize)
         
         self.layoutSubviews()

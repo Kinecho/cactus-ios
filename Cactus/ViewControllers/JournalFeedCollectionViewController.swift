@@ -35,7 +35,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         let width = min(760, size.width)
         return CGSize(width: width - sectionInsets.left - sectionInsets.right - contentInsetWidth, height: defaultCellHeight)
     }
- 
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
 
         // Get the view for the first header
@@ -61,7 +61,6 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         notificationCenter.addObserver(self, selector: #selector(self.appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(self.appMovedToBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
         self.collectionView.reloadData()
-        
         self.member = CactusMemberService.sharedInstance.currentMember
         self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, error, _) in
             if let error = error {
@@ -109,6 +108,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         if  !visibleIds.isEmpty {
             self.logger.info("reloading visible ids \(visibleIds)")
             self.collectionView.reloadItems(at: visibleIds)
+            self.collectionViewLayout.invalidateLayout()
         }
     }
     
@@ -312,7 +312,10 @@ extension JournalFeedCollectionViewController: JournalFeedDataSourceDelegate {
     
     func dataLoaded() {
         self.logger.info("JournalFeed Delegate: Data Loaded: reloading Data on collection view", functionName: #function)
-        self.collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+            self.collectionView.collectionViewLayout.invalidateLayout()
+        }
     }
     
     func insert(_ journalEntry: JournalEntry, at: Int?) {

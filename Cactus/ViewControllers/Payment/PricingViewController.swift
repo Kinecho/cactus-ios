@@ -22,6 +22,7 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBOutlet weak var questionsTextView: UITextView!
     @IBOutlet weak var headerStackView: UIStackView!
     @IBOutlet weak var mainStackView: UIStackView!
+    var showCloseButton = true
     
     let logger = Logger("PricingViewController")
     var productsLoaded = false
@@ -37,7 +38,7 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.closeButton.isHidden = !self.isBeingPresented
+        self.closeButton.isHidden = !self.showCloseButton
         //Note: we are not showing products at the moment
         // self.loadSubscriptionProducts()
         

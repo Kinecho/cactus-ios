@@ -421,11 +421,11 @@
                         <constraints>
                             <constraint firstItem="k3F-56-OAD" firstAttribute="trailing" secondItem="glO-Lu-z2p" secondAttribute="trailing" id="Bf9-Yy-sf9"/>
                             <constraint firstItem="glO-Lu-z2p" firstAttribute="top" secondItem="k3F-56-OAD" secondAttribute="top" id="LEP-Ty-M4A"/>
-                            <constraint firstItem="fmV-WR-biu" firstAttribute="top" secondItem="glO-Lu-z2p" secondAttribute="bottom" id="LRM-cp-dBI"/>
                             <constraint firstItem="glO-Lu-z2p" firstAttribute="leading" secondItem="k3F-56-OAD" secondAttribute="leading" id="ZfS-FV-Gbv"/>
                             <constraint firstItem="k3F-56-OAD" firstAttribute="trailing" secondItem="fmV-WR-biu" secondAttribute="trailing" id="cJQ-V8-2A5"/>
                             <constraint firstItem="fmV-WR-biu" firstAttribute="leading" secondItem="k3F-56-OAD" secondAttribute="leading" id="gjH-Qf-1Zf"/>
                             <constraint firstItem="k3F-56-OAD" firstAttribute="bottom" secondItem="fmV-WR-biu" secondAttribute="bottom" id="gtK-fd-UjG"/>
+                            <constraint firstItem="k3F-56-OAD" firstAttribute="bottom" secondItem="glO-Lu-z2p" secondAttribute="bottom" id="qx9-GQ-smd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="k3F-56-OAD"/>
                     </view>

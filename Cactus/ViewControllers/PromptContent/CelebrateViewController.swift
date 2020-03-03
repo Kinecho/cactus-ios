@@ -27,6 +27,10 @@ class CelebrateViewController: UIViewController {
     @IBOutlet weak var energyStatImageView: UIImageView!
     @IBOutlet weak var relationshipStatImageView: UIImageView!
     
+    @IBOutlet weak var mainStackView: UIStackView!
+    @IBOutlet weak var upsellContainer: UIView!
+    @IBOutlet weak var upsellLabel: UILabel!
+    @IBOutlet weak var upsellStackView: UIStackView!
     @IBOutlet weak var shareNoteButton: TertiaryButton!
     weak var reflectionResponse: ReflectionResponse? {
         didSet {
@@ -60,13 +64,56 @@ class CelebrateViewController: UIViewController {
         self.shouldAnimate = false
         self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, _, _) in
             self.member = member
+            self.configureUpsell()
         })
                 
         self.initElements()
         self.configureDescription()
         self.configureShareNoteButton()
+        
+        if UIScreen.main.bounds.width < 400 {
+            self.mainStackView.spacing = 10
+        } else {
+            self.mainStackView.spacing = 30
+        }
     }
     
+    func configureUpsell() {
+        if self.member?.subscription?.isActivated == true {
+            self.upsellStackView.isHidden = true
+            self.upsellContainer.isHidden = true
+            return
+        }
+        
+        if self.member?.subscription?.isInTrial == true {
+            let daysLeft = self.member?.subscription?.trialDaysLeft ?? 0
+            if daysLeft <= 1 {
+                self.upsellLabel.text = "Free access to Cactus Plus ends today"
+            } else {
+                self.upsellLabel.text = "\(daysLeft) days left of free Cactus Plus access"
+            }
+        } else {
+            self.upsellLabel.text = "Get daily prompts"
+        }
+        
+        let imageView = UIImageView(image: CactusImage.plusBg.getImage())
+        imageView.contentMode = .scaleToFill
+        imageView.clipsToBounds = true
+        self.upsellStackView.insertSubview(imageView, at: 0)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.topAnchor.constraint(equalTo: self.upsellStackView.topAnchor, constant: 0).isActive = true
+//        imageView.bottomAnchor.constraint(equalTo: self.upsellStackView.bottomAnchor, constant: 0).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 120).isActive = true
+
+        imageView.leadingAnchor.constraint(equalTo: self.upsellStackView.leadingAnchor, constant: 0).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: self.upsellStackView.trailingAnchor, constant: 0).isActive = true
+        self.upsellStackView.isHidden = false
+        self.upsellContainer.isHidden = false
+    }
+    
+    @IBAction func learnMoreTapped(_ sender: Any) {
+        learnMoreAboutUpgradeTapped(target: self)
+    }
     func configureShareNoteButton() {
         guard self.isViewLoaded else {return}
         
