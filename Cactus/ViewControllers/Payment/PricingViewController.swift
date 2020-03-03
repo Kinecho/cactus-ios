@@ -21,6 +21,7 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBOutlet weak var continueStackView: UIStackView!
     @IBOutlet weak var questionsTextView: UITextView!
     @IBOutlet weak var headerStackView: UIStackView!
+    @IBOutlet weak var mainStackView: UIStackView!
     
     let logger = Logger("PricingViewController")
     var productsLoaded = false
@@ -47,10 +48,10 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     func setupHeaderBackground() {
         let imageView = UIImageView(image: CactusImage.plusBg.getImage())
         imageView.contentMode = .scaleToFill
-        self.headerStackView.insertSubview(imageView, at: 0)
+        self.mainStackView.insertSubview(imageView, at: 0)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.topAnchor.constraint(equalTo: self.headerStackView.topAnchor, constant: 0).isActive = true
-        imageView.bottomAnchor.constraint(equalTo: self.headerStackView.bottomAnchor, constant: 40).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         imageView.leadingAnchor.constraint(equalTo: self.headerStackView.leadingAnchor, constant: -100).isActive = true
         imageView.trailingAnchor.constraint(equalTo: self.headerStackView.trailingAnchor, constant: 100).isActive = true
     }
