@@ -62,6 +62,10 @@ enum ScreenID: String {
         let storyboard = storyboardId.getStoryboard()
         return storyboard.instantiateViewController(withIdentifier: self.name)
     }
+    
+    func getURL() -> URL? {
+        return URL(string: "\(CactusConfig.customScheme)://vc/\(self.rawValue)")                    
+    }
 }
 
 enum ReuseIdentifier: String {

@@ -355,6 +355,7 @@
 		3055D941240E994500981DA2 /* SubscriptionProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCFF23EE3CD200089CFB /* SubscriptionProductService.swift */; };
 		3055D942240E999F00981DA2 /* PaymentNavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3055D93C240E98BB00981DA2 /* PaymentNavigationService.swift */; };
 		3055D943240E99BD00981DA2 /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099D1F62409740D00BD9CC4 /* SubscriptionService.swift */; };
+		3055D945240EB9A900981DA2 /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0AB22EAD6EC005B25FD /* NavigationUtil.swift */; };
 		305B1863233175DC003E1561 /* PhotoContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1861233175DC003E1561 /* PhotoContentViewController.swift */; };
 		305B1864233175DC003E1561 /* PhotoContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1861233175DC003E1561 /* PhotoContentViewController.swift */; };
 		305B1865233175DC003E1561 /* PhotoContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 305B1862233175DC003E1561 /* PhotoContentViewController.xib */; };
@@ -782,6 +783,7 @@
 		305424E923AC0432003F82A2 /* UIStackViewExtensionis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExtensionis.swift; sourceTree = "<group>"; };
 		3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownUtil.swift; sourceTree = "<group>"; };
 		3055D93C240E98BB00981DA2 /* PaymentNavigationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentNavigationService.swift; sourceTree = "<group>"; };
+		3055D944240E9CFB00981DA2 /* Cactus Today Prod.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cactus Today Prod.entitlements"; sourceTree = "<group>"; };
 		305B1861233175DC003E1561 /* PhotoContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoContentViewController.swift; sourceTree = "<group>"; };
 		305B1862233175DC003E1561 /* PhotoContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoContentViewController.xib; sourceTree = "<group>"; };
 		305B1867233178A8003E1561 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
@@ -1248,6 +1250,7 @@
 		30B6EA6222EA5A9F00443E46 = {
 			isa = PBXGroup;
 			children = (
+				3055D944240E9CFB00981DA2 /* Cactus Today Prod.entitlements */,
 				30A266D82329BB73003C708E /* .circleci */,
 				308446F322ECB24F00FB0683 /* Cactus Prod.entitlements */,
 				308446F222ECB23B00FB0683 /* Cactus Stage.entitlements */,
@@ -2286,6 +2289,7 @@
 				304B215723D392C2007B016C /* PrimaryButton.swift in Sources */,
 				304B214F23D392C2007B016C /* BorderedTextView.swift in Sources */,
 				304B215623D392C2007B016C /* PillLabelView.swift in Sources */,
+				3055D945240EB9A900981DA2 /* NavigationUtil.swift in Sources */,
 				304B215E23D392C2007B016C /* CircleImageView.swift in Sources */,
 				304B215823D392C2007B016C /* RoundedButton.swift in Sources */,
 				304B215C23D392C2007B016C /* TertiaryButton.swift in Sources */,
@@ -2686,6 +2690,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D14693BF62072D546C012854 /* Pods-Cactus Today Prod.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Cactus Today Prod.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Cactus Developer (26UAQFK66N)";
 				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -2710,6 +2715,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BD842038BC923978C8A55BF1 /* Pods-Cactus Today Prod.release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Cactus Today Prod.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 3ZKVS4B79Q;

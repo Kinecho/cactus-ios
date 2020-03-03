@@ -58,6 +58,26 @@ class LinkHandlerUtil {
         
     }
     
+    static func handleViewController(_ url: URL) -> Bool {
+        if url.scheme?.contains(CactusConfig.customScheme) == false, url.host != "vc" {
+            return false
+        }
+        let mode = url.getQueryParams()["mode"]
+        let screenPath = url.lastPathComponent
+        if let screenId = ScreenID(rawValue: screenPath) {
+            let vc = AppDelegate.shared.rootViewController.getScreen(screenId)
+            AppDelegate.shared.rootViewController.addPendingAction {
+                if mode == "push" {
+                    _ = AppDelegate.shared.rootViewController.showScreen(vc)
+                } else {
+                    AppDelegate.shared.rootViewController.present(vc, animated: true, completion: nil)
+                }
+            }
+            return true
+        }                
+        return false
+    }
+    
     static func handleSignupUrl(_ url: URL) -> Bool {
         return url.path == "/signup" || url.path == "/login"
     }

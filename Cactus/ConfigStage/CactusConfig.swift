@@ -18,4 +18,6 @@ struct CactusConfig: AppConfig {
 //    static var apiDomain = "https://cactuslocal.ngrok.io/cactus-app-stage/us-central1"
     static let customScheme = "app.cactus-stage"
     static let branchPublicKey = "key_test_hnUHuOjICDVjjN3W0PIRxlnfsyeXRjbe"
+    static let appGroupId = "com.cactus.StageApp.group1"
+    static let sharedKeychainGroup = "3ZKVS4B79Q.com.cactus.CactusAppShared"
 }

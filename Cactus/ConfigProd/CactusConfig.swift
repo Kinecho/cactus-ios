@@ -17,4 +17,6 @@ struct CactusConfig: AppConfig {
     static var apiDomain = "https://us-central1-cactus-app-prod.cloudfunctions.net"
     static let customScheme = "app.cactus"
     static let branchPublicKey = "key_live_heLJqNeQvEOgkUX3XUF92hadCFi7uWW0"
+    static let appGroupId = "com.cactus.CactusApp.group1"
+    static let sharedKeychainGroup = "3ZKVS4B79Q.com.cactus.CactusAppShared"
 }

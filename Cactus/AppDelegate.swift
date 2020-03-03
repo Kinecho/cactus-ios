@@ -30,6 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        do {
+            try Auth.auth().useUserAccessGroup(CactusConfig.sharedKeychainGroup)
+        } catch {
+            self.logger.error("Failed to set up user access group", error)
+        }
+        
         return true
     }
     
@@ -37,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         logger.info("Loading app will start", functionName: #function)
 //        SKPaymentQueue.default().add(StoreObserver.sharedInstance)
 
+        
         let isFacebokIntent = FacebookCore.ApplicationDelegate.shared.application(
             application,
             didFinishLaunchingWithOptions: launchOptions
@@ -197,6 +204,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else if LinkHandlerUtil.handleSharedResponse(url) {
             return true
         } else if LinkHandlerUtil.handleSignupUrl(url) {
+            return true
+        } else if LinkHandlerUtil.handleViewController(url) {
             return true
         } else {
             self.logger.warn("url \(url.absoluteString) not supported, sending back to the browser")

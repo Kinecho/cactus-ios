@@ -51,4 +51,6 @@ protocol AppConfig {
     static var appType: AppType {get}
     static var customScheme: String {get}
     static var branchPublicKey: String {get}
+    static var appGroupId: String {get}
+    static var sharedKeychainGroup: String {get}
 }

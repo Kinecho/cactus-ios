@@ -26,6 +26,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             
             if FirebaseApp.app() == nil {
                 FirebaseApp.configure()
+                do {
+                    try Auth.auth().useUserAccessGroup(CactusConfig.sharedKeychainGroup)
+                } catch let error as NSError {
+                  print("Error changing user access group: %@", error)
+                }
+
             }
             
             let config = CLDConfiguration(cloudName: "cactus-app", secure: true)
@@ -67,12 +73,18 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     @objc func openPromptInApp() {
         guard let content = self.currentContent, let entryId = content.entryId else {
+            if self.member?.subscription?.tier.isPaidTier != true{
+                if let appURL = ScreenID.Pricing.getURL() {
+                    extensionContext?.open(appURL, completionHandler: nil)
+                }
+            }
+            
             return
         }
-        
+                        
         if let appURL = URL(string: "\(CactusConfig.customScheme)://cactus.app/prompts/\(entryId)") {
-               extensionContext?.open(appURL, completionHandler: nil)
-           }
+           extensionContext?.open(appURL, completionHandler: nil)
+       }
     }
     
     func showNeedsLogin() {
@@ -132,7 +144,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     func configurePromptContent(_ promptContent: PromptContent?) {
         guard let content = promptContent else {
             self.imageView.isHidden = true
-            self.questionLabel.text = "There is no content today."
+            if self.member?.subscription?.tier.isPaidTier == true {
+                self.questionLabel.text = "There is no prompt today. Please try again later."
+            } else {
+                self.questionLabel.text = "Get today’s question. Tap to learn more."
+            }
+            
             self.questionLabel.isHidden = false
             self.introTextLabel.isHidden = true
             return
