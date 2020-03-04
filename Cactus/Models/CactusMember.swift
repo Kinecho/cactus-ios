@@ -84,7 +84,6 @@ class CactusMember: FirestoreIdentifiable, Hashable {
     var lastName: String?
     var email: String?
     var userId: String?
-    
     var id: String?
     var deleted: Bool=false
     var deletedAt: Date?
@@ -93,14 +92,11 @@ class CactusMember: FirestoreIdentifiable, Hashable {
     var fcmTokens: [String]?
     var firebaseInstanceIds: [String]?
     var mailchimpListMember: ListMember?
-    
     var notificationSettings: [String: String]? = [:]
     var stats: MemberStats?
-    
     var timeZone: String?
     var locale: String?
     var promptSendTime: PromptSendTime?
-    
     var subscription: MemberSubscription?
     var stripe: MemberStripeDetails?
     

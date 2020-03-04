@@ -124,6 +124,10 @@ class ContentLink: Codable {
         case linkStyle
     }
     
+    var isEmpty: Bool {
+        return isBlank(linkLabel) && isBlank(destinationHref)
+    }
+    
     public required init(from decoder: Decoder) throws {
             do {
                 let container = try decoder.container(keyedBy: ContentLinkCodingKey.self)
@@ -152,6 +156,10 @@ class ContentLink: Codable {
 class ActionButton: Codable {
     var action: ContentAction
     var label: String
+    
+    var isEmpty: Bool {
+        return isBlank(label)
+    }
 }
 
 enum ImagePosition: String, Codable {
@@ -165,7 +173,7 @@ class ContentBackgroundImage: ImageFile {
 }
 
 class Content: Codable {
-    var contentType: ContentType
+    var contentType: ContentType = .text
     var quote: Quote?
     var text: String?
     var text_md: String?
@@ -196,38 +204,49 @@ class Content: Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        do {
-            let container = try decoder.container(keyedBy: ContentCodingKeys.self)
-            self.contentType = (try? container.decode(ContentType.self, forKey: ContentCodingKeys.contentType)) ?? ContentType.text
-            self.quote = try? container.decode(Quote.self, forKey: ContentCodingKeys.quote)
-            if self.quote?.isEmpty == true {
-                self.quote = nil
-            }
-            
-            self.text = try? container.decode(String.self, forKey: ContentCodingKeys.text)
-            self.text_md = try? container.decode(String.self, forKey: ContentCodingKeys.text_md)
-            self.backgroundImage = try? container.decode(ContentBackgroundImage.self, forKey: ContentCodingKeys.backgroundImage)
-            self.label = try? container.decode(String.self, forKey: ContentCodingKeys.label)
-            self.title = try? container.decode(String.self, forKey: ContentCodingKeys.title)
-            
-            self.video = try? container.decode(VideoFile.self, forKey: ContentCodingKeys.video)
-            if video?.isEmpty == true {
-                self.video = nil
-            }
-            
-            self.photo = try? container.decode(ImageFile.self, forKey: ContentCodingKeys.photo)
-            if self.photo?.isEmpty == true {
-                self.photo = nil
-            }
-            
-            self.audio = try? container.decode(AudioFile.self, forKey: ContentCodingKeys.audio)
-            self.link = try? container.decode(ContentLink.self, forKey: ContentCodingKeys.link)
-            self.actionButton = try? container.decode(ActionButton.self, forKey: ContentCodingKeys.actionButton)
-            self.showElementIcon = try? container.decode(Bool.self, forKey: ContentCodingKeys.showElementIcon)
-        } catch {
-            self.contentType = ContentType.text
-            Logger.shared.error("error decoding ImageFile", error)
+        guard let model = ModelDecoder<ContentCodingKeys>.create(decoder: decoder, codingKeys: ContentCodingKeys.self) else {
+            return
         }
+        let container = model.container
+        
+        self.contentType = (try? container.decode(ContentType.self, forKey: ContentCodingKeys.contentType)) ?? ContentType.text
+        self.quote = try? container.decode(Quote.self, forKey: ContentCodingKeys.quote)
+        if self.quote?.isEmpty == true {
+            self.quote = nil
+        }
+        
+        self.text = model.optionalString(.text, blankAsNil: true)
+        self.text_md = model.optionalString(.text_md, blankAsNil: true)
+        self.backgroundImage = try? container.decode(ContentBackgroundImage.self, forKey: ContentCodingKeys.backgroundImage)
+        self.label = model.optionalString(.label, blankAsNil: true)
+        self.title = model.optionalString(.title, blankAsNil: true)
+        
+        self.video = try? container.decode(VideoFile.self, forKey: ContentCodingKeys.video)
+        if video?.isEmpty == true {
+            self.video = nil
+        }
+        
+        self.photo = try? container.decode(ImageFile.self, forKey: ContentCodingKeys.photo)
+        if self.photo?.isEmpty == true {
+            self.photo = nil
+        }
+        
+        self.audio = try? container.decode(AudioFile.self, forKey: ContentCodingKeys.audio)
+        if self.audio?.isEmpty == true {
+            self.audio = nil
+        }
+        
+        self.link = try? container.decode(ContentLink.self, forKey: ContentCodingKeys.link)
+        if self.link?.isEmpty == true {
+            self.link = nil
+        }
+        
+        self.actionButton = try? container.decode(ActionButton.self, forKey: ContentCodingKeys.actionButton)
+        if self.actionButton?.isEmpty == true {
+            self.actionButton = nil
+        }
+        
+        self.showElementIcon = try? container.decode(Bool.self, forKey: ContentCodingKeys.showElementIcon)
     }
 }
 
