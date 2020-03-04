@@ -91,6 +91,7 @@
 		3021CBE42410345E00F58B89 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3021CBDE2410345E00F58B89 /* WebViewController.xib */; };
 		3021CBE52410345E00F58B89 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3021CBDE2410345E00F58B89 /* WebViewController.xib */; };
 		3021CBE62410345E00F58B89 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3021CBDE2410345E00F58B89 /* WebViewController.xib */; };
+		3021CBE7241049AC00F58B89 /* StoreObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCF223EE279500089CFB /* StoreObserver.swift */; };
 		3023FE3022ECD0A300F753A7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2F22ECD0A300F753A7 /* NotificationService.swift */; };
 		3023FE3122ECD0A300F753A7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2F22ECD0A300F753A7 /* NotificationService.swift */; };
 		3023FE3422ECF06E00F753A7 /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
@@ -2123,6 +2124,7 @@
 				303C9E0023841AC1006B9786 /* PhotoContentViewController.swift in Sources */,
 				3084E96A234BACE300788279 /* FormatUtilTest.swift in Sources */,
 				303C9E0623841AC1006B9786 /* PromptContentViewController.swift in Sources */,
+				3021CBE7241049AC00F58B89 /* StoreObserver.swift in Sources */,
 				303C9DDC23841A30006B9786 /* JournalFeedCollectionViewController.swift in Sources */,
 				30F7168B237A4A9B004989DB /* LoggerUtil.swift in Sources */,
 				303C9DFC23841AC1006B9786 /* TextContentViewController.swift in Sources */,

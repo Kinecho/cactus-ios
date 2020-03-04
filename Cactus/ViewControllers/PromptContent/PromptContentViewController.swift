@@ -13,6 +13,7 @@ protocol PromptContentViewControllerDelegate: class {
     func previousScreen()
     func handleTapGesture(touch: UITapGestureRecognizer)
     func nextScreen()
+    var viewController: UIViewController {get}
 }
 
 // Super Class for various Prompt Content cards
@@ -95,7 +96,7 @@ class PromptContentViewController: UIViewController {
                 self.logger.warn("content link's href was not a valid URL. Link.destinationHref=\(self.content.link?.destinationHref ?? "undefined")")
             return
         }
-        NavigationService.sharedInstance.presentWebView(url: url)
+        NavigationService.sharedInstance.presentWebView(url: url, on: self)
     }
 }
 
@@ -108,7 +109,17 @@ extension PromptContentViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
         self.logger.debug("TextView should interact with url \(URL.absoluteString)")
 //        UIApplication.shared.open(URL)
+        
+//        guard let vc = ScreenID.WebView.getViewController() as? WebViewController else {
+//            return false
+//        }
+//        vc.url = URL
+        textView.resignFirstResponder()
+        self.resignFirstResponder()
+        self.delegate?.viewController.resignFirstResponder()
         NavigationService.sharedInstance.presentWebView(url: URL)
+//        self.delegate?.viewController.present(vc, animated: true, completion: nil)
+        
         return false
     }
 }

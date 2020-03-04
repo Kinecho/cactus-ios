@@ -345,7 +345,11 @@ extension PromptContentPageViewController: UIPageViewControllerDelegate {
     }
 }
 
-extension PromptContentPageViewController: PromptContentViewControllerDelegate {    
+extension PromptContentPageViewController: PromptContentViewControllerDelegate {
+    var viewController: UIViewController {
+        return self
+    }
+    
     func save(_ response: ReflectionResponse, nextPageOnSuccess: Bool=false, addReflectionLog: Bool=true, completion: ((ReflectionResponse?, Any?) -> Void)?=nil) {
         ReflectionResponseService.sharedInstance.save(response, addReflectionLog: addReflectionLog) { (saved, error) in
             if let error = error {

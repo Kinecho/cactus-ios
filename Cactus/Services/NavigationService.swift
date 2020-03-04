@@ -20,7 +20,7 @@ class NavigationService {
         return shared
     }
     
-    var topViewController: UIViewController {
+    func getTopViewController() -> UIViewController {
         var topController: UIViewController = self.rootVc
         while let presentedViewController = topController.presentedViewController {
             topController = presentedViewController
@@ -65,15 +65,23 @@ class NavigationService {
         - completion: The completion handler that is called when presentation is completed
     */
     func present(_ vc: UIViewController, animated: Bool=true, on target: UIViewController?=nil, completion: (() -> Void)?=nil) {
-        let target = target ?? self.topViewController
-        target.present(vc, animated: animated, completion: completion)
+        DispatchQueue.main.async {
+            let target = target ?? self.getTopViewController()
+//            target.resign
+            target.present(vc, animated: animated, completion: completion)
+        }
     }
     
     func presentWebView(url: URL?, animated: Bool=true, on target: UIViewController?=nil, completion: (() -> Void)?=nil) {
-        guard let webViewController = ScreenID.WebView.getViewController() as? WebViewController else {
-            return
+        DispatchQueue.main.async { [weak self] in
+            guard let webViewController = ScreenID.WebView.getViewController() as? WebViewController else {
+                return
+            }
+            webViewController.becomeFirstResponder()
+            webViewController.url = url
+            webViewController.modalPresentationStyle = .overFullScreen
+            webViewController.modalTransitionStyle = .coverVertical
+            self?.present(webViewController, animated: animated, on: target, completion: completion)
         }
-        webViewController.url = url
-        self.present(webViewController, animated: animated, on: target, completion: completion)
     }
 }

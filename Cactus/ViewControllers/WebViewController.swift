@@ -18,7 +18,8 @@ class WebViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+
         self.webView.navigationDelegate = self
         self.configureView()
         self.loadContent()
@@ -51,6 +52,7 @@ class WebViewController: UIViewController {
     }
     
     @IBAction func doneTapped(_ sender: Any) {
+        self.resignFirstResponder()        
         self.dismiss(animated: true, completion: nil)
     }
     
