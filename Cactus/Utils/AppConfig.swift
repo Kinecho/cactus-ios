@@ -5,7 +5,6 @@
 //  Created by Neil Poulin on 7/28/19.
 //  Copyright © 2019 Cactus. All rights reserved.
 //
-
 import Foundation
 
 enum AppEnvironment: String, Codable {
@@ -52,4 +51,6 @@ protocol AppConfig {
     static var appType: AppType {get}
     static var customScheme: String {get}
     static var branchPublicKey: String {get}
+    static var appGroupId: String {get}
+    static var sharedKeychainGroup: String {get}
 }

@@ -65,7 +65,7 @@ class CactusElementsViewController: PromptContentViewController {
     }
     
     func showModal(_ element: CactusElement) {
-        guard let contentVc = AppDelegate.shared.rootViewController.getScreen(ScreenID.elementsPageView) as? CactusElementPageViewController else {return}
+        guard let contentVc = ScreenID.elementsPageView.getViewController() as? CactusElementPageViewController else {return}
         let modalVc = ModalViewController()
         modalVc.setContent(contentVc, size: CGSize(width: 250, height: 350))
         contentVc.backgroundColor = CactusColor.darkestGreen

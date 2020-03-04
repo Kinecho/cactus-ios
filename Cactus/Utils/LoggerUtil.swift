@@ -8,6 +8,8 @@
 
 import Foundation
 import Sentry
+import FirebaseAuth
+
 struct Emoji {
     static let info = "ℹ️"
     static let warning = "⚠️"
@@ -47,6 +49,35 @@ class Logger {
     
     func showLogLevel(_ logLevel: LogLevel) -> Bool {
         return self.logLevel.rawValue <= logLevel.rawValue
+    }
+    
+    static func configureLogging(auth: Auth) {
+        Logger.configureSentry(auth: auth)
+    }
+    
+    static func configureSentry(auth: Auth) {
+        // Create a Sentry client and start crash handler
+        do {
+            Client.shared = try Client(dsn: "https://728bdc63f41d4c93a6ce0884a01b58ea@sentry.io/1515431")
+            try Client.shared?.startCrashHandler()
+            Client.shared?.environment = CactusConfig.environment.rawValue
+            Client.shared?.releaseName = getReleaseName()
+            Client.shared?.dist = getBuildVersion()
+            Client.shared?.beforeSerializeEvent = { event in
+                guard let email = auth.currentUser?.email else {
+                    return
+                }
+                
+                var tags = event.tags ?? [:]
+                tags["user.email"] = email
+                if let member = CactusMemberService.sharedInstance.currentMember, let memberId = member.id {
+                    tags["cactusMemberId"] = memberId
+                }
+                event.tags = tags
+            }
+        } catch let error {
+            self.shared.error("error setting up the sentry client \(error)")
+        }
     }
     
     convenience init(_ fileName: String?=nil) {

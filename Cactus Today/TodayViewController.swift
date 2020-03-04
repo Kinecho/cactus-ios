@@ -18,27 +18,43 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     let logger = Logger("TodayViewController")
     var currentContent: PromptContent?
     var cloudinary: CLDCloudinary?
-    
+    var member: CactusMember?
     var hasLoaded = false
-    
+    var memberUnsubscriber: Unsubscriber?
     override func viewDidLoad() {
         if !self.hasLoaded {
             
             if FirebaseApp.app() == nil {
                 FirebaseApp.configure()
+                do {
+                    try Auth.auth().useUserAccessGroup(CactusConfig.sharedKeychainGroup)
+                } catch let error as NSError {
+                  print("Error changing user access group: %@", error)
+                }
+
             }
             
             let config = CLDConfiguration(cloudName: "cactus-app", secure: true)
             self.cloudinary = CLDCloudinary(configuration: config)
             self.hasLoaded = true
         }
-            
+        
         super.viewDidLoad()
-//        self.showLoading()
-        self.loadToday()
+        
+        if memberUnsubscriber == nil {
+            self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, _, _) in
+                self.member = member
+                self.loadToday()
+            })
+        }
+        
+        self.showLoading()
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.openPromptInApp)))
     }
-        
+       
+    deinit {
+        self.memberUnsubscriber?()
+    }
     
     ///We can show/hide more content based on this setting
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
@@ -57,19 +73,43 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     @objc func openPromptInApp() {
         guard let content = self.currentContent, let entryId = content.entryId else {
+            if self.member?.subscription?.tier.isPaidTier != true{
+                if let appURL = ScreenID.Pricing.getURL() {
+                    extensionContext?.open(appURL, completionHandler: nil)
+                }
+            }
+            
             return
         }
-        
+                        
         if let appURL = URL(string: "\(CactusConfig.customScheme)://cactus.app/prompts/\(entryId)") {
-               extensionContext?.open(appURL, completionHandler: nil)
-           }
+           extensionContext?.open(appURL, completionHandler: nil)
+       }
+    }
+    
+    func showNeedsLogin() {
+        self.questionLabel.text = "Please log in to see today's prompt"
+        self.questionLabel.isHidden = false
+        self.imageView.isHidden = true
+        self.introTextLabel.isHidden = true
     }
     
     func loadToday(completed: ((NCUpdateResult) -> Void)?=nil) {
-        PromptContentService.sharedInstance.getPromptContent(for: Date(), status: .published) { (content, error) in
+        guard let member = self.member else {
+            self.showNeedsLogin()
+            return
+        }
+        
+        
+        PromptContentService.sharedInstance.getPromptContent(for: Date(), status: .published, member: member) { (content, error) in
             if let error = error {
                 self.logger.error("Failed to fetch today's content", error)
-                self.showError("Unable to load today's prompt.")
+                if member.subscription?.tier.isPaidTier == true {
+                    self.showError("Unable to load today's prompt. Please try again later.")
+                } else {
+                    self.showError("There is no prompt for today. To get a new prompt every day, please upgrade to Cactus Plus.")
+                }
+                
                 completed?(NCUpdateResult.failed)
                 return
             }
@@ -104,7 +144,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     func configurePromptContent(_ promptContent: PromptContent?) {
         guard let content = promptContent else {
             self.imageView.isHidden = true
-            self.questionLabel.text = "There is no content today."
+            if self.member?.subscription?.tier.isPaidTier == true {
+                self.questionLabel.text = "There is no prompt today. Please try again later."
+            } else {
+                self.questionLabel.text = "Get today’s question. Tap to learn more."
+            }
+            
             self.questionLabel.isHidden = false
             self.introTextLabel.isHidden = true
             return

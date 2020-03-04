@@ -59,12 +59,12 @@ class JournalHomeEmptyStateViewController: UIViewController {
         self.logger.info("navigating to \(self.promptContent?.entryId ?? "none found")")
         
         guard let promptContent = self.promptContent else {return}
-        guard let vc = AppDelegate.shared.rootViewController.getScreen(ScreenID.promptContentPageView) as? PromptContentPageViewController else {return}
+        guard let vc = ScreenID.promptContentPageView.getViewController() as? PromptContentPageViewController else {return}
         vc.promptContent = promptContent
         vc.reflectionResponse = self.reflectionResponses?.first
         self.promptContentVC = vc
         vc.modalPresentationStyle = .fullScreen //this is needed to trigger the viewDidApper on the journal home
         vc.modalTransitionStyle = .crossDissolve
-        AppDelegate.shared.rootViewController.present(vc, animated: true, completion: nil)
+        AppMainViewController.shared.present(vc, animated: true, completion: nil)
     }
 }

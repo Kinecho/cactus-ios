@@ -42,7 +42,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z8U-Me-3LH">
-                                <rect key="frame" x="0.0" y="90" width="375" height="577"/>
+                                <rect key="frame" x="0.0" y="80" width="375" height="587"/>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbu-p9-et4">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
@@ -81,7 +81,7 @@
                             <constraint firstItem="ZBF-X5-P48" firstAttribute="trailing" secondItem="hbu-p9-et4" secondAttribute="trailing" id="FUK-W5-I5j"/>
                             <constraint firstItem="Z8U-Me-3LH" firstAttribute="leading" secondItem="BSA-pu-uSy" secondAttribute="leading" id="gsf-ZV-TqM"/>
                             <constraint firstAttribute="trailing" secondItem="Z8U-Me-3LH" secondAttribute="trailing" id="mF7-Is-B2k"/>
-                            <constraint firstItem="Z8U-Me-3LH" firstAttribute="top" secondItem="hbu-p9-et4" secondAttribute="bottom" constant="10" id="pUc-AM-2LR"/>
+                            <constraint firstItem="Z8U-Me-3LH" firstAttribute="top" secondItem="hbu-p9-et4" secondAttribute="bottom" id="pUc-AM-2LR"/>
                             <constraint firstAttribute="top" secondItem="hbu-p9-et4" secondAttribute="top" id="rbV-Ql-z6y"/>
                             <constraint firstAttribute="bottom" secondItem="Z8U-Me-3LH" secondAttribute="bottom" id="yuK-PF-Eer"/>
                         </constraints>
@@ -182,18 +182,18 @@
             <objects>
                 <collectionViewController storyboardIdentifier="JournalFeed" id="GWJ-to-hjF" userLabel="Journal Feed" customClass="JournalFeedCollectionViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="c64-uC-Gae">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="762"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="Background"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="25" sectionInsetReference="layoutMargins" id="CAX-zL-tXF" customClass="JournalFeedFlowLayout" customModule="Cactus" customModuleProvider="target">
                             <size key="itemSize" width="408" height="229"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="headerReferenceSize" width="300" height="200"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" reuseIdentifier="JournalEntryCell" id="hi3-X9-dKc" userLabel="Question Card" customClass="JournalEntryCollectionViewCell" customModule="Cactus" customModuleProvider="target">
-                                <rect key="frame" x="3" y="8" width="408" height="229"/>
+                                <rect key="frame" x="3" y="208" width="408" height="229"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <collectionViewCellContentView key="contentView" verifyAmbiguity="ignoreSizes" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="402" placeholderIntrinsicHeight="200" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" id="0qW-dd-S1T">
                                     <rect key="frame" x="0.0" y="0.0" width="408" height="229"/>
@@ -244,8 +244,8 @@
                                             <color key="textColor" name="TextMinimized"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLH-Hu-Fx0" customClass="BorderedButton" customModule="Cactus" customModuleProvider="target">
-                                            <rect key="frame" x="366.5" y="20" width="40" height="40"/>
+                                        <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLH-Hu-Fx0" customClass="BorderedButton" customModule="Cactus" customModuleProvider="target">
+                                            <rect key="frame" x="358" y="10" width="40" height="40"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="ab8-UZ-8ce"/>
@@ -301,7 +301,6 @@
                                             <rect key="frame" x="20" y="159" width="368" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" identifier="ReflectButton.Height" id="8cM-D4-eRz"/>
-                                                <constraint firstAttribute="width" constant="200" id="Pev-q1-Her"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="22"/>
                                             <state key="normal" title="Reflect"/>
@@ -310,11 +309,6 @@
                                                     <real key="value" value="22"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
-                                            <variation key="heightClass=regular-widthClass=compact">
-                                                <mask key="constraints">
-                                                    <exclude reference="Pev-q1-Her"/>
-                                                </mask>
-                                            </variation>
                                             <connections>
                                                 <action selector="reflectButtonTapped:" destination="hi3-X9-dKc" eventType="primaryActionTriggered" id="uZa-If-H7h"/>
                                             </connections>
@@ -405,6 +399,114 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="Header" translatesAutoresizingMaskIntoConstraints="NO" id="asi-fD-mec" customClass="UpgradeJournalFeedCollectionReusableView" customModule="Cactus" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="8" width="414" height="200"/>
+                            <subviews>
+                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mb0-0t-Xup">
+                                    <rect key="frame" x="0.0" y="0.0" width="628" height="163"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plusBg" translatesAutoresizingMaskIntoConstraints="NO" id="N6E-UV-N05">
+                                            <rect key="frame" x="-100" y="0.0" width="828" height="247"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="247" id="HaA-fE-ciu"/>
+                                            </constraints>
+                                        </imageView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RUx-Xn-6xF" userLabel="Wrapper Stack View">
+                                            <rect key="frame" x="0.0" y="0.0" width="628" height="163"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="y63-Ac-XIQ">
+                                                    <rect key="frame" x="8" y="0.0" width="612" height="163"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="7VZ-dP-Lvg" userLabel="Text Stack View">
+                                                            <rect key="frame" x="20" y="20" width="167" height="53"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 days left in trial" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6LP-Sv-Oeq">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="167" height="26"/>
+                                                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="22"/>
+                                                                    <color key="textColor" name="White"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrN-JL-Rk1" userLabel="Description Label">
+                                                                    <rect key="frame" x="0.0" y="32" width="167" height="21"/>
+                                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                                    <color key="textColor" name="White"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="a6V-rh-8WM">
+                                                            <rect key="frame" x="20" y="93" width="78" height="50"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bFV-X2-DUD" userLabel="Upgrade Button" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="78" height="50"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="50" id="rYy-xf-76l"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="Learn More"/>
+                                                                    <connections>
+                                                                        <action selector="upgradeTapped:" destination="GWJ-to-hjF" eventType="primaryActionTriggered" id="Zh2-r4-S4W"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="J2I-yc-PGV"/>
+                                                    </constraints>
+                                                    <edgeInsets key="layoutMargins" top="20" left="20" bottom="20" right="20"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="J2I-yc-PGV"/>
+                                                        </mask>
+                                                    </variation>
+                                                </stackView>
+                                            </subviews>
+                                            <edgeInsets key="layoutMargins" top="0.0" left="8" bottom="0.0" right="8"/>
+                                            <variation key="heightClass=regular-widthClass=regular">
+                                                <edgeInsets key="layoutMargins" top="0.0" left="40" bottom="0.0" right="40"/>
+                                            </variation>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="RUx-Xn-6xF" secondAttribute="trailing" id="9bl-gj-hxC"/>
+                                        <constraint firstAttribute="trailing" secondItem="N6E-UV-N05" secondAttribute="trailing" constant="-100" id="Bgs-sP-kET"/>
+                                        <constraint firstItem="N6E-UV-N05" firstAttribute="top" secondItem="Mb0-0t-Xup" secondAttribute="top" id="JVP-m7-bmq"/>
+                                        <constraint firstItem="N6E-UV-N05" firstAttribute="leading" secondItem="Mb0-0t-Xup" secondAttribute="leading" constant="-100" id="QPY-Qv-ZRe"/>
+                                        <constraint firstAttribute="bottom" secondItem="RUx-Xn-6xF" secondAttribute="bottom" id="hDZ-Qg-tkY"/>
+                                        <constraint firstItem="N6E-UV-N05" firstAttribute="height" secondItem="RUx-Xn-6xF" secondAttribute="height" multiplier="1.5" id="jux-1T-ukd"/>
+                                        <constraint firstItem="RUx-Xn-6xF" firstAttribute="leading" secondItem="Mb0-0t-Xup" secondAttribute="leading" id="lLj-bm-MQX"/>
+                                        <constraint firstItem="RUx-Xn-6xF" firstAttribute="top" secondItem="Mb0-0t-Xup" secondAttribute="top" id="ua7-7i-VTQ"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="jux-1T-ukd"/>
+                                        </mask>
+                                    </variation>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="Mb0-0t-Xup" secondAttribute="bottom" constant="20" id="7UJ-Oo-1HM"/>
+                                <constraint firstItem="Mb0-0t-Xup" firstAttribute="top" secondItem="asi-fD-mec" secondAttribute="top" id="G0Q-B5-zZt"/>
+                                <constraint firstItem="Mb0-0t-Xup" firstAttribute="leading" secondItem="asi-fD-mec" secondAttribute="leading" id="QGX-yv-DKP"/>
+                                <constraint firstAttribute="trailing" secondItem="Mb0-0t-Xup" secondAttribute="trailing" id="gvZ-oe-BBF"/>
+                            </constraints>
+                            <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="stackViewBackgroundColor">
+                                    <color key="value" name="Magenta"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <outlet property="descriptionLabel" destination="xrN-JL-Rk1" id="9VO-Ax-Emn"/>
+                                <outlet property="mainStackView" destination="y63-Ac-XIQ" id="XHK-hq-ogf"/>
+                                <outlet property="titleLabel" destination="6LP-Sv-Oeq" id="gMf-cl-uiQ"/>
+                                <outlet property="upgradeButton" destination="bFV-X2-DUD" id="LWy-sK-aex"/>
+                            </connections>
+                        </collectionReusableView>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                         </userDefinedRuntimeAttributes>
@@ -426,7 +528,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PGe-PA-TCt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="d4Z-7w-6Js" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1030.4000000000001" y="-673.89162561576359"/>
+            <point key="canvasLocation" x="1030.4000000000001" y="-674.66266866566718"/>
         </scene>
         <!--Cactus Element Page View Controller-->
         <scene sceneID="j9g-sr-mcr">
@@ -705,6 +807,7 @@
         <image name="emptyState" width="1274" height="747"/>
         <image name="logo" width="705" height="348"/>
         <image name="logo-ondark" width="705" height="348"/>
+        <image name="plusBg" width="414" height="237"/>
         <namedColor name="Background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -719,6 +822,9 @@
         </namedColor>
         <namedColor name="Highlight">
             <color red="0.96078431372549022" green="0.8666666666666667" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Magenta">
+            <color red="0.80000001192092896" green="0.20000000298023224" blue="0.63099998235702515" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="TextDefault">
             <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

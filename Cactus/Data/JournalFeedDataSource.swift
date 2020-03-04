@@ -157,7 +157,7 @@ class JournalFeedDataSource {
             return
         }
         
-        PromptContentService.sharedInstance.getPromptContent(for: currentDate, status: .published) { (promptContent, error) in
+        PromptContentService.sharedInstance.getPromptContent(for: currentDate, status: .published, member: self.currentMember) { (promptContent, error) in
             defer {
                 self.todayLoaded = true
             }

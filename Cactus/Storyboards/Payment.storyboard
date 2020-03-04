@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nbg-R4-jNv">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Manage Subscription-->
+        <scene sceneID="NS9-Hm-UzW">
+            <objects>
+                <viewController storyboardIdentifier="ManageSubscription" title="Subscription" id="wlu-G6-Xeg" userLabel="Manage Subscription" customClass="ManageSubscriptionViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ai6-Ij-s74">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="wvf-ef-nZX">
+                                <rect key="frame" x="20" y="128" width="374" height="293.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="QrN-Yf-3kG" userLabel="Current Details Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="67.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Plan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYx-Kx-eNe">
+                                                <rect key="frame" x="0.0" y="0.0" width="123" height="26"/>
+                                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="22"/>
+                                                <color key="textColor" name="TextDefault"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Basic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y98-nY-XO7" userLabel="Current Status">
+                                                <rect key="frame" x="0.0" y="26" width="45" height="21"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                <color key="textColor" name="TextDefault"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDB-HU-MgS" userLabel="Trial End Label">
+                                                <rect key="frame" x="0.0" y="47" width="42" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="f9R-5V-Jfc" userLabel="Invoice Stack View">
+                                        <rect key="frame" x="0.0" y="107.5" width="374" height="77"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your next bill is for $2.99 on 3/2/2020" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zo-lG-Ffu" userLabel="Next Billing Date">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="21"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                <color key="textColor" name="TextDefault"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="caY-l5-hhX" userLabel="Payment Method Stack View">
+                                                <rect key="frame" x="0.0" y="31" width="374" height="46"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Dai-BN-8JD">
+                                                        <rect key="frame" x="10" y="10" width="354" height="26"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ymY-di-l3n">
+                                                                <rect key="frame" x="0.0" y="0.0" width="354" height="26"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="creditCard" translatesAutoresizingMaskIntoConstraints="NO" id="XpI-xS-YbR">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="26" height="26"/>
+                                                                        <color key="tintColor" name="Green"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="26" id="02s-il-QgJ"/>
+                                                                            <constraint firstAttribute="width" constant="26" id="Yry-m4-Hm5"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visa ending in 3333" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Op-vi-eeR" userLabel="Payment Method">
+                                                                        <rect key="frame" x="36" y="0.0" width="318" height="26"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSK-Zm-Dib" userLabel="Change Button">
+                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="26"/>
+                                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                                                <color key="tintColor" name="Green"/>
+                                                                <state key="normal" title="Change"/>
+                                                                <connections>
+                                                                    <action selector="changeBillingTapped:" destination="wlu-G6-Xeg" eventType="primaryActionTriggered" id="rsy-Jh-gJ3"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <edgeInsets key="layoutMargins" top="10" left="10" bottom="10" right="10"/>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yqL-pN-MIi" userLabel="Upgrade Stack View">
+                                        <rect key="frame" x="0.0" y="224.5" width="374" height="69"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Learn more about cactus plus" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Nc-NM-bck" userLabel="Description Label">
+                                                <rect key="frame" x="0.0" y="0.0" width="214" height="19"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
+                                                <color key="textColor" name="TextDefault"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="PaymentStoryboard" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBu-gI-8HO" userLabel="Learn More Button" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="39" width="78" height="30"/>
+                                                <state key="normal" title="Learn More"/>
+                                                <connections>
+                                                    <segue destination="nbg-R4-jNv" kind="presentation" id="m5K-6S-CHm"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="wvf-ef-nZX" firstAttribute="leading" secondItem="4dj-bf-e06" secondAttribute="leading" constant="20" id="PNm-YU-3YC"/>
+                            <constraint firstItem="wvf-ef-nZX" firstAttribute="top" secondItem="4dj-bf-e06" secondAttribute="top" constant="40" id="eh7-MV-Pn5"/>
+                            <constraint firstItem="4dj-bf-e06" firstAttribute="trailing" secondItem="wvf-ef-nZX" secondAttribute="trailing" constant="20" id="vZc-5h-12a"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4dj-bf-e06"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="changeBillingButton" destination="dSK-Zm-Dib" id="Ysf-QN-qDW"/>
+                        <outlet property="currentStatusLabel" destination="Y98-nY-XO7" id="JvP-6c-xyC"/>
+                        <outlet property="invoiceStackView" destination="f9R-5V-Jfc" id="4gN-U2-DyC"/>
+                        <outlet property="learnMoreButton" destination="WBu-gI-8HO" id="BnY-0W-SSv"/>
+                        <outlet property="nextInvoiceDescriptionLabel" destination="7zo-lG-Ffu" id="HSZ-2z-uQN"/>
+                        <outlet property="paymentMethodLabel" destination="0Op-vi-eeR" id="uNT-mS-Y0I"/>
+                        <outlet property="paymentStackView" destination="caY-l5-hhX" id="YgE-FE-DQ7"/>
+                        <outlet property="trialEndLabel" destination="ZDB-HU-MgS" id="SuC-Hs-TiC"/>
+                        <outlet property="upgradeDescriptionLabel" destination="5Nc-NM-bck" id="rpw-Ei-W0E"/>
+                        <outlet property="upgradeStackView" destination="yqL-pN-MIi" id="k6Z-h9-jJU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="792-JK-ZtF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-136.23188405797103" y="105.80357142857143"/>
+        </scene>
+        <!--Pricing View Controller-->
+        <scene sceneID="ztF-sQ-EfQ">
+            <objects>
+                <viewController storyboardIdentifier="Pricing" id="nbg-R4-jNv" customClass="PricingViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9QR-ug-RrN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="glO-Lu-z2p">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="754"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uFG-FR-3zj">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="675"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="7mA-H1-lCb" userLabel="Main Stack View">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="615"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CLn-iH-UDV" userLabel="Header Stack View">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="131.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get more with Cactus Plus" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biv-YM-Niy" userLabel="Tagline">
+                                                                <rect key="frame" x="40" y="60" width="334" height="31.5"/>
+                                                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="26"/>
+                                                                <color key="textColor" name="White"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily prompts, personal insights, and more" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYY-ga-3t3" userLabel="Sub Text">
+                                                                <rect key="frame" x="40" y="101.5" width="334" height="22"/>
+                                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                                <color key="textColor" name="White"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <edgeInsets key="layoutMargins" top="60" left="40" bottom="8" right="40"/>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="i7R-WF-yMj" userLabel="Features Stack View">
+                                                        <rect key="frame" x="0.0" y="171.5" width="414" height="304"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="eNj-ID-z2m" userLabel="Feature 1">
+                                                                <rect key="frame" x="20" y="20" width="374" height="89"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" translatesAutoresizingMaskIntoConstraints="NO" id="mHK-W8-Xtw" userLabel="calendar icon">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                        <color key="tintColor" name="Magenta"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="30" id="Cor-Rp-EkN"/>
+                                                                            <constraint firstAttribute="height" constant="30" id="xXj-CG-GMh"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="nc5-zL-Lk3">
+                                                                        <rect key="frame" x="50" y="0.0" width="324" height="89"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make it daily" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9I-Gs-XEv" userLabel="Make it Daily">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="24"/>
+                                                                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="20"/>
+                                                                                <color key="textColor" name="TextDefault"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Become more focused at work, more positive at home with a fresh prompt, every day." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXW-2h-wqH">
+                                                                                <rect key="frame" x="0.0" y="24" width="294" height="65"/>
+                                                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                                                <color key="textColor" name="TextDefault"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="KFG-yd-8dt" userLabel="Feature 2">
+                                                                <rect key="frame" x="20" y="129" width="374" height="67.5"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="journal" translatesAutoresizingMaskIntoConstraints="NO" id="z5h-7g-Wqp" userLabel="calendar icon">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                        <color key="tintColor" name="Magenta"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="30" id="4Td-Df-2dc"/>
+                                                                            <constraint firstAttribute="width" constant="30" id="OIg-SL-Ms4"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ehe-VG-OJX">
+                                                                        <rect key="frame" x="50" y="0.0" width="324" height="67.5"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Look back" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUL-jC-I2M" userLabel="Make it Daily">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="90.5" height="24"/>
+                                                                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="20"/>
+                                                                                <color key="textColor" name="TextDefault"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="As your journal fills up, celebrate and relive  the positive forces in your life" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stT-RT-Ofj">
+                                                                                <rect key="frame" x="0.0" y="24" width="291" height="43.5"/>
+                                                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                                                <color key="textColor" name="TextDefault"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5S3-X5-LEd" userLabel="Feature 3">
+                                                                <rect key="frame" x="20" y="216.5" width="374" height="67.5"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="dHD-KJ-ceV" userLabel="calendar icon">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                        <color key="tintColor" name="Magenta"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="30" id="90d-db-CVz"/>
+                                                                            <constraint firstAttribute="height" constant="30" id="cJh-fu-nEb"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="n2G-DD-oP0">
+                                                                        <rect key="frame" x="50" y="0.0" width="324" height="67.5"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Private + secure" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWM-vy-TWT" userLabel="Make it Daily">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="144.5" height="24"/>
+                                                                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="20"/>
+                                                                                <color key="textColor" name="TextDefault"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your journal entries are yours - encrypted and never read or sold" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iry-ae-VKu">
+                                                                                <rect key="frame" x="0.0" y="24" width="258" height="43.5"/>
+                                                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                                                <color key="textColor" name="TextDefault"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <edgeInsets key="layoutMargins" top="20" left="20" bottom="20" right="20"/>
+                                                    </stackView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="if1-pX-4om" userLabel="Contact Us View">
+                                                        <rect key="frame" x="0.0" y="515.5" width="414" height="99.5"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RPt-W7-VzR">
+                                                                <rect key="frame" x="1" y="20" width="414" height="59.5"/>
+                                                                <subviews>
+                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Questions? Email us at help@cactus.app" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0aH-eS-NvI">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="59.5"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="textColor" name="TextDefault"/>
+                                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                    </textView>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="RPt-W7-VzR" secondAttribute="trailing" id="TxS-Gk-7Xc"/>
+                                                            <constraint firstItem="RPt-W7-VzR" firstAttribute="leading" secondItem="if1-pX-4om" secondAttribute="leading" id="WoK-Lb-iIJ"/>
+                                                            <constraint firstAttribute="bottom" secondItem="RPt-W7-VzR" secondAttribute="bottom" constant="20" id="acF-UD-bd8"/>
+                                                            <constraint firstItem="RPt-W7-VzR" firstAttribute="top" secondItem="if1-pX-4om" secondAttribute="top" constant="20" id="mik-qm-HcD"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Y5-Na-5AF" userLabel="Plan ContainerView">
+                                                        <rect key="frame" x="0.0" y="615" width="414" height="80"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Nay-Es-eds">
+                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a Plan:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xv1-Hu-iAN">
+                                                                        <rect key="frame" x="8" y="40" width="398" height="0.0"/>
+                                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                                        <color key="textColor" name="White"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="VNa-O1-1V1" userLabel="Plan StackVIew">
+                                                                        <rect key="frame" x="8" y="0.0" width="398" height="130"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="130" id="iWt-nN-b4f"/>
+                                                                        </constraints>
+                                                                        <edgeInsets key="layoutMargins" top="0.0" left="20" bottom="0.0" right="20"/>
+                                                                    </stackView>
+                                                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="JwG-oa-Y2L" userLabel="Footer Stack View">
+                                                                        <rect key="frame" x="8" y="0.0" width="398" height="0.0"/>
+                                                                        <subviews>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="pGW-Ze-8DE">
+                                                                                <rect key="frame" x="72.5" y="0.0" width="253.5" height="0.0"/>
+                                                                                <subviews>
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="MGb-ih-0Uq">
+                                                                                        <rect key="frame" x="0.0" y="-1" width="20.5" height="2.5"/>
+                                                                                        <color key="tintColor" name="PinkBright"/>
+                                                                                    </imageView>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Supports Cactus development" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3N-Q8-R3X">
+                                                                                        <rect key="frame" x="30.5" y="0.0" width="223" height="0.0"/>
+                                                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                                                                        <color key="textColor" name="TextDefault"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                </subviews>
+                                                                                <color key="tintColor" name="Pink"/>
+                                                                            </stackView>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                </subviews>
+                                                                <edgeInsets key="layoutMargins" top="40" left="8" bottom="40" right="8"/>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" name="Dolphin"/>
+                                                        <constraints>
+                                                            <constraint firstItem="Nay-Es-eds" firstAttribute="leading" secondItem="7Y5-Na-5AF" secondAttribute="leading" id="0f1-ZN-YSm"/>
+                                                            <constraint firstItem="Nay-Es-eds" firstAttribute="top" secondItem="7Y5-Na-5AF" secondAttribute="top" id="byp-ab-xQi"/>
+                                                            <constraint firstAttribute="height" constant="300" id="ddc-oM-mrb"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Nay-Es-eds" secondAttribute="bottom" id="dzY-mc-iXv"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Nay-Es-eds" secondAttribute="trailing" id="z7x-F6-Ktd"/>
+                                                        </constraints>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="ddc-oM-mrb"/>
+                                                            </mask>
+                                                        </variation>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vu3-SC-0CD" userLabel="Close Button">
+                                                <rect key="frame" x="354" y="0.0" width="60" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="oiW-j8-6eU"/>
+                                                    <constraint firstAttribute="width" constant="60" id="ru6-is-bL4"/>
+                                                </constraints>
+                                                <color key="tintColor" name="Green"/>
+                                                <inset key="imageEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
+                                                <state key="normal" image="close"/>
+                                                <connections>
+                                                    <action selector="closeTapped:" destination="nbg-R4-jNv" eventType="primaryActionTriggered" id="AQ4-t3-1sB"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="7mA-H1-lCb" secondAttribute="bottom" constant="60" id="5TZ-qN-vfa"/>
+                                            <constraint firstAttribute="trailing" secondItem="7mA-H1-lCb" secondAttribute="trailing" id="OJ3-qr-BJu"/>
+                                            <constraint firstItem="7mA-H1-lCb" firstAttribute="leading" secondItem="uFG-FR-3zj" secondAttribute="leading" id="Tjo-V2-MAz"/>
+                                            <constraint firstItem="vu3-SC-0CD" firstAttribute="top" secondItem="uFG-FR-3zj" secondAttribute="top" id="m1E-B9-HQv"/>
+                                            <constraint firstItem="7mA-H1-lCb" firstAttribute="top" secondItem="uFG-FR-3zj" secondAttribute="top" id="pY8-Lh-nyv"/>
+                                            <constraint firstAttribute="trailing" secondItem="vu3-SC-0CD" secondAttribute="trailing" id="xrv-WU-Y83"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="GVj-26-Uol" firstAttribute="top" secondItem="uFG-FR-3zj" secondAttribute="top" id="5wd-j6-Mj1"/>
+                                    <constraint firstItem="uFG-FR-3zj" firstAttribute="trailing" secondItem="GVj-26-Uol" secondAttribute="trailing" id="6GY-VE-9rf"/>
+                                    <constraint firstItem="uFG-FR-3zj" firstAttribute="trailing" secondItem="qpu-zK-XrU" secondAttribute="trailing" id="Aez-qX-nVl"/>
+                                    <constraint firstItem="uFG-FR-3zj" firstAttribute="leading" secondItem="GVj-26-Uol" secondAttribute="leading" id="Ndc-Wg-shw"/>
+                                    <constraint firstItem="uFG-FR-3zj" firstAttribute="bottom" secondItem="GVj-26-Uol" secondAttribute="bottom" id="gvf-Bd-glr"/>
+                                    <constraint firstItem="qpu-zK-XrU" firstAttribute="leading" secondItem="uFG-FR-3zj" secondAttribute="leading" id="sPR-NL-2fS"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="GVj-26-Uol"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="qpu-zK-XrU"/>
+                            </scrollView>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fmV-WR-biu" userLabel="Continue Stack View">
+                                <rect key="frame" x="0.0" y="754" width="414" height="54"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDH-3U-n7o" userLabel="Continue Button" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="34"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                        <state key="normal" title="Continue"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCorners" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="20" right="0.0"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="Background"/>
+                        <constraints>
+                            <constraint firstItem="k3F-56-OAD" firstAttribute="trailing" secondItem="glO-Lu-z2p" secondAttribute="trailing" id="Bf9-Yy-sf9"/>
+                            <constraint firstItem="glO-Lu-z2p" firstAttribute="top" secondItem="k3F-56-OAD" secondAttribute="top" id="LEP-Ty-M4A"/>
+                            <constraint firstItem="glO-Lu-z2p" firstAttribute="leading" secondItem="k3F-56-OAD" secondAttribute="leading" id="ZfS-FV-Gbv"/>
+                            <constraint firstItem="k3F-56-OAD" firstAttribute="trailing" secondItem="fmV-WR-biu" secondAttribute="trailing" id="cJQ-V8-2A5"/>
+                            <constraint firstItem="fmV-WR-biu" firstAttribute="leading" secondItem="k3F-56-OAD" secondAttribute="leading" id="gjH-Qf-1Zf"/>
+                            <constraint firstItem="k3F-56-OAD" firstAttribute="bottom" secondItem="fmV-WR-biu" secondAttribute="bottom" id="gtK-fd-UjG"/>
+                            <constraint firstItem="k3F-56-OAD" firstAttribute="bottom" secondItem="glO-Lu-z2p" secondAttribute="bottom" id="qx9-GQ-smd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="k3F-56-OAD"/>
+                    </view>
+                    <connections>
+                        <outlet property="closeButton" destination="vu3-SC-0CD" id="bF4-W3-uHY"/>
+                        <outlet property="continueButton" destination="TDH-3U-n7o" id="ayz-zM-tnW"/>
+                        <outlet property="continueStackView" destination="fmV-WR-biu" id="zem-9V-8pM"/>
+                        <outlet property="footerDescriptionLabel" destination="A3N-Q8-R3X" id="6dM-qE-wVm"/>
+                        <outlet property="footerIcon" destination="MGb-ih-0Uq" id="WSf-tu-Z3E"/>
+                        <outlet property="footerStackView" destination="JwG-oa-Y2L" id="vJ4-90-6FY"/>
+                        <outlet property="headerStackView" destination="CLn-iH-UDV" id="tqD-Oh-OaY"/>
+                        <outlet property="mainStackView" destination="7mA-H1-lCb" id="FO0-8x-8ge"/>
+                        <outlet property="planContainerView" destination="7Y5-Na-5AF" id="kbs-7H-zmU"/>
+                        <outlet property="planStackView" destination="VNa-O1-1V1" id="KcQ-p6-zu6"/>
+                        <outlet property="questionsTextView" destination="0aH-eS-NvI" id="zFQ-uP-iS6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zkc-Ta-Jct" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-117.39130434782609" y="-601.33928571428567"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="calendar" width="24" height="24"/>
+        <image name="close" width="48" height="48"/>
+        <image name="creditCard" width="24" height="24"/>
+        <image name="heart.fill" catalog="system" width="64" height="54"/>
+        <image name="journal" width="24" height="24"/>
+        <image name="lock" width="24" height="24"/>
+        <namedColor name="Background">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Dolphin">
+            <color red="0.27843137254901962" green="0.26666666666666666" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Green">
+            <color red="0.20000000298023224" green="0.80000001192092896" blue="0.67100000381469727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Magenta">
+            <color red="0.80000001192092896" green="0.20000000298023224" blue="0.63099998235702515" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="Pink">
+            <color red="1" green="0.83899998664855957" blue="0.77999997138977051" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PinkBright">
+            <color red="0.80000000000000004" green="0.20000000000000001" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextDefault">
+            <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

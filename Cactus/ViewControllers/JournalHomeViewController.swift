@@ -65,7 +65,7 @@ class JournalHomeViewController: UIViewController {
         super.viewDidLoad()
         
         if #available(iOS 13.0, *) {
-            AppDelegate.shared.rootViewController.setStatusBarStyle(.default)
+            AppMainViewController.shared.setStatusBarStyle(.default)
         }
         self.setNeedsStatusBarAppearanceUpdate()
         
@@ -141,7 +141,7 @@ class JournalHomeViewController: UIViewController {
                     return
                 }
                 
-                guard let vc = AppDelegate.shared.rootViewController.getScreen(ScreenID.notificationOnboarding) as? NotificationOnboardingViewController else {
+                guard let vc = ScreenID.notificationOnboarding.getViewController() as? NotificationOnboardingViewController else {
                     return
                 }
                 
@@ -272,7 +272,12 @@ class JournalHomeViewController: UIViewController {
     
     func updateViewForMember(member: CactusMember?) {
 //        self.journalFeedDataSource?.curr
-        self.logger.info("Update view for member (nothing implemented)", functionName: #function)
+        self.logger.info("Update view for member", functionName: #function)
+        if member?.subscription?.isInTrial == true {
+            self.showTrialBanner()
+        } else {
+            self.hideTrialBanner()
+        }
     }
     
     func updateViewForUser(user: Firebase.User?) {
@@ -282,7 +287,15 @@ class JournalHomeViewController: UIViewController {
         } else {
             self.profileImageView.image = CactusImage.avatar3.getImage()
         }
-        
+    }
+    
+    func hideTrialBanner() {
+        self.logger.debug("hiding trial banner")
+    }
+    
+    func showTrialBanner() {
+        let daysLeft = self.member.subscription?.trialDaysLeft
+        self.logger.debug("showing trial banner with \(daysLeft ?? 0) days left")
     }
     
     @objc func profileImageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
@@ -302,7 +315,7 @@ class JournalHomeViewController: UIViewController {
     func showEmptyState() {
         self.logger.info("Showing empty state")
         if self.emptyStateViewController == nil {
-            self.emptyStateViewController = AppDelegate.shared.rootViewController.getScreen(ScreenID.journalEmpty) as? JournalHomeEmptyStateViewController
+            self.emptyStateViewController = ScreenID.journalEmpty.getViewController() as? JournalHomeEmptyStateViewController
         } else {
 //            self.emptyStateViewController?.removeFromParent()
         }
@@ -346,7 +359,7 @@ class JournalHomeViewController: UIViewController {
         
          if self.journalFeedViewController == nil {
             self.logger.info("JournalFeedController was nil, creating it now")
-            self.journalFeedViewController = AppDelegate.shared.rootViewController.getJournalFeedViewController()
+            self.journalFeedViewController = AppMainViewController.shared.getJournalFeedViewController()
         } else {
             self.logger.info("JournalFeedController already exists, setting it up")
         }

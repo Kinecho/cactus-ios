@@ -441,7 +441,6 @@ DEPENDENCIES:
   - Cloudinary (~> 2.0)
   - CodableFirebase
   - Crashlytics
-  - Fabric
   - FacebookCore
   - FBSDKCoreKit
   - Firebase/Analytics
@@ -576,6 +575,6 @@ SPEC CHECKSUMS:
   SkeletonView: ce0c2a2e8154c57b32f5b31b65f4cb92ca119861
   SwiftLint: 8f5d2f903e1c9bcbc832fd16771e80a263ac6cbb
 
-PODFILE CHECKSUM: 9bc2c59c9fea84f15a94500a3202b8e05c5d19bd
+PODFILE CHECKSUM: d73119da5e628128206717b459bfa7644d28960d
 
 COCOAPODS: 1.8.4

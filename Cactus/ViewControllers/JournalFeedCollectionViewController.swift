@@ -15,6 +15,9 @@ import SkeletonView
 class JournalFeedCollectionViewController: UICollectionViewController {
     var dataSource: JournalFeedDataSource!
     var logger = Logger(fileName: "JournalFeedCollectionViewController")
+    var memberUnsubscriber: Unsubscriber?
+    var member: CactusMember?
+    var headerView: UICollectionReusableView?
     private let itemsPerRow: CGFloat = 1
     private let reuseIdentifier = ReuseIdentifier.JournalEntryCell.rawValue
     private let defaultCellHeight: CGFloat = 220
@@ -32,16 +35,64 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         let width = min(760, size.width)
         return CGSize(width: width - sectionInsets.left - sectionInsets.right - contentInsetWidth, height: defaultCellHeight)
     }
- 
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+
+        // Get the view for the first header
+        let indexPath = IndexPath(row: 0, section: section)
+        let headerView = self.collectionView(collectionView, viewForSupplementaryElementOfKind: UICollectionView.elementKindSectionHeader, at: indexPath)
+
+        if self.member?.subscription?.isActivated == true {
+            return CGSize.zero
+        } else {
+            // Use this view to calculate the optimal size based on the collection view's width
+            return headerView.systemLayoutSizeFitting(CGSize(width: collectionView.frame.width, height: UIView.layoutFittingExpandedSize.height),
+                                                      withHorizontalFittingPriority: .required, // Width is fixed
+                                                      verticalFittingPriority: .fittingSizeLevel) // Height can be as large as needed
+        }
+        
+    }
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad()                                
+        
         self.collectionView.prefetchDataSource = self
         layout.estimatedItemSize = getCellEstimatedSize(self.view.bounds.size)
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(self.appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(self.appMovedToBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
-        
         self.collectionView.reloadData()
+        self.member = CactusMemberService.sharedInstance.currentMember
+        self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, error, _) in
+            if let error = error {
+                self.logger.error("Failed to get the current member", error)
+                return
+            }
+            self.member = member
+            DispatchQueue.main.async {
+                _ = self.updateHeaderView()
+                self.collectionViewLayout.invalidateLayout()
+            }
+        })
+        
+    }
+    
+    @IBAction func upgradeTapped(_ sender: Any) {
+        learnMoreAboutUpgradeTapped(target: self)
+    }
+    
+    func getHeaderView() -> UICollectionReusableView {
+        if let view = self.headerView {
+            return view
+        }
+        let kind = UICollectionView.elementKindSectionHeader
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: IndexPath(row: 0, section: 0))
+        self.headerView = view
+        return view
+        
+    }
+    
+    deinit {
+        self.memberUnsubscriber?()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -57,6 +108,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         if  !visibleIds.isEmpty {
             self.logger.info("reloading visible ids \(visibleIds)")
             self.collectionView.reloadItems(at: visibleIds)
+            self.collectionViewLayout.invalidateLayout()
         }
     }
     
@@ -92,7 +144,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
             if let vc = segue.destination as? PromptContentPageViewController {
                 vc.promptContent = cell.promptContent
                 vc.journalDataSource = self.dataSource
-                var response = cell.responses?.first                
+                let response = cell.responses?.first
                 vc.reflectionResponse = response                
             }        
         default:
@@ -104,6 +156,58 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         return 1
     }
 
+    func updateHeaderView() -> UICollectionReusableView {
+        let headerView = self.getHeaderView()
+        guard let upgradeView = headerView as? UpgradeJournalFeedCollectionReusableView else {
+            return headerView
+        }
+        
+        let member = self.member
+        let isActivated = member?.subscription?.isActivated ?? false
+        let inTrial = member?.subscription?.isInTrial ?? false
+        let daysLeft = member?.subscription?.trialDaysLeft
+        if isActivated {
+            upgradeView.isHidden = true
+            return upgradeView
+        } else {
+            upgradeView.isHidden = false
+        }
+        
+        if inTrial {
+            if daysLeft == 1 {
+                upgradeView.titleLabel.text = "Trial ends today"
+            } else {
+                upgradeView.titleLabel.text = "\(daysLeft ?? 0) days left in trial"
+            }
+            
+            upgradeView.descriptionLabel.text = SubscriptionService.sharedInstance.upgradeTrialDescription
+        } else {
+            upgradeView.titleLabel.text = "Cactus Plus"
+            upgradeView.descriptionLabel.text = SubscriptionService.sharedInstance.upgradeBasicDescription
+        }
+        upgradeView.setNeedsLayout()
+        return upgradeView
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            //handle the header
+            return self.updateHeaderView()
+        case UICollectionView.elementKindSectionFooter:
+            let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Footer", for: indexPath)
+            footerView.backgroundColor = UIColor.green
+            return footerView
+        default:
+            //nothing to do
+            logger.info("unexpected kind of supplemntry view")
+//            return collectionView
+            assert(false, "Unexpected element kind")
+            fatalError("Unexpeted element kind")
+        }
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == self.dataSource.count - 1 {
             // Last cell is visible
@@ -208,7 +312,10 @@ extension JournalFeedCollectionViewController: JournalFeedDataSourceDelegate {
     
     func dataLoaded() {
         self.logger.info("JournalFeed Delegate: Data Loaded: reloading Data on collection view", functionName: #function)
-        self.collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+            self.collectionView.collectionViewLayout.invalidateLayout()
+        }
     }
     
     func insert(_ journalEntry: JournalEntry, at: Int?) {

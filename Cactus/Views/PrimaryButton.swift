@@ -37,6 +37,7 @@ class PrimaryButton: UIButton {
     @IBInspectable var horizontalPadding: CGFloat = 20
     @IBInspectable var verticalPadding: CGFloat = 12
     @IBInspectable var showBorder: Bool = true
+    @IBInspectable var roundedCorners: Bool = true
     
     var borderColor: UIColor = CactusColor.darkGreen
     
@@ -83,7 +84,7 @@ class PrimaryButton: UIButton {
     override func layoutSubviews() {
         super.layoutSubviews()
         //           self.layer.borderColor = self.borderColor?.cgColor
-        let radius = self.frame.height / 2
+        let radius = self.roundedCorners ? self.frame.height / 2 : CGFloat.zero
         self.layer.cornerRadius = radius
         if let imageView = self.imageView {
             imageView.contentMode = .scaleAspectFit
@@ -100,7 +101,7 @@ class PrimaryButton: UIButton {
     }
     
     func setupBorder() {
-        let radius = self.frame.height / 2
+        let radius = self.roundedCorners ? self.frame.height / 2 : CGFloat.zero
         let path = UIBezierPath(roundedRect: self.bounds, cornerRadius: radius)
         let mask = CAShapeLayer()
         mask.path = path.cgPath

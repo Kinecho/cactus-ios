@@ -42,7 +42,7 @@ class LinkHandlerUtil {
         let entryId = url.getPathId(for: "prompts")
         
         if let entryId = entryId {
-            AppDelegate.shared.rootViewController.loadPromptContent(promptContentEntryId: entryId, link: url.absoluteString)
+            AppMainViewController.shared.loadPromptContent(promptContentEntryId: entryId, link: url.absoluteString)
             return true
         }
         
@@ -51,11 +51,31 @@ class LinkHandlerUtil {
     
     static func handleSharedResponse(_ url: URL) -> Bool {
         if let responseId = url.getPathId(for: "reflection") {
-            AppDelegate.shared.rootViewController.loadSharedReflection(reflectionId: responseId, link: url.absoluteString)
+            AppMainViewController.shared.loadSharedReflection(reflectionId: responseId, link: url.absoluteString)
             return true
         }
         return false
         
+    }
+    
+    static func handleViewController(_ url: URL) -> Bool {
+        if url.scheme?.contains(CactusConfig.customScheme) == false, url.host != "vc" {
+            return false
+        }
+        let mode = url.getQueryParams()["mode"]
+        let screenPath = url.lastPathComponent
+        if let screenId = ScreenID(rawValue: screenPath) {
+            let vc = screenId.getViewController()
+            AppMainViewController.shared.addPendingAction {
+                if mode == "push" {
+                    _ = AppMainViewController.shared.showScreen(vc)
+                } else {
+                    AppMainViewController.shared.present(vc, animated: true, completion: nil)
+                }
+            }
+            return true
+        }                
+        return false
     }
     
     static func handleSignupUrl(_ url: URL) -> Bool {

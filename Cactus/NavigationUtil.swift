@@ -31,8 +31,25 @@ enum ScreenID: String {
     //Social
     case inviteFriend
     
+    //payment
+    case Pricing
+    case ManageSubscription
+    
+    
+    //NIBs
+    case WebView
+    
     var name: String {
         return self.rawValue
+    }
+    
+    func loadFromNib() -> UIViewController? {
+        switch self {
+        case .WebView:
+            return WebViewController.loadFromNib()
+        default:
+            return nil
+        }
     }
     
     var storyboardID: StoryboardID {
@@ -45,15 +62,26 @@ enum ScreenID: String {
             return StoryboardID.Onboarding
         case .inviteFriend:
             return StoryboardID.Social
+        case .Pricing,
+             .ManageSubscription:        
+            return StoryboardID.Payment
         default:
             return StoryboardID.Main
         }
     }
     
     func getViewController() -> UIViewController {
+        if let nibVc = self.loadFromNib() {
+            return nibVc
+        }
+        
         let storyboardId = self.storyboardID
         let storyboard = storyboardId.getStoryboard()
         return storyboard.instantiateViewController(withIdentifier: self.name)
+    }
+    
+    func getURL() -> URL? {
+        return URL(string: "\(CactusConfig.customScheme)://vc/\(self.rawValue)")                    
     }
 }
 
@@ -75,6 +103,7 @@ enum StoryboardID: String {
     case Settings
     case Onboarding
     case Social
+    case Payment
 
     var name: String {
         return self.rawValue
@@ -98,4 +127,3 @@ enum SegueID: String {
         return SegueID(rawValue: input)
     }
 }
-

@@ -60,7 +60,7 @@ class LoadablePromptContentViewController: UIViewController {
                 self.logger.error("Failed to fetch responses. Continuing anyway", error)                
             }
             self.reflectionResponses = responses
-            guard let vc = AppDelegate.shared.rootViewController.getScreen(ScreenID.promptContentPageView) as? PromptContentPageViewController else {return}
+            guard let vc = ScreenID.promptContentPageView.getViewController() as? PromptContentPageViewController else {return}
             vc.promptContent = promptContent
             vc.reflectionResponse = self.reflectionResponses?.first
             self.promptContentVC = vc

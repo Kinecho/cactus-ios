@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class MemberProfileField: BaseModelField {
     static let userId = "userId"
     static let cactusMemberId = "cactusMemberId"

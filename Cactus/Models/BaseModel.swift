@@ -24,6 +24,8 @@ public enum FirestoreCollectionName: String {
 public enum FlamelinkSchema: String, Codable {
     case promptContent
     case appSettings_ios
+    case subscriptionProducts
+    case subscriptionProductGroups
 }
 
 public class BaseModelField {

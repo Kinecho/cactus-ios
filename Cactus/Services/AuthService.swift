@@ -14,6 +14,8 @@ class AuthService {
     static let sharedInstance = AuthService()
     let firestore: FirestoreService
     let logger = Logger("AuthService")
+    var listenerQueue: [(Auth, User?) -> Void] = []
+    var initFinished = false
     
     private init() {
         self.firestore = FirestoreService.sharedInstance
@@ -21,7 +23,6 @@ class AuthService {
     
     func getCurrentUser() -> User? {
         return Auth.auth().currentUser
-        
     }
     
     func getAuthStateChangeHandler(completion: @escaping (Auth, User?) -> Void) -> AuthStateDidChangeListenerHandle {
@@ -34,5 +35,4 @@ class AuthService {
             Auth.auth().removeStateDidChangeListener(listener!)
         }
     }
-    
 }

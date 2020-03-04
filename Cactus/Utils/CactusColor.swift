@@ -43,14 +43,14 @@ struct CactusColor {
     
     static let facebook: UIColor = UIColor(hex: "3b5998")
     static let twitter: UIColor = UIColor(hex: "1da1f2")
-        
+    static let cardBackground = UIColor(named: "CardBackground")!
     static let white: UIColor = UIColor(hex: "FFFFFF")
     static let background: UIColor = UIColor(named: "Background")!
     static let noteBackground: UIColor = UIColor(named: "NoteBackground")!
     static let beige: UIColor = UIColor(hex: "F0ECEA")
     static let darkBeige: UIColor = UIColor(hex: "E5DFDB")
-    static let magenta: UIColor = UIColor(hex: "CC33A1")
-    
+    static let magenta: UIColor = UIColor(named: "Magenta")!
+    static let dolphin = UIColor(named: "Dolphin")!
     static let fancyLinkHighlight = CactusColor.darkPink
     static let promptBackground: UIColor = UIColor(named: "PromptBackground")!
     static let accentBeige: UIColor = UIColor(named: "AccentBeige")!
@@ -63,6 +63,9 @@ struct CactusColor {
     static let secondaryBorder: UIColor = UIColor(named: "SecondaryBorder")!
     static let skeletonBase = UIColor(named: "SkeletonBase")!
     static let linkColor = CactusColor.darkGreen
+    static let brightPink = UIColor(named: "PinkBright")!
+    static let royal = UIColor(named: "Royal")!
+    static let aqua = UIColor(named: "Auqa")!
 }
 
 extension UIColor {

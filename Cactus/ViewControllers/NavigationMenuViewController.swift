@@ -203,7 +203,7 @@ class NavigationMenuViewController: UIViewController {
     }
     
     @IBAction func notificationsTapped(_ sender: Any) {
-        let vc = AppDelegate.shared.rootViewController.getScreen(ScreenID.notificationsScreen)
+        let vc = ScreenID.notificationsScreen.getViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -212,7 +212,7 @@ class NavigationMenuViewController: UIViewController {
     }
     
     @IBAction func settingsTapped(_ sender: Any) {
-        let vc = AppDelegate.shared.rootViewController.getScreen(ScreenID.settingsTable)
+        let vc = ScreenID.settingsTable.getViewController()
         if let settingsVc = vc as? SettingsTableViewController {
             settingsVc.member = self.member
             self.settingsTableVc = settingsVc

@@ -28,11 +28,11 @@ class NotificationsTableViewController: UITableViewController, MFMailComposeView
     var managePermissionsInSettings = false
     var memberUnsubscriber: Unsubscriber?
     let logger = Logger("NotificationsTableViewController")
-    
+    let footerView: UIView = UIView()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.tableFooterView = UIView()
+        tableView.hideSkeleton()
+        tableView.tableFooterView = footerView
         self.updateNotificationTimeLabel()
         self.notificationObserver = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [unowned self] _ in
             DispatchQueue.main.async {
@@ -74,7 +74,8 @@ class NotificationsTableViewController: UITableViewController, MFMailComposeView
         format.amSymbol = "am"
         format.pmSymbol = "pm"
         let tz = self.member?.getPreferredTimeZone() ?? Calendar.current.timeZone
-        let label = "Daily at \(format.string(from: notificationDate)) \(getTimeZoneGenericNameShort(tz) ?? "")".trimmingCharacters(in: .whitespacesAndNewlines)
+        let frequency = member?.subscription?.tier.isPaidTier == true ? "Daily" : "Occasionally"
+        let label = "\(frequency) at \(format.string(from: notificationDate)) \(getTimeZoneGenericNameShort(tz) ?? "")".trimmingCharacters(in: .whitespacesAndNewlines)
         
         self.pushTimeOfDayLabel.text = label
     }
@@ -228,11 +229,11 @@ class NotificationsTableViewController: UITableViewController, MFMailComposeView
                     self.pushSwitch.setOn(true, animated: animated)
                     self.managePermissionsInSettings = true
                 case .denied:
-                    self.logger.debug("denied",functionName: "refreshPermissionsToggle")
+                    self.logger.debug("denied", functionName: "refreshPermissionsToggle")
                     self.managePermissionsInSettings = true
                     self.pushSwitch.setOn(false, animated: animated)
                 case .notDetermined:
-                    self.logger.debug("not determined, ask user for permission now" , functionName: "refreshPermissionsToggle")
+                    self.logger.debug("not determined, ask user for permission now", functionName: "refreshPermissionsToggle")
                     self.managePermissionsInSettings = false
                     self.pushSwitch.setOn(false, animated: animated)
                 @unknown default:

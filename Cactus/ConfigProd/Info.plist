@@ -52,21 +52,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>121</string>
-	<key>Fabric</key>
-	<dict>
-		<key>APIKey</key>
-		<string>f92d423e6318610dec15544656c1d5c4183b6688</string>
-		<key>Kits</key>
-		<array>
-			<dict>
-				<key>KitInfo</key>
-				<dict/>
-				<key>KitName</key>
-				<string>Crashlytics</string>
-			</dict>
-		</array>
-	</dict>
+	<string>122</string>
 	<key>FacebookAdvertiserIDCollectionEnabled</key>
 	<false/>
 	<key>FacebookAppID</key>

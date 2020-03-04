@@ -47,7 +47,7 @@ class PromptContentService {
         }
     }
     
-    func getPromptContent(for date: Date=Date(), status: ContentStatus?=nil, _ onData: @escaping (PromptContent?, Any?) -> Void) {
+    func getPromptContent(for date: Date=Date(), status: ContentStatus?=nil, member: CactusMember?, _ onData: @escaping (PromptContent?, Any?) -> Void) {
         let dateRange = getPromptContentDateRangeStrings(for: date)
         
         guard let startAt = dateRange.startAt, let endAt = dateRange.endAt else {
@@ -59,12 +59,9 @@ class PromptContentService {
         self.logger.debug("Fetching prompt content for date range: \(endAt) -> \(startAt)")
         
         var query = self.getBaseQuery()
+            .whereField(PromptContentField.subscriptionTiers, arrayContains: (member?.subscription?.tier ?? SubscriptionTier.BASIC).rawValue)
             .order(by: PromptContentField.scheduledSendAt, descending: true)
             
-//        if let filterStatus = status {
-//            query = query.whereField(PromptContentField.contentStatus, isEqualTo: filterStatus.rawValue)
-//        }
-
         query = query.start(at: [startAt])
             .end(at: [endAt])
             

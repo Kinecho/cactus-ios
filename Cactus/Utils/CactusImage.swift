@@ -9,6 +9,36 @@
 import Foundation
 import UIKit
 
+enum IconType: String, Codable {
+    case heart
+    case check
+    case lock
+    case calendar
+    case journal
+    case unknown
+    
+    public init(from decoder: Decoder) throws {
+        self = try IconType(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .unknown
+    }
+    
+    var image: UIImage? {
+        switch self {
+        case .heart:
+            return CactusImage.heart.getImage()
+        case .check:
+            return CactusImage.check.getImage()
+        case .calendar:
+            return CactusImage.calendar.getImage()
+        case .journal:
+            return CactusImage.journal.getImage()
+        case .lock:
+            return CactusImage.lock.getImage()
+        default:
+            return nil
+        }
+    }
+}
+
 enum CactusImage: String {
     
     //Avatars
@@ -32,6 +62,9 @@ enum CactusImage: String {
     case apple = "Apple"
     case envelope
 
+    //backgrounds
+    case plusBg
+    
     //Illustraions
     case pottedCactus
     
@@ -94,6 +127,12 @@ enum CactusImage: String {
     case gear
     case dots
     case share
+    case creditCard
+    case check
+    case journal
+    case lock
+    case calendar
+    case heart
     
     func getImage() -> UIImage? {
         return UIImage(named: self.rawValue)

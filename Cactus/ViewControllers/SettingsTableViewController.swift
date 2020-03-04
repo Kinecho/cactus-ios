@@ -65,10 +65,8 @@ class SettingsTableViewController: UITableViewController {
         case .regular:
             logoutButton.widthAnchor.constraint(equalToConstant: 250).isActive = true
             logoutButton.trailingAnchor.constraint(lessThanOrEqualTo: footerView.trailingAnchor, constant: -20).isActive = true
-            break
         default:
-            logoutButton.trailingAnchor.constraint(equalTo: footerView.trailingAnchor, constant: -20).isActive = true
-            break
+            logoutButton.trailingAnchor.constraint(equalTo: footerView.trailingAnchor, constant: -20).isActive = true            
         }
         
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
@@ -103,6 +101,6 @@ class SettingsTableViewController: UITableViewController {
     }
     
     @IBAction func logOutTapped(_ sender: Any) {
-        AppDelegate.shared.rootViewController.logOut(self, sender: self.logoutButton)
+        AppMainViewController.shared.logOut(self, sender: self.logoutButton)
     }
 }
