@@ -81,6 +81,8 @@
 		3021CBD82410215500F58B89 /* MainNavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBD62410215500F58B89 /* MainNavigationService.swift */; };
 		3021CBD92410215500F58B89 /* MainNavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBD62410215500F58B89 /* MainNavigationService.swift */; };
 		3021CBDA2410215500F58B89 /* MainNavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBD62410215500F58B89 /* MainNavigationService.swift */; };
+		3021CBDB2410251D00F58B89 /* SubscriptionPlanOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099D1F02408DA1000BD9CC4 /* SubscriptionPlanOptionView.swift */; };
+		3021CBDC2410251E00F58B89 /* SubscriptionPlanOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099D1F02408DA1000BD9CC4 /* SubscriptionPlanOptionView.swift */; };
 		3023FE3022ECD0A300F753A7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2F22ECD0A300F753A7 /* NotificationService.swift */; };
 		3023FE3122ECD0A300F753A7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2F22ECD0A300F753A7 /* NotificationService.swift */; };
 		3023FE3422ECF06E00F753A7 /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
@@ -2112,6 +2114,7 @@
 				303C9E1023841AC6006B9786 /* NavigationMenuViewController.swift in Sources */,
 				303C9DEF23841ABB006B9786 /* EmailSettingsViewController.swift in Sources */,
 				303C9E2F23841ACC006B9786 /* ShadowView.swift in Sources */,
+				3021CBDC2410251E00F58B89 /* SubscriptionPlanOptionView.swift in Sources */,
 				303C9E2723841ACC006B9786 /* GrowingTextView.swift in Sources */,
 				3055D940240E994400981DA2 /* SubscriptionProductService.swift in Sources */,
 				3062201823EB1B68002FAAD9 /* FirebaseInAppMessageDelegate.swift in Sources */,
@@ -2306,6 +2309,7 @@
 				304B212A23D38F65007B016C /* AppSettings.swift in Sources */,
 				304B215723D392C2007B016C /* PrimaryButton.swift in Sources */,
 				304B214F23D392C2007B016C /* BorderedTextView.swift in Sources */,
+				3021CBDB2410251D00F58B89 /* SubscriptionPlanOptionView.swift in Sources */,
 				304B215623D392C2007B016C /* PillLabelView.swift in Sources */,
 				3055D945240EB9A900981DA2 /* NavigationUtil.swift in Sources */,
 				304B215E23D392C2007B016C /* CircleImageView.swift in Sources */,
