@@ -18,7 +18,7 @@ func learnMoreAboutUpgradeTapped(target: UIViewController) {
         if useWeb, url != nil {
             UIApplication.shared.open(url!, options: [:], completionHandler: nil)
         } else {
-            guard let vc = AppDelegate.shared.rootViewController.getScreen(ScreenID.Pricing) as? PricingViewController else {
+            guard let vc = ScreenID.Pricing.getViewController() as? PricingViewController else {
                 return
                 
             }

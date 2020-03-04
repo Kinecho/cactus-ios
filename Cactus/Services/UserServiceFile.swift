@@ -57,7 +57,7 @@ class UserService {
                                       message: message,
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
-        AppDelegate.shared.rootViewController.present(alert, animated: true)
+        AppMainViewController.shared.present(alert, animated: true)
     }
     
     func signinWithEmail(_ email: String, link: String) {
@@ -181,6 +181,6 @@ class UserService {
         
         emailAlert.addAction(submitAction)
         
-        AppDelegate.shared.rootViewController.present(emailAlert, animated: true)
+        AppMainViewController.shared.present(emailAlert, animated: true)
     }
 }

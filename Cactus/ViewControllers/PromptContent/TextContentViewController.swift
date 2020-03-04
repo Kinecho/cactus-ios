@@ -78,7 +78,7 @@ class TextContentViewController: PromptContentViewController {
     @objc func elementTapped() {
         guard let element = self.promptContent.cactusElement else {return}
         
-        guard let contentVc = AppDelegate.shared.rootViewController.getScreen(ScreenID.elementsPageView) as? CactusElementPageViewController else {return}
+        guard let contentVc = ScreenID.elementsPageView.getViewController() as? CactusElementPageViewController else {return}
         contentVc.initialElement = element
         
         let modalVc = ModalViewController()

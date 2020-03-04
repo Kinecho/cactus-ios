@@ -156,7 +156,7 @@ class CelebrateViewController: UIViewController {
         
     func showElementModal(element: CactusElement) {
         logger.info("Showing element modal for \(element.rawValue)")
-        guard let contentVc = AppDelegate.shared.rootViewController.getScreen(ScreenID.elementsPageView) as? CactusElementPageViewController else {return}
+        guard let contentVc = ScreenID.elementsPageView.getViewController() as? CactusElementPageViewController else {return}
         contentVc.initialElement = element
         
         let modalVc = ModalViewController()

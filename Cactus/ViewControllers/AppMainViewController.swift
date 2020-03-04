@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 //import FirebaseFirestore
 class AppMainViewController: UIViewController {
+    static var shared: AppMainViewController!
     var current: UIViewController
     let logger = Logger(fileName: "AppMainViewController")
     var hasUser = false
@@ -41,12 +42,14 @@ class AppMainViewController: UIViewController {
         let launchStoryboard = UIStoryboard(name: StoryboardID.LaunchScreen.name, bundle: nil)
         self.current = launchStoryboard.instantiateViewController(withIdentifier: ScreenID.LaunchScreen.name)
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        AppMainViewController.shared = self
     }
     
     required init?(coder aDecoder: NSCoder) {
         let launchStoryboard = UIStoryboard(name: StoryboardID.LaunchScreen.name, bundle: nil)
         self.current = launchStoryboard.instantiateViewController(withIdentifier: ScreenID.LaunchScreen.name)
         super.init(coder: aDecoder)
+        AppMainViewController.shared = self
     }
     
     override func viewDidLoad() {
@@ -118,8 +121,9 @@ class AppMainViewController: UIViewController {
     }
     
     func getScreen(_ screen: ScreenID) -> UIViewController {
-        let storyboard = screen.storyboardID.getStoryboard()
-        return storyboard.instantiateViewController(withIdentifier: screen.name)
+//        let storyboard = screen.storyboardID.getStoryboard()
+//        return storyboard.instantiateViewController(withIdentifier: screen.name)
+        return screen.getViewController()
     }
    
     func showScreen(_ screenId: ScreenID, wrapInNav: Bool=false, animate: ((_ new: UIViewController, _ completion: (() -> Void)?) -> Void)? = nil) -> UIViewController {
@@ -182,7 +186,7 @@ class AppMainViewController: UIViewController {
     }
     
     func pushScreen(_ screenId: ScreenID, animate: Bool=true) {
-        let screen = getScreen(screenId)
+        let screen = screenId.getViewController()
 
         if  let nav = self.current as? UINavigationController {
             self.logger.info("Pushing view controller")

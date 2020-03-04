@@ -35,5 +35,4 @@ class AuthService {
             Auth.auth().removeStateDidChangeListener(listener!)
         }
     }
-    
 }

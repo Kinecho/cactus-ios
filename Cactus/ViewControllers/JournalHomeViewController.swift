@@ -65,7 +65,7 @@ class JournalHomeViewController: UIViewController {
         super.viewDidLoad()
         
         if #available(iOS 13.0, *) {
-            AppDelegate.shared.rootViewController.setStatusBarStyle(.default)
+            AppMainViewController.shared.setStatusBarStyle(.default)
         }
         self.setNeedsStatusBarAppearanceUpdate()
         
@@ -141,7 +141,7 @@ class JournalHomeViewController: UIViewController {
                     return
                 }
                 
-                guard let vc = AppDelegate.shared.rootViewController.getScreen(ScreenID.notificationOnboarding) as? NotificationOnboardingViewController else {
+                guard let vc = ScreenID.notificationOnboarding.getViewController() as? NotificationOnboardingViewController else {
                     return
                 }
                 
@@ -315,7 +315,7 @@ class JournalHomeViewController: UIViewController {
     func showEmptyState() {
         self.logger.info("Showing empty state")
         if self.emptyStateViewController == nil {
-            self.emptyStateViewController = AppDelegate.shared.rootViewController.getScreen(ScreenID.journalEmpty) as? JournalHomeEmptyStateViewController
+            self.emptyStateViewController = ScreenID.journalEmpty.getViewController() as? JournalHomeEmptyStateViewController
         } else {
 //            self.emptyStateViewController?.removeFromParent()
         }
@@ -359,7 +359,7 @@ class JournalHomeViewController: UIViewController {
         
          if self.journalFeedViewController == nil {
             self.logger.info("JournalFeedController was nil, creating it now")
-            self.journalFeedViewController = AppDelegate.shared.rootViewController.getJournalFeedViewController()
+            self.journalFeedViewController = AppMainViewController.shared.getJournalFeedViewController()
         } else {
             self.logger.info("JournalFeedController already exists, setting it up")
         }

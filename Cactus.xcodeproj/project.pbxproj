@@ -77,6 +77,10 @@
 		3021B67623623010002634A8 /* ApiTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67423623010002634A8 /* ApiTypes.swift */; };
 		3021B67823623AE3002634A8 /* CactusTextInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67723623AE3002634A8 /* CactusTextInputField.swift */; };
 		3021B67923623AE3002634A8 /* CactusTextInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67723623AE3002634A8 /* CactusTextInputField.swift */; };
+		3021CBD72410215500F58B89 /* MainNavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBD62410215500F58B89 /* MainNavigationService.swift */; };
+		3021CBD82410215500F58B89 /* MainNavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBD62410215500F58B89 /* MainNavigationService.swift */; };
+		3021CBD92410215500F58B89 /* MainNavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBD62410215500F58B89 /* MainNavigationService.swift */; };
+		3021CBDA2410215500F58B89 /* MainNavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBD62410215500F58B89 /* MainNavigationService.swift */; };
 		3023FE3022ECD0A300F753A7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2F22ECD0A300F753A7 /* NotificationService.swift */; };
 		3023FE3122ECD0A300F753A7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2F22ECD0A300F753A7 /* NotificationService.swift */; };
 		3023FE3422ECF06E00F753A7 /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
@@ -746,6 +750,7 @@
 		3021B67023622FE7002634A8 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		3021B67423623010002634A8 /* ApiTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTypes.swift; sourceTree = "<group>"; };
 		3021B67723623AE3002634A8 /* CactusTextInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusTextInputField.swift; sourceTree = "<group>"; };
+		3021CBD62410215500F58B89 /* MainNavigationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationService.swift; sourceTree = "<group>"; };
 		3023FE2F22ECD0A300F753A7 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		30265C5C23453C8D00934041 /* SwiftyGifManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyGifManager.swift; sourceTree = "<group>"; };
 		30265C5F23453CB100934041 /* UIImage+SwiftyGif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+SwiftyGif.swift"; sourceTree = "<group>"; };
@@ -1383,6 +1388,7 @@
 				3006442323D26BAB00712ED1 /* SocialInviteService.swift */,
 				300FCCFF23EE3CD200089CFB /* SubscriptionProductService.swift */,
 				3099D1FD240974F200BD9CC4 /* SubscriptionProductGroupService.swift */,
+				3021CBD62410215500F58B89 /* MainNavigationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -2156,6 +2162,7 @@
 				303C9E2123841ACC006B9786 /* RoundedButton.swift in Sources */,
 				303C9E1723841AC6006B9786 /* JournalHomeEmptyStateViewController.swift in Sources */,
 				303C9DF223841ABB006B9786 /* HelpViewController.swift in Sources */,
+				3021CBD92410215500F58B89 /* MainNavigationService.swift in Sources */,
 				303C9DF723841ABB006B9786 /* LinkedAccountsTableViewController.swift in Sources */,
 				303C9DE323841AA3006B9786 /* NotificationOnboardingViewController.swift in Sources */,
 				303C9DFA23841ABB006B9786 /* JournalEntrySkeletonViewController.swift in Sources */,
@@ -2266,6 +2273,7 @@
 				304B216C23D3947F007B016C /* ImageService.swift in Sources */,
 				304B216123D392C8007B016C /* SocialContactTableViewCell.swift in Sources */,
 				304B215B23D392C2007B016C /* ShadowView.swift in Sources */,
+				3021CBDA2410215500F58B89 /* MainNavigationService.swift in Sources */,
 				304B214B23D39233007B016C /* UIImageView+SwiftyGif.swift in Sources */,
 				304B217823D394E4007B016C /* AuthService.swift in Sources */,
 				304B214D23D392C2007B016C /* AuthProviderTableViewCell.swift in Sources */,
@@ -2349,6 +2357,7 @@
 				303C9DB2237E2AB4006B9786 /* LinkHandlerUtil.swift in Sources */,
 				30D7387723D00F96006F4DA6 /* SocialActivityCardView.swift in Sources */,
 				3062202023EC7A0A002FAAD9 /* MarkdownTextView.swift in Sources */,
+				3021CBD82410215500F58B89 /* MainNavigationService.swift in Sources */,
 				30CF53842370C58100578B22 /* ExperienceAnimationViewController.swift in Sources */,
 				303C9DAB237E1470006B9786 /* LoadablePromptContentViewController.swift in Sources */,
 				3084E9592348042800788279 /* PrivacyPolicyViewController.swift in Sources */,
@@ -2502,6 +2511,7 @@
 				30CF53832370C58100578B22 /* ExperienceAnimationViewController.swift in Sources */,
 				30D7387623D00F96006F4DA6 /* SocialActivityCardView.swift in Sources */,
 				3062201F23EC7A0A002FAAD9 /* MarkdownTextView.swift in Sources */,
+				3021CBD72410215500F58B89 /* MainNavigationService.swift in Sources */,
 				303C9DAA237E1470006B9786 /* LoadablePromptContentViewController.swift in Sources */,
 				3084E9582348042800788279 /* PrivacyPolicyViewController.swift in Sources */,
 				30E9B0B322EADE2D005B25FD /* CGExtensions.swift in Sources */,

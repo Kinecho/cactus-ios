@@ -101,6 +101,6 @@ class SettingsTableViewController: UITableViewController {
     }
     
     @IBAction func logOutTapped(_ sender: Any) {
-        AppDelegate.shared.rootViewController.logOut(self, sender: self.logoutButton)
+        AppMainViewController.shared.logOut(self, sender: self.logoutButton)
     }
 }

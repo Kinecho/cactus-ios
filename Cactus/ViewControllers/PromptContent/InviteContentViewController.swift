@@ -21,7 +21,7 @@ class InviteContentViewController: PromptContentViewController, CNContactPickerD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.sendInviteViewController = AppDelegate.shared.rootViewController.getScreen(.inviteFriend) as? SendFriendInviteViewController
+        self.sendInviteViewController = ScreenID.inviteFriend.getViewController() as? SendFriendInviteViewController
         self.sendInviteViewController?.delegate = self
         self.configureView()
     }

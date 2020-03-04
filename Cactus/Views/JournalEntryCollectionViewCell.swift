@@ -123,7 +123,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
             alert.addAction(UIAlertAction(title: "Share Prompt", style: .default) { _ in
                 closeAnimation()
                 self.logger.info("Share Prompt tapped")
-                SharingService.shared.sharePromptContent(promptContent: promptContent, target: AppDelegate.shared.rootViewController, sender: sender)
+                SharingService.shared.sharePromptContent(promptContent: promptContent, target: AppMainViewController.shared, sender: sender)
             })
         }
         
@@ -137,7 +137,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
                 let vc = ShareNoteViewController.loadFromNib()
                 vc.reflectionResponse = reflectionResponse
                 vc.promptContent = promptContent
-                AppDelegate.shared.rootViewController.present(vc, animated: true)
+                AppMainViewController.shared.present(vc, animated: true)
             }))
         }
         
@@ -154,7 +154,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
             return
         }
         self.editViewController = vc
-        AppDelegate.shared.rootViewController.present(vc, animated: true)
+        AppMainViewController.shared.present(vc, animated: true)
 
     }
     

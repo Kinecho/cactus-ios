@@ -42,7 +42,7 @@ class LinkHandlerUtil {
         let entryId = url.getPathId(for: "prompts")
         
         if let entryId = entryId {
-            AppDelegate.shared.rootViewController.loadPromptContent(promptContentEntryId: entryId, link: url.absoluteString)
+            AppMainViewController.shared.loadPromptContent(promptContentEntryId: entryId, link: url.absoluteString)
             return true
         }
         
@@ -51,7 +51,7 @@ class LinkHandlerUtil {
     
     static func handleSharedResponse(_ url: URL) -> Bool {
         if let responseId = url.getPathId(for: "reflection") {
-            AppDelegate.shared.rootViewController.loadSharedReflection(reflectionId: responseId, link: url.absoluteString)
+            AppMainViewController.shared.loadSharedReflection(reflectionId: responseId, link: url.absoluteString)
             return true
         }
         return false
@@ -65,12 +65,12 @@ class LinkHandlerUtil {
         let mode = url.getQueryParams()["mode"]
         let screenPath = url.lastPathComponent
         if let screenId = ScreenID(rawValue: screenPath) {
-            let vc = AppDelegate.shared.rootViewController.getScreen(screenId)
-            AppDelegate.shared.rootViewController.addPendingAction {
+            let vc = screenId.getViewController()
+            AppMainViewController.shared.addPendingAction {
                 if mode == "push" {
-                    _ = AppDelegate.shared.rootViewController.showScreen(vc)
+                    _ = AppMainViewController.shared.showScreen(vc)
                 } else {
-                    AppDelegate.shared.rootViewController.present(vc, animated: true, completion: nil)
+                    AppMainViewController.shared.present(vc, animated: true, completion: nil)
                 }
             }
             return true

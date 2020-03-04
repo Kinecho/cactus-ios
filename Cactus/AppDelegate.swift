@@ -42,8 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         logger.info("Loading app will start", functionName: #function)
 //        SKPaymentQueue.default().add(StoreObserver.sharedInstance)
-
-        
         let isFacebokIntent = FacebookCore.ApplicationDelegate.shared.application(
             application,
             didFinishLaunchingWithOptions: launchOptions
