@@ -356,6 +356,7 @@
 		3055D942240E999F00981DA2 /* PaymentNavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3055D93C240E98BB00981DA2 /* PaymentNavigationService.swift */; };
 		3055D943240E99BD00981DA2 /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099D1F62409740D00BD9CC4 /* SubscriptionService.swift */; };
 		3055D945240EB9A900981DA2 /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0AB22EAD6EC005B25FD /* NavigationUtil.swift */; };
+		3055D947240EECD900981DA2 /* PricingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099D1EC2408D13C00BD9CC4 /* PricingViewController.swift */; };
 		305B1863233175DC003E1561 /* PhotoContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1861233175DC003E1561 /* PhotoContentViewController.swift */; };
 		305B1864233175DC003E1561 /* PhotoContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1861233175DC003E1561 /* PhotoContentViewController.swift */; };
 		305B1865233175DC003E1561 /* PhotoContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 305B1862233175DC003E1561 /* PhotoContentViewController.xib */; };
@@ -2131,6 +2132,7 @@
 				3099D200240974F200BD9CC4 /* SubscriptionProductGroupService.swift in Sources */,
 				303C9DBC237F5DCC006B9786 /* URLExtensions.swift in Sources */,
 				303C9DF323841ABB006B9786 /* FeedbackViewController.swift in Sources */,
+				3055D947240EECD900981DA2 /* PricingViewController.swift in Sources */,
 				303C9DF123841ABB006B9786 /* PrivacyPolicyViewController.swift in Sources */,
 				305424EC23AC0432003F82A2 /* UIStackViewExtensionis.swift in Sources */,
 				307ED79D24088C7E008D26C6 /* UpgradeJournalFeedCollectionReusableView.swift in Sources */,

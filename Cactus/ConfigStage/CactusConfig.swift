@@ -19,5 +19,5 @@ struct CactusConfig: AppConfig {
     static let customScheme = "app.cactus-stage"
     static let branchPublicKey = "key_test_hnUHuOjICDVjjN3W0PIRxlnfsyeXRjbe"
     static let appGroupId = "com.cactus.StageApp.group1"
-    static let sharedKeychainGroup = "3ZKVS4B79Q.com.cactus.CactusAppShared"
+    static let sharedKeychainGroup = "3ZKVS4B79Q.com.cactus.CactusStageAppShared"
 }

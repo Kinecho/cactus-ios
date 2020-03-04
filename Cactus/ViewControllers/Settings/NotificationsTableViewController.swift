@@ -74,7 +74,8 @@ class NotificationsTableViewController: UITableViewController, MFMailComposeView
         format.amSymbol = "am"
         format.pmSymbol = "pm"
         let tz = self.member?.getPreferredTimeZone() ?? Calendar.current.timeZone
-        let label = "Daily at \(format.string(from: notificationDate)) \(getTimeZoneGenericNameShort(tz) ?? "")".trimmingCharacters(in: .whitespacesAndNewlines)
+        let frequency = member?.subscription?.tier.isPaidTier == true ? "Daily" : "Occasionally"
+        let label = "\(frequency) at \(format.string(from: notificationDate)) \(getTimeZoneGenericNameShort(tz) ?? "")".trimmingCharacters(in: .whitespacesAndNewlines)
         
         self.pushTimeOfDayLabel.text = label
     }

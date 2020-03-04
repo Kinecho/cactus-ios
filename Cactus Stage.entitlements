@@ -16,5 +16,10 @@
 		<string>applinks:cactus-app.test-app.link</string>
 		<string>applinks:cactus-app-alternate.test-app.link</string>
 	</array>
+	<key>keychain-access-groups</key>
+	<array>
+		<string>$(AppIdentifierPrefix)com.cactus.StageCactus</string>
+		<string>$(AppIdentifierPrefix)com.cactus.CactusStageAppShared</string>
+	</array>
 </dict>
 </plist>

@@ -204,7 +204,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
             logger.info("unexpected kind of supplemntry view")
 //            return collectionView
             assert(false, "Unexpected element kind")
-
+            fatalError("Unexpeted element kind")
         }
     }
     
