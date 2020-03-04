@@ -24,7 +24,7 @@ func learnMoreAboutUpgradeTapped(target: UIViewController) {
             }
             vc.showCloseButton = true
             
-            MainNavigationService.sharedInstance.present(vc, animated: true)
+            NavigationService.sharedInstance.present(vc, animated: true)
         }
     }
 }

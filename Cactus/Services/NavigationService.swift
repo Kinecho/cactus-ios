@@ -10,11 +10,11 @@ import Foundation
 
 import UIKit
 
-class MainNavigationService {
-    private static var _shared: MainNavigationService?
+class NavigationService {
+    private static var _shared: NavigationService?
     
-    static var sharedInstance: MainNavigationService {
-        guard let shared = MainNavigationService._shared else {
+    static var sharedInstance: NavigationService {
+        guard let shared = NavigationService._shared else {
             fatalError("You must call \"initialize\" before using the MainNavigationService.")
         }
         return shared
@@ -36,10 +36,10 @@ class MainNavigationService {
         - rootVc: The root view controller of the app. 
      */
     static func initialize(rootVc: UIViewController) {
-        guard MainNavigationService._shared == nil else {
+        guard NavigationService._shared == nil else {
             return
         }
-        MainNavigationService._shared = MainNavigationService(rootVc: rootVc)
+        NavigationService._shared = NavigationService(rootVc: rootVc)
     }
     
     private init(rootVc: UIViewController) {
@@ -67,5 +67,13 @@ class MainNavigationService {
     func present(_ vc: UIViewController, animated: Bool=true, on target: UIViewController?=nil, completion: (() -> Void)?=nil) {
         let target = target ?? self.topViewController
         target.present(vc, animated: animated, completion: completion)
+    }
+    
+    func presentWebView(url: URL?, animated: Bool=true, on target: UIViewController?=nil, completion: (() -> Void)?=nil) {
+        guard let webViewController = ScreenID.WebView.getViewController() as? WebViewController else {
+            return
+        }
+        webViewController.url = url
+        self.present(webViewController, animated: animated, on: target, completion: completion)
     }
 }

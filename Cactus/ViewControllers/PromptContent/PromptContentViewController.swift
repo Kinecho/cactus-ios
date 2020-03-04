@@ -95,7 +95,7 @@ class PromptContentViewController: UIViewController {
                 self.logger.warn("content link's href was not a valid URL. Link.destinationHref=\(self.content.link?.destinationHref ?? "undefined")")
             return
         }
-        UIApplication.shared.open(url)
+        NavigationService.sharedInstance.presentWebView(url: url)
     }
 }
 
@@ -107,8 +107,8 @@ extension PromptContentViewController: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
         self.logger.debug("TextView should interact with url \(URL.absoluteString)")
-        UIApplication.shared.open(URL)
-        
+//        UIApplication.shared.open(URL)
+        NavigationService.sharedInstance.presentWebView(url: URL)
         return false
     }
 }

@@ -35,8 +35,21 @@ enum ScreenID: String {
     case Pricing
     case ManageSubscription
     
+    
+    //NIBs
+    case WebView
+    
     var name: String {
         return self.rawValue
+    }
+    
+    func loadFromNib() -> UIViewController? {
+        switch self {
+        case .WebView:
+            return WebViewController.loadFromNib()
+        default:
+            return nil
+        }
     }
     
     var storyboardID: StoryboardID {
@@ -58,6 +71,10 @@ enum ScreenID: String {
     }
     
     func getViewController() -> UIViewController {
+        if let nibVc = self.loadFromNib() {
+            return nibVc
+        }
+        
         let storyboardId = self.storyboardID
         let storyboard = storyboardId.getStoryboard()
         return storyboard.instantiateViewController(withIdentifier: self.name)

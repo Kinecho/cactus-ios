@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WebViewController" customModule="Cactus" customModuleProvider="target">
+            <connections>
+                <outlet property="activityContainer" destination="sst-L6-Fq4" id="1dx-JV-cGZ"/>
+                <outlet property="activityIndicator" destination="k4E-MO-gG3" id="qdq-pC-Baq"/>
+                <outlet property="toolBar" destination="1LS-2c-a5W" id="YXL-dX-nSb"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webView" destination="cWQ-Od-jdR" id="VQ8-0H-cX4"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1LS-2c-a5W">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <items>
+                        <barButtonItem title="Done" id="dCP-C7-TIq" userLabel="Done">
+                            <connections>
+                                <action selector="doneTapped:" destination="-1" id="MPJ-Ny-Zip"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
+                <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cWQ-Od-jdR">
+                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <wkWebViewConfiguration key="configuration">
+                        <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                        <wkPreferences key="preferences"/>
+                    </wkWebViewConfiguration>
+                </wkWebView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sst-L6-Fq4">
+                    <rect key="frame" x="167" y="408" width="80" height="80"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="k4E-MO-gG3">
+                            <rect key="frame" x="30" y="30" width="20" height="20"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="8QJ-YP-M3q"/>
+                        <constraint firstItem="k4E-MO-gG3" firstAttribute="centerX" secondItem="sst-L6-Fq4" secondAttribute="centerX" id="9wy-Ny-Wrx"/>
+                        <constraint firstItem="k4E-MO-gG3" firstAttribute="centerY" secondItem="sst-L6-Fq4" secondAttribute="centerY" id="CSN-7d-2Eh"/>
+                        <constraint firstAttribute="width" constant="80" id="NFB-vt-jhR"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="cWQ-Od-jdR" firstAttribute="top" secondItem="1LS-2c-a5W" secondAttribute="bottom" symbolic="YES" id="2Sn-DO-tgv"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cWQ-Od-jdR" secondAttribute="trailing" id="IG2-HJ-nmQ"/>
+                <constraint firstItem="1LS-2c-a5W" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="KxE-gc-by7"/>
+                <constraint firstItem="sst-L6-Fq4" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Ly9-9N-r8N"/>
+                <constraint firstAttribute="bottom" secondItem="cWQ-Od-jdR" secondAttribute="bottom" id="bJW-WS-xeG"/>
+                <constraint firstItem="sst-L6-Fq4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="e0k-6S-tHu"/>
+                <constraint firstItem="1LS-2c-a5W" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="fEV-KX-yaS"/>
+                <constraint firstAttribute="trailing" secondItem="1LS-2c-a5W" secondAttribute="trailing" symbolic="YES" id="fFH-9e-yYp"/>
+                <constraint firstItem="cWQ-Od-jdR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="fcK-iN-xB6"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="94"/>
+        </view>
+    </objects>
+</document>

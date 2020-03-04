@@ -77,12 +77,20 @@
 		3021B67623623010002634A8 /* ApiTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67423623010002634A8 /* ApiTypes.swift */; };
 		3021B67823623AE3002634A8 /* CactusTextInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67723623AE3002634A8 /* CactusTextInputField.swift */; };
 		3021B67923623AE3002634A8 /* CactusTextInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67723623AE3002634A8 /* CactusTextInputField.swift */; };
-		3021CBD72410215500F58B89 /* MainNavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBD62410215500F58B89 /* MainNavigationService.swift */; };
-		3021CBD82410215500F58B89 /* MainNavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBD62410215500F58B89 /* MainNavigationService.swift */; };
-		3021CBD92410215500F58B89 /* MainNavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBD62410215500F58B89 /* MainNavigationService.swift */; };
-		3021CBDA2410215500F58B89 /* MainNavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBD62410215500F58B89 /* MainNavigationService.swift */; };
+		3021CBD72410215500F58B89 /* NavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBD62410215500F58B89 /* NavigationService.swift */; };
+		3021CBD82410215500F58B89 /* NavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBD62410215500F58B89 /* NavigationService.swift */; };
+		3021CBD92410215500F58B89 /* NavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBD62410215500F58B89 /* NavigationService.swift */; };
+		3021CBDA2410215500F58B89 /* NavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBD62410215500F58B89 /* NavigationService.swift */; };
 		3021CBDB2410251D00F58B89 /* SubscriptionPlanOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099D1F02408DA1000BD9CC4 /* SubscriptionPlanOptionView.swift */; };
 		3021CBDC2410251E00F58B89 /* SubscriptionPlanOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099D1F02408DA1000BD9CC4 /* SubscriptionPlanOptionView.swift */; };
+		3021CBDF2410345E00F58B89 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBDD2410345E00F58B89 /* WebViewController.swift */; };
+		3021CBE02410345E00F58B89 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBDD2410345E00F58B89 /* WebViewController.swift */; };
+		3021CBE12410345E00F58B89 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBDD2410345E00F58B89 /* WebViewController.swift */; };
+		3021CBE22410345E00F58B89 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBDD2410345E00F58B89 /* WebViewController.swift */; };
+		3021CBE32410345E00F58B89 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3021CBDE2410345E00F58B89 /* WebViewController.xib */; };
+		3021CBE42410345E00F58B89 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3021CBDE2410345E00F58B89 /* WebViewController.xib */; };
+		3021CBE52410345E00F58B89 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3021CBDE2410345E00F58B89 /* WebViewController.xib */; };
+		3021CBE62410345E00F58B89 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3021CBDE2410345E00F58B89 /* WebViewController.xib */; };
 		3023FE3022ECD0A300F753A7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2F22ECD0A300F753A7 /* NotificationService.swift */; };
 		3023FE3122ECD0A300F753A7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2F22ECD0A300F753A7 /* NotificationService.swift */; };
 		3023FE3422ECF06E00F753A7 /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
@@ -752,7 +760,9 @@
 		3021B67023622FE7002634A8 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		3021B67423623010002634A8 /* ApiTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTypes.swift; sourceTree = "<group>"; };
 		3021B67723623AE3002634A8 /* CactusTextInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusTextInputField.swift; sourceTree = "<group>"; };
-		3021CBD62410215500F58B89 /* MainNavigationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationService.swift; sourceTree = "<group>"; };
+		3021CBD62410215500F58B89 /* NavigationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationService.swift; sourceTree = "<group>"; };
+		3021CBDD2410345E00F58B89 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		3021CBDE2410345E00F58B89 /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		3023FE2F22ECD0A300F753A7 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		30265C5C23453C8D00934041 /* SwiftyGifManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyGifManager.swift; sourceTree = "<group>"; };
 		30265C5F23453CB100934041 /* UIImage+SwiftyGif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+SwiftyGif.swift"; sourceTree = "<group>"; };
@@ -1390,7 +1400,7 @@
 				3006442323D26BAB00712ED1 /* SocialInviteService.swift */,
 				300FCCFF23EE3CD200089CFB /* SubscriptionProductService.swift */,
 				3099D1FD240974F200BD9CC4 /* SubscriptionProductGroupService.swift */,
-				3021CBD62410215500F58B89 /* MainNavigationService.swift */,
+				3021CBD62410215500F58B89 /* NavigationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1451,6 +1461,8 @@
 				303C9DC7237FCF06006B9786 /* LoadableSharedReflectionViewController.xib */,
 				303C9DCC237FD7D1006B9786 /* ViewSharedReflectionViewController.swift */,
 				303C9DCD237FD7D1006B9786 /* ViewSharedReflectionViewController.xib */,
+				3021CBDD2410345E00F58B89 /* WebViewController.swift */,
+				3021CBDE2410345E00F58B89 /* WebViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1645,6 +1657,7 @@
 				303C9E0823841AC1006B9786 /* CactusElementsViewController.xib in Resources */,
 				3062200C23EAB12B002FAAD9 /* Lato-Thin.ttf in Resources */,
 				303C9DED23841AB6006B9786 /* RelationshipsAnimationViewController.xib in Resources */,
+				3021CBE52410345E00F58B89 /* WebViewController.xib in Resources */,
 				303C9E0B23841AC1006B9786 /* LoadablePromptContentViewController.xib in Resources */,
 				303C9DE523841AB6006B9786 /* MeaningAnimationViewController.xib in Resources */,
 				303C9DEB23841AB6006B9786 /* EnergyAnimationViewController.xib in Resources */,
@@ -1687,6 +1700,7 @@
 				304B215F23D392C8007B016C /* SocialActivityCardView.xib in Resources */,
 				304B210C23D383E1007B016C /* MainInterface.storyboard in Resources */,
 				304B217923D39570007B016C /* ProdAssets.xcassets in Resources */,
+				3021CBE62410345E00F58B89 /* WebViewController.xib in Resources */,
 				304B217B23D39AA4007B016C /* Info.plist in Resources */,
 				304B217D23D39AA4007B016C /* LaunchScreen.storyboard in Resources */,
 				304B217A23D39575007B016C /* SharedAssets.xcassets in Resources */,
@@ -1707,6 +1721,7 @@
 				300AC18A233A850B005C6555 /* JournalEntrySkeletonViewController.xib in Resources */,
 				30673B9B233FDEC300EDE7BD /* Lato-Black.ttf in Resources */,
 				3095619A22ECF1CD009357BD /* GoogleService-Info.plist in Resources */,
+				3021CBE42410345E00F58B89 /* WebViewController.xib in Resources */,
 				30673BA5233FDEC300EDE7BD /* Lato-Light.ttf in Resources */,
 				30673BA7233FDEC300EDE7BD /* Lato-ThinItalic.ttf in Resources */,
 				30F7168A2379ED32004989DB /* ShareNoteViewController.xib in Resources */,
@@ -1766,6 +1781,7 @@
 				30A281EA22EA61EB0041158E /* StageAssets.xcassets in Resources */,
 				3020DD9A23640BE300EC40AE /* CactusElementsViewController.xib in Resources */,
 				30673B98233FDEC300EDE7BD /* Lato-Bold.ttf in Resources */,
+				3021CBE32410345E00F58B89 /* WebViewController.xib in Resources */,
 				30673B96233FDEC300EDE7BD /* Lato-Thin.ttf in Resources */,
 				30D7F70B236BAAB100379EE0 /* EditReflectionViewController.xib in Resources */,
 				30673BA0233FDEC300EDE7BD /* OFL.txt in Resources */,
@@ -2138,6 +2154,7 @@
 				303C9E3023841AEB006B9786 /* AppSettingsService.swift in Sources */,
 				303C9E2A23841ACC006B9786 /* AuthProviderTableViewCell.swift in Sources */,
 				3009EE5B23C98F4400002CCB /* DateUtilTests.swift in Sources */,
+				3021CBE12410345E00F58B89 /* WebViewController.swift in Sources */,
 				305B187D2331A906003E1561 /* MailchimpModels.swift in Sources */,
 				303C9E0D23841AC6006B9786 /* LoginViewController.swift in Sources */,
 				30D7386F23D00C0C006F4DA6 /* CircleImageView.swift in Sources */,
@@ -2165,7 +2182,7 @@
 				303C9E2123841ACC006B9786 /* RoundedButton.swift in Sources */,
 				303C9E1723841AC6006B9786 /* JournalHomeEmptyStateViewController.swift in Sources */,
 				303C9DF223841ABB006B9786 /* HelpViewController.swift in Sources */,
-				3021CBD92410215500F58B89 /* MainNavigationService.swift in Sources */,
+				3021CBD92410215500F58B89 /* NavigationService.swift in Sources */,
 				303C9DF723841ABB006B9786 /* LinkedAccountsTableViewController.swift in Sources */,
 				303C9DE323841AA3006B9786 /* NotificationOnboardingViewController.swift in Sources */,
 				303C9DFA23841ABB006B9786 /* JournalEntrySkeletonViewController.swift in Sources */,
@@ -2276,10 +2293,11 @@
 				304B216C23D3947F007B016C /* ImageService.swift in Sources */,
 				304B216123D392C8007B016C /* SocialContactTableViewCell.swift in Sources */,
 				304B215B23D392C2007B016C /* ShadowView.swift in Sources */,
-				3021CBDA2410215500F58B89 /* MainNavigationService.swift in Sources */,
+				3021CBDA2410215500F58B89 /* NavigationService.swift in Sources */,
 				304B214B23D39233007B016C /* UIImageView+SwiftyGif.swift in Sources */,
 				304B217823D394E4007B016C /* AuthService.swift in Sources */,
 				304B214D23D392C2007B016C /* AuthProviderTableViewCell.swift in Sources */,
+				3021CBE22410345E00F58B89 /* WebViewController.swift in Sources */,
 				304B213023D38F65007B016C /* ReflectionResponse.swift in Sources */,
 				3055D936240E922000981DA2 /* SubscriptionProduct.swift in Sources */,
 				304B214A23D39233007B016C /* UIImage+SwiftyGif.swift in Sources */,
@@ -2361,7 +2379,7 @@
 				303C9DB2237E2AB4006B9786 /* LinkHandlerUtil.swift in Sources */,
 				30D7387723D00F96006F4DA6 /* SocialActivityCardView.swift in Sources */,
 				3062202023EC7A0A002FAAD9 /* MarkdownTextView.swift in Sources */,
-				3021CBD82410215500F58B89 /* MainNavigationService.swift in Sources */,
+				3021CBD82410215500F58B89 /* NavigationService.swift in Sources */,
 				30CF53842370C58100578B22 /* ExperienceAnimationViewController.swift in Sources */,
 				303C9DAB237E1470006B9786 /* LoadablePromptContentViewController.swift in Sources */,
 				3084E9592348042800788279 /* PrivacyPolicyViewController.swift in Sources */,
@@ -2435,6 +2453,7 @@
 				30BF2E1623282BDA00A49EB6 /* FlamelinkService.swift in Sources */,
 				305CB10523D049E30046E8A8 /* ContactsTableViewController.swift in Sources */,
 				3023FE3522ECF0A800F753A7 /* ViewExtensions.swift in Sources */,
+				3021CBE02410345E00F58B89 /* WebViewController.swift in Sources */,
 				3021B67623623010002634A8 /* ApiTypes.swift in Sources */,
 				30D7F70A236BAAB100379EE0 /* EditReflectionViewController.swift in Sources */,
 				3020DD952363F37D00EC40AE /* UIImageViewAligned.swift in Sources */,
@@ -2515,7 +2534,7 @@
 				30CF53832370C58100578B22 /* ExperienceAnimationViewController.swift in Sources */,
 				30D7387623D00F96006F4DA6 /* SocialActivityCardView.swift in Sources */,
 				3062201F23EC7A0A002FAAD9 /* MarkdownTextView.swift in Sources */,
-				3021CBD72410215500F58B89 /* MainNavigationService.swift in Sources */,
+				3021CBD72410215500F58B89 /* NavigationService.swift in Sources */,
 				303C9DAA237E1470006B9786 /* LoadablePromptContentViewController.swift in Sources */,
 				3084E9582348042800788279 /* PrivacyPolicyViewController.swift in Sources */,
 				30E9B0B322EADE2D005B25FD /* CGExtensions.swift in Sources */,
@@ -2589,6 +2608,7 @@
 				30934F9622EBF146007C4E6C /* RoundedButton.swift in Sources */,
 				305CB10423D049E30046E8A8 /* ContactsTableViewController.swift in Sources */,
 				30E9B09922EA6A81005B25FD /* BaseModel.swift in Sources */,
+				3021CBDF2410345E00F58B89 /* WebViewController.swift in Sources */,
 				3021B67523623010002634A8 /* ApiTypes.swift in Sources */,
 				30D7F709236BAAB100379EE0 /* EditReflectionViewController.swift in Sources */,
 				3020DD942363F37D00EC40AE /* UIImageViewAligned.swift in Sources */,
