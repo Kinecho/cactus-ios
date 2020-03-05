@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import WebKit
 class CelebrateViewController: UIViewController {
 
     @IBOutlet weak var encouragementLabel: UILabel!
@@ -26,12 +26,15 @@ class CelebrateViewController: UIViewController {
     @IBOutlet weak var emotionsStatImageView: UIImageView!
     @IBOutlet weak var energyStatImageView: UIImageView!
     @IBOutlet weak var relationshipStatImageView: UIImageView!
+    @IBOutlet weak var insightsContainerView: UIView!
     
     @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet weak var upsellContainer: UIView!
     @IBOutlet weak var upsellLabel: UILabel!
     @IBOutlet weak var upsellStackView: UIStackView!
     @IBOutlet weak var shareNoteButton: TertiaryButton!
+    var insightsVc: InsightsWebViewViewController?
+    
     weak var reflectionResponse: ReflectionResponse? {
         didSet {
             self.configureShareNoteButton()
@@ -76,6 +79,30 @@ class CelebrateViewController: UIViewController {
         } else {
             self.mainStackView.spacing = 30
         }
+        
+        self.configureInsights()
+    }
+    
+    func configureInsights() {
+        self.insightsContainerView.isHidden = false
+        let insightsVc = InsightsWebViewViewController()
+        let subView = insightsVc.view
+        self.insightsVc = insightsVc
+        insightsVc.willMove(toParent: self)
+        insightsVc.view.frame = self.insightsContainerView.bounds
+        self.addChild(insightsVc)
+        self.insightsContainerView.addSubview(insightsVc.view)
+        
+        subView?.translatesAutoresizingMaskIntoConstraints = false
+        subView?.topAnchor.constraint(equalTo: insightsContainerView.topAnchor).isActive = true
+        subView?.bottomAnchor.constraint(equalTo: insightsContainerView.bottomAnchor).isActive = true
+        subView?.leadingAnchor.constraint(equalTo: insightsContainerView.leadingAnchor).isActive = true
+        subView?.trailingAnchor.constraint(equalTo: insightsContainerView.trailingAnchor).isActive = true
+                
+        insightsVc.didMove(toParent: self)
+        self.descriptionTextView.isHidden = true
+        
+        insightsVc.loadInsights()
     }
     
     func configureUpsell() {

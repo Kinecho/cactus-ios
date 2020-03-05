@@ -181,8 +181,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return true
         } else if LinkHandlerUtil.handleViewController(url) {
             return true
-        } else {
-            self.logger.warn("url \(url.absoluteString) not supported, sending back to the browser")
         }
         
         if let scheme = url.scheme,
@@ -224,9 +222,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 return true
             } else if LinkHandlerUtil.handleSharedResponse(activityUrl) {
                 return true
-            } else {
-                self.logger.warn("url not supported, sending back to the browser")
+            } else if activityUrl.scheme?.starts(with: "http") == true {
+                self.logger.warn("url not supported, sending back to the browser: \(activityUrl.absoluteString)")
                 application.open(activityUrl)
+                return true
             }
         }
         

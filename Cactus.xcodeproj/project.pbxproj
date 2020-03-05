@@ -92,6 +92,10 @@
 		3021CBE52410345E00F58B89 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3021CBDE2410345E00F58B89 /* WebViewController.xib */; };
 		3021CBE62410345E00F58B89 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3021CBDE2410345E00F58B89 /* WebViewController.xib */; };
 		3021CBE7241049AC00F58B89 /* StoreObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCF223EE279500089CFB /* StoreObserver.swift */; };
+		3021CBE92410E83800F58B89 /* InsightsWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBE82410E83800F58B89 /* InsightsWebViewViewController.swift */; };
+		3021CBEA2410E83800F58B89 /* InsightsWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBE82410E83800F58B89 /* InsightsWebViewViewController.swift */; };
+		3021CBEB2410E83800F58B89 /* InsightsWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBE82410E83800F58B89 /* InsightsWebViewViewController.swift */; };
+		3021CBEC2410E83800F58B89 /* InsightsWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBE82410E83800F58B89 /* InsightsWebViewViewController.swift */; };
 		3023FE3022ECD0A300F753A7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2F22ECD0A300F753A7 /* NotificationService.swift */; };
 		3023FE3122ECD0A300F753A7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2F22ECD0A300F753A7 /* NotificationService.swift */; };
 		3023FE3422ECF06E00F753A7 /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
@@ -764,6 +768,7 @@
 		3021CBD62410215500F58B89 /* NavigationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationService.swift; sourceTree = "<group>"; };
 		3021CBDD2410345E00F58B89 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		3021CBDE2410345E00F58B89 /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		3021CBE82410E83800F58B89 /* InsightsWebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsWebViewViewController.swift; sourceTree = "<group>"; };
 		3023FE2F22ECD0A300F753A7 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		30265C5C23453C8D00934041 /* SwiftyGifManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyGifManager.swift; sourceTree = "<group>"; };
 		30265C5F23453CB100934041 /* UIImage+SwiftyGif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+SwiftyGif.swift"; sourceTree = "<group>"; };
@@ -1464,6 +1469,7 @@
 				303C9DCD237FD7D1006B9786 /* ViewSharedReflectionViewController.xib */,
 				3021CBDD2410345E00F58B89 /* WebViewController.swift */,
 				3021CBDE2410345E00F58B89 /* WebViewController.xib */,
+				3021CBE82410E83800F58B89 /* InsightsWebViewViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -2243,6 +2249,7 @@
 				305B18792331A906003E1561 /* SentPrompt.swift in Sources */,
 				303C9E1C23841AC6006B9786 /* SharedReflectionViewController.swift in Sources */,
 				303C9E0223841AC1006B9786 /* ReflectContentViewController.swift in Sources */,
+				3021CBEB2410E83800F58B89 /* InsightsWebViewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2321,6 +2328,7 @@
 				304B216723D39448007B016C /* PromptContentService.swift in Sources */,
 				300FCCED23ECB5D600089CFB /* FancyLinkButton.swift in Sources */,
 				304B214823D3914C007B016C /* UIStackViewExtensionis.swift in Sources */,
+				3021CBEC2410E83800F58B89 /* InsightsWebViewViewController.swift in Sources */,
 				3062202223EC7A0A002FAAD9 /* MarkdownTextView.swift in Sources */,
 				304B217523D39484007B016C /* ContactService.swift in Sources */,
 				304B216923D3947F007B016C /* AppSettingsService.swift in Sources */,
@@ -2448,6 +2456,7 @@
 				30E9B09A22EA6A81005B25FD /* BaseModel.swift in Sources */,
 				30BF2E302328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */,
 				30CF537E2370B10F00578B22 /* EmotionsAnimationViewController.swift in Sources */,
+				3021CBEA2410E83800F58B89 /* InsightsWebViewViewController.swift in Sources */,
 				305B1864233175DC003E1561 /* PhotoContentViewController.swift in Sources */,
 				30934F9722EBF146007C4E6C /* RoundedButton.swift in Sources */,
 				3023FE3422ECF06E00F753A7 /* MailchimpModels.swift in Sources */,
@@ -2603,6 +2612,7 @@
 				30E9B0A322EAC204005B25FD /* AuthService.swift in Sources */,
 				30B6EA6F22EA5A9F00443E46 /* AppDelegate.swift in Sources */,
 				30CF537D2370B10F00578B22 /* EmotionsAnimationViewController.swift in Sources */,
+				3021CBE92410E83800F58B89 /* InsightsWebViewViewController.swift in Sources */,
 				305B1863233175DC003E1561 /* PhotoContentViewController.swift in Sources */,
 				30BF2E322328C7AD00A49EB6 /* MarkdownTypes.swift in Sources */,
 				308446F122ECAE0100FB0683 /* MailchimpModels.swift in Sources */,
