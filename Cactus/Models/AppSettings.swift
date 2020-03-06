@@ -8,6 +8,24 @@
 
 import Foundation
 
+
+class AppSettings: FlamelinkIdentifiable {
+    static var schema = FlamelinkSchema.appSettings_ios
+    var _fl_meta_: FlamelinkMeta?
+    var documentId: String?
+    var entryId: String?
+    var order: Int?
+    var firstPromptContentEntryId: String?
+    var checkoutSettings: CheckoutSettings?
+    var insights: InsightsSettings?
+}
+
+class InsightsSettings: Codable {
+    var noTextTodayTitle: String?
+    var noTextTodayMessage: String?
+    var celebrateInsightsEnabled: Bool = false
+}
+
 class CheckoutSettings: Codable {
     var pricingPath: String?
     var learnMorePath: String?
@@ -41,14 +59,4 @@ class CheckoutSettings: Codable {
             Logger.shared.error("Failed to decode checkout settings", error)
         }
     }
-}
-
-class AppSettings: FlamelinkIdentifiable {    
-    static var schema = FlamelinkSchema.appSettings_ios
-    var _fl_meta_: FlamelinkMeta?
-    var documentId: String?
-    var entryId: String?
-    var order: Int?
-    var firstPromptContentEntryId: String?
-    var checkoutSettings: CheckoutSettings?
 }

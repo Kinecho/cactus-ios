@@ -8,6 +8,8 @@
 
 import UIKit
 import WebKit
+import FirebaseFirestore
+
 class CelebrateViewController: UIViewController {
 
     @IBOutlet weak var encouragementLabel: UILabel!
@@ -20,6 +22,7 @@ class CelebrateViewController: UIViewController {
     @IBOutlet weak var elementStackView: UIStackView!
     @IBOutlet weak var needleBackgroundImageView: UIImageView!
     
+    @IBOutlet weak var insightStackView: UIStackView!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var experienceStatImageView: UIImageView!
     @IBOutlet weak var meaningStatImageView: UIImageView!
@@ -33,7 +36,8 @@ class CelebrateViewController: UIViewController {
     @IBOutlet weak var upsellLabel: UILabel!
     @IBOutlet weak var upsellStackView: UIStackView!
     @IBOutlet weak var shareNoteButton: TertiaryButton!
-    var insightsVc: InsightsWebViewViewController?
+    
+    var insightsVc: MemberInsightsViewController?
     
     weak var reflectionResponse: ReflectionResponse? {
         didSet {
@@ -51,6 +55,8 @@ class CelebrateViewController: UIViewController {
     var journalDataSource: JournalFeedDataSource?
     let celebrations = ["Well done!", "Nice work!", "Way to go!"]
     var memberUnsubscriber: Unsubscriber?
+    var appSettings: AppSettings?
+    var settingsUnsubscriber: ListenerRegistration?
     var member: CactusMember? {
         didSet {
             self.logger.info("Member did set, animating numbers. Stats are: \(String(describing: member?.stats?.reflections))")
@@ -75,34 +81,56 @@ class CelebrateViewController: UIViewController {
         self.configureShareNoteButton()
         
         if UIScreen.main.bounds.width < 400 {
-            self.mainStackView.spacing = 10
+            self.mainStackView.spacing = 20
         } else {
-            self.mainStackView.spacing = 30
+            self.mainStackView.spacing = 40
+        }
+        
+        self.createInsightsVC()
+        
+        self.appSettings = AppSettingsService.sharedInstance.currentSettings
+        self.settingsUnsubscriber = AppSettingsService.sharedInstance.observeSettings { (settings, _) in
+            self.appSettings = settings
+            self.configureInsights()
         }
         
         self.configureInsights()
     }
     
+    deinit {
+        self.settingsUnsubscriber?.remove()
+        self.memberUnsubscriber?()
+    }
+    
     func configureInsights() {
-        self.insightsContainerView.isHidden = false
-        let insightsVc = InsightsWebViewViewController()
-        let subView = insightsVc.view
+        let showInsights = (self.appSettings?.insights?.celebrateInsightsEnabled ?? false)
+        self.insightStackView.isHidden = !showInsights        
+        self.insightsVc?.appSettings = self.appSettings
+        self.descriptionTextView.isHidden = showInsights
+        self.encouragementLabel.isHidden = showInsights
+    }
+    
+    func createInsightsVC() {
+        let insightsVc = MemberInsightsViewController()
+        insightsVc.reflectionResponse = self.reflectionResponse
+        guard let subView = insightsVc.view else {
+            return
+        }
         self.insightsVc = insightsVc
+        self.insightsContainerView.translatesAutoresizingMaskIntoConstraints = false
         insightsVc.willMove(toParent: self)
         insightsVc.view.frame = self.insightsContainerView.bounds
+        
         self.addChild(insightsVc)
-        self.insightsContainerView.addSubview(insightsVc.view)
+        self.insightsContainerView.addSubview(subView)
         
-        subView?.translatesAutoresizingMaskIntoConstraints = false
-        subView?.topAnchor.constraint(equalTo: insightsContainerView.topAnchor).isActive = true
-        subView?.bottomAnchor.constraint(equalTo: insightsContainerView.bottomAnchor).isActive = true
-        subView?.leadingAnchor.constraint(equalTo: insightsContainerView.leadingAnchor).isActive = true
-        subView?.trailingAnchor.constraint(equalTo: insightsContainerView.trailingAnchor).isActive = true
-                
         insightsVc.didMove(toParent: self)
-        self.descriptionTextView.isHidden = true
         
-        insightsVc.loadInsights()
+        subView.translatesAutoresizingMaskIntoConstraints = false
+        subView.topAnchor.constraint(equalTo: insightsContainerView.topAnchor).isActive = true
+        subView.bottomAnchor.constraint(equalTo: insightsContainerView.bottomAnchor).isActive = true
+        subView.leadingAnchor.constraint(equalTo: insightsContainerView.leadingAnchor).isActive = true
+        subView.trailingAnchor.constraint(equalTo: insightsContainerView.trailingAnchor).isActive = true        
     }
     
     func configureUpsell() {
@@ -213,9 +241,6 @@ class CelebrateViewController: UIViewController {
         self.showElementModal(element: .experience)
     }
     
-    deinit {
-        self.memberUnsubscriber?()
-    }
 
     override func viewDidAppear(_ animated: Bool) {
         if self.shouldAnimate {

@@ -20,6 +20,7 @@ enum ScreenID: String {
     case journalEmpty
     case promptContentPageView
     case Welcome
+
     //settings
     case settingsTable
     case inviteScreen
@@ -34,10 +35,10 @@ enum ScreenID: String {
     //payment
     case Pricing
     case ManageSubscription
-    
-    
+        
     //NIBs
     case WebView
+    case MemberInsights
     
     var name: String {
         return self.rawValue
@@ -46,7 +47,7 @@ enum ScreenID: String {
     func loadFromNib() -> UIViewController? {
         switch self {
         case .WebView:
-            return WebViewController.loadFromNib()
+            return WebViewController.loadFromNib()        
         default:
             return nil
         }

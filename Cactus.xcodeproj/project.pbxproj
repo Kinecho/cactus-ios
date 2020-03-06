@@ -96,6 +96,10 @@
 		3021CBEA2410E83800F58B89 /* InsightsWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBE82410E83800F58B89 /* InsightsWebViewViewController.swift */; };
 		3021CBEB2410E83800F58B89 /* InsightsWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBE82410E83800F58B89 /* InsightsWebViewViewController.swift */; };
 		3021CBEC2410E83800F58B89 /* InsightsWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBE82410E83800F58B89 /* InsightsWebViewViewController.swift */; };
+		3021CBEE2411769800F58B89 /* MemberInsightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBED2411769800F58B89 /* MemberInsightsViewController.swift */; };
+		3021CBEF2411769800F58B89 /* MemberInsightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBED2411769800F58B89 /* MemberInsightsViewController.swift */; };
+		3021CBF02411769800F58B89 /* MemberInsightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBED2411769800F58B89 /* MemberInsightsViewController.swift */; };
+		3021CBF12411769800F58B89 /* MemberInsightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBED2411769800F58B89 /* MemberInsightsViewController.swift */; };
 		3023FE3022ECD0A300F753A7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2F22ECD0A300F753A7 /* NotificationService.swift */; };
 		3023FE3122ECD0A300F753A7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2F22ECD0A300F753A7 /* NotificationService.swift */; };
 		3023FE3422ECF06E00F753A7 /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
@@ -769,6 +773,7 @@
 		3021CBDD2410345E00F58B89 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		3021CBDE2410345E00F58B89 /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		3021CBE82410E83800F58B89 /* InsightsWebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsWebViewViewController.swift; sourceTree = "<group>"; };
+		3021CBED2411769800F58B89 /* MemberInsightsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberInsightsViewController.swift; sourceTree = "<group>"; };
 		3023FE2F22ECD0A300F753A7 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		30265C5C23453C8D00934041 /* SwiftyGifManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyGifManager.swift; sourceTree = "<group>"; };
 		30265C5F23453CB100934041 /* UIImage+SwiftyGif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+SwiftyGif.swift"; sourceTree = "<group>"; };
@@ -1470,6 +1475,7 @@
 				3021CBDD2410345E00F58B89 /* WebViewController.swift */,
 				3021CBDE2410345E00F58B89 /* WebViewController.xib */,
 				3021CBE82410E83800F58B89 /* InsightsWebViewViewController.swift */,
+				3021CBED2411769800F58B89 /* MemberInsightsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -2157,6 +2163,7 @@
 				305B18722331A843003E1561 /* FileUtils.swift in Sources */,
 				305B18762331A906003E1561 /* BaseModel.swift in Sources */,
 				303C9DD5238419C4006B9786 /* AppDelegate.swift in Sources */,
+				3021CBF02411769800F58B89 /* MemberInsightsViewController.swift in Sources */,
 				303BF744232A986A00164539 /* CactusUnitTests.swift in Sources */,
 				30D0E44B236C91F500EFC0E3 /* CGExtensions.swift in Sources */,
 				303C9E3023841AEB006B9786 /* AppSettingsService.swift in Sources */,
@@ -2316,6 +2323,7 @@
 				3055D934240E902700981DA2 /* MemberSubscription.swift in Sources */,
 				304B212B23D38F65007B016C /* FlamelinkTypes.swift in Sources */,
 				304B217023D3947F007B016C /* ReflectionResponseService.swift in Sources */,
+				3021CBF12411769800F58B89 /* MemberInsightsViewController.swift in Sources */,
 				304B212C23D38F65007B016C /* CactusMember.swift in Sources */,
 				304B213923D38F79007B016C /* CactusImage.swift in Sources */,
 				304B216F23D3947F007B016C /* ReflectionPromptService.swift in Sources */,
@@ -2475,6 +2483,7 @@
 				30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */,
 				3084E9662348FE9C00788279 /* CelebrateViewController.swift in Sources */,
 				303C9E432384778A006B9786 /* MemberProfile.swift in Sources */,
+				3021CBEF2411769800F58B89 /* MemberInsightsViewController.swift in Sources */,
 				3021B67223622FE7002634A8 /* ApiService.swift in Sources */,
 				305CB10123D048B60046E8A8 /* SendFriendInviteViewController.swift in Sources */,
 				3021B67923623AE3002634A8 /* CactusTextInputField.swift in Sources */,
@@ -2631,6 +2640,7 @@
 				3084E9652348FE9C00788279 /* CelebrateViewController.swift in Sources */,
 				3021B67123622FE7002634A8 /* ApiService.swift in Sources */,
 				303C9E422384778A006B9786 /* MemberProfile.swift in Sources */,
+				3021CBEE2411769800F58B89 /* MemberInsightsViewController.swift in Sources */,
 				3021B67823623AE3002634A8 /* CactusTextInputField.swift in Sources */,
 				305CB10023D048B60046E8A8 /* SendFriendInviteViewController.swift in Sources */,
 				303BF750232D289A00164539 /* QuoteContentViewController.swift in Sources */,
