@@ -77,10 +77,10 @@ class SubscriptionTrial: Codable {
 class MemberSubscription: Codable {
     var trial: SubscriptionTrial?
     var tier: SubscriptionTier = .PLUS
-    var legacyConversion: Bool = false
+    var legacyConversion: Bool? = false
     
     ///This field is protected because it should not be read directly from client code
-    private var activated: Bool = false
+    private var activated: Bool? = false
     var subscriptionProductId: String?
     var stripeSubscriptionId: String?
     

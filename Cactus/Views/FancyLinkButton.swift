@@ -106,12 +106,12 @@ class FancyLinkButton: UIButton {
         if self.border == nil {
             let border = CALayer()
             self.border = border
-            self.layer.addSublayer(border)
+            self.layer.insertSublayer(border, at: 0)
         }
         
         if let border = self.border {
             border.backgroundColor = self.borderColor.cgColor
-            border.opacity = 0.6
+            border.opacity = 0.5
             let offset = self.thickness / 2
             let y = self.bounds.height - offset - 4
             border.frame = CGRect(x: 0, y: y, width: self.bounds.width, height: self.thickness)
