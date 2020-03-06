@@ -34,6 +34,7 @@ class MemberInsightsViewController: UIViewController {
             self.configureCopy()
         }
     }
+    var modalDismissed = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,15 +71,9 @@ class MemberInsightsViewController: UIViewController {
         self.learnMoreButton?.isHidden = tier.isPaidTier
         self.unlockButton?.isHidden = !tier.isPaidTier
 
-//        if tier.isPaidTier {
-            self.modalContainer?.backgroundColor = CactusColor.dolphin
-            self.unlockMessageLabel?.textColor = CactusColor.white
+        self.modalContainer?.backgroundColor = CactusColor.dolphin
+        self.unlockMessageLabel?.textColor = CactusColor.white
         self.unlockTitleLabel?.textColor = CactusColor.white.withAlphaComponent(0.8)
-//        } else {
-//            self.modalContainer?.backgroundColor = CactusColor.white
-//            self.unlockMessageLabel?.textColor = CactusColor.darkestGreen
-//            self.unlockTitleLabel?.textColor = CactusColor.darkestGreen
-//        }
         
         let revealMessage = self.appSettings?.insights?.revealInsightMessage ?? "Want to see Today's Insight?"
         let upgradeMessage = self.appSettings?.insights?.revealInsightUpgradeMessage ?? "To reveal Today's Insight, upgrade to Cactus Plus."
@@ -201,7 +196,7 @@ class MemberInsightsViewController: UIViewController {
         let bgImageView = UIImageView(image: CactusImage.grainy.getImage())
         bgImageView.contentMode = .scaleAspectFill
         bgImageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        container.addSubview(bgImageView)        
+        container.addSubview(bgImageView)
         
         let stack = UIStackView()
         stack.axis = .vertical
@@ -257,6 +252,7 @@ class MemberInsightsViewController: UIViewController {
     }
     
     func showModal(_ show: Bool) {
+        let show = !self.modalDismissed && show
         UIView.animate(withDuration: 0.2, animations: {
             self.modalContainer?.alpha = show ? 1 : 0
         })
@@ -274,8 +270,9 @@ class MemberInsightsViewController: UIViewController {
     }
     
     @objc func unlockInsights(_ sender: Any?) {
+        self.modalDismissed = true
         self.showModal(false)
-
+        
         if !isBlank(self.reflectionResponse?.content.text) {
             self.insightsWebView.unlockInsights()
             self.insightsWebView.view.isHidden = false

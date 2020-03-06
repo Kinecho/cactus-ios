@@ -113,7 +113,7 @@ class CelebrateViewController: UIViewController {
         self.insightStackView.isHidden = !showInsights
         self.insightsVc?.appSettings = self.appSettings
         self.descriptionTextView.isHidden = showInsights
-        self.encouragementLabel.isHidden = showInsights
+        self.encouragementLabel.isHidden = false
         
         self.insightsTitleLabel.text = (self.appSettings?.insights?.insightsTitle ?? "Today's Insight").uppercased()
         self.insightsDescriptionLabel.text = (self.appSettings?.insights?.insightsDescription ?? "A visualization of words that have come up recently in your reflections.")
