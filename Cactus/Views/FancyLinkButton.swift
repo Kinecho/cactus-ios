@@ -38,7 +38,11 @@ class FancyLinkButton: UIButton {
     @IBInspectable var showBorder: Bool = true
     
     @IBInspectable var borderColor: UIColor = CactusColor.fancyLinkHighlight
-    @IBInspectable var textColorNormal: UIColor = CactusColor.textDefault
+    @IBInspectable var textColorNormal: UIColor = CactusColor.textDefault {
+        didSet {
+            self.setTitleColor(self.textColorNormal, for: .normal)
+        }
+    }
     @IBInspectable var textColorDisabled: UIColor = CactusColor.gray
     
     @IBInspectable var borderRadius: CGFloat {

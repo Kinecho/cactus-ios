@@ -163,7 +163,6 @@ class CelebrateViewController: UIViewController {
         self.upsellStackView.insertSubview(imageView, at: 0)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.topAnchor.constraint(equalTo: self.upsellStackView.topAnchor, constant: 0).isActive = true
-//        imageView.bottomAnchor.constraint(equalTo: self.upsellStackView.bottomAnchor, constant: 0).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 120).isActive = true
 
         imageView.leadingAnchor.constraint(equalTo: self.upsellStackView.leadingAnchor, constant: 0).isActive = true

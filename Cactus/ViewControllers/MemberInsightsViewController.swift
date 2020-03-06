@@ -119,7 +119,7 @@ class MemberInsightsViewController: UIViewController {
         self.noInsightView = container
         
         container.translatesAutoresizingMaskIntoConstraints = false
-        container.backgroundColor = CactusColor.white
+        container.backgroundColor = CactusColor.noteBackground
         container.clipsToBounds = true
         container.layer.cornerRadius = 10
         
@@ -231,7 +231,8 @@ class MemberInsightsViewController: UIViewController {
         
         let upgradeButton = FancyLinkButton()
         upgradeButton.borderColor = CactusColor.green
-        upgradeButton.tintColor = CactusColor.green
+        upgradeButton.textColorNormal = CactusColor.darkestGreen
+        upgradeButton.tintColor = CactusColor.darkestGreen
         let upgradeButtonText = self.appSettings?.insights?.learnMoreButtonText ?? "What are insights?"
         upgradeButton.setTitle(upgradeButtonText, for: .normal)
         upgradeButton.addTarget(self, action: #selector(self.upgradeTapped(_:)), for: .primaryActionTriggered)
@@ -244,8 +245,6 @@ class MemberInsightsViewController: UIViewController {
     func showModal(_ show: Bool) {
         UIView.animate(withDuration: 0.2, animations: {
             self.modalContainer?.alpha = show ? 1 : 0
-        }, completion: { _ in
-//            self.modalContainer?.removeFromSuperview()
         })
     }
     
@@ -262,8 +261,7 @@ class MemberInsightsViewController: UIViewController {
     
     @objc func unlockInsights(_ sender: Any?) {
         self.showModal(false)
-//        self.insightsWebView.unlockInsights()
-        
+
         if !isBlank(self.reflectionResponse?.content.text) {
             self.insightsWebView.unlockInsights()
             self.insightsWebView.view.isHidden = false
