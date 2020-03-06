@@ -65,7 +65,7 @@ struct CactusColor {
     static let linkColor = CactusColor.darkGreen
     static let brightPink = UIColor(named: "PinkBright")!
     static let royal = UIColor(named: "Royal")!
-    static let aqua = UIColor(named: "Auqa")!
+    static let aqua = UIColor(named: "Aqua")!
 }
 
 extension UIColor {

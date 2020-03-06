@@ -25,13 +25,13 @@ class PromptContentPageViewController: UIPageViewController {
     var tapNavigationEnabled = true
     var logger = Logger(fileName: "PromptContentPageViewController")
     var celebrateVc: CelebrateViewController?
-        
     fileprivate lazy var screens: [UIViewController] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataSource = self
-        self.delegate = self        
+        self.delegate = self
+                
         self.configureScreens()
         self.view.backgroundColor = CactusColor.promptBackground
         
@@ -108,6 +108,7 @@ class PromptContentPageViewController: UIPageViewController {
         celebrate.reflectionResponse = self.reflectionResponse
         celebrate.promptContent = self.promptContent
         celebrate.journalDataSource = self.journalDataSource
+        
         self.celebrateVc = celebrate
         screens.append(celebrate)
         self.screens = screens

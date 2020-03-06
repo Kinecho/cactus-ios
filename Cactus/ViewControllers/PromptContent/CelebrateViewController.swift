@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import WebKit
+import FirebaseFirestore
 
 class CelebrateViewController: UIViewController {
 
@@ -20,21 +22,29 @@ class CelebrateViewController: UIViewController {
     @IBOutlet weak var elementStackView: UIStackView!
     @IBOutlet weak var needleBackgroundImageView: UIImageView!
     
+    @IBOutlet weak var insightStackView: UIStackView!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var experienceStatImageView: UIImageView!
     @IBOutlet weak var meaningStatImageView: UIImageView!
     @IBOutlet weak var emotionsStatImageView: UIImageView!
     @IBOutlet weak var energyStatImageView: UIImageView!
     @IBOutlet weak var relationshipStatImageView: UIImageView!
+    @IBOutlet weak var insightsContainerView: UIView!
     
     @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet weak var upsellContainer: UIView!
     @IBOutlet weak var upsellLabel: UILabel!
     @IBOutlet weak var upsellStackView: UIStackView!
     @IBOutlet weak var shareNoteButton: TertiaryButton!
+    
+    @IBOutlet weak var insightsTitleLabel: UILabel!
+    @IBOutlet weak var insightsDescriptionLabel: UILabel!
+    var insightsVc: MemberInsightsViewController?
+    
     weak var reflectionResponse: ReflectionResponse? {
         didSet {
             self.configureShareNoteButton()
+            self.configureInsights()
         }
     }
     var promptContent: PromptContent?
@@ -48,10 +58,11 @@ class CelebrateViewController: UIViewController {
     var journalDataSource: JournalFeedDataSource?
     let celebrations = ["Well done!", "Nice work!", "Way to go!"]
     var memberUnsubscriber: Unsubscriber?
+    var appSettings: AppSettings?
+    var settingsUnsubscriber: ListenerRegistration?
     var member: CactusMember? {
         didSet {
             self.logger.info("Member did set, animating numbers. Stats are: \(String(describing: member?.stats?.reflections))")
-//            self.shouldAnimate = true
             self.animateNumbers()
             self.updateElements()
         }
@@ -72,10 +83,64 @@ class CelebrateViewController: UIViewController {
         self.configureShareNoteButton()
         
         if UIScreen.main.bounds.width < 400 {
-            self.mainStackView.spacing = 10
+            self.mainStackView.spacing = 20
         } else {
-            self.mainStackView.spacing = 30
+            self.mainStackView.spacing = 40
         }
+        
+        self.createInsightsVC()
+        
+        self.appSettings = AppSettingsService.sharedInstance.currentSettings
+        self.settingsUnsubscriber = AppSettingsService.sharedInstance.observeSettings { (settings, _) in
+            self.appSettings = settings
+            self.configureInsights()
+        }
+        
+        self.configureInsights()
+    }
+    
+    deinit {
+        self.settingsUnsubscriber?.remove()
+        self.memberUnsubscriber?()
+    }
+    
+    func configureInsights() {
+        guard isViewLoaded else {
+            return
+        }
+        let showInsights = (self.appSettings?.insights?.celebrateInsightsEnabled ?? false)
+        self.insightsVc?.reflectionResponse = self.reflectionResponse
+        self.insightStackView.isHidden = !showInsights
+        self.insightsVc?.appSettings = self.appSettings
+        self.descriptionTextView.isHidden = showInsights
+        self.encouragementLabel.isHidden = false
+        
+        self.insightsTitleLabel.text = (self.appSettings?.insights?.insightsTitle ?? "Today's Insight").uppercased()
+        self.insightsDescriptionLabel.text = (self.appSettings?.insights?.insightsDescription ?? "A visualization of words that have come up recently in your reflections.")
+        
+    }
+    
+    func createInsightsVC() {
+        let insightsVc = MemberInsightsViewController()
+        insightsVc.reflectionResponse = self.reflectionResponse
+        guard let subView = insightsVc.view else {
+            return
+        }
+        self.insightsVc = insightsVc
+        self.insightsContainerView.translatesAutoresizingMaskIntoConstraints = false
+        insightsVc.willMove(toParent: self)
+        insightsVc.view.frame = self.insightsContainerView.bounds
+        
+        self.addChild(insightsVc)
+        self.insightsContainerView.addSubview(subView)
+        
+        insightsVc.didMove(toParent: self)
+        
+        subView.translatesAutoresizingMaskIntoConstraints = false
+        subView.topAnchor.constraint(equalTo: insightsContainerView.topAnchor).isActive = true
+        subView.bottomAnchor.constraint(equalTo: insightsContainerView.bottomAnchor).isActive = true
+        subView.leadingAnchor.constraint(equalTo: insightsContainerView.leadingAnchor).isActive = true
+        subView.trailingAnchor.constraint(equalTo: insightsContainerView.trailingAnchor).isActive = true        
     }
     
     func configureUpsell() {
@@ -102,7 +167,6 @@ class CelebrateViewController: UIViewController {
         self.upsellStackView.insertSubview(imageView, at: 0)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.topAnchor.constraint(equalTo: self.upsellStackView.topAnchor, constant: 0).isActive = true
-//        imageView.bottomAnchor.constraint(equalTo: self.upsellStackView.bottomAnchor, constant: 0).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 120).isActive = true
 
         imageView.leadingAnchor.constraint(equalTo: self.upsellStackView.leadingAnchor, constant: 0).isActive = true
@@ -184,10 +248,6 @@ class CelebrateViewController: UIViewController {
     
     @objc func showExperienceModal() {
         self.showElementModal(element: .experience)
-    }
-    
-    deinit {
-        self.memberUnsubscriber?()
     }
 
     override func viewDidAppear(_ animated: Bool) {

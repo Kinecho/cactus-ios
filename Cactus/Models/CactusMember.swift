@@ -51,6 +51,11 @@ struct ElementAccumulation: Codable {
     }
 }
 
+struct InsightWord: Codable {
+    var frequency: Int = 0
+    var word: String = ""
+}
+
 struct ReflectionStats: Codable {
     var currentStreakDays: Int = 0
     var totalDurationMs: Int = 0
@@ -99,6 +104,7 @@ class CactusMember: FirestoreIdentifiable, Hashable {
     var promptSendTime: PromptSendTime?
     var subscription: MemberSubscription?
     var stripe: MemberStripeDetails?
+    var wordCloud: [InsightWord]?
     
     static func == (lhs: CactusMember, rhs: CactusMember) -> Bool {
         return lhs.id != nil && rhs.id != nil && lhs.id == rhs.id

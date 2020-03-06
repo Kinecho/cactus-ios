@@ -23,6 +23,7 @@ class PromptContentViewController: UIViewController {
     var promptContent: PromptContent!
     var tapNavigationEnabled = true
     var selectedTextView: UITextView?
+    var appSettings: AppSettings!
     var logger = Logger("PromptContentViewController")
     
     override func viewDidLoad() {

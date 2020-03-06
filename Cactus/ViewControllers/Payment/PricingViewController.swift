@@ -8,11 +8,13 @@
 
 import UIKit
 import MessageUI
-
+import FirebaseFirestore
 class PricingViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var planStackView: UIStackView!
     @IBOutlet weak var footerStackView: UIStackView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     @IBOutlet weak var footerDescriptionLabel: UILabel!
     @IBOutlet weak var footerIcon: UIImageView!
@@ -22,8 +24,11 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBOutlet weak var questionsTextView: UITextView!
     @IBOutlet weak var headerStackView: UIStackView!
     @IBOutlet weak var mainStackView: UIStackView!
-    var showCloseButton = true
+    @IBOutlet weak var featuresStackView: UIStackView!
     
+    var settingsUnsubscriber: ListenerRegistration?
+    var appSettings: AppSettings?
+    var showCloseButton = true
     let logger = Logger("PricingViewController")
     var productsLoaded = false
     var productGroupEntryMap: SubscriptionProductGroupEntryMap? {
@@ -38,12 +43,24 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.settingsUnsubscriber = AppSettingsService.sharedInstance.observeSettings({ (settings, error) in
+            if let error = error {
+                self.logger.error("Failed to get app settings", error)
+            }
+            self.appSettings = settings
+            self.updateAllCopy()
+        })
+        
         self.closeButton.isHidden = !self.showCloseButton
         //Note: we are not showing products at the moment
         // self.loadSubscriptionProducts()
         
         self.configureQuestionsView()
         self.setupHeaderBackground()
+    }
+    
+    deinit {
+        self.settingsUnsubscriber?.remove()
     }
     
     func setupHeaderBackground() {
@@ -66,6 +83,32 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     func loadSubscriptionProducts() {
         SubscriptionService.sharedInstance.getSubscriptionProductGroupEntryMap { (entryMap) in
             self.productGroupEntryMap = entryMap
+        }
+    }
+    
+    func updateAllCopy() {
+        let settings = self.appSettings?.pricingScreen
+        let pageTitle = settings?.pageTitleMarkdown ?? "Get more with Cactus Plus"
+        self.titleLabel.attributedText = MarkdownUtil.centeredMarkdown(pageTitle, font: CactusFont.bold(26), color: CactusColor.white)
+        
+        let pageDescription = settings?.pageDescriptionMarkdown ?? "Daily prompts, personalized insights, and more"
+        self.descriptionLabel.attributedText = MarkdownUtil.centeredMarkdown(pageDescription, font: CactusFont.normal(18), color: CactusColor.white)
+        
+        self.updateFeatures()
+        
+    }
+    
+    func updateFeatures() {
+        let features = self.appSettings?.pricingScreen?.features ?? DEFAULT_PRICING_FEATURES
+        
+        self.featuresStackView.arrangedSubviews.forEach {$0.removeFromSuperview()}
+        features.forEach { (feature) in
+            let featureView = PricingFeatureView()
+            featureView.icon = feature.icon
+            featureView.iconDiameter = CGFloat(30)
+            featureView.titleLabel.attributedText = MarkdownUtil.toMarkdown(feature.titleMarkdown, font: CactusFont.bold(22), color: CactusColor.textDefault)
+            featureView.descriptionLabel.attributedText = MarkdownUtil.toMarkdown(feature.descriptionMarkdown, font: CactusFont.normal(18), color: CactusColor.textDefault)
+            self.featuresStackView.addArrangedSubview(featureView)
         }
     }
     
