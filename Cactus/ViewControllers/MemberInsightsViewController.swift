@@ -61,7 +61,7 @@ class MemberInsightsViewController: UIViewController {
         self.memberUnsubscriber?()
     }
     
-    func configureModal() {        
+    func configureModal() {
         let hasText = !isBlank(self.reflectionResponse?.content.text)
         self.showModal(hasText)
         self.noInsightView?.isHidden = hasText
