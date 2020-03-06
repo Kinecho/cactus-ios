@@ -37,6 +37,8 @@ class CelebrateViewController: UIViewController {
     @IBOutlet weak var upsellStackView: UIStackView!
     @IBOutlet weak var shareNoteButton: TertiaryButton!
     
+    @IBOutlet weak var insightsTitleLabel: UILabel!
+    @IBOutlet weak var insightsDescriptionLabel: UILabel!
     var insightsVc: MemberInsightsViewController?
     
     weak var reflectionResponse: ReflectionResponse? {
@@ -104,10 +106,14 @@ class CelebrateViewController: UIViewController {
     
     func configureInsights() {
         let showInsights = (self.appSettings?.insights?.celebrateInsightsEnabled ?? false)
-        self.insightStackView.isHidden = !showInsights        
+        self.insightStackView.isHidden = !showInsights
         self.insightsVc?.appSettings = self.appSettings
         self.descriptionTextView.isHidden = showInsights
         self.encouragementLabel.isHidden = showInsights
+        
+        self.insightsTitleLabel.text = (self.appSettings?.insights?.insightsTitle ?? "Today's Insight").uppercased()
+        self.insightsDescriptionLabel.text = (self.appSettings?.insights?.insightsDescription ?? "A visualization of words that have come up recently in your reflections.")
+        
     }
     
     func createInsightsVC() {
@@ -240,7 +246,6 @@ class CelebrateViewController: UIViewController {
     @objc func showExperienceModal() {
         self.showElementModal(element: .experience)
     }
-    
 
     override func viewDidAppear(_ animated: Bool) {
         if self.shouldAnimate {

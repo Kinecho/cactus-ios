@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class AppSettings: FlamelinkIdentifiable {
     static var schema = FlamelinkSchema.appSettings_ios
     var _fl_meta_: FlamelinkMeta?
@@ -21,8 +20,14 @@ class AppSettings: FlamelinkIdentifiable {
 }
 
 class InsightsSettings: Codable {
+    var insightsTitle: String?
+    var insightsDescription: String?
     var noTextTodayTitle: String?
     var noTextTodayMessage: String?
+    var revealInsightMessage: String?
+    var revealInsightButtonText: String?
+    var revealInsightUpgradeMessage: String?
+    var learnMoreButtonText: String?
     var celebrateInsightsEnabled: Bool = false
 }
 
