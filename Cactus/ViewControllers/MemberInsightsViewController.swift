@@ -19,7 +19,11 @@ class MemberInsightsViewController: UIViewController {
     var memberUnsubscriber: Unsubscriber?
     let logger = Logger("MemberInsightsViewController")
     var pricingVc: PricingViewController?
-    var reflectionResponse: ReflectionResponse?
+    var reflectionResponse: ReflectionResponse? {
+        didSet {
+            self.configureCopy()
+        }
+    }
     var noReflectionTextLabel: UILabel?
     var noReflectionTextTitleLabel: UILabel?
     var noInsightView: UIView?
@@ -46,24 +50,22 @@ class MemberInsightsViewController: UIViewController {
         self.insightsWebView.member = self.member
         
         self.createUpgradeModal()
-        self.configureModal()
+        
         self.insightsWebView.loadInsights()
-        
-        let hasText = !isBlank(self.reflectionResponse?.content.text)
         insightsWebView.chartEnabled = true
-        self.showModal(hasText)
-        if !hasText {
-            self.createNoInsightView()
-            self.noInsightView?.isHidden = false
-        }
-        
+        self.createNoInsightView()
+        self.configureModal()
     }
     
     deinit {
         self.memberUnsubscriber?()
     }
     
-    func configureModal() {
+    func configureModal() {        
+        let hasText = !isBlank(self.reflectionResponse?.content.text)
+        self.showModal(hasText)
+        self.noInsightView?.isHidden = hasText
+        
         let tier = self.member?.subscription?.tier ?? .BASIC
         self.learnMoreButton?.isHidden = tier.isPaidTier
         self.unlockButton?.isHidden = !tier.isPaidTier
@@ -90,6 +92,7 @@ class MemberInsightsViewController: UIViewController {
         let upgradeButtonText = self.appSettings?.insights?.learnMoreButtonText ?? "What are insights?"
         self.learnMoreButton?.setTitle(upgradeButtonText, for: .normal)
         self.noReflectionLearnMoreButton?.setTitle( upgradeButtonText, for: .normal)
+        
     }
     
     func configureCopy() {

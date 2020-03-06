@@ -44,6 +44,7 @@ class CelebrateViewController: UIViewController {
     weak var reflectionResponse: ReflectionResponse? {
         didSet {
             self.configureShareNoteButton()
+            self.configureInsights()
         }
     }
     var promptContent: PromptContent?
@@ -62,7 +63,6 @@ class CelebrateViewController: UIViewController {
     var member: CactusMember? {
         didSet {
             self.logger.info("Member did set, animating numbers. Stats are: \(String(describing: member?.stats?.reflections))")
-//            self.shouldAnimate = true
             self.animateNumbers()
             self.updateElements()
         }
@@ -105,7 +105,11 @@ class CelebrateViewController: UIViewController {
     }
     
     func configureInsights() {
+        guard isViewLoaded else {
+            return
+        }
         let showInsights = (self.appSettings?.insights?.celebrateInsightsEnabled ?? false)
+        self.insightsVc?.reflectionResponse = self.reflectionResponse
         self.insightStackView.isHidden = !showInsights
         self.insightsVc?.appSettings = self.appSettings
         self.descriptionTextView.isHidden = showInsights
