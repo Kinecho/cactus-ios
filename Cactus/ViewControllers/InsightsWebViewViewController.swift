@@ -180,6 +180,8 @@ class InsightsWebViewViewController: UIViewController {
             return
         }
         
+        self.logger.info("Chart bse64 data is:\n\(base64Data)")
+        
         self.webView.evaluateJavaScript("window.setInsightWordsBase64(\"\(base64Data)\");") { (result, error) in
             guard error == nil else {
                 self.logger.error("Failed to evaluate setInsight word base 64 javascript", error)
@@ -188,7 +190,6 @@ class InsightsWebViewViewController: UIViewController {
             self.logger.info("Set insights javascript result \(String(describing: result))")
         }
     }
-    
 }
 
 extension InsightsWebViewViewController: WKNavigationDelegate {
