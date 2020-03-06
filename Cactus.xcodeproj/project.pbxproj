@@ -99,7 +99,6 @@
 		3021CBEE2411769800F58B89 /* MemberInsightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBED2411769800F58B89 /* MemberInsightsViewController.swift */; };
 		3021CBEF2411769800F58B89 /* MemberInsightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBED2411769800F58B89 /* MemberInsightsViewController.swift */; };
 		3021CBF02411769800F58B89 /* MemberInsightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBED2411769800F58B89 /* MemberInsightsViewController.swift */; };
-		3021CBF12411769800F58B89 /* MemberInsightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBED2411769800F58B89 /* MemberInsightsViewController.swift */; };
 		3023FE3022ECD0A300F753A7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2F22ECD0A300F753A7 /* NotificationService.swift */; };
 		3023FE3122ECD0A300F753A7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2F22ECD0A300F753A7 /* NotificationService.swift */; };
 		3023FE3422ECF06E00F753A7 /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
@@ -2323,7 +2322,6 @@
 				3055D934240E902700981DA2 /* MemberSubscription.swift in Sources */,
 				304B212B23D38F65007B016C /* FlamelinkTypes.swift in Sources */,
 				304B217023D3947F007B016C /* ReflectionResponseService.swift in Sources */,
-				3021CBF12411769800F58B89 /* MemberInsightsViewController.swift in Sources */,
 				304B212C23D38F65007B016C /* CactusMember.swift in Sources */,
 				304B213923D38F79007B016C /* CactusImage.swift in Sources */,
 				304B216F23D3947F007B016C /* ReflectionPromptService.swift in Sources */,
