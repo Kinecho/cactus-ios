@@ -17,6 +17,11 @@ class AppSettings: FlamelinkIdentifiable {
     var firstPromptContentEntryId: String?
     var checkoutSettings: CheckoutSettings?
     var insights: InsightsSettings?
+    var welcome: WelcomeSettings?
+}
+
+class WelcomeSettings: Codable {
+    var taglineMarkdown: String?
 }
 
 class InsightsSettings: Codable {
@@ -28,7 +33,7 @@ class InsightsSettings: Codable {
     var revealInsightButtonText: String?
     var revealInsightUpgradeMessage: String?
     var learnMoreButtonText: String?
-    var celebrateInsightsEnabled: Bool = false
+    var celebrateInsightsEnabled: Bool? = false
 }
 
 class CheckoutSettings: Codable {

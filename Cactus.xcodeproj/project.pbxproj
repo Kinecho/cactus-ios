@@ -120,6 +120,9 @@
 		302C4F4D2347E25A00798560 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F4B2347E25A00798560 /* DateUtil.swift */; };
 		302C4F502347FAA400798560 /* EmailSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F4F2347FAA400798560 /* EmailSettingsViewController.swift */; };
 		302C4F512347FAA400798560 /* EmailSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F4F2347FAA400798560 /* EmailSettingsViewController.swift */; };
+		30328209241215D900FC197A /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30328208241215D900FC197A /* WelcomeViewController.swift */; };
+		3032820A241215D900FC197A /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30328208241215D900FC197A /* WelcomeViewController.swift */; };
+		3032820B241215D900FC197A /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30328208241215D900FC197A /* WelcomeViewController.swift */; };
 		30392FF62410075400F2A8FC /* ModelDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30392FF52410075400F2A8FC /* ModelDecoder.swift */; };
 		30392FF72410075400F2A8FC /* ModelDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30392FF52410075400F2A8FC /* ModelDecoder.swift */; };
 		30392FF82410075400F2A8FC /* ModelDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30392FF52410075400F2A8FC /* ModelDecoder.swift */; };
@@ -782,6 +785,7 @@
 		302C4F482347D7A700798560 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		302C4F4B2347E25A00798560 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		302C4F4F2347FAA400798560 /* EmailSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSettingsViewController.swift; sourceTree = "<group>"; };
+		30328208241215D900FC197A /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		30392FF52410075400F2A8FC /* ModelDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDecoder.swift; sourceTree = "<group>"; };
 		303BF741232A986A00164539 /* Cactus UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cactus UnitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		303BF743232A986A00164539 /* CactusUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusUnitTests.swift; sourceTree = "<group>"; };
@@ -1475,6 +1479,7 @@
 				3021CBDE2410345E00F58B89 /* WebViewController.xib */,
 				3021CBE82410E83800F58B89 /* InsightsWebViewViewController.swift */,
 				3021CBED2411769800F58B89 /* MemberInsightsViewController.swift */,
+				30328208241215D900FC197A /* WelcomeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -2254,6 +2259,7 @@
 				303C9DC1237F6288006B9786 /* StorageServiceTest.swift in Sources */,
 				305B18792331A906003E1561 /* SentPrompt.swift in Sources */,
 				303C9E1C23841AC6006B9786 /* SharedReflectionViewController.swift in Sources */,
+				3032820B241215D900FC197A /* WelcomeViewController.swift in Sources */,
 				303C9E0223841AC1006B9786 /* ReflectContentViewController.swift in Sources */,
 				3021CBEB2410E83800F58B89 /* InsightsWebViewViewController.swift in Sources */,
 			);
@@ -2393,6 +2399,7 @@
 				30934F9A22EBF235007C4E6C /* BorderedButton.swift in Sources */,
 				3023FE3622ECF0AE00F753A7 /* CactusColor.swift in Sources */,
 				303C9DB2237E2AB4006B9786 /* LinkHandlerUtil.swift in Sources */,
+				3032820A241215D900FC197A /* WelcomeViewController.swift in Sources */,
 				30D7387723D00F96006F4DA6 /* SocialActivityCardView.swift in Sources */,
 				3062202023EC7A0A002FAAD9 /* MarkdownTextView.swift in Sources */,
 				3021CBD82410215500F58B89 /* NavigationService.swift in Sources */,
@@ -2550,6 +2557,7 @@
 				30BF2E0D2328171200A49EB6 /* PromptContent.swift in Sources */,
 				303C9DB1237E2AB4006B9786 /* LinkHandlerUtil.swift in Sources */,
 				30CF53832370C58100578B22 /* ExperienceAnimationViewController.swift in Sources */,
+				30328209241215D900FC197A /* WelcomeViewController.swift in Sources */,
 				30D7387623D00F96006F4DA6 /* SocialActivityCardView.swift in Sources */,
 				3062201F23EC7A0A002FAAD9 /* MarkdownTextView.swift in Sources */,
 				3021CBD72410215500F58B89 /* NavigationService.swift in Sources */,

@@ -556,7 +556,7 @@
         <!--Welcome Page-->
         <scene sceneID="JuZ-R4-cde">
             <objects>
-                <viewController id="cBA-wN-TGD" userLabel="Welcome Page" sceneMemberID="viewController">
+                <viewController id="cBA-wN-TGD" userLabel="Welcome Page" customClass="WelcomeViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UV7-pr-crN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -619,6 +619,9 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="NZF-Wa-jLM"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="taglineLabel" destination="dc0-xT-rrz" id="K6j-Hm-xGW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oOm-PG-d2I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
