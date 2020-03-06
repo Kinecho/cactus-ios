@@ -118,7 +118,7 @@ class MemberInsightsViewController: UIViewController {
         self.noInsightView = container
         
         container.translatesAutoresizingMaskIntoConstraints = false
-        container.backgroundColor = CactusColor.noteBackground
+        container.backgroundColor = CactusColor.dolphin
         container.clipsToBounds = true
         container.layer.cornerRadius = 10
         
@@ -150,7 +150,7 @@ class MemberInsightsViewController: UIViewController {
         let titleLabel = UILabel()
         self.noReflectionTextTitleLabel = titleLabel
         titleLabel.font = CactusFont.bold(18)
-        titleLabel.textColor = CactusColor.royal
+        titleLabel.textColor = CactusColor.white.withAlphaComponent(0.8)
         titleLabel.text = (self.appSettings?.insights?.insightsTitle ?? "Today's Insight").uppercased()
         titleLabel.textAlignment = .center
         
@@ -159,7 +159,7 @@ class MemberInsightsViewController: UIViewController {
         let messageLabel = UILabel()
         self.noReflectionTextLabel = messageLabel
         messageLabel.font = CactusFont.normal
-        messageLabel.textColor = CactusColor.textDefault
+        messageLabel.textColor = CactusColor.white
         messageLabel.textAlignment = .center
         messageLabel.numberOfLines = 0
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
