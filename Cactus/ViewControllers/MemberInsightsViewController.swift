@@ -70,15 +70,15 @@ class MemberInsightsViewController: UIViewController {
         self.learnMoreButton?.isHidden = tier.isPaidTier
         self.unlockButton?.isHidden = !tier.isPaidTier
 
-        if tier.isPaidTier {
+//        if tier.isPaidTier {
             self.modalContainer?.backgroundColor = CactusColor.dolphin
             self.unlockMessageLabel?.textColor = CactusColor.white
-            self.unlockTitleLabel?.textColor = CactusColor.white
-        } else {
-            self.modalContainer?.backgroundColor = CactusColor.white
-            self.unlockMessageLabel?.textColor = CactusColor.darkestGreen
-            self.unlockTitleLabel?.textColor = CactusColor.darkestGreen
-        }
+        self.unlockTitleLabel?.textColor = CactusColor.white.withAlphaComponent(0.8)
+//        } else {
+//            self.modalContainer?.backgroundColor = CactusColor.white
+//            self.unlockMessageLabel?.textColor = CactusColor.darkestGreen
+//            self.unlockTitleLabel?.textColor = CactusColor.darkestGreen
+//        }
         
         let revealMessage = self.appSettings?.insights?.revealInsightMessage ?? "Want to see Today's Insight?"
         let upgradeMessage = self.appSettings?.insights?.revealInsightUpgradeMessage ?? "To reveal Today's Insight, upgrade to Cactus Plus."
@@ -86,6 +86,7 @@ class MemberInsightsViewController: UIViewController {
         let unlockText = self.appSettings?.insights?.revealInsightButtonText ?? "Show Me!"
         self.unlockButton?.setTitle(unlockText, for: .normal)
         self.unlockTitleLabel?.text = (self.appSettings?.insights?.insightsTitle ?? "Today's Insight").uppercased()
+        
         self.noReflectionTextTitleLabel?.text = (self.appSettings?.insights?.insightsTitle ?? "Today's Insight").uppercased()
         self.unlockMessageLabel?.text = tier.isPaidTier ? revealMessage : upgradeMessage
         
@@ -133,6 +134,11 @@ class MemberInsightsViewController: UIViewController {
         container.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         container.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         
+        let bgImageView = UIImageView(image: CactusImage.grainy.getImage())
+        bgImageView.contentMode = .scaleAspectFill
+        bgImageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        container.addSubview(bgImageView)
+                
         let stack = UIStackView()
         stack.axis = .vertical
         stack.alignment = .center
@@ -167,7 +173,7 @@ class MemberInsightsViewController: UIViewController {
                 
         let cta = FancyLinkButton()
         self.noReflectionLearnMoreButton = cta
-        cta.textColorNormal = CactusColor.darkText
+        cta.textColorNormal = CactusColor.white
         cta.setTitle( appSettings?.insights?.learnMoreButtonText ?? "What are insights?", for: .normal)
         cta.tintColor = CactusColor.green
         cta.borderColor = CactusColor.green
@@ -192,6 +198,11 @@ class MemberInsightsViewController: UIViewController {
         container.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         container.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         
+        let bgImageView = UIImageView(image: CactusImage.grainy.getImage())
+        bgImageView.contentMode = .scaleAspectFill
+        bgImageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        container.addSubview(bgImageView)        
+        
         let stack = UIStackView()
         stack.axis = .vertical
         stack.alignment = .center
@@ -206,7 +217,7 @@ class MemberInsightsViewController: UIViewController {
         stack.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -20).isActive = true
         
         let titleLabel = UILabel()
-        titleLabel.font = CactusFont.normal(16)
+        titleLabel.font = CactusFont.bold(16)
         titleLabel.textColor = CactusColor.white
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .center
@@ -234,7 +245,7 @@ class MemberInsightsViewController: UIViewController {
         
         let upgradeButton = FancyLinkButton()
         upgradeButton.borderColor = CactusColor.green
-        upgradeButton.textColorNormal = CactusColor.darkestGreen
+        upgradeButton.textColorNormal = CactusColor.white
         upgradeButton.tintColor = CactusColor.darkestGreen
         let upgradeButtonText = self.appSettings?.insights?.learnMoreButtonText ?? "What are insights?"
         upgradeButton.setTitle(upgradeButtonText, for: .normal)

@@ -67,6 +67,7 @@ enum CactusImage: String {
 
     //backgrounds
     case plusBg
+    case grainy
     
     //Illustraions
     case pottedCactus
