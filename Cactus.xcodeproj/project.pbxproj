@@ -123,6 +123,14 @@
 		30328209241215D900FC197A /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30328208241215D900FC197A /* WelcomeViewController.swift */; };
 		3032820A241215D900FC197A /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30328208241215D900FC197A /* WelcomeViewController.swift */; };
 		3032820B241215D900FC197A /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30328208241215D900FC197A /* WelcomeViewController.swift */; };
+		3032820D2412B87D00FC197A /* PricingFeatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3032820C2412B87D00FC197A /* PricingFeatureView.xib */; };
+		3032820E2412B87D00FC197A /* PricingFeatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3032820C2412B87D00FC197A /* PricingFeatureView.xib */; };
+		3032820F2412B87D00FC197A /* PricingFeatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3032820C2412B87D00FC197A /* PricingFeatureView.xib */; };
+		303282102412B87D00FC197A /* PricingFeatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3032820C2412B87D00FC197A /* PricingFeatureView.xib */; };
+		303282122412B8E600FC197A /* PricingFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303282112412B8E600FC197A /* PricingFeatureView.swift */; };
+		303282132412B8E600FC197A /* PricingFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303282112412B8E600FC197A /* PricingFeatureView.swift */; };
+		303282142412B8E600FC197A /* PricingFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303282112412B8E600FC197A /* PricingFeatureView.swift */; };
+		303282152412B8E600FC197A /* PricingFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303282112412B8E600FC197A /* PricingFeatureView.swift */; };
 		30392FF62410075400F2A8FC /* ModelDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30392FF52410075400F2A8FC /* ModelDecoder.swift */; };
 		30392FF72410075400F2A8FC /* ModelDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30392FF52410075400F2A8FC /* ModelDecoder.swift */; };
 		30392FF82410075400F2A8FC /* ModelDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30392FF52410075400F2A8FC /* ModelDecoder.swift */; };
@@ -786,6 +794,8 @@
 		302C4F4B2347E25A00798560 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		302C4F4F2347FAA400798560 /* EmailSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSettingsViewController.swift; sourceTree = "<group>"; };
 		30328208241215D900FC197A /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		3032820C2412B87D00FC197A /* PricingFeatureView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PricingFeatureView.xib; sourceTree = "<group>"; };
+		303282112412B8E600FC197A /* PricingFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingFeatureView.swift; sourceTree = "<group>"; };
 		30392FF52410075400F2A8FC /* ModelDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDecoder.swift; sourceTree = "<group>"; };
 		303BF741232A986A00164539 /* Cactus UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cactus UnitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		303BF743232A986A00164539 /* CactusUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusUnitTests.swift; sourceTree = "<group>"; };
@@ -1202,6 +1212,8 @@
 				3062201E23EC7A0A002FAAD9 /* MarkdownTextView.swift */,
 				300FCD0523EE811200089CFB /* SubscriptionProductCell.swift */,
 				307ED79A24088C7E008D26C6 /* UpgradeJournalFeedCollectionReusableView.swift */,
+				3032820C2412B87D00FC197A /* PricingFeatureView.xib */,
+				303282112412B8E600FC197A /* PricingFeatureView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1682,6 +1694,7 @@
 				3062200F23EAB12B002FAAD9 /* Lato-Regular.ttf in Resources */,
 				3062200D23EAB12B002FAAD9 /* Lato-Bold.ttf in Resources */,
 				303C9E1123841AC6006B9786 /* NavigationMenuViewController.xib in Resources */,
+				3032820F2412B87D00FC197A /* PricingFeatureView.xib in Resources */,
 				303C9DE923841AB6006B9786 /* ExperienceAnimationViewController.xib in Resources */,
 				303C9E1E23841AC6006B9786 /* LoadableSharedReflectionViewController.xib in Resources */,
 				303C9E2023841AC6006B9786 /* ViewSharedReflectionViewController.xib in Resources */,
@@ -1716,6 +1729,7 @@
 			files = (
 				304B215F23D392C8007B016C /* SocialActivityCardView.xib in Resources */,
 				304B210C23D383E1007B016C /* MainInterface.storyboard in Resources */,
+				303282102412B87D00FC197A /* PricingFeatureView.xib in Resources */,
 				304B217923D39570007B016C /* ProdAssets.xcassets in Resources */,
 				3021CBE62410345E00F58B89 /* WebViewController.xib in Resources */,
 				304B217B23D39AA4007B016C /* Info.plist in Resources */,
@@ -1770,6 +1784,7 @@
 				30673B9F233FDEC300EDE7BD /* Lato-BlackItalic.ttf in Resources */,
 				30A281F222EA627D0041158E /* ProdAssets.xcassets in Resources */,
 				30727441236A43AA00309B3C /* CactusElementDetailViewController.xib in Resources */,
+				3032820E2412B87D00FC197A /* PricingFeatureView.xib in Resources */,
 				303C9DAD237E1470006B9786 /* LoadablePromptContentViewController.xib in Resources */,
 				30673B95233FDEC300EDE7BD /* Lato-LightItalic.ttf in Resources */,
 				30673B9D233FDEC300EDE7BD /* Lato-Regular.ttf in Resources */,
@@ -1808,6 +1823,7 @@
 				30673BA2233FDEC300EDE7BD /* Lato-BoldItalic.ttf in Resources */,
 				30B6EA7822EA5AA100443E46 /* SharedAssets.xcassets in Resources */,
 				3084E9672348FE9C00788279 /* CelebrateViewController.xib in Resources */,
+				3032820D2412B87D00FC197A /* PricingFeatureView.xib in Resources */,
 				3026B297234D1AF200CD2D34 /* cactus-growing-green-588.mp4 in Resources */,
 				303C9DD0237FD7D1006B9786 /* ViewSharedReflectionViewController.xib in Resources */,
 				30B6EA7622EA5A9F00443E46 /* Main.storyboard in Resources */,
@@ -2132,6 +2148,7 @@
 				305B187A2331A906003E1561 /* PromptContent.swift in Sources */,
 				303C9DF823841ABB006B9786 /* InviteSettingsViewController.swift in Sources */,
 				303C9E2B23841ACC006B9786 /* CactusTextInputField.swift in Sources */,
+				303282142412B8E600FC197A /* PricingFeatureView.swift in Sources */,
 				303C9E2C23841ACC006B9786 /* BorderedTextView.swift in Sources */,
 				303C9E3323841AEB006B9786 /* PromptContentService.swift in Sources */,
 				303C9DDA238419FE006B9786 /* ApiTypes.swift in Sources */,
@@ -2325,6 +2342,7 @@
 				304B216523D3943F007B016C /* FlamelinkService.swift in Sources */,
 				304B214E23D392C2007B016C /* BorderedButton.swift in Sources */,
 				304B213F23D3914C007B016C /* ColorExtensions.swift in Sources */,
+				303282152412B8E600FC197A /* PricingFeatureView.swift in Sources */,
 				3055D934240E902700981DA2 /* MemberSubscription.swift in Sources */,
 				304B212B23D38F65007B016C /* FlamelinkTypes.swift in Sources */,
 				304B217023D3947F007B016C /* ReflectionResponseService.swift in Sources */,
@@ -2410,6 +2428,7 @@
 				30727432236A289900309B3C /* AppSettings.swift in Sources */,
 				30727438236A312800309B3C /* CactusConstants.swift in Sources */,
 				300F2375237A6F7500F35CDE /* ShadowView.swift in Sources */,
+				303282132412B8E600FC197A /* PricingFeatureView.swift in Sources */,
 				3099D1FF240974F200BD9CC4 /* SubscriptionProductGroupService.swift in Sources */,
 				3014A38C2378CA0300121729 /* TertiaryButton.swift in Sources */,
 				303EB0892343A0B800AC8741 /* RoundedView.swift in Sources */,
@@ -2568,6 +2587,7 @@
 				30727437236A312800309B3C /* CactusConstants.swift in Sources */,
 				300F2374237A6F7500F35CDE /* ShadowView.swift in Sources */,
 				3014A38D2378CA0300121729 /* TertiaryButton.swift in Sources */,
+				303282122412B8E600FC197A /* PricingFeatureView.swift in Sources */,
 				3099D1FE240974F200BD9CC4 /* SubscriptionProductGroupService.swift in Sources */,
 				303EB0882343A0B800AC8741 /* RoundedView.swift in Sources */,
 				30CF538F2370FBB800578B22 /* RelationshipsAnimationViewController.swift in Sources */,

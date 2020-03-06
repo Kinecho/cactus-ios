@@ -18,6 +18,34 @@ class AppSettings: FlamelinkIdentifiable {
     var checkoutSettings: CheckoutSettings?
     var insights: InsightsSettings?
     var welcome: WelcomeSettings?
+    var pricingScreen: PricingScreenSettings?
+}
+
+struct PricingFeature: Codable {
+    var icon: IconType?
+    var titleMarkdown: String?
+    var descriptionMarkdown: String?
+    
+    static func create(icon: IconType?, title: String?, description: String?) -> PricingFeature {
+        var f = PricingFeature()
+        f.icon = icon
+        f.titleMarkdown = title
+        f.descriptionMarkdown = description
+        return f
+    }
+}
+
+let DEFAULT_PRICING_FEATURES: [PricingFeature] = [
+    PricingFeature.create(icon: .calendar, title: "Make it daily", description: "Improve your focus and positivity at work and home with a fresh prompt, every day."),
+    PricingFeature.create(icon: .pie, title: "Personalized insights", description: "Visualizations reveal the people, places, and things that contribute to your satisfaction."),
+    PricingFeature.create(icon: .journal, title: "Look back", description: "As your journal fills up, celebrate and relive the positive forces in your life."),
+    PricingFeature.create(icon: .lock, title: "Private + secure", description: "Your journal entries are encrypted for your eyes only."),
+]
+
+class PricingScreenSettings: Codable {
+    var pageTitleMarkdown: String?
+    var pageDescriptionMarkdown: String?
+    var features: [PricingFeature]?
 }
 
 class WelcomeSettings: Codable {

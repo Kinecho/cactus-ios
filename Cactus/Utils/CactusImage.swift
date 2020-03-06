@@ -15,6 +15,7 @@ enum IconType: String, Codable {
     case lock
     case calendar
     case journal
+    case pie
     case unknown
     
     public init(from decoder: Decoder) throws {
@@ -23,6 +24,8 @@ enum IconType: String, Codable {
     
     var image: UIImage? {
         switch self {
+        case .pie:
+            return CactusImage.pie.getImage()
         case .heart:
             return CactusImage.heart.getImage()
         case .check:
@@ -133,6 +136,7 @@ enum CactusImage: String {
     case lock
     case calendar
     case heart
+    case pie
     
     func getImage() -> UIImage? {
         return UIImage(named: self.rawValue)
