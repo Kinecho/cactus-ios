@@ -58,6 +58,7 @@ class PricingFeatureView: UIView {
         let view = loadViewFromNib()
         view.frame = self.bounds
         self.view = view
+        self.view.backgroundColor = .clear
         self.view.clipsToBounds = true
         self.addSubview(view)
         self.configure()
