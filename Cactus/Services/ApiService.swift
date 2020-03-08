@@ -22,6 +22,7 @@ enum ApiPath: String {
     case updateEmailSubscriberStatus = "/mailchimp/status"
     case sendSocialInvite = "/social/send-invite"
     case checkoutSubscriptionDetails = "/checkout/subscription-details"
+    case verifyReceipt = "/apple/verify-receipt"
 }
 
 ///A service for interacting with the Cactus JSON Api
@@ -73,6 +74,7 @@ public class ApiService {
             currentUser.getIDToken { (token, error) in
                 if let error = error {
                     self.logger.error("Faild to get auth token for current user", error)
+                    completion([:])
                 }
                 
                 if let token = token {
@@ -80,6 +82,8 @@ public class ApiService {
                 }
                 completion(headers)
             }
+        } else {
+            completion([:])
         }
     }
     

@@ -131,6 +131,10 @@
 		303282132412B8E600FC197A /* PricingFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303282112412B8E600FC197A /* PricingFeatureView.swift */; };
 		303282142412B8E600FC197A /* PricingFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303282112412B8E600FC197A /* PricingFeatureView.swift */; };
 		303282152412B8E600FC197A /* PricingFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303282112412B8E600FC197A /* PricingFeatureView.swift */; };
+		303282172414556A00FC197A /* ApplePayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303282162414556A00FC197A /* ApplePayment.swift */; };
+		303282182414556A00FC197A /* ApplePayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303282162414556A00FC197A /* ApplePayment.swift */; };
+		303282192414556A00FC197A /* ApplePayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303282162414556A00FC197A /* ApplePayment.swift */; };
+		3032821A2414556A00FC197A /* ApplePayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303282162414556A00FC197A /* ApplePayment.swift */; };
 		30392FF62410075400F2A8FC /* ModelDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30392FF52410075400F2A8FC /* ModelDecoder.swift */; };
 		30392FF72410075400F2A8FC /* ModelDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30392FF52410075400F2A8FC /* ModelDecoder.swift */; };
 		30392FF82410075400F2A8FC /* ModelDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30392FF52410075400F2A8FC /* ModelDecoder.swift */; };
@@ -796,6 +800,7 @@
 		30328208241215D900FC197A /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		3032820C2412B87D00FC197A /* PricingFeatureView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PricingFeatureView.xib; sourceTree = "<group>"; };
 		303282112412B8E600FC197A /* PricingFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingFeatureView.swift; sourceTree = "<group>"; };
+		303282162414556A00FC197A /* ApplePayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePayment.swift; sourceTree = "<group>"; };
 		30392FF52410075400F2A8FC /* ModelDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDecoder.swift; sourceTree = "<group>"; };
 		303BF741232A986A00164539 /* Cactus UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cactus UnitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		303BF743232A986A00164539 /* CactusUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusUnitTests.swift; sourceTree = "<group>"; };
@@ -1449,6 +1454,7 @@
 				307ED78A24084085008D26C6 /* MemberSubscription.swift */,
 				3099D20124098EF400BD9CC4 /* SubscriptionProductGroup.swift */,
 				304A252B240DCC2200737C57 /* SubscriptionInvoice.swift */,
+				303282162414556A00FC197A /* ApplePayment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2245,6 +2251,7 @@
 				303C9DD6238419D5006B9786 /* NotificationService.swift in Sources */,
 				305B18782331A906003E1561 /* CactusMember.swift in Sources */,
 				303C9DF023841ABB006B9786 /* TermsOfServiceViewController.swift in Sources */,
+				303282192414556A00FC197A /* ApplePayment.swift in Sources */,
 				303C9DDE23841A3E006B9786 /* LoadableSharedReflectionViewController.swift in Sources */,
 				303C9E2623841ACC006B9786 /* MarkdownTypes.swift in Sources */,
 				305B187B2331A906003E1561 /* ReflectionPrompt.swift in Sources */,
@@ -2351,6 +2358,7 @@
 				304B216F23D3947F007B016C /* ReflectionPromptService.swift in Sources */,
 				304B212F23D38F65007B016C /* ReflectionPrompt.swift in Sources */,
 				304B213123D38F65007B016C /* MailchimpModels.swift in Sources */,
+				3032821A2414556A00FC197A /* ApplePayment.swift in Sources */,
 				304B216E23D3947F007B016C /* MemberProfileService.swift in Sources */,
 				304B212923D38F5A007B016C /* BaseModel.swift in Sources */,
 				304B214923D39233007B016C /* SwiftyGifManager.swift in Sources */,
@@ -2456,6 +2464,7 @@
 				30E9B0A122EABFBD005B25FD /* CactusMemberService.swift in Sources */,
 				30727450236B504B00309B3C /* JournalHomeEmptyStateViewController.swift in Sources */,
 				3084E96D234BC5FE00788279 /* PrimaryButton.swift in Sources */,
+				303282182414556A00FC197A /* ApplePayment.swift in Sources */,
 				3072744D236A56AD00309B3C /* ModalViewController.swift in Sources */,
 				303C9E4723847A3B006B9786 /* MemberProfileService.swift in Sources */,
 				307ED79024086E82008D26C6 /* SubscriptionUtil.swift in Sources */,
@@ -2615,6 +2624,7 @@
 				30C49D3422EC299300A2EA95 /* ViewExtensions.swift in Sources */,
 				3072744F236B504B00309B3C /* JournalHomeEmptyStateViewController.swift in Sources */,
 				3084E96C234BC5FE00788279 /* PrimaryButton.swift in Sources */,
+				303282172414556A00FC197A /* ApplePayment.swift in Sources */,
 				3072744C236A56AD00309B3C /* ModalViewController.swift in Sources */,
 				303C9E4623847A3B006B9786 /* MemberProfileService.swift in Sources */,
 				307ED78F24086E82008D26C6 /* SubscriptionUtil.swift in Sources */,

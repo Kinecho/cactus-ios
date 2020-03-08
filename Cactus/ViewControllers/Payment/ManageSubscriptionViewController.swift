@@ -19,6 +19,7 @@ class ManageSubscriptionViewController: UIViewController {
     @IBOutlet weak var paymentStackView: UIStackView!
     @IBOutlet weak var paymentMethodLabel: UILabel!
     @IBOutlet weak var changeBillingButton: UIButton!
+    @IBOutlet weak var restoreButton: SecondaryButton!
     
     let logger = Logger("ManageSubscriptionViewContrller")
     var subscriptionDetails: SubscriptionDetails? {
@@ -119,5 +120,9 @@ class ManageSubscriptionViewController: UIViewController {
                 ? SubscriptionService.sharedInstance.upgradeTrialDescription
                 : SubscriptionService.sharedInstance.upgradeBasicDescription
         }
+    }
+    @IBAction func restorePurchases(_ sender: Any) {
+        SubscriptionService.sharedInstance.restorePurchase()
+        
     }
 }

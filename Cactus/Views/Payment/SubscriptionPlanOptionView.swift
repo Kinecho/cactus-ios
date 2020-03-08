@@ -19,11 +19,16 @@ class SubscriptionPlanOptionView: UIView {
     @IBOutlet weak var savingsCopyLabel: UILabel!
     
     @IBOutlet weak var savingsContainerView: UIView!
-    var subscriptionProduct: SubscriptionProduct? {
+    var productEntry: ProductEntry? {
         didSet {
             self.configureProduct()
         }
     }
+//    var subscriptionProduct: SubscriptionProduct? {
+//        didSet {
+//            self.configureProduct()
+//        }
+//    }
     
     var selectedTextColor: UIColor = CactusColor.darkText
     var defaultTextColor: UIColor = CactusColor.white
@@ -58,7 +63,7 @@ class SubscriptionPlanOptionView: UIView {
     }
     
     func configureProduct() {
-        guard let product = self.subscriptionProduct else {
+        guard let product = self.productEntry?.subscriptionProduct else {
             self.isHidden = true
             return
         }

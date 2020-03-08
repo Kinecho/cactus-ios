@@ -68,13 +68,13 @@ class CheckoutSettings: Codable {
     var pricingPath: String?
     var learnMorePath: String?
     var upgradePath: String?
-    var useWebForCheckout: Bool = false
+    var inAppPaymentsEnabled: Bool = false
     
     enum CheckoutSettingsCodingKey: CodingKey {
         case pricingPath
         case learnMorePath
         case upgradePath
-        case useWebForCheckout
+        case inAppPaymentsEnabled
     }
     
     public required init(from decoder: Decoder) throws {
@@ -92,7 +92,7 @@ class CheckoutSettings: Codable {
             if let pricingPath = try? container.decode(String.self, forKey: .pricingPath), !isBlank(pricingPath) {
                 self.pricingPath = pricingPath
             }
-            self.useWebForCheckout = (try? container.decode(Bool.self, forKey: .useWebForCheckout)) ?? false
+            self.inAppPaymentsEnabled = (try? container.decode(Bool.self, forKey: .inAppPaymentsEnabled)) ?? false
         } catch {
             Logger.shared.error("Failed to decode checkout settings", error)
         }

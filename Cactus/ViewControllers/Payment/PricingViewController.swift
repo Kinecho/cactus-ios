@@ -26,6 +26,9 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet weak var featuresStackView: UIStackView!
     
+    @IBOutlet weak var notAuthorizedForPaymentsLabel: UILabel!
+    @IBOutlet weak var contactUsContainerView: UIView!
+
     var settingsUnsubscriber: ListenerRegistration?
     var appSettings: AppSettings?
     var showCloseButton = true
@@ -38,25 +41,45 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
             }
         }
     }
+    var selectedProductEntry: ProductEntry?
     
     @IBOutlet weak var closeButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.appSettings = AppSettingsService.sharedInstance.currentSettings
         self.settingsUnsubscriber = AppSettingsService.sharedInstance.observeSettings({ (settings, error) in
             if let error = error {
                 self.logger.error("Failed to get app settings", error)
             }
             self.appSettings = settings
-            self.updateAllCopy()
+            self.configureFromSettings()
         })
         
         self.closeButton.isHidden = !self.showCloseButton
-        //Note: we are not showing products at the moment
-        // self.loadSubscriptionProducts()
         
         self.configureQuestionsView()
         self.setupHeaderBackground()
+        self.configureFromSettings()
+    }
+    
+    func configureFromSettings() {
+        self.updateAllCopy()
+        let canMakePayments = SubscriptionService.sharedInstance.isAuthorizedForPayments
+        self.showNotAuthorizedForPayments(show: canMakePayments)
+        if canMakePayments && (self.appSettings?.checkoutSettings?.inAppPaymentsEnabled ?? false) {
+            //Note: we are not showing products at the moment
+            self.loadSubscriptionProducts()
+            self.contactUsContainerView.isHidden = true
+        } else {
+            self.planContainerView.isHidden = true
+            self.continueStackView.isHidden = true
+            self.contactUsContainerView.isHidden = false
+        }
+    }
+    
+    func showNotAuthorizedForPayments(show: Bool) {
+        self.logger.warn("User not authorized for payments")
+        self.notAuthorizedForPaymentsLabel.isHidden = !show
     }
     
     deinit {
@@ -113,6 +136,7 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     }
     
     func configureProductsView() {
+        self.planStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         guard let groupEntry = self.productGroupEntryMap?[SubscriptionTier.PLUS] else {
             self.planStackView.arrangedSubviews.forEach { (planView) in
                 self.planStackView.removeArrangedSubview(planView)
@@ -130,12 +154,14 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
             self.footerStackView.isHidden = true
         }
         
-        groupEntry.products.forEach { (product) in
+        groupEntry.products.forEach { (productEntry) in
             let planView = SubscriptionPlanOptionView()
-            planView.subscriptionProduct = product
+            
+            planView.productEntry = productEntry
             self.configurePlanTapGesture(planView: planView)
-            if product.billingPeriod == groupEntry.defaultSelectedPeriod {
+            if productEntry.subscriptionProduct.billingPeriod == groupEntry.defaultSelectedPeriod {
                 planView.selected = true
+                self.selectedProductEntry = productEntry
             }
             self.planStackView.addArrangedSubview(planView)
         }
@@ -162,6 +188,23 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
         }
         
         planView.selected = true
+        self.selectedProductEntry = planView.productEntry
+    }
+    
+    @IBAction func continueTapped(_ sender: Any) {
+        guard let entry = self.selectedProductEntry, let appleProduct = entry.appleProduct else {
+            self.showError("No product was selected")
+            return
+        }
+        self.logger.info("checking out with apple product id \(appleProduct.productIdentifier)")
+        
+        SubscriptionService.sharedInstance.submitPurchase(product: appleProduct)
+        
+    }
+    
+    func showError(_ message: String) {
+        //todo: not implemented
+        self.logger.error("Failded to check out. \(message)")
     }
     
     @IBAction func closeTapped(_ sender: Any) {
@@ -173,13 +216,13 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
         let buildVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
         let versionText = "\(appVersion ?? "") (\(buildVersion ?? "1"))"
         let systemVersion = UIDevice.current.systemVersion
-
+        
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
             mail.setToRecipients(["help@cactus.app"])
             mail.setSubject("Cactus Plus - App version \(versionText) on iOS \(systemVersion)")
-
+            
             present(mail, animated: true)
         } else {
             // show failure alert
@@ -192,7 +235,7 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
             self.present(alert, animated: true)
         }
     }
-
+    
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true)
     }
