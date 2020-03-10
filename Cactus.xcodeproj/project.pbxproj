@@ -502,6 +502,7 @@
 		3072744D236A56AD00309B3C /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072744B236A56AD00309B3C /* ModalViewController.swift */; };
 		3072744F236B504B00309B3C /* JournalHomeEmptyStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072744E236B504B00309B3C /* JournalHomeEmptyStateViewController.swift */; };
 		30727450236B504B00309B3C /* JournalHomeEmptyStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072744E236B504B00309B3C /* JournalHomeEmptyStateViewController.swift */; };
+		307DB73A241823120084B9AC /* StoreObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCF223EE279500089CFB /* StoreObserver.swift */; };
 		307ED78B24084085008D26C6 /* MemberSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED78A24084085008D26C6 /* MemberSubscription.swift */; };
 		307ED78C24084085008D26C6 /* MemberSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED78A24084085008D26C6 /* MemberSubscription.swift */; };
 		307ED78D24084085008D26C6 /* MemberSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED78A24084085008D26C6 /* MemberSubscription.swift */; };
@@ -2312,6 +2313,7 @@
 				3055D93A240E931900981DA2 /* SubscriptionUtil.swift in Sources */,
 				304B215423D392C2007B016C /* JournalFeedFlowLayout.swift in Sources */,
 				3055D941240E994500981DA2 /* SubscriptionProductService.swift in Sources */,
+				307DB73A241823120084B9AC /* StoreObserver.swift in Sources */,
 				304B215023D392C2007B016C /* CactusTextInputField.swift in Sources */,
 				303282242416D3DF00FC197A /* AuthenticatedTaskManager.swift in Sources */,
 				3055D939240E924300981DA2 /* SubscriptionInvoice.swift in Sources */,

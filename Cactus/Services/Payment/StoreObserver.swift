@@ -80,7 +80,7 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
                 } else {
                     self.logger.info("Payment transaction success. removing from queue")
                     SKPaymentQueue.default().finishTransaction(transaction)
-                }                
+                }
             }
         }
         AuthenticatedTaskManager.shared.addTask(task)
@@ -122,7 +122,7 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
                 if !result.success {
                     self.logger.error("The receipt was not valid.... might need to do something different here, not removing from queue")
                 } else {
-                    self.logger.info("Payment transactoin success. removing from queue")
+                    self.logger.info("Payment transaction success. removing from queue")
                     SKPaymentQueue.default().finishTransaction(transaction)
                 }
                 self.delegate?.handlePurchseCompleted(verifyReceiptResult: result, error: error)
