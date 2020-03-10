@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 func learnMoreAboutUpgradeTapped(target: UIViewController) {
-    AppSettingsService.sharedInstance.getSettings { (settings, _) in
+    AppSettingsService.sharedInstance.getSettings { (_, _) in
 //        let learnMorePath = settings?.checkoutSettings?.learnMorePath
 //        let url: URL? = learnMorePath != nil ? URL(string: "\(CactusConfig.webDomain)\(learnMorePath!)") : nil
                         

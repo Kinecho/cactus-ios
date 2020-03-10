@@ -116,12 +116,14 @@ class ContentLink: Codable {
     var destinationHref: String?
     var linkTarget: LinkTarget?
     var linkStyle: LinkStyle?
+    var appendMemberId: Bool = false
     
     enum ContentLinkCodingKey: CodingKey {
         case linkLabel
         case destinationHref
         case linkTarget
         case linkStyle
+        case appendMemberId
     }
     
     var isEmpty: Bool {
@@ -145,7 +147,14 @@ class ContentLink: Codable {
                 
                 if let linkStyle = try? container.decode(LinkStyle.self, forKey: .linkStyle) {
                     self.linkStyle = linkStyle
-                }                
+                }
+                
+                if let appendMemberId = try? container.decode(Bool.self, forKey: .appendMemberId) {
+                    self.appendMemberId = appendMemberId
+                } else {
+                    self.appendMemberId = false
+                }
+                
             } catch {
     //            Logger.shared.error("error decoding Quote content", error)
             }
