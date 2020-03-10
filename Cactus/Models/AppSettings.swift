@@ -19,6 +19,7 @@ class AppSettings: FlamelinkIdentifiable {
     var insights: InsightsSettings?
     var welcome: WelcomeSettings?
     var pricingScreen: PricingScreenSettings?
+    var apiDomain: String?
 }
 
 struct PricingFeature: Codable {

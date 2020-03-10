@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 enum HttpMethod: String {
     case POST
@@ -28,8 +29,26 @@ enum ApiPath: String {
 ///A service for interacting with the Cactus JSON Api
 public class ApiService {
     static let sharedInstance = ApiService()
-    let apiDomain = CactusConfig.apiDomain
     let logger = Logger("ApiService")
+    var settingsUnsubscriber: ListenerRegistration?
+    var appSettings: AppSettings?
+    
+    var apiDomain: String {
+        return self.appSettings?.apiDomain ?? CactusConfig.apiDomain
+    }
+    
+    init() {
+        self.settingsUnsubscriber = AppSettingsService.sharedInstance.observeSettings({ (settings, error) in
+            if let error = error {
+                self.logger.error("Failed to get app settings", error)
+            }
+            self.appSettings = settings
+        })
+    }
+    
+    deinit {
+        self.settingsUnsubscriber?.remove()
+    }
     
     /**
      Turns an `Encodable` object into JSON data that can be sent via an XHR Request

@@ -276,7 +276,6 @@ extension PricingViewController: StoreObserverDelegate {
             if verifyReceiptResult?.success == true {
                 self.dismiss(animated: true, completion: nil)
             }
-            
         }
     }
 }
