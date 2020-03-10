@@ -81,32 +81,30 @@ class SubscriptionService: NSObject {
         StoreObserver.sharedInstance.restore()
     }
     
-    func verifyReceipt(onComplete: @escaping ((VerifyReceiptResult?) -> Void)) {
+    func completePurchase(onComplete: @escaping ((CompletePurchaseResult?, Any?) -> Void)) {
         if let appStoreReceiptURL = Bundle.main.appStoreReceiptURL,
             FileManager.default.fileExists(atPath: appStoreReceiptURL.path) {
 
             do {
                 let receiptData = try Data(contentsOf: appStoreReceiptURL, options: .alwaysMapped)
-                print(receiptData)
-
                 let receiptString = receiptData.base64EncodedString(options: [])
                 
-                let receiptParams = VerifyReceiptParams(receiptData: receiptString)
+                let receiptParams = CompletePurchaseRequest(receiptData: receiptString)
                 self.logger.info("Sending verify receipt data to backend")
-                ApiService.sharedInstance.post(path: ApiPath.verifyReceipt, body: receiptParams, responseType: VerifyReceiptResult.self, authenticated: true) { result, error in
+                ApiService.sharedInstance.post(path: ApiPath.appleCompletePurchase, body: receiptParams, responseType: CompletePurchaseResult.self, authenticated: true) { result, error in
                     if let error = error {
                         self.logger.error("Failed to verify receit. error", error)
                     }
                     self.logger.info("completed verify receipt call result: \(String(describing: result))")
-                    onComplete(result)
+                    onComplete(result, error)
                 }
             } catch {
                 self.logger.error("Couldn't read receipt data with error: " + error.localizedDescription, error)
-                onComplete(nil)
+                onComplete(nil, error)
             }
         } else {
             self.logger.warn("Unable to get receipt data")
-            onComplete(nil)
+            onComplete(nil, "No apple receipt found on the device")
         }
         
     }

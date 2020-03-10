@@ -22,7 +22,7 @@ enum ApiPath: String {
     case updateEmailSubscriberStatus = "/mailchimp/status"
     case sendSocialInvite = "/social/send-invite"
     case checkoutSubscriptionDetails = "/checkout/subscription-details"
-    case verifyReceipt = "/apple/verify-receipt"
+    case appleCompletePurchase = "/apple/complete-purchase"
 }
 
 ///A service for interacting with the Cactus JSON Api
@@ -70,20 +70,24 @@ public class ApiService {
      */
     func getAuthHeaders(completion: @escaping ([String: String]) -> Void) {
         var headers: [String: String] = [:]
-        if let currentUser = CactusMemberService.sharedInstance.currentUser {
-            currentUser.getIDToken { (token, error) in
-                if let error = error {
-                    self.logger.error("Faild to get auth token for current user", error)
-                    completion([:])
+        
+        CactusMemberService.sharedInstance.awaitCurrentUser { (currentUser) in
+            self.logger.info("AWAIT CURRENT USER RETURNED. Current User: \(currentUser?.uid ?? "none")")
+            if let currentUser = CactusMemberService.sharedInstance.currentUser {
+                currentUser.getIDToken { (token, error) in
+                    if let error = error {
+                        self.logger.error("Faild to get auth token for current user", error)
+                        completion([:])
+                    }
+                    
+                    if let token = token {
+                        headers["Authorization"] = "Bearer \(token)"
+                    }
+                    completion(headers)
                 }
-                
-                if let token = token {
-                    headers["Authorization"] = "Bearer \(token)"
-                }
-                completion(headers)
+            } else {
+                completion([:])
             }
-        } else {
-            completion([:])
         }
     }
     

@@ -74,7 +74,7 @@ class ManageSubscriptionViewController: UIViewController {
             dateString = FormatUtils.formatDate(nextDate, currentYearFormat: "MMM d, yyyy")
         }
         let formattedPrice = formatPriceCents(invoice.amountCentsUsd, truncateWholeDollar: true) ?? "$0.00"
-        var description = "Your next bill is for **\(formattedPrice)**"
+        var description = invoice.isAutoRenew != false ? "Your next bill is for **\(formattedPrice)**" : "Your subscription will end"
         if let nextDueDate = dateString {
             description += " on **\(nextDueDate)**"
         }

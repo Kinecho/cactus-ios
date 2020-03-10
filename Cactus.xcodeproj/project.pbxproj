@@ -135,6 +135,14 @@
 		303282182414556A00FC197A /* ApplePayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303282162414556A00FC197A /* ApplePayment.swift */; };
 		303282192414556A00FC197A /* ApplePayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303282162414556A00FC197A /* ApplePayment.swift */; };
 		3032821A2414556A00FC197A /* ApplePayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303282162414556A00FC197A /* ApplePayment.swift */; };
+		3032821C2416D29F00FC197A /* AuthenticatedTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3032821B2416D29F00FC197A /* AuthenticatedTask.swift */; };
+		3032821D2416D29F00FC197A /* AuthenticatedTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3032821B2416D29F00FC197A /* AuthenticatedTask.swift */; };
+		3032821E2416D29F00FC197A /* AuthenticatedTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3032821B2416D29F00FC197A /* AuthenticatedTask.swift */; };
+		3032821F2416D29F00FC197A /* AuthenticatedTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3032821B2416D29F00FC197A /* AuthenticatedTask.swift */; };
+		303282212416D3DF00FC197A /* AuthenticatedTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303282202416D3DF00FC197A /* AuthenticatedTaskManager.swift */; };
+		303282222416D3DF00FC197A /* AuthenticatedTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303282202416D3DF00FC197A /* AuthenticatedTaskManager.swift */; };
+		303282232416D3DF00FC197A /* AuthenticatedTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303282202416D3DF00FC197A /* AuthenticatedTaskManager.swift */; };
+		303282242416D3DF00FC197A /* AuthenticatedTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303282202416D3DF00FC197A /* AuthenticatedTaskManager.swift */; };
 		30392FF62410075400F2A8FC /* ModelDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30392FF52410075400F2A8FC /* ModelDecoder.swift */; };
 		30392FF72410075400F2A8FC /* ModelDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30392FF52410075400F2A8FC /* ModelDecoder.swift */; };
 		30392FF82410075400F2A8FC /* ModelDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30392FF52410075400F2A8FC /* ModelDecoder.swift */; };
@@ -801,6 +809,8 @@
 		3032820C2412B87D00FC197A /* PricingFeatureView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PricingFeatureView.xib; sourceTree = "<group>"; };
 		303282112412B8E600FC197A /* PricingFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingFeatureView.swift; sourceTree = "<group>"; };
 		303282162414556A00FC197A /* ApplePayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePayment.swift; sourceTree = "<group>"; };
+		3032821B2416D29F00FC197A /* AuthenticatedTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedTask.swift; sourceTree = "<group>"; };
+		303282202416D3DF00FC197A /* AuthenticatedTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedTaskManager.swift; sourceTree = "<group>"; };
 		30392FF52410075400F2A8FC /* ModelDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDecoder.swift; sourceTree = "<group>"; };
 		303BF741232A986A00164539 /* Cactus UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cactus UnitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		303BF743232A986A00164539 /* CactusUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusUnitTests.swift; sourceTree = "<group>"; };
@@ -1237,6 +1247,7 @@
 				303C9DB0237E2AB4006B9786 /* LinkHandlerUtil.swift */,
 				307ED78E24086E82008D26C6 /* SubscriptionUtil.swift */,
 				30392FF52410075400F2A8FC /* ModelDecoder.swift */,
+				3032821B2416D29F00FC197A /* AuthenticatedTask.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1432,6 +1443,7 @@
 				300FCCFF23EE3CD200089CFB /* SubscriptionProductService.swift */,
 				3099D1FD240974F200BD9CC4 /* SubscriptionProductGroupService.swift */,
 				3021CBD62410215500F58B89 /* NavigationService.swift */,
+				303282202416D3DF00FC197A /* AuthenticatedTaskManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -2179,6 +2191,7 @@
 				303C9E1823841AC6006B9786 /* EditReflectionViewController.swift in Sources */,
 				307ED79124086E82008D26C6 /* SubscriptionUtil.swift in Sources */,
 				303C9DE623841AB6006B9786 /* EmotionsAnimationViewController.swift in Sources */,
+				3032821E2416D29F00FC197A /* AuthenticatedTask.swift in Sources */,
 				303C9DDB23841A1B006B9786 /* AppMainViewController.swift in Sources */,
 				305CB10623D049E30046E8A8 /* ContactsTableViewController.swift in Sources */,
 				303C9E3123841AEB006B9786 /* FlamelinkService.swift in Sources */,
@@ -2259,6 +2272,7 @@
 				303C9DFE23841AC1006B9786 /* QuoteContentViewController.swift in Sources */,
 				303C9DD9238419F9006B9786 /* NavigationUtil.swift in Sources */,
 				303C9E0423841AC1006B9786 /* CelebrateViewController.swift in Sources */,
+				303282232416D3DF00FC197A /* AuthenticatedTaskManager.swift in Sources */,
 				30F7168C237A4B85004989DB /* CactusConfig.swift in Sources */,
 				303C9E4823847A3B006B9786 /* MemberProfileService.swift in Sources */,
 				303C9DD3238419A9006B9786 /* AuthService.swift in Sources */,
@@ -2299,6 +2313,7 @@
 				304B215423D392C2007B016C /* JournalFeedFlowLayout.swift in Sources */,
 				3055D941240E994500981DA2 /* SubscriptionProductService.swift in Sources */,
 				304B215023D392C2007B016C /* CactusTextInputField.swift in Sources */,
+				303282242416D3DF00FC197A /* AuthenticatedTaskManager.swift in Sources */,
 				3055D939240E924300981DA2 /* SubscriptionInvoice.swift in Sources */,
 				304B213423D38F79007B016C /* FormatUtils.swift in Sources */,
 				304B213623D38F79007B016C /* AppConfig.swift in Sources */,
@@ -2346,6 +2361,7 @@
 				304B213023D38F65007B016C /* ReflectionResponse.swift in Sources */,
 				3055D936240E922000981DA2 /* SubscriptionProduct.swift in Sources */,
 				304B214A23D39233007B016C /* UIImage+SwiftyGif.swift in Sources */,
+				3032821F2416D29F00FC197A /* AuthenticatedTask.swift in Sources */,
 				304B216523D3943F007B016C /* FlamelinkService.swift in Sources */,
 				304B214E23D392C2007B016C /* BorderedButton.swift in Sources */,
 				304B213F23D3914C007B016C /* ColorExtensions.swift in Sources */,
@@ -2394,6 +2410,7 @@
 				303C9DAF237E1B26006B9786 /* SecondaryButton.swift in Sources */,
 				309561A022EE16B5009357BD /* CactusConfig.swift in Sources */,
 				30934FB022EC0558007C4E6C /* ReflectionResponseService.swift in Sources */,
+				3032821D2416D29F00FC197A /* AuthenticatedTask.swift in Sources */,
 				30D461382362750D00B8AED7 /* UIAlertControllerExtensions.swift in Sources */,
 				30BE5673234E829100AA6D4D /* NotificationTimeOfDayViewController.swift in Sources */,
 				30934F9D22EBF2AC007C4E6C /* ColorExtensions.swift in Sources */,
@@ -2526,6 +2543,7 @@
 				3026B29B234D3E2800CD2D34 /* PromptContentViewController.swift in Sources */,
 				30E2D377234311C6003D2B27 /* PillLabelView.swift in Sources */,
 				3084E95C2348087100788279 /* HelpViewController.swift in Sources */,
+				303282222416D3DF00FC197A /* AuthenticatedTaskManager.swift in Sources */,
 				30265C6423453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */,
 				302C4F4D2347E25A00798560 /* DateUtil.swift in Sources */,
 				303C9DC9237FCF06006B9786 /* LoadableSharedReflectionViewController.swift in Sources */,
@@ -2554,6 +2572,7 @@
 				303C9DAE237E1B25006B9786 /* SecondaryButton.swift in Sources */,
 				309561A222EE16C3009357BD /* CactusConfig.swift in Sources */,
 				30934FAF22EC0558007C4E6C /* ReflectionResponseService.swift in Sources */,
+				3032821C2416D29F00FC197A /* AuthenticatedTask.swift in Sources */,
 				30D461372362750900B8AED7 /* UIAlertControllerExtensions.swift in Sources */,
 				30BE5672234E829100AA6D4D /* NotificationTimeOfDayViewController.swift in Sources */,
 				30934F9C22EBF2AB007C4E6C /* ColorExtensions.swift in Sources */,
@@ -2686,6 +2705,7 @@
 				30E9B0AF22EADD04005B25FD /* LoginViewController.swift in Sources */,
 				30E2D376234311C6003D2B27 /* PillLabelView.swift in Sources */,
 				3084E95B2348087100788279 /* HelpViewController.swift in Sources */,
+				303282212416D3DF00FC197A /* AuthenticatedTaskManager.swift in Sources */,
 				30265C6323453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */,
 				302C4F4C2347E25A00798560 /* DateUtil.swift in Sources */,
 				303C9DC8237FCF06006B9786 /* LoadableSharedReflectionViewController.swift in Sources */,

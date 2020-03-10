@@ -29,6 +29,11 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBOutlet weak var notAuthorizedForPaymentsLabel: UILabel!
     @IBOutlet weak var contactUsContainerView: UIView!
 
+    var isPurchasing: Bool = false {
+        didSet {
+            self.updatePurchasingState()
+        }
+    }
     var settingsUnsubscriber: ListenerRegistration?
     var appSettings: AppSettings?
     var showCloseButton = true
@@ -46,6 +51,7 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBOutlet weak var closeButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        StoreObserver.sharedInstance.delegate = self
         self.appSettings = AppSettingsService.sharedInstance.currentSettings
         self.settingsUnsubscriber = AppSettingsService.sharedInstance.observeSettings({ (settings, error) in
             if let error = error {
@@ -84,6 +90,9 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     
     deinit {
         self.settingsUnsubscriber?.remove()
+        if StoreObserver.sharedInstance.delegate as? PricingViewController != nil {
+           StoreObserver.sharedInstance.delegate = nil
+        }
     }
     
     func setupHeaderBackground() {
@@ -106,6 +115,15 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     func loadSubscriptionProducts() {
         SubscriptionService.sharedInstance.getSubscriptionProductGroupEntryMap { (entryMap) in
             self.productGroupEntryMap = entryMap
+        }
+    }
+    
+    func updatePurchasingState() {
+        if self.isPurchasing {
+            self.continueButton.setTitle("Processing...", for: .disabled)
+            self.continueButton.setEnabled(false)
+        } else {
+            self.continueButton.setEnabled(true)
         }
     }
     
@@ -197,7 +215,7 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
             return
         }
         self.logger.info("checking out with apple product id \(appleProduct.productIdentifier)")
-        
+        self.isPurchasing = true
         SubscriptionService.sharedInstance.submitPurchase(product: appleProduct)
         
     }
@@ -247,5 +265,18 @@ extension PricingViewController: UITextViewDelegate {
             self.sendPricingEmail(textView)
         }
         return false
+    }
+}
+
+extension PricingViewController: StoreObserverDelegate {
+    func handlePurchseCompleted(verifyReceiptResult: CompletePurchaseResult?, error: Any?) {
+        DispatchQueue.main.async {
+            self.logger.info("Handling purchase completed")
+            self.isPurchasing = false
+            if verifyReceiptResult?.success == true {
+                self.dismiss(animated: true, completion: nil)
+            }
+            
+        }
     }
 }

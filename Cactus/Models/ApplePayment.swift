@@ -8,7 +8,7 @@
 
 import Foundation
 import StoreKit
-struct VerifyReceiptParams: Codable {
+struct CompletePurchaseRequest: Codable {
     ///Base64 encoded receipt data
     var receiptData: String
     
@@ -17,9 +17,15 @@ struct VerifyReceiptParams: Codable {
     }
 }
 
-struct VerifyReceiptResult: Codable {
-    var success: Bool
+struct FulfillmentResult: Codable {
+    var success: Bool = false
+    var message: String?
+}
+
+struct CompletePurchaseResult: Codable {
+    var success: Bool = false
     var message: String?
     var error: String?
+    var fulfillmentResult: FulfillmentResult?
 //    var receipt: Receipt
 }

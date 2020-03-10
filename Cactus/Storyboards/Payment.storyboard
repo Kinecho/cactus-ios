@@ -66,7 +66,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Dai-BN-8JD">
                                                         <rect key="frame" x="10" y="10" width="354" height="26"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ymY-di-l3n">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ymY-di-l3n" userLabel="Payment Method Stack View">
                                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="26"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="creditCard" translatesAutoresizingMaskIntoConstraints="NO" id="XpI-xS-YbR">
@@ -101,29 +101,34 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yqL-pN-MIi" userLabel="Upgrade Stack View">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yqL-pN-MIi" userLabel="Upgrade Stack View">
                                         <rect key="frame" x="0.0" y="224.5" width="374" height="119"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Learn more about cactus plus" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Nc-NM-bck" userLabel="Description Label">
-                                                <rect key="frame" x="0.0" y="0.0" width="214" height="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="19"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                                 <color key="textColor" name="TextDefault"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="PaymentStoryboard" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBu-gI-8HO" userLabel="Learn More Button" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="39" width="78" height="30"/>
-                                                <state key="normal" title="Learn More"/>
-                                                <connections>
-                                                    <segue destination="nbg-R4-jNv" kind="presentation" id="m5K-6S-CHm"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lh6-fL-qUd" userLabel="Restore Purchase" customClass="SecondaryButton" customModule="Cactus" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="89" width="121" height="30"/>
-                                                <state key="normal" title="Restore Purchase"/>
-                                                <connections>
-                                                    <action selector="restorePurchases:" destination="wlu-G6-Xeg" eventType="primaryActionTriggered" id="hWc-Sh-FWH"/>
-                                                </connections>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bvm-6J-xl3">
+                                                <rect key="frame" x="0.0" y="39" width="374" height="80"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="PaymentStoryboard" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBu-gI-8HO" userLabel="Learn More Button" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
+                                                        <rect key="frame" x="157" y="0.0" width="60" height="30"/>
+                                                        <state key="normal" title="Upgrade"/>
+                                                        <connections>
+                                                            <segue destination="nbg-R4-jNv" kind="presentation" id="m5K-6S-CHm"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lh6-fL-qUd" userLabel="Restore Purchase" customClass="SecondaryButton" customModule="Cactus" customModuleProvider="target">
+                                                        <rect key="frame" x="126.5" y="50" width="121" height="30"/>
+                                                        <state key="normal" title="Restore Purchase"/>
+                                                        <connections>
+                                                            <action selector="restorePurchases:" destination="wlu-G6-Xeg" eventType="primaryActionTriggered" id="hWc-Sh-FWH"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
