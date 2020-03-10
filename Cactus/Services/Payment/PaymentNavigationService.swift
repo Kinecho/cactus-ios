@@ -21,7 +21,7 @@ func learnMoreAboutUpgradeTapped(target: UIViewController) {
         vc.modalPresentationStyle = .overFullScreen
         vc.showCloseButton = true
         
-        NavigationService.sharedInstance.present(vc, animated: true)
+        NavigationService.sharedInstance.present(vc, animated: true, on: target)
     }
 
 }

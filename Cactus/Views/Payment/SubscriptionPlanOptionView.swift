@@ -75,10 +75,9 @@ class SubscriptionPlanOptionView: UIView {
         self.periodLabel.isHidden = product.isFree
         self.dividerLabel.isHidden = true
         
-        if let savingsCopy = product.savingsCopy {
+        if let savingsCopy = product.savingsCopy, !isBlank(savingsCopy) {
             self.savingsCopyLabel.text = savingsCopy.uppercased()
-            self.savingsContainerView.isHidden = false
-            
+            self.savingsContainerView.isHidden = false            
         } else {
             self.savingsContainerView.isHidden = true
         }

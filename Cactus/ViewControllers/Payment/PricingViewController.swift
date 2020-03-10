@@ -20,7 +20,7 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBOutlet weak var footerIcon: UIImageView!
     @IBOutlet weak var continueButton: PrimaryButton!
     @IBOutlet weak var planContainerView: UIView!
-    @IBOutlet weak var continueStackView: UIStackView!
+//    @IBOutlet weak var continueContainerView: UIView!
     @IBOutlet weak var questionsTextView: UITextView!
     @IBOutlet weak var headerStackView: UIStackView!
     @IBOutlet weak var mainStackView: UIStackView!
@@ -54,11 +54,13 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
         StoreObserver.sharedInstance.delegate = self
         self.appSettings = AppSettingsService.sharedInstance.currentSettings
         self.settingsUnsubscriber = AppSettingsService.sharedInstance.observeSettings({ (settings, error) in
-            if let error = error {
-                self.logger.error("Failed to get app settings", error)
+            DispatchQueue.main.async {
+                if let error = error {
+                    self.logger.error("Failed to get app settings", error)
+                }
+                self.appSettings = settings
+                self.configureFromSettings()
             }
-            self.appSettings = settings
-            self.configureFromSettings()
         })
         
         self.closeButton.isHidden = !self.showCloseButton
@@ -66,19 +68,21 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
         self.configureQuestionsView()
         self.setupHeaderBackground()
         self.configureFromSettings()
+        self.loadSubscriptionProducts()
     }
     
     func configureFromSettings() {
         self.updateAllCopy()
-        let canMakePayments = SubscriptionService.sharedInstance.isAuthorizedForPayments
-        self.showNotAuthorizedForPayments(show: canMakePayments)
-        if canMakePayments && (self.appSettings?.checkoutSettings?.inAppPaymentsEnabled ?? false) {
-            //Note: we are not showing products at the moment
-            self.loadSubscriptionProducts()
+//        let canMakePayments = SubscriptionService.sharedInstance.isAuthorizedForPayments
+//        let canMakePayments = true
+//        self.showNotAuthorizedForPayments(show: !canMakePayments)
+        if self.appSettings?.checkoutSettings?.inAppPaymentsEnabled == true {
+//            self.loadSubscriptionProducts()
+            self.planStackView.isHidden = false
             self.contactUsContainerView.isHidden = true
         } else {
             self.planContainerView.isHidden = true
-            self.continueStackView.isHidden = true
+//            self.continueContainerView.isHidden = true
             self.contactUsContainerView.isHidden = false
         }
     }
@@ -101,7 +105,7 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
         self.mainStackView.insertSubview(imageView, at: 0)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.topAnchor.constraint(equalTo: self.headerStackView.topAnchor, constant: 0).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 220).isActive = true
         imageView.leadingAnchor.constraint(equalTo: self.headerStackView.leadingAnchor, constant: -100).isActive = true
         imageView.trailingAnchor.constraint(equalTo: self.headerStackView.trailingAnchor, constant: 100).isActive = true
     }
@@ -130,10 +134,10 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     func updateAllCopy() {
         let settings = self.appSettings?.pricingScreen
         let pageTitle = settings?.pageTitleMarkdown ?? "Get more with Cactus Plus"
-        self.titleLabel.attributedText = MarkdownUtil.centeredMarkdown(pageTitle, font: CactusFont.bold(26), color: CactusColor.white)
+        self.titleLabel.attributedText = MarkdownUtil.centeredMarkdown(pageTitle, font: CactusFont.bold(26), color: CactusColor.white)?.preventOrphanedWords()
         
         let pageDescription = settings?.pageDescriptionMarkdown ?? "Daily prompts, personalized insights, and more"
-        self.descriptionLabel.attributedText = MarkdownUtil.centeredMarkdown(pageDescription, font: CactusFont.normal(18), color: CactusColor.white)
+        self.descriptionLabel.attributedText = MarkdownUtil.centeredMarkdown(pageDescription, font: CactusFont.normal(18), color: CactusColor.white)?.preventOrphanedWords()
         
         self.updateFeatures()
         
@@ -162,7 +166,7 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
             return
         }
         self.planContainerView.isHidden = false
-        self.continueStackView.isHidden = false
+//        self.continueContainerView.isHidden = false
         if let footer = groupEntry.productGroup?.footer {
             self.footerDescriptionLabel.attributedText = MarkdownUtil.toMarkdown(footer.textMarkdown)?.withColor(CactusColor.white)
             self.footerIcon.image = footer.icon?.image
@@ -184,7 +188,7 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
             self.planStackView.addArrangedSubview(planView)
         }
         
-        self.planStackView.isHidden = false
+        self.planStackView.isHidden = self.appSettings?.checkoutSettings?.inAppPaymentsEnabled == false
     }
     
     func configurePlanTapGesture(planView: SubscriptionPlanOptionView) {
@@ -256,6 +260,10 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true)
+    }
+    
+    @IBAction func restoreTapped(_ sender: Any) {
+        SubscriptionService.sharedInstance.restorePurchase()
     }
 }
 

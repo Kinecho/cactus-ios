@@ -69,6 +69,14 @@ class SubscriptionService: NSObject {
     }
     
     func submitPurchase(product: SKProduct) {
+        guard self.isAuthorizedForPayments == true else {
+            let alert = UIAlertController(title: "Not Authorized", message: "This device is not authorized to make payments.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+            NavigationService.sharedInstance.present(alert)
+            
+            return
+        }
+        
         self.logger.info("Starting checkout for apple product \(product.productIdentifier)")
         let payment = SKPayment(product: product)
         
@@ -77,8 +85,15 @@ class SubscriptionService: NSObject {
     }
     
     /// Calls StoreObserver to restore all restorable purchases.
-    func restorePurchase() {        
-        StoreObserver.sharedInstance.restore()
+    func restorePurchase() {
+        let alert = UIAlertController(title: "Restore Purchases?", message: "If you have past purchases, they will be restored. Are you sure you want to continue?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Restore", style: .default, handler: { (_) in
+            StoreObserver.sharedInstance.restore()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        NavigationService.sharedInstance.present(alert, animated: true)
     }
     
     func completePurchase(onComplete: @escaping ((CompletePurchaseResult?, Any?) -> Void)) {

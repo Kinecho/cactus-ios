@@ -42,9 +42,12 @@ struct SubscriptionProductGroupEntry {
     
     init (group: SubscriptionProductGroup, products: [SubscriptionProduct]=[], appleProducts: [SKProduct]=[]) {
         self.tier = group.subscriptionTier
-        self.products = products.map({ (p) -> ProductEntry in
+        self.products = products.compactMap({ (p) -> ProductEntry? in
             let appleProduct: SKProduct? = appleProducts.first { (sp) -> Bool in
                 return sp.productIdentifier == p.appleProductId
+            }
+            guard appleProduct != nil else {
+                return nil
             }
             return ProductEntry(subscriptionProduct: p, appleProduct: appleProduct)
         })
