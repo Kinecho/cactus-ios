@@ -58,7 +58,7 @@ struct SubscriptionProductGroupEntry {
 typealias SubscriptionProductGroupEntryMap = [SubscriptionTier: SubscriptionProductGroupEntry]
 
 func createSubscriptionProductGroupEntryMap(products: [SubscriptionProduct]?, groups: [SubscriptionProductGroup]?, appleProducts: [SKProduct]?=nil) -> SubscriptionProductGroupEntryMap? {
-    guard let products = products, let groups = groups else {
+    guard var products = products, let groups = groups else {
         return nil
     }
         
@@ -68,6 +68,9 @@ func createSubscriptionProductGroupEntryMap(products: [SubscriptionProduct]?, gr
             return map
         }
         let productsForTier = products.filter {$0.subscriptionTier == tier}
+        products.sort { (p1, p2) -> Bool in
+            return  p2.billingPeriod.displaySortOrder > p1.billingPeriod.displaySortOrder
+        }
         let entry = SubscriptionProductGroupEntry(group: group, products: productsForTier, appleProducts: appleProducts ?? [])
         map[tier] = entry
         return map
