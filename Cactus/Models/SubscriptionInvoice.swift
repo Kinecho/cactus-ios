@@ -92,6 +92,9 @@ class SubscriptionInvoice: Codable {
     var status: InvoiceStatus?
     var stripeInvoiceId: String?
     var stripeSubscriptionId: String?
+    var isAppleSubscription: Bool?
+    var appleProductId: String?
+    var isAutoRenew: Bool?
 }
 
 class SubscriptionDetails: Codable {

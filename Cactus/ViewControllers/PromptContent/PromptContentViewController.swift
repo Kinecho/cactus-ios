@@ -97,7 +97,15 @@ class PromptContentViewController: UIViewController {
                 self.logger.warn("content link's href was not a valid URL. Link.destinationHref=\(self.content.link?.destinationHref ?? "undefined")")
             return
         }
-        NavigationService.sharedInstance.presentWebView(url: url, on: self)
+        let appendMemberId = self.content.link?.appendMemberId ?? false
+        var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
+        var queryItems: [URLQueryItem] = components?.queryItems ?? []
+        if appendMemberId, let memberId = CactusMemberService.sharedInstance.currentMember?.id {
+            queryItems.append(URLQueryItem(name: "memberId", value: memberId))
+        }
+        components?.queryItems = queryItems
+        self.logger.info("navigating to url: \(components?.url?.absoluteString ?? "nil")")
+        NavigationService.sharedInstance.presentWebView(url: components?.url, on: self)
     }
 }
 

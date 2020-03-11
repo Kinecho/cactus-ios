@@ -112,10 +112,10 @@ class NotificationTimeOfDayViewController: UIViewController {
         UIView.animate(withDuration: 0.1, animations: {
             self.timePicker.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height, width: UIScreen.main.bounds.size.width, height: 300)
             self.toolBar.frame = CGRect(x: 0, y: UIScreen.main.bounds.size.height, width: UIScreen.main.bounds.size.width, height: 50)
-        }) { (_) in
+        }, completion: { (_) in
             self.toolBar.removeFromSuperview()
             self.timePicker.removeFromSuperview()
-        }
+        })
     }
     
     @objc func onDoneButtonClick(_ sender: Any) {

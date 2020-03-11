@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import StoreKit
 func getDisplayName(_ tier: SubscriptionTier) -> String {
     switch tier {
     case .PLUS:
@@ -21,24 +21,43 @@ func getDisplayName(_ tier: SubscriptionTier) -> String {
     }
 }
 
+struct ProductEntry {
+    var subscriptionProduct: SubscriptionProduct
+    var appleProduct: SKProduct?
+    
+    init(subscriptionProduct: SubscriptionProduct, appleProduct: SKProduct?) {
+        self.subscriptionProduct = subscriptionProduct
+        self.appleProduct = appleProduct
+    }
+}
+
 struct SubscriptionProductGroupEntry {
     var tier: SubscriptionTier
-    var products: [SubscriptionProduct]
+    var products: [ProductEntry]
+    var appleProducts: [SKProduct]?
     var productGroup: SubscriptionProductGroup?
     var defaultSelectedPeriod: BillingPeriod? {
         return self.productGroup?.defaultSelectedPeriod
     }
     
-    init (group: SubscriptionProductGroup, products: [SubscriptionProduct]=[]) {
+    init (group: SubscriptionProductGroup, products: [SubscriptionProduct]=[], appleProducts: [SKProduct]=[]) {
         self.tier = group.subscriptionTier
-        self.products = products
+        self.products = products.compactMap({ (p) -> ProductEntry? in
+            let appleProduct: SKProduct? = appleProducts.first { (sp) -> Bool in
+                return sp.productIdentifier == p.appleProductId
+            }
+            guard appleProduct != nil else {
+                return nil
+            }
+            return ProductEntry(subscriptionProduct: p, appleProduct: appleProduct)
+        })
         self.productGroup = group
     }
 }
 
 typealias SubscriptionProductGroupEntryMap = [SubscriptionTier: SubscriptionProductGroupEntry]
 
-func createSubscriptionProductGroupEntryMap(products: [SubscriptionProduct]?, groups: [SubscriptionProductGroup]?) -> SubscriptionProductGroupEntryMap? {
+func createSubscriptionProductGroupEntryMap(products: [SubscriptionProduct]?, groups: [SubscriptionProductGroup]?, appleProducts: [SKProduct]?=nil) -> SubscriptionProductGroupEntryMap? {
     guard let products = products, let groups = groups else {
         return nil
     }
@@ -49,7 +68,7 @@ func createSubscriptionProductGroupEntryMap(products: [SubscriptionProduct]?, gr
             return map
         }
         let productsForTier = products.filter {$0.subscriptionTier == tier}
-        let entry = SubscriptionProductGroupEntry(group: group, products: productsForTier)
+        let entry = SubscriptionProductGroupEntry(group: group, products: productsForTier, appleProducts: appleProducts ?? [])
         map[tier] = entry
         return map
     }

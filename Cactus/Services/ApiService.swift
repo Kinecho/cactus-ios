@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 enum HttpMethod: String {
     case POST
@@ -22,13 +23,32 @@ enum ApiPath: String {
     case updateEmailSubscriberStatus = "/mailchimp/status"
     case sendSocialInvite = "/social/send-invite"
     case checkoutSubscriptionDetails = "/checkout/subscription-details"
+    case appleCompletePurchase = "/apple/complete-purchase"
 }
 
 ///A service for interacting with the Cactus JSON Api
 public class ApiService {
     static let sharedInstance = ApiService()
-    let apiDomain = CactusConfig.apiDomain
     let logger = Logger("ApiService")
+    var settingsUnsubscriber: ListenerRegistration?
+    var appSettings: AppSettings?
+    
+    var apiDomain: String {
+        return self.appSettings?.apiDomain ?? CactusConfig.apiDomain
+    }
+    
+    init() {
+        self.settingsUnsubscriber = AppSettingsService.sharedInstance.observeSettings({ (settings, error) in
+            if let error = error {
+                self.logger.error("Failed to get app settings", error)
+            }
+            self.appSettings = settings
+        })
+    }
+    
+    deinit {
+        self.settingsUnsubscriber?.remove()
+    }
     
     /**
      Turns an `Encodable` object into JSON data that can be sent via an XHR Request
@@ -69,16 +89,23 @@ public class ApiService {
      */
     func getAuthHeaders(completion: @escaping ([String: String]) -> Void) {
         var headers: [String: String] = [:]
-        if let currentUser = CactusMemberService.sharedInstance.currentUser {
-            currentUser.getIDToken { (token, error) in
-                if let error = error {
-                    self.logger.error("Faild to get auth token for current user", error)
+        
+        CactusMemberService.sharedInstance.awaitCurrentUser { (currentUser) in
+            self.logger.info("AWAIT CURRENT USER RETURNED. Current User: \(currentUser?.uid ?? "none")")
+            if let currentUser = CactusMemberService.sharedInstance.currentUser {
+                currentUser.getIDToken { (token, error) in
+                    if let error = error {
+                        self.logger.error("Faild to get auth token for current user", error)
+                        completion([:])
+                    }
+                    
+                    if let token = token {
+                        headers["Authorization"] = "Bearer \(token)"
+                    }
+                    completion(headers)
                 }
-                
-                if let token = token {
-                    headers["Authorization"] = "Bearer \(token)"
-                }
-                completion(headers)
+            } else {
+                completion([:])
             }
         }
     }

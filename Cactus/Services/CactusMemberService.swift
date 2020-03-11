@@ -174,6 +174,16 @@ class CactusMemberService {
         return self.currentMember
     }
     
+    func awaitCurrentUser(_ onCompleted: @escaping (User?) -> Void) -> Void {
+        let task = AuthenticatedTask { (_, user, taskCompleted) in
+            defer {
+                taskCompleted()
+            }
+            onCompleted(user)
+        }
+        AuthenticatedTaskManager.shared.addTask(task)
+    }
+    
     func getById(id: String) {
         
     }

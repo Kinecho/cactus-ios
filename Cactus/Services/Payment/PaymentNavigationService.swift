@@ -10,22 +10,18 @@ import Foundation
 import UIKit
 
 func learnMoreAboutUpgradeTapped(target: UIViewController) {
-    AppSettingsService.sharedInstance.getSettings { (settings, _) in
-        let useWeb = settings?.checkoutSettings?.useWebForCheckout ?? false
-        let learnMorePath = settings?.checkoutSettings?.learnMorePath
-        let url: URL? = learnMorePath != nil ? URL(string: "\(CactusConfig.webDomain)\(learnMorePath!)") : nil
-                
-        if useWeb, url != nil {
-            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
-        } else {
-            guard let vc = ScreenID.Pricing.getViewController() as? PricingViewController else {
-                return
-                
-            }
-            vc.modalPresentationStyle = .overFullScreen
-            vc.showCloseButton = true
+    AppSettingsService.sharedInstance.getSettings { (_, _) in
+//        let learnMorePath = settings?.checkoutSettings?.learnMorePath
+//        let url: URL? = learnMorePath != nil ? URL(string: "\(CactusConfig.webDomain)\(learnMorePath!)") : nil
+                        
+        guard let vc = ScreenID.Pricing.getViewController() as? PricingViewController else {
+            return
             
-            NavigationService.sharedInstance.present(vc, animated: true)
         }
+        vc.modalPresentationStyle = .overFullScreen
+        vc.showCloseButton = true
+        
+        NavigationService.sharedInstance.present(vc, animated: true, on: target)
     }
+
 }

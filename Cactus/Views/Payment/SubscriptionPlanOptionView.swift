@@ -19,11 +19,16 @@ class SubscriptionPlanOptionView: UIView {
     @IBOutlet weak var savingsCopyLabel: UILabel!
     
     @IBOutlet weak var savingsContainerView: UIView!
-    var subscriptionProduct: SubscriptionProduct? {
+    var productEntry: ProductEntry? {
         didSet {
             self.configureProduct()
         }
     }
+//    var subscriptionProduct: SubscriptionProduct? {
+//        didSet {
+//            self.configureProduct()
+//        }
+//    }
     
     var selectedTextColor: UIColor = CactusColor.darkText
     var defaultTextColor: UIColor = CactusColor.white
@@ -58,22 +63,21 @@ class SubscriptionPlanOptionView: UIView {
     }
     
     func configureProduct() {
-        guard let product = self.subscriptionProduct else {
+        guard let product = self.productEntry?.subscriptionProduct, let appleProduct = self.productEntry?.appleProduct else {
             self.isHidden = true
             return
         }
         
         self.titleLabel.text = product.billingPeriod.productTitle?.uppercased()
-        self.priceLabel.text = product.isFree ? "Free" : formatPriceCents(product.priceCentsUsd)
+        self.priceLabel.text = product.isFree ? "Free" : formatApplePrice(appleProduct.price, locale: appleProduct.priceLocale)
         
         self.periodLabel.text = "per \(product.billingPeriod.displayName ?? "")"
         self.periodLabel.isHidden = product.isFree
         self.dividerLabel.isHidden = true
         
-        if let savingsCopy = product.savingsCopy {
+        if let savingsCopy = product.savingsCopy, !isBlank(savingsCopy) {
             self.savingsCopyLabel.text = savingsCopy.uppercased()
-            self.savingsContainerView.isHidden = false
-            
+            self.savingsContainerView.isHidden = false            
         } else {
             self.savingsContainerView.isHidden = true
         }

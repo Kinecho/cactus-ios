@@ -17,6 +17,14 @@ func isBlank(_ input: String? ) -> Bool {
     return FormatUtils.isBlank(input)
 }
 
+func formatApplePrice(_ price: NSDecimalNumber, locale: Locale?) -> String? {
+    let currencyFormatter = NumberFormatter()
+    currencyFormatter.usesGroupingSeparator = true
+    currencyFormatter.numberStyle = .currency    
+    currencyFormatter.locale = locale ?? Locale.init(identifier: "en-US")
+    return currencyFormatter.string(from: price)
+}
+
 func formatPriceCents(_ price: Int?, truncateWholeDollar: Bool = true) -> String? {
     guard let price = price else {
         return nil
