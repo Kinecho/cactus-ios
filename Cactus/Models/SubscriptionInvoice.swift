@@ -93,6 +93,7 @@ class SubscriptionInvoice: Codable {
     var stripeInvoiceId: String?
     var stripeSubscriptionId: String?
     var isAppleSubscription: Bool?
+    var appleProductId: String?
     var isAutoRenew: Bool?
 }
 

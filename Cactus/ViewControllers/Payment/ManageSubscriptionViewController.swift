@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StoreKit
 class ManageSubscriptionViewController: UIViewController {
 
     @IBOutlet weak var currentStatusLabel: UILabel!
@@ -20,6 +21,8 @@ class ManageSubscriptionViewController: UIViewController {
     @IBOutlet weak var paymentMethodLabel: UILabel!
     @IBOutlet weak var changeBillingButton: UIButton!
     @IBOutlet weak var restoreButton: SecondaryButton!
+    @IBOutlet weak var loadingStackView: UIStackView!
+    @IBOutlet weak var detailsContainerStackView: UIStackView!
     
     let logger = Logger("ManageSubscriptionViewContrller")
     var subscriptionDetails: SubscriptionDetails? {
@@ -33,8 +36,22 @@ class ManageSubscriptionViewController: UIViewController {
     var isAuthorizedForPayments: Bool {
         return false
     }
-    
+    var detailsLoading = false {
+        didSet {
+            self.configureLoading()
+        }
+    }
     var memberObserver: Unsubscriber?
+    var appleProductsLoading = false {
+        didSet {
+            self.configureLoading()
+        }
+    }
+    var appleProducts: [SKProduct] = []
+    
+    var isLoading: Bool {
+        self.appleProductsLoading || self.detailsLoading
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +62,7 @@ class ManageSubscriptionViewController: UIViewController {
                 self.logger.error("Failed to fetch cactus member", error)
                 return
             }
+            self.detailsLoading = true
             self.member = member
             SubscriptionService.sharedInstance.getSubscriptionDetails { (details, error) in
                 if let error = error {
@@ -52,9 +70,24 @@ class ManageSubscriptionViewController: UIViewController {
                     self.subscriptionDetails = nil
                 } else {
                     self.subscriptionDetails = details
+                    self.detailsLoading = false
+                    if let appleProductId = details?.upcomingInvoice?.appleProductId, !self.appleProducts.contains(where: {$0.productIdentifier == appleProductId}) {
+                        self.appleProductsLoading = true
+                        SubscriptionService.sharedInstance.fetchAppleProducts(appleProductIds: [appleProductId]) { (products) in
+                            products.forEach { self.appleProducts.append($0) }
+                            self.appleProductsLoading = false
+                        }
+                    }
                 }
             }
             self.setupCurrentMembership(member: member)
+        }
+    }
+    
+    func configureLoading() {
+        DispatchQueue.main.async {
+            self.detailsContainerStackView.isHidden = self.isLoading            
+            self.loadingStackView.isHidden = !self.isLoading
         }
     }
     
@@ -73,6 +106,7 @@ class ManageSubscriptionViewController: UIViewController {
             let nextDate = Date(timeIntervalSince1970: TimeInterval(dateSeconds))
             dateString = FormatUtils.formatDate(nextDate, currentYearFormat: "MMM d, yyyy")
         }
+        
         let formattedPrice = formatPriceCents(invoice.amountCentsUsd, truncateWholeDollar: true) ?? "$0.00"
         var description = invoice.isAutoRenew != false ? "Your next bill is for **\(formattedPrice)**" : "Your subscription will end"
         if let nextDueDate = dateString {

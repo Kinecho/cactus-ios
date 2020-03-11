@@ -25,6 +25,16 @@ class SubscriptionService: NSObject {
     
     var upgradeBasicDescription = "Give your reflection practice momentum by receiving a fresh prompt, every day"
     
+    func fetchAppleProducts(appleProductIds: [String], onCompleted: @escaping ([SKProduct]) -> Void) {
+        let appleRequest = ProductRequest()
+        self.appleRequests.append(appleRequest)
+        appleRequest.onCompleted = {
+            let appleProducts = appleRequest.availableAppleProducts
+            onCompleted(appleProducts)
+        }
+        appleRequest.fetchAppleProducts(appleProductIds: appleProductIds)
+    }
+    
     func getSubscriptionProductGroupEntryMap(_ onData: @escaping (SubscriptionProductGroupEntryMap?) -> Void) {
         SubscriptionProductGroupService.sharedInstance.getAll { (groupResult) in
             if let error = groupResult.error {
@@ -54,7 +64,7 @@ class SubscriptionService: NSObject {
                     let map = createSubscriptionProductGroupEntryMap(products: subscriptionProducts, groups: productGroups)
                     onData(map)
                 }
-                                
+
                 return
             }
         }

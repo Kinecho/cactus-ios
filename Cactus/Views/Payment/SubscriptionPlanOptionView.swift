@@ -63,13 +63,13 @@ class SubscriptionPlanOptionView: UIView {
     }
     
     func configureProduct() {
-        guard let product = self.productEntry?.subscriptionProduct else {
+        guard let product = self.productEntry?.subscriptionProduct, let appleProduct = self.productEntry?.appleProduct else {
             self.isHidden = true
             return
         }
         
         self.titleLabel.text = product.billingPeriod.productTitle?.uppercased()
-        self.priceLabel.text = product.isFree ? "Free" : formatPriceCents(product.priceCentsUsd)
+        self.priceLabel.text = product.isFree ? "Free" : formatApplePrice(appleProduct.price, locale: appleProduct.priceLocale)
         
         self.periodLabel.text = "per \(product.billingPeriod.displayName ?? "")"
         self.periodLabel.isHidden = product.isFree
