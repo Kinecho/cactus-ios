@@ -85,7 +85,7 @@ class AppMainViewController: UIViewController {
     
     func runPendingActions() {
         DispatchQueue.main.async {
-            guard self.authHasLoaded else {
+            guard self.member != nil else {
                 return
             }
             self.pendingAction?()
