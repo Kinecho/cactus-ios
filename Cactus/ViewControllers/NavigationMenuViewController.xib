@@ -30,6 +30,7 @@
                 <outlet property="reflectionDurationLabel" destination="DlD-xm-bIw" id="17e-pN-93b"/>
                 <outlet property="settingsButton" destination="r1A-e2-RO0" id="Grl-Jf-2wj"/>
                 <outlet property="streakCountLabel" destination="SgD-gm-waT" id="gOh-xA-da9"/>
+                <outlet property="streakDurationLabel" destination="k0C-hD-Yg5" id="nwN-bM-8nj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

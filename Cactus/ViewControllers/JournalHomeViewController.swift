@@ -201,7 +201,9 @@ class JournalHomeViewController: UIViewController {
             
             self.profileImageView.transform = self.isMenuExpanded ? CGAffineTransform.init(scaleX: 0.8, y: 0.8) : CGAffineTransform.identity
         })
-        
+        if self.isMenuExpanded {
+            self.menuDrawerViewController.finishedOpening()
+        }
         UIView.animate(withDuration: isMenuExpanded ? menuOpenDuration : menuCloseDuration,
                        delay: 0,
                        usingSpringWithDamping: isMenuExpanded ? 0.7 : 1,
@@ -212,7 +214,7 @@ class JournalHomeViewController: UIViewController {
         }, completion: {_ in
             self.overlayView.isHidden = !self.isMenuExpanded
             if self.isMenuExpanded {
-                self.menuDrawerViewController.finishedOpening()
+//                self.menuDrawerViewController.finishedOpening()
             } else {
                 self.menuDrawerViewController.finishedClosing()
             }

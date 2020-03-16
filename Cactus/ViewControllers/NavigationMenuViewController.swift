@@ -57,10 +57,20 @@ class NavigationMenuViewController: UIViewController {
             //            self.previousReflectionDurationMs = newValue
         }
     }
+    
+    @IBOutlet weak var streakDurationLabel: UILabel!
+    
     var streak = 0 {
         didSet {
             self.animateStreak()
             //            self.previousStreak = newValue
+        }
+    }
+    var streakDuration: StreakDuration = .DAYS {
+        didSet {
+            DispatchQueue.main.async {
+                self.streakDurationLabel.text = self.streakDuration.singularLabel + " Streak"
+            }
         }
     }
     let animationDurationMs: UInt32 = 600
@@ -98,7 +108,8 @@ class NavigationMenuViewController: UIViewController {
             self.displayNameLabel.isHidden = false
             
             if let reflectionStats = member.stats?.reflections {
-                self.streak = reflectionStats.currentStreakDays
+                self.streak = reflectionStats.currentStreakInfo.count
+                self.streakDuration = reflectionStats.currentStreakInfo.duration
                 self.reflectionDurationMs = reflectionStats.totalDurationMs
                 self.reflectionCount = reflectionStats.totalCount
             }

@@ -56,11 +56,71 @@ struct InsightWord: Codable {
     var word: String = ""
 }
 
+enum StreakDuration: String, Codable {
+    case DAYS
+    case WEEKS
+    case MONTHS
+    
+    func getLabel(count: Int) -> String {
+        let plural = count == 0 || count > 1
+        return plural ? self.pluralLabel : self.singularLabel
+    }
+    
+    var singularLabel: String {
+        switch self {
+        case .DAYS:
+            return "Day"
+        case .MONTHS:
+            return "Month"
+        case .WEEKS:
+            return "Week"
+        }
+    }
+    
+    var pluralLabel: String {
+        switch self {
+        case .DAYS:
+            return "Days"
+        case .MONTHS:
+            return "Months"
+        case .WEEKS:
+            return "Weeks"
+        }
+    }
+}
+
+struct StreakInfo: Codable {
+    var count: Int = 0
+    var duration: StreakDuration
+    
+    init(count: Int, duration: StreakDuration) {
+        self.count = count
+        self.duration = duration
+    }
+    
+}
 struct ReflectionStats: Codable {
     var currentStreakDays: Int = 0
+    var currentStreakWeeks: Int = 0
+    var currentStreakMonths: Int = 0
     var totalDurationMs: Int = 0
     var totalCount: Int = 0
     var elementAccumulation: ElementAccumulation
+    
+    ///computed
+    var currentStreakInfo: StreakInfo {
+        if self.currentStreakDays > 1 {
+            return StreakInfo(count: self.currentStreakDays, duration: .DAYS)
+        }
+        if self.currentStreakWeeks > 1 {
+            return StreakInfo(count: self.currentStreakWeeks, duration: .WEEKS)
+        }
+        if self.currentStreakMonths > 1 {
+            return StreakInfo(count: self.currentStreakMonths, duration: .MONTHS)
+        }
+        return StreakInfo(count: self.currentStreakDays, duration: .DAYS)
+    }
+    
 }
 
 struct MemberStats: Codable {

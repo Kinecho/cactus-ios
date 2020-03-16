@@ -31,6 +31,7 @@ class CelebrateViewController: UIViewController {
     @IBOutlet weak var relationshipStatImageView: UIImageView!
     @IBOutlet weak var insightsContainerView: UIView!
     
+    @IBOutlet weak var streakDurationLabel: UILabel!
     @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet weak var upsellContainer: UIView!
     @IBOutlet weak var upsellLabel: UILabel!
@@ -350,7 +351,8 @@ class CelebrateViewController: UIViewController {
     }
     
     func animateStreak() {
-        let count = self.member?.stats?.reflections?.currentStreakDays ?? 0
+        let count = self.member?.stats?.reflections?.currentStreakInfo.count ?? 0
+        self.streakDurationLabel.text = (self.member?.stats?.reflections?.currentStreakInfo.duration ?? .DAYS).singularLabel + " Streak"
         self.streakCountProcess = CountProcess(minValue: 0,
                                                maxValue: count,
                                                name: "Streak",
