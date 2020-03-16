@@ -49,7 +49,7 @@ class CelebrateViewController: UIViewController {
         }
     }
     var promptContent: PromptContent?
-    
+    var currentReflectionStats: ReflectionStats?
     let logger = Logger(fileName: "CelebrateViewController")
     var shouldAnimate = true
     var reflectionsCountProcess: CountProcess?
@@ -66,6 +66,8 @@ class CelebrateViewController: UIViewController {
             self.logger.info("Member did set, animating numbers. Stats are: \(String(describing: member?.stats?.reflections))")
             self.animateNumbers()
             self.updateElements()
+            
+            self.currentReflectionStats = member?.stats?.reflections
         }
     }
     override func viewDidLoad() {
@@ -315,8 +317,13 @@ class CelebrateViewController: UIViewController {
     }
     
     func animateReflectionCount() {
+        let previous = self.currentReflectionStats?.totalCount
         let count = self.member?.stats?.reflections?.totalCount ?? 0
-        self.reflectionsCountProcess = CountProcess(minValue: 0,
+        if previous == count {
+            self.reflectionCountNumberLabel.text = "\(count)"
+            return
+        }
+        self.reflectionsCountProcess = CountProcess(minValue: previous ?? 0,
                                                     maxValue: count,
                                                     name: "ReflectionCount",
                                                     threads: 3)
@@ -325,18 +332,23 @@ class CelebrateViewController: UIViewController {
             self.reflectionCountNumberLabel.text = "\(value)"
         })
     }
-    
+   
     func animateDuration() {
 //        var prev = Int( round(Float(self.previousReflectionDurationMs) / 1000))
         let ms = self.member?.stats?.reflections?.totalDurationMs ?? 0
         var next = Int( round(Float(ms) / 1000))
-        var prev: Int = 0
+        var prev = self.currentReflectionStats?.totalDurationMs ?? 0
         if next < 60 {
             self.durationMetricLabel.text = "Seconds"
         } else {
             self.durationMetricLabel.text = "Minutes"
             next = Int(round(Float(next) * 10 / 60))
             prev = Int(round(Float(prev) * 10 / 60))
+        }
+        
+        if self.currentReflectionStats?.totalDurationMs == ms {
+            self.durationCountNumbereLabel.text = "\(Double(next)/10)"
+            return
         }
         
         self.minutesCountProcess = CountProcess(minValue: prev,
@@ -351,9 +363,14 @@ class CelebrateViewController: UIViewController {
     }
     
     func animateStreak() {
+        let previousCount = self.currentReflectionStats?.currentStreakInfo.count ?? 0
         let count = self.member?.stats?.reflections?.currentStreakInfo.count ?? 0
+        if count == self.currentReflectionStats?.currentStreakInfo.count {
+            self.streakNumberLabel.text = "\(count)"
+            return
+        }
         self.streakDurationLabel.text = (self.member?.stats?.reflections?.currentStreakInfo.duration ?? .DAYS).singularLabel + " Streak"
-        self.streakCountProcess = CountProcess(minValue: 0,
+        self.streakCountProcess = CountProcess(minValue: previousCount,
                                                maxValue: count,
                                                name: "Streak",
                                                threads: 3)
