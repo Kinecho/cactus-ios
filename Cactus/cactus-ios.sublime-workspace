@@ -344,7 +344,7 @@
 							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 806.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -371,7 +371,7 @@
 							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
 						},
 						"translation.x": 1.0,
-						"translation.y": 1356.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -427,7 +427,7 @@
 							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1901.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,

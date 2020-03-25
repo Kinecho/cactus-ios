@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAnalytics
+import FirebaseFirestore
 
 class PromptContentPageViewController: UIPageViewController {
     
@@ -25,13 +26,21 @@ class PromptContentPageViewController: UIPageViewController {
     var tapNavigationEnabled = true
     var logger = Logger(fileName: "PromptContentPageViewController")
     var celebrateVc: CelebrateViewController?
+    var appSettings: AppSettings?
+    var settingsUnsubscriber: ListenerRegistration?
     fileprivate lazy var screens: [UIViewController] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataSource = self
         self.delegate = self
-                
+        
+        self.appSettings = AppSettingsService.sharedInstance.currentSettings
+        self.settingsUnsubscriber = AppSettingsService.sharedInstance.observeSettings { (settings, _) in
+            self.appSettings = settings
+            self.celebrateVc?.appSettings = settings
+        }
+        
         self.configureScreens()
         self.view.backgroundColor = CactusColor.promptBackground
         
@@ -49,9 +58,13 @@ class PromptContentPageViewController: UIPageViewController {
             }
         }
     }
-
+    
+    deinit {
+        self.settingsUnsubscriber?.remove()
+    }
+    
     /** Create a reflection response if it wasn't present. Return true if it was created
-        - Returns: Bool if a new prompt was created
+     - Returns: Bool if a new prompt was created
      */
     func createReflectionResponseIfNeeded() -> Bool {
         //set up the reflection response if it didn't exist yet
@@ -108,6 +121,8 @@ class PromptContentPageViewController: UIPageViewController {
         celebrate.reflectionResponse = self.reflectionResponse
         celebrate.promptContent = self.promptContent
         celebrate.journalDataSource = self.journalDataSource
+        celebrate.delegate = self
+        celebrate.appSettings = self.appSettings
         
         self.celebrateVc = celebrate
         screens.append(celebrate)
@@ -191,9 +206,15 @@ class PromptContentPageViewController: UIPageViewController {
     }
     
     @objc func dismissPrompt() {
-        //        if self.isBeingPresented {
-        self.dismiss(animated: true, completion: nil)
-        //        }
+        guard self.promptContent?.entryId == self.appSettings?.firstPromptContentEntryId,
+            let pricingVc = ScreenID.Pricing.getViewController() as? PricingViewController else {
+                self.dismiss(animated: true, completion: nil)
+                return
+        }
+                
+        self.dismiss(animated: true, completion: {
+            NavigationService.sharedInstance.present(pricingVc, on: self.presentingViewController)
+        })
     }
     
     func addSharePromptButton() {
@@ -373,5 +394,12 @@ extension PromptContentPageViewController: PromptContentViewControllerDelegate {
     
     func handleTapGesture(touch: UITapGestureRecognizer) {
         self.tapGestureHandler(touch: touch)
+    }
+}
+
+
+extension PromptContentPageViewController: CelebrateViewControllerDelegate {
+    func goHome() {
+        self.dismissPrompt()
     }
 }

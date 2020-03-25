@@ -144,6 +144,8 @@ class JournalFeedCollectionViewController: UICollectionViewController {
             if let vc = segue.destination as? PromptContentPageViewController {
                 vc.promptContent = cell.promptContent
                 vc.journalDataSource = self.dataSource
+//                vc.dismi
+//                vc.dele
                 let response = cell.responses?.first
                 vc.reflectionResponse = response                
             }        

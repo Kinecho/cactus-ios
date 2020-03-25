@@ -10,6 +10,10 @@ import UIKit
 import WebKit
 import FirebaseFirestore
 
+protocol CelebrateViewControllerDelegate:class {
+    func goHome() -> Void
+}
+
 class CelebrateViewController: UIViewController {
 
     @IBOutlet weak var encouragementLabel: UILabel!
@@ -59,8 +63,11 @@ class CelebrateViewController: UIViewController {
     var journalDataSource: JournalFeedDataSource?
     let celebrations = ["Well done!", "Nice work!", "Way to go!"]
     var memberUnsubscriber: Unsubscriber?
-    var appSettings: AppSettings?
-    var settingsUnsubscriber: ListenerRegistration?
+    var appSettings: AppSettings? {
+        didSet {
+            self.configureInsights()
+        }
+    }
     var member: CactusMember? {
         didSet {
             self.logger.info("Member did set, animating numbers. Stats are: \(String(describing: member?.stats?.reflections))")
@@ -70,6 +77,9 @@ class CelebrateViewController: UIViewController {
             self.currentReflectionStats = member?.stats?.reflections
         }
     }
+    
+    weak var delegate: CelebrateViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let encouragement = celebrations.randomElement() ?? "Nice Work!"
@@ -91,19 +101,11 @@ class CelebrateViewController: UIViewController {
             self.mainStackView.spacing = 40
         }
         
-        self.createInsightsVC()
-        
-        self.appSettings = AppSettingsService.sharedInstance.currentSettings
-        self.settingsUnsubscriber = AppSettingsService.sharedInstance.observeSettings { (settings, _) in
-            self.appSettings = settings
-            self.configureInsights()
-        }
-        
+        self.createInsightsVC()        
         self.configureInsights()
     }
     
     deinit {
-        self.settingsUnsubscriber?.remove()
         self.memberUnsubscriber?()
     }
     
@@ -381,7 +383,11 @@ class CelebrateViewController: UIViewController {
     }
     
     @IBAction func goHomeTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        if let delegate = self.delegate {
+            delegate.goHome()
+        } else {
+            self.dismiss(animated: true, completion: nil)
+        }        
     }
     
     @IBAction func shareNoteTapped(_ sender: Any) {

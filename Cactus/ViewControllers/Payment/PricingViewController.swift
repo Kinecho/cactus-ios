@@ -48,6 +48,8 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     }
     var selectedProductEntry: ProductEntry?
     
+    var onDismiss: (() -> Void)?
+    
     @IBOutlet weak var closeButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -230,7 +232,9 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     }
     
     @IBAction func closeTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: {
+            self.onDismiss?()
+        })
     }
     
     func sendPricingEmail(_ sender: Any) {
