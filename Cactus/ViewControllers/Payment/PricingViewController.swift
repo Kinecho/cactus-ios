@@ -143,6 +143,8 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
         
         self.updateFeatures()
         
+        let continueText = isBlank(settings?.purchaseButtonText) ? "Try Cactus Plus" : settings?.purchaseButtonText
+        self.continueButton.setTitle(continueText, for: .normal)
     }
     
     func updateFeatures() {

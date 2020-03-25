@@ -22,7 +22,6 @@ class PageLoader<T: FirestoreIdentifiable> {
 protocol JournalFeedDataSourceDelegate: class {
     func updateEntry(_ journalEntry: JournalEntry, at: Int?)
     func insert(_ journalEntry: JournalEntry, at: Int?)
-//    func remove(_ journalEntry: JournalEntry, at: Int)
     func removeItems(_ indexes: [Int])
     func insertItems(_ indexes: [Int])
     func batchUpdate(addedIndexes: [Int], removedIndexes: [Int])
@@ -32,7 +31,11 @@ protocol JournalFeedDataSourceDelegate: class {
 
 class JournalFeedDataSource {
     var logger = Logger("JournalFeedDataSource")
-    var currentMember: CactusMember?
+    var currentMember: CactusMember? {
+        didSet {
+            handleMemberUpdated(oldMember: oldValue, newMember: self.currentMember)
+        }
+    }
     var journalEntryDataByPromptId: [String: JournalEntryData] = [:]
     var sentPrompts: [SentPrompt] = []
     var count: Int {
@@ -41,7 +44,6 @@ class JournalFeedDataSource {
     var orderedPromptIds: [String] = []
     
     var promptsListener: ListenerRegistration?
-    var memberUnsubscriber: (() -> Void)?
     
     weak var delegate: JournalFeedDataSourceDelegate?
     var hasLoaded = false
@@ -53,7 +55,6 @@ class JournalFeedDataSource {
     }
     
     func unsubscribeAll() {
-        memberUnsubscriber?()
         promptsListener?.remove()
     }
     
@@ -133,6 +134,15 @@ class JournalFeedDataSource {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.dayChanged), name: .NSCalendarDayChanged, object: nil)
         
+    }
+    
+    func handleMemberUpdated(oldMember: CactusMember?, newMember: CactusMember?) {
+        if newMember != nil && oldMember?.tier == newMember?.tier {
+            //nothing to change
+            return
+        }
+        logger.info("Member has changed subscription status, updating today query")
+        self.initializeToday()
     }
     
     @objc func dayChanged() {

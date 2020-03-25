@@ -440,7 +440,7 @@
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDH-3U-n7o" userLabel="Continue Button" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
                                                                                 <rect key="frame" x="20" y="8" width="358" height="0.0"/>
                                                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
-                                                                                <state key="normal" title="Continue"/>
+                                                                                <state key="normal" title="Try Cactus Plus"/>
                                                                                 <userDefinedRuntimeAttributes>
                                                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
                                                                                         <real key="value" value="0.0"/>

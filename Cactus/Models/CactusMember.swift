@@ -170,6 +170,11 @@ class CactusMember: FirestoreIdentifiable, Hashable {
         return lhs.id != nil && rhs.id != nil && lhs.id == rhs.id
     }
     
+    //computed properties
+    var tier: SubscriptionTier {
+        return self.subscription?.tier ?? SubscriptionTier.BASIC
+    }
+    
     func hash(into hasher: inout Hasher) {
         id.hash(into: &hasher)
     }

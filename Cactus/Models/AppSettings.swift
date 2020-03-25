@@ -46,6 +46,7 @@ let DEFAULT_PRICING_FEATURES: [PricingFeature] = [
 class PricingScreenSettings: Codable {
     var pageTitleMarkdown: String?
     var pageDescriptionMarkdown: String?
+    var purchaseButtonText: String?
     var features: [PricingFeature]?
 }
 

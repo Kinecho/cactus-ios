@@ -87,6 +87,7 @@ class JournalHomeViewController: UIViewController {
             }
             self.user = user
             self.member = member
+            self.journalFeedDataSource.currentMember = member
         }
         
         if #available(iOS 13.0, *) {
