@@ -44,6 +44,9 @@ struct CactusColor {
     static let facebook: UIColor = UIColor(hex: "3b5998")
     static let twitter: UIColor = UIColor(hex: "1da1f2")
     static let cardBackground = UIColor(named: "CardBackground")!
+    static let paymentBackground = UIColor(named: "PaymentBackground")!
+    static let whiteInvertable = UIColor(named: "WhiteInvertable")!
+    static let blackInvertable = UIColor(named: "BlackInvertable")!
     static let white: UIColor = UIColor(hex: "FFFFFF")
     static let background: UIColor = UIColor(named: "Background")!
     static let noteBackground: UIColor = UIColor(named: "NoteBackground")!

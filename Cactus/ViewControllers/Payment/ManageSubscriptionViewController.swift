@@ -9,7 +9,7 @@
 import UIKit
 import StoreKit
 class ManageSubscriptionViewController: UIViewController {
-
+    
     @IBOutlet weak var currentStatusLabel: UILabel!
     @IBOutlet weak var learnMoreButton: PrimaryButton!
     @IBOutlet weak var trialEndLabel: UILabel!
@@ -23,6 +23,8 @@ class ManageSubscriptionViewController: UIViewController {
     @IBOutlet weak var restoreButton: SecondaryButton!
     @IBOutlet weak var loadingStackView: UIStackView!
     @IBOutlet weak var detailsContainerStackView: UIStackView!
+    @IBOutlet weak var paymentMethodIcon: UIImageView!
+    @IBOutlet weak var managePaymentButton: UIButton!
     
     let logger = Logger("ManageSubscriptionViewContrller")
     var subscriptionDetails: SubscriptionDetails? {
@@ -42,21 +44,20 @@ class ManageSubscriptionViewController: UIViewController {
         }
     }
     var memberObserver: Unsubscriber?
-    var appleProductsLoading = false {
-        didSet {
-            self.configureLoading()
-        }
-    }
-    var appleProducts: [SKProduct] = []
     
     var isLoading: Bool {
-        self.appleProductsLoading || self.detailsLoading
+        self.detailsLoading
+    }
+    
+    var formattedPrice: String {
+        return formatPriceCents(self.subscriptionDetails?.upcomingInvoice?.amountCentsUsd, truncateWholeDollar: true) ?? "$0.00"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.managePaymentButton.isHidden = true
         self.invoiceStackView.isHidden = true
-        self.paymentStackView.addBackground(color: CactusColor.cardBackground, cornerRadius: 6)
+        self.paymentStackView.addBackground(color: CactusColor.paymentBackground, cornerRadius: 6)
         self.memberObserver = CactusMemberService.sharedInstance.observeCurrentMember { (member, error, _) in
             if let error = error {
                 self.logger.error("Failed to fetch cactus member", error)
@@ -65,23 +66,27 @@ class ManageSubscriptionViewController: UIViewController {
             self.detailsLoading = true
             self.member = member
             SubscriptionService.sharedInstance.getSubscriptionDetails { (details, error) in
+                defer {
+                    self.detailsLoading = false
+                }
                 if let error = error {
                     self.logger.error("Failed to fetch subscription details", error)
-                    self.subscriptionDetails = nil
+                    DispatchQueue.main.async {
+                        self.subscriptionDetails = nil
+                        
+                        self.showError("Unable to load your subscription details. Please try again later.")
+                    }
                 } else {
                     self.subscriptionDetails = details
-                    self.detailsLoading = false
-                    if let appleProductId = details?.upcomingInvoice?.appleProductId, !self.appleProducts.contains(where: {$0.productIdentifier == appleProductId}) {
-                        self.appleProductsLoading = true
-                        SubscriptionService.sharedInstance.fetchAppleProducts(appleProductIds: [appleProductId]) { (products) in
-                            products.forEach { self.appleProducts.append($0) }
-                            self.appleProductsLoading = false
-                        }
-                    }
                 }
             }
             self.setupCurrentMembership(member: member)
         }
+    }
+    
+    func showError(_ message: String) {
+        self.nextInvoiceDescriptionLabel.text = message
+        self.nextInvoiceDescriptionLabel.isHidden = false
     }
     
     func configureLoading() {
@@ -95,26 +100,70 @@ class ManageSubscriptionViewController: UIViewController {
         //no op yet
     }
     
-    func configureUpcomingInvoice() {
-        guard self.member?.subscription?.isActivated == true, let invoice = self.subscriptionDetails?.upcomingInvoice else {
-            self.invoiceStackView.isHidden = true
-            return
+    func getTrialString(invoice: SubscriptionInvoice, subscriptionProduct: SubscriptionProduct? = nil) -> String {
+        var description: String = ""
+        if invoice.isInOptOutTrial,
+            let trialEndDate = invoice.optOutTrialEndsAt,
+            let trialEndDateString = FormatUtils.formatDate(trialEndDate, currentYearFormat: "MMMM, d, yyyy") {
+            let periodString = subscriptionProduct?.billingPeriod.isReoccurring == true ? "per  \(subscriptionProduct?.billingPeriod.displayName ?? "")" : ""
+            description = "Your free trial ends on **\(trialEndDateString)** and you will be billed **\(formattedPrice)** \(periodString)".trimmingCharacters(in: .whitespacesAndNewlines) + "."
         }
-        
-        var dateString: String?
+        return description
+    }
+    
+    func getActiveBillingString(invoice: SubscriptionInvoice, subscriptionProduct: SubscriptionProduct? = nil) -> String {
+        let billingPeriod = subscriptionProduct?.billingPeriod
+        var nextBillDateString: String?
         if let dateSeconds = invoice.nextPaymentDate_epoch_seconds {
             let nextDate = Date(timeIntervalSince1970: TimeInterval(dateSeconds))
-            dateString = FormatUtils.formatDate(nextDate, currentYearFormat: "MMM d, yyyy")
+            nextBillDateString = FormatUtils.formatDate(nextDate, currentYearFormat: "MMMM d, yyyy")
         }
         
-        let formattedPrice = formatPriceCents(invoice.amountCentsUsd, truncateWholeDollar: true) ?? "$0.00"
-        var description = invoice.isAutoRenew != false ? "Your next bill is for **\(formattedPrice)**" : "Your subscription will end"
-        if let nextDueDate = dateString {
-            description += " on **\(nextDueDate)**"
+        var description = invoice.isAutoRenew != false ? "Your next \(billingPeriod?.productTitle?.lowercased() ?? "") bill is for **\(formattedPrice)**" : "Your subscription will end"
+        if let nextDueDate = nextBillDateString {
+            description += " on **\(nextDueDate)**."
         }
         
+        return description
+    }
+    
+    func getSubscriptionEndedDescription(_ invoice: SubscriptionInvoice) -> String {
+        if let endDate = invoice.periodEndAt, let dateString = FormatUtils.formatDate(endDate, currentYearFormat: "MMMM d, yyyy") {
+            return "Your subscription ended on **\(dateString)**"
+        }
+        return "Your subscription has ended."
+
+    }
+    
+    func getStatusDescriptioninvoice(invoice: SubscriptionInvoice, subscriptionProduct: SubscriptionProduct? = nil) -> String? {
+        if invoice.isExpired == true || invoice.subscriptionStatus.isEnded {
+            return getSubscriptionEndedDescription(invoice)
+        }
+                
+        if invoice.isInOptOutTrial || invoice.subscriptionStatus == SubscriptionStatus.in_trial {
+            return self.getTrialString(invoice: invoice, subscriptionProduct: subscriptionProduct)
+        }
+        
+        if invoice.isAutoRenew == true || invoice.subscriptionStatus.isActive {
+            return self.getActiveBillingString(invoice: invoice, subscriptionProduct: subscriptionProduct)
+        }
+        
+        return nil
+    }
+    
+    func configureUpcomingInvoice() {
+        guard self.member?.subscription?.isActivated == true,
+            let invoice = self.subscriptionDetails?.upcomingInvoice else {
+                self.invoiceStackView.isHidden = true
+                return
+        }
+        let subscriptionProduct = self.subscriptionDetails?.subscriptionProduct
+        let description = getStatusDescriptioninvoice(invoice: invoice, subscriptionProduct: subscriptionProduct)
         self.nextInvoiceDescriptionLabel.attributedText = MarkdownUtil.toMarkdown(description)
-        
+        self.updatePaymentInfo(invoice: invoice, subscriptionProduct: subscriptionProduct)
+    }
+    
+    func updatePaymentInfo(invoice: SubscriptionInvoice, subscriptionProduct: SubscriptionProduct?) {
         var paymentString = ""
         if let card = invoice.defaultPaymentMethod?.card {
             self.paymentStackView.isHidden = false
@@ -123,6 +172,36 @@ class ManageSubscriptionViewController: UIViewController {
                 paymentString += " ending in \(last4)"
             }
             self.paymentMethodLabel.text = paymentString.trimmingCharacters(in: .whitespacesAndNewlines)
+            self.paymentMethodLabel.isHidden = false
+            self.managePaymentButton.isHidden = true
+            if let icon = CactusImage.creditCard.getImage() {
+                self.paymentMethodIcon.setImage(icon)
+                self.paymentMethodIcon.isHidden = false
+                self.paymentMethodIcon.tintColor = CactusColor.green
+            } else {
+                self.paymentMethodIcon.isHidden = true
+            }
+        } else if invoice.billingPlatform == .APPLE {
+            self.managePaymentButton.setTitle("Manage on the App Store", for: .normal)
+            self.managePaymentButton.isHidden = false
+            self.paymentMethodIcon.tintColor = CactusColor.blackInvertable
+            self.paymentMethodLabel.isHidden = true
+            if let icon = CactusImage.apple.getImage() {
+                self.paymentMethodIcon.setImage(icon)
+                self.paymentMethodIcon.isHidden = false
+            } else {
+                self.paymentMethodIcon.isHidden = true
+            }
+        } else if invoice.billingPlatform == .GOOGLE {
+            self.managePaymentButton.setTitle("Manage on Google Play", for: .normal)
+            self.managePaymentButton.isHidden = false
+            self.paymentMethodLabel.isHidden = true
+            if let icon = CactusImage.google.getImage() {
+                self.paymentMethodIcon.setImage(icon)
+                self.paymentMethodIcon.isHidden = false
+            } else {
+                self.paymentMethodIcon.isHidden = true
+            }
         } else {
             self.paymentStackView.isHidden = true
         }
@@ -130,12 +209,36 @@ class ManageSubscriptionViewController: UIViewController {
         self.invoiceStackView.isHidden = false
     }
     
+    @IBAction func manageSubscriptionTapped(_ sender: Any) {
+        guard let invoice = self.subscriptionDetails?.upcomingInvoice else {
+            return
+        }
+        let platform = invoice.billingPlatform
+        
+        var url: URL?
+        switch platform {
+        case .APPLE:
+            url = URL(string: "https://apps.apple.com/account/subscriptions")
+        case .GOOGLE:
+            let sku = invoice.androidProductId ?? ""
+            let packageName = invoice.androidPackageName ?? ""
+            
+            url = URL(string: "https://play.google.com/store/account/subscriptions?sku=\(sku)&package=\(packageName)")
+        default:
+            logger.info("Unsupported platform")
+        }
+        if let url = url {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+        
+    }
+    
     func setupCurrentMembership(member: CactusMember?) {
         guard let member = member else {
             self.logger.info("No member, removing sub info")
             return
         }
-
+        
         self.learnMoreButton.isHidden = member.subscription?.isActivated ?? false
         self.currentStatusLabel.text = member.subscription?.tier.displayName
         self.trialEndLabel.isHidden = !(member.subscription?.isInTrial ?? false)

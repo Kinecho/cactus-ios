@@ -62,7 +62,7 @@ enum CactusImage: String {
     case twitter = "Twitter"
     case facebook = "Facebook"
     case google = "Google"
-    case apple = "Apple"
+    case apple = "apple"
     case envelope
 
     //backgrounds

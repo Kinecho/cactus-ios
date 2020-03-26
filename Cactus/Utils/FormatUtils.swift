@@ -47,7 +47,7 @@ struct FormatUtils {
         return toEmptyString(input).trimmingCharacters(in: .whitespacesAndNewlines) != toEmptyString(original).trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
-    static func formatDate(_ date: Date?, currentYearFormat: String="MMMM d", previousYearFormat: String="MMM d, yyyy") -> String? {
+    static func formatDate(_ date: Date?, currentYearFormat: String="MMMM d", previousYearFormat: String="MMMM d, yyyy") -> String? {
         var dateString: String?
         if let date = date {
             let df = DateFormatter()

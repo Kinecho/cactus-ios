@@ -72,6 +72,10 @@ class TextContentViewController: PromptContentViewController {
             self.mainStackView.addArrangedSubview(contentButton)
         }
         
+        if let actionButton = self.createActionButton() {
+            self.mainStackView.addArrangedSubview(actionButton)
+        }
+        
         self.updateConstraints()
     }
     

@@ -64,6 +64,24 @@ func getTimeZoneGenericNameShort(_ tz: TimeZone, locale: Locale = Locale.current
     return tz.localizedName(for: .shortGeneric, locale: locale)
 }
 
+func optDateFromSeconds(_ seconds: Int?) -> Date? {
+    guard let seconds = seconds else {
+        return nil
+    }
+    
+    let timeinterval = Double(seconds)
+    return Date(timeIntervalSince1970: timeinterval)
+}
+
+func optDateFromMilliseconds(_ millis: Int?) -> Date? {
+    guard let ms = millis else {
+        return nil
+    }
+    
+    let timeinterval = Double(ms/1000)
+    return Date(timeIntervalSince1970: timeinterval)
+}
+
 func getMemberCalendar(member: CactusMember?) -> Calendar {
     guard let tz = member?.getPreferredTimeZone() else {
         return getDenverCalendar()

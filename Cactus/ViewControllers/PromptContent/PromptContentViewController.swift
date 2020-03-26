@@ -56,21 +56,44 @@ class PromptContentViewController: UIViewController {
         }
     }
     
-    func createContentLink() -> UIButton? {
-        guard let link = self.content.link,
-            let href = link.destinationHref,
-            let label = link.linkLabel,
-            !isBlank(href),
-            !isBlank(label)
-        else {
-            return nil
+    func createActionButton() -> UIButton? {
+        guard let actionButton = self.content.actionButton,
+            actionButton.action != .unknown,
+            let label = actionButton.label,
+            !isBlank(label) else {
+                return nil
         }
-        guard URL(string: href) != nil else {
-            self.logger.warn("content link's href was not a valid URL. Link.destinationHref=\(href)")
-            return nil
+        
+        let linkStyle = actionButton.linkStyle ?? .link
+        
+        let button = createStyledButton(style: linkStyle, label: label)
+        button.addTarget(self, action: #selector(self.actionButtonTapped(sender:)), for: .primaryActionTriggered)
+
+        return button
+    }
+    
+    @objc func actionButtonTapped(sender: UIButton) {
+        guard let action = self.content.actionButton?.action else {
+            return
         }
+        
+        switch action {
+        case .showPricing:
+            let vc = ScreenID.Pricing.getViewController()
+            vc.modalPresentationStyle = .overCurrentContext
+            NavigationService.sharedInstance.present(vc)
+        case .next:
+            self.delegate?.nextScreen()
+        case .previous:
+            self.delegate?.previousScreen()
+        default:
+            //no action
+            logger.info("No action handler for action type \(action)")
+        }
+    }
+    
+    func createStyledButton(style: LinkStyle, label: String) -> UIButton {
         var button: UIButton
-        let style: LinkStyle = link.linkStyle ?? .link
         switch style {
         case .buttonPrimary:
             button = PrimaryButton()
@@ -84,8 +107,26 @@ class PromptContentViewController: UIViewController {
             let underlinedTitle = NSAttributedString(string: label).withColor(CactusColor.linkColor).withUnderline()
             button.setAttributedTitle(underlinedTitle, for: .normal)
         }
-        
         button.setTitle(label, for: .normal)
+        return button
+    }
+    
+    func createContentLink() -> UIButton? {
+        guard let link = self.content.link,
+            let href = link.destinationHref,
+            let label = link.linkLabel,
+            !isBlank(href),
+            !isBlank(label)
+        else {
+            return nil
+        }
+        guard URL(string: href) != nil else {
+            self.logger.warn("content link's href was not a valid URL. Link.destinationHref=\(href)")
+            return nil
+        }
+        let style: LinkStyle = link.linkStyle ?? .link
+
+        let button = createStyledButton(style: style, label: label)
         button.addTarget(self, action: #selector(self.contentLinkTapped(sender:)), for: .primaryActionTriggered)
         
         return button

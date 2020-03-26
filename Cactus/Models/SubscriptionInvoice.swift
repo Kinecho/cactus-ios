@@ -77,6 +77,42 @@ enum InvoiceStatus: String, Codable {
     }
 }
 
+enum SubscriptionStatus: String, Codable {
+    case pending
+    case in_trial
+    case active
+    case expired
+    case canceled
+    case unknown
+    case past_due
+    
+    static let endedStatuses: [SubscriptionStatus] = [.expired, .canceled, .past_due]
+    static let activeStatuses: [SubscriptionStatus] = [.in_trial, .active]
+    
+    var isActive: Bool {
+        SubscriptionStatus.activeStatuses.contains(self)
+    }
+    
+    var isEnded: Bool {
+        SubscriptionStatus.endedStatuses.contains(self)
+    }
+    
+    public init(from decoder: Decoder) throws {
+        self = try SubscriptionStatus(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .unknown
+    }
+}
+
+enum BillingPlatform: String, Codable {
+    case STRIPE
+    case APPLE
+    case GOOGLE
+    case unknown
+    
+    public init(from decoder: Decoder) throws {
+        self = try BillingPlatform(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .unknown
+    }
+}
+
 class PaymentMethod: Codable {
     var card: CardPaymentMethod
     var isDefault: Bool?
@@ -93,8 +129,37 @@ class SubscriptionInvoice: Codable {
     var stripeInvoiceId: String?
     var stripeSubscriptionId: String?
     var isAppleSubscription: Bool?
+    var billingPlatform: BillingPlatform
     var appleProductId: String?
     var isAutoRenew: Bool?
+    var androidProductId: String?
+    var androidPackageName: String?
+    var isExpired: Bool?
+    var subscriptionStatus: SubscriptionStatus
+    var optOutTrialStartsAt_epoch_seconds: Int?
+    var optOutTrialEndsAt_epoch_seconds: Int?
+    
+    // MARK: computed properties
+    var isInOptOutTrial: Bool {
+        return self.subscriptionStatus == .in_trial
+    }
+    
+    var optOutTrialEndsAt: Date? {
+        return optDateFromSeconds(self.optOutTrialEndsAt_epoch_seconds)
+    }
+    
+    var optOutTrialStartsAt: Date? {
+        return optDateFromSeconds(self.optOutTrialStartsAt_epoch_seconds)
+    }
+    
+    var periodEndAt: Date? {
+        return optDateFromSeconds(self.periodEnd_epoch_seconds)
+    }
+    
+    var periodStartAt: Date? {
+        return optDateFromSeconds(self.periodStart_epoch_seconds)
+    }
+    
 }
 
 class SubscriptionDetails: Codable {

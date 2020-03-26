@@ -49,6 +49,7 @@ enum ContentAction: String, Codable {
     case next
     case previous
     case complete
+    case showPricing
     case unknown
     
     public init(from decoder: Decoder) throws {
@@ -163,9 +164,9 @@ class ContentLink: Codable {
 }
 
 class ActionButton: Codable {
-    var action: ContentAction
-    var label: String
-    
+    var action: ContentAction?
+    var label: String?
+    var linkStyle: LinkStyle?
     var isEmpty: Bool {
         return isBlank(label)
     }

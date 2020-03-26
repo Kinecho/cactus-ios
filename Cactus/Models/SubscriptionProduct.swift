@@ -26,6 +26,12 @@ enum BillingPeriod: String, Codable {
         return BillingPeriod.displaySortOrder.firstIndex(of: self) ?? 0
     }
     
+    static let reoccurringPeriods: [BillingPeriod] = [.weekly, .monthly, .yearly]
+    
+    var isReoccurring: Bool {
+        return BillingPeriod.reoccurringPeriods.contains(self)
+    }
+    
     var displayName: String? {
         switch self {
         case .never:
