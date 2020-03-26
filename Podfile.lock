@@ -176,9 +176,6 @@ PODS:
   - Cloudinary (2.8.0):
     - Alamofire (~> 4.8.2)
   - CodableFirebase (0.2.1)
-  - Crashlytics (3.14.0):
-    - Fabric (~> 1.10.2)
-  - Fabric (1.10.2)
   - FacebookCore (0.9.0):
     - FBSDKCoreKit (~> 5.0)
   - FBSDKCoreKit (5.15.1):
@@ -201,6 +198,9 @@ PODS:
     - FirebaseAnalytics (= 6.2.2)
   - Firebase/CoreOnly (6.16.0):
     - FirebaseCore (= 6.6.1)
+  - Firebase/Crashlytics (6.16.0):
+    - Firebase/CoreOnly
+    - FirebaseCrashlytics (~> 4.0.0-beta.2)
   - Firebase/Database (6.16.0):
     - Firebase/CoreOnly
     - FirebaseDatabase (~> 6.1.4)
@@ -255,6 +255,11 @@ PODS:
     - GoogleUtilities/Logger (~> 6.5)
     - nanopb (~> 0.3.901)
   - FirebaseCoreDiagnosticsInterop (1.2.0)
+  - FirebaseCrashlytics (4.0.0-beta.5):
+    - FirebaseAnalyticsInterop (~> 1.2)
+    - FirebaseCore (~> 6.6)
+    - FirebaseInstallations (~> 1.1)
+    - PromisesObjC (~> 1.2)
   - FirebaseDatabase (6.1.4):
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 6.0)
@@ -440,12 +445,12 @@ DEPENDENCIES:
   - Branch
   - Cloudinary (~> 2.0)
   - CodableFirebase
-  - Crashlytics
   - FacebookCore
   - FBSDKCoreKit
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Core
+  - Firebase/Crashlytics
   - Firebase/DynamicLinks
   - Firebase/Firestore
   - Firebase/InAppMessaging
@@ -468,8 +473,6 @@ SPEC REPOS:
     - Branch
     - Cloudinary
     - CodableFirebase
-    - Crashlytics
-    - Fabric
     - FacebookCore
     - FBSDKCoreKit
     - FBSDKLoginKit
@@ -482,6 +485,7 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseCoreDiagnosticsInterop
+    - FirebaseCrashlytics
     - FirebaseDatabase
     - FirebaseDynamicLinks
     - FirebaseFirestore
@@ -530,8 +534,6 @@ SPEC CHECKSUMS:
   Branch: 5180bca89b8942dd0fe8175d7ecb8a8a451cf5b0
   Cloudinary: 57c51232648d18bd242db1774c8fa80476c58795
   CodableFirebase: 0bf201991eeec35eb9fcd987d271ea463cf34a80
-  Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
-  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   FacebookCore: ba86524b66cfa86d0f8e65d08faa8504a9f732dd
   FBSDKCoreKit: 1d5acf7c9d7a2f92bb1a242dc60cae5b7adb91df
   FBSDKLoginKit: f1ea8026a58b52d30c9f2e6a58ca7d813619fb83
@@ -544,6 +546,7 @@ SPEC CHECKSUMS:
   FirebaseCore: 85064903ed6c28e47fec9c7bd149d94ba1b6b6e7
   FirebaseCoreDiagnostics: 5e78803ab276bc5b50340e3c539c06c3de35c649
   FirebaseCoreDiagnosticsInterop: 296e2c5f5314500a850ad0b83e9e7c10b011a850
+  FirebaseCrashlytics: 7c95218730d1debf493e987233c7b41dd7ba1329
   FirebaseDatabase: 0144e0706a4761f1b0e8679572eba8095ddb59be
   FirebaseDynamicLinks: 5ba2a0d46ba1615c6c08819fc964c495ca1d0845
   FirebaseFirestore: cee8f861d68dadce998876b78a4b75701bc94302
@@ -575,6 +578,6 @@ SPEC CHECKSUMS:
   SkeletonView: ce0c2a2e8154c57b32f5b31b65f4cb92ca119861
   SwiftLint: 8f5d2f903e1c9bcbc832fd16771e80a263ac6cbb
 
-PODFILE CHECKSUM: a18a95ce1e798b6e661535b7f35acb3529600f40
+PODFILE CHECKSUM: 9dabbfce63a8b3cfe4c52d3f9d291da8091a4c3d
 
 COCOAPODS: 1.8.4

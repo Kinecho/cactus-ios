@@ -2,7 +2,7 @@
  platform :ios, '12.0'
 
 def app_pods
-  pod 'Crashlytics'
+  pod 'Firebase/Crashlytics'
   pod 'CodableFirebase'
   pod 'Firebase/Auth'
   pod 'Firebase/Core'

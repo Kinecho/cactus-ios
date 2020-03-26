@@ -11,7 +11,7 @@ import Firebase
 import FirebaseDynamicLinks
 import FirebaseUI
 import FirebaseMessaging
-import Crashlytics
+import FirebaseCrashlytics
 import Sentry
 import FacebookCore
 import Branch
@@ -92,9 +92,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.logger.debug("Starting auth listener")
         Auth.auth().addStateDidChangeListener {_, user in
             Analytics.logEvent("auth_state_changed", parameters: ["userId": user?.uid ?? "", "previousUserId": self.currentUser?.uid ?? ""])
-            Crashlytics.sharedInstance().setUserEmail(user?.email)
-            Crashlytics.sharedInstance().setUserIdentifier(user?.uid)
-            Crashlytics.sharedInstance().setUserName(user?.displayName)
+            if let userId = user?.uid {
+                Crashlytics.crashlytics().setUserID(userId)
+            }
+            
             if let user = user {
                 let sentryUser = SentryUser(userId: user.uid)
                 sentryUser.email = user.email
