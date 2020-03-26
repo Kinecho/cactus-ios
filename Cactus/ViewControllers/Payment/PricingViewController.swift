@@ -75,16 +75,11 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     
     func configureFromSettings() {
         self.updateAllCopy()
-//        let canMakePayments = SubscriptionService.sharedInstance.isAuthorizedForPayments
-//        let canMakePayments = true
-//        self.showNotAuthorizedForPayments(show: !canMakePayments)
         if self.appSettings?.checkoutSettings?.inAppPaymentsEnabled == true {
-//            self.loadSubscriptionProducts()
             self.planStackView.isHidden = false
             self.contactUsContainerView.isHidden = true
         } else {
             self.planContainerView.isHidden = true
-//            self.continueContainerView.isHidden = true
             self.contactUsContainerView.isHidden = false
         }
     }
@@ -287,6 +282,8 @@ extension PricingViewController: StoreObserverDelegate {
         DispatchQueue.main.async {
             self.logger.info("Handling purchase completed")
             self.isPurchasing = false
+            
+            CactusAnalytics.shared.purchaseCompleted(productEntry: self.selectedProductEntry)
             if verifyReceiptResult?.success == true {
                 self.dismiss(animated: true, completion: nil)
             }

@@ -10,9 +10,6 @@ import Foundation
 import UIKit
 import FirebaseAuth
 import FirebaseUI
-import FirebaseAnalytics
-import FacebookCore
-import FBSDKCoreKit
 
 class UserService {
     static let sharedInstance = UserService()
@@ -88,38 +85,6 @@ class UserService {
         }
     }
     
-    func sendLoginAnalyticsEvent(_ loginEvent: LoginEvent, screen: ScreenID?=nil, anonymousUpgrade: Bool = false) {
-        var analyticsParams: [String: Any] = [AnalyticsParameterMethod: loginEvent.providerId ?? "unknown"]
-        if let screen = screen {
-            analyticsParams["screen"] = screen.name
-        }
-        
-        if anonymousUpgrade {
-            analyticsParams["anonyomousUpgrade"] = true
-        }
-        
-        let providerId = loginEvent.providerId ?? "unknown provider"
-        let email = loginEvent.email ?? "unknown"
-        if loginEvent.isNewUser {
-            self.logger.sentryInfo(":wave: \(email) signed up on iOS via \(providerId). Email: \(email)")
-            Analytics.logEvent(AnalyticsEventSignUp, parameters: analyticsParams)
-            logCompleteRegistrationFacebookEvent(registrationMethod: providerId)
-        } else {
-            self.logger.sentryInfo("\(email) logged in on iOS via \(providerId)")
-            Analytics.logEvent(AnalyticsEventLogin, parameters: analyticsParams)
-        }
-    }
-    
-    /**
-     * For more details, please take a look at:
-     * developers.facebook.com/docs/swift/appevents
-     */
-    func logCompleteRegistrationFacebookEvent(registrationMethod: String) {
-        AppEvents.logEvent(.completedRegistration, parameters: [
-            AppEvents.ParameterName.registrationMethod.rawValue: registrationMethod
-        ])
-    }
-    
     func handleSuccessfulLogIn(_ authResult: AuthDataResult, screen: ScreenID?=nil, anonymousUpgrade: Bool=false) {
         DispatchQueue.global(qos: .background).async {
             var loginEvent = LoginEvent()
@@ -132,7 +97,7 @@ class UserService {
             
             self.logger.info("User login success. Referred By Email \(loginEvent.referredByEmail ?? "none")")
             
-            self.sendLoginAnalyticsEvent(loginEvent, screen: screen, anonymousUpgrade: anonymousUpgrade)
+            CactusAnalytics.shared.sendLoginAnalyticsEvent(loginEvent, screen: screen, anonymousUpgrade: anonymousUpgrade)
             
             self.loginMemberListener = CactusMemberService.sharedInstance.observeCurrentMember { (member, _, _) in
                 if member != nil {

@@ -57,4 +57,9 @@ class FormatUtilTest: XCTestCase {
         XCTAssertEqual(tz!.localizedName(for: .daylightSaving, locale: locale)!, "Mountain Daylight Time")
         XCTAssertEqual(tz!.localizedName(for: .shortDaylightSaving, locale: locale)!, "MDT")
     }
+    
+    func testCurrencyFormat() {
+        XCTAssertEqual(formatPriceCents(199), "$1.99")
+        XCTAssertEqual(formatPriceCents(199, currencySymbol: ""), "1.99")
+    }
 }

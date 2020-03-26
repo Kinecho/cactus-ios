@@ -295,6 +295,10 @@
 		303C9E4723847A3B006B9786 /* MemberProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9E4523847A3B006B9786 /* MemberProfileService.swift */; };
 		303C9E4823847A3B006B9786 /* MemberProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9E4523847A3B006B9786 /* MemberProfileService.swift */; };
 		303C9E4A238F29E6006B9786 /* SharingServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9E49238F29E6006B9786 /* SharingServiceTest.swift */; };
+		303E8142242C4F2700782B54 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E8141242C4F2700782B54 /* File.swift */; };
+		303E8143242C4F2700782B54 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E8141242C4F2700782B54 /* File.swift */; };
+		303E8144242C4F2700782B54 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E8141242C4F2700782B54 /* File.swift */; };
+		303E8145242C4F2700782B54 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E8141242C4F2700782B54 /* File.swift */; };
 		303EB0882343A0B800AC8741 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EB0872343A0B800AC8741 /* RoundedView.swift */; };
 		303EB0892343A0B800AC8741 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EB0872343A0B800AC8741 /* RoundedView.swift */; };
 		304A252C240DCC2200737C57 /* SubscriptionInvoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304A252B240DCC2200737C57 /* SubscriptionInvoice.swift */; };
@@ -834,6 +838,7 @@
 		303C9E412384778A006B9786 /* MemberProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberProfile.swift; sourceTree = "<group>"; };
 		303C9E4523847A3B006B9786 /* MemberProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberProfileService.swift; sourceTree = "<group>"; };
 		303C9E49238F29E6006B9786 /* SharingServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingServiceTest.swift; sourceTree = "<group>"; };
+		303E8141242C4F2700782B54 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		303EB0872343A0B800AC8741 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		304A252B240DCC2200737C57 /* SubscriptionInvoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionInvoice.swift; sourceTree = "<group>"; };
 		304B210423D383E1007B016C /* Cactus Today Prod.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Cactus Today Prod.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1445,6 +1450,7 @@
 				3099D1FD240974F200BD9CC4 /* SubscriptionProductGroupService.swift */,
 				3021CBD62410215500F58B89 /* NavigationService.swift */,
 				303282202416D3DF00FC197A /* AuthenticatedTaskManager.swift */,
+				303E8141242C4F2700782B54 /* File.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -2279,6 +2285,7 @@
 				303C9DD3238419A9006B9786 /* AuthService.swift in Sources */,
 				303C9E442384778A006B9786 /* MemberProfile.swift in Sources */,
 				303C9DE123841A8F006B9786 /* JournalFeedDataSource.swift in Sources */,
+				303E8144242C4F2700782B54 /* File.swift in Sources */,
 				3099D20424098EF400BD9CC4 /* SubscriptionProductGroup.swift in Sources */,
 				303C9DD22384197A006B9786 /* FirestoreService.swift in Sources */,
 				303C9E3923841AFC006B9786 /* SwiftyGifManager.swift in Sources */,
@@ -2377,6 +2384,7 @@
 				304B212F23D38F65007B016C /* ReflectionPrompt.swift in Sources */,
 				304B213123D38F65007B016C /* MailchimpModels.swift in Sources */,
 				3032821A2414556A00FC197A /* ApplePayment.swift in Sources */,
+				303E8145242C4F2700782B54 /* File.swift in Sources */,
 				304B216E23D3947F007B016C /* MemberProfileService.swift in Sources */,
 				304B212923D38F5A007B016C /* BaseModel.swift in Sources */,
 				304B214923D39233007B016C /* SwiftyGifManager.swift in Sources */,
@@ -2457,6 +2465,7 @@
 				300F2375237A6F7500F35CDE /* ShadowView.swift in Sources */,
 				303282132412B8E600FC197A /* PricingFeatureView.swift in Sources */,
 				3099D1FF240974F200BD9CC4 /* SubscriptionProductGroupService.swift in Sources */,
+				303E8143242C4F2700782B54 /* File.swift in Sources */,
 				3014A38C2378CA0300121729 /* TertiaryButton.swift in Sources */,
 				303EB0892343A0B800AC8741 /* RoundedView.swift in Sources */,
 				30CF53902370FBB800578B22 /* RelationshipsAnimationViewController.swift in Sources */,
@@ -2619,6 +2628,7 @@
 				3014A38D2378CA0300121729 /* TertiaryButton.swift in Sources */,
 				303282122412B8E600FC197A /* PricingFeatureView.swift in Sources */,
 				3099D1FE240974F200BD9CC4 /* SubscriptionProductGroupService.swift in Sources */,
+				303E8142242C4F2700782B54 /* File.swift in Sources */,
 				303EB0882343A0B800AC8741 /* RoundedView.swift in Sources */,
 				30CF538F2370FBB800578B22 /* RelationshipsAnimationViewController.swift in Sources */,
 				30BF2E1823289D1200A49EB6 /* PromptContentPageViewController.swift in Sources */,

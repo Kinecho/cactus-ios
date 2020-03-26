@@ -25,7 +25,7 @@ func formatApplePrice(_ price: NSDecimalNumber, locale: Locale?) -> String? {
     return currencyFormatter.string(from: price)
 }
 
-func formatPriceCents(_ price: Int?, truncateWholeDollar: Bool = true) -> String? {
+func formatPriceCents(_ price: Int?, truncateWholeDollar: Bool = true, currencySymbol: String?=nil) -> String? {
     guard let price = price else {
         return nil
     }
@@ -39,6 +39,11 @@ func formatPriceCents(_ price: Int?, truncateWholeDollar: Bool = true) -> String
     }
     
     currencyFormatter.locale = Locale.init(identifier: "en-US")
+    
+    if let symbol = currencySymbol {
+        currencyFormatter.currencySymbol = symbol
+    }
+    
     return currencyFormatter.string(from: NSNumber(value: Double(price)/100))
 }
 
