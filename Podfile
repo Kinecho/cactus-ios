@@ -35,10 +35,13 @@ def today_pods
     pod 'Firebase/Core'
     pod 'Firebase/Firestore'
     pod 'Firebase/Storage'
+#    pod 'Firebase/Analytics'
     pod 'Cloudinary', '~> 2.0'
     pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '4.4.1'
     pod 'MarkdownKit', '1.5'
     pod 'SkeletonView'
+#    pod 'FBSDKCoreKit'
+#    pod 'FacebookCore'
 end
 
 target 'Cactus Stage' do
