@@ -27,6 +27,7 @@ class CactusAnalytics {
                                              "predicted_ltv": priceString ?? "0.00",
                                              "value": priceString ?? "0.00"
         ])
+        //Note: firebase automatically fires in app purchase events.
     }
     
     func sendLoginAnalyticsEvent(_ loginEvent: LoginEvent, screen: ScreenID?=nil, anonymousUpgrade: Bool = false) {
