@@ -166,7 +166,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         
         let member = self.member
         let isActivated = member?.subscription?.isActivated ?? false
-        let inTrial = member?.subscription?.isInTrial ?? false
+        let inTrial = member?.subscription?.isInOptInTrial ?? false
         let daysLeft = member?.subscription?.trialDaysLeft
         if isActivated {
             upgradeView.isHidden = true

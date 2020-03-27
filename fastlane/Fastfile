@@ -231,6 +231,36 @@ lane :lintfix do
 			org_slug: 'kinecho',
 			project_slug: 'cactus-ios',
 		)
+		upload_symbols_to_crashlytics
+	end
+
+	lane :upload_symbols_v do 
+		get_version_number(xcodeproj: "Cactus.xcodeproj", target: "Cactus Prod")
+		get_build_number
+		download_dsyms(version: "1.2.2", build_number: "133")
+		# version = "#{lane_context[SharedValues::VERSION_NUMBER]}.#{lane_context[SharedValues::BUILD_NUMBER]}"
+		# release = "com.cactus.CactusApp-#{version}"
+		sh("echo", "Getting symbols for 1.2.2.133")
+		sentry_upload_dsym(
+			auth_token: $SENTRY_AUTH_TOKEN,
+			org_slug: 'kinecho',
+			project_slug: 'cactus-ios',
+		)
+	end
+
+	lane :upload_symbols_all do 
+		get_version_number(xcodeproj: "Cactus.xcodeproj", target: "Cactus Prod")
+		get_build_number
+		download_dsyms(min_version: "1.1.5")
+		# version = "#{lane_context[SharedValues::VERSION_NUMBER]}.#{lane_context[SharedValues::BUILD_NUMBER]}"
+		# release = "com.cactus.CactusApp-#{version}"
+		# sh("echo", "Getting symbols for 1.2.2.133")
+		sentry_upload_dsym(
+			auth_token: $SENTRY_AUTH_TOKEN,
+			org_slug: 'kinecho',
+			project_slug: 'cactus-ios',
+		)
+		upload_symbols_to_crashlytics
 	end
 
 	lane :upload_symbols_stage do 

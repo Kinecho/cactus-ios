@@ -74,29 +74,38 @@ class SubscriptionTrial: Codable {
     }
 }
 
+class OptOutTrial: Codable {
+    var billingPlatform: BillingPlatform?
+    var endsAt: Date?
+    var startedAt: Date?
+}
+
 class MemberSubscription: Codable {
     var trial: SubscriptionTrial?
     var tier: SubscriptionTier = .PLUS
     var legacyConversion: Bool? = false
+    var optOutTrial: OptOutTrial?
     
     ///This field is protected because it should not be read directly from client code
     private var activated: Bool? = false
     var subscriptionProductId: String?
+    
     var stripeSubscriptionId: String?
+    var appleOriginalTransactionid: String?
     
     var trialDaysLeft: Int? {
-        guard self.isInTrial else {
+        guard self.isInOptInTrial else {
             return nil
         }
         return trial?.daysLeft
     }
     
-    var isInTrial: Bool {
+    var isInOptInTrial: Bool {
         return self.tier.isPaidTier && !(self.trial?.trialEnded ?? true)
     }
     
     var isActivated: Bool {
-        return self.tier.isPaidTier && !self.isInTrial
+        return self.tier.isPaidTier && !self.isInOptInTrial
     }
     
     static func getDefault(trialDurationDays: Int = DEFAULT_TRIAL_LENGTH_DAYS) -> MemberSubscription {

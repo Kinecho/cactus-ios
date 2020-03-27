@@ -241,7 +241,7 @@ class ManageSubscriptionViewController: UIViewController {
         
         self.learnMoreButton.isHidden = member.subscription?.isActivated ?? false
         self.currentStatusLabel.text = member.subscription?.tier.displayName
-        self.trialEndLabel.isHidden = !(member.subscription?.isInTrial ?? false)
+        self.trialEndLabel.isHidden = !(member.subscription?.isInOptInTrial ?? false)
         let daysLeft = member.subscription?.trialDaysLeft ?? 0
         if daysLeft <= 1 {
             self.trialEndLabel.text = "Trial ends today"
@@ -253,7 +253,7 @@ class ManageSubscriptionViewController: UIViewController {
             self.upgradeStackView.isHidden = true
         } else {
             self.upgradeStackView.isHidden = false
-            self.upgradeDescriptionLabel.text = (member.subscription?.isInTrial ?? false)
+            self.upgradeDescriptionLabel.text = (member.subscription?.isInOptInTrial ?? false)
                 ? SubscriptionService.sharedInstance.upgradeTrialDescription
                 : SubscriptionService.sharedInstance.upgradeBasicDescription
         }

@@ -155,7 +155,7 @@ class CelebrateViewController: UIViewController {
             return
         }
         
-        if self.member?.subscription?.isInTrial == true {
+        if self.member?.subscription?.isInOptInTrial == true {
             let daysLeft = self.member?.subscription?.trialDaysLeft ?? 0
             if daysLeft <= 1 {
                 self.upsellLabel.text = "Free access to Cactus Plus ends today"

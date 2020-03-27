@@ -20,8 +20,6 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBOutlet weak var footerIcon: UIImageView!
     @IBOutlet weak var continueButton: PrimaryButton!
     @IBOutlet weak var planContainerView: UIView!
-//    @IBOutlet weak var continueContainerView: UIView!
-    @IBOutlet weak var questionsTextView: UITextView!
     @IBOutlet weak var headerStackView: UIStackView!
     @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet weak var featuresStackView: UIStackView!
@@ -67,7 +65,6 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
         
         self.closeButton.isHidden = !self.showCloseButton
         
-        self.configureQuestionsView()
         self.setupHeaderBackground()
         self.configureFromSettings()
         self.loadSubscriptionProducts()
@@ -105,12 +102,6 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
         imageView.heightAnchor.constraint(equalToConstant: 220).isActive = true
         imageView.leadingAnchor.constraint(equalTo: self.headerStackView.leadingAnchor, constant: -100).isActive = true
         imageView.trailingAnchor.constraint(equalTo: self.headerStackView.trailingAnchor, constant: 100).isActive = true
-    }
-    
-    func configureQuestionsView() {
-        self.questionsTextView.delegate = self
-        self.questionsTextView.attributedText = MarkdownUtil.centeredMarkdown("Questions? Email us at [help@cactus.app](mailto:help@cactus.app).")
-        self.questionsTextView.tintColor = CactusColor.darkGreen
     }
     
     func loadSubscriptionProducts() {

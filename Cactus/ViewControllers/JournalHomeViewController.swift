@@ -276,7 +276,7 @@ class JournalHomeViewController: UIViewController {
     func updateViewForMember(member: CactusMember?) {
 //        self.journalFeedDataSource?.curr
         self.logger.info("Update view for member", functionName: #function)
-        if member?.subscription?.isInTrial == true {
+        if member?.subscription?.isInOptInTrial == true {
             self.showTrialBanner()
         } else {
             self.hideTrialBanner()

@@ -137,7 +137,7 @@ class JournalFeedDataSource {
     }
     
     func handleMemberUpdated(oldMember: CactusMember?, newMember: CactusMember?) {
-        if newMember != nil && oldMember?.tier == newMember?.tier {
+        if newMember == nil || oldMember?.tier == newMember?.tier {
             //nothing to change
             return
         }
@@ -185,9 +185,10 @@ class JournalFeedDataSource {
                 oldData.isTodaysPrompt = false
                 oldData.delegate?.onData(oldData.getJournalEntry())
                 oldData.stop()
-                if let oldPromptId = oldData.promptId {
-                    self.journalEntryDataByPromptId.removeValue(forKey: oldPromptId)
-                }
+                self.logger.info("Had old data for Today Prompt, used to remove it but am not anymore")
+//                if let oldPromptId = oldData.promptId {
+//                    self.journalEntryDataByPromptId.removeValue(forKey: oldPromptId)
+//                }
             }
             
             self.todayDateString = currentDateString
