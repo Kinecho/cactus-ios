@@ -77,7 +77,7 @@ class MemberSubscriptionTest: XCTestCase {
 //        let plus7 = cal.date(byAdding: .day, value: 7, to: today)
         
         XCTAssertEqual(subscription.trialDaysLeft, 6)
-        XCTAssertEqual(subscription.isInTrial, true)
+        XCTAssertEqual(subscription.isInOptInTrial, true)
         XCTAssertEqual(subscription.isActivated, false)
         XCTAssertEqual(subscription.legacyConversion, false)
         XCTAssertNotNil(subscription.trial)
@@ -85,22 +85,22 @@ class MemberSubscriptionTest: XCTestCase {
         
         subscription.trial?.activatedAt = minus7
         XCTAssertTrue(subscription.isActivated)
-        XCTAssertTrue(!subscription.isInTrial)
+        XCTAssertTrue(!subscription.isInOptInTrial)
         XCTAssertTrue(subscription.trialDaysLeft == nil)
                 
         subscription.tier = .BASIC
         XCTAssertTrue(!subscription.isActivated)
-        XCTAssertTrue(!subscription.isInTrial)
+        XCTAssertTrue(!subscription.isInOptInTrial)
         
         ///this is kinda weird- a subscription can be _not in trial_ but the trial may not have ended
         subscription.trial?.activatedAt = nil
         XCTAssertTrue(!subscription.isActivated)
-        XCTAssertTrue(!subscription.isInTrial)
+        XCTAssertTrue(!subscription.isInOptInTrial)
         XCTAssertTrue(!subscription.trial!.trialEnded)
         
         subscription.tier = .PREMIUM
         XCTAssertTrue(!subscription.isActivated)
-        XCTAssertTrue(subscription.isInTrial)
+        XCTAssertTrue(subscription.isInOptInTrial)
         XCTAssertTrue(!subscription.trial!.trialEnded)
         
     }
