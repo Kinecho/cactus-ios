@@ -14,7 +14,7 @@ class JournalFeedFlowLayout: UICollectionViewFlowLayout {
                                       withOriginalAttributes originalAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutInvalidationContext {
         let context = super.invalidationContext(forPreferredLayoutAttributes: preferredAttributes,
                                                 withOriginalAttributes: originalAttributes)
-        context.invalidateSupplementaryElements(ofKind: UICollectionView.elementKindSectionFooter,
+        context.invalidateSupplementaryElements(ofKind: UICollectionView.elementKindSectionHeader,
                                                     at: [originalAttributes.indexPath])
         return context
     }

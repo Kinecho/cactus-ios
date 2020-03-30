@@ -196,21 +196,14 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             //handle the header
-            return self.updateHeaderView()
-        case UICollectionView.elementKindSectionFooter:
-//            let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Footer", for: indexPath)
-//            let footerView = self.getHeaderView()
-            
-//            footerView.backgroundColor = UIColor.green
-            
-            assert(false, "Unexpected element kind for Footer")
-            fatalError("Unexpeted element kind")
+            let view = self.updateHeaderView()
+            view.isHidden = false
+            return view        
         default:
-            //nothing to do
-            logger.info("unexpected kind of supplemntry view")
-//            return collectionView
-            assert(false, "Unexpected element kind")
-            fatalError("Unexpeted element kind")
+            let kind = UICollectionView.elementKindSectionHeader
+            let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: IndexPath(row: 0, section: 0))
+            view.isHidden = true
+            return view
         }
     }
     
