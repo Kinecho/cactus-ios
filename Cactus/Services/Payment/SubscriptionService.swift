@@ -106,7 +106,7 @@ class SubscriptionService: NSObject {
         NavigationService.sharedInstance.present(alert, animated: true)
     }
     
-    func completePurchase(onComplete: @escaping ((CompletePurchaseResult?, Any?) -> Void)) {
+    func completePurchase(restored: Bool=false, onComplete: @escaping ((CompletePurchaseResult?, Any?) -> Void)) {
         if let appStoreReceiptURL = Bundle.main.appStoreReceiptURL,
             FileManager.default.fileExists(atPath: appStoreReceiptURL.path) {
 
@@ -114,7 +114,8 @@ class SubscriptionService: NSObject {
                 let receiptData = try Data(contentsOf: appStoreReceiptURL, options: .alwaysMapped)
                 let receiptString = receiptData.base64EncodedString(options: [])
                 
-                let receiptParams = CompletePurchaseRequest(receiptData: receiptString)
+                let receiptParams = CompletePurchaseRequest(receiptData: receiptString, restored: restored)
+                
                 self.logger.info("Sending verify receipt data to backend")
                 ApiService.sharedInstance.post(path: ApiPath.appleCompletePurchase, body: receiptParams, responseType: CompletePurchaseResult.self, authenticated: true) { result, error in
                     if let error = error {

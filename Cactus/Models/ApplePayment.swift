@@ -11,9 +11,10 @@ import StoreKit
 struct CompletePurchaseRequest: Codable {
     ///Base64 encoded receipt data
     var receiptData: String
-    
-    init(receiptData: String) {
+    var restored: Bool
+    init(receiptData: String, restored: Bool) {
         self.receiptData = receiptData
+        self.restored = restored
     }
 }
 
