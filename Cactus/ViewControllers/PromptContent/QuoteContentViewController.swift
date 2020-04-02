@@ -26,10 +26,9 @@ class QuoteContentViewController: PromptContentViewController {
         self.initTextView(self.authorTitleTextView)
         
         if let quote = content.quote, let text = quote.getMarkdownText() {
-            if let mdText = MarkdownUtil.centeredMarkdown(text, font: CactusFont.normal(24), color: CactusColor.textDefault, boldColor: CactusColor.green) {
+            if let mdText = MarkdownUtil.centeredMarkdown(text, font: CactusFont.normal(24), color: CactusColor.textDefault, boldColor: CactusColor.textBoldHighlight) {
                 self.quoteText.attributedText = mdText.preventOrphanedWords()
             }
-//            self.authorNameTextView.
             self.authorNameTextView.text = quote.authorName
             self.authorTitleTextView.text = quote.authorTitle
             
