@@ -23,41 +23,29 @@ public class MarkdownUtil {
         mText.addAttributes([NSAttributedString.Key.paragraphStyle: paragraph], range: range)
         
         let aString = mText.attributedSubstring(from: NSRange(location: 0, length: mText.length))
-        if let color = color {
-            return aString.withColor(color)
-        } else {
-            return aString
-        }
+        return aString
     }
     
-    static func centeredMarkdown(_ input: String?, font: UIFont = CactusFont.normal, color: UIColor?=CactusColor.textDefault) -> NSAttributedString? {
-        guard let md = MarkdownUtil.toMarkdown(input, font: font)  else {
+    static func centeredMarkdown(_ input: String?, font: UIFont = CactusFont.normal, color: UIColor?=CactusColor.textDefault, boldColor: UIColor?=nil) -> NSAttributedString? {
+        guard let md = MarkdownUtil.toMarkdown(input, font: font, boldColor: boldColor)  else {
             return nil
         }        
         let aString = MarkdownUtil.centered(md)
-        if let color = color {
-            return aString?.withColor(color)
-        } else {
-            return aString
-        }
+        return aString
         
     }
     
-    static func toMarkdown(_ input: String?, font: UIFont = CactusFont.normal, color: UIColor? = CactusColor.textDefault) -> NSAttributedString? {
+    static func toMarkdown(_ input: String?, font: UIFont = CactusFont.normal, color: UIColor? = CactusColor.textDefault, boldColor: UIColor? = CactusColor.textDefault) -> NSAttributedString? {
         guard let input = input, !input.isEmpty else {
             return nil
         }
         
         let markdownParser = MarkdownParser(font: font, color: color ?? CactusColor.textDefault, customElements: [CactusMarkdownLink()])
         markdownParser.enabledElements.remove( .link)
-
+        markdownParser.bold.color = boldColor
         let aString = markdownParser.parse(input)
                 
-        if let color = color {
-            return aString.withColor(color)
-        } else {
-            return aString
-        }
+        return aString
     }
 }
 

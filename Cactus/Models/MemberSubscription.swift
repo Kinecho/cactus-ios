@@ -64,14 +64,14 @@ class SubscriptionTrial: Codable {
         return diffInDays
     }
     
-    static func getDefault(_ durationDays: Int=DEFAULT_TRIAL_LENGTH_DAYS) -> SubscriptionTrial {
-        let trial = SubscriptionTrial()
-        let startsAt = Date()
-        trial.startedAt = startsAt
-        trial.endsAt = Calendar.current.date(byAdding: .day, value: durationDays, to: startsAt)
-        
-        return trial
-    }
+//    static func getDefault(_ durationDays: Int=DEFAULT_TRIAL_LENGTH_DAYS) -> SubscriptionTrial {
+//        let trial = SubscriptionTrial()
+//        let startsAt = Date()
+//        trial.startedAt = startsAt
+//        trial.endsAt = Calendar.current.date(byAdding: .day, value: durationDays, to: startsAt)
+//
+//        return trial
+//    }
 }
 
 class OptOutTrial: Codable {
@@ -108,12 +108,12 @@ class MemberSubscription: Codable {
         return self.tier.isPaidTier && !self.isInOptInTrial
     }
     
-    static func getDefault(trialDurationDays: Int = DEFAULT_TRIAL_LENGTH_DAYS) -> MemberSubscription {
-        let subscription = MemberSubscription()
-        subscription.tier = .PLUS
-        subscription.activated = false
-        subscription.legacyConversion = false
-        subscription.trial = SubscriptionTrial.getDefault(trialDurationDays)
-        return subscription
-    }
+//    static func getDefault(trialDurationDays: Int = DEFAULT_TRIAL_LENGTH_DAYS) -> MemberSubscription {
+//        let subscription = MemberSubscription()
+//        subscription.tier = .PLUS
+//        subscription.activated = false
+//        subscription.legacyConversion = false
+//        subscription.trial = SubscriptionTrial.getDefault(trialDurationDays)
+//        return subscription
+//    }
 }

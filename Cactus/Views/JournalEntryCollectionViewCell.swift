@@ -65,10 +65,7 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     let logger = Logger("JournalEntryCollectionViewCell")
     
     @IBAction func moreButtonTapped(_ sender: UIButton) {
-        let duration: Double = 0.5
-        let activeColor = CactusColor.darkGreen
-        let normalColor = CactusColor.lightGreen
-        
+        let duration: Double = 0.5        
         let responseText = FormatUtils.responseText(self.responses)
         let isComplete = !(self.responses?.isEmpty ?? true)
         let hasNote = !FormatUtils.isBlank(responseText)

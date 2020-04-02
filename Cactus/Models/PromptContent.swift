@@ -81,33 +81,49 @@ enum LinkStyle: String, Codable {
 
 class Quote: Codable {
     var text: String?
+    var text_md: String?
     var authorName: String?
     var authorTitle: String?
     var authorAvatar: ImageFile?
     
     var isEmpty: Bool {
-        isBlank(text) && isBlank(authorName) && isBlank(authorTitle) && (authorAvatar?.isEmpty ?? true)
+        isBlank(text) && isBlank(authorName) && isBlank(authorTitle) && isBlank(text_md) && (authorAvatar?.isEmpty ?? true)
     }
     
     enum QuoteCodingKey: CodingKey {
         case text
+        case text_md
         case authorName
         case authorTitle
         case authorAvatar
     }
     
     public required init(from decoder: Decoder) throws {
-        do {
-            let container = try decoder.container(keyedBy: QuoteCodingKey.self)
-            self.text = try? container.decode(String.self, forKey: .text)
-            self.authorName = try? container.decode(String.self, forKey: .authorName)
-            self.authorTitle = try? container.decode(String.self, forKey: .authorTitle)
-            if (try? container.decode(String.self, forKey: .authorAvatar)) == nil {
-                self.authorAvatar = try? container.decode(ImageFile.self, forKey: .authorAvatar)
-            }
-        } catch {
-//            Logger.shared.error("error decoding Quote content", error)
+        guard let model = ModelDecoder<QuoteCodingKey>.create(decoder: decoder, codingKeys: QuoteCodingKey.self) else {
+            return
         }
+        
+        self.text = model.optionalString(.text, blankAsNil: true)
+        self.authorName = model.optionalString(.authorName, blankAsNil: true)
+        self.authorTitle = model.optionalString(.authorTitle, blankAsNil: true)
+        self.text_md = model.optionalString(.text_md, blankAsNil: true)
+        
+        if (try? model.container.decode(String.self, forKey: .authorAvatar)) == nil {
+            self.authorAvatar = try? model.container.decode(ImageFile.self, forKey: .authorAvatar)
+        }
+    }
+    
+    func getMarkdownText(quoted: Bool=true) -> String? {
+        var text = self.text_md ?? self.text
+        guard text != nil else {
+            return nil
+        }
+        text = text?.preventOrphanedWords()
+        if quoted {
+            text = FormatUtils.wrapInDoubleQuotes(input: text)
+        }
+        
+        return text
     }
     
 }

@@ -25,10 +25,11 @@ class QuoteContentViewController: PromptContentViewController {
         self.initTextView(self.authorNameTextView)
         self.initTextView(self.authorTitleTextView)
         
-        if let quote = content.quote, let textString = quote.text, let wrappedText = FormatUtils.wrapInDoubleQuotes(input: textString.preventOrphanedWords()) {
-            if let mdText = MarkdownUtil.centeredMarkdown(wrappedText, font: CactusFont.normal(24), color: CactusColor.textDefault) {
-                self.quoteText.attributedText = mdText
+        if let quote = content.quote, let text = quote.getMarkdownText() {
+            if let mdText = MarkdownUtil.centeredMarkdown(text, font: CactusFont.normal(24), color: CactusColor.textDefault, boldColor: CactusColor.green) {
+                self.quoteText.attributedText = mdText.preventOrphanedWords()
             }
+//            self.authorNameTextView.
             self.authorNameTextView.text = quote.authorName
             self.authorTitleTextView.text = quote.authorTitle
             
