@@ -67,7 +67,7 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
         })
         
         self.closeButton.isHidden = !self.showCloseButton
-        
+        self.planContainerView.isHidden = false
         self.setupHeaderBackground()
         self.configureFromSettings()
         self.loadSubscriptionProducts()
