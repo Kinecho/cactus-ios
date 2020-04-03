@@ -35,6 +35,7 @@ class CelebrateViewController: UIViewController {
     @IBOutlet weak var relationshipStatImageView: UIImageView!
     @IBOutlet weak var insightsContainerView: UIView!
     
+    @IBOutlet weak var insightsHeaderStackView: UIStackView!
     @IBOutlet weak var streakDurationLabel: UILabel!
     @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet weak var upsellContainer: UIView!
@@ -119,6 +120,8 @@ class CelebrateViewController: UIViewController {
         self.insightsVc?.appSettings = self.appSettings
         self.descriptionTextView.isHidden = showInsights
         self.encouragementLabel.isHidden = false
+        
+        self.insightsHeaderStackView.isHidden = isBlank(self.reflectionResponse?.content.text) || self.member?.tier == .BASIC
         
         self.insightsTitleLabel.text = (self.appSettings?.insights?.insightsTitle ?? "Today's Insight").uppercased()
         self.insightsDescriptionLabel.text = (self.appSettings?.insights?.insightsDescription ?? "A visualization of words that have come up recently in your reflections.")

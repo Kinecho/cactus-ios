@@ -56,6 +56,7 @@ class MemberInsightsViewController: UIViewController {
         insightsWebView.chartEnabled = true
         self.createNoInsightView()
         self.configureModal()
+        
     }
     
     deinit {
@@ -64,10 +65,20 @@ class MemberInsightsViewController: UIViewController {
     
     func configureModal() {
         let hasText = !isBlank(self.reflectionResponse?.content.text)
-        self.showModal(hasText)
+        let tier = self.member?.subscription?.tier ?? .BASIC
+        
+        if tier == .BASIC {
+            self.showModal(hasText)
+        } else {
+            self.showModal(false)
+//            self.insightsWebView.chartEnabled = true
+            if hasText {
+                self.unlockInsights(nil)
+            }
+        }
+        
         self.noInsightView?.isHidden = hasText
         
-        let tier = self.member?.subscription?.tier ?? .BASIC
         self.learnMoreButton?.isHidden = tier.isPaidTier
         self.unlockButton?.isHidden = !tier.isPaidTier
 
