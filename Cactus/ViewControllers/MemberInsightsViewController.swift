@@ -49,7 +49,7 @@ class MemberInsightsViewController: UIViewController {
             self.member = member
             self.insightsWebView.member = self.member
         })
-    
+        
         self.createWebView()
         
         self.insightsWebView.member = self.member
@@ -68,45 +68,49 @@ class MemberInsightsViewController: UIViewController {
     }
     
     func configureModal() {
-        let hasText = !isBlank(self.reflectionResponse?.content.text)
-        let tier = self.member?.subscription?.tier ?? .BASIC
-        
-        if tier == .BASIC {
-            self.modalDismissed = false
-            self.showModal(hasText)
-            self.lockInsights()
-        } else {
-            self.showModal(false)
-            if hasText {
-                self.unlockInsights(nil)
-            } else {
+        DispatchQueue.main.async {
+            
+            
+            
+            let hasText = !isBlank(self.reflectionResponse?.content.text)
+            let tier = self.member?.subscription?.tier ?? .BASIC
+            
+            if tier == .BASIC {
+                self.modalDismissed = false
+                self.showModal(hasText)
                 self.lockInsights()
+            } else {
+                self.showModal(false)
+                if hasText {
+                    self.unlockInsights(nil)
+                } else {
+                    self.lockInsights()
+                }
             }
+            
+            self.noInsightView?.isHidden = hasText
+            
+            self.learnMoreButton?.isHidden = tier.isPaidTier
+            self.unlockButton?.isHidden = !tier.isPaidTier
+            
+            self.modalContainer?.backgroundColor = CactusColor.dolphin
+            self.unlockMessageLabel?.textColor = CactusColor.white
+            self.unlockTitleLabel?.textColor = CactusColor.white.withAlphaComponent(0.8)
+            
+            let revealMessage = self.appSettings?.insights?.revealInsightMessage ?? "Want to see Today's Insight?"
+            let upgradeMessage = self.appSettings?.insights?.revealInsightUpgradeMessage ?? "To reveal Today's Insight, upgrade to Cactus Plus."
+            
+            let unlockText = self.appSettings?.insights?.revealInsightButtonText ?? "Show Me!"
+            self.unlockButton?.setTitle(unlockText, for: .normal)
+            self.unlockTitleLabel?.text = (self.appSettings?.insights?.insightsTitle ?? "Today's Insight").uppercased()
+            
+            self.noReflectionTextTitleLabel?.text = (self.appSettings?.insights?.insightsTitle ?? "Today's Insight").uppercased()
+            self.unlockMessageLabel?.text = tier.isPaidTier ? revealMessage : upgradeMessage
+            
+            let upgradeButtonText = self.appSettings?.insights?.learnMoreButtonText ?? "What are insights?"
+            self.learnMoreButton?.setTitle(upgradeButtonText, for: .normal)
+            self.noReflectionLearnMoreButton?.setTitle( upgradeButtonText, for: .normal)
         }
-        
-        self.noInsightView?.isHidden = hasText
-        
-        self.learnMoreButton?.isHidden = tier.isPaidTier
-        self.unlockButton?.isHidden = !tier.isPaidTier
-
-        self.modalContainer?.backgroundColor = CactusColor.dolphin
-        self.unlockMessageLabel?.textColor = CactusColor.white
-        self.unlockTitleLabel?.textColor = CactusColor.white.withAlphaComponent(0.8)
-        
-        let revealMessage = self.appSettings?.insights?.revealInsightMessage ?? "Want to see Today's Insight?"
-        let upgradeMessage = self.appSettings?.insights?.revealInsightUpgradeMessage ?? "To reveal Today's Insight, upgrade to Cactus Plus."
-        
-        let unlockText = self.appSettings?.insights?.revealInsightButtonText ?? "Show Me!"
-        self.unlockButton?.setTitle(unlockText, for: .normal)
-        self.unlockTitleLabel?.text = (self.appSettings?.insights?.insightsTitle ?? "Today's Insight").uppercased()
-        
-        self.noReflectionTextTitleLabel?.text = (self.appSettings?.insights?.insightsTitle ?? "Today's Insight").uppercased()
-        self.unlockMessageLabel?.text = tier.isPaidTier ? revealMessage : upgradeMessage
-        
-        let upgradeButtonText = self.appSettings?.insights?.learnMoreButtonText ?? "What are insights?"
-        self.learnMoreButton?.setTitle(upgradeButtonText, for: .normal)
-        self.noReflectionLearnMoreButton?.setTitle( upgradeButtonText, for: .normal)
-        
     }
     
     func configureCopy() {
@@ -151,7 +155,7 @@ class MemberInsightsViewController: UIViewController {
         bgImageView.contentMode = .scaleAspectFill
         bgImageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         container.addSubview(bgImageView)
-                
+        
         let stack = UIStackView()
         stack.axis = .vertical
         stack.alignment = .center
@@ -164,7 +168,7 @@ class MemberInsightsViewController: UIViewController {
         stack.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20).isActive = true
         stack.topAnchor.constraint(equalTo: container.topAnchor, constant: 20).isActive = true
         stack.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -20).isActive = true
-                                
+        
         let titleLabel = UILabel()
         self.noReflectionTextTitleLabel = titleLabel
         titleLabel.font = CactusFont.bold(18)
@@ -183,7 +187,7 @@ class MemberInsightsViewController: UIViewController {
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
         messageLabel.text = appSettings?.insights?.noTextTodayMessage ?? "You didn't write anything today. That's fine, but Today's Insight only works when you capture your thoughts."
         stack.addArrangedSubview(messageLabel)
-                
+        
         let cta = FancyLinkButton()
         self.noReflectionLearnMoreButton = cta
         cta.textColorNormal = CactusColor.white
@@ -238,7 +242,7 @@ class MemberInsightsViewController: UIViewController {
         titleLabel.text = (self.appSettings?.insights?.insightsTitle ?? "Today's Insight").uppercased()
         self.unlockTitleLabel = titleLabel
         stack.addArrangedSubview(titleLabel)
-    
+        
         let messageLabel = UILabel()
         messageLabel.font = CactusFont.normal
         messageLabel.textColor = CactusColor.white
@@ -307,5 +311,5 @@ class MemberInsightsViewController: UIViewController {
             self.noInsightView?.isHidden = false
         }
     }
-        
+    
 }
