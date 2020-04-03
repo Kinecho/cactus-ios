@@ -9,7 +9,11 @@
 import UIKit
 
 class MemberInsightsViewController: UIViewController {
-    var member: CactusMember?
+    var member: CactusMember? {
+        didSet {
+            self.configureCopy()
+        }
+    }
     var insightsWebView: InsightsWebViewViewController!
     var modalContainer: UIView?
     var unlockMessageLabel: UILabel?
@@ -68,12 +72,15 @@ class MemberInsightsViewController: UIViewController {
         let tier = self.member?.subscription?.tier ?? .BASIC
         
         if tier == .BASIC {
+            self.modalDismissed = false
             self.showModal(hasText)
+            self.lockInsights()
         } else {
             self.showModal(false)
-//            self.insightsWebView.chartEnabled = true
             if hasText {
                 self.unlockInsights(nil)
+            } else {
+                self.lockInsights()
             }
         }
         
@@ -280,6 +287,13 @@ class MemberInsightsViewController: UIViewController {
         self.present(pricingVc, animated: true, completion: nil)
     }
     
+    func lockInsights() {
+        DispatchQueue.main.async {
+            self.insightsWebView.lockInsights()
+            self.modalDismissed = false
+        }
+    }
+    
     @objc func unlockInsights(_ sender: Any?) {
         self.modalDismissed = true
         self.showModal(false)
@@ -291,7 +305,6 @@ class MemberInsightsViewController: UIViewController {
         } else {
             self.createNoInsightView()
             self.noInsightView?.isHidden = false
-//            self.insightsWebView.view.isHidden = true
         }
     }
         

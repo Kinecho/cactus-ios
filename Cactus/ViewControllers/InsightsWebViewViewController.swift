@@ -161,6 +161,7 @@ class InsightsWebViewViewController: UIViewController {
         self.showMeEventFired = true
     }
     
+    ///Un-blur the insights chart
     func unlockInsights() {
         self.unlocked = true
         guard loaded else {
@@ -173,6 +174,21 @@ class InsightsWebViewViewController: UIViewController {
             }
             self.logger.info("Unlock insights javascript result \(String(describing: result))")
         }
+    }
+    
+    ///Blur the insights chart
+    func lockInsights() {
+        self.unlocked = false
+        guard loaded else {
+            return
+        }
+        self.webView.evaluateJavaScript("window.lockInsights();") { (result, error) in
+           guard error == nil else {
+               self.logger.error("Failed to evaluate lock insights javascript", error)
+               return
+           }
+           self.logger.info("Lock insights javascript result \(String(describing: result))")
+       }
     }
     
     func setChartData() {
