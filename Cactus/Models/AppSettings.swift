@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class AppSettings: FlamelinkIdentifiable {
     static var schema = FlamelinkSchema.appSettings_ios
@@ -49,6 +50,7 @@ class PricingScreenSettings: Codable {
     var pageDescriptionMarkdown: String?
     var purchaseButtonText: String?
     var features: [PricingFeature]?
+    var headerBackgroundHeight: CGFloat? = 260        
 }
 
 class WelcomeSettings: Codable {
@@ -67,9 +69,6 @@ class InsightsSettings: Codable {
     var celebrateInsightsEnabled: Bool? = false
 }
 
-
-
-
 class JournalHomeUpgradeBannerCopy: Codable {
     var title: String = ""
     var descriptionMarkdown: String = ""
@@ -86,9 +85,14 @@ class ManageSubscriptionCopy: Codable {
     var upgradeButtonText: String? = "Try Cactus Plus"
 }
 
+class CelebrateUpgradeCopy: Codable {
+    var upgradeBasicDescriptionMarkdown: String? = "Get daily insights and more"
+}
+
 class UpgradeCopy: Codable {
     var journalHomeBanner: JournalHomeUpgradeCopyGroups
     var manageSubscription: ManageSubscriptionCopy
+    var celebrate: CelebrateUpgradeCopy
 }
 
 class CheckoutSettings: Codable {

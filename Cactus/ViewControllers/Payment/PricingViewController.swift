@@ -27,6 +27,9 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBOutlet weak var notAuthorizedForPaymentsLabel: UILabel!
     @IBOutlet weak var contactUsContainerView: UIView!
 
+    var headerImageHeightConstraint: NSLayoutConstraint?
+    var headerBackgroundImage: UIImageView?
+    
     var isPurchasing: Bool = false {
         didSet {
             self.updatePurchasingState()
@@ -79,6 +82,7 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
             self.planContainerView.isHidden = true
             self.contactUsContainerView.isHidden = false
         }
+        self.layoutHeaderBackground()
     }
     
     func showNotAuthorizedForPayments(show: Bool) {
@@ -94,14 +98,26 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     }
     
     func setupHeaderBackground() {
+        let height: CGFloat = self.appSettings?.pricingScreen?.headerBackgroundHeight ?? 260
+        
         let imageView = UIImageView(image: CactusImage.plusBg.getImage())
         imageView.contentMode = .scaleToFill
+        self.headerBackgroundImage = imageView
         self.mainStackView.insertSubview(imageView, at: 0)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.topAnchor.constraint(equalTo: self.headerStackView.topAnchor, constant: 0).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 220).isActive = true
+        let heightConstraint = imageView.heightAnchor.constraint(equalToConstant: height)
+        heightConstraint.isActive = true
+        self.headerImageHeightConstraint = heightConstraint
         imageView.leadingAnchor.constraint(equalTo: self.headerStackView.leadingAnchor, constant: -100).isActive = true
         imageView.trailingAnchor.constraint(equalTo: self.headerStackView.trailingAnchor, constant: 100).isActive = true
+        self.layoutHeaderBackground()
+    }
+    
+    func layoutHeaderBackground() {        
+        let height: CGFloat = self.appSettings?.pricingScreen?.headerBackgroundHeight ?? 260
+        self.headerImageHeightConstraint?.constant = height
+        self.view.setNeedsLayout()
     }
     
     func loadSubscriptionProducts() {

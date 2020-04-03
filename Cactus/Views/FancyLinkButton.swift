@@ -30,7 +30,7 @@ class FancyLinkButton: UIButton {
     }
     
     var border: CALayer?
-    @IBInspectable var thickness: CGFloat = 16
+    @IBInspectable var thickness: CGFloat = 14
     @IBInspectable var imageWidth: CGFloat = 25
     @IBInspectable var imageHeight: CGFloat = 25
     @IBInspectable var fontSize: CGFloat = 18

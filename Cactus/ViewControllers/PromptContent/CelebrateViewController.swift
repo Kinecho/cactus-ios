@@ -10,8 +10,8 @@ import UIKit
 import WebKit
 import FirebaseFirestore
 
-protocol CelebrateViewControllerDelegate:class {
-    func goHome() -> Void
+protocol CelebrateViewControllerDelegate: class {
+    func goHome()
 }
 
 class CelebrateViewController: UIViewController {
@@ -66,7 +66,10 @@ class CelebrateViewController: UIViewController {
     var memberUnsubscriber: Unsubscriber?
     var appSettings: AppSettings? {
         didSet {
-            self.configureInsights()
+            DispatchQueue.main.async {
+                self.configureInsights()
+                self.configureUpsell()
+            }            
         }
     }
     var member: CactusMember? {
@@ -152,6 +155,10 @@ class CelebrateViewController: UIViewController {
     }
     
     func configureUpsell() {
+        guard isViewLoaded else {
+            return
+        }
+        let copy = self.appSettings?.upgradeCopy?.celebrate
         if self.member?.subscription?.isActivated == true {
             self.upsellStackView.isHidden = true
             self.upsellContainer.isHidden = true
@@ -166,7 +173,7 @@ class CelebrateViewController: UIViewController {
                 self.upsellLabel.text = "\(daysLeft) days left of free Cactus Plus access"
             }
         } else {
-            self.upsellLabel.text = "Get daily prompts"
+            self.upsellLabel.attributedText = MarkdownUtil.toMarkdown(copy?.upgradeBasicDescriptionMarkdown ?? "Get daily inishgts and more")
         }
         
         let imageView = UIImageView(image: CactusImage.plusBg.getImage())
