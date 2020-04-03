@@ -108,12 +108,12 @@ class MemberSubscription: Codable {
         return self.tier.isPaidTier && !self.isInOptInTrial
     }
     
-//    static func getDefault(trialDurationDays: Int = DEFAULT_TRIAL_LENGTH_DAYS) -> MemberSubscription {
-//        let subscription = MemberSubscription()
-//        subscription.tier = .PLUS
-//        subscription.activated = false
-//        subscription.legacyConversion = false
-//        subscription.trial = SubscriptionTrial.getDefault(trialDurationDays)
-//        return subscription
-//    }
+    static func getDefault(trialDurationDays: Int = DEFAULT_TRIAL_LENGTH_DAYS) -> MemberSubscription {
+        let subscription = MemberSubscription()
+        subscription.tier = .BASIC
+        subscription.activated = false
+        subscription.legacyConversion = false
+        //subscription.trial = SubscriptionTrial.getDefault(trialDurationDays)
+        return subscription
+    }
 }
