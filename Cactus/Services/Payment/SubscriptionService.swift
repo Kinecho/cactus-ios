@@ -12,6 +12,7 @@ import StoreKit
 //Methods to help with the checkout process
 class SubscriptionService: NSObject {
     static var sharedInstance = SubscriptionService()
+    
     var logger = Logger("CheckoutService")
     var subscriptionProductService = SubscriptionProductService.sharedInstance
     var isAuthorizedForPayments: Bool {
@@ -20,10 +21,18 @@ class SubscriptionService: NSObject {
     
     private var appleRequests: [ProductRequest] = []
 
-    var upgradeTrialDescription = "After your trial of Cactus Plus, you'll continue to get free prompts, but only occasionally."
-        + " Give your reflection practice momentum by receiving a fresh prompt, every day"
+    var upgradeCopy: UpgradeCopy? {
+        return AppSettingsService.sharedInstance.currentSettings?.upgradeCopy
+    }
     
-    var upgradeBasicDescription = "Give your reflection practice momentum by receiving a fresh prompt, every day"
+    var upgradeTrialDescription: String {
+        return "After your trial of Cactus Plus, you'll continue to get free prompts, but only occasionally."
+        + " Give your reflection practice momentum by receiving a fresh prompt, every day"
+    }
+    
+    var upgradeBasicDescription: String {
+        return self.upgradeCopy?.manageSubscription.upgradeFromBasicMarkdown ?? "Get daily insights, core values, and more."
+    }
     
     func fetchAppleProducts(appleProductIds: [String], onCompleted: @escaping ([SKProduct]) -> Void) {
         let appleRequest = ProductRequest()

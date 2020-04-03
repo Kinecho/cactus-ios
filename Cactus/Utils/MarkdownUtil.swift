@@ -43,6 +43,7 @@ public class MarkdownUtil {
         let markdownParser = MarkdownParser(font: font, color: color ?? CactusColor.textDefault, customElements: [CactusMarkdownLink()])
         markdownParser.enabledElements.remove( .link)
         markdownParser.bold.color = boldColor
+        markdownParser.bold.font = CactusFont.bold(font.pointSize)
         let aString = markdownParser.parse(input)
                 
         return aString

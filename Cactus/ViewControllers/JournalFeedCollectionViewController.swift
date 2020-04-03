@@ -18,6 +18,13 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     var memberUnsubscriber: Unsubscriber?
     var member: CactusMember?
     var headerView: UICollectionReusableView?
+    var settings: AppSettings? {
+        didSet {
+            self.handleSettingsChanged()
+        }
+    }
+    var settingsListener: ListenerRegistration?
+    
     private let itemsPerRow: CGFloat = 1
     private let reuseIdentifier = ReuseIdentifier.JournalEntryCell.rawValue
     private let defaultCellHeight: CGFloat = 220
@@ -41,19 +48,27 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         // Get the view for the first header
         let indexPath = IndexPath(row: 0, section: section)
         let headerView = self.collectionView(collectionView, viewForSupplementaryElementOfKind: UICollectionView.elementKindSectionHeader, at: indexPath)
+        headerView.layoutIfNeeded()
 
         if self.member?.subscription?.isActivated == true {
             return CGSize.zero
         } else {
             // Use this view to calculate the optimal size based on the collection view's width
-            return headerView.systemLayoutSizeFitting(CGSize(width: collectionView.frame.width, height: UIView.layoutFittingExpandedSize.height),
+            let layoutSize = headerView.systemLayoutSizeFitting(CGSize(width: collectionView.frame.width,
+                                                             height: UIView.layoutFittingExpandedSize.height),
                                                       withHorizontalFittingPriority: .required, // Width is fixed
                                                       verticalFittingPriority: .fittingSizeLevel) // Height can be as large as needed
+            return layoutSize
         }
         
     }
+    
     override func viewDidLoad() {
-        super.viewDidLoad()                                
+        super.viewDidLoad()
+        self.settingsListener = AppSettingsService.sharedInstance.observeSettings({ (settings, _) in
+            self.logger.info("GOT APP SETTINGS \(String(describing: settings))")
+            self.settings = settings
+        })
         
         self.collectionView.prefetchDataSource = self
         layout.estimatedItemSize = getCellEstimatedSize(self.view.bounds.size)
@@ -70,10 +85,15 @@ class JournalFeedCollectionViewController: UICollectionViewController {
             self.member = member
             DispatchQueue.main.async {
                 _ = self.updateHeaderView()
-                self.collectionViewLayout.invalidateLayout()
             }
         })
         
+    }
+    
+    func handleSettingsChanged() {
+        DispatchQueue.main.async {
+            _ = self.updateHeaderView()
+        }
     }
     
     @IBAction func upgradeTapped(_ sender: Any) {
@@ -93,6 +113,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     
     deinit {
         self.memberUnsubscriber?()
+        self.settingsListener?.remove()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -160,34 +181,19 @@ class JournalFeedCollectionViewController: UICollectionViewController {
 
     func updateHeaderView() -> UICollectionReusableView {
         let headerView = self.getHeaderView()
+
         guard let upgradeView = headerView as? UpgradeJournalFeedCollectionReusableView else {
             return headerView
         }
         
-        let member = self.member
-        let isActivated = member?.subscription?.isActivated ?? false
-        let inTrial = member?.subscription?.isInOptInTrial ?? false
-        let daysLeft = member?.subscription?.trialDaysLeft
-        if isActivated {
-            upgradeView.isHidden = true
-            return upgradeView
-        } else {
-            upgradeView.isHidden = false
+        DispatchQueue.main.async {
+            upgradeView.member = self.member
+            upgradeView.appSettings = self.settings
+            upgradeView.updateCopy()
+            upgradeView.setNeedsLayout()
+            self.collectionView.collectionViewLayout.invalidateLayout()
         }
         
-        if inTrial {
-            if daysLeft == 1 {
-                upgradeView.titleLabel.text = "Trial ends today"
-            } else {
-                upgradeView.titleLabel.text = "\(daysLeft ?? 0) days left in trial"
-            }
-            
-            upgradeView.descriptionLabel.text = SubscriptionService.sharedInstance.upgradeTrialDescription
-        } else {
-            upgradeView.titleLabel.text = "Cactus Plus"
-            upgradeView.descriptionLabel.text = SubscriptionService.sharedInstance.upgradeBasicDescription
-        }
-        upgradeView.setNeedsLayout()
         return upgradeView
     }
     
@@ -197,7 +203,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         case UICollectionView.elementKindSectionHeader:
             //handle the header
             let view = self.updateHeaderView()
-            view.isHidden = false
+            //view.isHidden = false
             return view        
         default:
             let kind = UICollectionView.elementKindSectionHeader

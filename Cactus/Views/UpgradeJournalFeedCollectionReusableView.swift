@@ -18,6 +18,21 @@ class UpgradeJournalFeedCollectionReusableView: UICollectionReusableView {
     @IBInspectable var stackViewBackgroundColor: UIColor = CactusColor.magenta
     @IBInspectable var borderRadius: CGFloat = 0
     
+    var appSettings: AppSettings? {
+        didSet {
+            if appSettings != nil {
+                DispatchQueue.main.async {
+                    self.setNeedsLayout()
+                }
+            }
+        }
+    }
+    var member: CactusMember? {
+        didSet {
+            self.setNeedsLayout()
+        }
+    }
+    
     var addedBackground = false
     
     required init?(coder aDecoder: NSCoder) {
@@ -31,27 +46,48 @@ class UpgradeJournalFeedCollectionReusableView: UICollectionReusableView {
     }
 
     func initSubviews() {
-        
+//        self.titleLabel.font = CactusFont.bold(18)
+//        self.descriptionLabel.font = CactusFont.normal(18)
     }
 
     override func layoutSubviews() {
-        self.titleLabel.font = CactusFont.bold(18)
-        self.descriptionLabel.font = CactusFont.normal(18)
-        
-        if !addedBackground {
-//            let imageView = UIImageView(image: CactusImage.plusBg.getImage())
-//            imageView.contentMode = .scaleToFill
-//            imageView.clipsToBounds = true
-//            imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//            self.mainStackView.insertSubview(imageView, at: 0)
-//            imageView.translatesAutoresizingMaskIntoConstraints = false
-//            imageView.topAnchor.constraint(equalTo: self.mainStackView.topAnchor, constant: 0).isActive = true
-//            imageView.bottomAnchor.constraint(equalTo: self.mainStackView.bottomAnchor, constant: 10).isActive = true
-//            imageView.leadingAnchor.constraint(equalTo: self.mainStackView.leadingAnchor, constant: -100).isActive = true
-//            imageView.trailingAnchor.constraint(equalTo: self.mainStackView.trailingAnchor, constant: 100).isActive = true
-//            self.addedBackground = true
+        super.layoutSubviews()
+        self.updateCopy()
+    }
+    
+    func updateCopy() {
+        let upgradeView = self
+        guard let member = self.member, let settings = self.appSettings, let copy = settings.upgradeCopy?.journalHomeBanner else {
+            self.isHidden = true
+            return
         }
         
-        super.layoutSubviews()
+        let isActivated = member.subscription?.isActivated ?? false
+        let inTrial = member.subscription?.isInOptInTrial ?? false
+        let daysLeft = member.subscription?.trialDaysLeft
+        if isActivated || member.tier.isPaidTier {
+            upgradeView.isHidden = true
+            return
+        }
+        
+        if inTrial {
+            if daysLeft == 1 {
+                upgradeView.titleLabel.text = "Trial ends today"
+            } else {
+                upgradeView.titleLabel.text = "\(daysLeft ?? 0) days left in trial"
+            }
+            
+            upgradeView.descriptionLabel.attributedText = MarkdownUtil.toMarkdown(SubscriptionService.sharedInstance.upgradeTrialDescription)
+        } else {
+            upgradeView.upgradeButton.setTitle(copy.basicTier.upgradeButtonText, for: .normal)
+            upgradeView.titleLabel.text = copy.basicTier.title
+            upgradeView.titleLabel.isHidden = isBlank(copy.basicTier.title)
+            upgradeView.descriptionLabel.attributedText = MarkdownUtil.toMarkdown(copy.basicTier.descriptionMarkdown, color: CactusColor.white, boldColor: CactusColor.white )
+        }
+        
+        upgradeView.titleLabel.isHidden = isBlank(titleLabel.text)
+        self.isHidden = false
+//        upgradeView.setNeedsLayout()
     }
+    
 }

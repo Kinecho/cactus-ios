@@ -53,6 +53,10 @@ class ManageSubscriptionViewController: UIViewController {
         return formatPriceCents(self.subscriptionDetails?.upcomingInvoice?.amountCentsUsd, truncateWholeDollar: true) ?? "$0.00"
     }
     
+    var upgradeCopy: UpgradeCopy? {
+        return AppSettingsService.sharedInstance.currentSettings?.upgradeCopy
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.managePaymentButton.isHidden = true
@@ -65,20 +69,24 @@ class ManageSubscriptionViewController: UIViewController {
             }
             self.detailsLoading = true
             self.member = member
-            SubscriptionService.sharedInstance.getSubscriptionDetails { (details, error) in
-                defer {
-                    self.detailsLoading = false
-                }
-                if let error = error {
-                    self.logger.error("Failed to fetch subscription details", error)
-                    DispatchQueue.main.async {
-                        self.subscriptionDetails = nil
-                        
-                        self.showError("Unable to load your subscription details. Please try again later.")
+            if member?.tier.isPaidTier == true {
+                SubscriptionService.sharedInstance.getSubscriptionDetails { (details, error) in
+                    defer {
+                        self.detailsLoading = false
                     }
-                } else {
-                    self.subscriptionDetails = details
+                    if let error = error {
+                        self.logger.error("Failed to fetch subscription details", error)
+                        DispatchQueue.main.async {
+                            self.subscriptionDetails = nil
+                            
+                            self.showError("Unable to load your subscription details. Please try again later.")
+                        }
+                    } else {
+                        self.subscriptionDetails = details
+                    }
                 }
+            } else {
+                self.detailsLoading = false
             }
             self.setupCurrentMembership(member: member)
         }
@@ -240,6 +248,8 @@ class ManageSubscriptionViewController: UIViewController {
         }
         
         self.learnMoreButton.isHidden = member.subscription?.isActivated ?? false
+        self.learnMoreButton.setTitle(self.upgradeCopy?.manageSubscription.upgradeButtonText ?? "Upgrade", for: .normal)
+        
         self.currentStatusLabel.text = member.subscription?.tier.displayName
         self.trialEndLabel.isHidden = !(member.subscription?.isInOptInTrial ?? false)
         let daysLeft = member.subscription?.trialDaysLeft ?? 0
@@ -253,9 +263,9 @@ class ManageSubscriptionViewController: UIViewController {
             self.upgradeStackView.isHidden = true
         } else {
             self.upgradeStackView.isHidden = false
-            self.upgradeDescriptionLabel.text = (member.subscription?.isInOptInTrial ?? false)
-                ? SubscriptionService.sharedInstance.upgradeTrialDescription
-                : SubscriptionService.sharedInstance.upgradeBasicDescription
+            self.upgradeDescriptionLabel.attributedText = (member.subscription?.isInOptInTrial ?? false)
+                ? MarkdownUtil.toMarkdown(SubscriptionService.sharedInstance.upgradeTrialDescription)
+                : MarkdownUtil.toMarkdown(SubscriptionService.sharedInstance.upgradeBasicDescription)
         }
     }
     @IBAction func restorePurchases(_ sender: Any) {

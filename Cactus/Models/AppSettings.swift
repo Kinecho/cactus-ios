@@ -20,6 +20,7 @@ class AppSettings: FlamelinkIdentifiable {
     var welcome: WelcomeSettings?
     var pricingScreen: PricingScreenSettings?
     var apiDomain: String?
+    var upgradeCopy: UpgradeCopy?
 }
 
 struct PricingFeature: Codable {
@@ -64,6 +65,30 @@ class InsightsSettings: Codable {
     var revealInsightUpgradeMessage: String?
     var learnMoreButtonText: String?
     var celebrateInsightsEnabled: Bool? = false
+}
+
+
+
+
+class JournalHomeUpgradeBannerCopy: Codable {
+    var title: String = ""
+    var descriptionMarkdown: String = ""
+    var upgradeButtonText: String = ""    
+}
+
+class JournalHomeUpgradeCopyGroups: Codable {
+    var basicTier: JournalHomeUpgradeBannerCopy
+}
+
+class ManageSubscriptionCopy: Codable {
+    var upgradeFromOptInTrian: String = ""
+    var upgradeFromBasicMarkdown: String = ""
+    var upgradeButtonText: String? = "Try Cactus Plus"
+}
+
+class UpgradeCopy: Codable {
+    var journalHomeBanner: JournalHomeUpgradeCopyGroups
+    var manageSubscription: ManageSubscriptionCopy
 }
 
 class CheckoutSettings: Codable {

@@ -50,6 +50,9 @@ class JournalHomeViewController: UIViewController {
         return min(400, size.width * 4/5)
     }
     
+    var appSettings: AppSettings?
+    var appSettingsUnsubscriber: ListenerRegistration?
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         let menuWidth = getMenuWidth(size)
@@ -80,6 +83,14 @@ class JournalHomeViewController: UIViewController {
         self.overlayView.isHidden = true
 
         self.setupDrawer()
+        
+        self.appSettingsUnsubscriber = AppSettingsService.sharedInstance.observeSettings({ (settings, error) in
+            if error != nil {
+                self.logger.error("Failed to get app settings", error)
+                return
+            }
+            self.appSettings = settings
+        })
         
         self.memberListener = CactusMemberService.sharedInstance.observeCurrentMember { (member, error, user) in
             if let error = error {
@@ -246,6 +257,7 @@ class JournalHomeViewController: UIViewController {
 
     deinit {
         self.memberListener?()
+        self.appSettingsUnsubscriber?.remove()
     }
 
     func setupView() {
