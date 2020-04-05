@@ -69,7 +69,7 @@ class CelebrateViewController: UIViewController {
             DispatchQueue.main.async {
                 self.configureInsights()
                 self.configureUpsell()
-            }            
+            }
         }
     }
     var member: CactusMember? {
@@ -173,7 +173,7 @@ class CelebrateViewController: UIViewController {
                 self.upsellLabel.text = "\(daysLeft) days left of free Cactus Plus access"
             }
         } else {
-            self.upsellLabel.attributedText = MarkdownUtil.toMarkdown(copy?.upgradeBasicDescriptionMarkdown ?? "Get daily inishgts and more")
+            self.upsellLabel.attributedText = MarkdownUtil.toMarkdown(copy?.upgradeBasicDescriptionMarkdown ?? "Get daily inishgts and more", color: CactusColor.white)
         }
         
         let imageView = UIImageView(image: CactusImage.plusBg.getImage())

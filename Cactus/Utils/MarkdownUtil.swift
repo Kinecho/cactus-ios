@@ -27,7 +27,7 @@ public class MarkdownUtil {
     }
     
     static func centeredMarkdown(_ input: String?, font: UIFont = CactusFont.normal, color: UIColor?=CactusColor.textDefault, boldColor: UIColor?=nil) -> NSAttributedString? {
-        guard let md = MarkdownUtil.toMarkdown(input, font: font, boldColor: boldColor)  else {
+        guard let md = MarkdownUtil.toMarkdown(input, font: font, color: color, boldColor: boldColor)  else {
             return nil
         }        
         let aString = MarkdownUtil.centered(md)
@@ -35,14 +35,14 @@ public class MarkdownUtil {
         
     }
     
-    static func toMarkdown(_ input: String?, font: UIFont = CactusFont.normal, color: UIColor? = CactusColor.textDefault, boldColor: UIColor? = CactusColor.textDefault) -> NSAttributedString? {
+    static func toMarkdown(_ input: String?, font: UIFont = CactusFont.normal, color: UIColor? = CactusColor.textDefault, boldColor: UIColor?=nil) -> NSAttributedString? {
         guard let input = input, !input.isEmpty else {
             return nil
         }
         
         let markdownParser = MarkdownParser(font: font, color: color ?? CactusColor.textDefault, customElements: [CactusMarkdownLink()])
         markdownParser.enabledElements.remove( .link)
-        markdownParser.bold.color = boldColor
+        markdownParser.bold.color = boldColor ?? color
         markdownParser.bold.font = CactusFont.bold(font.pointSize)
         let aString = markdownParser.parse(input)
                 

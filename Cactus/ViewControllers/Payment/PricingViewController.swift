@@ -138,7 +138,7 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     func updateAllCopy() {
         let settings = self.appSettings?.pricingScreen
         let pageTitle = settings?.pageTitleMarkdown ?? "Get more with Cactus Plus"
-        self.titleLabel.attributedText = MarkdownUtil.centeredMarkdown(pageTitle, font: CactusFont.bold(26), color: CactusColor.white)?.preventOrphanedWords()
+        self.titleLabel.attributedText = MarkdownUtil.centeredMarkdown(pageTitle, font: CactusFont.bold(26), color: CactusColor.white, boldColor: CactusColor.white)?.preventOrphanedWords()
         
         let pageDescription = settings?.pageDescriptionMarkdown ?? "Daily prompts, personalized insights, and more"
         self.descriptionLabel.attributedText = MarkdownUtil.centeredMarkdown(pageDescription, font: CactusFont.normal(18), color: CactusColor.white)?.preventOrphanedWords()

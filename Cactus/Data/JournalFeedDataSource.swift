@@ -243,7 +243,7 @@ class JournalFeedDataSource {
     }
     
     func loadNextPage() {
-        self.logger.info("attempting to load  next page", functionName: #function)
+        self.logger.info("attempting to load next page", functionName: #function)
         
         guard !self.isLoading else {
             logger.info("Already loading more, can't fetch next page", functionName: #function)

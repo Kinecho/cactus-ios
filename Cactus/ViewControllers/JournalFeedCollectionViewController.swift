@@ -48,9 +48,10 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         // Get the view for the first header
         let indexPath = IndexPath(row: 0, section: section)
         let headerView = self.collectionView(collectionView, viewForSupplementaryElementOfKind: UICollectionView.elementKindSectionHeader, at: indexPath)
-        headerView.layoutIfNeeded()
-
+        //headerView.layoutIfNeeded()
+        logger.info("getting header view layout size")
         if self.member?.subscription?.isActivated == true {
+            logger.info("size is 0")
             return CGSize.zero
         } else {
             // Use this view to calculate the optimal size based on the collection view's width
@@ -58,6 +59,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
                                                              height: UIView.layoutFittingExpandedSize.height),
                                                       withHorizontalFittingPriority: .required, // Width is fixed
                                                       verticalFittingPriority: .fittingSizeLevel) // Height can be as large as needed
+            logger.info("header view height is \(layoutSize.height)")
             return layoutSize
         }
         
@@ -198,16 +200,16 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-    
+        let view = self.getHeaderView()
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             //handle the header
-            let view = self.updateHeaderView()
+//            let view = self.updateHeaderView()
             //view.isHidden = false
-            return view        
+            return view
         default:
-            let kind = UICollectionView.elementKindSectionHeader
-            let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: IndexPath(row: 0, section: 0))
+//            let kind = UICollectionView.elementKindSectionHeader
+//            let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: IndexPath(row: 0, section: 0))
             view.isHidden = true
             return view
         }
