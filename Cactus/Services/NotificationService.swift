@@ -93,7 +93,10 @@ class NotificationService: NSObject {
     }
     
     func goToSettings() {
-        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
+        guard let url = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+        NavigationService.sharedInstance.openUrl(url: url)
 
     }
     

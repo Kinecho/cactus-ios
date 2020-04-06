@@ -57,11 +57,12 @@ class WebViewController: UIViewController {
         self.url = url
         self.loadContent()
     }
+    
     @IBAction func openInSafariTapped(_ sender: Any) {
         if let url = self.webView.url {
             self.resignFirstResponder()
             self.webView.resignFirstResponder()
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            NavigationService.sharedInstance.openUrl(url: url)
         }
     }
     

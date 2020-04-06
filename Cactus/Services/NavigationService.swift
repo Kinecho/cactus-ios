@@ -10,8 +10,13 @@ import Foundation
 
 import UIKit
 
+protocol NavigationServiceDelegate: class {
+    func open(url: URL, options: [UIApplication.OpenExternalURLOptionsKey: Any], completionHandler: ((Bool) -> Void)?)
+}
+
 class NavigationService {
     private static var _shared: NavigationService?
+    weak var delegate: NavigationServiceDelegate?
     
     static var sharedInstance: NavigationService {
         guard let shared = NavigationService._shared else {
@@ -35,15 +40,16 @@ class NavigationService {
      - Parameters:
         - rootVc: The root view controller of the app. 
      */
-    static func initialize(rootVc: UIViewController) {
+    static func initialize(rootVc: UIViewController, delegate: NavigationServiceDelegate?=nil) {
         guard NavigationService._shared == nil else {
             return
         }
-        NavigationService._shared = NavigationService(rootVc: rootVc)
+        NavigationService._shared = NavigationService(rootVc: rootVc, delegate: delegate)
     }
     
-    private init(rootVc: UIViewController) {
+    private init(rootVc: UIViewController, delegate: NavigationServiceDelegate?=nil) {
         self.rootVc = rootVc
+        self.delegate = delegate
     }
     
     /**
@@ -83,5 +89,9 @@ class NavigationService {
             webViewController.modalTransitionStyle = .coverVertical
             self?.present(webViewController, animated: animated, on: target, completion: completion)
         }
+    }
+    
+    func openUrl(url: URL) {
+        self.delegate?.open(url: url, options: [:], completionHandler: nil)
     }
 }

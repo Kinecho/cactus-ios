@@ -61,6 +61,8 @@
 		3018B1232376182D0005333A /* JournalEntryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018B1222376182D0005333A /* JournalEntryData.swift */; };
 		3018B1242376182D0005333A /* JournalEntryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018B1222376182D0005333A /* JournalEntryData.swift */; };
 		3018B1262376687B0005333A /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3018B1252376687B0005333A /* NetworkExtension.framework */; };
+		3019A4D9243BDF74003D0074 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBDD2410345E00F58B89 /* WebViewController.swift */; };
+		3019A4DA243BDF7E003D0074 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3021CBDE2410345E00F58B89 /* WebViewController.xib */; };
 		301C1A90236F7E9700F06A3D /* MeaningAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301C1A8F236F7E9700F06A3D /* MeaningAnimationViewController.swift */; };
 		301C1A91236F7E9700F06A3D /* MeaningAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301C1A8F236F7E9700F06A3D /* MeaningAnimationViewController.swift */; };
 		301C1A93236F7EB700F06A3D /* MeaningAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 301C1A92236F7EB700F06A3D /* MeaningAnimationViewController.xib */; };
@@ -86,11 +88,9 @@
 		3021CBDF2410345E00F58B89 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBDD2410345E00F58B89 /* WebViewController.swift */; };
 		3021CBE02410345E00F58B89 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBDD2410345E00F58B89 /* WebViewController.swift */; };
 		3021CBE12410345E00F58B89 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBDD2410345E00F58B89 /* WebViewController.swift */; };
-		3021CBE22410345E00F58B89 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBDD2410345E00F58B89 /* WebViewController.swift */; };
 		3021CBE32410345E00F58B89 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3021CBDE2410345E00F58B89 /* WebViewController.xib */; };
 		3021CBE42410345E00F58B89 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3021CBDE2410345E00F58B89 /* WebViewController.xib */; };
 		3021CBE52410345E00F58B89 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3021CBDE2410345E00F58B89 /* WebViewController.xib */; };
-		3021CBE62410345E00F58B89 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3021CBDE2410345E00F58B89 /* WebViewController.xib */; };
 		3021CBE7241049AC00F58B89 /* StoreObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCF223EE279500089CFB /* StoreObserver.swift */; };
 		3021CBE92410E83800F58B89 /* InsightsWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBE82410E83800F58B89 /* InsightsWebViewViewController.swift */; };
 		3021CBEA2410E83800F58B89 /* InsightsWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBE82410E83800F58B89 /* InsightsWebViewViewController.swift */; };
@@ -1754,8 +1754,8 @@
 				304B215F23D392C8007B016C /* SocialActivityCardView.xib in Resources */,
 				304B210C23D383E1007B016C /* MainInterface.storyboard in Resources */,
 				303282102412B87D00FC197A /* PricingFeatureView.xib in Resources */,
+				3019A4DA243BDF7E003D0074 /* WebViewController.xib in Resources */,
 				304B217923D39570007B016C /* ProdAssets.xcassets in Resources */,
-				3021CBE62410345E00F58B89 /* WebViewController.xib in Resources */,
 				304B217B23D39AA4007B016C /* Info.plist in Resources */,
 				304B217D23D39AA4007B016C /* LaunchScreen.storyboard in Resources */,
 				304B217A23D39575007B016C /* SharedAssets.xcassets in Resources */,
@@ -2342,6 +2342,7 @@
 				304B213723D38F79007B016C /* MarkdownUtil.swift in Sources */,
 				3055D93F240E993F00981DA2 /* SubscriptionProductGroupService.swift in Sources */,
 				304B214C23D392B8007B016C /* InvertableImageView.swift in Sources */,
+				3019A4D9243BDF74003D0074 /* WebViewController.swift in Sources */,
 				304B214523D3914C007B016C /* UIAlertControllerExtensions.swift in Sources */,
 				304B215223D392C2007B016C /* GrowingTextView.swift in Sources */,
 				3055D93B240E97AC00981DA2 /* SubscriptionService.swift in Sources */,
@@ -2365,7 +2366,6 @@
 				304B214B23D39233007B016C /* UIImageView+SwiftyGif.swift in Sources */,
 				304B217823D394E4007B016C /* AuthService.swift in Sources */,
 				304B214D23D392C2007B016C /* AuthProviderTableViewCell.swift in Sources */,
-				3021CBE22410345E00F58B89 /* WebViewController.swift in Sources */,
 				304B213023D38F65007B016C /* ReflectionResponse.swift in Sources */,
 				3055D936240E922000981DA2 /* SubscriptionProduct.swift in Sources */,
 				304B214A23D39233007B016C /* UIImage+SwiftyGif.swift in Sources */,

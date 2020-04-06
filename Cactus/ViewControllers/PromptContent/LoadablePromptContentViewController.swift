@@ -123,6 +123,6 @@ class LoadablePromptContentViewController: UIViewController {
         guard let originalLink = self.originalLink, let url = URL(string: originalLink) else {
             return
         }
-        UIApplication.shared.open(url)
+        NavigationService.sharedInstance.openUrl(url: url)
     }
 }

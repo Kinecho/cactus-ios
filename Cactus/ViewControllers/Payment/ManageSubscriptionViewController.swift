@@ -236,7 +236,7 @@ class ManageSubscriptionViewController: UIViewController {
             logger.info("Unsupported platform")
         }
         if let url = url {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            NavigationService.sharedInstance.openUrl(url: url)
         }
         
     }

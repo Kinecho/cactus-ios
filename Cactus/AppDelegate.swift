@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let rootVc = ScreenID.AppMain.getViewController() as? AppMainViewController else {
             fatalError("Unable to start main view controller in App Delegate")
         }
-        NavigationService.initialize(rootVc: rootVc)
+        NavigationService.initialize(rootVc: rootVc, delegate: self)
         self.window?.rootViewController = rootVc
         self.window?.makeKeyAndVisible()
         
@@ -232,4 +232,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return false
     }
+}
+
+extension AppDelegate: NavigationServiceDelegate {
+    func open(url: URL, options: [UIApplication.OpenExternalURLOptionsKey : Any], completionHandler: ((Bool) -> Void)?) {
+        UIApplication.shared.open(url, options: options, completionHandler: completionHandler)
+    }    
 }
