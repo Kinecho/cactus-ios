@@ -18,6 +18,10 @@ class TextContentViewController: PromptContentViewController {
     @IBOutlet weak var elementStackView: UIStackView!
     @IBOutlet weak var elementImageContainerView: RoundedView!
     @IBOutlet weak var mainStackView: UIStackView!
+    
+    @IBOutlet weak var labelLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    
     weak var textTouchDelegate: UIGestureRecognizerDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +79,12 @@ class TextContentViewController: PromptContentViewController {
         if let actionButton = self.createActionButton() {
             self.mainStackView.addArrangedSubview(actionButton)
         }
+        
+        self.labelLabel.text = self.content.label
+        self.labelLabel.isHidden = isBlank(self.content.label)
+        
+        self.titleLabel.text = self.content.title
+        self.titleLabel.isHidden = isBlank(self.content.title)
         
         self.updateConstraints()
     }
