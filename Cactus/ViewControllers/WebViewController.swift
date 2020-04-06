@@ -16,6 +16,10 @@ class WebViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var activityContainer: UIView!
     
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    @IBOutlet weak var forwardButton: UIBarButtonItem!
+    @IBOutlet weak var safariButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -23,6 +27,9 @@ class WebViewController: UIViewController {
         self.webView.navigationDelegate = self
         self.configureView()
         self.loadContent()
+        
+        self.backButton.isEnabled = false
+        self.forwardButton.isEnabled = false
     }
     
     func configureView() {
@@ -50,6 +57,13 @@ class WebViewController: UIViewController {
         self.url = url
         self.loadContent()
     }
+    @IBAction func openInSafariTapped(_ sender: Any) {
+        if let url = self.webView.url {
+            self.resignFirstResponder()
+            self.webView.resignFirstResponder()
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
     
     @IBAction func doneTapped(_ sender: Any) {
         self.resignFirstResponder()        
@@ -71,17 +85,38 @@ class WebViewController: UIViewController {
             activityContainer.isHidden = true
         }
     }
+    @IBAction func forwardPressed(_ sender: Any) {
+        if self.webView.canGoForward {
+            self.webView.goForward()
+        }
+        self.backButton.isEnabled = webView.canGoBack
+        self.forwardButton.isEnabled = webView.canGoForward
+    }
+    
+    @IBAction func backPressed(_ sender: Any) {
+        if self.webView.canGoBack {
+            self.webView.goBack()
+        }
+        self.backButton.isEnabled = webView.canGoBack
+        self.forwardButton.isEnabled = webView.canGoForward
+    }
 }
 
 extension WebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         self.showActivityIndicator(show: false)
+        self.backButton.isEnabled = webView.canGoBack
+        self.forwardButton.isEnabled = webView.canGoForward
     }
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         // Set the indicator everytime webView started loading
         self.showActivityIndicator(show: true)
+        self.backButton.isEnabled = webView.canGoBack
+        self.forwardButton.isEnabled = webView.canGoForward
     }
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         self.showActivityIndicator(show: false)
+        self.backButton.isEnabled = webView.canGoBack
+        self.forwardButton.isEnabled = webView.canGoForward
     }
 }

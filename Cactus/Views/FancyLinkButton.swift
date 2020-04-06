@@ -30,7 +30,7 @@ class FancyLinkButton: UIButton {
     }
     
     var border: CALayer?
-    @IBInspectable var thickness: CGFloat = 14
+    @IBInspectable var thickness: CGFloat = 10
     @IBInspectable var imageWidth: CGFloat = 25
     @IBInspectable var imageHeight: CGFloat = 25
     @IBInspectable var fontSize: CGFloat = 18
@@ -84,10 +84,7 @@ class FancyLinkButton: UIButton {
     }
     
     override func layoutSubviews() {
-        super.layoutSubviews()
-        //           self.layer.borderColor = self.borderColor?.cgColor
-//        let radius = self.frame.height / 2
-//        self.layer.cornerRadius = radius
+        super.layoutSubviews()        
         if let imageView = self.imageView {
             imageView.contentMode = .scaleAspectFit
             imageView.bounds.size.width = imageWidth
@@ -97,12 +94,6 @@ class FancyLinkButton: UIButton {
     }
     
     func setupBorder() {
-//        let radius = self.frame.height / 2
-//        let path = UIBezierPath(roundedRect: self.bounds, cornerRadius: radius)
-//        let mask = CAShapeLayer()
-//        mask.path = path.cgPath
-//        self.layer.mask = mask
-
         if self.border == nil {
             let border = CALayer()
             self.border = border
@@ -113,22 +104,10 @@ class FancyLinkButton: UIButton {
             border.backgroundColor = self.borderColor.cgColor
             border.opacity = 0.5
             let offset = self.thickness / 2
-            let y = self.bounds.height - offset - 4
-            border.frame = CGRect(x: 0, y: y, width: self.bounds.width, height: self.thickness)
-//            self.layer.addSublayer(border)
-            
-//            let pathsUsingCorrentInsetIfAny = UIBezierPath(roundedRect: border.bounds, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: radius, height: radius))
-            
-//            border.path = pathsUsingCorrentInsetIfAny.cgPath
-//            border.fillColor = self.borderColor.cgColor
-//            border.strokeColor = self.borderColor.cgColor
-//            border.lineWidth = thickness
-//            var left = self.horizontalPadding
-//            if self.imageView?.image != nil {
-//                left -= self.imageWidth / 2
-//            }
-            
-//            self.contentEdgeInsets = UIEdgeInsets(top: self.verticalPadding - offset, left: left, bottom: self.verticalPadding, right: self.horizontalPadding)
+            let y = self.bounds.height - offset - 8
+            let xPadding: CGFloat = 2
+            border.frame = CGRect(x: -1 * xPadding, y: y, width: self.bounds.width + xPadding, height: self.thickness)
+
             self.border = border
         }
     }
