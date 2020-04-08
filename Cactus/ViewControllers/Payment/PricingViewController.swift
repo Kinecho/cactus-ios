@@ -172,19 +172,10 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
             return
         }
         self.planContainerView.isHidden = false
-//        self.continueContainerView.isHidden = false
-        if let footer = groupEntry.productGroup?.footer {
-            self.footerDescriptionLabel.attributedText = MarkdownUtil.toMarkdown(footer.textMarkdown)?.withColor(CactusColor.white)
-            self.footerIcon.image = footer.icon?.image
-            self.footerIcon.isHidden = footer.icon?.image == nil
-            self.footerStackView.isHidden = false
-        } else {
-            self.footerStackView.isHidden = true
-        }
         
         groupEntry.products.forEach { (productEntry) in
             let planView = SubscriptionPlanOptionView()
-            
+
             planView.productEntry = productEntry
             self.configurePlanTapGesture(planView: planView)
             if productEntry.subscriptionProduct.billingPeriod == groupEntry.defaultSelectedPeriod {
@@ -193,8 +184,19 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
             }
             self.planStackView.addArrangedSubview(planView)
         }
+
+        if let footer = groupEntry.productGroup?.footer {
+            self.logger.info("footer \(footer.textMarkdown ?? "no footer text")")
+            self.footerDescriptionLabel.attributedText = MarkdownUtil.toMarkdown(footer.textMarkdown)?.withColor(CactusColor.white)
+            self.footerIcon.image = footer.icon?.image
+//            self.footerIcon.isHidden = footer.icon?.image == nil
+            self.footerStackView.isHidden = false
+        } else {
+            self.logger.info("No footer")
+            self.footerStackView.isHidden = true
+        }
         
-        self.planStackView.isHidden = self.appSettings?.checkoutSettings?.inAppPaymentsEnabled == false
+//        self.planStackView.isHidden = self.appSettings?.checkoutSettings?.inAppPaymentsEnabled == false
     }
     
     func configurePlanTapGesture(planView: SubscriptionPlanOptionView) {

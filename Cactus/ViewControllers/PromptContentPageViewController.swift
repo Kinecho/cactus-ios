@@ -10,6 +10,10 @@ import UIKit
 import FirebaseAnalytics
 import FirebaseFirestore
 
+protocol PromptContentPageViewControllerDelegate: class {
+    func didDismissPrompt(promptContent: PromptContent)
+}
+
 class PromptContentPageViewController: UIPageViewController {
     
     var promptContent: PromptContent!
@@ -28,6 +32,8 @@ class PromptContentPageViewController: UIPageViewController {
     var celebrateVc: CelebrateViewController?
     var appSettings: AppSettings?
     var settingsUnsubscriber: ListenerRegistration?
+    weak var promptDelegate: PromptContentPageViewControllerDelegate?
+    
     fileprivate lazy var screens: [UIViewController] = []
     
     override func viewDidLoad() {
@@ -206,15 +212,20 @@ class PromptContentPageViewController: UIPageViewController {
     }
     
     @objc func dismissPrompt() {
-        guard self.promptContent?.entryId == self.appSettings?.firstPromptContentEntryId,
-            let pricingVc = ScreenID.Pricing.getViewController() as? PricingViewController else {
-                self.dismiss(animated: true, completion: nil)
-                return
-        }
-                
         self.dismiss(animated: true, completion: {
-            NavigationService.sharedInstance.present(pricingVc, on: self.presentingViewController)
+            self.promptDelegate?.didDismissPrompt(promptContent: self.promptContent)
         })
+        
+        
+//        guard self.promptContent?.entryId == self.appSettings?.firstPromptContentEntryId,
+//            let pricingVc = ScreenID.Pricing.getViewController() as? PricingViewController else {
+//                self.dismiss(animated: true, completion: nil)
+//                return
+//        }
+//                
+//        self.dismiss(animated: true, completion: {
+//            NavigationService.sharedInstance.present(pricingVc, on: self.presentingViewController)
+//        })
     }
     
     func addSharePromptButton() {
@@ -396,7 +407,6 @@ extension PromptContentPageViewController: PromptContentViewControllerDelegate {
         self.tapGestureHandler(touch: touch)
     }
 }
-
 
 extension PromptContentPageViewController: CelebrateViewControllerDelegate {
     func goHome() {

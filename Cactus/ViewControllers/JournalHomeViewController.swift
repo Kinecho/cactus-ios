@@ -120,7 +120,7 @@ class JournalHomeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.logger.info("View Did Appear")
-        self.presentPermissionsOnboardingIfNeeded()
+//        self.presentPermissionsOnboardingIfNeeded()
         self.setNeedsStatusBarAppearanceUpdate()
     }
     
@@ -375,6 +375,7 @@ class JournalHomeViewController: UIViewController {
          if self.journalFeedViewController == nil {
             self.logger.info("JournalFeedController was nil, creating it now")
             self.journalFeedViewController = AppMainViewController.shared.getJournalFeedViewController()
+            self.journalFeedViewController?.promptContentDelegate = self
         } else {
             self.logger.info("JournalFeedController already exists, setting it up")
         }
@@ -455,5 +456,19 @@ extension JournalHomeViewController: JournalFeedDataSourceDelegate {
         } else {
            self.showEmptyState()
         }
+    }
+}
+
+extension JournalHomeViewController: PromptContentPageViewControllerDelegate {
+    
+    func didDismissPrompt(promptContent: PromptContent) {
+        guard promptContent.entryId == self.appSettings?.firstPromptContentEntryId,
+            !self.member.tier.isPaidTier,
+            let pricingVc = ScreenID.Pricing.getViewController() as? PricingViewController else {
+                self.presentPermissionsOnboardingIfNeeded()
+                return
+        }
+    
+        NavigationService.sharedInstance.present(pricingVc, on: self.presentingViewController)
     }
 }

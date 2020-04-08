@@ -24,6 +24,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         }
     }
     var settingsListener: ListenerRegistration?
+    var promptContentDelegate: PromptContentPageViewControllerDelegate?
     
     private let itemsPerRow: CGFloat = 1
     private let reuseIdentifier = ReuseIdentifier.JournalEntryCell.rawValue
@@ -167,8 +168,8 @@ class JournalFeedCollectionViewController: UICollectionViewController {
             if let vc = segue.destination as? PromptContentPageViewController {
                 vc.promptContent = cell.promptContent
                 vc.journalDataSource = self.dataSource
-//                vc.dismi
-//                vc.dele
+                vc.promptDelegate = self.promptContentDelegate
+
                 let response = cell.responses?.first
                 vc.reflectionResponse = response                
             }        
