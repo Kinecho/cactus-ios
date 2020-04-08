@@ -39,6 +39,8 @@ class PrimaryButton: UIButton {
     @IBInspectable var showBorder: Bool = true
     @IBInspectable var roundedCorners: Bool = true
     
+    var disabledBackgroundColor: UIColor = CactusColor.gray
+    
     var borderColor: UIColor = CactusColor.darkGreen
     
     @IBInspectable var borderRadius: CGFloat {
@@ -57,7 +59,7 @@ class PrimaryButton: UIButton {
             self.showBorder = true
         } else {
             self.borderColor = CactusColor.darkGray
-            self.backgroundColor = CactusColor.gray
+            self.backgroundColor = self.disabledBackgroundColor
             self.showBorder = false
         }
         
@@ -72,6 +74,7 @@ class PrimaryButton: UIButton {
         }
         
         self.setTitleColor(CactusColor.textWhite, for: .normal)
+        self.setTitleColor(CactusColor.darkText, for: .disabled)
         self.titleLabel?.font = CactusFont.normal(self.fontSize)
         
         self.layoutSubviews()

@@ -761,6 +761,16 @@
                                     </mask>
                                 </variation>
                             </scrollView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWa-gB-GKV" customClass="TertiaryButton" customModule="Cactus" customModuleProvider="target">
+                                <rect key="frame" x="162.5" y="596" width="50" height="31"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" name="White"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelTapped:" destination="4zv-1f-KPm" eventType="primaryActionTriggered" id="Tbm-gm-k3m"/>
+                                </connections>
+                            </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="HgO-8a-DtY">
                                 <rect key="frame" x="169" y="315" width="37" height="37"/>
                                 <color key="color" name="GreenDarkest"/>
@@ -771,7 +781,9 @@
                             <constraint firstItem="HgO-8a-DtY" firstAttribute="centerX" secondItem="hCJ-wF-fbO" secondAttribute="centerX" id="48R-cX-bOT"/>
                             <constraint firstItem="HgO-8a-DtY" firstAttribute="centerY" secondItem="hCJ-wF-fbO" secondAttribute="centerY" id="5TD-83-02X"/>
                             <constraint firstItem="LzH-Nd-xKw" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9R0-s8-91l" secondAttribute="trailing" id="5V7-t0-Cxm"/>
+                            <constraint firstItem="LzH-Nd-xKw" firstAttribute="bottom" secondItem="mWa-gB-GKV" secondAttribute="bottom" constant="40" id="6xu-8g-AWd"/>
                             <constraint firstAttribute="trailing" secondItem="twe-f9-jsW" secondAttribute="trailing" id="7g1-n9-bIo"/>
+                            <constraint firstItem="mWa-gB-GKV" firstAttribute="centerX" secondItem="hCJ-wF-fbO" secondAttribute="centerX" id="BKa-3U-ATu"/>
                             <constraint firstAttribute="bottom" secondItem="twe-f9-jsW" secondAttribute="bottom" id="Nj6-f1-Q33"/>
                             <constraint firstItem="LzH-Nd-xKw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9R0-s8-91l" secondAttribute="leading" id="SRo-Mk-A4S"/>
                             <constraint firstItem="9R0-s8-91l" firstAttribute="bottom" secondItem="LzH-Nd-xKw" secondAttribute="bottom" id="TaO-9z-8XW"/>
@@ -784,6 +796,7 @@
                     <navigationItem key="navigationItem" id="SBw-xf-bog"/>
                     <connections>
                         <outlet property="activityIndicator" destination="HgO-8a-DtY" id="aUm-hc-y9x"/>
+                        <outlet property="cancelButton" destination="mWa-gB-GKV" id="zJT-KO-gLF"/>
                         <outlet property="containerView" destination="7x3-lF-lM2" id="QXe-bV-ZLC"/>
                         <outlet property="emailInputView" destination="S96-g0-ejQ" id="aP2-hs-jI8"/>
                         <outlet property="otherProviderLabel" destination="vYq-wW-wiI" id="Bqb-Tw-yao"/>
@@ -826,7 +839,7 @@
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="GreenDarkest">
-            <color red="0.027000000700354576" green="0.27099999785423279" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.023529411764705882" green="0.27058823529411763" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="HighContrast">
             <color red="0.027000000700354576" green="0.27099999785423279" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

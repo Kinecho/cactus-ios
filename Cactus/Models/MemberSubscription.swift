@@ -80,6 +80,13 @@ class OptOutTrial: Codable {
     var startedAt: Date?
 }
 
+class SubscriptionCancellation: Codable {
+    var initiatedAt: Date?
+    var accessEndsAt: Date?
+    var reasonCode: String?
+    var processedAt: Date?
+}
+
 class MemberSubscription: Codable {
     var trial: SubscriptionTrial?
     var tier: SubscriptionTier = .PLUS
@@ -89,9 +96,11 @@ class MemberSubscription: Codable {
     ///This field is protected because it should not be read directly from client code
     private var activated: Bool? = false
     var subscriptionProductId: String?
-    
+    var cancellation: SubscriptionCancellation?
     var stripeSubscriptionId: String?
-    var appleOriginalTransactionid: String?
+    var appleOriginalTransactionId: String?
+    var googlePurchaseToken: String?
+    var googleOriginalOrderId: String?
     
     var trialDaysLeft: Int? {
         guard self.isInOptInTrial else {
@@ -100,12 +109,38 @@ class MemberSubscription: Codable {
         return trial?.daysLeft
     }
     
+    var isOptOutTrial: Bool {
+        guard self.tier.isPaidTier == true, let endsAt = self.optOutTrial?.endsAt else {
+            return false
+        }
+        return endsAt > Date()
+    }
+    
     var isInOptInTrial: Bool {
         return self.tier.isPaidTier && !(self.trial?.trialEnded ?? true)
     }
     
     var isActivated: Bool {
         return self.tier.isPaidTier && !self.isInOptInTrial
+    }
+    
+    var billingPlatform: BillingPlatform? {
+        if self.appleOriginalTransactionId != nil {
+            return .APPLE
+        } else if self.googlePurchaseToken != nil || self.googleOriginalOrderId != nil {
+            return .GOOGLE
+        } else if self.stripeSubscriptionId != nil {
+            return .STRIPE
+        }
+        return nil
+    }
+    
+    var hasUpcomingCancellation: Bool {
+        guard let accessEndsAt = self.cancellation?.accessEndsAt else {
+            return false
+        }
+        
+        return accessEndsAt > Date()
     }
     
     static func getDefault(trialDurationDays: Int = DEFAULT_TRIAL_LENGTH_DAYS) -> MemberSubscription {

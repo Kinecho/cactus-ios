@@ -30,6 +30,14 @@ class AuthService {
         return handle
     }
     
+    func logout() {
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            self.logger.error("Failed to sign out", error)
+        }        
+    }
+    
     func removeAuthStateChangeListener(_ listener: AuthStateDidChangeListenerHandle?) {
         if listener != nil {
             Auth.auth().removeStateDidChangeListener(listener!)

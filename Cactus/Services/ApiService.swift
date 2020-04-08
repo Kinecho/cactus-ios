@@ -24,6 +24,7 @@ enum ApiPath: String {
     case sendSocialInvite = "/social/send-invite"
     case checkoutSubscriptionDetails = "/checkout/subscription-details"
     case appleCompletePurchase = "/apple/complete-purchase"
+    case deleteUser = "/user/delete-permanently"
 }
 
 ///A service for interacting with the Cactus JSON Api

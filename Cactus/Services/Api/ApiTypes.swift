@@ -13,7 +13,7 @@ struct MagicLinkRequest: Codable {
     var continuePath: String
     var referredBy: String?
     var sourceApp: String = "ios"
-//    var reflectionResponseIds: String[]?
+    //    var reflectionResponseIds: String[]?
     var queryParams: [String: String]?
     
     init(email: String, continuePath: String, referredBy: String? = nil) {
@@ -112,7 +112,7 @@ struct SocialInviteRequest: Codable {
     let app: AppType = AppType.IOS
     let toContacts: [EmailContact]
     let message: String?
-        
+    
     init(to contacts: [EmailContact], message: String?) {
         self.toContacts = contacts
         self.message = message
@@ -152,6 +152,22 @@ struct SocialInviteResponse: Codable {
     let success: Bool
     var toEmails: [String] = []
     let fromEmail: String?
-    let results: Dictionary<String, InvitationSendResult>
+    let results: [String: InvitationSendResult]
     let message: String?
+}
+
+
+struct DeleteUserParams: Codable {
+    var email: String?
+    
+    init(email: String?) {
+        self.email = email
+    }
+}
+
+struct DeleteUserResult: Codable {
+    var success: Bool
+    init(success: Bool) {
+        self.success = success
+    }
 }

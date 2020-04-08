@@ -36,7 +36,7 @@ class TertiaryButton: UIButton {
     @IBInspectable var fontSize: CGFloat = 17
     @IBInspectable var horizontalPadding: CGFloat = 20
     @IBInspectable var verticalPadding: CGFloat = 12
-    
+    var disabledBackgroundColor: UIColor = CactusColor.lightGray
 //    var borderColor: UIColor = CactusColor.darkGreen
 //    var mainColor: UIColor = CactusColor.green
     
@@ -55,7 +55,7 @@ class TertiaryButton: UIButton {
             self.backgroundColor = CactusColor.secondaryButtonBackground
         } else {
 //            self.borderColor = CactusColor.lightGray
-            self.backgroundColor = CactusColor.lightGray
+            self.backgroundColor = self.disabledBackgroundColor
         }
         
         self.isEnabled = enabled
@@ -68,7 +68,6 @@ class TertiaryButton: UIButton {
             self.backgroundColor = CactusColor.gray
         }
         
-        self.setTitleColor(CactusColor.textDefault, for: .normal)
         self.titleLabel?.font = CactusFont.normal(self.fontSize)
         self.setTitleColor(CactusColor.textDefault, for: .normal)
         self.setTitleColor(CactusColor.darkText, for: .disabled)

@@ -89,7 +89,7 @@ class ReflectionResponseService {
         response.promptQuestion = promptQuestion
         response.userId = member.userId
         response.memberEmail = member.email
-        response.responseMedium = ResponseMedium.JOURNAL_IOS
+        response.responseMedium = medium
         response.cactusElement = element
         if let listMember = member.mailchimpListMember {
             response.mailchimpMemberId = listMember.id

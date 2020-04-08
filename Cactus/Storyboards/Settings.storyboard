@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -803,197 +803,206 @@
         <!--Profile Settings View Controller-->
         <scene sceneID="pr2-vL-GcW">
             <objects>
-                <viewController title="Profile" id="KAd-di-PWW" userLabel="Profile Settings View Controller" customClass="EmailSettingsViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Profile" id="KAd-di-PWW" userLabel="Profile Settings View Controller" customClass="ProfileSettingsViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NG1-hq-qNb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aKu-uq-eC4">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="724"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="center" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6Tm-UU-YRA">
-                                        <rect key="frame" x="0.0" y="40" width="414" height="444"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aGo-cF-TIa">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="521.5"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="7aZ-Pu-o5a" userLabel="First Name Input Stack View">
-                                                <rect key="frame" x="20" y="8" width="374" height="54.5"/>
+                                            <stackView opaque="NO" contentMode="center" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6Tm-UU-YRA">
+                                                <rect key="frame" x="0.0" y="40" width="414" height="401.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVg-wc-Xbj">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="16.5"/>
-                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
-                                                        <color key="textColor" name="TextDefault"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zL0-KT-GLX" userLabel="First Name Text Input Field" customClass="CactusTextInputField" customModule="Cactus" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="20.5" width="374" height="34"/>
-                                                        <color key="backgroundColor" name="Background"/>
-                                                        <color key="textColor" name="HighContrast"/>
-                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
-                                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="fullyRoundedCorners" value="NO"/>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="4"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" name="SecondaryBorder"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="firstNameChanged:" destination="KAd-di-PWW" eventType="valueChanged" id="2tb-kF-SyX"/>
-                                                            <action selector="firstNameEditingEnded:" destination="KAd-di-PWW" eventType="editingDidEnd" id="oEC-Uh-FuP"/>
-                                                        </connections>
-                                                    </textField>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="7aZ-Pu-o5a" userLabel="First Name Input Stack View">
+                                                        <rect key="frame" x="20" y="8" width="374" height="54.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVg-wc-Xbj">
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="16.5"/>
+                                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                                                <color key="textColor" name="TextDefault"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zL0-KT-GLX" userLabel="First Name Text Input Field" customClass="CactusTextInputField" customModule="Cactus" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="20.5" width="374" height="34"/>
+                                                                <color key="backgroundColor" name="Background"/>
+                                                                <color key="textColor" name="HighContrast"/>
+                                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="fullyRoundedCorners" value="NO"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="4"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" name="SecondaryBorder"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="firstNameChanged:" destination="KAd-di-PWW" eventType="valueChanged" id="2tb-kF-SyX"/>
+                                                                    <action selector="firstNameEditingEnded:" destination="KAd-di-PWW" eventType="editingDidEnd" id="oEC-Uh-FuP"/>
+                                                                </connections>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="r1C-cx-YiC" userLabel="Last Name Input Stack View">
+                                                        <rect key="frame" x="20" y="82.5" width="374" height="53.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jc2-ub-xmE">
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="15.5"/>
+                                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
+                                                                <color key="textColor" name="TextDefault"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eSo-Ih-uZR" userLabel="Last Name Text Input Field" customClass="CactusTextInputField" customModule="Cactus" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="19.5" width="374" height="34"/>
+                                                                <color key="backgroundColor" name="Background"/>
+                                                                <color key="textColor" name="HighContrast"/>
+                                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="fullyRoundedCorners" value="NO"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="4"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" name="SecondaryBorder"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="lastNameChanged:" destination="KAd-di-PWW" eventType="valueChanged" id="qpT-5c-VTZ"/>
+                                                                    <action selector="lastNameEditingEnded:" destination="KAd-di-PWW" eventType="editingDidEnd" id="odi-Pk-hVd"/>
+                                                                </connections>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="o3h-h8-PMh" userLabel="Email Input Stack View">
+                                                        <rect key="frame" x="20" y="156" width="374" height="58"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePl-Gk-RDP">
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="16.5"/>
+                                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                                                <color key="textColor" name="TextDefault"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="test@example.com" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ApW-VM-gjv" customClass="BorderedTextView" customModule="Cactus" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="20.5" width="374" height="37.5"/>
+                                                                <color key="textColor" name="TextDefault"/>
+                                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="6"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="0.0"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textView>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ZPx-Th-FA3" userLabel="Member ID Stack View">
+                                                        <rect key="frame" x="20" y="234" width="374" height="50.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Member ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvI-fo-5g9" userLabel="Member ID">
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="16.5"/>
+                                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                                                <color key="textColor" name="TextDefault"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="xxxx1234" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BTk-y8-eYi" customClass="BorderedTextView" customModule="Cactus" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="20.5" width="374" height="30"/>
+                                                                <color key="textColor" name="TextMinimized"/>
+                                                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="6"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="0.0"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textView>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Qbk-fa-WzT" userLabel="Delete Account StackView">
+                                                        <rect key="frame" x="20" y="304.5" width="374" height="89"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2zK-2d-1MB">
+                                                                <rect key="frame" x="8" y="60" width="358" height="21"/>
+                                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
+                                                                <color key="tintColor" name="Danger"/>
+                                                                <inset key="titleEdgeInsets" minX="6" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                <state key="normal" title="Delete Cactus Account" image="trash" catalog="system">
+                                                                    <color key="titleColor" name="Danger"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="deleteAccountTapped:" destination="KAd-di-PWW" eventType="primaryActionTriggered" id="8f2-mp-XD3"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <edgeInsets key="layoutMargins" top="60" left="8" bottom="8" right="8"/>
+                                                    </stackView>
                                                 </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="r1C-cx-YiC" userLabel="Last Name Input Stack View">
-                                                <rect key="frame" x="20" y="82.5" width="374" height="53.5"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jc2-ub-xmE">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="15.5"/>
-                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
-                                                        <color key="textColor" name="TextDefault"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eSo-Ih-uZR" userLabel="Last Name Text Input Field" customClass="CactusTextInputField" customModule="Cactus" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="19.5" width="374" height="34"/>
-                                                        <color key="backgroundColor" name="Background"/>
-                                                        <color key="textColor" name="HighContrast"/>
-                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
-                                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="fullyRoundedCorners" value="NO"/>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="4"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" name="SecondaryBorder"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="lastNameChanged:" destination="KAd-di-PWW" eventType="valueChanged" id="qpT-5c-VTZ"/>
-                                                            <action selector="lastNameEditingEnded:" destination="KAd-di-PWW" eventType="editingDidEnd" id="odi-Pk-hVd"/>
-                                                        </connections>
-                                                    </textField>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="9Q1-ti-tZe" userLabel="Save Actions">
-                                                <rect key="frame" x="20" y="156" width="374" height="50"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHb-HA-5fO" userLabel="Cancel Button" customClass="TertiaryButton" customModule="Cactus" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="177" height="50"/>
-                                                        <state key="normal" title="Cancel"/>
-                                                        <connections>
-                                                            <action selector="cancelTapped:" destination="KAd-di-PWW" eventType="primaryActionTriggered" id="xoc-Vw-ckS"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JhN-L9-EV7" userLabel="Save Button" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
-                                                        <rect key="frame" x="197" y="0.0" width="177" height="50"/>
-                                                        <state key="normal" title="Save"/>
-                                                        <connections>
-                                                            <action selector="saveTapped:" destination="KAd-di-PWW" eventType="primaryActionTriggered" id="r3e-Yb-6Fb"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="CYX-qK-2Su"/>
-                                                </constraints>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="o3h-h8-PMh" userLabel="Email Input Stack View">
-                                                <rect key="frame" x="20" y="226" width="374" height="58"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePl-Gk-RDP">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="16.5"/>
-                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
-                                                        <color key="textColor" name="TextDefault"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="test@example.com" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ApW-VM-gjv" customClass="BorderedTextView" customModule="Cactus" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="20.5" width="374" height="37.5"/>
-                                                        <color key="textColor" name="TextDefault"/>
-                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="6"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                <real key="value" value="0.0"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textView>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="dkQ-LR-65S" userLabel="User ID Stack View">
-                                                <rect key="frame" x="20" y="304" width="374" height="56"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2M-Nj-JMo" userLabel="User ID">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="16.5"/>
-                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
-                                                        <color key="textColor" name="TextDefault"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="xxxx1234" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="guV-qt-wgb" customClass="BorderedTextView" customModule="Cactus" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="20.5" width="374" height="35.5"/>
-                                                        <color key="textColor" name="TextMinimized"/>
-                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="6"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                <real key="value" value="0.0"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textView>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ZPx-Th-FA3" userLabel="Member ID Stack View">
-                                                <rect key="frame" x="20" y="380" width="374" height="56"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Member ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvI-fo-5g9" userLabel="Member ID">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="16.5"/>
-                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
-                                                        <color key="textColor" name="TextDefault"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="xxxx1234" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BTk-y8-eYi" customClass="BorderedTextView" customModule="Cactus" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="20.5" width="374" height="35.5"/>
-                                                        <color key="textColor" name="TextMinimized"/>
-                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="6"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                <real key="value" value="0.0"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textView>
-                                                </subviews>
+                                                <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="20"/>
                                             </stackView>
                                         </subviews>
-                                        <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="20"/>
-                                    </stackView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="6Tm-UU-YRA" firstAttribute="top" secondItem="aGo-cF-TIa" secondAttribute="top" constant="40" id="CTF-3J-7GW"/>
+                                            <constraint firstItem="6Tm-UU-YRA" firstAttribute="leading" secondItem="aGo-cF-TIa" secondAttribute="leading" id="GhB-JP-6yU"/>
+                                            <constraint firstAttribute="trailing" secondItem="6Tm-UU-YRA" secondAttribute="trailing" id="qqs-I7-iYc"/>
+                                            <constraint firstAttribute="bottom" secondItem="6Tm-UU-YRA" secondAttribute="bottom" constant="80" id="sJ9-E5-FgO"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="6Tm-UU-YRA" firstAttribute="bottom" secondItem="vmT-2P-kom" secondAttribute="bottom" constant="60" id="I7D-6x-2sg"/>
-                                    <constraint firstItem="6Tm-UU-YRA" firstAttribute="trailing" secondItem="vmT-2P-kom" secondAttribute="trailing" id="PLk-sL-sRH"/>
-                                    <constraint firstItem="6Tm-UU-YRA" firstAttribute="top" secondItem="vmT-2P-kom" secondAttribute="top" constant="40" id="Z0e-EQ-omQ"/>
-                                    <constraint firstItem="6Tm-UU-YRA" firstAttribute="width" secondItem="OGY-on-eTC" secondAttribute="width" id="lsG-te-HpL"/>
-                                    <constraint firstItem="6Tm-UU-YRA" firstAttribute="leading" secondItem="vmT-2P-kom" secondAttribute="leading" id="vJo-SJ-Lhw"/>
+                                    <constraint firstItem="OGY-on-eTC" firstAttribute="leading" secondItem="aGo-cF-TIa" secondAttribute="leading" id="7zh-Cn-ofs"/>
+                                    <constraint firstItem="aGo-cF-TIa" firstAttribute="bottom" secondItem="vmT-2P-kom" secondAttribute="bottom" id="FXJ-YX-shx"/>
+                                    <constraint firstItem="vmT-2P-kom" firstAttribute="leading" secondItem="aGo-cF-TIa" secondAttribute="leading" id="Jtg-W9-Nz2"/>
+                                    <constraint firstItem="aGo-cF-TIa" firstAttribute="trailing" secondItem="OGY-on-eTC" secondAttribute="trailing" id="PCi-dN-gDI"/>
+                                    <constraint firstItem="aGo-cF-TIa" firstAttribute="trailing" secondItem="vmT-2P-kom" secondAttribute="trailing" id="cYo-is-0TC"/>
+                                    <constraint firstItem="aGo-cF-TIa" firstAttribute="top" secondItem="vmT-2P-kom" secondAttribute="top" id="zWT-GR-c4S"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="vmT-2P-kom"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="OGY-on-eTC"/>
                             </scrollView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="9Q1-ti-tZe" userLabel="Save Actions">
+                                <rect key="frame" x="20" y="812" width="374" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHb-HA-5fO" userLabel="Cancel Button" customClass="TertiaryButton" customModule="Cactus" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="177" height="50"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelTapped:" destination="KAd-di-PWW" eventType="primaryActionTriggered" id="xoc-Vw-ckS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JhN-L9-EV7" userLabel="Save Button" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
+                                        <rect key="frame" x="197" y="0.0" width="177" height="50"/>
+                                        <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="saveTapped:" destination="KAd-di-PWW" eventType="primaryActionTriggered" id="r3e-Yb-6Fb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="CYX-qK-2Su"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" name="Background"/>
                         <color key="tintColor" name="Green"/>
                         <constraints>
-                            <constraint firstItem="Kz1-Nk-eh8" firstAttribute="bottom" secondItem="aKu-uq-eC4" secondAttribute="bottom" id="1ca-fs-qFN"/>
+                            <constraint firstItem="9Q1-ti-tZe" firstAttribute="top" secondItem="aKu-uq-eC4" secondAttribute="bottom" id="1ca-fs-qFN"/>
+                            <constraint firstItem="9Q1-ti-tZe" firstAttribute="leading" secondItem="Kz1-Nk-eh8" secondAttribute="leading" constant="20" id="Sc7-BU-iZ8"/>
                             <constraint firstItem="aKu-uq-eC4" firstAttribute="top" secondItem="Kz1-Nk-eh8" secondAttribute="top" id="WNB-qj-rMD"/>
                             <constraint firstItem="aKu-uq-eC4" firstAttribute="leading" secondItem="Kz1-Nk-eh8" secondAttribute="leading" id="WqJ-cB-DFk"/>
+                            <constraint firstItem="Kz1-Nk-eh8" firstAttribute="bottom" secondItem="9Q1-ti-tZe" secondAttribute="bottom" id="ddX-hz-Sjb"/>
+                            <constraint firstItem="Kz1-Nk-eh8" firstAttribute="trailing" secondItem="9Q1-ti-tZe" secondAttribute="trailing" constant="20" id="i9m-Li-8d7"/>
                             <constraint firstItem="Kz1-Nk-eh8" firstAttribute="trailing" secondItem="aKu-uq-eC4" secondAttribute="trailing" id="jgw-F9-shP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kz1-Nk-eh8"/>
@@ -1001,13 +1010,15 @@
                     <navigationItem key="navigationItem" title="Profile" id="6bO-uI-47t"/>
                     <connections>
                         <outlet property="cancelButton" destination="yHb-HA-5fO" id="LmW-F3-v1g"/>
+                        <outlet property="deleteCactusButton" destination="2zK-2d-1MB" id="CT3-P4-mos"/>
                         <outlet property="emailTextView" destination="ApW-VM-gjv" id="7Q9-cq-RoI"/>
                         <outlet property="firstNameInput" destination="zL0-KT-GLX" id="ari-Ql-MtE"/>
                         <outlet property="lastNameInput" destination="eSo-Ih-uZR" id="69p-rX-Won"/>
                         <outlet property="memberIdTextView" destination="BTk-y8-eYi" id="yUb-fy-69D"/>
+                        <outlet property="saveActionsBottomConstraint" destination="ddX-hz-Sjb" id="rbJ-FS-k4z"/>
                         <outlet property="saveActionsStackView" destination="9Q1-ti-tZe" id="xbP-Op-ZBP"/>
                         <outlet property="saveButton" destination="JhN-L9-EV7" id="J5B-JA-Jb7"/>
-                        <outlet property="userIdTextView" destination="guV-qt-wgb" id="fzn-TU-WlY"/>
+                        <outlet property="scrollContentView" destination="aGo-cF-TIa" id="zLn-Lm-emh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pc9-hJ-qYt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1031,14 +1042,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" text="Facebook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7r-Xx-EY5">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Facebook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7r-Xx-EY5">
                                             <rect key="frame" x="110" y="0.0" width="284" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" image="Facebook" translatesAutoresizingMaskIntoConstraints="NO" id="1WZ-D6-cph">
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" image="Facebook" translatesAutoresizingMaskIntoConstraints="NO" id="1WZ-D6-cph">
                                             <rect key="frame" x="20" y="0.0" width="75" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1072,8 +1083,12 @@
     <resources>
         <image name="Facebook" width="300" height="300"/>
         <image name="celebrate" width="544" height="350"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
         <namedColor name="Background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Danger">
+            <color red="0.80000000000000004" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Green">
             <color red="0.20000000298023224" green="0.80000001192092896" blue="0.67100000381469727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

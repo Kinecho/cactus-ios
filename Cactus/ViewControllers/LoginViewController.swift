@@ -21,6 +21,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var submitEmailButton: PrimaryButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    
     var authViewController: UIViewController?
     
     var authHandler: AuthStateDidChangeListenerHandle?
@@ -28,6 +30,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.configureAuth()
         self.configureUI()
         self.authHandler = AuthService.sharedInstance.getAuthStateChangeHandler { (_, user) in
             self.configureUI(user)
@@ -91,7 +94,6 @@ class LoginViewController: UIViewController {
     }
     
     func configureUI(_ user: User?=AuthService.sharedInstance.getCurrentUser()) {
-        self.configureAuth(user)
         if let user = user {
             if !user.isAnonymous {
                 showLoggedInUI(user)
@@ -116,6 +118,7 @@ class LoginViewController: UIViewController {
         self.submitEmailButton.isHidden = false
         self.otherProviderLabel.isHidden = false
         self.configureAuthView()
+        self.cancelButton.isHidden = true
     }
     
     func showLoggedInUI(_ user: User) {
@@ -127,7 +130,12 @@ class LoginViewController: UIViewController {
         self.otherProviderLabel.isHidden = true
         
         self.activityIndicator.startAnimating()
+        self.cancelButton.isHidden = false
         //        self.activityIndicator.isHidden = false
+    }
+    
+    @IBAction func cancelTapped(_ sender: Any) {
+        AuthService.sharedInstance.logout()
     }
     
     func configureAuthView() {
@@ -206,7 +214,7 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
         return twitterProvider
     }
     
-    func configureAuth(_ user: User?=AuthService.sharedInstance.getCurrentUser()) {
+    func configureAuth() {
         guard let authUI = FUIAuth.defaultAuthUI() else {fatalError("unable to configure auth")}
         authUI.tosurl = URL(string: "https://cactus.app/terms-of-service")
         authUI.privacyPolicyURL = URL(string: "https://cactus.app/privacy-policy")

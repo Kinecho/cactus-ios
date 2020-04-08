@@ -92,12 +92,12 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
     }
     
     @objc private func keyboardWillChangeFrame(_ notification: Notification) {
-            if let endFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-                let keyboardHeight = UIScreen.main.bounds.height - endFrame.origin.y
-                editTextBottomConstraint.constant = keyboardHeight + padding
-                self.view.layoutIfNeeded()
-            }
+        if let endFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let keyboardHeight = UIScreen.main.bounds.height - endFrame.origin.y
+            editTextBottomConstraint.constant = keyboardHeight + padding
+            self.view.layoutIfNeeded()
         }
+    }
     
     func hasChanges() -> Bool {
         let currentText: String = self.responseTextView.text.trimmingCharacters(in: .whitespacesAndNewlines)

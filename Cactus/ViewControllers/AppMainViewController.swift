@@ -197,8 +197,20 @@ class AppMainViewController: UIViewController {
         }
     }
     
+    func deleteAccount() {
+        self.logger.info("attempting to delete the user's account")
+        UserService.sharedInstance.deleteUserPermenantly { (result) in
+            self.logger.info("\(Emoji.skullAndCrossbones) Account deleted = \(result.success)")
+            if result.success {
+                AuthService.sharedInstance.logout()
+                let alert = UIAlertController(title: "Account Deleted", message: "Your account as been successfully deleted.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+                NavigationService.sharedInstance.present(alert)
+            }
+        }
+    }
+    
     func logOut(_ vc: UIViewController, sender: UIView) {
-        
         var  message = "Are you sure you want to log out?"
         if let user = AuthService.sharedInstance.getCurrentUser(), (user.displayName != nil || user.email != nil) {
             var name = user.email

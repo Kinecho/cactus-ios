@@ -118,8 +118,8 @@
 		302C4F4A2347D7A700798560 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F482347D7A700798560 /* SettingsTableViewController.swift */; };
 		302C4F4C2347E25A00798560 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F4B2347E25A00798560 /* DateUtil.swift */; };
 		302C4F4D2347E25A00798560 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F4B2347E25A00798560 /* DateUtil.swift */; };
-		302C4F502347FAA400798560 /* EmailSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F4F2347FAA400798560 /* EmailSettingsViewController.swift */; };
-		302C4F512347FAA400798560 /* EmailSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F4F2347FAA400798560 /* EmailSettingsViewController.swift */; };
+		302C4F502347FAA400798560 /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F4F2347FAA400798560 /* ProfileSettingsViewController.swift */; };
+		302C4F512347FAA400798560 /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F4F2347FAA400798560 /* ProfileSettingsViewController.swift */; };
 		30328209241215D900FC197A /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30328208241215D900FC197A /* WelcomeViewController.swift */; };
 		3032820A241215D900FC197A /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30328208241215D900FC197A /* WelcomeViewController.swift */; };
 		3032820B241215D900FC197A /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30328208241215D900FC197A /* WelcomeViewController.swift */; };
@@ -208,7 +208,7 @@
 		303C9DEC23841AB6006B9786 /* RelationshipsAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF538D2370FBB800578B22 /* RelationshipsAnimationViewController.swift */; };
 		303C9DED23841AB6006B9786 /* RelationshipsAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CF538E2370FBB800578B22 /* RelationshipsAnimationViewController.xib */; };
 		303C9DEE23841AB6006B9786 /* CactusElementAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF53932371183F00578B22 /* CactusElementAnimationViewController.swift */; };
-		303C9DEF23841ABB006B9786 /* EmailSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F4F2347FAA400798560 /* EmailSettingsViewController.swift */; };
+		303C9DEF23841ABB006B9786 /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F4F2347FAA400798560 /* ProfileSettingsViewController.swift */; };
 		303C9DF023841ABB006B9786 /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E954234802C300788279 /* TermsOfServiceViewController.swift */; };
 		303C9DF123841ABB006B9786 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E9572348042800788279 /* PrivacyPolicyViewController.swift */; };
 		303C9DF223841ABB006B9786 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E95A2348087100788279 /* HelpViewController.swift */; };
@@ -808,7 +808,7 @@
 		3026B299234D3E2800CD2D34 /* PromptContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptContentViewController.swift; sourceTree = "<group>"; };
 		302C4F482347D7A700798560 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		302C4F4B2347E25A00798560 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
-		302C4F4F2347FAA400798560 /* EmailSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSettingsViewController.swift; sourceTree = "<group>"; };
+		302C4F4F2347FAA400798560 /* ProfileSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewController.swift; sourceTree = "<group>"; };
 		30328208241215D900FC197A /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		3032820C2412B87D00FC197A /* PricingFeatureView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PricingFeatureView.xib; sourceTree = "<group>"; };
 		303282112412B8E600FC197A /* PricingFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingFeatureView.swift; sourceTree = "<group>"; };
@@ -1136,7 +1136,7 @@
 		302C4F4E2347FA8100798560 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				302C4F4F2347FAA400798560 /* EmailSettingsViewController.swift */,
+				302C4F4F2347FAA400798560 /* ProfileSettingsViewController.swift */,
 				3084E954234802C300788279 /* TermsOfServiceViewController.swift */,
 				3084E9572348042800788279 /* PrivacyPolicyViewController.swift */,
 				3084E95A2348087100788279 /* HelpViewController.swift */,
@@ -2187,7 +2187,7 @@
 				303C9DFC23841AC1006B9786 /* TextContentViewController.swift in Sources */,
 				303C9E1623841AC6006B9786 /* ModalViewController.swift in Sources */,
 				303C9E1023841AC6006B9786 /* NavigationMenuViewController.swift in Sources */,
-				303C9DEF23841ABB006B9786 /* EmailSettingsViewController.swift in Sources */,
+				303C9DEF23841ABB006B9786 /* ProfileSettingsViewController.swift in Sources */,
 				303C9E2F23841ACC006B9786 /* ShadowView.swift in Sources */,
 				3021CBDC2410251E00F58B89 /* SubscriptionPlanOptionView.swift in Sources */,
 				303C9E2723841ACC006B9786 /* GrowingTextView.swift in Sources */,
@@ -2446,7 +2446,7 @@
 				301C1A91236F7E9700F06A3D /* MeaningAnimationViewController.swift in Sources */,
 				30E2D37B23432B21003D2B27 /* NavigationMenuViewController.swift in Sources */,
 				3099D1F22408DA1000BD9CC4 /* SubscriptionPlanOptionView.swift in Sources */,
-				302C4F512347FAA400798560 /* EmailSettingsViewController.swift in Sources */,
+				302C4F512347FAA400798560 /* ProfileSettingsViewController.swift in Sources */,
 				30934F9A22EBF235007C4E6C /* BorderedButton.swift in Sources */,
 				3023FE3622ECF0AE00F753A7 /* CactusColor.swift in Sources */,
 				303C9DB2237E2AB4006B9786 /* LinkHandlerUtil.swift in Sources */,
@@ -2607,7 +2607,7 @@
 				305B186E23319E09003E1561 /* FileUtils.swift in Sources */,
 				301C1A90236F7E9700F06A3D /* MeaningAnimationViewController.swift in Sources */,
 				30E2D37A23432B21003D2B27 /* NavigationMenuViewController.swift in Sources */,
-				302C4F502347FAA400798560 /* EmailSettingsViewController.swift in Sources */,
+				302C4F502347FAA400798560 /* ProfileSettingsViewController.swift in Sources */,
 				3099D1F12408DA1000BD9CC4 /* SubscriptionPlanOptionView.swift in Sources */,
 				30934FA322EBF4E6007C4E6C /* FormatUtils.swift in Sources */,
 				30BF2E0D2328171200A49EB6 /* PromptContent.swift in Sources */,

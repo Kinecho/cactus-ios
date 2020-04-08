@@ -148,4 +148,25 @@ class UserService {
         
         AppMainViewController.shared.present(emailAlert, animated: true)
     }
+    
+    func deleteUserPermenantly(completion: @escaping (DeleteUserResult) -> Void) {
+        guard let member = CactusMemberService.sharedInstance.currentMember else {
+            completion(DeleteUserResult(success: false))
+            return
+        }
+        let params = DeleteUserParams(email: member.email)
+        ApiService.sharedInstance.post(path: ApiPath.deleteUser, body: params, responseType: DeleteUserResult.self, authenticated: true) { result, error in
+            if let error = error {
+                self.logger.error("Unable to delete the user. no suuccess returned or there was an error", error)
+                completion(DeleteUserResult(success: false))
+                return
+            }
+            
+            if let result = result {                
+                completion(result)
+            }
+            completion(DeleteUserResult(success: false))
+            return
+        }
+    }
 }
