@@ -808,6 +808,45 @@
             </objects>
             <point key="canvasLocation" x="-782" y="243"/>
         </scene>
+        <!--Loading View Controller-->
+        <scene sceneID="r9L-vu-89x">
+            <objects>
+                <viewController storyboardIdentifier="LoadingFullScreen" id="Zf3-Gp-Nbo" customClass="LoadingViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sWW-K5-QLk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VH8-W2-lbw">
+                                <rect key="frame" x="40" y="309" width="295" height="49.5"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="hUg-fC-JRh">
+                                        <rect key="frame" x="137.5" y="0.0" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJM-qg-n60" userLabel="Message Label">
+                                        <rect key="frame" x="115" y="30" width="65.5" height="19.5"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="VH8-W2-lbw" firstAttribute="centerY" secondItem="sWW-K5-QLk" secondAttribute="centerY" id="IRQ-lj-aOL"/>
+                            <constraint firstItem="VH8-W2-lbw" firstAttribute="leading" secondItem="q0X-Vq-rRl" secondAttribute="leading" constant="40" id="V7q-fw-rQZ"/>
+                            <constraint firstItem="q0X-Vq-rRl" firstAttribute="trailing" secondItem="VH8-W2-lbw" secondAttribute="trailing" constant="40" id="r2I-cT-6ye"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="q0X-Vq-rRl"/>
+                    </view>
+                    <connections>
+                        <outlet property="messageLabel" destination="jJM-qg-n60" id="Ify-LO-SJ9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RtS-hk-6Xm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="70" y="150"/>
+        </scene>
         <!--Prompt Content Page View Controller-->
         <scene sceneID="ebg-Xv-86K">
             <objects>

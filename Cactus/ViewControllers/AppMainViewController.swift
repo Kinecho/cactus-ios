@@ -13,8 +13,6 @@ class AppMainViewController: UIViewController {
     static var shared: AppMainViewController!
     var current: UIViewController
     let logger = Logger(fileName: "AppMainViewController")
-    var hasUser = false
-    var authHasLoaded = false
     var member: CactusMember?
     var memberUnsubscriber: Unsubscriber?
     
@@ -29,7 +27,7 @@ class AppMainViewController: UIViewController {
             return .default
         }
     }
-
+    
     func setStatusBarStyle(_ updatedStyle: UIStatusBarStyle) {
         self.currentStatusBarStyle = updatedStyle
     }
@@ -37,7 +35,7 @@ class AppMainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
-
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         let launchStoryboard = UIStoryboard(name: StoryboardID.LaunchScreen.name, bundle: nil)
         self.current = launchStoryboard.instantiateViewController(withIdentifier: ScreenID.LaunchScreen.name)
@@ -64,19 +62,18 @@ class AppMainViewController: UIViewController {
     }
     
     func setupAuth() {        
-        self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember { (member, _, _) in
+        self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember { (member, _, user) in
             self.logger.info("setup auth onData \(member?.email ?? "no email")" )
             
-            if member == nil {
+            if member == nil && user == nil {
                 self.logger.info("found member is null. showing loign screen.")
                 self.showWelcomeScreen()
-                self.hasUser = false
+            } else if member == nil && user != nil {
+                self.logger.info("User is logged in but no member was found (yet). We're probably still creating the member. Don't do anything!")
             } else if let member = member, member.id != self.member?.id {
                 self.logger.info("Found member, not null. showing journal home page")
                 self.showJournalHome(member: member, wrapInNav: true)
-                self.hasUser = true
             }
-            self.authHasLoaded = true
             self.member = member
             
             self.runPendingActions()
@@ -100,7 +97,12 @@ class AppMainViewController: UIViewController {
     
     func showWelcomeScreen() {
         self.setStatusBarStyle(.lightContent)
-        _ = self.showScreen(ScreenID.Welcome, wrapInNav: false)
+        if self.current as? WelcomeViewController == nil {
+            self.logger.info("Showing welcome screen")
+            _ = self.showScreen(ScreenID.Welcome, wrapInNav: false)
+        } else {
+            self.logger.info("already showing welcome, don't do anything")
+        }
     }
     
     func getJournalFeedViewController() -> JournalFeedCollectionViewController {
@@ -121,11 +123,11 @@ class AppMainViewController: UIViewController {
     }
     
     func getScreen(_ screen: ScreenID) -> UIViewController {
-//        let storyboard = screen.storyboardID.getStoryboard()
-//        return storyboard.instantiateViewController(withIdentifier: screen.name)
+        //        let storyboard = screen.storyboardID.getStoryboard()
+        //        return storyboard.instantiateViewController(withIdentifier: screen.name)
         return screen.getViewController()
     }
-   
+    
     func showScreen(_ screenId: ScreenID, wrapInNav: Bool=false, animate: ((_ new: UIViewController, _ completion: (() -> Void)?) -> Void)? = nil) -> UIViewController {
         let screen = getScreen(screenId)
         let vc = showScreen(screen, wrapInNav: wrapInNav)
@@ -187,7 +189,7 @@ class AppMainViewController: UIViewController {
     
     func pushScreen(_ screenId: ScreenID, animate: Bool=true) {
         let screen = screenId.getViewController()
-
+        
         if  let nav = self.current as? UINavigationController {
             self.logger.info("Pushing view controller")
             nav.pushViewController(screen, animated: animate)
@@ -199,13 +201,25 @@ class AppMainViewController: UIViewController {
     
     func deleteAccount() {
         self.logger.info("attempting to delete the user's account")
+        guard let loadingVc = ScreenID.LoadingFullScreen.getViewController() as? LoadingViewController else {
+            return
+        }
+        DispatchQueue.main.async {
+            loadingVc.message = "Deleting Account..."
+            NavigationService.sharedInstance.present(loadingVc)
+        }
+        
         UserService.sharedInstance.deleteUserPermenantly { (result) in
             self.logger.info("\(Emoji.skullAndCrossbones) Account deleted = \(result.success)")
-            if result.success {
-                AuthService.sharedInstance.logout()
-                let alert = UIAlertController(title: "Account Deleted", message: "Your account as been successfully deleted.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
-                NavigationService.sharedInstance.present(alert)
+            DispatchQueue.main.async {
+                loadingVc.dismiss(animated: true) {
+                    if result.success {
+                        AuthService.sharedInstance.logout()
+                        let alert = UIAlertController(title: "Account Deleted", message: "Your account as been successfully deleted.", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+                        NavigationService.sharedInstance.present(alert)
+                    }
+                }
             }
         }
     }

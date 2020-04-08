@@ -164,6 +164,7 @@ class UserService {
             
             if let result = result {                
                 completion(result)
+                return
             }
             completion(DeleteUserResult(success: false))
             return

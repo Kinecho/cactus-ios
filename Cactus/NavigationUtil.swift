@@ -20,6 +20,7 @@ enum ScreenID: String {
     case journalEmpty
     case promptContentPageView
     case Welcome
+    case LoadingFullScreen
 
     //settings
     case settingsTable

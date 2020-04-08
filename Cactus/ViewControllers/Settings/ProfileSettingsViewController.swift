@@ -187,7 +187,8 @@ class ProfileSettingsViewController: UIViewController {
                 alertMessage += "\n\nYour Cactus Plus subscription will be automatically canceled and you will not be billed in the future."
             }
         } else if self.member?.tier.isPaidTier == true && self.member?.subscription?.hasUpcomingCancellation == true {
-            alertMessage += "\n\nYour subscription to Cactus Plus has already been canceled and you will not be billed in the future."
+            ///verified
+            alertMessage += "\n\nYou will not be billed in the future."
         }
         
         alert.addAction(UIAlertAction(title: "Delete Account", style: .destructive, handler: { (_) in
