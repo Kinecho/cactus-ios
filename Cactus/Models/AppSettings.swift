@@ -22,6 +22,7 @@ class AppSettings: FlamelinkIdentifiable {
     var pricingScreen: PricingScreenSettings?
     var apiDomain: String?
     var upgradeCopy: UpgradeCopy?
+    var dataExport: DataExportSettings?
 }
 
 struct PricingFeature: Codable {
@@ -51,6 +52,11 @@ class PricingScreenSettings: Codable {
     var purchaseButtonText: String?
     var features: [PricingFeature]?
     var headerBackgroundHeight: CGFloat? = 260        
+}
+
+class DataExportSettings: Codable {
+    var enabledTiers: [SubscriptionTier] = []
+    
 }
 
 class WelcomeSettings: Codable {
@@ -129,3 +135,4 @@ class CheckoutSettings: Codable {
         }
     }
 }
+

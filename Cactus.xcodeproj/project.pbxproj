@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3004400F243F9CF80002A293 /* DataExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004400E243F9CF80002A293 /* DataExportViewController.swift */; };
+		30044010243F9CF80002A293 /* DataExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004400E243F9CF80002A293 /* DataExportViewController.swift */; };
+		30044011243F9CF80002A293 /* DataExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004400E243F9CF80002A293 /* DataExportViewController.swift */; };
+		30044012243F9CF80002A293 /* DataExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004400E243F9CF80002A293 /* DataExportViewController.swift */; };
 		30051A4C23A86306005F812B /* InvertableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051A4B23A86306005F812B /* InvertableImageView.swift */; };
 		30051A4D23A86306005F812B /* InvertableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051A4B23A86306005F812B /* InvertableImageView.swift */; };
 		30051A4E23A86306005F812B /* InvertableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051A4B23A86306005F812B /* InvertableImageView.swift */; };
@@ -764,6 +768,7 @@
 
 /* Begin PBXFileReference section */
 		05E8C1EB665F6286E3CD0BE5 /* Pods_Cactus_Prod.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cactus_Prod.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3004400E243F9CF80002A293 /* DataExportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExportViewController.swift; sourceTree = "<group>"; };
 		30051A4B23A86306005F812B /* InvertableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvertableImageView.swift; sourceTree = "<group>"; };
 		3006442323D26BAB00712ED1 /* SocialInviteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialInviteService.swift; sourceTree = "<group>"; };
 		3009EE5A23C98F4400002CCB /* DateUtilTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtilTests.swift; sourceTree = "<group>"; };
@@ -1152,6 +1157,7 @@
 				30BE5674234E982C00AA6D4D /* LinkedAccountsTableViewController.swift */,
 				305130D2234FE9F10088B51F /* InviteSettingsViewController.swift */,
 				3018B11C23751DE70005333A /* AppIconSettingsViewController.swift */,
+				3004400E243F9CF80002A293 /* DataExportViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -2305,6 +2311,7 @@
 				30D0E452236C921500EFC0E3 /* UIAlertControllerExtensions.swift in Sources */,
 				30D0E456236C98C100EFC0E3 /* StringExtensions.swift in Sources */,
 				305CB0FE23D03C080046E8A8 /* ContactService.swift in Sources */,
+				30044011243F9CF80002A293 /* DataExportViewController.swift in Sources */,
 				303C9E2323841ACC006B9786 /* PrimaryButton.swift in Sources */,
 				30D0E44E236C920800EFC0E3 /* FirebaseExtensions.swift in Sources */,
 				303C9E3823841AF5006B9786 /* ImageExtensions.swift in Sources */,
@@ -2356,6 +2363,7 @@
 				3055D93B240E97AC00981DA2 /* SubscriptionService.swift in Sources */,
 				3055D937240E923C00981DA2 /* SubscriptionProductGroup.swift in Sources */,
 				30392FF92410075400F2A8FC /* ModelDecoder.swift in Sources */,
+				30044012243F9CF80002A293 /* DataExportViewController.swift in Sources */,
 				304B213523D38F79007B016C /* CactusColor.swift in Sources */,
 				304B217223D39484007B016C /* SharingService.swift in Sources */,
 				304B215523D392C2007B016C /* MarkdownTypes.swift in Sources */,
@@ -2528,6 +2536,7 @@
 				307ED79C24088C7E008D26C6 /* UpgradeJournalFeedCollectionReusableView.swift in Sources */,
 				303C9DCF237FD7D1006B9786 /* ViewSharedReflectionViewController.swift in Sources */,
 				30E9B0A422EAC204005B25FD /* AuthService.swift in Sources */,
+				30044010243F9CF80002A293 /* DataExportViewController.swift in Sources */,
 				30AB8EDA237C86910048CFD2 /* NotificationOnboardingViewController.swift in Sources */,
 				30E9B09A22EA6A81005B25FD /* BaseModel.swift in Sources */,
 				30BF2E302328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */,
@@ -2692,6 +2701,7 @@
 				307ED79B24088C7E008D26C6 /* UpgradeJournalFeedCollectionReusableView.swift in Sources */,
 				303C9DCE237FD7D1006B9786 /* ViewSharedReflectionViewController.swift in Sources */,
 				30E9B09D22EA7FC3005B25FD /* CactusMember.swift in Sources */,
+				3004400F243F9CF80002A293 /* DataExportViewController.swift in Sources */,
 				30AB8ED9237C86910048CFD2 /* NotificationOnboardingViewController.swift in Sources */,
 				30E9B0A322EAC204005B25FD /* AuthService.swift in Sources */,
 				30B6EA6F22EA5A9F00443E46 /* AppDelegate.swift in Sources */,

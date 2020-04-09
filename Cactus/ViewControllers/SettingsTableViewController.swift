@@ -8,17 +8,27 @@
 
 import UIKit
 import Sentry
+import FirebaseFirestore
 
 class SettingsTableViewController: UITableViewController {
 
     @IBOutlet weak var emailAddressLabel: UILabel!
+    @IBOutlet weak var dataExportCell: UITableViewCell!
     
-    var member: CactusMember?
+    var member: CactusMember? {
+        didSet {
+            DispatchQueue.main.async {
+                self.configureView()
+            }
+        }
+    }
+    
     var footerView = UIView()
     var logoutButton = RoundedButton()
     let versionTitleLabel = UILabel()
     let versionTextView = UITextView()
-    
+    var settings: AppSettings?
+    var settingsUnsubscriber: ListenerRegistration?
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
@@ -29,11 +39,29 @@ class SettingsTableViewController: UITableViewController {
         self.configureFooter()
         
         self.tableView.tableFooterView = self.footerView
-        
+        self.settings = AppSettingsService.sharedInstance.currentSettings
         self.configureView()
+
+        self.settingsUnsubscriber = AppSettingsService.sharedInstance.observeSettings { (settings, _) in
+            guard let settings = settings else {
+                return
+            }
+            DispatchQueue.main.async {
+                self.settings = settings
+                self.configureView()
+            }
+        }
     }
 
+    deinit {
+        self.settingsUnsubscriber?.remove()
+    }
+    
     func configureView() {
+        guard self.isViewLoaded else {
+            return
+        }
+        
         let name = "\(member?.firstName ?? "") \(member?.lastName ?? "")".trimmingCharacters(in: .whitespacesAndNewlines)
         let email = member?.email
         if !FormatUtils.isBlank(name) && !FormatUtils.isBlank(email) {
@@ -41,6 +69,13 @@ class SettingsTableViewController: UITableViewController {
         } else {
             self.emailAddressLabel.text = member?.email
         }
+        
+        if self.settings?.dataExport?.enabledTiers.contains(self.member?.tier ?? .BASIC) ?? false {
+            self.dataExportCell.isHidden = false
+        } else {
+            self.dataExportCell.isHidden = true
+        }
+        //self.tableView.reloadData()
     }
     
     func configureFooter() {
@@ -83,9 +118,10 @@ class SettingsTableViewController: UITableViewController {
         versionTextView.font = CactusFont.normal
         versionTextView.textColor = CactusColor.lightText
         versionTextView.textAlignment = .right
+        versionTextView.backgroundColor = .clear
         versionTitleLabel.font = CactusFont.normal
         versionTitleLabel.textColor = CactusColor.lightText
-        
+        versionTitleLabel.backgroundColor = .clear
         versionTitleLabel.trailingAnchor.constraint(greaterThanOrEqualTo: versionTextView.leadingAnchor, constant: 20).isActive = true
         versionTitleLabel.centerYAnchor.constraint(equalTo: versionTextView.centerYAnchor).isActive = true
         

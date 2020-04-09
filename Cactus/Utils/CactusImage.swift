@@ -138,6 +138,7 @@ enum CactusImage: String {
     case calendar
     case heart
     case pie
+    case trash
     
     func getImage() -> UIImage? {
         return UIImage(named: self.rawValue)

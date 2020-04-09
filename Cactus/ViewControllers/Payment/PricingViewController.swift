@@ -189,14 +189,12 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
             self.logger.info("footer \(footer.textMarkdown ?? "no footer text")")
             self.footerDescriptionLabel.attributedText = MarkdownUtil.toMarkdown(footer.textMarkdown)?.withColor(CactusColor.white)
             self.footerIcon.image = footer.icon?.image
-//            self.footerIcon.isHidden = footer.icon?.image == nil
             self.footerStackView.isHidden = false
         } else {
             self.logger.info("No footer")
             self.footerStackView.isHidden = true
         }
         
-//        self.planStackView.isHidden = self.appSettings?.checkoutSettings?.inAppPaymentsEnabled == false
     }
     
     func configurePlanTapGesture(planView: SubscriptionPlanOptionView) {
