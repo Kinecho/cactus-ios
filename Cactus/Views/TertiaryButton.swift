@@ -37,6 +37,7 @@ class TertiaryButton: UIButton {
     @IBInspectable var horizontalPadding: CGFloat = 20
     @IBInspectable var verticalPadding: CGFloat = 12
     var disabledBackgroundColor: UIColor = CactusColor.lightGray
+    var enabledBackgroundColor: UIColor = CactusColor.secondaryButtonBackground
 //    var borderColor: UIColor = CactusColor.darkGreen
 //    var mainColor: UIColor = CactusColor.green
     
@@ -52,7 +53,7 @@ class TertiaryButton: UIButton {
     func setEnabled(_ enabled: Bool) {
         if enabled == true {
 //            self.borderColor = CactusColor.white
-            self.backgroundColor = CactusColor.secondaryButtonBackground
+            self.backgroundColor = self.enabledBackgroundColor
         } else {
 //            self.borderColor = CactusColor.lightGray
             self.backgroundColor = self.disabledBackgroundColor

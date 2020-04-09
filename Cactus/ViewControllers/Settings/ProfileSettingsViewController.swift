@@ -58,7 +58,7 @@ class ProfileSettingsViewController: UIViewController {
         
         self.saveButton.disabledBackgroundColor = CactusColor.lightGray.withAlphaComponent(0.4)
         self.cancelButton.disabledBackgroundColor = CactusColor.lightGray.withAlphaComponent(0.4)
-        
+        self.cancelButton.enabledBackgroundColor = CactusColor.lightGray.withAlphaComponent(0.4)
         self.scrollContentView.setupKeyboardDismissRecognizer()
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillChangeFrame), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
@@ -105,7 +105,7 @@ class ProfileSettingsViewController: UIViewController {
             self.cancelButton.setEnabled(true)
         } else {
             self.saveButton.setEnabled(false)
-            self.cancelButton.setEnabled(false)
+            self.cancelButton.setEnabled(true)
         }
     }
     
