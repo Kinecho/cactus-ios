@@ -156,7 +156,6 @@ struct SocialInviteResponse: Codable {
     let message: String?
 }
 
-
 struct DeleteUserParams: Codable {
     var email: String?
     
@@ -169,5 +168,29 @@ struct DeleteUserResult: Codable {
     var success: Bool
     init(success: Bool) {
         self.success = success
+    }
+}
+
+struct DataExportParams: Codable {
+    var email: String?
+    var sendEmail: Bool = false
+    
+    init(sendEmail: Bool, email: String?) {
+        self.sendEmail = sendEmail
+        self.email = email
+    }
+}
+
+struct DataExportResult: Codable {
+    var success: Bool = false
+    var message: String?
+    var dataExportId: String?
+    var downloadUrl: String?
+    
+    static func error(_ message: String?) -> DataExportResult{
+        var result = DataExportResult()
+        result.success = false
+        result.message = message
+        return result
     }
 }

@@ -172,10 +172,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="fWl-76-3lg">
-                                                    <rect key="frame" x="20" y="13" width="343" height="38"/>
+                                                    <rect key="frame" x="20" y="12.5" width="343" height="39"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scheduled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAU-oa-hCI">
-                                                            <rect key="frame" x="0.0" y="0.0" width="343" height="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -184,7 +184,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily at 2:45 AM MST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJ2-fm-DGA">
-                                                            <rect key="frame" x="0.0" y="24" width="343" height="14"/>
+                                                            <rect key="frame" x="0.0" y="24.5" width="343" height="14.5"/>
                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                                                             <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -225,16 +225,16 @@
                                                     </connections>
                                                 </switch>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="caA-3g-GyY">
-                                                    <rect key="frame" x="20" y="13" width="305" height="38"/>
+                                                    <rect key="frame" x="20" y="12.5" width="305" height="39"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Push" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmM-ec-ee4">
-                                                            <rect key="frame" x="0.0" y="0.0" width="305" height="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="305" height="20.5"/>
                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New reflection prompts pop up on your device." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIa-W2-gok">
-                                                            <rect key="frame" x="0.0" y="24" width="305" height="14"/>
+                                                            <rect key="frame" x="0.0" y="24.5" width="305" height="14.5"/>
                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                                                             <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -271,16 +271,16 @@
                                                     </connections>
                                                 </switch>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="cTb-fh-GS3">
-                                                    <rect key="frame" x="20" y="13" width="305" height="38"/>
+                                                    <rect key="frame" x="20" y="12.5" width="305" height="39"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Seb-pq-zz7">
-                                                            <rect key="frame" x="0.0" y="0.0" width="305" height="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="305" height="20.5"/>
                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New reflection prompts arrive by email." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdt-bb-DbW" userLabel="This must be managed via the website">
-                                                            <rect key="frame" x="0.0" y="24" width="305" height="14"/>
+                                                            <rect key="frame" x="0.0" y="24.5" width="305" height="14.5"/>
                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                                                             <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -685,7 +685,7 @@
         <!--Prompt Content-->
         <scene sceneID="2gL-xc-7UC">
             <objects>
-                <viewController title="Prompt Content" id="wCk-Ja-bjW" sceneMemberID="viewController">
+                <viewController title="Prompt Content" id="wCk-Ja-bjW" customClass="DataExportViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Hy-4n-6bm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -696,18 +696,83 @@
                                 <color key="textColor" name="TextDefault"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Export your reflections into a downloadable file" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sbu-ve-lkR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Export your reflections into a downloadable file" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sbu-ve-lkR">
                                 <rect key="frame" x="20" y="167" width="374" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Xoh-xs-4J7">
+                                <rect key="frame" x="20" y="244" width="374" height="297.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hcn-d8-kEO" userLabel="Email Form Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="115.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What email should the file be sent to?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6La-23-WWE" userLabel="Email Description Label">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="22"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BZ7-ah-prX" customClass="I">
+                                                <rect key="frame" x="0.0" y="42" width="374" height="34"/>
+                                                <edgeInsets key="layoutMargins" top="12" left="12" bottom="12" right="12"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter a valid email." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pu0-lF-HFS" userLabel="Input Error Label">
+                                                <rect key="frame" x="0.0" y="96" width="374" height="19.5"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
+                                                <color key="textColor" name="Danger"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUF-B8-JeV" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="135.5" width="374" height="30"/>
+                                        <state key="normal" title="Email Me"/>
+                                        <connections>
+                                            <action selector="emailMeTapped:" destination="wCk-Ja-bjW" eventType="primaryActionTriggered" id="GaU-bk-P6d"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yxM-gs-W1j" userLabel="Loading Stack View">
+                                        <rect key="frame" x="0.0" y="185.5" width="374" height="20"/>
+                                        <subviews>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="R1X-F8-TW4">
+                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                            </activityIndicatorView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preparing your data export" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gI-ys-w4u" userLabel="Loading Label">
+                                                <rect key="frame" x="40" y="0.0" width="334" height="20"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Export success" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gW-zB-Az9" userLabel="Result Label">
+                                        <rect key="frame" x="0.0" y="225.5" width="374" height="22"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b20-bW-CnQ" userLabel="Download Button" customClass="SecondaryButton" customModule="Cactus" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="267.5" width="374" height="30"/>
+                                        <state key="normal" title="Download Now"/>
+                                        <connections>
+                                            <action selector="downloadTapped:" destination="wCk-Ja-bjW" eventType="primaryActionTriggered" id="cgh-Yt-DTK"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="Sbu-ve-lkR" firstAttribute="leading" secondItem="7Ev-ns-UmS" secondAttribute="leading" constant="20" id="3iz-C1-FQ9"/>
+                            <constraint firstItem="7Ev-ns-UmS" firstAttribute="trailing" secondItem="Xoh-xs-4J7" secondAttribute="trailing" constant="20" id="6Fi-wL-PV7"/>
+                            <constraint firstItem="Xoh-xs-4J7" firstAttribute="top" secondItem="Sbu-ve-lkR" secondAttribute="bottom" constant="56.5" id="DeD-1V-vbR"/>
                             <constraint firstItem="Sbu-ve-lkR" firstAttribute="top" secondItem="0mj-FI-Uo5" secondAttribute="bottom" constant="10" id="KDi-57-emQ"/>
                             <constraint firstItem="7Ev-ns-UmS" firstAttribute="trailing" secondItem="0mj-FI-Uo5" secondAttribute="trailing" constant="20" id="TeH-d6-1eI"/>
+                            <constraint firstItem="Xoh-xs-4J7" firstAttribute="leading" secondItem="7Ev-ns-UmS" secondAttribute="leading" constant="20" id="UqW-6y-DoK"/>
                             <constraint firstAttribute="trailing" secondItem="Sbu-ve-lkR" secondAttribute="trailing" constant="20" id="e7D-bu-2XT"/>
                             <constraint firstItem="0mj-FI-Uo5" firstAttribute="top" secondItem="7Ev-ns-UmS" secondAttribute="top" constant="40" id="ths-tC-gZH"/>
                             <constraint firstItem="0mj-FI-Uo5" firstAttribute="leading" secondItem="7Ev-ns-UmS" secondAttribute="leading" constant="20" id="xFf-uc-WWQ"/>
@@ -715,6 +780,16 @@
                         <viewLayoutGuide key="safeArea" id="7Ev-ns-UmS"/>
                     </view>
                     <navigationItem key="navigationItem" title="Prompt Content" id="qfd-yo-LLO"/>
+                    <connections>
+                        <outlet property="downloadButton" destination="b20-bW-CnQ" id="rJN-Vb-1yB"/>
+                        <outlet property="emailDescriptionLabel" destination="6La-23-WWE" id="FNF-Jm-gv6"/>
+                        <outlet property="emailFormStackView" destination="hcn-d8-kEO" id="Des-ye-4K2"/>
+                        <outlet property="emailMeButton" destination="fUF-B8-JeV" id="ARm-8y-vjO"/>
+                        <outlet property="emailTextField" destination="BZ7-ah-prX" id="BsU-V2-Kok"/>
+                        <outlet property="inputErrorLabel" destination="Pu0-lF-HFS" id="aMC-Ju-ukc"/>
+                        <outlet property="loadingStackView" destination="yxM-gs-W1j" id="Eqc-sa-k2c"/>
+                        <outlet property="resultLabel" destination="3gW-zB-Az9" id="meP-jq-BXJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kT8-in-NkG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

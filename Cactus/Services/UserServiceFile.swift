@@ -170,4 +170,22 @@ class UserService {
             return
         }
     }
+    
+    func createDataExport(_ params: DataExportParams, completion: @escaping (DataExportResult) -> Void) {
+        ApiService.sharedInstance.post(path: ApiPath.exportData, body: params, responseType: DataExportResult.self, authenticated: true) { result, error in
+            if let error = error {
+                self.logger.error("Unable to create a data export. no suuccess returned or there was an error", error)
+                completion(DataExportResult.error("Unexpected error creating the data export."))
+                return
+            }
+            
+            if let result = result {
+                completion(result)
+                return
+            }
+            completion(DataExportResult.error("Unable to create the data export"))
+            return
+        }
+    }
+
 }
