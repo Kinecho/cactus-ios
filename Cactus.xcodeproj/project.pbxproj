@@ -10,7 +10,6 @@
 		3004400F243F9CF80002A293 /* DataExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004400E243F9CF80002A293 /* DataExportViewController.swift */; };
 		30044010243F9CF80002A293 /* DataExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004400E243F9CF80002A293 /* DataExportViewController.swift */; };
 		30044011243F9CF80002A293 /* DataExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004400E243F9CF80002A293 /* DataExportViewController.swift */; };
-		30044012243F9CF80002A293 /* DataExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004400E243F9CF80002A293 /* DataExportViewController.swift */; };
 		30051A4C23A86306005F812B /* InvertableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051A4B23A86306005F812B /* InvertableImageView.swift */; };
 		30051A4D23A86306005F812B /* InvertableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051A4B23A86306005F812B /* InvertableImageView.swift */; };
 		30051A4E23A86306005F812B /* InvertableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051A4B23A86306005F812B /* InvertableImageView.swift */; };
@@ -2363,7 +2362,6 @@
 				3055D93B240E97AC00981DA2 /* SubscriptionService.swift in Sources */,
 				3055D937240E923C00981DA2 /* SubscriptionProductGroup.swift in Sources */,
 				30392FF92410075400F2A8FC /* ModelDecoder.swift in Sources */,
-				30044012243F9CF80002A293 /* DataExportViewController.swift in Sources */,
 				304B213523D38F79007B016C /* CactusColor.swift in Sources */,
 				304B217223D39484007B016C /* SharingService.swift in Sources */,
 				304B215523D392C2007B016C /* MarkdownTypes.swift in Sources */,
