@@ -90,8 +90,8 @@ class DataExportViewController: UIViewController {
         }
         DispatchQueue.main.async {
             if result.success {
-                self.resultLabel.text = self.showEmail ? "A link to your data export has been sent to \(self.sendToEmail ?? "your email"). "
-                    + "You can also download your data export on your device now." : nil
+                self.resultLabel.text = self.showEmail ? "Next, check your \(self.sendToEmail ?? "") email account for a link to download your data. "
+                    + "You can also download it now to this device." : nil
                 self.emailMeButton.isHidden = self.showEmail
                 self.downloadButton.isHidden = false
                 self.resultLabel.isHidden = !self.showEmail
