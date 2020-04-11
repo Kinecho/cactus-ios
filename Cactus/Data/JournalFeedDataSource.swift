@@ -11,7 +11,7 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 
-class PageLoader<T: FirestoreIdentifiable> {
+class PageLoader<T> {
     var result: PageResult<T>?
     var finishedLoading: Bool { result != nil }
     var listener: ListenerRegistration?

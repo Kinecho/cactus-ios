@@ -282,6 +282,7 @@ struct PromptContentField {
     static let promptId = "promptId"
     static let contentStatus = "contentStatus"
     static let subscriptionTiers = "subscriptionTiers"
+    static let cactusElement = "cactusElement"
 }
 
 class PromptContent: FlamelinkIdentifiable {
@@ -338,6 +339,13 @@ class PromptContent: FlamelinkIdentifiable {
     
     func getIntroText() -> String? {
         return self.content.first?.text
+    }
+    
+    func getMainImageFile() -> ImageFile? {
+        let imageContent = self.content.first { (content) -> Bool in
+            content.backgroundImage != nil
+        }
+        return imageContent?.backgroundImage
     }
     
     func getQuestionMarkdown() -> String? {

@@ -117,6 +117,21 @@ class FlamelinkService {
         return listener
     }
     
+    func addPaginatedListener<T: FlamelinkIdentifiable>(_ query: Query, limit: Int?=nil, lastResult: PageResult<T>?, _ onData: @escaping (PageResult<T>) -> Void) -> ListenerRegistration {
+        var query = query
+        if let limit = limit {
+            query = query.limit(to: limit)
+        }
+        
+        if let after = lastResult?.lastSnapshot {
+            query = query.start(afterDocument: after)
+        }
+        
+        let listener = query.addSnapshotListener(self.paginatedSnapshotListener(onData, limit: limit))
+        
+        return listener
+    }
+    
     private func snapshotListener<T: FlamelinkIdentifiable>( _ onData: @escaping ([T]?, Any?) -> Void) -> FIRQuerySnapshotBlock {
         func handler (_ snapshot: QuerySnapshot?, _ error: Error?) {
             if let error = error {
@@ -135,6 +150,63 @@ class FlamelinkService {
                 }
             })
             return onData(results, nil)
+        }
+        
+        return handler
+    }
+    
+    private func paginatedSnapshotListener<T: FlamelinkIdentifiable>( _ onData: @escaping (PageResult<T>) -> Void, limit: Int?=nil) -> FIRQuerySnapshotBlock {
+        func handler (_ snapshot: QuerySnapshot?, _ error: Error?) {
+            var result = PageResult<T>()
+            if let error = error {
+                result.error = error
+                self.logger.error("Unexected error fetching documents", error)
+                return onData(result)
+            }
+            guard let documents = snapshot?.documents else {
+                result.error = "Unable to fetch documents"
+                return onData(result)
+            }
+            
+            result.added = []
+            result.removed = []
+            result.updated = []
+            snapshot?.documentChanges.forEach({ (change) in
+                guard let model = try? change.document.decode(as: T.self) else {
+                    self.logger.error("Failed to decode document for \(T.self)")
+                    return
+                }
+                switch change.type {
+                case .added:
+                    result.added?.append(model)
+                case .removed:
+                    result.removed?.append(model)
+                case .modified:
+                    result.updated?.append(model)
+                }
+            })
+            
+            var models = [T]()
+            documents.forEach({ (document) in
+                
+                do {
+                    let object = try document.decode(as: T.self, includingId: false)
+                    models.append(object)
+                } catch {
+                    self.logger.error("error decodding document", error)
+                }
+            })
+            
+            result.results = models
+            result.firstSnapshot = documents.first
+            result.lastSnapshot = documents.last
+            
+            if let limit = limit {
+                result.pageSize = limit
+                result.mightHaveMore = documents.count == limit
+            }
+            
+            return onData(result)
         }
         
         return handler

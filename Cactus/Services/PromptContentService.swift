@@ -66,6 +66,35 @@ class PromptContentService {
             .end(at: [endAt])
             
         self.flamelinkService.getFirst(query, onData)
+    }
+    
+    func observePromptContent(element: CactusElement,
+                              status: ContentStatus = .published,
+                              tier: SubscriptionTier = .PLUS,
+                              startDate: Date = Date(),
+                              limit: Int? = nil,
+                              lastResult: PageResult<PromptContent>? = nil,
+                              _ onData: @escaping (PageResult<PromptContent>) -> Void) -> ListenerRegistration? {
         
+        let dateRange = getPromptContentDateRangeStrings(for: startDate)
+        
+        guard let startAt = dateRange.startAt else {
+            self.logger.info("No start date was found... returning empty page result")
+            onData(PageResult())
+            return nil
+        }
+        
+        let query = self.getBaseQuery()
+            .whereField(PromptContentField.subscriptionTiers, arrayContains: tier.rawValue)
+            .whereField(PromptContentField.contentStatus, isEqualTo: status.rawValue)
+            .whereField(PromptContentField.scheduledSendAt, isLessThanOrEqualTo: startAt)
+            .whereField(PromptContentField.cactusElement, isEqualTo: element.rawValue)
+            .order(by: PromptContentField.scheduledSendAt, descending: true)
+                
+        self.logger.info("Observing prompt content for tier \(tier.rawValue), status: \(status.rawValue), scheduledBefore: \(startAt)")
+        
+        return self.flamelinkService.addPaginatedListener(query, limit: limit, lastResult: lastResult) { (pageResult) in
+            onData(pageResult)
+        }
     }
 }

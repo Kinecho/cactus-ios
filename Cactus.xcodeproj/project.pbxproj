@@ -709,6 +709,12 @@
 		30DCA5EC244120A700D520D4 /* PromptContentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5EB244120A700D520D4 /* PromptContentCollectionViewController.swift */; };
 		30DCA5ED244120A700D520D4 /* PromptContentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5EB244120A700D520D4 /* PromptContentCollectionViewController.swift */; };
 		30DCA5EE244120A700D520D4 /* PromptContentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5EB244120A700D520D4 /* PromptContentCollectionViewController.swift */; };
+		30DCA5F024417AA400D520D4 /* PromptContentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5EF24417AA400D520D4 /* PromptContentDataSource.swift */; };
+		30DCA5F124417AA400D520D4 /* PromptContentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5EF24417AA400D520D4 /* PromptContentDataSource.swift */; };
+		30DCA5F224417AA400D520D4 /* PromptContentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5EF24417AA400D520D4 /* PromptContentDataSource.swift */; };
+		30DCA5F824418BAA00D520D4 /* PromptContentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5F724418BAA00D520D4 /* PromptContentData.swift */; };
+		30DCA5F924418BAA00D520D4 /* PromptContentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5F724418BAA00D520D4 /* PromptContentData.swift */; };
+		30DCA5FA24418BAA00D520D4 /* PromptContentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5F724418BAA00D520D4 /* PromptContentData.swift */; };
 		30E2D376234311C6003D2B27 /* PillLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2D375234311C6003D2B27 /* PillLabelView.swift */; };
 		30E2D377234311C6003D2B27 /* PillLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2D375234311C6003D2B27 /* PillLabelView.swift */; };
 		30E2D37A23432B21003D2B27 /* NavigationMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2D37823432B21003D2B27 /* NavigationMenuViewController.swift */; };
@@ -1009,6 +1015,8 @@
 		30DCA5E32441207500D520D4 /* PromptEntryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptEntryCollectionViewCell.swift; sourceTree = "<group>"; };
 		30DCA5E42441207500D520D4 /* PromptEntryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromptEntryCollectionViewCell.xib; sourceTree = "<group>"; };
 		30DCA5EB244120A700D520D4 /* PromptContentCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptContentCollectionViewController.swift; sourceTree = "<group>"; };
+		30DCA5EF24417AA400D520D4 /* PromptContentDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptContentDataSource.swift; sourceTree = "<group>"; };
+		30DCA5F724418BAA00D520D4 /* PromptContentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptContentData.swift; sourceTree = "<group>"; };
 		30E2D375234311C6003D2B27 /* PillLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillLabelView.swift; sourceTree = "<group>"; };
 		30E2D37823432B21003D2B27 /* NavigationMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMenuViewController.swift; sourceTree = "<group>"; };
 		30E2D37923432B21003D2B27 /* NavigationMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationMenuViewController.xib; sourceTree = "<group>"; };
@@ -1107,6 +1115,8 @@
 				300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */,
 				304EA2F22343B730001FB8AD /* CountProcess.swift */,
 				3018B1222376182D0005333A /* JournalEntryData.swift */,
+				30DCA5EF24417AA400D520D4 /* PromptContentDataSource.swift */,
+				30DCA5F724418BAA00D520D4 /* PromptContentData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -2293,6 +2303,7 @@
 				303C9E2123841ACC006B9786 /* RoundedButton.swift in Sources */,
 				303C9E1723841AC6006B9786 /* JournalHomeEmptyStateViewController.swift in Sources */,
 				303C9DF223841ABB006B9786 /* HelpViewController.swift in Sources */,
+				30DCA5F224417AA400D520D4 /* PromptContentDataSource.swift in Sources */,
 				3021CBD92410215500F58B89 /* NavigationService.swift in Sources */,
 				303C9DF723841ABB006B9786 /* LinkedAccountsTableViewController.swift in Sources */,
 				303C9DE323841AA3006B9786 /* NotificationOnboardingViewController.swift in Sources */,
@@ -2315,6 +2326,7 @@
 				303C9DF923841ABB006B9786 /* AppIconSettingsViewController.swift in Sources */,
 				30F7168D237A4B9C004989DB /* AppConfig.swift in Sources */,
 				303C9E2D23841ACC006B9786 /* UIImageViewAligned.swift in Sources */,
+				30DCA5FA24418BAA00D520D4 /* PromptContentData.swift in Sources */,
 				305B187123319F42003E1561 /* FileUtilsTest.swift in Sources */,
 				305B18772331A906003E1561 /* FlamelinkTypes.swift in Sources */,
 				30762E602440E4A4000A18B3 /* ElementCell.swift in Sources */,
@@ -2497,6 +2509,7 @@
 				3099D20324098EF400BD9CC4 /* SubscriptionProductGroup.swift in Sources */,
 				30934FA022EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift in Sources */,
 				305B186F23319E09003E1561 /* FileUtils.swift in Sources */,
+				30DCA5F124417AA400D520D4 /* PromptContentDataSource.swift in Sources */,
 				301C1A91236F7E9700F06A3D /* MeaningAnimationViewController.swift in Sources */,
 				30E2D37B23432B21003D2B27 /* NavigationMenuViewController.swift in Sources */,
 				3099D1F22408DA1000BD9CC4 /* SubscriptionPlanOptionView.swift in Sources */,
@@ -2596,6 +2609,7 @@
 				30D7F70A236BAAB100379EE0 /* EditReflectionViewController.swift in Sources */,
 				3020DD952363F37D00EC40AE /* UIImageViewAligned.swift in Sources */,
 				3006442523D26BAB00712ED1 /* SocialInviteService.swift in Sources */,
+				30DCA5F924418BAA00D520D4 /* PromptContentData.swift in Sources */,
 				30C7E57C233FEB5800145111 /* FontExtensions.swift in Sources */,
 				3084E9622348118000788279 /* LanguageSettingsViewController.swift in Sources */,
 				300AC188233A850B005C6555 /* JournalEntrySkeletonViewController.swift in Sources */,
@@ -2666,6 +2680,7 @@
 				3099D20224098EF400BD9CC4 /* SubscriptionProductGroup.swift in Sources */,
 				305B186E23319E09003E1561 /* FileUtils.swift in Sources */,
 				301C1A90236F7E9700F06A3D /* MeaningAnimationViewController.swift in Sources */,
+				30DCA5F024417AA400D520D4 /* PromptContentDataSource.swift in Sources */,
 				30E2D37A23432B21003D2B27 /* NavigationMenuViewController.swift in Sources */,
 				302C4F502347FAA400798560 /* ProfileSettingsViewController.swift in Sources */,
 				3099D1F12408DA1000BD9CC4 /* SubscriptionPlanOptionView.swift in Sources */,
@@ -2765,6 +2780,7 @@
 				30D7F709236BAAB100379EE0 /* EditReflectionViewController.swift in Sources */,
 				3020DD942363F37D00EC40AE /* UIImageViewAligned.swift in Sources */,
 				3006442423D26BAB00712ED1 /* SocialInviteService.swift in Sources */,
+				30DCA5F824418BAA00D520D4 /* PromptContentData.swift in Sources */,
 				30C7E57B233FEB5800145111 /* FontExtensions.swift in Sources */,
 				3084E9612348118000788279 /* LanguageSettingsViewController.swift in Sources */,
 				300AC187233A850B005C6555 /* JournalEntrySkeletonViewController.swift in Sources */,

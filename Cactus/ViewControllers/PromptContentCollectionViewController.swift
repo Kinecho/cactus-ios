@@ -11,12 +11,15 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class PromptContentCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    
+    let logger = Logger("PromptContentCollectionViewController")
     var element: CactusElement!
     let margin: CGFloat = 20
+    var dataSource: PromptContentDataSource!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.dataSource = PromptContentDataSource.forElement(self.element)
+        self.dataSource.delegate = self
         
         self.collectionView.register(UINib(nibName: "PromptEntryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         
@@ -26,6 +29,7 @@ class PromptContentCollectionViewController: UICollectionViewController, UIColle
         self.view.translatesAutoresizingMaskIntoConstraints = false
         self.navigationItem.title = self.element.title
         self.collectionView.dataSource = self
+        
         self.collectionView.reloadData()
     }
     
@@ -36,16 +40,17 @@ class PromptContentCollectionViewController: UICollectionViewController, UIColle
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 30
+        return self.dataSource.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? PromptEntryCollectionViewCell else {
             return collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         }
-        
+            
         // Configure the cell
-        cell.label.text =  "\(element.title) \(indexPath.row)"
+        let data = self.dataSource.get(index: indexPath.row)
+        cell.data = data
         cell.margin = self.margin
         cell.setWidth(self.getCellWidth())
         
@@ -89,15 +94,18 @@ class PromptContentCollectionViewController: UICollectionViewController, UIColle
      */
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.showPrompt(entryId: AppSettingsService.sharedInstance.currentSettings?.firstPromptContentEntryId)
+        self.showPrompt(data: self.dataSource.get(index: indexPath.row))
     }
     
-    func showPrompt(entryId: String?) {
-        guard let entryId = entryId else {
+    func showPrompt(data: PromptContentData?) {
+        guard let promptContent = data?.promptContent else {
             return
         }
-        let vc = LoadablePromptContentViewController.loadFromNib()
-        vc.promptContentEntryId = entryId
+        
+        guard let vc = ScreenID.promptContentPageView.getViewController() as? PromptContentPageViewController else {return}
+        vc.promptContent = promptContent
+        vc.reflectionResponse = data?.responseData.responses.first
+        
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .coverVertical
         self.present(vc, animated: true, completion: nil)
@@ -111,5 +119,20 @@ class PromptContentCollectionViewController: UICollectionViewController, UIColle
             width = (screenWidth/2) - (2 * margin)
         }
         return width
+    }
+}
+
+extension PromptContentCollectionViewController: PromptContentDataSourceDelegate {
+    func batchUpdate(addedIndexes: [Int], updatedIndexes: [Int], removedIndexes: [Int]) {
+        self.logger.info("Batch update added: \(addedIndexes) | updated: \(updatedIndexes) | removed: \(removedIndexes)")
+        DispatchQueue.main.async {
+            self.collectionView.performBatchUpdates({
+                self.collectionView.deleteItems(at: removedIndexes.map { IndexPath(row: $0, section: 0) })
+                self.collectionView.insertItems(at: addedIndexes.map { IndexPath(row: $0, section: 0) })
+                self.collectionView.reloadItems(at: updatedIndexes.map { IndexPath(row: $0, section: 0) })
+            }, completion: { _ in
+                
+            })
+        }
     }
 }

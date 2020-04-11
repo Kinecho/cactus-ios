@@ -59,7 +59,7 @@ class JournalEntryData {
         self.journalDate = sentPrompt.firstSentAt
     }
     
-    init(promptId: String?, memberId: String, journalDate: Date) {
+    init(promptId: String?, memberId: String, journalDate: Date?) {
         JournalEntryData.logger.debug("Setting up Journal Entry without a SentPrompt for promptId \(promptId ?? "unknown")", functionName: #function, line: #line)
         self.promptId = promptId
         self.memberId = memberId

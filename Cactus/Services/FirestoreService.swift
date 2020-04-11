@@ -15,7 +15,7 @@ import CodableFirebase
 typealias Unsubscriber = () -> Void
 typealias DataObserver = ListenerRegistration
 
-struct PageResult<T: FirestoreIdentifiable> {
+struct PageResult<T> {
     var error: Any?
     var results: [T]?
     var removed: [T]?
