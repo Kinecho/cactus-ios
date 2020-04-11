@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -39,234 +39,286 @@
             <rect key="frame" x="0.0" y="0.0" width="334" height="725"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar3" translatesAutoresizingMaskIntoConstraints="NO" id="kzq-Fz-fZ5">
-                    <rect key="frame" x="20" y="64" width="50" height="50"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="kzq-Fz-fZ5" secondAttribute="height" multiplier="1:1" id="Q5v-8U-aTh"/>
-                        <constraint firstAttribute="width" constant="50" id="oOQ-16-R78"/>
-                        <constraint firstAttribute="height" constant="50" id="yh4-BM-Xs8"/>
-                    </constraints>
-                </imageView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="fG7-eM-Oku" userLabel="Profile Stack View">
-                    <rect key="frame" x="20" y="134" width="334" height="51"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="97e-am-Mfx">
+                    <rect key="frame" x="0.0" y="0.0" width="334" height="725"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Neil Poulin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeJ-aC-hQe">
-                            <rect key="frame" x="0.0" y="0.0" width="334" height="28"/>
-                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
-                            <color key="textColor" name="White"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="neil@cactus.app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dw-Xl-Tng">
-                            <rect key="frame" x="0.0" y="32" width="334" height="19"/>
-                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
-                            <color key="textColor" name="GreenLight"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="mdu-RK-mVB" userLabel="Actions Stack View">
-                    <rect key="frame" x="0.0" y="205" width="334" height="150"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEe-Hm-kiV" customClass="BorderedButton" customModule="Cactus" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="8" width="326" height="44"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxQ-8b-wTT">
+                            <rect key="frame" x="0.0" y="0.0" width="334" height="531"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8I0-Nz-46F">
+                                    <rect key="frame" x="20" y="20" width="294" height="511"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ksD-tD-8bB">
+                                            <rect key="frame" x="0.0" y="0.0" width="294" height="50"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar3" translatesAutoresizingMaskIntoConstraints="NO" id="kzq-Fz-fZ5">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="oOQ-16-R78"/>
+                                                        <constraint firstAttribute="height" constant="50" id="yh4-BM-Xs8"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mrp-jR-DR7" userLabel="Close Button">
+                                                    <rect key="frame" x="254" y="0.0" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="rQY-XY-wq0"/>
+                                                        <constraint firstAttribute="width" constant="40" id="sKD-UQ-KNA"/>
+                                                    </constraints>
+                                                    <color key="tintColor" name="GreenLight"/>
+                                                    <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                                    <state key="normal" image="close">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large" weight="thin"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="closeTapped:" destination="-1" eventType="touchUpInside" id="nBo-Nt-OWd"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="fG7-eM-Oku" userLabel="Profile Stack View">
+                                            <rect key="frame" x="0.0" y="70" width="294" height="51"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Neil Poulin" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeJ-aC-hQe">
+                                                    <rect key="frame" x="0.0" y="0.0" width="294" height="28"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
+                                                    <color key="textColor" name="White"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="neil@cactus.app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dw-Xl-Tng">
+                                                    <rect key="frame" x="0.0" y="32" width="294" height="19"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
+                                                    <color key="textColor" name="GreenLight"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="mdu-RK-mVB" userLabel="Actions Stack View">
+                                            <rect key="frame" x="0.0" y="141" width="294" height="150"/>
+                                            <subviews>
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEe-Hm-kiV" customClass="BorderedButton" customModule="Cactus" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="-36" width="286" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="opU-od-fAD"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                    <color key="tintColor" name="GreenLight"/>
+                                                    <state key="normal" title="Invite" image="airplane">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="imageWidth">
+                                                            <real key="value" value="25"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="imageHeight">
+                                                            <real key="value" value="25"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="inviteTapped:" destination="-1" eventType="primaryActionTriggered" id="vVZ-HZ-N6b"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEd-AE-jZn" userLabel="Browse" customClass="BorderedButton" customModule="Cactus" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="8" width="286" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="qb2-bs-tbA"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                    <color key="tintColor" name="GreenLight"/>
+                                                    <inset key="titleEdgeInsets" minX="25" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                                    <state key="normal" title="Browse Prompts" image="grid"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="imageHeight">
+                                                            <real key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="imageWidth">
+                                                            <real key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="browsePromptsTapped:" destination="-1" eventType="primaryActionTriggered" id="JGO-62-SU9"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQA-bL-PSt" userLabel="Settings" customClass="BorderedButton" customModule="Cactus" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="53" width="286" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="w0a-8g-lxN"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                    <color key="tintColor" name="GreenLight"/>
+                                                    <state key="normal" title="Notifications" image="bell"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="imageWidth">
+                                                            <real key="value" value="25"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="imageHeight">
+                                                            <real key="value" value="25"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="notificationsTapped:" destination="-1" eventType="touchUpInside" id="vEE-DD-8mJ"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1A-e2-RO0" userLabel="Notifications" customClass="BorderedButton" customModule="Cactus" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="98" width="286" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="79d-N6-wXR"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                    <color key="tintColor" name="GreenLight"/>
+                                                    <state key="normal" title="Settings" image="gear"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="imageWidth">
+                                                            <real key="value" value="25"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="settingsTapped:" destination="-1" eventType="primaryActionTriggered" id="v7t-wy-7gJ"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="8"/>
+                                        </stackView>
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BaY-h1-QJB" userLabel="Streak Rounded View" customClass="RoundedView" customModule="Cactus" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="311" width="294" height="90"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pottedCactus" translatesAutoresizingMaskIntoConstraints="NO" id="Kms-7f-edX">
+                                                    <rect key="frame" x="-30" y="0.0" width="98" height="120"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="88" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SgD-gm-waT">
+                                                    <rect key="frame" x="93" y="21.5" width="44.5" height="47"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="40"/>
+                                                    <color key="textColor" name="GreenLight"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day Streak" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0C-hD-Yg5">
+                                                    <rect key="frame" x="145.5" y="37" width="68.5" height="16.5"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                                    <color key="textColor" name="GreenLight"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="k0C-hD-Yg5" secondAttribute="trailing" constant="10" id="3Ol-cc-aoz"/>
+                                                <constraint firstItem="SgD-gm-waT" firstAttribute="centerY" secondItem="BaY-h1-QJB" secondAttribute="centerY" id="7JN-0z-Z4t"/>
+                                                <constraint firstItem="Kms-7f-edX" firstAttribute="leading" secondItem="BaY-h1-QJB" secondAttribute="leading" constant="-30" id="HNE-O2-oej"/>
+                                                <constraint firstAttribute="height" constant="90" id="L9M-A2-koK"/>
+                                                <constraint firstItem="SgD-gm-waT" firstAttribute="leading" secondItem="Kms-7f-edX" secondAttribute="trailing" constant="25" id="QBC-9V-RrR"/>
+                                                <constraint firstItem="k0C-hD-Yg5" firstAttribute="centerY" secondItem="BaY-h1-QJB" secondAttribute="centerY" id="UOR-N1-S9F"/>
+                                                <constraint firstItem="k0C-hD-Yg5" firstAttribute="leading" secondItem="SgD-gm-waT" secondAttribute="trailing" constant="8" id="tbi-B8-qva"/>
+                                                <constraint firstItem="Kms-7f-edX" firstAttribute="width" secondItem="BaY-h1-QJB" secondAttribute="width" multiplier="1/3" id="u7I-gQ-5kT"/>
+                                                <constraint firstItem="Kms-7f-edX" firstAttribute="top" secondItem="BaY-h1-QJB" secondAttribute="top" id="wDz-wk-j5X"/>
+                                                <constraint firstAttribute="bottom" secondItem="Kms-7f-edX" secondAttribute="bottom" constant="-30" id="yHI-IX-8Ko"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="12"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yiP-te-BSP">
+                                            <rect key="frame" x="0.0" y="421" width="294" height="90"/>
+                                            <subviews>
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nnk-9j-MZV" userLabel="Reflections Rounded View" customClass="RoundedView" customModule="Cactus" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="137" height="90"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="121" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OU6-hA-xBB">
+                                                            <rect key="frame" x="35" y="10" width="67" height="47"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="40"/>
+                                                            <color key="textColor" name="GreenLight"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reflections" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qH1-jQ-ub4">
+                                                            <rect key="frame" x="33.5" y="61.5" width="70" height="16.5"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                                            <color key="textColor" name="GreenLight"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="OU6-hA-xBB" firstAttribute="centerX" secondItem="Nnk-9j-MZV" secondAttribute="centerX" id="Azu-Qh-WF4"/>
+                                                        <constraint firstItem="qH1-jQ-ub4" firstAttribute="centerX" secondItem="Nnk-9j-MZV" secondAttribute="centerX" id="CLA-Wc-Cw3"/>
+                                                        <constraint firstAttribute="bottom" secondItem="qH1-jQ-ub4" secondAttribute="bottom" constant="12" id="LAD-G3-u6x"/>
+                                                        <constraint firstAttribute="height" constant="90" id="VdV-Yr-X4K"/>
+                                                        <constraint firstItem="qH1-jQ-ub4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="OU6-hA-xBB" secondAttribute="bottom" id="raU-QJ-uFQ"/>
+                                                        <constraint firstItem="OU6-hA-xBB" firstAttribute="top" secondItem="Nnk-9j-MZV" secondAttribute="top" constant="10" id="wfG-XQ-YE8"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="12"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KDO-6D-AB5" userLabel="Minutes Rounded View" customClass="RoundedView" customModule="Cactus" customModuleProvider="target">
+                                                    <rect key="frame" x="157" y="0.0" width="137" height="90"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="93" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlD-xm-bIw">
+                                                            <rect key="frame" x="46.5" y="10" width="44.5" height="47"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="40"/>
+                                                            <color key="textColor" name="GreenLight"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETE-OQ-lib">
+                                                            <rect key="frame" x="43.5" y="61.5" width="50" height="16.5"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                                            <color key="textColor" name="GreenLight"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="DlD-xm-bIw" firstAttribute="top" secondItem="KDO-6D-AB5" secondAttribute="top" constant="10" id="D5x-F8-aud"/>
+                                                        <constraint firstAttribute="height" constant="90" id="Fgo-dS-Ntq"/>
+                                                        <constraint firstItem="ETE-OQ-lib" firstAttribute="top" relation="greaterThanOrEqual" secondItem="DlD-xm-bIw" secondAttribute="bottom" id="kK3-k8-J2I"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ETE-OQ-lib" secondAttribute="bottom" constant="12" id="vDD-fp-hus"/>
+                                                        <constraint firstItem="ETE-OQ-lib" firstAttribute="centerX" secondItem="KDO-6D-AB5" secondAttribute="centerX" id="xs0-10-7Od"/>
+                                                        <constraint firstItem="DlD-xm-bIw" firstAttribute="centerX" secondItem="KDO-6D-AB5" secondAttribute="centerX" id="xsn-Wh-m5O"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="12"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Nnk-9j-MZV" firstAttribute="width" secondItem="KDO-6D-AB5" secondAttribute="width" id="aBu-mJ-Ick"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="44" id="opU-od-fAD"/>
+                                <constraint firstAttribute="bottom" secondItem="8I0-Nz-46F" secondAttribute="bottom" id="ahj-At-C66"/>
+                                <constraint firstAttribute="trailing" secondItem="8I0-Nz-46F" secondAttribute="trailing" constant="20" id="psz-YE-Pmh"/>
+                                <constraint firstItem="8I0-Nz-46F" firstAttribute="leading" secondItem="yxQ-8b-wTT" secondAttribute="leading" constant="20" id="pxx-m2-9FE"/>
+                                <constraint firstItem="8I0-Nz-46F" firstAttribute="top" secondItem="yxQ-8b-wTT" secondAttribute="top" constant="20" id="vlB-Wc-8Nt"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
-                            <color key="tintColor" name="GreenLight"/>
-                            <state key="normal" title="Invite" image="airplane">
-                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
-                            </state>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="imageWidth">
-                                    <real key="value" value="25"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="imageHeight">
-                                    <real key="value" value="25"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                            <connections>
-                                <action selector="inviteTapped:" destination="-1" eventType="primaryActionTriggered" id="vVZ-HZ-N6b"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQA-bL-PSt" userLabel="Settings" customClass="BorderedButton" customModule="Cactus" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="53" width="326" height="44"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="44" id="w0a-8g-lxN"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
-                            <color key="tintColor" name="GreenLight"/>
-                            <state key="normal" title="Notifications" image="bell"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="imageWidth">
-                                    <real key="value" value="25"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="imageHeight">
-                                    <real key="value" value="25"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                            <connections>
-                                <action selector="notificationsTapped:" destination="-1" eventType="touchUpInside" id="vEE-DD-8mJ"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1A-e2-RO0" userLabel="Notifications" customClass="BorderedButton" customModule="Cactus" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="98" width="326" height="44"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="44" id="79d-N6-wXR"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
-                            <color key="tintColor" name="GreenLight"/>
-                            <state key="normal" title="Settings" image="gear"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="imageWidth">
-                                    <real key="value" value="25"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                            <connections>
-                                <action selector="settingsTapped:" destination="-1" eventType="primaryActionTriggered" id="v7t-wy-7gJ"/>
-                            </connections>
-                        </button>
+                        </view>
                     </subviews>
-                    <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="8"/>
-                </stackView>
-                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BaY-h1-QJB" userLabel="Streak Rounded View" customClass="RoundedView" customModule="Cactus" customModuleProvider="target">
-                    <rect key="frame" x="20" y="395" width="294" height="90"/>
-                    <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pottedCactus" translatesAutoresizingMaskIntoConstraints="NO" id="Kms-7f-edX">
-                            <rect key="frame" x="-30" y="0.0" width="98" height="120"/>
-                        </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="88" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SgD-gm-waT">
-                            <rect key="frame" x="93" y="21.5" width="44.5" height="47"/>
-                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="40"/>
-                            <color key="textColor" name="GreenLight"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day Streak" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0C-hD-Yg5">
-                            <rect key="frame" x="145.5" y="37" width="68.5" height="16.5"/>
-                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
-                            <color key="textColor" name="GreenLight"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="k0C-hD-Yg5" secondAttribute="trailing" constant="10" id="3Ol-cc-aoz"/>
-                        <constraint firstItem="SgD-gm-waT" firstAttribute="centerY" secondItem="BaY-h1-QJB" secondAttribute="centerY" id="7JN-0z-Z4t"/>
-                        <constraint firstItem="Kms-7f-edX" firstAttribute="leading" secondItem="BaY-h1-QJB" secondAttribute="leading" constant="-30" id="HNE-O2-oej"/>
-                        <constraint firstAttribute="height" constant="90" id="L9M-A2-koK"/>
-                        <constraint firstItem="SgD-gm-waT" firstAttribute="leading" secondItem="Kms-7f-edX" secondAttribute="trailing" constant="25" id="QBC-9V-RrR"/>
-                        <constraint firstItem="k0C-hD-Yg5" firstAttribute="centerY" secondItem="BaY-h1-QJB" secondAttribute="centerY" id="UOR-N1-S9F"/>
-                        <constraint firstItem="k0C-hD-Yg5" firstAttribute="leading" secondItem="SgD-gm-waT" secondAttribute="trailing" constant="8" id="tbi-B8-qva"/>
-                        <constraint firstItem="Kms-7f-edX" firstAttribute="width" secondItem="BaY-h1-QJB" secondAttribute="width" multiplier="1/3" id="u7I-gQ-5kT"/>
-                        <constraint firstItem="Kms-7f-edX" firstAttribute="top" secondItem="BaY-h1-QJB" secondAttribute="top" id="wDz-wk-j5X"/>
-                        <constraint firstAttribute="bottom" secondItem="Kms-7f-edX" secondAttribute="bottom" constant="-30" id="yHI-IX-8Ko"/>
+                        <constraint firstItem="yxQ-8b-wTT" firstAttribute="trailing" secondItem="UfB-tU-5AB" secondAttribute="trailing" id="B4d-x5-T8T"/>
+                        <constraint firstItem="yxQ-8b-wTT" firstAttribute="leading" secondItem="UfB-tU-5AB" secondAttribute="leading" id="CZt-EK-pSY"/>
+                        <constraint firstItem="yxQ-8b-wTT" firstAttribute="trailing" secondItem="7Tz-Kw-nh2" secondAttribute="trailing" id="Img-VZ-2C2"/>
+                        <constraint firstItem="yxQ-8b-wTT" firstAttribute="leading" secondItem="7Tz-Kw-nh2" secondAttribute="leading" id="WdH-sC-pOI"/>
+                        <constraint firstItem="yxQ-8b-wTT" firstAttribute="top" secondItem="7Tz-Kw-nh2" secondAttribute="top" id="fNo-yh-c21"/>
+                        <constraint firstItem="yxQ-8b-wTT" firstAttribute="bottom" secondItem="7Tz-Kw-nh2" secondAttribute="bottom" id="s4v-1t-l3y"/>
+                        <constraint firstItem="wdc-Yd-g7p" firstAttribute="top" secondItem="yxQ-8b-wTT" secondAttribute="top" id="uD0-Ay-alz"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="12"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </view>
-                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nnk-9j-MZV" userLabel="Reflections Rounded View" customClass="RoundedView" customModule="Cactus" customModuleProvider="target">
-                    <rect key="frame" x="20" y="493" width="143" height="90"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="121" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OU6-hA-xBB">
-                            <rect key="frame" x="38" y="10" width="67" height="47"/>
-                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="40"/>
-                            <color key="textColor" name="GreenLight"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reflections" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qH1-jQ-ub4">
-                            <rect key="frame" x="36.5" y="61.5" width="70" height="16.5"/>
-                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
-                            <color key="textColor" name="GreenLight"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstItem="OU6-hA-xBB" firstAttribute="centerX" secondItem="Nnk-9j-MZV" secondAttribute="centerX" id="Azu-Qh-WF4"/>
-                        <constraint firstItem="qH1-jQ-ub4" firstAttribute="centerX" secondItem="Nnk-9j-MZV" secondAttribute="centerX" id="CLA-Wc-Cw3"/>
-                        <constraint firstAttribute="bottom" secondItem="qH1-jQ-ub4" secondAttribute="bottom" constant="12" id="LAD-G3-u6x"/>
-                        <constraint firstAttribute="height" constant="90" id="VdV-Yr-X4K"/>
-                        <constraint firstItem="qH1-jQ-ub4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="OU6-hA-xBB" secondAttribute="bottom" id="raU-QJ-uFQ"/>
-                        <constraint firstItem="OU6-hA-xBB" firstAttribute="top" secondItem="Nnk-9j-MZV" secondAttribute="top" constant="10" id="wfG-XQ-YE8"/>
-                    </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="12"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </view>
-                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KDO-6D-AB5" userLabel="Minutes Rounded View" customClass="RoundedView" customModule="Cactus" customModuleProvider="target">
-                    <rect key="frame" x="171" y="493" width="143" height="90"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="93" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlD-xm-bIw">
-                            <rect key="frame" x="49.5" y="10" width="44.5" height="47"/>
-                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="40"/>
-                            <color key="textColor" name="GreenLight"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETE-OQ-lib">
-                            <rect key="frame" x="46.5" y="61.5" width="50" height="16.5"/>
-                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
-                            <color key="textColor" name="GreenLight"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstItem="DlD-xm-bIw" firstAttribute="top" secondItem="KDO-6D-AB5" secondAttribute="top" constant="10" id="D5x-F8-aud"/>
-                        <constraint firstAttribute="height" constant="90" id="Fgo-dS-Ntq"/>
-                        <constraint firstItem="ETE-OQ-lib" firstAttribute="top" relation="greaterThanOrEqual" secondItem="DlD-xm-bIw" secondAttribute="bottom" id="kK3-k8-J2I"/>
-                        <constraint firstAttribute="bottom" secondItem="ETE-OQ-lib" secondAttribute="bottom" constant="12" id="vDD-fp-hus"/>
-                        <constraint firstItem="ETE-OQ-lib" firstAttribute="centerX" secondItem="KDO-6D-AB5" secondAttribute="centerX" id="xs0-10-7Od"/>
-                        <constraint firstItem="DlD-xm-bIw" firstAttribute="centerX" secondItem="KDO-6D-AB5" secondAttribute="centerX" id="xsn-Wh-m5O"/>
-                    </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="12"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mrp-jR-DR7">
-                    <rect key="frame" x="278" y="64" width="40" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="rQY-XY-wq0"/>
-                        <constraint firstAttribute="width" constant="40" id="sKD-UQ-KNA"/>
-                    </constraints>
-                    <color key="tintColor" name="GreenLight"/>
-                    <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                    <state key="normal" image="close">
-                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large" weight="thin"/>
-                    </state>
-                    <connections>
-                        <action selector="closeTapped:" destination="-1" eventType="touchUpInside" id="nBo-Nt-OWd"/>
-                    </connections>
-                </button>
+                    <viewLayoutGuide key="safeArea" id="wdc-Yd-g7p"/>
+                    <viewLayoutGuide key="contentLayoutGuide" id="7Tz-Kw-nh2"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="UfB-tU-5AB"/>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" name="GreenDarkest"/>
             <constraints>
-                <constraint firstItem="Mrp-jR-DR7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kzq-Fz-fZ5" secondAttribute="trailing" constant="20" id="07X-M2-ryL"/>
-                <constraint firstItem="mdu-RK-mVB" firstAttribute="top" secondItem="fG7-eM-Oku" secondAttribute="bottom" constant="20" id="8eR-cQ-9Dw"/>
-                <constraint firstItem="kzq-Fz-fZ5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="9H3-d6-wCa"/>
-                <constraint firstItem="BaY-h1-QJB" firstAttribute="top" secondItem="mdu-RK-mVB" secondAttribute="bottom" constant="40" id="9lR-6D-bm3"/>
-                <constraint firstItem="KDO-6D-AB5" firstAttribute="top" secondItem="BaY-h1-QJB" secondAttribute="bottom" constant="8" id="CV0-EZ-laI"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="kzq-Fz-fZ5" secondAttribute="top" constant="-20" id="GWO-wZ-gTg"/>
-                <constraint firstItem="KDO-6D-AB5" firstAttribute="leading" secondItem="Nnk-9j-MZV" secondAttribute="trailing" constant="8" id="JlQ-tR-HlS"/>
-                <constraint firstAttribute="trailing" secondItem="mdu-RK-mVB" secondAttribute="trailing" id="NOp-Rj-wmk"/>
-                <constraint firstItem="Nnk-9j-MZV" firstAttribute="width" secondItem="KDO-6D-AB5" secondAttribute="width" id="O5o-is-0bl"/>
-                <constraint firstItem="fG7-eM-Oku" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="O6R-td-xBU"/>
-                <constraint firstItem="fG7-eM-Oku" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="20" id="OKd-0L-H45"/>
-                <constraint firstItem="Nnk-9j-MZV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Thf-Mx-DCH"/>
-                <constraint firstItem="BaY-h1-QJB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Tw9-EW-l97"/>
-                <constraint firstItem="fG7-eM-Oku" firstAttribute="top" secondItem="kzq-Fz-fZ5" secondAttribute="bottom" constant="20" id="Vt5-lj-R5N"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="BaY-h1-QJB" secondAttribute="trailing" constant="20" id="YNE-TL-4ld"/>
-                <constraint firstItem="mdu-RK-mVB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="aen-5d-iME"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="KDO-6D-AB5" secondAttribute="trailing" constant="20" id="baa-Wh-Y1V"/>
-                <constraint firstItem="Nnk-9j-MZV" firstAttribute="top" secondItem="BaY-h1-QJB" secondAttribute="bottom" constant="8" id="hHq-6q-sd7"/>
-                <constraint firstItem="Mrp-jR-DR7" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="twb-PF-6pO"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Mrp-jR-DR7" secondAttribute="trailing" constant="16" id="x8G-MM-azW"/>
+                <constraint firstItem="97e-am-Mfx" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="FCt-eR-SjR"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="leading" secondItem="97e-am-Mfx" secondAttribute="leading" id="HuL-Qj-R6F"/>
+                <constraint firstItem="97e-am-Mfx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jHQ-vg-TOy"/>
+                <constraint firstAttribute="bottom" secondItem="97e-am-Mfx" secondAttribute="bottom" id="yQW-Sw-spo"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
@@ -281,9 +333,10 @@
         <image name="bell" width="48" height="48"/>
         <image name="close" width="48" height="48"/>
         <image name="gear" width="48" height="48"/>
+        <image name="grid" width="24" height="24"/>
         <image name="pottedCactus" width="150" height="150"/>
         <namedColor name="GreenDarkest">
-            <color red="0.027000000700354576" green="0.27099999785423279" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.023529411764705882" green="0.27058823529411763" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="GreenLight">
             <color red="0.72156862745098038" green="0.93333333333333335" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

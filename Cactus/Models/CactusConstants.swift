@@ -22,6 +22,10 @@ enum CactusElement: String, Codable, CaseIterable {
         return CactusImage.forElement(self, width: width, height: height)
     }
     
+    var title: String {
+        self.rawValue.capitalized
+    }
+    
     func getStatImage(_ stat: Int) -> UIImage? {
         var suffix = "-\(stat)"
         if stat >= 3 {

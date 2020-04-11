@@ -61,7 +61,6 @@ class CelebrateViewController: UIViewController {
     var minutesCountProcess: CountProcess?
     var streakCountProcess: CountProcess?
     let animationDurationMs: UInt32 = 750
-    var journalDataSource: JournalFeedDataSource?
     let celebrations = ["Well done!", "Nice work!", "Way to go!"]
     var memberUnsubscriber: Unsubscriber?
     var appSettings: AppSettings? {

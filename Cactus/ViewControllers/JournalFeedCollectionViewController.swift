@@ -45,12 +45,8 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-
-        // Get the view for the first header
         let indexPath = IndexPath(row: 0, section: section)
         let headerView = self.collectionView(collectionView, viewForSupplementaryElementOfKind: UICollectionView.elementKindSectionHeader, at: indexPath)
-        //headerView.layoutIfNeeded()
-        logger.info("getting header view layout size")
         if self.member?.subscription?.isActivated == true {
             logger.info("size is 0")
             return CGSize.zero
@@ -167,7 +163,6 @@ class JournalFeedCollectionViewController: UICollectionViewController {
             
             if let vc = segue.destination as? PromptContentPageViewController {
                 vc.promptContent = cell.promptContent
-                vc.journalDataSource = self.dataSource
                 vc.promptDelegate = self.promptContentDelegate
 
                 let response = cell.responses?.first

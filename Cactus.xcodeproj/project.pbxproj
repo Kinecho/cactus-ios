@@ -508,6 +508,15 @@
 		3072744D236A56AD00309B3C /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072744B236A56AD00309B3C /* ModalViewController.swift */; };
 		3072744F236B504B00309B3C /* JournalHomeEmptyStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072744E236B504B00309B3C /* JournalHomeEmptyStateViewController.swift */; };
 		30727450236B504B00309B3C /* JournalHomeEmptyStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072744E236B504B00309B3C /* JournalHomeEmptyStateViewController.swift */; };
+		30762E51243FF4A5000A18B3 /* BrowseElementsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30762E50243FF4A5000A18B3 /* BrowseElementsCollectionViewController.swift */; };
+		30762E52243FF4A5000A18B3 /* BrowseElementsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30762E50243FF4A5000A18B3 /* BrowseElementsCollectionViewController.swift */; };
+		30762E53243FF4A5000A18B3 /* BrowseElementsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30762E50243FF4A5000A18B3 /* BrowseElementsCollectionViewController.swift */; };
+		30762E5E2440E4A4000A18B3 /* ElementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30762E5C2440E4A4000A18B3 /* ElementCell.swift */; };
+		30762E5F2440E4A4000A18B3 /* ElementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30762E5C2440E4A4000A18B3 /* ElementCell.swift */; };
+		30762E602440E4A4000A18B3 /* ElementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30762E5C2440E4A4000A18B3 /* ElementCell.swift */; };
+		30762E612440E4A4000A18B3 /* ElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30762E5D2440E4A4000A18B3 /* ElementCell.xib */; };
+		30762E622440E4A4000A18B3 /* ElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30762E5D2440E4A4000A18B3 /* ElementCell.xib */; };
+		30762E632440E4A4000A18B3 /* ElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30762E5D2440E4A4000A18B3 /* ElementCell.xib */; };
 		307DB73A241823120084B9AC /* StoreObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCF223EE279500089CFB /* StoreObserver.swift */; };
 		307ED78B24084085008D26C6 /* MemberSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED78A24084085008D26C6 /* MemberSubscription.swift */; };
 		307ED78C24084085008D26C6 /* MemberSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED78A24084085008D26C6 /* MemberSubscription.swift */; };
@@ -691,6 +700,15 @@
 		30D7F70A236BAAB100379EE0 /* EditReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D7F707236BAAB100379EE0 /* EditReflectionViewController.swift */; };
 		30D7F70B236BAAB100379EE0 /* EditReflectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D7F708236BAAB100379EE0 /* EditReflectionViewController.xib */; };
 		30D7F70C236BAAB100379EE0 /* EditReflectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D7F708236BAAB100379EE0 /* EditReflectionViewController.xib */; };
+		30DCA5E52441207500D520D4 /* PromptEntryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5E32441207500D520D4 /* PromptEntryCollectionViewCell.swift */; };
+		30DCA5E62441207500D520D4 /* PromptEntryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5E32441207500D520D4 /* PromptEntryCollectionViewCell.swift */; };
+		30DCA5E72441207500D520D4 /* PromptEntryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5E32441207500D520D4 /* PromptEntryCollectionViewCell.swift */; };
+		30DCA5E82441207500D520D4 /* PromptEntryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30DCA5E42441207500D520D4 /* PromptEntryCollectionViewCell.xib */; };
+		30DCA5E92441207500D520D4 /* PromptEntryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30DCA5E42441207500D520D4 /* PromptEntryCollectionViewCell.xib */; };
+		30DCA5EA2441207500D520D4 /* PromptEntryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30DCA5E42441207500D520D4 /* PromptEntryCollectionViewCell.xib */; };
+		30DCA5EC244120A700D520D4 /* PromptContentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5EB244120A700D520D4 /* PromptContentCollectionViewController.swift */; };
+		30DCA5ED244120A700D520D4 /* PromptContentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5EB244120A700D520D4 /* PromptContentCollectionViewController.swift */; };
+		30DCA5EE244120A700D520D4 /* PromptContentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5EB244120A700D520D4 /* PromptContentCollectionViewController.swift */; };
 		30E2D376234311C6003D2B27 /* PillLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2D375234311C6003D2B27 /* PillLabelView.swift */; };
 		30E2D377234311C6003D2B27 /* PillLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2D375234311C6003D2B27 /* PillLabelView.swift */; };
 		30E2D37A23432B21003D2B27 /* NavigationMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2D37823432B21003D2B27 /* NavigationMenuViewController.swift */; };
@@ -893,6 +911,9 @@
 		30727448236A4AC200309B3C /* CactusElementPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusElementPageViewController.swift; sourceTree = "<group>"; };
 		3072744B236A56AD00309B3C /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		3072744E236B504B00309B3C /* JournalHomeEmptyStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalHomeEmptyStateViewController.swift; sourceTree = "<group>"; };
+		30762E50243FF4A5000A18B3 /* BrowseElementsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseElementsCollectionViewController.swift; sourceTree = "<group>"; };
+		30762E5C2440E4A4000A18B3 /* ElementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementCell.swift; sourceTree = "<group>"; };
+		30762E5D2440E4A4000A18B3 /* ElementCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ElementCell.xib; sourceTree = "<group>"; };
 		307ED78A24084085008D26C6 /* MemberSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberSubscription.swift; sourceTree = "<group>"; };
 		307ED78E24086E82008D26C6 /* SubscriptionUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionUtil.swift; sourceTree = "<group>"; };
 		307ED7922408748C008D26C6 /* MemberSubscriptionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberSubscriptionTest.swift; sourceTree = "<group>"; };
@@ -985,6 +1006,9 @@
 		30D7387523D00F96006F4DA6 /* SocialActivityCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialActivityCardView.swift; sourceTree = "<group>"; };
 		30D7F707236BAAB100379EE0 /* EditReflectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditReflectionViewController.swift; sourceTree = "<group>"; };
 		30D7F708236BAAB100379EE0 /* EditReflectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditReflectionViewController.xib; sourceTree = "<group>"; };
+		30DCA5E32441207500D520D4 /* PromptEntryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptEntryCollectionViewCell.swift; sourceTree = "<group>"; };
+		30DCA5E42441207500D520D4 /* PromptEntryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromptEntryCollectionViewCell.xib; sourceTree = "<group>"; };
+		30DCA5EB244120A700D520D4 /* PromptContentCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptContentCollectionViewController.swift; sourceTree = "<group>"; };
 		30E2D375234311C6003D2B27 /* PillLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillLabelView.swift; sourceTree = "<group>"; };
 		30E2D37823432B21003D2B27 /* NavigationMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMenuViewController.swift; sourceTree = "<group>"; };
 		30E2D37923432B21003D2B27 /* NavigationMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationMenuViewController.xib; sourceTree = "<group>"; };
@@ -1244,6 +1268,10 @@
 				307ED79A24088C7E008D26C6 /* UpgradeJournalFeedCollectionReusableView.swift */,
 				3032820C2412B87D00FC197A /* PricingFeatureView.xib */,
 				303282112412B8E600FC197A /* PricingFeatureView.swift */,
+				30762E5C2440E4A4000A18B3 /* ElementCell.swift */,
+				30762E5D2440E4A4000A18B3 /* ElementCell.xib */,
+				30DCA5E32441207500D520D4 /* PromptEntryCollectionViewCell.swift */,
+				30DCA5E42441207500D520D4 /* PromptEntryCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1527,6 +1555,8 @@
 				3021CBED2411769800F58B89 /* MemberInsightsViewController.swift */,
 				30328208241215D900FC197A /* WelcomeViewController.swift */,
 				30A292D0243E467F00F546CA /* LoadingViewController.swift */,
+				30762E50243FF4A5000A18B3 /* BrowseElementsCollectionViewController.swift */,
+				30DCA5EB244120A700D520D4 /* PromptContentCollectionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1735,11 +1765,13 @@
 				303C9E2023841AC6006B9786 /* ViewSharedReflectionViewController.xib in Resources */,
 				303C9E0A23841AC1006B9786 /* VideoContentViewController.xib in Resources */,
 				303C9E0323841AC1006B9786 /* ReflectContentViewController.xib in Resources */,
+				30DCA5EA2441207500D520D4 /* PromptEntryCollectionViewCell.xib in Resources */,
 				3062201223EAB12B002FAAD9 /* Lato-BoldItalic.ttf in Resources */,
 				30D7386623D00AC6006F4DA6 /* Social.storyboard in Resources */,
 				3062201323EAB12B002FAAD9 /* Lato-Light.ttf in Resources */,
 				303C9DFB23841ABB006B9786 /* JournalEntrySkeletonViewController.xib in Resources */,
 				303C9E0523841AC1006B9786 /* CelebrateViewController.xib in Resources */,
+				30762E632440E4A4000A18B3 /* ElementCell.xib in Resources */,
 				3062200A23EAB128002FAAD9 /* Lato-Italic.ttf in Resources */,
 				303C9DFD23841AC1006B9786 /* TextContentViewController.xib in Resources */,
 				3062201423EAB12B002FAAD9 /* Lato-ThinItalic.ttf in Resources */,
@@ -1790,6 +1822,7 @@
 				3021CBE42410345E00F58B89 /* WebViewController.xib in Resources */,
 				30673BA5233FDEC300EDE7BD /* Lato-Light.ttf in Resources */,
 				30673BA7233FDEC300EDE7BD /* Lato-ThinItalic.ttf in Resources */,
+				30DCA5E92441207500D520D4 /* PromptEntryCollectionViewCell.xib in Resources */,
 				30F7168A2379ED32004989DB /* ShareNoteViewController.xib in Resources */,
 				30D7386123CFFC62006F4DA6 /* InviteContentViewController.xib in Resources */,
 				303C9DCB237FCF06006B9786 /* LoadableSharedReflectionViewController.xib in Resources */,
@@ -1820,6 +1853,7 @@
 				30A281F222EA627D0041158E /* ProdAssets.xcassets in Resources */,
 				30727441236A43AA00309B3C /* CactusElementDetailViewController.xib in Resources */,
 				3032820E2412B87D00FC197A /* PricingFeatureView.xib in Resources */,
+				30762E622440E4A4000A18B3 /* ElementCell.xib in Resources */,
 				303C9DAD237E1470006B9786 /* LoadablePromptContentViewController.xib in Resources */,
 				30673B95233FDEC300EDE7BD /* Lato-LightItalic.ttf in Resources */,
 				30673B9D233FDEC300EDE7BD /* Lato-Regular.ttf in Resources */,
@@ -1839,6 +1873,7 @@
 				30BF2E2C23289F9F00A49EB6 /* TextContentViewController.xib in Resources */,
 				30D7387223D00F7B006F4DA6 /* SocialActivityCardView.xib in Resources */,
 				30673BA4233FDEC300EDE7BD /* Lato-Light.ttf in Resources */,
+				30762E612440E4A4000A18B3 /* ElementCell.xib in Resources */,
 				3099D1F42408DA2A00BD9CC4 /* SubscriptionPlanOptionView.xib in Resources */,
 				30CF53912370FBB800578B22 /* RelationshipsAnimationViewController.xib in Resources */,
 				30673B92233FDEC300EDE7BD /* Lato-Italic.ttf in Resources */,
@@ -1872,6 +1907,7 @@
 				305B1865233175DC003E1561 /* PhotoContentViewController.xib in Resources */,
 				30CF538B2370DDCC00578B22 /* EnergyAnimationViewController.xib in Resources */,
 				300FCCF623EE2DBE00089CFB /* Payment.storyboard in Resources */,
+				30DCA5E82441207500D520D4 /* PromptEntryCollectionViewCell.xib in Resources */,
 				303BF752232D289A00164539 /* QuoteContentViewController.xib in Resources */,
 				30673B9A233FDEC300EDE7BD /* Lato-Black.ttf in Resources */,
 				30727440236A43AA00309B3C /* CactusElementDetailViewController.xib in Resources */,
@@ -2234,6 +2270,7 @@
 				303C9E3423841AEB006B9786 /* ReflectionPromptService.swift in Sources */,
 				303C9DDF23841A67006B9786 /* JournalEntryCollectionViewCell.swift in Sources */,
 				30051A4E23A86306005F812B /* InvertableImageView.swift in Sources */,
+				30762E53243FF4A5000A18B3 /* BrowseElementsCollectionViewController.swift in Sources */,
 				3099D200240974F200BD9CC4 /* SubscriptionProductGroupService.swift in Sources */,
 				303C9DBC237F5DCC006B9786 /* URLExtensions.swift in Sources */,
 				303C9DF323841ABB006B9786 /* FeedbackViewController.swift in Sources */,
@@ -2251,6 +2288,7 @@
 				303C9DC5237F6799006B9786 /* StorageService.swift in Sources */,
 				303C9DE823841AB6006B9786 /* ExperienceAnimationViewController.swift in Sources */,
 				3055D943240E99BD00981DA2 /* SubscriptionService.swift in Sources */,
+				30DCA5E72441207500D520D4 /* PromptEntryCollectionViewCell.swift in Sources */,
 				303C9DE023841A71006B9786 /* JournalFeedFlowLayout.swift in Sources */,
 				303C9E2123841ACC006B9786 /* RoundedButton.swift in Sources */,
 				303C9E1723841AC6006B9786 /* JournalHomeEmptyStateViewController.swift in Sources */,
@@ -2279,9 +2317,11 @@
 				303C9E2D23841ACC006B9786 /* UIImageViewAligned.swift in Sources */,
 				305B187123319F42003E1561 /* FileUtilsTest.swift in Sources */,
 				305B18772331A906003E1561 /* FlamelinkTypes.swift in Sources */,
+				30762E602440E4A4000A18B3 /* ElementCell.swift in Sources */,
 				303C9DD6238419D5006B9786 /* NotificationService.swift in Sources */,
 				305B18782331A906003E1561 /* CactusMember.swift in Sources */,
 				303C9DF023841ABB006B9786 /* TermsOfServiceViewController.swift in Sources */,
+				30DCA5EE244120A700D520D4 /* PromptContentCollectionViewController.swift in Sources */,
 				303282192414556A00FC197A /* ApplePayment.swift in Sources */,
 				303C9DDE23841A3E006B9786 /* LoadableSharedReflectionViewController.swift in Sources */,
 				303C9E2623841ACC006B9786 /* MarkdownTypes.swift in Sources */,
@@ -2516,7 +2556,10 @@
 				30CF539923732EC300578B22 /* VideoContentViewController.swift in Sources */,
 				30934FAA22EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
 				30BF2E1923289D1200A49EB6 /* PromptContentPageViewController.swift in Sources */,
+				30762E52243FF4A5000A18B3 /* BrowseElementsCollectionViewController.swift in Sources */,
 				3072742C236950AC00309B3C /* SharingService.swift in Sources */,
+				30DCA5E62441207500D520D4 /* PromptEntryCollectionViewCell.swift in Sources */,
+				30762E5F2440E4A4000A18B3 /* ElementCell.swift in Sources */,
 				309561A522EE172B009357BD /* AppConfig.swift in Sources */,
 				30051A4D23A86306005F812B /* InvertableImageView.swift in Sources */,
 				30265C6123453CB100934041 /* UIImage+SwiftyGif.swift in Sources */,
@@ -2549,6 +2592,7 @@
 				3023FE3522ECF0A800F753A7 /* ViewExtensions.swift in Sources */,
 				3021CBE02410345E00F58B89 /* WebViewController.swift in Sources */,
 				3021B67623623010002634A8 /* ApiTypes.swift in Sources */,
+				30DCA5ED244120A700D520D4 /* PromptContentCollectionViewController.swift in Sources */,
 				30D7F70A236BAAB100379EE0 /* EditReflectionViewController.swift in Sources */,
 				3020DD952363F37D00EC40AE /* UIImageViewAligned.swift in Sources */,
 				3006442523D26BAB00712ED1 /* SocialInviteService.swift in Sources */,
@@ -2681,7 +2725,10 @@
 				30CF539823732EC300578B22 /* VideoContentViewController.swift in Sources */,
 				30E9B09622EA68AC005B25FD /* FirestoreService.swift in Sources */,
 				30934FA922EC0001007C4E6C /* ReflectionResponse.swift in Sources */,
+				30762E51243FF4A5000A18B3 /* BrowseElementsCollectionViewController.swift in Sources */,
 				3072742B236950AC00309B3C /* SharingService.swift in Sources */,
+				30DCA5E52441207500D520D4 /* PromptEntryCollectionViewCell.swift in Sources */,
+				30762E5E2440E4A4000A18B3 /* ElementCell.swift in Sources */,
 				30BF2E2A23289F9F00A49EB6 /* TextContentViewController.swift in Sources */,
 				30051A4C23A86306005F812B /* InvertableImageView.swift in Sources */,
 				30265C6023453CB100934041 /* UIImage+SwiftyGif.swift in Sources */,
@@ -2714,6 +2761,7 @@
 				30E9B09922EA6A81005B25FD /* BaseModel.swift in Sources */,
 				3021CBDF2410345E00F58B89 /* WebViewController.swift in Sources */,
 				3021B67523623010002634A8 /* ApiTypes.swift in Sources */,
+				30DCA5EC244120A700D520D4 /* PromptContentCollectionViewController.swift in Sources */,
 				30D7F709236BAAB100379EE0 /* EditReflectionViewController.swift in Sources */,
 				3020DD942363F37D00EC40AE /* UIImageViewAligned.swift in Sources */,
 				3006442423D26BAB00712ED1 /* SocialInviteService.swift in Sources */,

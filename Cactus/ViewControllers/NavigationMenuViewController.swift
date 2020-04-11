@@ -177,10 +177,10 @@ class NavigationMenuViewController: UIViewController {
                                                 threads: 1)
         self.minutesCountProcess?.duration = animationDurationMs
         self.minutesCountProcess?.finish(valueChanged: { (value) in
-            self.reflectionDurationLabel.text = "\(Double(value)/10)"
+            self.reflectionDurationLabel.text = String(format: "%.0f", round(Double(value)/10))
         }, completion: {value in
             DispatchQueue.main.async {
-                self.reflectionDurationLabel.text = "\(Double(value)/10)"
+                self.reflectionDurationLabel.text = String(format: "%.0f", round(Double(value)/10))
             }            
         })
         
@@ -228,6 +228,11 @@ class NavigationMenuViewController: UIViewController {
             settingsVc.member = self.member
             self.settingsTableVc = settingsVc
         }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func browsePromptsTapped(_ sender: Any) {
+        let vc = ScreenID.BrowsePrompts.getViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

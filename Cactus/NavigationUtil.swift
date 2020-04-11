@@ -21,6 +21,8 @@ enum ScreenID: String {
     case promptContentPageView
     case Welcome
     case LoadingFullScreen
+    case BrowsePrompts
+    case PromptContentCollection
 
     //settings
     case settingsTable

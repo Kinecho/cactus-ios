@@ -187,13 +187,13 @@
                         <color key="backgroundColor" name="Background"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="25" sectionInsetReference="layoutMargins" id="CAX-zL-tXF" customClass="JournalFeedFlowLayout" customModule="Cactus" customModuleProvider="target">
                             <size key="itemSize" width="408" height="229"/>
-                            <size key="headerReferenceSize" width="300" height="163"/>
+                            <size key="headerReferenceSize" width="300" height="144"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" reuseIdentifier="JournalEntryCell" id="hi3-X9-dKc" userLabel="Question Card" customClass="JournalEntryCollectionViewCell" customModule="Cactus" customModuleProvider="target">
-                                <rect key="frame" x="3" y="171" width="408" height="229"/>
+                                <rect key="frame" x="3" y="152" width="408" height="229"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <collectionViewCellContentView key="contentView" verifyAmbiguity="ignoreSizes" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="402" placeholderIntrinsicHeight="200" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" id="0qW-dd-S1T">
                                     <rect key="frame" x="0.0" y="0.0" width="408" height="229"/>
@@ -400,7 +400,7 @@
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="Header" translatesAutoresizingMaskIntoConstraints="NO" id="asi-fD-mec" customClass="UpgradeJournalFeedCollectionReusableView" customModule="Cactus" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="8" width="414" height="163"/>
+                            <rect key="frame" x="0.0" y="8" width="414" height="144"/>
                             <subviews>
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wN4-Wm-DOb">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="132"/>
@@ -860,6 +860,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5pv-po-RJA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1029" y="210"/>
+        </scene>
+        <!--Browse-->
+        <scene sceneID="tBA-UL-yeO">
+            <objects>
+                <collectionViewController storyboardIdentifier="BrowsePrompts" title="Browse" id="Awf-Nz-cz2" customClass="BrowseElementsCollectionViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wzA-tK-zuT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="Background"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="40" minimumInteritemSpacing="0.0" sectionInsetReference="safeArea" id="wZW-J4-1gl">
+                            <size key="itemSize" width="200" height="200"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="Awf-Nz-cz2" id="Rbq-ML-q8I"/>
+                            <outlet property="delegate" destination="Awf-Nz-cz2" id="zvd-ii-P8g"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1I5-uS-sTX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2161" y="127"/>
+        </scene>
+        <!--Prompt Content Collection View Controller-->
+        <scene sceneID="fw5-Gy-VHF">
+            <objects>
+                <collectionViewController storyboardIdentifier="PromptContentCollection" id="mrb-Ak-zoT" customClass="PromptContentCollectionViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CxF-6S-GRG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="Background"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="20" minimumInteritemSpacing="20" id="mue-g9-RD2">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="mrb-Ak-zoT" id="PrG-6W-jPv"/>
+                            <outlet property="delegate" destination="mrb-Ak-zoT" id="q1q-wF-cqO"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LVe-6c-3lW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3156" y="130"/>
         </scene>
     </scenes>
     <resources>

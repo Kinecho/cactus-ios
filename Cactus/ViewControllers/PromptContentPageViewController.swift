@@ -26,7 +26,6 @@ class PromptContentPageViewController: UIPageViewController {
     }
     var closeButton: UIButton?
     var sharePromptButton: UIButton?
-    var journalDataSource: JournalFeedDataSource?
     var tapNavigationEnabled = true
     var logger = Logger(fileName: "PromptContentPageViewController")
     var celebrateVc: CelebrateViewController?
@@ -126,7 +125,6 @@ class PromptContentPageViewController: UIPageViewController {
         let celebrate = CelebrateViewController.loadFromNib()
         celebrate.reflectionResponse = self.reflectionResponse
         celebrate.promptContent = self.promptContent
-        celebrate.journalDataSource = self.journalDataSource
         celebrate.delegate = self
         celebrate.appSettings = self.appSettings
         

@@ -34,7 +34,7 @@ class BorderedButton: UIButton {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-                self.sharedInit()
+        self.sharedInit()
     }
     
     @IBInspectable var imageWidth: CGFloat = 25
