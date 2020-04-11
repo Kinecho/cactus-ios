@@ -27,6 +27,7 @@ class NavigationMenuViewController: UIViewController {
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var displayNameLabel: UILabel!
+    @IBOutlet weak var browsePromptsButton: BorderedButton!
     
     let logger = Logger("NavigationMenuViewController")
     
@@ -47,14 +48,12 @@ class NavigationMenuViewController: UIViewController {
     var reflectionCount = 0 {
         didSet {
             self.animateReflectionCount()
-            //            self.previousReflectionCount = newValue
         }
     }
     
     var reflectionDurationMs = 0 {
         didSet {
             self.animateDuration()
-            //            self.previousReflectionDurationMs = newValue
         }
     }
     
@@ -63,7 +62,6 @@ class NavigationMenuViewController: UIViewController {
     var streak = 0 {
         didSet {
             self.animateStreak()
-            //            self.previousStreak = newValue
         }
     }
     var streakDuration: StreakDuration = .DAYS {
@@ -83,9 +81,7 @@ class NavigationMenuViewController: UIViewController {
         self.reflectionDurationLabel.text = "--"
         self.avatarImageView.clipsToBounds = true
         self.avatarImageView.layer.cornerRadius = self.avatarImageView.bounds.height / 2
-//        self.resetNumbers()
-        // Do any additional setup after loading the view.
-        
+
         self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, error, user) in
             if let error = error {
                 self.logger.error("Failed to get member in NavMenu", error)

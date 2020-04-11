@@ -23,19 +23,16 @@ class ElementEntry {
 }
 
 class BrowseElementsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    
     let elementEntries: [ElementEntry] = CactusElement.allCases.map { ElementEntry($0) }
-    
     let cellIdentifier = "ElementCell"
     let margin: CGFloat = 20
+    var member: CactusMember? {
+        CactusMemberService.sharedInstance.currentMember
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.collectionView.register(UINib(nibName: "ElementCell", bundle: .main), forCellWithReuseIdentifier: cellIdentifier)
-//        if let flowLayout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-//            flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-//        }
         self.view.translatesAutoresizingMaskIntoConstraints = false
         self.collectionView.dataSource = self
         self.collectionView.reloadData()
@@ -70,7 +67,11 @@ class BrowseElementsCollectionViewController: UICollectionViewController, UIColl
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let row = indexPath.row
         let entry = self.elementEntries[row]
-        
+        guard self.member?.tier.isPaidTier == true else {
+            let pricingVc = ScreenID.Pricing.getViewController()
+            self.present(pricingVc, animated: true)
+            return
+        }
         guard let vc = ScreenID.PromptContentCollection.getViewController() as? PromptContentCollectionViewController else {
             return
         }

@@ -30,6 +30,12 @@ class PromptContentDataSource {
     }
     
     // MARK: Instance Members
+    var pagesLoading: Bool {
+        (self.pageLoaders.isEmpty ? !self.hasLoaded : self.pageLoaders.contains { !$0.finishedLoading })
+    }
+    
+    var isLoading: Bool {pagesLoading }
+    
     var logger = Logger("PromptContentDataSource")
     var element: CactusElement
     var memberUnsubscriber: Unsubscriber?
@@ -56,20 +62,29 @@ class PromptContentDataSource {
     
     func handleMemberUpdated(oldMember: CactusMember?, newMember: CactusMember?) {
         self.logger.info("Member changed: \(newMember?.email ?? "unknown") | tier = \(newMember?.tier ?? .BASIC)")
+        if self.pageLoaders.isEmpty && newMember != nil && oldMember == nil {
+            self.loadFirstPage()
+        }
     }
     
     func start() {
         self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, _, _) in
             self.member = member
         })
-        
+    }
+    
+    func loadFirstPage() {
+        guard self.pageLoaders.isEmpty else {
+            logger.info("First page already laoded")
+            return
+        }
         let firstPage = PageLoader<PromptContent>()
         self.pageLoaders.append(firstPage)
         
-        firstPage.listener = PromptContentService.sharedInstance.observePromptContent(element: self.element, limit: self.pageSize) { (pageResult) in
+        firstPage.listener = PromptContentService.sharedInstance.observePromptContent(element: self.element, tier: self.member?.tier ?? .BASIC, limit: self.pageSize) { (pageResult) in
             firstPage.result = pageResult
             self.logger.info("Got first page data with \(pageResult.results?.count ?? 0) results", functionName: "initializePages", line: #line)
-//            firstPage.result = pageResult
+            //            firstPage.result = pageResult
             self.handlePageResult(pageResult)
             self.hasLoaded = true
         }
@@ -90,7 +105,7 @@ class PromptContentDataSource {
             }
             return self.index(entryId: id)
         }) ?? []
-                
+        
         let updated = pageResult.updated?.compactMap({ (content) -> Int? in
             guard let id = content.entryId else {
                 return nil
@@ -134,6 +149,41 @@ class PromptContentDataSource {
             let data = self.promptContentDataByEntryId[entryId]
             data?.promptContent = promptContent
             return data
+        }
+    }
+    
+    func loadNextPage() {
+        self.logger.info("attempting to load next page", functionName: #function)
+        
+        guard !self.isLoading else {
+            logger.info("Already loading more, can't fetch next page", functionName: #function)
+            return
+        }
+        guard let member = self.member else {
+            logger.warn("No current member found, can't load next page", functionName: #function)
+            return
+        }
+        let nextIndex = self.pageLoaders.count
+        let previousResult = self.pageLoaders.last?.result
+        
+        guard nextIndex == 0 || previousResult?.mightHaveMore == true else {
+            logger.info("Previous page did not have more results, not attempting to fetch the next page")
+            return
+        }
+        
+        if previousResult == nil && nextIndex != 0 {
+            logger.info("Page hasn't finished loading yet, can't fetch next page", functionName: #function, line: #line)
+            return
+        }
+        
+        self.logger.info("Creating page loader. This will be page \(nextIndex)", functionName: #function, line: #line)
+        let page = PageLoader<PromptContent>()
+        self.pageLoaders.append(page)
+        
+        page.listener = PromptContentService.sharedInstance.observePromptContent(element: self.element, tier: member.tier, limit: self.pageSize, lastResult: previousResult) { (pageResult) in
+            page.result = pageResult
+            self.logger.info("Got first page data with \(pageResult.results?.count ?? 0) results", functionName: "initializePages", line: #line)
+            self.handlePageResult(pageResult)
         }
     }
 }

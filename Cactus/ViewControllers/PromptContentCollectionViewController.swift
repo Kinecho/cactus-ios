@@ -92,6 +92,15 @@ class PromptContentCollectionViewController: UICollectionViewController, UIColle
      
      }
      */
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == self.dataSource.count - 1 {
+            // Last cell is visible
+            self.logger.info("Loading next page")
+            DispatchQueue.main.async {
+                self.dataSource.loadNextPage()
+            }
+        }
+    }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.showPrompt(data: self.dataSource.get(index: indexPath.row))
