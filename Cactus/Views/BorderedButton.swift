@@ -29,7 +29,7 @@ class BorderedButton: UIButton {
     }
     
     override func prepareForInterfaceBuilder() {
-        sharedInit()
+        sharedInit()        
     }
     
     override func awakeFromNib() {
