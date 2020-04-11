@@ -36,6 +36,11 @@ class ModelDecoder<T: CodingKey> {
         return value
     }
     
+    func optionalInt(_ key: T) -> Int? {
+        let value = try? self.container.decode(Int.self, forKey: key)
+        return value
+    }
+    
     func bool(_ key: T, default defaultValue: Bool) -> Bool {
         let value = try? self.container.decode(Bool.self, forKey: key)
         return value ?? defaultValue
