@@ -87,7 +87,7 @@ class BrowseElementsCollectionViewController: UICollectionViewController, UIColl
         let screenWidth = UIScreen.main.bounds.size.width
         var width: CGFloat = screenWidth - (2 * margin)
         
-        if screenWidth > 400 {
+        if screenWidth > 500 {
             width = (screenWidth/2) - (2 * margin)
         }
         return width

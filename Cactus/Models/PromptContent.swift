@@ -343,7 +343,7 @@ class PromptContent: FlamelinkIdentifiable {
     
     func getMainImageFile() -> ImageFile? {
         let imageContent = self.content.first { (content) -> Bool in
-            content.backgroundImage != nil
+            content.backgroundImage != nil && (content.backgroundImage?.isEmpty ?? false) == false
         }
         return imageContent?.backgroundImage
     }

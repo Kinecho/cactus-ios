@@ -4,8 +4,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -18,34 +24,64 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4dJ-aa-mKc">
                         <rect key="frame" x="0.0" y="0.0" width="418" height="500"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Hhf-rV-bfJ">
-                                <rect key="frame" x="20" y="20" width="378" height="460"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Hhf-rV-bfJ">
+                                <rect key="frame" x="0.0" y="20" width="418" height="460"/>
                                 <subviews>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="UKO-qO-JPW">
-                                        <rect key="frame" x="0.0" y="0.0" width="378" height="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="418" height="20"/>
                                     </activityIndicatorView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="V8C-4U-PPR">
+                                        <rect key="frame" x="0.0" y="40" width="418" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WkX-lr-NPs" userLabel="Question Label">
+                                                <rect key="frame" x="20" y="0.0" width="378" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <edgeInsets key="layoutMargins" top="0.0" left="20" bottom="0.0" right="20"/>
+                                    </stackView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rNt-QU-dsJ">
-                                        <rect key="frame" x="0.0" y="20" width="378" height="150"/>
+                                        <rect key="frame" x="0.0" y="80.5" width="418" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="uz6-xe-JgS"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WkX-lr-NPs">
-                                        <rect key="frame" x="0.0" y="170" width="378" height="290"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ixn-HI-JTG" userLabel="Response Stack View">
+                                        <rect key="frame" x="0.0" y="250.5" width="418" height="209.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ki-iJ-pNP">
+                                                <rect key="frame" x="0.0" y="0.0" width="10" height="193.5"/>
+                                                <color key="backgroundColor" name="Highlight"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="10" id="vGe-mo-7JH"/>
+                                                </constraints>
+                                            </view>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Hello" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ky-hX-YtI" userLabel="Response Text View">
+                                                <rect key="frame" x="20" y="0.0" width="398" height="193.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+                                                <color key="textColor" name="TextDefault"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="2ki-iJ-pNP" firstAttribute="top" secondItem="1Ky-hX-YtI" secondAttribute="top" id="sDh-GY-nIP"/>
+                                            <constraint firstItem="2ki-iJ-pNP" firstAttribute="bottom" secondItem="1Ky-hX-YtI" secondAttribute="bottom" id="scg-T3-AOO"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="CardBackground"/>
                         <constraints>
                             <constraint firstItem="Hhf-rV-bfJ" firstAttribute="top" secondItem="4dJ-aa-mKc" secondAttribute="top" constant="20" id="29o-Qx-z3C"/>
-                            <constraint firstItem="Hhf-rV-bfJ" firstAttribute="leading" secondItem="4dJ-aa-mKc" secondAttribute="leading" constant="20" id="Cwo-F7-N1D"/>
+                            <constraint firstItem="Hhf-rV-bfJ" firstAttribute="leading" secondItem="4dJ-aa-mKc" secondAttribute="leading" id="Cwo-F7-N1D"/>
                             <constraint firstAttribute="width" constant="418" id="IAs-Uz-HAG"/>
                             <constraint firstAttribute="bottom" secondItem="Hhf-rV-bfJ" secondAttribute="bottom" constant="20" id="JO7-L3-HYi"/>
-                            <constraint firstAttribute="trailing" secondItem="Hhf-rV-bfJ" secondAttribute="trailing" constant="20" id="TKm-5V-a4Z"/>
+                            <constraint firstAttribute="trailing" secondItem="Hhf-rV-bfJ" secondAttribute="trailing" id="TKm-5V-a4Z"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -61,9 +97,23 @@
                 <outlet property="activityIndicator" destination="UKO-qO-JPW" id="20N-xf-tbX"/>
                 <outlet property="imageView" destination="rNt-QU-dsJ" id="ZdL-Gw-ilP"/>
                 <outlet property="label" destination="WkX-lr-NPs" id="eM5-QL-rmV"/>
+                <outlet property="responseHighlightView" destination="2ki-iJ-pNP" id="2Tn-7b-PG0"/>
+                <outlet property="responseStackView" destination="Ixn-HI-JTG" id="YHd-15-dW9"/>
+                <outlet property="responseTextView" destination="1Ky-hX-YtI" id="Cx8-M5-dh3"/>
                 <outlet property="widthConstraint" destination="IAs-Uz-HAG" id="doh-cB-X8U"/>
             </connections>
             <point key="canvasLocation" x="402.89855072463769" y="211.60714285714286"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <namedColor name="CardBackground">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Highlight">
+            <color red="0.96078431372549022" green="0.8666666666666667" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextDefault">
+            <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

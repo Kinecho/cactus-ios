@@ -122,11 +122,8 @@ class PromptContentCollectionViewController: UICollectionViewController, UIColle
     
     func getCellWidth() -> CGFloat {
         let screenWidth = UIScreen.main.bounds.size.width
-        var width: CGFloat = screenWidth - (2 * margin)
+        let width: CGFloat = min(450, screenWidth - (2 * margin))
         
-        if screenWidth > 400 {
-            width = (screenWidth/2) - (2 * margin)
-        }
         return width
     }
 }
