@@ -23,6 +23,40 @@ class AppSettings: FlamelinkIdentifiable {
     var apiDomain: String?
     var upgradeCopy: UpgradeCopy?
     var dataExport: DataExportSettings?
+    
+    enum AppSettingsField: CodingKey {
+        case _fl_meta_
+        case documentId
+        case entryId
+        case order
+        case firstPromptContentEntryId
+        case checkoutSettings
+        case insights
+        case welcome
+        case pricingScreen
+        case apiDomain
+        case upgradeCopy
+        case dataExport
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        guard let model = ModelDecoder<AppSettingsField>.create(decoder: decoder, codingKeys: AppSettingsField.self) else {
+            return
+        }
+        self._fl_meta_ = try? model.container.decode(FlamelinkMeta.self, forKey: ._fl_meta_)
+        self.documentId = model.optionalString(.documentId, blankAsNil: true)
+        self.entryId = model.optionalString(.entryId, blankAsNil: true)
+        self.order = model.optionalInt(.order)
+        self.firstPromptContentEntryId = model.optionalString(.firstPromptContentEntryId, blankAsNil: true)
+        self.checkoutSettings = try? model.container.decode(CheckoutSettings.self, forKey: .checkoutSettings)
+        self.insights = try? model.container.decode(InsightsSettings.self, forKey: .insights)
+        self.welcome = try? model.container.decode(WelcomeSettings.self, forKey: .welcome)
+        self.pricingScreen = try? model.container.decode(PricingScreenSettings.self, forKey: .pricingScreen)
+        self.apiDomain = model.optionalString(.apiDomain, blankAsNil: true)
+        self.upgradeCopy = try? model.container.decode(UpgradeCopy.self, forKey: .upgradeCopy)
+        self.dataExport = try? model.container.decode(DataExportSettings.self, forKey: .dataExport)
+    }
+    
 }
 
 struct PricingFeature: Codable {
@@ -56,6 +90,18 @@ class PricingScreenSettings: Codable {
 
 class DataExportSettings: Codable {
     var enabledTiers: [SubscriptionTier] = []
+    
+    enum DataExportSettingsField: CodingKey {
+        case enabledTiers
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        guard let model = ModelDecoder<DataExportSettingsField>.create(decoder: decoder, codingKeys: DataExportSettingsField.self) else {
+            return
+        }
+        
+        self.enabledTiers = (try? model.container.decode([SubscriptionTier].self, forKey: .enabledTiers)) ?? []
+    }
     
 }
 
