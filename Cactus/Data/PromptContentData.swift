@@ -54,4 +54,8 @@ class PromptContentData {
             self.delegate?.promptContentDataLoaded(promptContentData: self)
         }
     }
+    
+    static func == (lhs: PromptContentData, rhs: PromptContentData) -> Bool {
+        return lhs.promptContent.entryId == rhs.promptContent.entryId                    
+    }
 }

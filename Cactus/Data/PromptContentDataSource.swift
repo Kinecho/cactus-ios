@@ -144,10 +144,12 @@ class PromptContentDataSource {
             if self.promptContentDataByEntryId[entryId] == nil {
                 self.logger.debug("Setting up prompt content entry data source for promptId \(entryId)")
                 self.promptContentDataByEntryId[entryId] = PromptContentData(promptContent, delegate: self)
+                
             }
             
             let data = self.promptContentDataByEntryId[entryId]
             data?.promptContent = promptContent
+            data?.delegate = self
             return data
         }
     }
@@ -191,5 +193,14 @@ class PromptContentDataSource {
 extension PromptContentDataSource: PromptContentDataDelegate {
     func promptContentDataLoaded(promptContentData: PromptContentData) {
         self.logger.info("Prompt content data finished loading for entry: \(promptContentData.promptContent.entryId ?? "unknown"). Num responses = \(promptContentData.responseData.responses.count)")
+        let foundIndex = self.orderedData.firstIndex { (data) -> Bool in
+            return data == promptContentData
+        }
+        guard let index = foundIndex else {
+            return
+        }
+        DispatchQueue.main.async {
+            self.delegate?.batchUpdate(addedIndexes: [], updatedIndexes: [index], removedIndexes: [])
+        }        
     }
 }

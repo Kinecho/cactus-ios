@@ -44,7 +44,7 @@
                                 <rect key="frame" x="100" y="20" width="380" height="87"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Meaning" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqV-KS-PZK">
-                                        <rect key="frame" x="0.0" y="0.0" width="380" height="48.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="380" height="49.5"/>
                                         <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="26"/>
                                         <color key="textColor" name="White"/>
                                         <nil key="highlightedColor"/>
@@ -53,7 +53,7 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exploring your intellectual curiosities and openly observing life’s lessons" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJt-3D-Bow" userLabel="Description Label">
-                                        <rect key="frame" x="0.0" y="48.5" width="380" height="38.5"/>
+                                        <rect key="frame" x="0.0" y="49.5" width="380" height="37.5"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                         <color key="textColor" name="GrayLight"/>
                                         <nil key="highlightedColor"/>
