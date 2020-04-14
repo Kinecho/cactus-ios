@@ -255,7 +255,6 @@ class JournalFeedCollectionViewController: UICollectionViewController {
             self.performSegue(withIdentifier: "PromptContentCards", sender: cell)
         }
     }
-
 }
 
 extension JournalFeedCollectionViewController: UICollectionViewDataSourcePrefetching {

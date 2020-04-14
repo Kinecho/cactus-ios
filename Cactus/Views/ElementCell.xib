@@ -8,6 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
         <array key="Lato-Regular.ttf">
             <string>Lato-Regular</string>
         </array>
@@ -16,40 +19,41 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="ElementCell" translatesAutoresizingMaskIntoConstraints="NO" id="gTV-IL-0wX" customClass="ElementCell" customModule="Cactus" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="500" height="200"/>
+            <rect key="frame" x="0.0" y="0.0" width="500" height="127"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="500" height="200"/>
+                <rect key="frame" x="0.0" y="0.0" width="500" height="127"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h5G-28-Se8" userLabel="containerView">
-                        <rect key="frame" x="0.0" y="0.0" width="500" height="200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="500" height="127"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energyFull" translatesAutoresizingMaskIntoConstraints="NO" id="WTE-sw-C5i" customClass="UIImageViewAligned" customModule="Cactus" customModuleProvider="target">
-                                <rect key="frame" x="-45" y="20" width="120" height="180"/>
+                                <rect key="frame" x="10" y="18.5" width="70" height="90"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="IjS-7v-q3W"/>
+                                    <constraint firstAttribute="width" constant="70" id="IjS-7v-q3W"/>
+                                    <constraint firstAttribute="height" constant="90" id="gYi-Fz-m2E"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="alignLeft" value="NO"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="alignRight" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="alignRight" value="NO"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="alignTop" value="NO"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="alignBottom" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8BJ-Ap-0kd">
-                                <rect key="frame" x="85" y="66" width="395" height="68"/>
+                                <rect key="frame" x="100" y="20" width="380" height="87"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meaning" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqV-KS-PZK">
-                                        <rect key="frame" x="0.0" y="0.0" width="395" height="30.5"/>
-                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="28"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Meaning" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqV-KS-PZK">
+                                        <rect key="frame" x="0.0" y="0.0" width="380" height="48.5"/>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="26"/>
                                         <color key="textColor" name="White"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="heightClass=regular-widthClass=compact">
-                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="26"/>
+                                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="24"/>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exploring your intellectual curiosities and openly observing life’s lessons" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJt-3D-Bow" userLabel="Description Label">
-                                        <rect key="frame" x="0.0" y="30.5" width="395" height="37.5"/>
+                                        <rect key="frame" x="0.0" y="48.5" width="380" height="38.5"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                         <color key="textColor" name="GrayLight"/>
                                         <nil key="highlightedColor"/>
@@ -62,14 +66,13 @@
                         </subviews>
                         <color key="backgroundColor" name="Dolphin"/>
                         <constraints>
-                            <constraint firstItem="WTE-sw-C5i" firstAttribute="leading" secondItem="h5G-28-Se8" secondAttribute="leading" constant="-45" id="ASD-E0-4x4"/>
-                            <constraint firstItem="8BJ-Ap-0kd" firstAttribute="centerY" secondItem="h5G-28-Se8" secondAttribute="centerY" id="LcC-M2-Yc3"/>
+                            <constraint firstItem="WTE-sw-C5i" firstAttribute="leading" secondItem="h5G-28-Se8" secondAttribute="leading" constant="10" id="ASD-E0-4x4"/>
                             <constraint firstAttribute="trailing" secondItem="8BJ-Ap-0kd" secondAttribute="trailing" constant="20" id="O26-ay-S1N"/>
-                            <constraint firstAttribute="height" constant="200" id="POq-J3-pAP"/>
-                            <constraint firstAttribute="bottom" secondItem="WTE-sw-C5i" secondAttribute="bottom" id="a7g-9u-oML"/>
+                            <constraint firstItem="WTE-sw-C5i" firstAttribute="centerY" secondItem="h5G-28-Se8" secondAttribute="centerY" id="Xx6-Q7-muL"/>
+                            <constraint firstAttribute="bottom" secondItem="8BJ-Ap-0kd" secondAttribute="bottom" constant="20" id="ZHs-Cl-a3h"/>
+                            <constraint firstItem="8BJ-Ap-0kd" firstAttribute="top" secondItem="h5G-28-Se8" secondAttribute="top" constant="20" id="aj6-nL-lKX"/>
                             <constraint firstAttribute="width" constant="500" id="fts-K0-Zmb"/>
-                            <constraint firstItem="8BJ-Ap-0kd" firstAttribute="leading" secondItem="WTE-sw-C5i" secondAttribute="trailing" constant="10" id="mQu-3L-aV2"/>
-                            <constraint firstItem="WTE-sw-C5i" firstAttribute="top" secondItem="h5G-28-Se8" secondAttribute="top" constant="20" id="xAa-c2-boa"/>
+                            <constraint firstItem="8BJ-Ap-0kd" firstAttribute="leading" secondItem="WTE-sw-C5i" secondAttribute="trailing" constant="20" id="mQu-3L-aV2"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -80,14 +83,14 @@
                 <constraint firstItem="h5G-28-Se8" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="blZ-28-COl"/>
                 <constraint firstItem="h5G-28-Se8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ncy-GS-qhb"/>
             </constraints>
-            <size key="customSize" width="400" height="150"/>
+            <size key="customSize" width="400" height="127"/>
             <connections>
                 <outlet property="descriptionLabel" destination="pJt-3D-Bow" id="J5k-Xz-dHU"/>
                 <outlet property="imageView" destination="WTE-sw-C5i" id="6Qx-00-euQ"/>
                 <outlet property="titleLabel" destination="zqV-KS-PZK" id="eYT-cY-bng"/>
                 <outlet property="widthConstraint" destination="fts-K0-Zmb" id="zCo-5Y-fmL"/>
             </connections>
-            <point key="canvasLocation" x="-163.768115942029" y="26.785714285714285"/>
+            <point key="canvasLocation" x="-163.768115942029" y="19.084821428571427"/>
         </collectionViewCell>
     </objects>
     <resources>

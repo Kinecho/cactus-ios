@@ -11,7 +11,7 @@ import UIKit
 class PromptEntryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var responseStackView: UIStackView!
@@ -58,7 +58,7 @@ class PromptEntryCollectionViewCell: UICollectionViewCell {
     
     func updateView() {
         guard let data = self.data else {
-            self.label.text = "Loading"
+            self.questionLabel.text = "Loading"
             self.imageView.image = nil
             self.imageView.isHidden = true
             self.activityIndicator.startAnimating()
@@ -75,7 +75,7 @@ class PromptEntryCollectionViewCell: UICollectionViewCell {
         }
         
         self.imageView.setImageFile(data.promptContent.getMainImageFile())
-        self.label.attributedText = MarkdownUtil.toMarkdown(data.promptContent.getQuestionMarkdown(), font: CactusFont.bold(20))
+        self.questionLabel.attributedText = MarkdownUtil.toMarkdown(data.promptContent.getQuestionMarkdown(), font: CactusFont.bold(22))
     }
     
     func setWidth(_ width: CGFloat) {

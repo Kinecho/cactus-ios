@@ -29,7 +29,7 @@ class ElementCell: UICollectionViewCell {
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
         self.translatesAutoresizingMaskIntoConstraints = false
         
-//        self.widthConstraint.constant = self.getWidth()
+        //        self.widthConstraint.constant = self.getWidth()
         
         self.contentView.clipsToBounds = true
         self.layer.cornerRadius = 10
@@ -38,14 +38,13 @@ class ElementCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-    
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = CGSize(width: -1 * margin/2, height: 10.0)
-        self.layer.shadowRadius = self.layer.cornerRadius
-        self.layer.shadowOpacity = 0.2
-        self.layer.masksToBounds = false
-
-        self.layer.shadowPath = UIBezierPath(roundedRect: self.contentView.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath
+        
+        //        self.layer.shadowColor = UIColor.black.cgColor
+        //        self.layer.shadowOffset = CGSize(width: -1 * margin/2, height: 10.0)
+        //        self.layer.shadowRadius = self.layer.cornerRadius
+        //        self.layer.shadowOpacity = 0.2
+        //        self.layer.masksToBounds = false
+        //        self.layer.shadowPath = UIBezierPath(roundedRect: self.contentView.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath
     }
     
     func updateView() {
@@ -61,5 +60,18 @@ class ElementCell: UICollectionViewCell {
         self.widthConstraint.constant = width
         self.setNeedsLayout()
     }
+    
+    //TODO: Removed while testing layout updates to the collection view
+    //from article: The default implementation of this method simply applies any autolayout constraints to the configured view. If the size is different, it will return a preferred set of attributes.
+    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        setNeedsLayout()
+        layoutIfNeeded()
+        let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
+        frame.size.height = ceil(size.height) + 1
+        layoutAttributes.frame = frame
+        
+        return layoutAttributes
+    }
+    
     
 }

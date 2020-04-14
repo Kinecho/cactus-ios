@@ -72,6 +72,7 @@ class AppMainViewController: UIViewController {
                 self.logger.info("User is logged in but no member was found (yet). We're probably still creating the member. Don't do anything!")
             } else if let member = member, member.id != self.member?.id {
                 self.logger.info("Found member, not null. showing journal home page")
+                CactusAnalytics.shared.setSubscriptionTier(member: member)
                 self.showJournalHome(member: member, wrapInNav: true)
             }
             self.member = member

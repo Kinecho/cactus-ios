@@ -108,6 +108,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
                 Client.shared?.user = nil
             }
+            CactusAnalytics.shared.setUserId(user?.uid)
             self.currentUser = user
         }
     }

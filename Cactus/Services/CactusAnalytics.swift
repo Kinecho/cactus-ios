@@ -14,9 +14,23 @@ import FBSDKCoreKit
 //* developers.facebook.com/docs/swift/appevents
 typealias FacebookEvents = AppEvents
 typealias FirebaseAnalytics = Analytics
+
+
+enum UserProperty: String {
+    case subscription_tier
+}
+
 class CactusAnalytics {
     static let shared = CactusAnalytics()
     let logger = Logger("CactusAnalytics")
+    
+    func setSubscriptionTier(member: CactusMember?) {
+        FirebaseAnalytics.setUserProperty(member?.tier.rawValue ?? "none", forName: UserProperty.subscription_tier.rawValue)
+    }
+    
+    func setUserId(_ userId: String?) {
+        FirebaseAnalytics.setUserID(userId)
+    }
     
     func purchaseCompleted(productEntry: ProductEntry?) {
         let price = productEntry?.subscriptionProduct.priceCentsUsd ?? 0

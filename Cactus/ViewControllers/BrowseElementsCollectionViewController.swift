@@ -34,6 +34,10 @@ class BrowseElementsCollectionViewController: UICollectionViewController, UIColl
         super.viewDidLoad()
         self.collectionView.register(UINib(nibName: "ElementCell", bundle: .main), forCellWithReuseIdentifier: cellIdentifier)
         self.view.translatesAutoresizingMaskIntoConstraints = false
+        if let flowLayout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.estimatedItemSize = CGSize(width: self.getCellWidth(), height: 200)
+        }
+        self.view.translatesAutoresizingMaskIntoConstraints = false
         self.collectionView.dataSource = self
         self.collectionView.reloadData()
     }
@@ -80,9 +84,9 @@ class BrowseElementsCollectionViewController: UICollectionViewController, UIColl
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.getCellWidth(), height: 200)
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: self.getCellWidth(), height: 200)
+//    }
     
     func getCellWidth() -> CGFloat {
         let screenWidth = UIScreen.main.bounds.size.width
