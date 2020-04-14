@@ -23,7 +23,7 @@ class ElementEntry {
 }
 
 class BrowseElementsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    let elementEntries: [ElementEntry] = CactusElement.allCases.map { ElementEntry($0) }
+    let elementEntries: [ElementEntry] = CactusElement.elementsAlphabetical.map { ElementEntry($0) }
     let cellIdentifier = "ElementCell"
     let margin: CGFloat = 20
     var member: CactusMember? {

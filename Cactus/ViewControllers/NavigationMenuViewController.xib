@@ -41,13 +41,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="97e-am-Mfx">
-                    <rect key="frame" x="0.0" y="0.0" width="334" height="725"/>
+                    <rect key="frame" x="0.0" y="44" width="334" height="681"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxQ-8b-wTT">
-                            <rect key="frame" x="0.0" y="0.0" width="334" height="531"/>
+                            <rect key="frame" x="0.0" y="20" width="334" height="511"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8I0-Nz-46F">
-                                    <rect key="frame" x="20" y="20" width="294" height="511"/>
+                                    <rect key="frame" x="20" y="0.0" width="294" height="511"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ksD-tD-8bB">
                                             <rect key="frame" x="0.0" y="0.0" width="294" height="50"/>
@@ -298,7 +298,7 @@
                                 <constraint firstAttribute="bottom" secondItem="8I0-Nz-46F" secondAttribute="bottom" id="ahj-At-C66"/>
                                 <constraint firstAttribute="trailing" secondItem="8I0-Nz-46F" secondAttribute="trailing" constant="20" id="psz-YE-Pmh"/>
                                 <constraint firstItem="8I0-Nz-46F" firstAttribute="leading" secondItem="yxQ-8b-wTT" secondAttribute="leading" constant="20" id="pxx-m2-9FE"/>
-                                <constraint firstItem="8I0-Nz-46F" firstAttribute="top" secondItem="yxQ-8b-wTT" secondAttribute="top" constant="20" id="vlB-Wc-8Nt"/>
+                                <constraint firstItem="8I0-Nz-46F" firstAttribute="top" secondItem="yxQ-8b-wTT" secondAttribute="top" id="vlB-Wc-8Nt"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -307,9 +307,8 @@
                         <constraint firstItem="yxQ-8b-wTT" firstAttribute="leading" secondItem="UfB-tU-5AB" secondAttribute="leading" id="CZt-EK-pSY"/>
                         <constraint firstItem="yxQ-8b-wTT" firstAttribute="trailing" secondItem="7Tz-Kw-nh2" secondAttribute="trailing" id="Img-VZ-2C2"/>
                         <constraint firstItem="yxQ-8b-wTT" firstAttribute="leading" secondItem="7Tz-Kw-nh2" secondAttribute="leading" id="WdH-sC-pOI"/>
-                        <constraint firstItem="yxQ-8b-wTT" firstAttribute="top" secondItem="7Tz-Kw-nh2" secondAttribute="top" id="fNo-yh-c21"/>
+                        <constraint firstItem="yxQ-8b-wTT" firstAttribute="top" secondItem="7Tz-Kw-nh2" secondAttribute="top" constant="20" id="fNo-yh-c21"/>
                         <constraint firstItem="yxQ-8b-wTT" firstAttribute="bottom" secondItem="7Tz-Kw-nh2" secondAttribute="bottom" id="s4v-1t-l3y"/>
-                        <constraint firstItem="wdc-Yd-g7p" firstAttribute="top" secondItem="yxQ-8b-wTT" secondAttribute="top" id="uD0-Ay-alz"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="wdc-Yd-g7p"/>
                     <viewLayoutGuide key="contentLayoutGuide" id="7Tz-Kw-nh2"/>
@@ -320,7 +319,7 @@
             <constraints>
                 <constraint firstItem="97e-am-Mfx" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="FCt-eR-SjR"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="leading" secondItem="97e-am-Mfx" secondAttribute="leading" id="HuL-Qj-R6F"/>
-                <constraint firstItem="97e-am-Mfx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jHQ-vg-TOy"/>
+                <constraint firstItem="97e-am-Mfx" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="jHQ-vg-TOy"/>
                 <constraint firstAttribute="bottom" secondItem="97e-am-Mfx" secondAttribute="bottom" id="yQW-Sw-spo"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>

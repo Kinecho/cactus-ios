@@ -58,18 +58,30 @@
                                                     <constraint firstAttribute="width" constant="10" id="vGe-mo-7JH"/>
                                                 </constraints>
                                             </view>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Hello" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ky-hX-YtI" userLabel="Response Text View">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2ht-ot-Gvc">
                                                 <rect key="frame" x="20" y="0.0" width="398" height="193.5"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
-                                                <color key="textColor" name="TextDefault"/>
-                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noD-Oe-feE" userLabel="Date Label">
+                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="19"/>
+                                                        <edgeInsets key="layoutMargins" top="5" left="0.0" bottom="0.0" right="0.0"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
+                                                        <color key="textColor" name="TextMinimized"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Hello" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ky-hX-YtI" userLabel="Response Text View">
+                                                        <rect key="frame" x="0.0" y="19" width="398" height="174.5"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+                                                        <color key="textColor" name="TextDefault"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="2ki-iJ-pNP" firstAttribute="top" secondItem="1Ky-hX-YtI" secondAttribute="top" id="sDh-GY-nIP"/>
-                                            <constraint firstItem="2ki-iJ-pNP" firstAttribute="bottom" secondItem="1Ky-hX-YtI" secondAttribute="bottom" id="scg-T3-AOO"/>
+                                            <constraint firstItem="2ki-iJ-pNP" firstAttribute="top" secondItem="2ht-ot-Gvc" secondAttribute="top" id="ASJ-9i-m8S"/>
+                                            <constraint firstItem="2ki-iJ-pNP" firstAttribute="bottom" secondItem="2ht-ot-Gvc" secondAttribute="bottom" id="DYY-sa-6Vo"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -95,6 +107,7 @@
             <size key="customSize" width="418" height="224"/>
             <connections>
                 <outlet property="activityIndicator" destination="UKO-qO-JPW" id="20N-xf-tbX"/>
+                <outlet property="dateLabel" destination="noD-Oe-feE" id="DO0-PT-Sw9"/>
                 <outlet property="imageView" destination="rNt-QU-dsJ" id="ZdL-Gw-ilP"/>
                 <outlet property="label" destination="WkX-lr-NPs" id="eM5-QL-rmV"/>
                 <outlet property="responseHighlightView" destination="2ki-iJ-pNP" id="2Tn-7b-PG0"/>
@@ -114,6 +127,9 @@
         </namedColor>
         <namedColor name="TextDefault">
             <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextMinimized">
+            <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="0.80000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

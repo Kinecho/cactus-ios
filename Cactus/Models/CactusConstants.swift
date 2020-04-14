@@ -17,7 +17,9 @@ enum CactusElement: String, Codable, CaseIterable {
     case meaning = "meaning"
     
     static let orderedElements: [CactusElement] = [.energy, .relationships, .meaning, .emotions, .experience]
-    
+    static let elementsAlphabetical: [CactusElement] = CactusElement.allCases.sorted { (e1, e2) -> Bool in
+        return e1.rawValue < e2.rawValue
+    }
     func getImage(width: CGFloat?=nil, height: CGFloat?=nil) -> UIImage? {
         return CactusImage.forElement(self, width: width, height: height)
     }
