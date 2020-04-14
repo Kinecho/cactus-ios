@@ -76,6 +76,7 @@ class BrowseElementsCollectionViewController: UICollectionViewController, UIColl
             return
         }
         vc.element = entry.element
+        CactusAnalytics.shared.logBrowseElementSelected(entry.element)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

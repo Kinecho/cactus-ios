@@ -57,4 +57,15 @@ class CactusAnalytics {
             FacebookEvents.ParameterName.registrationMethod.rawValue: registrationMethod
         ])
     }
+    
+    func logBrowseElementSelected(_ element: CactusElement) {
+        let member = CactusMemberService.sharedInstance.currentMember
+        let analyticsParams: [String: Any] = [
+            AnalyticsParameterContentType: "Browse Element",
+            AnalyticsParameterContent: element.rawValue,
+            "subscription_tier": member?.tier.rawValue ?? ""
+        ]
+        
+        FirebaseAnalytics.logEvent(AnalyticsEventSelectContent, parameters: analyticsParams)
+    }
 }
