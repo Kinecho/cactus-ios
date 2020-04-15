@@ -38,6 +38,7 @@ enum ScreenID: String {
     //payment
     case Pricing
     case ManageSubscription
+    case PricingFeatureItem
         
     //NIBs
     case WebView
@@ -67,6 +68,7 @@ enum ScreenID: String {
         case .inviteFriend:
             return StoryboardID.Social
         case .Pricing,
+             .PricingFeatureItem,
              .ManageSubscription:        
             return StoryboardID.Payment
         default:

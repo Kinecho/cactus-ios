@@ -27,6 +27,9 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBOutlet weak var notAuthorizedForPaymentsLabel: UILabel!
     @IBOutlet weak var contactUsContainerView: UIView!
 
+    @IBOutlet weak var pricingPageViewContainer: UIView!
+    weak var pricingPageViewController: PricingFeaturePageViewController?
+    
     var headerImageHeightConstraint: NSLayoutConstraint?
     var headerBackgroundImage: UIImageView?
     
@@ -151,16 +154,18 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     
     func updateFeatures() {
         let features = self.appSettings?.pricingScreen?.features ?? DEFAULT_PRICING_FEATURES
-        
-        self.featuresStackView.arrangedSubviews.forEach {$0.removeFromSuperview()}
-        features.forEach { (feature) in
-            let featureView = PricingFeatureView()
-            featureView.icon = feature.icon
-            featureView.iconDiameter = CGFloat(30)
-            featureView.titleLabel.attributedText = MarkdownUtil.toMarkdown(feature.titleMarkdown, font: CactusFont.bold(22), color: CactusColor.textDefault)
-            featureView.descriptionLabel.attributedText = MarkdownUtil.toMarkdown(feature.descriptionMarkdown, font: CactusFont.normal(18), color: CactusColor.textDefault)
-            self.featuresStackView.addArrangedSubview(featureView)
-        }
+//        
+//        self.featuresStackView.arrangedSubviews.forEach {$0.removeFromSuperview()}
+//        features.forEach { (feature) in
+//            let featureView = PricingFeatureView()
+//            featureView.icon = feature.icon
+//            featureView.iconDiameter = CGFloat(30)
+//            featureView.titleLabel.attributedText = MarkdownUtil.toMarkdown(feature.titleMarkdown, font: CactusFont.bold(22), color: CactusColor.textDefault)
+//            featureView.descriptionLabel.attributedText = MarkdownUtil.toMarkdown(feature.descriptionMarkdown, font: CactusFont.normal(18), color: CactusColor.textDefault)
+//            self.featuresStackView.addArrangedSubview(featureView)
+//        }
+//        self.fea.isHidden = true
+        self.configurePricingPageViewController()
     }
     
     func configureProductsView() {
@@ -219,6 +224,13 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
         self.selectedProductEntry = planView.productEntry
     }
     
+    func configurePricingPageViewController() {
+        let features = self.appSettings?.pricingScreen?.features ?? DEFAULT_PRICING_FEATURES
+        self.pricingPageViewController?.features = features
+        self.pricingPageViewContainer.isHidden = false
+        
+    }
+    
     @IBAction func continueTapped(_ sender: Any) {
         guard let entry = self.selectedProductEntry, let appleProduct = entry.appleProduct else {
             self.showError("No product was selected")
@@ -228,6 +240,13 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
         self.isPurchasing = true
         SubscriptionService.sharedInstance.submitPurchase(product: appleProduct)
         
+    }
+    
+    @IBSegueAction func configurePricingPageViewSegue(_ coder: NSCoder) -> PricingFeaturePageViewController? {
+        let vc = PricingFeaturePageViewController(coder: coder)
+        self.pricingPageViewController = vc
+        self.configurePricingPageViewController()
+        return vc
     }
     
     func showError(_ message: String) {
@@ -272,6 +291,13 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     
     @IBAction func restoreTapped(_ sender: Any) {
         SubscriptionService.sharedInstance.restorePurchase()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? PricingFeaturePageViewController {
+            self.pricingPageViewController = vc
+            self.configurePricingPageViewController()
+        }
     }
 }
 

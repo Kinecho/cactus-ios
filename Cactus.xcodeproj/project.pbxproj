@@ -549,6 +549,12 @@
 		308505A523D0E490001179E2 /* SocialContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308505A423D0E490001179E2 /* SocialContactTableViewCell.swift */; };
 		308505A623D0E490001179E2 /* SocialContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308505A423D0E490001179E2 /* SocialContactTableViewCell.swift */; };
 		308505A723D0E490001179E2 /* SocialContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308505A423D0E490001179E2 /* SocialContactTableViewCell.swift */; };
+		308C5A4B24479AA50087345D /* PricingFeaturePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C5A4A24479AA50087345D /* PricingFeaturePageViewController.swift */; };
+		308C5A4C24479AA50087345D /* PricingFeaturePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C5A4A24479AA50087345D /* PricingFeaturePageViewController.swift */; };
+		308C5A4D24479AA50087345D /* PricingFeaturePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C5A4A24479AA50087345D /* PricingFeaturePageViewController.swift */; };
+		308C5A4F24479AD60087345D /* PricingFeatureItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C5A4E24479AD60087345D /* PricingFeatureItemViewController.swift */; };
+		308C5A5024479AD60087345D /* PricingFeatureItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C5A4E24479AD60087345D /* PricingFeatureItemViewController.swift */; };
+		308C5A5124479AD60087345D /* PricingFeatureItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C5A4E24479AD60087345D /* PricingFeatureItemViewController.swift */; };
 		30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
 		30934F9322EBE7DF007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
 		30934F9622EBF146007C4E6C /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9522EBF146007C4E6C /* RoundedButton.swift */; };
@@ -937,6 +943,8 @@
 		3084E969234BACE300788279 /* FormatUtilTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatUtilTest.swift; sourceTree = "<group>"; };
 		3084E96B234BC5FE00788279 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		308505A423D0E490001179E2 /* SocialContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialContactTableViewCell.swift; sourceTree = "<group>"; };
+		308C5A4A24479AA50087345D /* PricingFeaturePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingFeaturePageViewController.swift; sourceTree = "<group>"; };
+		308C5A4E24479AD60087345D /* PricingFeatureItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingFeatureItemViewController.swift; sourceTree = "<group>"; };
 		30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFeedCollectionViewController.swift; sourceTree = "<group>"; };
 		30934F9522EBF146007C4E6C /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		30934F9822EBF235007C4E6C /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
@@ -1567,6 +1575,8 @@
 				30A292D0243E467F00F546CA /* LoadingViewController.swift */,
 				30762E50243FF4A5000A18B3 /* BrowseElementsCollectionViewController.swift */,
 				30DCA5EB244120A700D520D4 /* PromptContentCollectionViewController.swift */,
+				308C5A4A24479AA50087345D /* PricingFeaturePageViewController.swift */,
+				308C5A4E24479AD60087345D /* PricingFeatureItemViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -2254,6 +2264,7 @@
 				303C9E3223841AEB006B9786 /* ImageService.swift in Sources */,
 				303C9E1823841AC6006B9786 /* EditReflectionViewController.swift in Sources */,
 				307ED79124086E82008D26C6 /* SubscriptionUtil.swift in Sources */,
+				308C5A4D24479AA50087345D /* PricingFeaturePageViewController.swift in Sources */,
 				303C9DE623841AB6006B9786 /* EmotionsAnimationViewController.swift in Sources */,
 				3032821E2416D29F00FC197A /* AuthenticatedTask.swift in Sources */,
 				303C9DDB23841A1B006B9786 /* AppMainViewController.swift in Sources */,
@@ -2294,6 +2305,7 @@
 				303C9DF623841ABB006B9786 /* NotificationTimeOfDayViewController.swift in Sources */,
 				305B18742331A8F0003E1561 /* MarkdownUtil.swift in Sources */,
 				307ED7952408748C008D26C6 /* MemberSubscriptionTest.swift in Sources */,
+				308C5A5124479AD60087345D /* PricingFeatureItemViewController.swift in Sources */,
 				30D0E451236C921200EFC0E3 /* FontExtensions.swift in Sources */,
 				303C9DC5237F6799006B9786 /* StorageService.swift in Sources */,
 				303C9DE823841AB6006B9786 /* ExperienceAnimationViewController.swift in Sources */,
@@ -2590,6 +2602,7 @@
 				307ED79C24088C7E008D26C6 /* UpgradeJournalFeedCollectionReusableView.swift in Sources */,
 				303C9DCF237FD7D1006B9786 /* ViewSharedReflectionViewController.swift in Sources */,
 				30E9B0A422EAC204005B25FD /* AuthService.swift in Sources */,
+				308C5A5024479AD60087345D /* PricingFeatureItemViewController.swift in Sources */,
 				30044010243F9CF80002A293 /* DataExportViewController.swift in Sources */,
 				30AB8EDA237C86910048CFD2 /* NotificationOnboardingViewController.swift in Sources */,
 				30E9B09A22EA6A81005B25FD /* BaseModel.swift in Sources */,
@@ -2611,6 +2624,7 @@
 				3006442523D26BAB00712ED1 /* SocialInviteService.swift in Sources */,
 				30DCA5F924418BAA00D520D4 /* PromptContentData.swift in Sources */,
 				30C7E57C233FEB5800145111 /* FontExtensions.swift in Sources */,
+				308C5A4C24479AA50087345D /* PricingFeaturePageViewController.swift in Sources */,
 				3084E9622348118000788279 /* LanguageSettingsViewController.swift in Sources */,
 				300AC188233A850B005C6555 /* JournalEntrySkeletonViewController.swift in Sources */,
 				30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */,
@@ -2761,6 +2775,7 @@
 				307ED79B24088C7E008D26C6 /* UpgradeJournalFeedCollectionReusableView.swift in Sources */,
 				303C9DCE237FD7D1006B9786 /* ViewSharedReflectionViewController.swift in Sources */,
 				30E9B09D22EA7FC3005B25FD /* CactusMember.swift in Sources */,
+				308C5A4F24479AD60087345D /* PricingFeatureItemViewController.swift in Sources */,
 				3004400F243F9CF80002A293 /* DataExportViewController.swift in Sources */,
 				30AB8ED9237C86910048CFD2 /* NotificationOnboardingViewController.swift in Sources */,
 				30E9B0A322EAC204005B25FD /* AuthService.swift in Sources */,
@@ -2782,6 +2797,7 @@
 				3006442423D26BAB00712ED1 /* SocialInviteService.swift in Sources */,
 				30DCA5F824418BAA00D520D4 /* PromptContentData.swift in Sources */,
 				30C7E57B233FEB5800145111 /* FontExtensions.swift in Sources */,
+				308C5A4B24479AA50087345D /* PricingFeaturePageViewController.swift in Sources */,
 				3084E9612348118000788279 /* LanguageSettingsViewController.swift in Sources */,
 				300AC187233A850B005C6555 /* JournalEntrySkeletonViewController.swift in Sources */,
 				3084E9652348FE9C00788279 /* CelebrateViewController.swift in Sources */,
