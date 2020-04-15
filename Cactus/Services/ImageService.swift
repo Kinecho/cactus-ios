@@ -65,6 +65,7 @@ class ImageService {
     }
     
     func setPhoto(_ imageView: UIImageView, photo: ImageFile?, gifDelegate: SwiftyGifDelegate?=nil) {
+        imageView.image = nil
         guard let photo = photo else {
             imageView.isHidden = true
             return
