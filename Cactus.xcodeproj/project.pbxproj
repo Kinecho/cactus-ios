@@ -549,6 +549,9 @@
 		308505A523D0E490001179E2 /* SocialContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308505A423D0E490001179E2 /* SocialContactTableViewCell.swift */; };
 		308505A623D0E490001179E2 /* SocialContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308505A423D0E490001179E2 /* SocialContactTableViewCell.swift */; };
 		308505A723D0E490001179E2 /* SocialContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308505A423D0E490001179E2 /* SocialContactTableViewCell.swift */; };
+		308C5A4724478D640087345D /* PromptContentPageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C5A4624478D640087345D /* PromptContentPageLoader.swift */; };
+		308C5A4824478D640087345D /* PromptContentPageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C5A4624478D640087345D /* PromptContentPageLoader.swift */; };
+		308C5A4924478D640087345D /* PromptContentPageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C5A4624478D640087345D /* PromptContentPageLoader.swift */; };
 		30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
 		30934F9322EBE7DF007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
 		30934F9622EBF146007C4E6C /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9522EBF146007C4E6C /* RoundedButton.swift */; };
@@ -937,6 +940,7 @@
 		3084E969234BACE300788279 /* FormatUtilTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatUtilTest.swift; sourceTree = "<group>"; };
 		3084E96B234BC5FE00788279 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		308505A423D0E490001179E2 /* SocialContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialContactTableViewCell.swift; sourceTree = "<group>"; };
+		308C5A4624478D640087345D /* PromptContentPageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptContentPageLoader.swift; sourceTree = "<group>"; };
 		30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFeedCollectionViewController.swift; sourceTree = "<group>"; };
 		30934F9522EBF146007C4E6C /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		30934F9822EBF235007C4E6C /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
@@ -1117,6 +1121,7 @@
 				3018B1222376182D0005333A /* JournalEntryData.swift */,
 				30DCA5EF24417AA400D520D4 /* PromptContentDataSource.swift */,
 				30DCA5F724418BAA00D520D4 /* PromptContentData.swift */,
+				308C5A4624478D640087345D /* PromptContentPageLoader.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -2222,6 +2227,7 @@
 				305B18752331A8F5003E1561 /* CactusColor.swift in Sources */,
 				303C9E4023841FAD006B9786 /* ReflectionResponseTest.swift in Sources */,
 				3006442623D26BAB00712ED1 /* SocialInviteService.swift in Sources */,
+				308C5A4924478D640087345D /* PromptContentPageLoader.swift in Sources */,
 				30D7385F23CFFC62006F4DA6 /* InviteContentViewController.swift in Sources */,
 				303C9E3B23841AFC006B9786 /* UIImageView+SwiftyGif.swift in Sources */,
 				303C9E1223841AC6006B9786 /* SettingsTableViewController.swift in Sources */,
@@ -2538,6 +2544,7 @@
 				303C9DBB237F5DCC006B9786 /* URLExtensions.swift in Sources */,
 				303C9DB8237F595A006B9786 /* UserServiceFile.swift in Sources */,
 				30BF2E332328C7AD00A49EB6 /* MarkdownTypes.swift in Sources */,
+				308C5A4824478D640087345D /* PromptContentPageLoader.swift in Sources */,
 				30A292D2243E467F00F546CA /* LoadingViewController.swift in Sources */,
 				3084E95F234810B300788279 /* FeedbackViewController.swift in Sources */,
 				300F236D237A61F100F35CDE /* SharedReflectionViewController.swift in Sources */,
@@ -2709,6 +2716,7 @@
 				303C9DBA237F5DCC006B9786 /* URLExtensions.swift in Sources */,
 				303C9DB7237F595A006B9786 /* UserServiceFile.swift in Sources */,
 				30E9B0BD22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
+				308C5A4724478D640087345D /* PromptContentPageLoader.swift in Sources */,
 				30A292D1243E467F00F546CA /* LoadingViewController.swift in Sources */,
 				3084E95E234810B300788279 /* FeedbackViewController.swift in Sources */,
 				300F236C237A61F100F35CDE /* SharedReflectionViewController.swift in Sources */,

@@ -31,7 +31,7 @@ class PromptContentDataSource {
     
     // MARK: Instance Members
     var pagesLoading: Bool {
-        (self.pageLoaders.isEmpty ? !self.hasLoaded : self.pageLoaders.contains { !$0.finishedLoading })
+        (self.pageLoaders.isEmpty ? !self.hasLoaded : self.pageLoaders.contains { !$0.allLoaded })
     }
     
     var isLoading: Bool {pagesLoading }
@@ -50,7 +50,7 @@ class PromptContentDataSource {
         return self.orderedData.count
     }
     var hasLoaded = false
-    var pageLoaders: [PageLoader<PromptContent>] = []
+    var pageLoaders: [PromptContentPageLoader] = []
     var promptContentDataByEntryId: [String: PromptContentData] = [:]
     var orderedData: [PromptContentData] = []
     var pageSize = 10
@@ -78,18 +78,21 @@ class PromptContentDataSource {
             logger.info("First page already laoded")
             return
         }
-        let firstPage = PageLoader<PromptContent>()
+        let firstPage = PromptContentPageLoader()
+        firstPage.delegate = self
         self.pageLoaders.append(firstPage)
         
         firstPage.listener = PromptContentService.sharedInstance.observePromptContent(element: self.element, tier: self.member?.tier ?? .BASIC, limit: self.pageSize) { (pageResult) in
             firstPage.result = pageResult
             self.logger.info("Got first page data with \(pageResult.results?.count ?? 0) results", functionName: "initializePages", line: #line)
             //            firstPage.result = pageResult
-            self.handlePageResult(pageResult)
-            self.hasLoaded = true
+//            self.handlePageResult(pageResult)
+            firstPage.handlePageResult(pageResult)
+//            self.hasLoaded = true
         }
     }
     
+    //TODO: Move to page loader
     func handlePageResult(_ pageResult: PageResult<PromptContent>) {
         let removed = pageResult.removed?.compactMap({ (content) -> Int? in
             guard let id = content.entryId else {
@@ -136,22 +139,23 @@ class PromptContentDataSource {
     }
     
     func updateOrderedData() {
-        let promptContents = self.pageLoaders.compactMap {$0.result?.results}.flatMap {$0}
-        self.orderedData = promptContents.compactMap { (promptContent) -> PromptContentData? in
-            guard let entryId = promptContent.entryId else {
-                return nil
-            }
-            if self.promptContentDataByEntryId[entryId] == nil {
-                self.logger.debug("Setting up prompt content entry data source for promptId \(entryId)")
-                self.promptContentDataByEntryId[entryId] = PromptContentData(promptContent, delegate: self)
+        self.orderedData = self.pageLoaders.compactMap {$0.orderedPromptData}.flatMap {$0}
+//        self.orderedData = promptContents.compactMap { (promptContent) -> PromptContentData? in
+//            guard let entryId = promptContent.entryId else {
+//                return nil
+//            }
+//            if self.promptContentDataByEntryId[entryId] == nil {
+//                self.logger.debug("Setting up prompt content entry data source for promptId \(entryId)")
+//                self.promptContentDataByEntryId[entryId] = PromptContentData(promptContent, delegate: self)
                 
-            }
+//            }
             
-            let data = self.promptContentDataByEntryId[entryId]
-            data?.promptContent = promptContent
-            data?.delegate = self
-            return data
-        }
+//            let data = self.promptContentDataByEntryId[entryId]
+//            data?.promptContent = promptContent
+//            data?.delegate = self
+//            return data
+//        }
+//        return promptContentData
     }
     
     func loadNextPage() {
@@ -179,13 +183,15 @@ class PromptContentDataSource {
         }
         
         self.logger.info("Creating page loader. This will be page \(nextIndex)", functionName: #function, line: #line)
-        let page = PageLoader<PromptContent>()
+        let page = PromptContentPageLoader()
+        page.delegate = self
         self.pageLoaders.append(page)
         
         page.listener = PromptContentService.sharedInstance.observePromptContent(element: self.element, tier: member.tier, limit: self.pageSize, lastResult: previousResult) { (pageResult) in
             page.result = pageResult
             self.logger.info("Got first page data with \(pageResult.results?.count ?? 0) results", functionName: "initializePages", line: #line)
-            self.handlePageResult(pageResult)
+//            self.handlePageResult(pageResult)
+            page.handlePageResult(pageResult)
         }
     }
 }
@@ -201,6 +207,29 @@ extension PromptContentDataSource: PromptContentDataDelegate {
         }
         DispatchQueue.main.async {
             self.delegate?.batchUpdate(addedIndexes: [], updatedIndexes: [index], removedIndexes: [])
-        }        
+        }
+    }
+}
+
+extension PromptContentDataSource: PromptContentPageLoaderDelegate {
+    func pageUpdated(removed: [PromptContent]?, added: [PromptContent]?, updated: [PromptContent]?) {
+        //no op
+        self.logger.info("Page updated via delegate")
+    }
+    
+    func pageLoader(pageLoader: PromptContentPageLoader, loadingFinished: Bool) {
+        if loadingFinished {
+            self.logger.info("Page loading finished")
+            self.updateOrderedData()
+            let added = pageLoader.orderedPromptContent?.compactMap({ (content) -> Int? in
+                guard let entryId = content.entryId else {
+                    return nil
+                }
+                return self.index(entryId: entryId)
+            })
+            self.delegate?.batchUpdate(addedIndexes: added ?? [], updatedIndexes: [], removedIndexes: [])
+//            pageLoader.
+            
+        }
     }
 }
