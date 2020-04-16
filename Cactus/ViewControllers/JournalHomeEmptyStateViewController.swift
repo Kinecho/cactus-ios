@@ -65,6 +65,9 @@ class JournalHomeEmptyStateViewController: UIViewController {
         self.promptContentVC = vc
         vc.modalPresentationStyle = .fullScreen //this is needed to trigger the viewDidApper on the journal home
         vc.modalTransitionStyle = .crossDissolve
+        
+        CactusAnalytics.shared.startFirstPrompt()
+        
         AppMainViewController.shared.present(vc, animated: true, completion: nil)
     }
 }

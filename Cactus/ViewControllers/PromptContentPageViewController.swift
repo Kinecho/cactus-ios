@@ -211,19 +211,10 @@ class PromptContentPageViewController: UIPageViewController {
     
     @objc func dismissPrompt() {
         self.dismiss(animated: true, completion: {
+            //todo: log analytics that prompt was dismissed
             self.promptDelegate?.didDismissPrompt(promptContent: self.promptContent)
         })
         
-        
-//        guard self.promptContent?.entryId == self.appSettings?.firstPromptContentEntryId,
-//            let pricingVc = ScreenID.Pricing.getViewController() as? PricingViewController else {
-//                self.dismiss(animated: true, completion: nil)
-//                return
-//        }
-//                
-//        self.dismiss(animated: true, completion: {
-//            NavigationService.sharedInstance.present(pricingVc, on: self.presentingViewController)
-//        })
     }
     
     func addSharePromptButton() {
@@ -372,6 +363,10 @@ extension PromptContentPageViewController: UIPageViewControllerDelegate {
         if let firstViewController = self.viewControllers?.first,
             let index = self.screens.firstIndex(of: firstViewController) {
             self.pageControl?.currentPage = index
+            
+            if index == screens.count - 1 {
+                CactusAnalytics.shared.promptCompleted(promptContent: self.promptContent)
+            }            
         }
     }
 }

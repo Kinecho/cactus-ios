@@ -25,6 +25,10 @@ class PricingFeatureItemViewController: UIViewController {
         self.configureFeature()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.view.setNeedsLayout()
+    }
+    
     func configureFeature() {
         guard self.isViewLoaded else {
             return

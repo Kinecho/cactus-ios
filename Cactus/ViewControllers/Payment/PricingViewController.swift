@@ -22,7 +22,6 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBOutlet weak var planContainerView: UIView!
     @IBOutlet weak var headerStackView: UIStackView!
     @IBOutlet weak var mainStackView: UIStackView!
-    @IBOutlet weak var featuresStackView: UIStackView!
     
     @IBOutlet weak var notAuthorizedForPaymentsLabel: UILabel!
     @IBOutlet weak var contactUsContainerView: UIView!
@@ -74,6 +73,11 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
         self.setupHeaderBackground()
         self.configureFromSettings()
         self.loadSubscriptionProducts()
+        CactusAnalytics.shared.pricingPageDisplay()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     func configureFromSettings() {
@@ -153,18 +157,6 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     }
     
     func updateFeatures() {
-        let features = self.appSettings?.pricingScreen?.features ?? DEFAULT_PRICING_FEATURES
-//        
-//        self.featuresStackView.arrangedSubviews.forEach {$0.removeFromSuperview()}
-//        features.forEach { (feature) in
-//            let featureView = PricingFeatureView()
-//            featureView.icon = feature.icon
-//            featureView.iconDiameter = CGFloat(30)
-//            featureView.titleLabel.attributedText = MarkdownUtil.toMarkdown(feature.titleMarkdown, font: CactusFont.bold(22), color: CactusColor.textDefault)
-//            featureView.descriptionLabel.attributedText = MarkdownUtil.toMarkdown(feature.descriptionMarkdown, font: CactusFont.normal(18), color: CactusColor.textDefault)
-//            self.featuresStackView.addArrangedSubview(featureView)
-//        }
-//        self.fea.isHidden = true
         self.configurePricingPageViewController()
     }
     
@@ -222,13 +214,15 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
         
         planView.selected = true
         self.selectedProductEntry = planView.productEntry
+        if let subscriptionProduct = planView.productEntry?.subscriptionProduct {
+            CactusAnalytics.shared.selectedPlan(subscriptionProduct: subscriptionProduct)
+        }
     }
     
     func configurePricingPageViewController() {
         let features = self.appSettings?.pricingScreen?.features ?? DEFAULT_PRICING_FEATURES
         self.pricingPageViewController?.features = features
         self.pricingPageViewContainer.isHidden = false
-        
     }
     
     @IBAction func continueTapped(_ sender: Any) {
@@ -236,19 +230,14 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
             self.showError("No product was selected")
             return
         }
+        
         self.logger.info("checking out with apple product id \(appleProduct.productIdentifier)")
         self.isPurchasing = true
         SubscriptionService.sharedInstance.submitPurchase(product: appleProduct)
+        CactusAnalytics.shared.checkoutContinueTapped(subscriptionProduct: entry.subscriptionProduct)
         
     }
-    
-    @IBSegueAction func configurePricingPageViewSegue(_ coder: NSCoder) -> PricingFeaturePageViewController? {
-        let vc = PricingFeaturePageViewController(coder: coder)
-        self.pricingPageViewController = vc
-        self.configurePricingPageViewController()
-        return vc
-    }
-    
+ 
     func showError(_ message: String) {
         //todo: not implemented
         self.logger.error("Failded to check out. \(message)")

@@ -69,8 +69,11 @@ class BrowseElementsCollectionViewController: UICollectionViewController, UIColl
     }
         
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         let row = indexPath.row
         let entry = self.elementEntries[row]
+        CactusAnalytics.shared.logBrowseElementSelected(entry.element)
+        
         guard self.member?.tier.isPaidTier == true else {
             let pricingVc = ScreenID.Pricing.getViewController()
             self.present(pricingVc, animated: true)
@@ -80,7 +83,7 @@ class BrowseElementsCollectionViewController: UICollectionViewController, UIColl
             return
         }
         vc.element = entry.element
-        CactusAnalytics.shared.logBrowseElementSelected(entry.element)
+        
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

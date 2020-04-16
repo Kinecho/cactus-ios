@@ -15,7 +15,6 @@ import FBSDKCoreKit
 typealias FacebookEvents = AppEvents
 typealias FirebaseAnalytics = Analytics
 
-
 enum UserProperty: String {
     case subscription_tier
 }
@@ -30,6 +29,31 @@ class CactusAnalytics {
     
     func setUserId(_ userId: String?) {
         FirebaseAnalytics.setUserID(userId)
+    }
+    
+    func pricingPageDisplay() {
+        FirebaseAnalytics.logEvent(AnalyticsEventBeginCheckout, parameters: [:])
+        FirebaseAnalytics.logEvent("display_pricing", parameters: [:])
+    }
+    
+    func checkoutContinueTapped(subscriptionProduct: SubscriptionProduct) {
+        FirebaseAnalytics.logEvent(AnalyticsEventSelectItem, parameters: [
+            AnalyticsParameterItemListName: "Subscription Plans",
+            AnalyticsParameterItems: [[
+                AnalyticsParameterItemName: subscriptionProduct.appleProductId ?? "apple_unknown",
+                AnalyticsParameterItemCategory: "subscription_product"
+            ]]
+        ])
+    }
+    
+    func selectedPlan(subscriptionProduct: SubscriptionProduct) {
+                FirebaseAnalytics.logEvent(AnalyticsEventSelectItem, parameters: [
+            AnalyticsParameterItemListName: "Subscription Plans",
+            AnalyticsParameterItems: [[
+                AnalyticsParameterItemName: subscriptionProduct.appleProductId ?? "apple_unknown",
+                AnalyticsParameterItemCategory: "subscription_product"
+            ]]
+        ])
     }
     
     func purchaseCompleted(productEntry: ProductEntry?) {
@@ -73,13 +97,31 @@ class CactusAnalytics {
     }
     
     func logBrowseElementSelected(_ element: CactusElement) {
-        let member = CactusMemberService.sharedInstance.currentMember
         let analyticsParams: [String: Any] = [
-            AnalyticsParameterContentType: "Browse Element",
-            AnalyticsParameterContent: element.rawValue,
-            "subscription_tier": member?.tier.rawValue ?? ""
+            AnalyticsParameterItemListName: "Browse Elements",
+            AnalyticsParameterItems: [
+                [AnalyticsParameterItemName: element.rawValue,
+                AnalyticsParameterItemCategory: "cactus_element"]
+                ]
         ]
         
-        FirebaseAnalytics.logEvent(AnalyticsEventSelectContent, parameters: analyticsParams)
+        FirebaseAnalytics.logEvent(AnalyticsEventSelectItem, parameters: analyticsParams)
+    }
+    
+    func startFirstPrompt() {
+        FirebaseAnalytics.logEvent(AnalyticsEventTutorialBegin, parameters: nil)
+    }
+    
+    func promptCompleted(promptContent: PromptContent?) {
+        FirebaseAnalytics.logEvent("prompt_completed", parameters: nil)
+        if let firstPromptEntryId = AppSettingsService.sharedInstance.currentSettings?.firstPromptContentEntryId, firstPromptEntryId == promptContent?.entryId {
+            self.completedFirstPrompt()
+            return
+        }
+
+    }
+    
+    func completedFirstPrompt() {
+        FirebaseAnalytics.logEvent(AnalyticsEventTutorialComplete, parameters: nil)
     }
 }
