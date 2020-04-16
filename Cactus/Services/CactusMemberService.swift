@@ -11,12 +11,17 @@ import FirebaseFirestore
 import Firebase
 import FirebaseAuth
 
+protocol InstanceIDDelegate: class {
+    func getInstanceId(_ completed: @escaping (_ token: String, _ id: String) -> Void)
+}
+
 class CactusMemberService {
     
     let firestoreService: FirestoreService
     var memberListener: Unsubscriber?
     var currentMember: CactusMember?
     var currentUser: User?
+    weak var instanceIDDelegate: InstanceIDDelegate?
     static let sharedInstance = CactusMemberService()
     let logger = Logger("CactusMemberService")
     private init() {
@@ -44,37 +49,64 @@ class CactusMemberService {
             return
         }
 
-        InstanceID.instanceID().instanceID { (result, error) in
-            if let error = error {
-                self.logger.error("Error fetching remote instance ID: \(error)")
-            } else if let result = result {
-                let token = result.token
-                let id = result.instanceID
-                var tokens = member.fcmTokens ?? []
-                var ids = member.firebaseInstanceIds ?? []
-                let hasToken = tokens.contains(token)
-                let hasId = ids.contains(id)
-                if !hasToken && !hasId {
-                    self.logger.debug("Token or ID not on member, not doing anything")
-                    onCompleted(nil)
-                    return
-                }
-                tokens.removeAll(where: { $0 == token})
-                ids.removeAll(where: { $0 == id })
-                                
-                self.logger.debug("Updated tokens are \(tokens.joined(separator: " | "))")
-                member.fcmTokens = tokens
-                member.firebaseInstanceIds = ids
-                self.firestoreService.save(member, onComplete: { (savedMember, error) in
-                    if let error = error {
-                        self.logger.error("Failed to set FCM Tokens on Cactus Member \(member.id ?? "unknown member id")", error)
-                    } else {
-                        self.logger.info("Successfully removed existing token on cactus member \(savedMember?.fcmTokens?.joined(separator: " | " ) ?? "NO Tokens")")
-                    }
-                    onCompleted(error)
-                })
+        self.instanceIDDelegate?.getInstanceId { token, id in
+//            let id = result.instanceID
+            var tokens = member.fcmTokens ?? []
+            var ids = member.firebaseInstanceIds ?? []
+            let hasToken = tokens.contains(token)
+            let hasId = ids.contains(id)
+            if !hasToken && !hasId {
+                self.logger.debug("Token or ID not on member, not doing anything")
+                onCompleted(nil)
+                return
             }
+            tokens.removeAll(where: { $0 == token})
+            ids.removeAll(where: { $0 == id })
+            
+            self.logger.debug("Updated tokens are \(tokens.joined(separator: " | "))")
+            member.fcmTokens = tokens
+            member.firebaseInstanceIds = ids
+            self.firestoreService.save(member, onComplete: { (savedMember, error) in
+                if let error = error {
+                    self.logger.error("Failed to set FCM Tokens on Cactus Member \(member.id ?? "unknown member id")", error)
+                } else {
+                    self.logger.info("Successfully removed existing token on cactus member \(savedMember?.fcmTokens?.joined(separator: " | " ) ?? "NO Tokens")")
+                }
+                onCompleted(error)
+            })
         }
+        
+//        InstanceID.instanceID().instanceID { (result, error) in
+//            if let error = error {
+//                self.logger.error("Error fetching remote instance ID: \(error)")
+//            } else if let result = result {
+//                let token = result.token
+//                let id = result.instanceID
+//                var tokens = member.fcmTokens ?? []
+//                var ids = member.firebaseInstanceIds ?? []
+//                let hasToken = tokens.contains(token)
+//                let hasId = ids.contains(id)
+//                if !hasToken && !hasId {
+//                    self.logger.debug("Token or ID not on member, not doing anything")
+//                    onCompleted(nil)
+//                    return
+//                }
+//                tokens.removeAll(where: { $0 == token})
+//                ids.removeAll(where: { $0 == id })
+//
+//                self.logger.debug("Updated tokens are \(tokens.joined(separator: " | "))")
+//                member.fcmTokens = tokens
+//                member.firebaseInstanceIds = ids
+//                self.firestoreService.save(member, onComplete: { (savedMember, error) in
+//                    if let error = error {
+//                        self.logger.error("Failed to set FCM Tokens on Cactus Member \(member.id ?? "unknown member id")", error)
+//                    } else {
+//                        self.logger.info("Successfully removed existing token on cactus member \(savedMember?.fcmTokens?.joined(separator: " | " ) ?? "NO Tokens")")
+//                    }
+//                    onCompleted(error)
+//                })
+//            }
+//        }
     }
     
     func save(_ member: CactusMember, completed: @escaping (CactusMember?, Any?) -> Void) {
@@ -82,41 +114,73 @@ class CactusMemberService {
     }
     
     func addFCMToken(member: CactusMember) {
-        InstanceID.instanceID().instanceID { (result, error) in
-            if let error = error {
-                self.logger.error("Error fetching remote instance ID: \(error)")
-            } else if let result = result {
-                let token = result.token
-                let instanceId = result.instanceID
-                var tokens = member.fcmTokens ?? []
-                var ids = member.firebaseInstanceIds ?? []
-                let hasToken = tokens.contains(token)
-                let hasId = ids.contains(instanceId)
-                if hasToken && hasId {
-                    self.logger.debug("Member already has instance id and token")
-                    return
-                }
-                
-                if !hasToken {
-                    tokens.append(token)
-                }
-                
-                if !hasId {
-                    ids.append(instanceId)
-                }
-                
-                member.fcmTokens = tokens
-                member.firebaseInstanceIds = ids
-                
-                self.firestoreService.save(member, onComplete: { (_, error) in
-                    if let error = error {
-                        self.logger.error("Failed to set FCM Tokens on Cactus Member \(member.id ?? "unknown member id")", error)
-                    } else {
-                        self.logger.info("Successfully updated tokens on cactus member")
-                    }
-                })
+        self.instanceIDDelegate?.getInstanceId { (token, instanceId) in
+//            let instanceId = result.instanceID
+            var tokens = member.fcmTokens ?? []
+            var ids = member.firebaseInstanceIds ?? []
+            let hasToken = tokens.contains(token)
+            let hasId = ids.contains(instanceId)
+            if hasToken && hasId {
+                self.logger.debug("Member already has instance id and token")
+                return
             }
+            
+            if !hasToken {
+                tokens.append(token)
+            }
+            
+            if !hasId {
+                ids.append(instanceId)
+            }
+            
+            member.fcmTokens = tokens
+            member.firebaseInstanceIds = ids
+            
+            self.firestoreService.save(member, onComplete: { (_, error) in
+                if let error = error {
+                    self.logger.error("Failed to set FCM Tokens on Cactus Member \(member.id ?? "unknown member id")", error)
+                } else {
+                    self.logger.info("Successfully updated tokens on cactus member")
+                }
+            })
         }
+        
+        
+//        InstanceID.instanceID().instanceID { (result, error) in
+//            if let error = error {
+//                self.logger.error("Error fetching remote instance ID: \(error)")
+//            } else if let result = result {
+//                let token = result.token
+//                let instanceId = result.instanceID
+//                var tokens = member.fcmTokens ?? []
+//                var ids = member.firebaseInstanceIds ?? []
+//                let hasToken = tokens.contains(token)
+//                let hasId = ids.contains(instanceId)
+//                if hasToken && hasId {
+//                    self.logger.debug("Member already has instance id and token")
+//                    return
+//                }
+//
+//                if !hasToken {
+//                    tokens.append(token)
+//                }
+//
+//                if !hasId {
+//                    ids.append(instanceId)
+//                }
+//
+//                member.fcmTokens = tokens
+//                member.firebaseInstanceIds = ids
+//
+//                self.firestoreService.save(member, onComplete: { (_, error) in
+//                    if let error = error {
+//                        self.logger.error("Failed to set FCM Tokens on Cactus Member \(member.id ?? "unknown member id")", error)
+//                    } else {
+//                        self.logger.info("Successfully updated tokens on cactus member")
+//                    }
+//                })
+//            }
+//        }
     }
     
     /**

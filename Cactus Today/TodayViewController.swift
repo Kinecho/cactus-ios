@@ -20,6 +20,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     var cloudinary: CLDCloudinary?
     var member: CactusMember?
     var hasLoaded = false
+    var memberLoaded = false
     var memberUnsubscriber: Unsubscriber?
     override func viewDidLoad() {
         if !self.hasLoaded {
@@ -42,8 +43,16 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         super.viewDidLoad()
         
         if memberUnsubscriber == nil {
-            self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, _, _) in
+            self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, error, user) in
+                if let error = error {
+                    self.logger.error("Failed to load member", error)
+                }
+                
+                if let user = user {
+                    self.logger.info("Fetched user from member service: " + user.uid)
+                }
                 self.member = member
+                self.memberLoaded = true
                 self.loadToday()
             })
         }
@@ -88,6 +97,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     func showNeedsLogin() {
+        guard self.memberLoaded else {
+            self.questionLabel.text = "Loading..."
+            return
+        }
+        
         self.questionLabel.text = "Please log in to see today's prompt"
         self.questionLabel.isHidden = false
         self.imageView.isHidden = true

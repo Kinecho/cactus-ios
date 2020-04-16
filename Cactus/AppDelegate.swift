@@ -61,6 +61,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = rootVc
         self.window?.makeKeyAndVisible()
         
+        CactusMemberService.sharedInstance.instanceIDDelegate = self
+        
         return true
     }
     
@@ -239,4 +241,18 @@ extension AppDelegate: NavigationServiceDelegate {
     func open(url: URL, options: [UIApplication.OpenExternalURLOptionsKey : Any], completionHandler: ((Bool) -> Void)?) {
         UIApplication.shared.open(url, options: options, completionHandler: completionHandler)
     }    
+}
+
+extension AppDelegate: InstanceIDDelegate {
+    func getInstanceId(_ completed: @escaping (_ token: String, _ id: String) -> Void) {
+        InstanceID.instanceID().instanceID { (result, error) in
+            if let error = error {
+                self.logger.error("Error fetching remote instance ID: \(error)")
+            } else if let result = result {
+                let token = result.token
+                let id = result.instanceID
+                completed(token, id)
+            }
+        }
+    }
 }
