@@ -237,4 +237,8 @@ class NavigationMenuViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
+    @IBAction func coreValuesTapped(_ sender: Any) {
+        let coreValuesVC = ScreenID.CoreValuesAssessment.getViewController()
+        self.navigationController?.pushViewController(coreValuesVC, animated: true)
+    }
 }

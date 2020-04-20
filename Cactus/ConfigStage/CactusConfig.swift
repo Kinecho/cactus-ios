@@ -10,7 +10,8 @@ import Foundation
 
 struct CactusConfig: AppConfig {
     static let appType = AppType.IOS
-    static let webDomain = "https://cactus-app-stage.web.app"
+//    static let webDomain = "https://cactus-app-stage.web.app"
+    static let webDomain = "https://cactus-web.ngrok.io"
     static let flamelink = FlamelinkConfig()
     static let environment = AppEnvironment.stage
     static let actionCodeDomain = "https://cactus-app-stage.web.app"

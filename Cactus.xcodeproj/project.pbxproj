@@ -606,6 +606,9 @@
 		30A292D2243E467F00F546CA /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A292D0243E467F00F546CA /* LoadingViewController.swift */; };
 		30A292D3243E467F00F546CA /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A292D0243E467F00F546CA /* LoadingViewController.swift */; };
 		30A292D4243E467F00F546CA /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A292D0243E467F00F546CA /* LoadingViewController.swift */; };
+		30AB0728244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB0727244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift */; };
+		30AB0729244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB0727244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift */; };
+		30AB072A244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB0727244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift */; };
 		30AB8ED5237C86380048CFD2 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30AB8ED4237C86380048CFD2 /* Onboarding.storyboard */; };
 		30AB8ED6237C86380048CFD2 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30AB8ED4237C86380048CFD2 /* Onboarding.storyboard */; };
 		30AB8ED9237C86910048CFD2 /* NotificationOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB8ED8237C86910048CFD2 /* NotificationOnboardingViewController.swift */; };
@@ -973,6 +976,7 @@
 		30A281EF22EA62650041158E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30A281F722EA65EC0041158E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30A292D0243E467F00F546CA /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		30AB0727244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreValuesAssessmentViewController.swift; sourceTree = "<group>"; };
 		30AB8ED4237C86380048CFD2 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		30AB8ED8237C86910048CFD2 /* NotificationOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOnboardingViewController.swift; sourceTree = "<group>"; };
 		30B6EA6B22EA5A9F00443E46 /* Cactus Stage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cactus Stage.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1569,6 +1573,7 @@
 				303C9DCD237FD7D1006B9786 /* ViewSharedReflectionViewController.xib */,
 				3021CBDD2410345E00F58B89 /* WebViewController.swift */,
 				3021CBDE2410345E00F58B89 /* WebViewController.xib */,
+				30AB0727244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift */,
 				3021CBE82410E83800F58B89 /* InsightsWebViewViewController.swift */,
 				3021CBED2411769800F58B89 /* MemberInsightsViewController.swift */,
 				30328208241215D900FC197A /* WelcomeViewController.swift */,
@@ -2336,6 +2341,7 @@
 				305CB10223D048B60046E8A8 /* SendFriendInviteViewController.swift in Sources */,
 				303C9E2223841ACC006B9786 /* BorderedButton.swift in Sources */,
 				303C9DF923841ABB006B9786 /* AppIconSettingsViewController.swift in Sources */,
+				30AB072A244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift in Sources */,
 				30F7168D237A4B9C004989DB /* AppConfig.swift in Sources */,
 				303C9E2D23841ACC006B9786 /* UIImageViewAligned.swift in Sources */,
 				30DCA5FA24418BAA00D520D4 /* PromptContentData.swift in Sources */,
@@ -2562,6 +2568,7 @@
 				300AC18E233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */,
 				3018B1242376182D0005333A /* JournalEntryData.swift in Sources */,
 				300FCD0123EE3CD200089CFB /* SubscriptionProductService.swift in Sources */,
+				30AB0729244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift in Sources */,
 				302C4F4A2347D7A700798560 /* SettingsTableViewController.swift in Sources */,
 				305B18812331E162003E1561 /* ReflectContentViewController.swift in Sources */,
 				30E9B0BE22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
@@ -2735,6 +2742,7 @@
 				300AC18D233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */,
 				3018B1232376182D0005333A /* JournalEntryData.swift in Sources */,
 				300FCD0023EE3CD200089CFB /* SubscriptionProductService.swift in Sources */,
+				30AB0728244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift in Sources */,
 				302C4F492347D7A700798560 /* SettingsTableViewController.swift in Sources */,
 				305B18802331E162003E1561 /* ReflectContentViewController.swift in Sources */,
 				30E9B0A022EABFBD005B25FD /* CactusMemberService.swift in Sources */,
