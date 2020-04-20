@@ -22,6 +22,8 @@
                 <outlet property="avatarImageView" destination="kzq-Fz-fZ5" id="GCx-8R-CgU"/>
                 <outlet property="browsePromptsButton" destination="DEd-AE-jZn" id="JpL-kc-jyO"/>
                 <outlet property="closeButton" destination="Mrp-jR-DR7" id="yks-xP-IZw"/>
+                <outlet property="coreValuesContainerStackView" destination="Byi-bu-byg" id="wsp-UL-vR0"/>
+                <outlet property="coreValuesStackView" destination="SYS-v3-Fv3" id="HHo-yS-ysi"/>
                 <outlet property="displayNameLabel" destination="aeJ-aC-hQe" id="nAk-3A-jSx"/>
                 <outlet property="emailLabel" destination="3dw-Xl-Tng" id="e6p-dU-yK7"/>
                 <outlet property="inviteButton" destination="vEe-Hm-kiV" id="12G-Ph-14c"/>
@@ -44,10 +46,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="334" height="725"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxQ-8b-wTT">
-                            <rect key="frame" x="0.0" y="20" width="334" height="556"/>
+                            <rect key="frame" x="0.0" y="20" width="334" height="673.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8I0-Nz-46F">
-                                    <rect key="frame" x="20" y="0.0" width="294" height="556"/>
+                                    <rect key="frame" x="20" y="0.0" width="294" height="673.5"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ksD-tD-8bB">
                                             <rect key="frame" x="0.0" y="0.0" width="294" height="50"/>
@@ -77,16 +79,16 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="fG7-eM-Oku" userLabel="Profile Stack View">
-                                            <rect key="frame" x="0.0" y="70" width="294" height="51"/>
+                                            <rect key="frame" x="0.0" y="70" width="294" height="52.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Neil Poulin" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeJ-aC-hQe">
-                                                    <rect key="frame" x="0.0" y="0.0" width="294" height="28"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="294" height="29"/>
                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
                                                     <color key="textColor" name="White"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="neil@cactus.app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dw-Xl-Tng">
-                                                    <rect key="frame" x="0.0" y="32" width="294" height="19"/>
+                                                    <rect key="frame" x="0.0" y="33" width="294" height="19.5"/>
                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                                     <color key="textColor" name="GreenLight"/>
                                                     <nil key="highlightedColor"/>
@@ -94,7 +96,7 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="mdu-RK-mVB" userLabel="Actions Stack View">
-                                            <rect key="frame" x="0.0" y="141" width="294" height="195"/>
+                                            <rect key="frame" x="0.0" y="142.5" width="294" height="195"/>
                                             <subviews>
                                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEe-Hm-kiV" customClass="BorderedButton" customModule="Cactus" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="-36" width="286" height="44"/>
@@ -205,19 +207,19 @@
                                             <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="8"/>
                                         </stackView>
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BaY-h1-QJB" userLabel="Streak Rounded View" customClass="RoundedView" customModule="Cactus" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="356" width="294" height="90"/>
+                                            <rect key="frame" x="0.0" y="357.5" width="294" height="90"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pottedCactus" translatesAutoresizingMaskIntoConstraints="NO" id="Kms-7f-edX">
                                                     <rect key="frame" x="-30" y="0.0" width="98" height="120"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="88" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SgD-gm-waT">
-                                                    <rect key="frame" x="93" y="21.5" width="44.5" height="47"/>
+                                                    <rect key="frame" x="93" y="21" width="46.5" height="48"/>
                                                     <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="40"/>
                                                     <color key="textColor" name="GreenLight"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day Streak" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0C-hD-Yg5">
-                                                    <rect key="frame" x="145.5" y="37" width="68.5" height="16.5"/>
+                                                    <rect key="frame" x="147.5" y="36.5" width="67.5" height="17"/>
                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                                     <color key="textColor" name="GreenLight"/>
                                                     <nil key="highlightedColor"/>
@@ -243,19 +245,19 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yiP-te-BSP">
-                                            <rect key="frame" x="0.0" y="466" width="294" height="90"/>
+                                            <rect key="frame" x="0.0" y="467.5" width="294" height="90"/>
                                             <subviews>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nnk-9j-MZV" userLabel="Reflections Rounded View" customClass="RoundedView" customModule="Cactus" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="137" height="90"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="121" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OU6-hA-xBB">
-                                                            <rect key="frame" x="35" y="10" width="67" height="47"/>
+                                                            <rect key="frame" x="33.5" y="10" width="70" height="48"/>
                                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="40"/>
                                                             <color key="textColor" name="GreenLight"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reflections" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qH1-jQ-ub4">
-                                                            <rect key="frame" x="33.5" y="61.5" width="70" height="16.5"/>
+                                                            <rect key="frame" x="34" y="61" width="69" height="17"/>
                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                                             <color key="textColor" name="GreenLight"/>
                                                             <nil key="highlightedColor"/>
@@ -280,13 +282,13 @@
                                                     <rect key="frame" x="157" y="0.0" width="137" height="90"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="93" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlD-xm-bIw">
-                                                            <rect key="frame" x="46.5" y="10" width="44.5" height="47"/>
+                                                            <rect key="frame" x="45.5" y="10" width="46.5" height="48"/>
                                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="40"/>
                                                             <color key="textColor" name="GreenLight"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETE-OQ-lib">
-                                                            <rect key="frame" x="43.5" y="61.5" width="50" height="16.5"/>
+                                                            <rect key="frame" x="43" y="61" width="51" height="17"/>
                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                                             <color key="textColor" name="GreenLight"/>
                                                             <nil key="highlightedColor"/>
@@ -311,6 +313,29 @@
                                             <constraints>
                                                 <constraint firstItem="Nnk-9j-MZV" firstAttribute="width" secondItem="KDO-6D-AB5" secondAttribute="width" id="aBu-mJ-Ick"/>
                                             </constraints>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Byi-bu-byg" userLabel="Core Values Container Stack View">
+                                            <rect key="frame" x="0.0" y="577.5" width="294" height="96"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Core Values:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDU-8M-tel" userLabel="Values Title Label">
+                                                    <rect key="frame" x="0.0" y="30" width="294" height="19.5"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
+                                                    <color key="textColor" name="Royal"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="SYS-v3-Fv3" userLabel="Values Stack View">
+                                                    <rect key="frame" x="0.0" y="55.5" width="294" height="20.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adventure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPI-g5-fMb">
+                                                            <rect key="frame" x="0.0" y="0.0" width="294" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" name="GreenLight"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <edgeInsets key="layoutMargins" top="30" left="0.0" bottom="20" right="0.0"/>
                                         </stackView>
                                     </subviews>
                                 </stackView>
@@ -365,6 +390,9 @@
         </namedColor>
         <namedColor name="GreenLight">
             <color red="0.72156862745098038" green="0.93333333333333335" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Royal">
+            <color red="0.396078431372549" green="0.56470588235294117" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="White">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

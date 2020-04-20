@@ -21,6 +21,7 @@ class CoreValuesAssessmentViewController: UIViewController {
         
         let contentController = WKUserContentController()
         contentController.add(self, name: "showPricing")
+        contentController.add(self, name: "appMounted")
 
         let webViewConfig = WKWebViewConfiguration()
         webViewConfig.userContentController = contentController
@@ -44,12 +45,7 @@ class CoreValuesAssessmentViewController: UIViewController {
         let tier = self.member?.tier.rawValue ?? ""
         let name = self.member?.firstName ?? ""
         let memberId = self.member?.id ?? ""
-        self.webView.evaluateJavaScript("CactusIosDelegate.register(\"\(memberId)\", \"\(name)\", \"\(tier)\")", completionHandler: { msg, error in
-            if let error = error {
-                self.logger.error("Failed to register with javascript", error)
-            }
-            self.logger.info("registered app with javascript \(msg ?? "no message")")
-        })
+        self.webView.evaluateJavaScript("CactusIosDelegate.register(\"\(memberId)\", \"\(name)\", \"\(tier)\")", completionHandler: nil)
     }
 
 }
@@ -60,6 +56,10 @@ extension CoreValuesAssessmentViewController: WKScriptMessageHandler, WKNavigati
         if message.name == "showPricing" {
             let pricingVc = ScreenID.Pricing.getViewController()
             NavigationService.sharedInstance.present(pricingVc, animated: true)
+        }
+        
+        if message.name == "appMounted" {
+            self.registerAppWithWeb()
         }
         
         guard let jsonString = message.body as? String else {
@@ -81,7 +81,8 @@ extension CoreValuesAssessmentViewController: WKScriptMessageHandler, WKNavigati
       //This function is called when the webview finishes navigating to the webpage.
       //We use this to send data to the webview when it's loaded.
 //        self.sendAssessmentResponseToWeb()        
-        self.registerAppWithWeb()
+//        sleep(1)
+//        self.registerAppWithWeb()
     }
     
 }
