@@ -16,6 +16,20 @@ enum IconType: String, Codable {
     case calendar
     case journal
     case pie
+    case grid
+    case airplane
+    case angleLeft
+    case angleRight
+    case arrowLeft
+    case arrowRight
+    case bell
+    case close
+    case gear
+    case dots
+    case share
+    case creditCard
+    case trash
+    
     case unknown
     
     public init(from decoder: Decoder) throws {
@@ -37,7 +51,7 @@ enum IconType: String, Codable {
         case .lock:
             return CactusImage.lock.getImage()
         default:
-            return nil
+            return UIImage(named: self.rawValue)
         }
     }
 }
@@ -64,7 +78,7 @@ enum CactusImage: String {
     case google = "Google"
     case apple = "apple"
     case envelope
-
+    
     //backgrounds
     case plusBg
     case grainy
@@ -92,7 +106,7 @@ enum CactusImage: String {
     case emotions_element_1 = "emotions-1"
     case emotions_element_2 = "emotions-2"
     case emotions_element = "emotionsFull"
-        
+    
     //Element parts
     case emotions1
     case emotions2
@@ -138,6 +152,7 @@ enum CactusImage: String {
     case calendar
     case heart
     case pie
+    case grid
     case trash
     
     func getImage() -> UIImage? {
@@ -175,7 +190,7 @@ enum CactusImage: String {
         image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-
+        
         return newImage
     }
     
@@ -185,7 +200,7 @@ enum CactusImage: String {
         image.draw(in: CGRect(0, 0, size.height, size.width))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-
+        
         return newImage
         
     }
