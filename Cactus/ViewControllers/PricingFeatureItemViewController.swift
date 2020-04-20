@@ -34,8 +34,8 @@ class PricingFeatureItemViewController: UIViewController {
             return
         }
         DispatchQueue.main.async {
-            self.titleLabel.attributedText = MarkdownUtil.toMarkdown(self.feature.titleMarkdown, font: CactusFont.bold(20))
-            self.descriptionLabel.attributedText = MarkdownUtil.toMarkdown(self.feature.descriptionMarkdown)
+            self.titleLabel.attributedText = MarkdownUtil.toMarkdown(self.feature.titleMarkdown, font: CactusFont.bold(20))?.preventOrphanedWords()
+            self.descriptionLabel.attributedText = MarkdownUtil.toMarkdown(self.feature.descriptionMarkdown?.preventOrphanedWords())?.preventOrphanedWords()
             self.iconImageView.image = self.feature.icon?.image
             self.view.setNeedsLayout()
         }
