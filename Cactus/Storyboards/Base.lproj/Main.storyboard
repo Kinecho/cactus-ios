@@ -546,6 +546,52 @@
             </objects>
             <point key="canvasLocation" x="2088" y="-675"/>
         </scene>
+        <!--Core Values-->
+        <scene sceneID="yCI-Af-2Vv">
+            <objects>
+                <viewController storyboardIdentifier="CoreValuesAssessment" title="Core Values" id="Qce-8g-Cx4" customClass="CoreValuesAssessmentViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="biM-Bd-iXa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tix-aT-vDb">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iZu-wa-KxB">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <items>
+                                            <barButtonItem title="Close" id="3AC-Qi-IEx">
+                                                <connections>
+                                                    <action selector="toolbarDoneTapped:" destination="Qce-8g-Cx4" id="64s-Sk-B3w"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </items>
+                                    </toolbar>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ep3-2r-bWK">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="Background"/>
+                        <constraints>
+                            <constraint firstItem="tix-aT-vDb" firstAttribute="leading" secondItem="YKE-aR-Zhq" secondAttribute="leading" id="JMg-Yd-Ixq"/>
+                            <constraint firstAttribute="trailing" secondItem="tix-aT-vDb" secondAttribute="trailing" id="eKX-pq-6A0"/>
+                            <constraint firstItem="tix-aT-vDb" firstAttribute="bottom" secondItem="YKE-aR-Zhq" secondAttribute="bottom" id="tFX-hj-owk"/>
+                            <constraint firstItem="tix-aT-vDb" firstAttribute="top" secondItem="YKE-aR-Zhq" secondAttribute="top" id="vor-GR-Xjo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YKE-aR-Zhq"/>
+                    </view>
+                    <connections>
+                        <outlet property="topToolbar" destination="iZu-wa-KxB" id="Wf9-fV-RQg"/>
+                        <outlet property="webViewContainer" destination="ep3-2r-bWK" id="EB7-xC-zIF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C0h-fN-FsE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3180" y="-671"/>
+        </scene>
         <!--Welcome Navigation Controller-->
         <scene sceneID="hee-wv-r1q">
             <objects>

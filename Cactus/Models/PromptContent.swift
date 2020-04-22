@@ -50,6 +50,7 @@ enum ContentAction: String, Codable {
     case previous
     case complete
     case showPricing
+    case coreValues
     case unknown
     
     public init(from decoder: Decoder) throws {

@@ -8,6 +8,8 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
+
 protocol NavigationMenuViewControllerDelegate: class {
     func closeMenu()
     func openMenu()
@@ -23,11 +25,14 @@ class NavigationMenuViewController: UIViewController {
     @IBOutlet weak var reflectionCountLabel: UILabel!
     @IBOutlet weak var reflectionDurationLabel: UILabel!
     @IBOutlet weak var minutesLabel: UILabel!
-
+    
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var browsePromptsButton: BorderedButton!
+    
+    @IBOutlet weak var coreValuesContainerStackView: UIStackView!
+    @IBOutlet weak var coreValuesStackView: UIStackView!
     
     let logger = Logger("NavigationMenuViewController")
     
@@ -44,7 +49,7 @@ class NavigationMenuViewController: UIViewController {
     var previousReflectionCount = 0
     var previousReflectionDurationMs = 0
     var previousStreak = 0
-    
+    var coreValuesListener: ListenerRegistration?
     var reflectionCount = 0 {
         didSet {
             self.animateReflectionCount()
@@ -81,7 +86,7 @@ class NavigationMenuViewController: UIViewController {
         self.reflectionDurationLabel.text = "--"
         self.avatarImageView.clipsToBounds = true
         self.avatarImageView.layer.cornerRadius = self.avatarImageView.bounds.height / 2
-
+        
         self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, error, user) in
             if let error = error {
                 self.logger.error("Failed to get member in NavMenu", error)
@@ -89,11 +94,45 @@ class NavigationMenuViewController: UIViewController {
             self.updateMemberInfo(member, user)
             self.member = member
             self.user = user
+            self.getAndUpdateCoreValues()
         })
+        
     }
-   
+    
     deinit {
         self.memberUnsubscriber?()
+        self.coreValuesListener?.remove()
+    }
+    
+    func getAndUpdateCoreValues() {
+        guard self.coreValuesListener == nil else {
+            return
+        }
+        self.coreValuesContainerStackView.isHidden = true
+        self.coreValuesListener = CoreValuesAssessmentResponseService.shared.observeLatestResponse { (assessmentResponse, error) in
+            DispatchQueue.main.async {
+                self.coreValuesStackView.arrangedSubviews.forEach({$0.removeFromSuperview()})
+                if let error = error {
+                    self.logger.error("Failed to get core values", error)
+                    self.coreValuesContainerStackView.isHidden = true
+                    return
+                }
+                
+                if let results = assessmentResponse?.results, !results.values.isEmpty {
+                    
+                    results.values.forEach { (coreValue) in
+                        let valueLabel = UILabel()
+//                        valueLabel.textAlignment = .center
+                        valueLabel.attributedText = MarkdownUtil.toMarkdown(coreValue.localizedCapitalized, color: CactusColor.lightGreen)
+                        
+                        self.coreValuesStackView.addArrangedSubview(valueLabel)
+                    }
+                    self.coreValuesContainerStackView.isHidden = false
+                } else {
+                    self.coreValuesContainerStackView.isHidden = true
+                }
+            }
+        }
     }
     
     func updateMemberInfo(_ member: CactusMember?, _ user: User?) {
@@ -236,5 +275,9 @@ class NavigationMenuViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+    }
+    @IBAction func coreValuesTapped(_ sender: Any) {
+        let coreValuesVC = ScreenID.CoreValuesAssessment.getViewController()
+        self.navigationController?.pushViewController(coreValuesVC, animated: true)
     }
 }
