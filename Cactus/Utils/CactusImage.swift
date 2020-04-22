@@ -29,6 +29,7 @@ enum IconType: String, Codable {
     case share
     case creditCard
     case trash
+    case checkCircle
     
     case unknown
     
@@ -154,6 +155,7 @@ enum CactusImage: String {
     case pie
     case grid
     case trash
+    case checkCircle
     
     func getImage() -> UIImage? {
         return UIImage(named: self.rawValue)

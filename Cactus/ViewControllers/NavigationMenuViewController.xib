@@ -3,7 +3,7 @@
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,6 +22,8 @@
                 <outlet property="avatarImageView" destination="kzq-Fz-fZ5" id="GCx-8R-CgU"/>
                 <outlet property="browsePromptsButton" destination="DEd-AE-jZn" id="JpL-kc-jyO"/>
                 <outlet property="closeButton" destination="Mrp-jR-DR7" id="yks-xP-IZw"/>
+                <outlet property="coreValuesContainerStackView" destination="Byi-bu-byg" id="wsp-UL-vR0"/>
+                <outlet property="coreValuesStackView" destination="SYS-v3-Fv3" id="HHo-yS-ysi"/>
                 <outlet property="displayNameLabel" destination="aeJ-aC-hQe" id="nAk-3A-jSx"/>
                 <outlet property="emailLabel" destination="3dw-Xl-Tng" id="e6p-dU-yK7"/>
                 <outlet property="inviteButton" destination="vEe-Hm-kiV" id="12G-Ph-14c"/>
@@ -44,10 +46,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="334" height="725"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxQ-8b-wTT">
-                            <rect key="frame" x="0.0" y="20" width="334" height="511"/>
+                            <rect key="frame" x="0.0" y="20" width="334" height="671.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8I0-Nz-46F">
-                                    <rect key="frame" x="20" y="0.0" width="294" height="511"/>
+                                    <rect key="frame" x="20" y="0.0" width="294" height="671.5"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ksD-tD-8bB">
                                             <rect key="frame" x="0.0" y="0.0" width="294" height="50"/>
@@ -94,7 +96,7 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="mdu-RK-mVB" userLabel="Actions Stack View">
-                                            <rect key="frame" x="0.0" y="141" width="294" height="150"/>
+                                            <rect key="frame" x="0.0" y="141" width="294" height="195"/>
                                             <subviews>
                                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEe-Hm-kiV" customClass="BorderedButton" customModule="Cactus" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="-36" width="286" height="44"/>
@@ -118,8 +120,30 @@
                                                         <action selector="inviteTapped:" destination="-1" eventType="primaryActionTriggered" id="vVZ-HZ-N6b"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEd-AE-jZn" userLabel="Browse" customClass="BorderedButton" customModule="Cactus" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKc-ja-9eN" userLabel="Core Values" customClass="BorderedButton" customModule="Cactus" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="8" width="286" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="jU3-Po-cz2"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                    <color key="tintColor" name="GreenLight"/>
+                                                    <inset key="titleEdgeInsets" minX="13" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="10" maxX="10" maxY="10"/>
+                                                    <state key="normal" title="Core Values" image="checkCircle"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="imageHeight">
+                                                            <real key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="imageWidth">
+                                                            <real key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="coreValuesTapped:" destination="-1" eventType="primaryActionTriggered" id="tSU-Ow-W8e"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEd-AE-jZn" userLabel="Browse" customClass="BorderedButton" customModule="Cactus" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="53" width="286" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="qb2-bs-tbA"/>
                                                     </constraints>
@@ -141,7 +165,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQA-bL-PSt" userLabel="Settings" customClass="BorderedButton" customModule="Cactus" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="53" width="286" height="44"/>
+                                                    <rect key="frame" x="0.0" y="98" width="286" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="w0a-8g-lxN"/>
                                                     </constraints>
@@ -162,7 +186,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1A-e2-RO0" userLabel="Notifications" customClass="BorderedButton" customModule="Cactus" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="98" width="286" height="44"/>
+                                                    <rect key="frame" x="0.0" y="143" width="286" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="79d-N6-wXR"/>
                                                     </constraints>
@@ -183,7 +207,7 @@
                                             <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="8"/>
                                         </stackView>
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BaY-h1-QJB" userLabel="Streak Rounded View" customClass="RoundedView" customModule="Cactus" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="311" width="294" height="90"/>
+                                            <rect key="frame" x="0.0" y="356" width="294" height="90"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pottedCactus" translatesAutoresizingMaskIntoConstraints="NO" id="Kms-7f-edX">
                                                     <rect key="frame" x="-30" y="0.0" width="98" height="120"/>
@@ -221,7 +245,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yiP-te-BSP">
-                                            <rect key="frame" x="0.0" y="421" width="294" height="90"/>
+                                            <rect key="frame" x="0.0" y="466" width="294" height="90"/>
                                             <subviews>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nnk-9j-MZV" userLabel="Reflections Rounded View" customClass="RoundedView" customModule="Cactus" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="137" height="90"/>
@@ -290,6 +314,29 @@
                                                 <constraint firstItem="Nnk-9j-MZV" firstAttribute="width" secondItem="KDO-6D-AB5" secondAttribute="width" id="aBu-mJ-Ick"/>
                                             </constraints>
                                         </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Byi-bu-byg" userLabel="Core Values Container Stack View">
+                                            <rect key="frame" x="0.0" y="576" width="294" height="95.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Core Values:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDU-8M-tel" userLabel="Values Title Label">
+                                                    <rect key="frame" x="0.0" y="30" width="294" height="19"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
+                                                    <color key="textColor" name="Royal"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="SYS-v3-Fv3" userLabel="Values Stack View">
+                                                    <rect key="frame" x="0.0" y="55" width="294" height="20.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adventure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPI-g5-fMb">
+                                                            <rect key="frame" x="0.0" y="0.0" width="294" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" name="GreenLight"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <edgeInsets key="layoutMargins" top="30" left="0.0" bottom="20" right="0.0"/>
+                                        </stackView>
                                     </subviews>
                                 </stackView>
                             </subviews>
@@ -333,6 +380,7 @@
         <image name="airplane" width="48" height="48"/>
         <image name="avatar3" width="100" height="100"/>
         <image name="bell" width="48" height="48"/>
+        <image name="checkCircle" width="24" height="24"/>
         <image name="close" width="48" height="48"/>
         <image name="gear" width="48" height="48"/>
         <image name="grid" width="24" height="24"/>
@@ -342,6 +390,9 @@
         </namedColor>
         <namedColor name="GreenLight">
             <color red="0.72156862745098038" green="0.93333333333333335" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Royal">
+            <color red="0.396078431372549" green="0.56470588235294117" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="White">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

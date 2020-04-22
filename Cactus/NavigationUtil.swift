@@ -23,6 +23,7 @@ enum ScreenID: String {
     case LoadingFullScreen
     case BrowsePrompts
     case PromptContentCollection
+    case CoreValuesAssessment
 
     //settings
     case settingsTable

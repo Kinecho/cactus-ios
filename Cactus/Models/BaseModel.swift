@@ -18,7 +18,8 @@ public enum FirestoreCollectionName: String {
     case memberProfiles
     case socialInvites
     case socialConnections
-    case socialConnectionRequests    
+    case socialConnectionRequests
+    case coreValuesAssessmentResponses
 }
 
 public enum FlamelinkSchema: String, Codable {
