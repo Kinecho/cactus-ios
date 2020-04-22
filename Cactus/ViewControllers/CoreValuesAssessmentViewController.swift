@@ -11,10 +11,22 @@ import WebKit
 
 class CoreValuesAssessmentViewController: UIViewController {
     
+    @IBOutlet weak var topToolbar: UIToolbar!
     @IBOutlet weak var webViewContainer: UIView!
+    
     var webView: WKWebView!
     let logger = Logger("CoreValuesAssessmentViewController")
     var member: CactusMember?
+    var showTopNavbar: Bool = false {
+        didSet {
+            DispatchQueue.main.async {
+                if self.isViewLoaded {
+                    self.topToolbar.isHidden = !self.showTopNavbar
+                }
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.member = CactusMemberService.sharedInstance.currentMember
@@ -34,6 +46,8 @@ class CoreValuesAssessmentViewController: UIViewController {
         webView.bottomAnchor.constraint(equalTo: webViewContainer.bottomAnchor).isActive = true
         webView.trailingAnchor.constraint(equalTo: webViewContainer.trailingAnchor).isActive = true
         self.webView = webView
+                
+        self.topToolbar.isHidden = !self.showTopNavbar && !self.isBeingPresented
         
         guard let url = URL(string: "\(CactusConfig.webDomain)/core-values?embed=true") else {
             return
@@ -48,6 +62,10 @@ class CoreValuesAssessmentViewController: UIViewController {
         self.webView.evaluateJavaScript("CactusIosDelegate.register(\"\(memberId)\", \"\(name)\", \"\(tier)\")", completionHandler: nil)
     }
 
+    @IBAction func toolbarDoneTapped(_ sender: Any) {
+        //todo: detect if the assessment is in progress and show a warning
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 extension CoreValuesAssessmentViewController: WKScriptMessageHandler, WKNavigationDelegate {

@@ -86,6 +86,13 @@ class PromptContentViewController: UIViewController {
             self.delegate?.nextScreen()
         case .previous:
             self.delegate?.previousScreen()
+        case .coreValues:
+            guard let vc = ScreenID.CoreValuesAssessment.getViewController() as? CoreValuesAssessmentViewController else {
+                return
+            }
+            vc.showTopNavbar = true
+            vc.modalPresentationStyle = .overCurrentContext
+            NavigationService.sharedInstance.present(vc)
         default:
             //no action
             logger.info("No action handler for action type \(action)")
