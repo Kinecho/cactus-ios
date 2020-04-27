@@ -83,6 +83,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
             }
             self.member = member
             DispatchQueue.main.async {
+                self.logger.info("Updating header due to member changed")
                 _ = self.updateHeaderView()
             }
         })
@@ -91,6 +92,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     
     func handleSettingsChanged() {
         DispatchQueue.main.async {
+            self.logger.info("Updating header due to settings changed")
             _ = self.updateHeaderView()
         }
     }

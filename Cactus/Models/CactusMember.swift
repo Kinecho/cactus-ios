@@ -165,7 +165,7 @@ class CactusMember: FirestoreIdentifiable, Hashable {
     var subscription: MemberSubscription?
     var stripe: MemberStripeDetails?
     var wordCloud: [InsightWord]?
-    var coreValues: [String]?
+     var coreValues: [String]?
     
     static func == (lhs: CactusMember, rhs: CactusMember) -> Bool {
         return lhs.id != nil && rhs.id != nil && lhs.id == rhs.id

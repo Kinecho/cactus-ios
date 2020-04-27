@@ -58,19 +58,22 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
         super.viewDidLoad()
         StoreObserver.sharedInstance.delegate = self
         self.appSettings = AppSettingsService.sharedInstance.currentSettings
-        self.settingsUnsubscriber = AppSettingsService.sharedInstance.observeSettings({ (settings, error) in
-            DispatchQueue.main.async {
-                if let error = error {
-                    self.logger.error("Failed to get app settings", error)
-                }
-                self.appSettings = settings
-                self.configureFromSettings()
-            }
-        })
+//        self.settingsUnsubscriber = AppSettingsService.sharedInstance.observeSettings({ (settings, error) in
+//            DispatchQueue.main.async {
+//                if let error = error {
+//                    self.logger.error("Failed to get app settings", error)
+//                }
+//                self.logger.info("got app settings")
+//                self.appSettings = settings
+////                self.configureFromSettings()
+//            }
+//        })
         
         self.closeButton.isHidden = !self.showCloseButton
-        self.planContainerView.isHidden = false
+//        self.planContainerView.isHidden = false
         self.setupHeaderBackground()
+        self.titleLabel.text = "Get more with Cactus Plus"
+        self.descriptionLabel.text = "Daily prompts, personalized insights, and more"
         self.configureFromSettings()
         self.loadSubscriptionProducts()
         CactusAnalytics.shared.pricingPageDisplay()
@@ -81,14 +84,10 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     }
     
     func configureFromSettings() {
-        self.updateAllCopy()
-        if self.appSettings?.checkoutSettings?.inAppPaymentsEnabled == true {
-            self.planStackView.isHidden = false
-            self.contactUsContainerView.isHidden = true
-        } else {
-            self.planContainerView.isHidden = true
-            self.contactUsContainerView.isHidden = false
+        guard self.isViewLoaded else {
+            return
         }
+        self.updateAllCopy()
         self.layoutHeaderBackground()
     }
     
@@ -143,17 +142,19 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     }
     
     func updateAllCopy() {
-        let settings = self.appSettings?.pricingScreen
-        let pageTitle = settings?.pageTitleMarkdown ?? "Get more with Cactus Plus"
-        self.titleLabel.attributedText = MarkdownUtil.centeredMarkdown(pageTitle, font: CactusFont.bold(26), color: CactusColor.white, boldColor: CactusColor.white)?.preventOrphanedWords()
-        
-        let pageDescription = settings?.pageDescriptionMarkdown ?? "Daily prompts, personalized insights, and more"
-        self.descriptionLabel.attributedText = MarkdownUtil.centeredMarkdown(pageDescription, font: CactusFont.normal(18), color: CactusColor.white)?.preventOrphanedWords()
-        
-        self.updateFeatures()
-        
-        let continueText = isBlank(settings?.purchaseButtonText) ? "Try Cactus Plus" : settings?.purchaseButtonText
-        self.continueButton.setTitle(continueText, for: .normal)
+        DispatchQueue.main.async {
+            let settings = self.appSettings?.pricingScreen
+            let pageTitle = settings?.pageTitleMarkdown ?? "Get more with Cactus Plus"
+            self.titleLabel.attributedText = MarkdownUtil.centeredMarkdown(pageTitle, font: CactusFont.bold(26), color: CactusColor.white, boldColor: CactusColor.white)?.preventOrphanedWords()
+            
+            let pageDescription = settings?.pageDescriptionMarkdown ?? "Daily prompts, personalized insights, and more"
+            self.descriptionLabel.attributedText = MarkdownUtil.centeredMarkdown(pageDescription, font: CactusFont.normal(18), color: CactusColor.white)?.preventOrphanedWords()
+            
+            self.updateFeatures()
+            
+            let continueText = isBlank(settings?.purchaseButtonText) ? "Try Cactus Plus" : settings?.purchaseButtonText
+            self.continueButton.setTitle(continueText, for: .normal)
+        }
     }
     
     func updateFeatures() {
@@ -281,7 +282,7 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBAction func restoreTapped(_ sender: Any) {
         SubscriptionService.sharedInstance.restorePurchase()
     }
-    
+  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? PricingFeaturePageViewController {
             self.pricingPageViewController = vc

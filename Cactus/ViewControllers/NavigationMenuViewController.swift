@@ -49,7 +49,6 @@ class NavigationMenuViewController: UIViewController {
     var previousReflectionCount = 0
     var previousReflectionDurationMs = 0
     var previousStreak = 0
-    var coreValuesListener: ListenerRegistration?
     var reflectionCount = 0 {
         didSet {
             self.animateReflectionCount()
@@ -94,47 +93,14 @@ class NavigationMenuViewController: UIViewController {
             self.updateMemberInfo(member, user)
             self.member = member
             self.user = user
-            self.getAndUpdateCoreValues()
         })
         
     }
     
     deinit {
         self.memberUnsubscriber?()
-        self.coreValuesListener?.remove()
     }
-    
-    func getAndUpdateCoreValues() {
-        guard self.coreValuesListener == nil else {
-            return
-        }
-        self.coreValuesContainerStackView.isHidden = true
-        self.coreValuesListener = CoreValuesAssessmentResponseService.shared.observeLatestResponse { (assessmentResponse, error) in
-            DispatchQueue.main.async {
-                self.coreValuesStackView.arrangedSubviews.forEach({$0.removeFromSuperview()})
-                if let error = error {
-                    self.logger.error("Failed to get core values", error)
-                    self.coreValuesContainerStackView.isHidden = true
-                    return
-                }
-                
-                if let results = assessmentResponse?.results, !results.values.isEmpty {
-                    
-                    results.values.forEach { (coreValue) in
-                        let valueLabel = UILabel()
-//                        valueLabel.textAlignment = .center
-                        valueLabel.attributedText = MarkdownUtil.toMarkdown(coreValue.localizedCapitalized, color: CactusColor.lightGreen)
-                        
-                        self.coreValuesStackView.addArrangedSubview(valueLabel)
-                    }
-                    self.coreValuesContainerStackView.isHidden = false
-                } else {
-                    self.coreValuesContainerStackView.isHidden = true
-                }
-            }
-        }
-    }
-    
+
     func updateMemberInfo(_ member: CactusMember?, _ user: User?) {
         if let member = member {
             self.emailLabel.text = member.email
@@ -161,6 +127,16 @@ class NavigationMenuViewController: UIViewController {
         } else {
             self.avatarImageView.image = CactusImage.avatar3.getImage()
         }
+        
+        self.coreValuesStackView.arrangedSubviews.forEach({$0.removeFromSuperview()})
+        member?.coreValues?.forEach { (coreValue) in
+            let valueLabel = UILabel()
+            //                        valueLabel.textAlignment = .center
+            valueLabel.attributedText = MarkdownUtil.toMarkdown(coreValue.localizedCapitalized, color: CactusColor.lightGreen)            
+            self.coreValuesStackView.addArrangedSubview(valueLabel)
+        }
+        self.coreValuesContainerStackView.isHidden = member?.coreValues?.isEmpty != false
+        
     }
     
     func finishedClosing() {

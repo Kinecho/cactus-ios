@@ -46,10 +46,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="334" height="725"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxQ-8b-wTT">
-                            <rect key="frame" x="0.0" y="20" width="334" height="671.5"/>
+                            <rect key="frame" x="0.0" y="20" width="334" height="669"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8I0-Nz-46F">
-                                    <rect key="frame" x="20" y="0.0" width="294" height="671.5"/>
+                                    <rect key="frame" x="20" y="0.0" width="294" height="669"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ksD-tD-8bB">
                                             <rect key="frame" x="0.0" y="0.0" width="294" height="50"/>
@@ -315,16 +315,16 @@
                                             </constraints>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Byi-bu-byg" userLabel="Core Values Container Stack View">
-                                            <rect key="frame" x="0.0" y="576" width="294" height="95.5"/>
+                                            <rect key="frame" x="0.0" y="576" width="294" height="93"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Core Values:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDU-8M-tel" userLabel="Values Title Label">
-                                                    <rect key="frame" x="0.0" y="30" width="294" height="19"/>
-                                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CORE VALUES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDU-8M-tel" userLabel="Values Title Label">
+                                                    <rect key="frame" x="0.0" y="30" width="294" height="16.5"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
                                                     <color key="textColor" name="Royal"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="SYS-v3-Fv3" userLabel="Values Stack View">
-                                                    <rect key="frame" x="0.0" y="55" width="294" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="52.5" width="294" height="20.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adventure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPI-g5-fMb">
                                                             <rect key="frame" x="0.0" y="0.0" width="294" height="20.5"/>
