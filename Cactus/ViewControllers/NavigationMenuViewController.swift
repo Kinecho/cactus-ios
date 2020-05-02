@@ -127,16 +127,7 @@ class NavigationMenuViewController: UIViewController {
         } else {
             self.avatarImageView.image = CactusImage.avatar3.getImage()
         }
-        
-        self.coreValuesStackView.arrangedSubviews.forEach({$0.removeFromSuperview()})
-        member?.coreValues?.forEach { (coreValue) in
-            let valueLabel = UILabel()
-            //                        valueLabel.textAlignment = .center
-            valueLabel.attributedText = MarkdownUtil.toMarkdown(coreValue.localizedCapitalized, color: CactusColor.lightGreen)            
-            self.coreValuesStackView.addArrangedSubview(valueLabel)
-        }
-        self.coreValuesContainerStackView.isHidden = member?.coreValues?.isEmpty != false
-        
+         
     }
     
     func finishedClosing() {
