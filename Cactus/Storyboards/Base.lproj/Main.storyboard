@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="skj-bj-glJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="skj-bj-glJ">
     <device id="retina4_7" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -215,7 +215,7 @@
                                             </variation>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="754" text="May 14, 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOB-lq-qx1">
-                                            <rect key="frame" x="20" y="20" width="368" height="22"/>
+                                            <rect key="frame" x="20" y="20" width="318" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="veS-Gu-PeT"/>
                                             </constraints>
@@ -344,7 +344,7 @@
                                         <constraint firstItem="6vu-J4-LLw" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="20" id="pSK-dI-tTH"/>
                                         <constraint firstAttribute="trailing" secondItem="fIY-zE-sMO" secondAttribute="trailing" constant="20" id="pgD-zz-UXd"/>
                                         <constraint firstItem="XOB-lq-qx1" firstAttribute="top" secondItem="0qW-dd-S1T" secondAttribute="top" constant="20" identifier="dateTopContainer" id="ptt-Kp-uU6"/>
-                                        <constraint firstAttribute="trailing" secondItem="XOB-lq-qx1" secondAttribute="trailing" constant="20" id="tZr-iI-erT"/>
+                                        <constraint firstItem="xLH-Hu-Fx0" firstAttribute="leading" secondItem="XOB-lq-qx1" secondAttribute="trailing" constant="20" id="tZr-iI-erT"/>
                                         <constraint firstAttribute="trailing" secondItem="0ud-An-1HM" secondAttribute="trailing" constant="20" id="umD-hz-9BQ"/>
                                         <constraint firstItem="Prt-fK-hhC" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="20" id="uma-7Y-8Pm"/>
                                         <constraint firstItem="xLH-Hu-Fx0" firstAttribute="top" secondItem="0qW-dd-S1T" secondAttribute="top" constant="10" id="vRV-Op-D8r"/>
@@ -403,16 +403,16 @@
                             <rect key="frame" x="0.0" y="8" width="414" height="144"/>
                             <subviews>
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wN4-Wm-DOb">
-                                    <rect key="frame" x="0.0" y="0.0" width="828" height="132"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="132"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="plusBg" translatesAutoresizingMaskIntoConstraints="NO" id="N6E-UV-N05">
-                                            <rect key="frame" x="0.0" y="0.0" width="828" height="474"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="237"/>
                                         </imageView>
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mb0-0t-Xup">
-                                            <rect key="frame" x="0.0" y="0.0" width="828" height="132"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="132"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="RUx-Xn-6xF" userLabel="Wrapper Stack View">
-                                                    <rect key="frame" x="0.0" y="0.0" width="828" height="132"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="132"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="y63-Ac-XIQ">
                                                             <rect key="frame" x="8" y="0.0" width="185.5" height="132"/>
@@ -690,13 +690,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_darkBlobs" translatesAutoresizingMaskIntoConstraints="NO" id="twe-f9-jsW" userLabel="Background Image View">
-                                <rect key="frame" x="-1281" y="0.0" width="1656" height="667"/>
+                                <rect key="frame" x="-453" y="0.0" width="828" height="667"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9R0-s8-91l">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-ondark" translatesAutoresizingMaskIntoConstraints="NO" id="7bt-2B-ArE">
-                                        <rect key="frame" x="-517.5" y="40" width="1410" height="70"/>
+                                        <rect key="frame" x="-165" y="40" width="705" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="K01-eT-aMU">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="100"/>
@@ -986,7 +986,7 @@
             <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TextMinimized">
-            <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="0.69999998807907104" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="White">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

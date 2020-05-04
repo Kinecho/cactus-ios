@@ -31,9 +31,6 @@ class NavigationMenuViewController: UIViewController {
     @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var browsePromptsButton: BorderedButton!
     
-    @IBOutlet weak var coreValuesContainerStackView: UIStackView!
-    @IBOutlet weak var coreValuesStackView: UIStackView!
-    
     let logger = Logger("NavigationMenuViewController")
     
     var member: CactusMember?

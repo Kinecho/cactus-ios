@@ -177,7 +177,7 @@ class JournalFeedDataSource {
             }
 
             guard let promptId = promptContent?.promptId else {
-                self.logger.error("There was no error loading todays prompt content, but no promptId was found.")
+                self.logger.warn("There was no error loading todays prompt content, but no promptId was found.")
                 return
             }
             ///TODO: do we want to remove the todayData object if no new prompt is found?

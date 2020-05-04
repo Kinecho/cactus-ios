@@ -12,7 +12,7 @@ public struct UIImageViewAlignmentMask: OptionSet {
     public init(rawValue: Int) { self.rawValue = rawValue }
     
     /// The option to align the content to the center.
-    public static let center = UIImageViewAlignmentMask(rawValue: 0)
+    public static let center = UIImageViewAlignmentMask([])
     /// The option to align the content to the left.
     public static let left = UIImageViewAlignmentMask(rawValue: 1)
     /// The option to align the content to the right.
@@ -238,10 +238,9 @@ open class UIImageViewAligned: UIImageView {
         
         // Make sure we clear the contents of this container layer, since it refreshes from the image property once in a while.
         layer.contents = nil
+        super.image = nil
         if #available(iOS 13, *) {
            self.layer.contents = CALayer()
-        } else if #available(iOS 11, *) {
-           super.image = nil
         } else {
            layer.contents = nil
         }

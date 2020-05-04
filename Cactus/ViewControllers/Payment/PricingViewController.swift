@@ -58,23 +58,11 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
         super.viewDidLoad()
         StoreObserver.sharedInstance.delegate = self
         self.appSettings = AppSettingsService.sharedInstance.currentSettings
-//        self.settingsUnsubscriber = AppSettingsService.sharedInstance.observeSettings({ (settings, error) in
-//            DispatchQueue.main.async {
-//                if let error = error {
-//                    self.logger.error("Failed to get app settings", error)
-//                }
-//                self.logger.info("got app settings")
-//                self.appSettings = settings
-////                self.configureFromSettings()
-//            }
-//        })
-        
         self.closeButton.isHidden = !self.showCloseButton
-//        self.planContainerView.isHidden = false
         self.setupHeaderBackground()
         self.titleLabel.text = "Get more with Cactus Plus"
         self.descriptionLabel.text = "Daily prompts, personalized insights, and more"
-        self.configureFromSettings()
+//        self.configureFromSettings()
         self.loadSubscriptionProducts()
         CactusAnalytics.shared.pricingPageDisplay()
     }

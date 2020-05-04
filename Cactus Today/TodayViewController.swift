@@ -9,6 +9,7 @@
 import UIKit
 import NotificationCenter
 import Firebase
+import FirebaseAuth
 import Cloudinary
 
 class TodayViewController: UIViewController, NCWidgetProviding {

@@ -24,7 +24,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         }
     }
     var settingsListener: ListenerRegistration?
-    var promptContentDelegate: PromptContentPageViewControllerDelegate?
+    weak var promptContentDelegate: PromptContentPageViewControllerDelegate?
     
     private let itemsPerRow: CGFloat = 1
     private let reuseIdentifier = ReuseIdentifier.JournalEntryCell.rawValue
