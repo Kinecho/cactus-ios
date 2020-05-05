@@ -19,7 +19,6 @@ class PromptEntryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var responseTextView: UITextView!
     @IBOutlet weak var dateLabel: UILabel!
     
-    
     var data: PromptContentData? {
         didSet {
             self.updateView()
@@ -83,6 +82,7 @@ class PromptEntryCollectionViewCell: UICollectionViewCell {
             return
         }
         self.widthConstraint.constant = width
+        self.widthConstraint.isActive = true
         self.setNeedsLayout()
     }
     

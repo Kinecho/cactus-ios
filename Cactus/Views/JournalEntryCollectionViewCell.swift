@@ -20,29 +20,18 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var responseTextView: UITextView!
     @IBOutlet weak var borderView: UIView!
-    @IBOutlet weak var backgroundBlobImageView: UIImageView!
     @IBOutlet weak var subTextLabel: UILabel!
-    @IBOutlet weak var backgroundImageHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var backgroundImageTopToQuestionBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var backgroundImageTopSubTextBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var reflectButton: PrimaryButton!
-    @IBOutlet weak var reflectButtonTopQuestionConstraint: NSLayoutConstraint!
-    @IBOutlet weak var reflectButtonBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var reflectButtonTopToSubTextConstraint: NSLayoutConstraint!
-    @IBOutlet weak var editTextTopQuestionConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var cellWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var responseStackView: UIStackView!
     
     weak var delegate: JournalEntryCollectionVieweCellDelegate?
     var skeletonGradient = SkeletonGradient(baseColor: CactusColor.skeletonBase)
     var editViewController: EditReflectionViewController?
-    var responseTextViewHeightConstraint: NSLayoutConstraint?
     var showingBackgroundImage = false
-    var responseBottomConstraint: NSLayoutConstraint?
     var textViewBottomPadding: CGFloat = 20
     var journalEntry: JournalEntry?
-    var questionLabelHeightConstraint: NSLayoutConstraint?
     var sentPrompt: SentPrompt? {
         return self.journalEntry?.sentPrompt
     }
@@ -156,29 +145,15 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     }
     
     func removeResponseView() {
-        self.responseTextView.isHidden = true
-        self.borderView.isHidden = true
-        self.responseBottomConstraint?.constant = 0
-        self.responseBottomConstraint?.isActive = true
-        
-        self.editTextTopQuestionConstraint.constant = 0
-        self.editTextTopQuestionConstraint.isActive = true
+        self.responseStackView.isHidden = true
     }
     
     func showResponseView() {
-        self.responseTextView.isHidden = false
-        self.borderView.isHidden = false
-        self.responseBottomConstraint?.constant = self.textViewBottomPadding
-        self.responseTextViewHeightConstraint?.isActive = false
-        self.editTextTopQuestionConstraint.constant = self.textViewBottomPadding
-        self.editTextTopQuestionConstraint.isActive = true
+        self.responseStackView.isHidden = false
     }
     
     func configureReflectButton(show: Bool) {
         self.reflectButton.isHidden = !show
-        self.reflectButtonBottomConstraint.isActive = show
-        self.reflectButtonTopQuestionConstraint.isActive = show && self.subTextLabel.isHidden && !self.showingBackgroundImage
-        self.reflectButtonTopToSubTextConstraint.isActive = show && !self.subTextLabel.isHidden && !self.showingBackgroundImage
     }
     
     func configureBackgroundImage(show: Bool) {
@@ -186,22 +161,10 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
             self.showingBackgroundImage = true
             ImageService.shared.setPhoto(self.backgroundImageView, photo: contentImage)
             self.backgroundImageView.isHidden = false
-            self.backgroundBlobImageView.isHidden = false
-            self.backgroundImageTopToQuestionBottomConstraint.isActive = self.subTextLabel.isHidden
-            self.backgroundImageTopSubTextBottomConstraint.isActive = !self.subTextLabel.isHidden
-            
-            self.reflectButtonTopQuestionConstraint.isActive = false
-            self.reflectButtonTopToSubTextConstraint.isActive = false
-            self.backgroundImageHeightConstraint.isActive = true
         } else {
-            self.backgroundImageHeightConstraint.isActive = false
             self.showingBackgroundImage = false
             self.backgroundImageView.image = nil
-            self.backgroundImageTopToQuestionBottomConstraint.isActive = false
-            self.backgroundImageTopSubTextBottomConstraint.isActive = false
-            
             self.backgroundImageView.isHidden = true
-            self.backgroundBlobImageView.isHidden = true
         }
     }
     
@@ -237,9 +200,6 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
         let reflectionCompleted = responsesLoaded && !(responses?.isEmpty ?? true)
         let allLoaded = promptAndContentLoaded && responsesLoaded
         
-        //adding for good measure....
-        self.backgroundImageHeightConstraint.isActive = false
-        
         self.subTextLabel.text = firstText?.preventOrphanedWords()
         let responseText = FormatUtils.responseText(self.responses)
         
@@ -251,13 +211,11 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
             if reflectionCompleted {
                 self.questionLabel.text = questionText
                 self.questionLabel.numberOfLines = 0
-                self.questionLabelHeightConstraint?.isActive = false
                 self.subTextLabel.isHidden = true
             } else {
                 if subjectLine != nil {
                     self.questionLabel.text = subjectLine
                     self.questionLabel.numberOfLines = 0
-                    self.questionLabelHeightConstraint?.isActive = false
                 }
                 
                 if firstText != nil {
@@ -269,7 +227,6 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
             
             if FormatUtils.isBlank(responseText) {
                 //responses loaded but no text
-                self.responseTextViewHeightConstraint?.isActive = false
                 self.responseTextView.text = nil
                 self.responseTextView.hideSkeleton()
                 self.removeResponseView()
@@ -283,14 +240,10 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
             self.configureBackgroundImage(show: false)
             self.configureReflectButton(show: false)
             self.questionLabel.showAnimatedGradientSkeleton(usingGradient: self.skeletonGradient)
-            self.questionLabelHeightConstraint?.isActive = true
             
             //responses loading still
             self.showResponseView()
             self.responseTextView.text = nil
-            self.responseBottomConstraint?.constant = self.textViewBottomPadding
-            //            self.responseTextViewHeightConstraint.priority = UILayoutPriority(999)
-            self.responseTextViewHeightConstraint?.isActive = true
             self.responseTextView.showAnimatedGradientSkeleton(usingGradient: self.skeletonGradient)
             
         }
@@ -344,41 +297,29 @@ class JournalEntryCollectionViewCell: UICollectionViewCell {
     }
     
     func sharedInit() {
+        self.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
-        self.responseTextViewHeightConstraint = self.responseTextView.heightAnchor.constraint(equalToConstant: 90)
-        self.questionLabelHeightConstraint = self.questionLabel.heightAnchor.constraint(equalToConstant: 30)
-        self.questionLabelHeightConstraint?.identifier = "QuestionLabel.height"
-        self.questionLabelHeightConstraint?.isActive = false
-        
-        self.responseTextViewHeightConstraint?.isActive = false
-        
         self.configureViewAppearance()
         self.questionLabel.text = nil
         self.dateLabel.text = nil
         self.responseTextView.text = nil
         
-        self.responseBottomConstraint = self.contentView.constraintWithIdentifier("responseBottom")
-        self.textViewBottomPadding = self.responseBottomConstraint?.constant ?? 20
-        
         let textTappedGesture = UITapGestureRecognizer(target: self, action: #selector(self.reflectTapped))
         self.responseTextView.addGestureRecognizer(textTappedGesture)
         self.configureReflectButton(show: false)
+        
+         // Code below is needed to make the self-sizing cell work when building for iOS 12 from Xcode 10.0:
+         let leftConstraint = contentView.leftAnchor.constraint(equalTo: leftAnchor)
+         let rightConstraint = contentView.rightAnchor.constraint(equalTo: rightAnchor)
+         let topConstraint = contentView.topAnchor.constraint(equalTo: topAnchor)
+         let bottomConstraint = contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
+         NSLayoutConstraint.activate([leftConstraint, rightConstraint, topConstraint, bottomConstraint])
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.sharedInit()
-        
-        // Addresses a separate issue and prevent auto layout warnings due to the temporary width constraint in the xib.
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-
-        // Code below is needed to make the self-sizing cell work when building for iOS 12 from Xcode 10.0:
-        let leftConstraint = contentView.leftAnchor.constraint(equalTo: leftAnchor)
-        let rightConstraint = contentView.rightAnchor.constraint(equalTo: rightAnchor)
-        let topConstraint = contentView.topAnchor.constraint(equalTo: topAnchor)
-        let bottomConstraint = contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
-        NSLayoutConstraint.activate([leftConstraint, rightConstraint, topConstraint, bottomConstraint])
-        
+            
     }
     
     @IBAction func reflectButtonTapped(_ sender: Any) {
