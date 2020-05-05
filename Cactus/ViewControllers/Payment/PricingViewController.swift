@@ -62,7 +62,7 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
         self.setupHeaderBackground()
         self.titleLabel.text = "Get more with Cactus Plus"
         self.descriptionLabel.text = "Daily prompts, personalized insights, and more"
-//        self.configureFromSettings()
+        self.configureFromSettings()
         self.loadSubscriptionProducts()
         CactusAnalytics.shared.pricingPageDisplay()
     }

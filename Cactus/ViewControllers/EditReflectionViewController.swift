@@ -9,7 +9,7 @@
 import UIKit
 
 protocol EditReflectionViewControllerDelegate: class {
-    func done(text: String?)
+    func done(text: String?, response: ReflectionResponse?)
     func cancel()
 }
 
@@ -134,6 +134,7 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
     
     @IBAction func doneButtonTapped(_ sender: Any) {
         self.logger.info("done tapped")
-        self.delegate?.done(text: self.responseTextView.text)
+//        self.delegate?.done(text: self.responseTextView.text)
+        self.delegate?.done(text: self.responseTextView.text, response: self.response )
     }
 }

@@ -237,8 +237,8 @@ extension ReflectContentViewController: GrowingTextViewDelegate {
     }
 }
 
-extension ReflectContentViewController: EditReflectionViewControllerDelegate {
-    func done(text: String?) {
+extension ReflectContentViewController: EditReflectionViewControllerDelegate {    
+    func done(text: String?, response: ReflectionResponse?) {
         self.reflectLogger.info("Saving text: \(text ?? "None provided")")
         self.reflectionResponse?.content.text = text
         self.configureResponseView()

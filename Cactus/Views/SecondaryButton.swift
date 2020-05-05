@@ -29,17 +29,15 @@ class SecondaryButton: UIButton {
             self.sharedInit()
         }
         
-        var border: CAShapeLayer?
-        @IBInspectable var thickness: CGFloat = 4
+        @IBInspectable var thickness: CGFloat = 0
         @IBInspectable var imageWidth: CGFloat = 25
         @IBInspectable var imageHeight: CGFloat = 25
         @IBInspectable var fontSize: CGFloat = 17
         @IBInspectable var horizontalPadding: CGFloat = 20
         @IBInspectable var verticalPadding: CGFloat = 12
-        
-    //    var borderColor: UIColor = CactusColor.darkGreen
-    //    var mainColor: UIColor = CactusColor.green
-        
+        @IBInspectable var borderColor: UIColor = CactusColor.lightBlue
+        @IBInspectable var showBorder: Bool = false
+                
         @IBInspectable var borderRadius: CGFloat {
             get {
                 return self.layer.cornerRadius
@@ -91,29 +89,12 @@ class SecondaryButton: UIButton {
                 imageView.bounds.size.height = imageHeight
             }
             self.contentEdgeInsets = UIEdgeInsets(top: self.verticalPadding, left: self.horizontalPadding, bottom: self.verticalPadding, right: self.horizontalPadding)
-    //        let path = UIBezierPath(roundedRect: self.bounds, cornerRadius: radius)
-    //        let mask = CAShapeLayer()
-    //        mask.path = path.cgPath
-    //        self.layer.mask = mask
-
-    //        if self.border == nil {
-    //            let border = CAShapeLayer()
-    //            self.border = border
-    //            self.layer.addSublayer(border)
-    //        }
-            
-    //        if let border = self.border {
-    //
-    //            let offset = thickness / 2
-    //            border.frame = CGRect(-offset, -offset, self.bounds.width + (2 * offset), self.bounds.height)
-    //            let pathsUsingCorrentInsetIfAny = UIBezierPath(roundedRect: border.bounds, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: radius, height: radius))
-    //
-    //            border.path = pathsUsingCorrentInsetIfAny.cgPath
-    //            border.fillColor = UIColor.clear.cgColor
-    //            border.strokeColor = self.borderColor.cgColor
-    //            border.lineWidth = thickness
-    //            self.contentEdgeInsets = UIEdgeInsets(top: self.verticalPadding - offset, left: self.horizontalPadding, bottom: self.verticalPadding, right: self.horizontalPadding)
-    //            self.border = border
-    //        }
+            if self.showBorder {
+                self.layer.borderColor = self.borderColor.cgColor
+                self.layer.borderWidth = self.thickness
+            } else {
+                self.layer.borderWidth = 0
+                self.layer.borderColor = UIColor.clear.cgColor
+            }
         }
 }

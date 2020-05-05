@@ -18,6 +18,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     var memberUnsubscriber: Unsubscriber?
     var member: CactusMember?
     var headerView: UICollectionReusableView?
+    var editViewController: EditReflectionViewController?
     var settings: AppSettings? {
         didSet {
             self.handleSettingsChanged()
@@ -27,7 +28,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     weak var promptContentDelegate: PromptContentPageViewControllerDelegate?
     
     private let itemsPerRow: CGFloat = 1
-    private let reuseIdentifier = ReuseIdentifier.JournalEntryCell.rawValue
+//    private let reuseIdentifier = ReuseIdentifier.JournalEntryCell.rawValue
     private let defaultCellHeight: CGFloat = 220
     private let defaultPadding: CGFloat = 20
     private let defaultResponseTextHeight: CGFloat = 110
@@ -37,7 +38,9 @@ class JournalFeedCollectionViewController: UICollectionViewController {
                                              right: 15.0)
     
     @IBOutlet weak var layout: JournalFeedFlowLayout!
-   
+    
+    let reuseIdentifier = "JournalEntryCell"
+    
     func getCellEstimatedSize(_ size: CGSize) -> CGSize {
         let contentInsetWidth = self.collectionView.contentInset.left + self.collectionView.contentInset.right
         let width = min(760, size.width)
@@ -53,15 +56,25 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         } else {
             // Use this view to calculate the optimal size based on the collection view's width
             let layoutSize = headerView.systemLayoutSizeFitting(CGSize(width: collectionView.frame.width,
-                                                             height: UIView.layoutFittingExpandedSize.height),
-                                                      withHorizontalFittingPriority: .required, // Width is fixed
-                                                      verticalFittingPriority: .fittingSizeLevel) // Height can be as large as needed
+                                                                       height: UIView.layoutFittingExpandedSize.height),
+                                                                withHorizontalFittingPriority: .required, // Width is fixed
+                verticalFittingPriority: .fittingSizeLevel) // Height can be as large as needed
             logger.info("header view height is \(layoutSize.height)")
             return layoutSize
         }
         
     }
     
+    //    func getCellWidth() -> CGFloat {
+    //           let screenWidth = UIScreen.main.bounds.size.width
+    //        var width: CGFloat = screenWidth - self.sectionInsets.left - self.sectionInsets.right
+    //
+    //           if screenWidth > 500 {
+    //            width = (screenWidth/2) - self.sectionInsets.left - self.sectionInsets.right
+    //           }
+    //           return width
+    //       }
+    //
     override func viewDidLoad() {
         super.viewDidLoad()
         self.settingsListener = AppSettingsService.sharedInstance.observeSettings({ (settings, _) in
@@ -69,8 +82,18 @@ class JournalFeedCollectionViewController: UICollectionViewController {
             self.settings = settings
         })
         
+        self.collectionView.register(UINib(nibName: "JournalEntryCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
+        
         self.collectionView.prefetchDataSource = self
-        layout.estimatedItemSize = getCellEstimatedSize(self.view.bounds.size)
+        //        layout.estimatedItemSize = getCellEstimatedSize(self.view.bounds.size)
+        
+        self.view.translatesAutoresizingMaskIntoConstraints = false
+        if let flowLayout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.estimatedItemSize = getCellEstimatedSize(self.view.bounds.size)
+        }
+        self.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(self.appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(self.appMovedToBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
@@ -149,9 +172,6 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         self.reloadVisibleViews()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-    }
     
     @IBAction func showPromptContentCards(segue: UIStoryboardSegue) { }
     @IBAction func showDetail(segue: UIStoryboardSegue) { }
@@ -159,14 +179,14 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "PromptContentCards":
-            guard let cell = sender as? JournalEntryCollectionViewCell else {
+            guard let cell = sender as? JournalEntryCell else {
                 return
             }
             
             if let vc = segue.destination as? PromptContentPageViewController {
                 vc.promptContent = cell.promptContent
                 vc.promptDelegate = self.promptContentDelegate
-
+                
                 let response = cell.responses?.first
                 vc.reflectionResponse = response                
             }        
@@ -174,14 +194,14 @@ class JournalFeedCollectionViewController: UICollectionViewController {
             break
         }
     }
-
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-
+    
     func updateHeaderView() -> UICollectionReusableView {
         let headerView = self.getHeaderView()
-
+        
         guard let upgradeView = headerView as? UpgradeJournalFeedCollectionReusableView else {
             return headerView
         }
@@ -201,13 +221,8 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         let view = self.getHeaderView()
         switch kind {
         case UICollectionView.elementKindSectionHeader:
-            //handle the header
-//            let view = self.updateHeaderView()
-            //view.isHidden = false
             return view
         default:
-//            let kind = UICollectionView.elementKindSectionHeader
-//            let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: IndexPath(row: 0, section: 0))
             view.isHidden = true
             return view
         }
@@ -226,25 +241,37 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.dataSource.count
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView,
                                  cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        guard let journalCell = cell as? JournalEntryCollectionViewCell else {
-            return cell
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+//        guard let journalCell = cell as? JournalEntryCollectionViewCell else {
+//            return cell
+//        }
+//
+//        let journalEntry = self.dataSource.get(at: indexPath.row)
+//        journalCell.journalEntry = journalEntry
+//        journalCell.updateView()
+//        journalCell.setCellWidth(self.getCellEstimatedSize(self.view.bounds.size).width)
+//        journalCell.delegate = self
+//        return journalCell
+        
+        let _cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cellWidth = self.getCellEstimatedSize(self.view.bounds.size).width
+        guard let cell = _cell as? JournalEntryCell else {
+            return _cell
         }
-                
         let journalEntry = self.dataSource.get(at: indexPath.row)
-        journalCell.journalEntry = journalEntry
-        journalCell.updateView()
-        journalCell.setCellWidth(self.getCellEstimatedSize(self.view.bounds.size).width)
-        journalCell.delegate = self
-        return journalCell
+        cell.delegate = self
+        cell.setWidth(cellWidth)
+        cell.data = journalEntry
+        
+        return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
-        guard let journalCell = cell as? JournalEntryCollectionViewCell else {
+        guard let journalCell = cell as? JournalEntryCell else {
             return
         }
         
@@ -350,4 +377,52 @@ extension JournalFeedCollectionViewController: JournalEntryCollectionVieweCellDe
         guard let path = self.collectionView.indexPath(for: cell) else {return}
         self.collectionView.delegate?.collectionView?(self.collectionView, didSelectItemAt: path)
     }
+    
+    func presentEditReflectionModal(_ data: JournalEntry) -> EditReflectionViewController? {
+            let editView = EditReflectionViewController.loadFromNib()
+            editView.delegate = self
+            
+            var response = data.responses?.first
+            let questionText = data.promptContent?.getQuestion() ?? data.prompt?.question
+            if response == nil, let promptId = data.sentPrompt?.promptId {
+                let element = data.promptContent?.cactusElement
+                
+                response = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: questionText, element: element, medium: .JOURNAL_IOS)
+            }
+            
+            guard let reflectionResponse = response else {
+                return nil
+            }
+            
+            editView.response = reflectionResponse
+            editView.questionText = questionText
+                    
+            self.editViewController = editView
+            NavigationService.sharedInstance.present(editView, animated: true)
+        
+            return editView
+        }
+        
+        func done(text: String?, response: ReflectionResponse?) {
+            guard let response = response else {
+                self.editViewController?.dismiss(animated: true, completion: nil)
+                return
+            }
+            
+            response.content.text = text
+//            self.reloadVisibleViews()
+            
+            ReflectionResponseService.sharedInstance.save(response) { (saved, error) in
+                self.logger.debug("Saved the response! \(saved?.id ?? "no id found")")
+                self.editViewController?.isSaving = false
+                if error == nil {
+                    self.editViewController?.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
+        
+        func cancel() {
+            self.editViewController?.dismiss(animated: true, completion: nil)
+        }
+    
 }

@@ -195,7 +195,6 @@
 		303C9DDC23841A30006B9786 /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
 		303C9DDD23841A38006B9786 /* LoadablePromptContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9DA8237E1470006B9786 /* LoadablePromptContentViewController.swift */; };
 		303C9DDE23841A3E006B9786 /* LoadableSharedReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9DC6237FCF06006B9786 /* LoadableSharedReflectionViewController.swift */; };
-		303C9DDF23841A67006B9786 /* JournalEntryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9E22EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift */; };
 		303C9DE023841A71006B9786 /* JournalFeedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FA2C9823741A3300F671AF /* JournalFeedFlowLayout.swift */; };
 		303C9DE123841A8F006B9786 /* JournalFeedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */; };
 		303C9DE223841A9A006B9786 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F4B2347E25A00798560 /* DateUtil.swift */; };
@@ -563,8 +562,6 @@
 		30934F9A22EBF235007C4E6C /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9822EBF235007C4E6C /* BorderedButton.swift */; };
 		30934F9C22EBF2AB007C4E6C /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9B22EBF2AB007C4E6C /* ColorExtensions.swift */; };
 		30934F9D22EBF2AC007C4E6C /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9B22EBF2AB007C4E6C /* ColorExtensions.swift */; };
-		30934F9F22EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9E22EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift */; };
-		30934FA022EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9E22EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift */; };
 		30934FA322EBF4E6007C4E6C /* FormatUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FA222EBF4E6007C4E6C /* FormatUtils.swift */; };
 		30934FA422EBF4E6007C4E6C /* FormatUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FA222EBF4E6007C4E6C /* FormatUtils.swift */; };
 		30934FA622EBFF27007C4E6C /* ReflectionPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FA522EBFF27007C4E6C /* ReflectionPrompt.swift */; };
@@ -730,6 +727,12 @@
 		30DCA5F824418BAA00D520D4 /* PromptContentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5F724418BAA00D520D4 /* PromptContentData.swift */; };
 		30DCA5F924418BAA00D520D4 /* PromptContentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5F724418BAA00D520D4 /* PromptContentData.swift */; };
 		30DCA5FA24418BAA00D520D4 /* PromptContentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5F724418BAA00D520D4 /* PromptContentData.swift */; };
+		30DFCA8724609D85007187FC /* JournalEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCA8524609D85007187FC /* JournalEntryCell.swift */; };
+		30DFCA8824609D85007187FC /* JournalEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCA8524609D85007187FC /* JournalEntryCell.swift */; };
+		30DFCA8924609D86007187FC /* JournalEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCA8524609D85007187FC /* JournalEntryCell.swift */; };
+		30DFCA8A24609D86007187FC /* JournalEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30DFCA8624609D85007187FC /* JournalEntryCell.xib */; };
+		30DFCA8B24609D86007187FC /* JournalEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30DFCA8624609D85007187FC /* JournalEntryCell.xib */; };
+		30DFCA8C24609D86007187FC /* JournalEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30DFCA8624609D85007187FC /* JournalEntryCell.xib */; };
 		30E2D376234311C6003D2B27 /* PillLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2D375234311C6003D2B27 /* PillLabelView.swift */; };
 		30E2D377234311C6003D2B27 /* PillLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2D375234311C6003D2B27 /* PillLabelView.swift */; };
 		30E2D37A23432B21003D2B27 /* NavigationMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2D37823432B21003D2B27 /* NavigationMenuViewController.swift */; };
@@ -958,7 +961,6 @@
 		30934F9522EBF146007C4E6C /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		30934F9822EBF235007C4E6C /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
 		30934F9B22EBF2AB007C4E6C /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
-		30934F9E22EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryCollectionViewCell.swift; sourceTree = "<group>"; };
 		30934FA222EBF4E6007C4E6C /* FormatUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatUtils.swift; sourceTree = "<group>"; };
 		30934FA522EBFF27007C4E6C /* ReflectionPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionPrompt.swift; sourceTree = "<group>"; };
 		30934FA822EC0001007C4E6C /* ReflectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionResponse.swift; sourceTree = "<group>"; };
@@ -1037,6 +1039,8 @@
 		30DCA5EB244120A700D520D4 /* PromptContentCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptContentCollectionViewController.swift; sourceTree = "<group>"; };
 		30DCA5EF24417AA400D520D4 /* PromptContentDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptContentDataSource.swift; sourceTree = "<group>"; };
 		30DCA5F724418BAA00D520D4 /* PromptContentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptContentData.swift; sourceTree = "<group>"; };
+		30DFCA8524609D85007187FC /* JournalEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryCell.swift; sourceTree = "<group>"; };
+		30DFCA8624609D85007187FC /* JournalEntryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JournalEntryCell.xib; sourceTree = "<group>"; };
 		30E2D375234311C6003D2B27 /* PillLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillLabelView.swift; sourceTree = "<group>"; };
 		30E2D37823432B21003D2B27 /* NavigationMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMenuViewController.swift; sourceTree = "<group>"; };
 		30E2D37923432B21003D2B27 /* NavigationMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationMenuViewController.xib; sourceTree = "<group>"; };
@@ -1280,7 +1284,6 @@
 				300F2370237A629800F35CDE /* CircleView.swift */,
 				305B1884233273C4003E1561 /* GrowingTextView.swift */,
 				30051A4B23A86306005F812B /* InvertableImageView.swift */,
-				30934F9E22EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift */,
 				30FA2C9823741A3300F671AF /* JournalFeedFlowLayout.swift */,
 				30BF2E312328C7AD00A49EB6 /* MarkdownTypes.swift */,
 				30E2D375234311C6003D2B27 /* PillLabelView.swift */,
@@ -1302,6 +1305,8 @@
 				30762E5D2440E4A4000A18B3 /* ElementCell.xib */,
 				30DCA5E32441207500D520D4 /* PromptEntryCollectionViewCell.swift */,
 				30DCA5E42441207500D520D4 /* PromptEntryCollectionViewCell.xib */,
+				30DFCA8524609D85007187FC /* JournalEntryCell.swift */,
+				30DFCA8624609D85007187FC /* JournalEntryCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1801,6 +1806,7 @@
 				303C9E0A23841AC1006B9786 /* VideoContentViewController.xib in Resources */,
 				303C9E0323841AC1006B9786 /* ReflectContentViewController.xib in Resources */,
 				30DCA5EA2441207500D520D4 /* PromptEntryCollectionViewCell.xib in Resources */,
+				30DFCA8C24609D86007187FC /* JournalEntryCell.xib in Resources */,
 				3062201223EAB12B002FAAD9 /* Lato-BoldItalic.ttf in Resources */,
 				30D7386623D00AC6006F4DA6 /* Social.storyboard in Resources */,
 				3062201323EAB12B002FAAD9 /* Lato-Light.ttf in Resources */,
@@ -1883,6 +1889,7 @@
 				30D7387323D00F7C006F4DA6 /* SocialActivityCardView.xib in Resources */,
 				30673B93233FDEC300EDE7BD /* Lato-Italic.ttf in Resources */,
 				3099D1F52408DA2A00BD9CC4 /* SubscriptionPlanOptionView.xib in Resources */,
+				30DFCA8B24609D86007187FC /* JournalEntryCell.xib in Resources */,
 				30E2D37D23432B21003D2B27 /* NavigationMenuViewController.xib in Resources */,
 				30673B9F233FDEC300EDE7BD /* Lato-BlackItalic.ttf in Resources */,
 				30A281F222EA627D0041158E /* ProdAssets.xcassets in Resources */,
@@ -1915,6 +1922,7 @@
 				303C9DCA237FCF06006B9786 /* LoadableSharedReflectionViewController.xib in Resources */,
 				3095619C22ECF214009357BD /* GoogleService-Info.plist in Resources */,
 				300AC189233A850B005C6555 /* JournalEntrySkeletonViewController.xib in Resources */,
+				30DFCA8A24609D86007187FC /* JournalEntryCell.xib in Resources */,
 				30A281EA22EA61EB0041158E /* StageAssets.xcassets in Resources */,
 				3020DD9A23640BE300EC40AE /* CactusElementsViewController.xib in Resources */,
 				30673B98233FDEC300EDE7BD /* Lato-Bold.ttf in Resources */,
@@ -2304,7 +2312,6 @@
 				303C9E0D23841AC6006B9786 /* LoginViewController.swift in Sources */,
 				30D7386F23D00C0C006F4DA6 /* CircleImageView.swift in Sources */,
 				303C9E3423841AEB006B9786 /* ReflectionPromptService.swift in Sources */,
-				303C9DDF23841A67006B9786 /* JournalEntryCollectionViewCell.swift in Sources */,
 				30051A4E23A86306005F812B /* InvertableImageView.swift in Sources */,
 				30762E53243FF4A5000A18B3 /* BrowseElementsCollectionViewController.swift in Sources */,
 				3099D200240974F200BD9CC4 /* SubscriptionProductGroupService.swift in Sources */,
@@ -2352,6 +2359,7 @@
 				305CB10223D048B60046E8A8 /* SendFriendInviteViewController.swift in Sources */,
 				303C9E2223841ACC006B9786 /* BorderedButton.swift in Sources */,
 				303C9DF923841ABB006B9786 /* AppIconSettingsViewController.swift in Sources */,
+				30DFCA8924609D86007187FC /* JournalEntryCell.swift in Sources */,
 				30AB072A244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift in Sources */,
 				30F7168D237A4B9C004989DB /* AppConfig.swift in Sources */,
 				303C9E2D23841ACC006B9786 /* UIImageViewAligned.swift in Sources */,
@@ -2526,6 +2534,7 @@
 				30E9B0AA22EAD68B005B25FD /* AppMainViewController.swift in Sources */,
 				30727447236A4A3200309B3C /* CactusElementDetailViewController.swift in Sources */,
 				30BF2E122328230E00A49EB6 /* FirebaseExtensions.swift in Sources */,
+				30DFCA8824609D85007187FC /* JournalEntryCell.swift in Sources */,
 				300FCCEB23ECB5D400089CFB /* FancyLinkButton.swift in Sources */,
 				30BF2E2B23289F9F00A49EB6 /* TextContentViewController.swift in Sources */,
 				30934FA722EBFF27007C4E6C /* ReflectionPrompt.swift in Sources */,
@@ -2537,7 +2546,6 @@
 				30E9B0AD22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
 				308505A623D0E490001179E2 /* SocialContactTableViewCell.swift in Sources */,
 				3099D20324098EF400BD9CC4 /* SubscriptionProductGroup.swift in Sources */,
-				30934FA022EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift in Sources */,
 				305B186F23319E09003E1561 /* FileUtils.swift in Sources */,
 				30DCA5F124417AA400D520D4 /* PromptContentDataSource.swift in Sources */,
 				301C1A91236F7E9700F06A3D /* MeaningAnimationViewController.swift in Sources */,
@@ -2702,11 +2710,11 @@
 				30BF2E0B232816CC00A49EB6 /* PromptContentService.swift in Sources */,
 				30727446236A4A3200309B3C /* CactusElementDetailViewController.swift in Sources */,
 				30E9B0A922EAD68B005B25FD /* AppMainViewController.swift in Sources */,
+				30DFCA8724609D85007187FC /* JournalEntryCell.swift in Sources */,
 				300FCCEA23ECB5D300089CFB /* FancyLinkButton.swift in Sources */,
 				30934FA622EBFF27007C4E6C /* ReflectionPrompt.swift in Sources */,
 				30E9B0AC22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
 				30D0E454236C98C100EFC0E3 /* StringExtensions.swift in Sources */,
-				30934F9F22EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift in Sources */,
 				305CB0FC23D03C080046E8A8 /* ContactService.swift in Sources */,
 				30934F9922EBF235007C4E6C /* BorderedButton.swift in Sources */,
 				304A252C240DCC2200737C57 /* SubscriptionInvoice.swift in Sources */,

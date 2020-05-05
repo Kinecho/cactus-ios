@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -181,244 +180,38 @@
         <scene sceneID="Gr6-KQ-PFf">
             <objects>
                 <collectionViewController storyboardIdentifier="JournalFeed" id="GWJ-to-hjF" userLabel="Journal Feed" customClass="JournalFeedCollectionViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="c64-uC-Gae">
+                    <collectionView key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" id="c64-uC-Gae">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="762"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="Background"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="25" sectionInsetReference="layoutMargins" id="CAX-zL-tXF" customClass="JournalFeedFlowLayout" customModule="Cactus" customModuleProvider="target">
-                            <size key="itemSize" width="408" height="229"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="25" sectionInsetReference="layoutMargins" id="CAX-zL-tXF">
+                            <size key="itemSize" width="408" height="385"/>
                             <size key="headerReferenceSize" width="300" height="144"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" reuseIdentifier="JournalEntryCell" id="hi3-X9-dKc" userLabel="Question Card" customClass="JournalEntryCollectionViewCell" customModule="Cactus" customModuleProvider="target">
-                                <rect key="frame" x="3" y="152" width="408" height="229"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <collectionViewCellContentView key="contentView" verifyAmbiguity="ignoreSizes" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="402" placeholderIntrinsicHeight="200" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" id="0qW-dd-S1T">
-                                    <rect key="frame" x="0.0" y="0.0" width="408" height="229"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blob4" translatesAutoresizingMaskIntoConstraints="NO" id="lDj-iq-UJ4" userLabel="Background Blob">
-                                            <rect key="frame" x="-25" y="163" width="458" height="116"/>
-                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </imageView>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="me6-iG-DkW" userLabel="Background Image View">
-                                            <rect key="frame" x="-25" y="163" width="458" height="66"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" priority="999" constant="200" identifier="JournalFeed.BackgroundImage.Height" id="laF-kS-zV3"/>
-                                            </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="laF-kS-zV3"/>
-                                                </mask>
-                                            </variation>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="754" text="May 14, 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOB-lq-qx1">
-                                            <rect key="frame" x="20" y="20" width="318" height="22"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="22" id="veS-Gu-PeT"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                            <color key="textColor" name="TextMinimized"/>
-                                            <nil key="highlightedColor"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                                            </userDefinedRuntimeAttributes>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Placeholder Question" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ud-An-1HM">
-                                            <rect key="frame" x="20" y="58" width="368" height="85"/>
-                                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="22"/>
-                                            <color key="textColor" name="TextDefault"/>
-                                            <nil key="highlightedColor"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="linesCornerRadius">
-                                                    <integer key="value" value="6"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </label>
-                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sub Text Label WIth lots of question context" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Prt-fK-hhC" userLabel="Sub Text Label">
-                                            <rect key="frame" x="20" y="153" width="368" height="47"/>
-                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
-                                            <color key="textColor" name="TextMinimized"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLH-Hu-Fx0" customClass="BorderedButton" customModule="Cactus" customModuleProvider="target">
-                                            <rect key="frame" x="358" y="10" width="40" height="40"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="40" id="ab8-UZ-8ce"/>
-                                                <constraint firstAttribute="width" constant="40" id="bqo-PG-SsK"/>
-                                            </constraints>
-                                            <color key="tintColor" name="TextMinimized"/>
-                                            <state key="normal" title="" image="dots"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
-                                                    <real key="value" value="25"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                    <real key="value" value="0.0"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                    <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="imageWidth">
-                                                    <real key="value" value="30"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="imageHeight">
-                                                    <real key="value" value="50"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                            <connections>
-                                                <action selector="moreButtonTapped:" destination="hi3-X9-dKc" eventType="primaryActionTriggered" id="fQf-Zw-1oS"/>
-                                            </connections>
-                                        </button>
-                                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="748" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" editable="NO" text="my response to the question" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIY-zE-sMO">
-                                            <rect key="frame" x="18" y="159" width="370" height="50"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <color key="textColor" name="TextMinimized"/>
-                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="linesCornerRadius">
-                                                    <integer key="value" value="6"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="lastLineFillPercent">
-                                                    <integer key="value" value="25"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </textView>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFa-Yu-OSz" userLabel="Border View">
-                                            <rect key="frame" x="-4" y="159" width="8" height="50"/>
-                                            <color key="backgroundColor" name="Highlight"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="8" id="pRO-h5-NZ6"/>
-                                            </constraints>
-                                        </view>
-                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vu-J4-LLw" userLabel="Reflect Button" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="159" width="368" height="50"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="50" identifier="ReflectButton.Height" id="8cM-D4-eRz"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="22"/>
-                                            <state key="normal" title="Reflect"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                    <real key="value" value="22"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                            <connections>
-                                                <action selector="reflectButtonTapped:" destination="hi3-X9-dKc" eventType="primaryActionTriggered" id="uZa-If-H7h"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="bFa-Yu-OSz" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="-4" id="0i4-lg-c9x"/>
-                                        <constraint firstAttribute="trailing" secondItem="lDj-iq-UJ4" secondAttribute="trailing" constant="-25" id="1um-HJ-PUP"/>
-                                        <constraint firstItem="0ud-An-1HM" firstAttribute="top" secondItem="XOB-lq-qx1" secondAttribute="bottom" constant="16" id="2hh-nA-B9O"/>
-                                        <constraint firstItem="6vu-J4-LLw" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="20" id="39S-nh-1LB"/>
-                                        <constraint firstItem="me6-iG-DkW" firstAttribute="top" secondItem="Prt-fK-hhC" secondAttribute="bottom" constant="20" id="3ye-R8-wrG"/>
-                                        <constraint firstAttribute="trailing" secondItem="6vu-J4-LLw" secondAttribute="trailing" constant="20" id="6gT-NZ-B2Z"/>
-                                        <constraint firstAttribute="trailing" secondItem="me6-iG-DkW" secondAttribute="trailing" constant="-25" id="7Qa-YF-rEL"/>
-                                        <constraint firstItem="bFa-Yu-OSz" firstAttribute="top" secondItem="fIY-zE-sMO" secondAttribute="top" id="8fk-jM-QbO"/>
-                                        <constraint firstItem="fIY-zE-sMO" firstAttribute="top" secondItem="0ud-An-1HM" secondAttribute="bottom" priority="999" constant="16" identifier="questionLabel.bottom.toResponseText.top" id="A56-Dk-He5"/>
-                                        <constraint firstAttribute="bottom" secondItem="6vu-J4-LLw" secondAttribute="bottom" constant="20" id="BI7-jG-rCu"/>
-                                        <constraint firstItem="XOB-lq-qx1" firstAttribute="top" secondItem="0qW-dd-S1T" secondAttribute="top" constant="20" id="C1X-Tq-33u"/>
-                                        <constraint firstItem="XOB-lq-qx1" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="20" id="HE6-he-Dmj"/>
-                                        <constraint firstItem="0ud-An-1HM" firstAttribute="bottom" secondItem="Prt-fK-hhC" secondAttribute="top" constant="-10" identifier="questionLabel.bottom.to.subText.top" id="KF5-WU-Q9i"/>
-                                        <constraint firstItem="bFa-Yu-OSz" firstAttribute="bottom" secondItem="fIY-zE-sMO" secondAttribute="bottom" id="LIc-zH-bKm"/>
-                                        <constraint firstItem="6vu-J4-LLw" firstAttribute="top" secondItem="0ud-An-1HM" secondAttribute="bottom" constant="16" identifier="ReflectButton.TopToQuestionLabel" id="LLf-nw-hRq"/>
-                                        <constraint firstAttribute="width" constant="408" identifier="cell.contentView.width" id="MMt-os-ubL"/>
-                                        <constraint firstItem="me6-iG-DkW" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="-25" id="PYM-nd-9qf"/>
-                                        <constraint firstAttribute="bottom" secondItem="fIY-zE-sMO" secondAttribute="bottom" constant="20" identifier="responseBottom" id="XXG-Py-sXH"/>
-                                        <constraint firstItem="6vu-J4-LLw" firstAttribute="top" secondItem="Prt-fK-hhC" secondAttribute="bottom" constant="20" id="ZF8-xM-iS6"/>
-                                        <constraint firstItem="0ud-An-1HM" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="20" id="ZUT-ez-gxV"/>
-                                        <constraint firstAttribute="bottom" secondItem="lDj-iq-UJ4" secondAttribute="bottom" constant="-50" id="cIS-jc-kzw"/>
-                                        <constraint firstAttribute="trailing" secondItem="Prt-fK-hhC" secondAttribute="trailing" constant="20" id="exz-bl-u3b"/>
-                                        <constraint firstItem="fIY-zE-sMO" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="18" id="gkI-LN-uVJ"/>
-                                        <constraint firstAttribute="bottom" secondItem="me6-iG-DkW" secondAttribute="bottom" identifier="JournalFeedCell.BackgroundImage.BottomToContentViewBottom" id="i4D-IU-BkX"/>
-                                        <constraint firstItem="me6-iG-DkW" firstAttribute="top" secondItem="0ud-An-1HM" secondAttribute="bottom" constant="20" id="nuF-VB-GJL"/>
-                                        <constraint firstAttribute="trailing" secondItem="xLH-Hu-Fx0" secondAttribute="trailing" constant="10" id="oXt-3Y-tpH"/>
-                                        <constraint firstItem="6vu-J4-LLw" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="20" id="pSK-dI-tTH"/>
-                                        <constraint firstAttribute="trailing" secondItem="fIY-zE-sMO" secondAttribute="trailing" constant="20" id="pgD-zz-UXd"/>
-                                        <constraint firstItem="XOB-lq-qx1" firstAttribute="top" secondItem="0qW-dd-S1T" secondAttribute="top" constant="20" identifier="dateTopContainer" id="ptt-Kp-uU6"/>
-                                        <constraint firstItem="xLH-Hu-Fx0" firstAttribute="leading" secondItem="XOB-lq-qx1" secondAttribute="trailing" constant="20" id="tZr-iI-erT"/>
-                                        <constraint firstAttribute="trailing" secondItem="0ud-An-1HM" secondAttribute="trailing" constant="20" id="umD-hz-9BQ"/>
-                                        <constraint firstItem="Prt-fK-hhC" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="20" id="uma-7Y-8Pm"/>
-                                        <constraint firstItem="xLH-Hu-Fx0" firstAttribute="top" secondItem="0qW-dd-S1T" secondAttribute="top" constant="10" id="vRV-Op-D8r"/>
-                                        <constraint firstItem="lDj-iq-UJ4" firstAttribute="leading" secondItem="0qW-dd-S1T" secondAttribute="leading" constant="-25" id="vqw-P4-yPD"/>
-                                        <constraint firstItem="lDj-iq-UJ4" firstAttribute="top" secondItem="me6-iG-DkW" secondAttribute="top" id="ygy-2x-EfF"/>
-                                        <constraint firstAttribute="height" constant="229" placeholder="YES" id="zxl-Bq-ctl"/>
-                                    </constraints>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="MMt-os-ubL"/>
-                                            <exclude reference="zxl-Bq-ctl"/>
-                                            <exclude reference="ptt-Kp-uU6"/>
-                                            <exclude reference="ZF8-xM-iS6"/>
-                                            <exclude reference="3ye-R8-wrG"/>
-                                        </mask>
-                                    </variation>
-                                    <variation key="heightClass=regular-widthClass=compact">
-                                        <mask key="constraints">
-                                            <exclude reference="pSK-dI-tTH"/>
-                                        </mask>
-                                    </variation>
-                                    <variation key="heightClass=regular-widthClass=regular">
-                                        <mask key="constraints">
-                                            <exclude reference="39S-nh-1LB"/>
-                                            <exclude reference="6gT-NZ-B2Z"/>
-                                        </mask>
-                                    </variation>
-                                </collectionViewCellContentView>
-                                <color key="backgroundColor" name="CardBackground"/>
-                                <size key="customSize" width="408" height="229"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outlet property="backgroundBlobImageView" destination="lDj-iq-UJ4" id="X6d-5q-L18"/>
-                                    <outlet property="backgroundImageHeightConstraint" destination="laF-kS-zV3" id="7Z1-if-WcT"/>
-                                    <outlet property="backgroundImageTopSubTextBottomConstraint" destination="3ye-R8-wrG" id="Zf0-32-JVI"/>
-                                    <outlet property="backgroundImageTopToQuestionBottomConstraint" destination="nuF-VB-GJL" id="Gl5-zH-XDl"/>
-                                    <outlet property="backgroundImageView" destination="me6-iG-DkW" id="GdV-3A-ejH"/>
-                                    <outlet property="borderView" destination="bFa-Yu-OSz" id="tfb-fB-2ks"/>
-                                    <outlet property="cellWidthConstraint" destination="MMt-os-ubL" id="kH8-au-fwJ"/>
-                                    <outlet property="dateLabel" destination="XOB-lq-qx1" id="Apq-GM-yLb"/>
-                                    <outlet property="editTextTopQuestionConstraint" destination="A56-Dk-He5" id="egE-i9-SWi"/>
-                                    <outlet property="moreButton" destination="xLH-Hu-Fx0" id="tcN-fN-sEr"/>
-                                    <outlet property="questionLabel" destination="0ud-An-1HM" id="Jv0-cx-mwF"/>
-                                    <outlet property="reflectButton" destination="6vu-J4-LLw" id="iHy-hs-cOz"/>
-                                    <outlet property="reflectButtonBottomConstraint" destination="BI7-jG-rCu" id="IBE-35-1vB"/>
-                                    <outlet property="reflectButtonTopQuestionConstraint" destination="LLf-nw-hRq" id="pYo-Ll-RxS"/>
-                                    <outlet property="reflectButtonTopToSubTextConstraint" destination="ZF8-xM-iS6" id="nN3-s4-91V"/>
-                                    <outlet property="responseTextView" destination="fIY-zE-sMO" id="oTV-Xo-kpv"/>
-                                    <outlet property="subTextLabel" destination="Prt-fK-hhC" id="3CF-Ot-adc"/>
-                                </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="Header" translatesAutoresizingMaskIntoConstraints="NO" id="asi-fD-mec" customClass="UpgradeJournalFeedCollectionReusableView" customModule="Cactus" customModuleProvider="target">
+                        <cells/>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="Header" id="asi-fD-mec" customClass="UpgradeJournalFeedCollectionReusableView" customModule="Cactus" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="8" width="414" height="144"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wN4-Wm-DOb">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="132"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="124"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="plusBg" translatesAutoresizingMaskIntoConstraints="NO" id="N6E-UV-N05">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="237"/>
                                         </imageView>
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mb0-0t-Xup">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="132"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="124"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="RUx-Xn-6xF" userLabel="Wrapper Stack View">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="132"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="RUx-Xn-6xF" userLabel="Wrapper Stack View">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="124"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="y63-Ac-XIQ">
-                                                            <rect key="frame" x="8" y="0.0" width="185.5" height="132"/>
+                                                            <rect key="frame" x="8" y="0.0" width="185.5" height="124"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="7VZ-dP-Lvg" userLabel="Text Stack View">
-                                                                    <rect key="frame" x="20" y="20" width="145.5" height="27"/>
+                                                                    <rect key="frame" x="20" y="20" width="145.5" height="19"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6LP-Sv-Oeq">
                                                                             <rect key="frame" x="0.0" y="0.0" width="145.5" height="0.0"/>
@@ -427,7 +220,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Get Daily insights " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrN-JL-Rk1" userLabel="Description Label">
-                                                                            <rect key="frame" x="0.0" y="6" width="145.5" height="21"/>
+                                                                            <rect key="frame" x="0.0" y="6" width="145.5" height="13"/>
                                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                                                             <color key="textColor" name="White"/>
                                                                             <nil key="highlightedColor"/>
@@ -435,7 +228,7 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="a6V-rh-8WM">
-                                                                    <rect key="frame" x="20" y="67" width="145.5" height="45"/>
+                                                                    <rect key="frame" x="20" y="59" width="145.5" height="45"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bFV-X2-DUD" userLabel="Upgrade Button" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="78" height="45"/>
@@ -936,7 +729,7 @@
         <scene sceneID="fw5-Gy-VHF">
             <objects>
                 <collectionViewController storyboardIdentifier="PromptContentCollection" id="mrb-Ak-zoT" customClass="PromptContentCollectionViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CxF-6S-GRG">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CxF-6S-GRG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="Background"/>
@@ -961,8 +754,6 @@
     <resources>
         <image name="avatar3" width="100" height="100"/>
         <image name="background_darkBlobs" width="828" height="896"/>
-        <image name="blob4" width="434" height="304"/>
-        <image name="dots" width="48" height="48"/>
         <image name="emptyState" width="1274" height="747"/>
         <image name="logo" width="705" height="348"/>
         <image name="logo-ondark" width="705" height="348"/>
@@ -970,14 +761,8 @@
         <namedColor name="Background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="CardBackground">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="GreenDarkest">
             <color red="0.023529411764705882" green="0.27058823529411763" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Highlight">
-            <color red="0.396078431372549" green="0.56470588235294117" blue="0.92941176470588238" alpha="0.69999998807907104" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Magenta">
             <color red="0.80000001192092896" green="0.20000000298023224" blue="0.63099998235702515" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
