@@ -9,6 +9,11 @@
 import UIKit
 import SkeletonView
 
+protocol JournalEntryCollectionVieweCellDelegate: EditReflectionViewControllerDelegate {
+    func goToDetails(cell: UICollectionViewCell)
+    func presentEditReflectionModal(_ data: JournalEntry) -> EditReflectionViewController?
+}
+
 class JournalEntryCell: UICollectionViewCell {
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
     @IBOutlet weak var questionLabel: UILabel!
@@ -20,10 +25,8 @@ class JournalEntryCell: UICollectionViewCell {
     @IBOutlet weak var responseHighlightView: UIView!
     @IBOutlet weak var responseTextView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var reflectButton: PrimaryButton!
-    @IBOutlet weak var addNoteButton: SecondaryButton!
-    @IBOutlet weak var actionsStackView: UIStackView!
     
+    @IBOutlet weak var responseStackViewHeightConstraint: NSLayoutConstraint!
     var editViewController: EditReflectionViewController?
     var skeletonGradient = SkeletonGradient(baseColor: CactusColor.skeletonBase)
     weak var delegate: JournalEntryCollectionVieweCellDelegate?
@@ -95,6 +98,8 @@ class JournalEntryCell: UICollectionViewCell {
         self.layer.masksToBounds = false
         self.responseHighlightView.transform = CGAffineTransform.identity.translatedBy(x: -1 * self.responseHighlightView.bounds.width / 2, y: 0)
         self.layer.shadowPath = UIBezierPath(roundedRect: self.contentView.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath
+        
+//        self.layoutSkeletonIfNeeded()
     }
     
     func updateView() {
@@ -103,10 +108,11 @@ class JournalEntryCell: UICollectionViewCell {
             return
         }
         
+//        self.showLoading()
+        
         self.showLoadingComplete()
         self.layoutSkeletonIfNeeded()
         self.setNeedsLayout()
-//        self.skeletonViewController.view.layoutSkeletonIfNeeded()
     }
     
     func showLoading() {
@@ -114,36 +120,44 @@ class JournalEntryCell: UICollectionViewCell {
         self.subTextLabel.text = nil
         self.subTextLabel.isHidden = true
         
-        self.reflectButton.isHidden = true
-        self.addNoteButton.isHidden = true
-        
         self.responseStackView.isHidden = false
         self.responseTextView.text = nil
         
-        self.imageView.isHidden = true
+//        self.imageHeightConstraint.isActive = true
+        self.imageView.isHidden = false
         self.dateLabel.text = ""
-        
+        self.moreButton.isHidden = true
         self.questionLabel.numberOfLines = 2
         self.questionLabel.isHidden = false
-        self.responseTextViewHeightConstraint.isActive = true
         
+        self.responseTextViewHeightConstraint.isActive = false
+        self.responseStackViewHeightConstraint.isActive = true
+        self.updateGradient(self.imageView, show: true)
         self.updateGradient(self.questionLabel, show: true)
         self.updateGradient(self.responseTextView, show: true)
     }
     
     func showLoadingComplete() {
+        guard let data = self.data else {
+            self.showLoading()
+            return
+        }
         self.responseTextViewHeightConstraint.isActive = false
-        
+        self.responseStackViewHeightConstraint.isActive = false
+        self.updateGradient(self.imageView, show: false)
         self.updateGradient(self.questionLabel, show: false)
         self.updateGradient(self.responseTextView, show: false)
-        
-        if let reflectionDate = self.reflectionDate {
+
+        self.moreButton.isHidden = false
+        if data.isTodaysPrompt {
+            self.dateLabel.text = "Today"
+        } else if let reflectionDate = self.reflectionDate {
             self.dateLabel.text = FormatUtils.formatDate(reflectionDate)
         } else {
             self.dateLabel.text = ""
         }
         
-        if let responseText = self.responseText {
+        if let responseText = self.responseText, !isBlank(responseText) {
             self.responseStackView.isHidden = false
             self.responseTextView.text = responseText
             
@@ -160,14 +174,10 @@ class JournalEntryCell: UICollectionViewCell {
         let firstTextMd = self.promptContent?.getIntroTextMarkdown()
         if !hasReflected && !isBlank(firstTextMd) {
             self.subTextLabel.attributedText = MarkdownUtil.toMarkdown(firstTextMd)
+            self.subTextLabel.isHidden = false
         } else {
             self.subTextLabel.isHidden = true
         }
-        
-        self.reflectButton.isHidden = self.hasReflected
-        self.addNoteButton.isHidden = !isBlank(self.responseText) || !self.hasReflected
-        
-        self.actionsStackView.isHidden = self.reflectButton.isHidden && self.addNoteButton.isHidden
         
         self.questionLabel.numberOfLines = 0
         self.questionLabel.attributedText = MarkdownUtil.toMarkdown(self.getQuestionText(), font: CactusFont.bold(22))
@@ -191,6 +201,10 @@ class JournalEntryCell: UICollectionViewCell {
                 view.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
             }
         }
+        
+        if show {
+            view.layoutSkeletonIfNeeded()
+        }
     }
     
     //TODO: Removed while testing layout updates to the collection view
@@ -203,14 +217,6 @@ class JournalEntryCell: UICollectionViewCell {
         layoutAttributes.frame = frame
         
         return layoutAttributes
-    }
-    
-    @IBAction func reflectButtonTapped(_ sender: Any) {
-        self.reflectTapped()
-    }
-    
-    @IBAction func addNoteButtonTapped(_ sender: Any) {
-        self.startEdit()
     }
     
     @IBAction func moreButtonTapped(_ sender: UIButton) {
@@ -316,46 +322,3 @@ class JournalEntryCell: UICollectionViewCell {
         return questionText?.preventOrphanedWords()
     }
 }
-//
-//extension JournalEntryCell: EditReflectionViewControllerDelegate {
-//    func createEditReflectionModal() -> EditReflectionViewController? {
-//        let editView = EditReflectionViewController.loadFromNib()
-//        editView.delegate = self
-//
-//        var response = self.responses?.first
-//        if response == nil, let promptId = self.sentPrompt?.promptId {
-//            let element = self.promptContent?.cactusElement
-//            let questionText = self.promptContent?.getQuestion() ?? self.prompt?.question
-//            response = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: questionText, element: element, medium: .JOURNAL_IOS)
-//        }
-//
-//        guard let reflectionResponse = response else {
-//            return nil
-//        }
-//
-//        editView.response = reflectionResponse
-//        editView.questionText = self.getQuestionText()
-//
-//        return editView
-//    }
-//
-//    func done(text: String?) {
-//        guard let response = self.editViewController?.response else {return}
-//
-//        response.content.text = text
-//        self.updateView()
-//
-//        ReflectionResponseService.sharedInstance.save(response) { (saved, error) in
-//            self.logger.debug("Saved the response! \(saved?.id ?? "no id found")")
-//            self.editViewController?.isSaving = false
-//            if error == nil {
-//                self.editViewController?.dismiss(animated: true, completion: nil)
-//            }
-//        }
-//
-//    }
-//
-//    func cancel() {
-//        self.editViewController?.dismiss(animated: true, completion: nil)
-//    }
-//}
