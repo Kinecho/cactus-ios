@@ -295,13 +295,10 @@ class JournalEntryCell: UICollectionViewCell {
     
     // MARK: Actions functions
     func startEdit() {
-        guard let vc = self.createEditReflectionModal() else {
+        guard let data = self.data, let vc = self.delegate?.presentEditReflectionModal(data) else {
             self.logger.warn("Unable to get the edit modal", functionName: #function)
             return
-        }
-        self.editViewController = vc
-        NavigationService.sharedInstance.present(vc, animated: true)
-        
+        }        
     }
     
     @objc func reflectTapped() {
@@ -319,46 +316,46 @@ class JournalEntryCell: UICollectionViewCell {
         return questionText?.preventOrphanedWords()
     }
 }
-
-extension JournalEntryCell: EditReflectionViewControllerDelegate {
-    func createEditReflectionModal() -> EditReflectionViewController? {
-        let editView = EditReflectionViewController.loadFromNib()
-        editView.delegate = self
-        
-        var response = self.responses?.first
-        if response == nil, let promptId = self.sentPrompt?.promptId {
-            let element = self.promptContent?.cactusElement
-            let questionText = self.promptContent?.getQuestion() ?? self.prompt?.question
-            response = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: questionText, element: element, medium: .JOURNAL_IOS)
-        }
-        
-        guard let reflectionResponse = response else {
-            return nil
-        }
-        
-        editView.response = reflectionResponse
-        editView.questionText = self.getQuestionText()
-        
-        return editView
-    }
-    
-    func done(text: String?) {
-        guard let response = self.editViewController?.response else {return}
-        
-        response.content.text = text
-        self.updateView()
-        
-        ReflectionResponseService.sharedInstance.save(response) { (saved, error) in
-            self.logger.debug("Saved the response! \(saved?.id ?? "no id found")")
-            self.editViewController?.isSaving = false
-            if error == nil {
-                self.editViewController?.dismiss(animated: true, completion: nil)
-            }
-        }
-        
-    }
-    
-    func cancel() {
-        self.editViewController?.dismiss(animated: true, completion: nil)
-    }
-}
+//
+//extension JournalEntryCell: EditReflectionViewControllerDelegate {
+//    func createEditReflectionModal() -> EditReflectionViewController? {
+//        let editView = EditReflectionViewController.loadFromNib()
+//        editView.delegate = self
+//
+//        var response = self.responses?.first
+//        if response == nil, let promptId = self.sentPrompt?.promptId {
+//            let element = self.promptContent?.cactusElement
+//            let questionText = self.promptContent?.getQuestion() ?? self.prompt?.question
+//            response = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: questionText, element: element, medium: .JOURNAL_IOS)
+//        }
+//
+//        guard let reflectionResponse = response else {
+//            return nil
+//        }
+//
+//        editView.response = reflectionResponse
+//        editView.questionText = self.getQuestionText()
+//
+//        return editView
+//    }
+//
+//    func done(text: String?) {
+//        guard let response = self.editViewController?.response else {return}
+//
+//        response.content.text = text
+//        self.updateView()
+//
+//        ReflectionResponseService.sharedInstance.save(response) { (saved, error) in
+//            self.logger.debug("Saved the response! \(saved?.id ?? "no id found")")
+//            self.editViewController?.isSaving = false
+//            if error == nil {
+//                self.editViewController?.dismiss(animated: true, completion: nil)
+//            }
+//        }
+//
+//    }
+//
+//    func cancel() {
+//        self.editViewController?.dismiss(animated: true, completion: nil)
+//    }
+//}

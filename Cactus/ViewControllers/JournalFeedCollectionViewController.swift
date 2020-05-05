@@ -18,6 +18,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     var memberUnsubscriber: Unsubscriber?
     var member: CactusMember?
     var headerView: UICollectionReusableView?
+    var editViewController: EditReflectionViewController?
     var settings: AppSettings? {
         didSet {
             self.handleSettingsChanged()
@@ -376,4 +377,52 @@ extension JournalFeedCollectionViewController: JournalEntryCollectionVieweCellDe
         guard let path = self.collectionView.indexPath(for: cell) else {return}
         self.collectionView.delegate?.collectionView?(self.collectionView, didSelectItemAt: path)
     }
+    
+    func presentEditReflectionModal(_ data: JournalEntry) -> EditReflectionViewController? {
+            let editView = EditReflectionViewController.loadFromNib()
+            editView.delegate = self
+            
+            var response = data.responses?.first
+            let questionText = data.promptContent?.getQuestion() ?? data.prompt?.question
+            if response == nil, let promptId = data.sentPrompt?.promptId {
+                let element = data.promptContent?.cactusElement
+                
+                response = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: questionText, element: element, medium: .JOURNAL_IOS)
+            }
+            
+            guard let reflectionResponse = response else {
+                return nil
+            }
+            
+            editView.response = reflectionResponse
+            editView.questionText = questionText
+                    
+            self.editViewController = editView
+            NavigationService.sharedInstance.present(editView, animated: true)
+        
+            return editView
+        }
+        
+        func done(text: String?, response: ReflectionResponse?) {
+            guard let response = response else {
+                self.editViewController?.dismiss(animated: true, completion: nil)
+                return
+            }
+            
+            response.content.text = text
+//            self.reloadVisibleViews()
+            
+            ReflectionResponseService.sharedInstance.save(response) { (saved, error) in
+                self.logger.debug("Saved the response! \(saved?.id ?? "no id found")")
+                self.editViewController?.isSaving = false
+                if error == nil {
+                    self.editViewController?.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
+        
+        func cancel() {
+            self.editViewController?.dismiss(animated: true, completion: nil)
+        }
+    
 }

@@ -195,7 +195,6 @@
 		303C9DDC23841A30006B9786 /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
 		303C9DDD23841A38006B9786 /* LoadablePromptContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9DA8237E1470006B9786 /* LoadablePromptContentViewController.swift */; };
 		303C9DDE23841A3E006B9786 /* LoadableSharedReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9DC6237FCF06006B9786 /* LoadableSharedReflectionViewController.swift */; };
-		303C9DDF23841A67006B9786 /* JournalEntryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9E22EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift */; };
 		303C9DE023841A71006B9786 /* JournalFeedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FA2C9823741A3300F671AF /* JournalFeedFlowLayout.swift */; };
 		303C9DE123841A8F006B9786 /* JournalFeedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */; };
 		303C9DE223841A9A006B9786 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F4B2347E25A00798560 /* DateUtil.swift */; };
@@ -563,8 +562,6 @@
 		30934F9A22EBF235007C4E6C /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9822EBF235007C4E6C /* BorderedButton.swift */; };
 		30934F9C22EBF2AB007C4E6C /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9B22EBF2AB007C4E6C /* ColorExtensions.swift */; };
 		30934F9D22EBF2AC007C4E6C /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9B22EBF2AB007C4E6C /* ColorExtensions.swift */; };
-		30934F9F22EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9E22EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift */; };
-		30934FA022EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9E22EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift */; };
 		30934FA322EBF4E6007C4E6C /* FormatUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FA222EBF4E6007C4E6C /* FormatUtils.swift */; };
 		30934FA422EBF4E6007C4E6C /* FormatUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FA222EBF4E6007C4E6C /* FormatUtils.swift */; };
 		30934FA622EBFF27007C4E6C /* ReflectionPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FA522EBFF27007C4E6C /* ReflectionPrompt.swift */; };
@@ -964,7 +961,6 @@
 		30934F9522EBF146007C4E6C /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		30934F9822EBF235007C4E6C /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
 		30934F9B22EBF2AB007C4E6C /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
-		30934F9E22EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryCollectionViewCell.swift; sourceTree = "<group>"; };
 		30934FA222EBF4E6007C4E6C /* FormatUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatUtils.swift; sourceTree = "<group>"; };
 		30934FA522EBFF27007C4E6C /* ReflectionPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionPrompt.swift; sourceTree = "<group>"; };
 		30934FA822EC0001007C4E6C /* ReflectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionResponse.swift; sourceTree = "<group>"; };
@@ -1288,7 +1284,6 @@
 				300F2370237A629800F35CDE /* CircleView.swift */,
 				305B1884233273C4003E1561 /* GrowingTextView.swift */,
 				30051A4B23A86306005F812B /* InvertableImageView.swift */,
-				30934F9E22EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift */,
 				30FA2C9823741A3300F671AF /* JournalFeedFlowLayout.swift */,
 				30BF2E312328C7AD00A49EB6 /* MarkdownTypes.swift */,
 				30E2D375234311C6003D2B27 /* PillLabelView.swift */,
@@ -2317,7 +2312,6 @@
 				303C9E0D23841AC6006B9786 /* LoginViewController.swift in Sources */,
 				30D7386F23D00C0C006F4DA6 /* CircleImageView.swift in Sources */,
 				303C9E3423841AEB006B9786 /* ReflectionPromptService.swift in Sources */,
-				303C9DDF23841A67006B9786 /* JournalEntryCollectionViewCell.swift in Sources */,
 				30051A4E23A86306005F812B /* InvertableImageView.swift in Sources */,
 				30762E53243FF4A5000A18B3 /* BrowseElementsCollectionViewController.swift in Sources */,
 				3099D200240974F200BD9CC4 /* SubscriptionProductGroupService.swift in Sources */,
@@ -2552,7 +2546,6 @@
 				30E9B0AD22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
 				308505A623D0E490001179E2 /* SocialContactTableViewCell.swift in Sources */,
 				3099D20324098EF400BD9CC4 /* SubscriptionProductGroup.swift in Sources */,
-				30934FA022EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift in Sources */,
 				305B186F23319E09003E1561 /* FileUtils.swift in Sources */,
 				30DCA5F124417AA400D520D4 /* PromptContentDataSource.swift in Sources */,
 				301C1A91236F7E9700F06A3D /* MeaningAnimationViewController.swift in Sources */,
@@ -2722,7 +2715,6 @@
 				30934FA622EBFF27007C4E6C /* ReflectionPrompt.swift in Sources */,
 				30E9B0AC22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
 				30D0E454236C98C100EFC0E3 /* StringExtensions.swift in Sources */,
-				30934F9F22EBF3CD007C4E6C /* JournalEntryCollectionViewCell.swift in Sources */,
 				305CB0FC23D03C080046E8A8 /* ContactService.swift in Sources */,
 				30934F9922EBF235007C4E6C /* BorderedButton.swift in Sources */,
 				304A252C240DCC2200737C57 /* SubscriptionInvoice.swift in Sources */,
