@@ -194,7 +194,7 @@ class CactusMember: FirestoreIdentifiable, Hashable {
             return nil
         }
         
-        let index = min(preferredIndex ?? 0, valuesSize)
+        let index = min(preferredIndex ?? 0, valuesSize - 1)
         return self.coreValues?[index]
     }
 }
