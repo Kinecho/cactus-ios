@@ -199,6 +199,13 @@ class ContentBackgroundImage: ImageFile {
     var position: ImagePosition?
 }
 
+let CORE_VALUE_REPLACE_TOKEN_DEFAULT = "{{CORE_VALUE}}"
+
+class ContentCoreValues: Codable {
+    var textTemplateMd: String?
+    var valueReplaceToken: String? = CORE_VALUE_REPLACE_TOKEN_DEFAULT
+}
+
 class Content: Codable {
     var contentType: ContentType = .text
     var quote: Quote?
@@ -213,6 +220,7 @@ class Content: Codable {
     var link: ContentLink?
     var actionButton: ActionButton?
     var showElementIcon: Bool?
+    var coreValues: ContentCoreValues?
     
     enum ContentCodingKeys: CodingKey {
         case contentType
@@ -228,6 +236,7 @@ class Content: Codable {
         case link
         case actionButton
         case showElementIcon
+        case coreValues
     }
     
     public required init(from decoder: Decoder) throws {
@@ -273,7 +282,23 @@ class Content: Codable {
             self.actionButton = nil
         }
         
+        self.coreValues = try? container.decode(ContentCoreValues.self, forKey: ContentCodingKeys.coreValues)
+        
         self.showElementIcon = try? container.decode(Bool.self, forKey: ContentCodingKeys.showElementIcon)
+    }
+    
+    func getDisplayText(member: CactusMember?=nil) -> String? {
+        var textString: String? = self.text_md
+        if textString == nil || textString?.isEmpty ?? true {
+            textString = self.text
+        }
+        
+        if let firstValue = member?.coreValues?.first, let coreValuesTemplate = self.coreValues?.textTemplateMd {
+            let token = self.coreValues?.valueReplaceToken ?? CORE_VALUE_REPLACE_TOKEN_DEFAULT
+            textString = coreValuesTemplate.replacingOccurrences(of: token, with: firstValue)
+        }
+        
+        return textString
     }
 }
 

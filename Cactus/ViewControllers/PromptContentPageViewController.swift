@@ -31,6 +31,13 @@ class PromptContentPageViewController: UIPageViewController {
     var celebrateVc: CelebrateViewController?
     var appSettings: AppSettings?
     var settingsUnsubscriber: ListenerRegistration?
+    var memberUnsubscriber: Unsubscriber?
+    var member: CactusMember? {
+        didSet {
+            self.updateScreenData()
+        }
+    }
+    
     weak var promptDelegate: PromptContentPageViewControllerDelegate?
     
     fileprivate lazy var screens: [UIViewController] = []
@@ -39,6 +46,11 @@ class PromptContentPageViewController: UIPageViewController {
         super.viewDidLoad()
         self.dataSource = self
         self.delegate = self
+        
+        self.member = CactusMemberService.sharedInstance.currentMember
+        self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, _, _) in
+            self.member = member
+        })
         
         self.appSettings = AppSettingsService.sharedInstance.currentSettings
         self.settingsUnsubscriber = AppSettingsService.sharedInstance.observeSettings { (settings, _) in
@@ -66,6 +78,7 @@ class PromptContentPageViewController: UIPageViewController {
     
     deinit {
         self.settingsUnsubscriber?.remove()
+        self.memberUnsubscriber?()
     }
     
     /** Create a reflection response if it wasn't present. Return true if it was created
@@ -118,7 +131,9 @@ class PromptContentPageViewController: UIPageViewController {
         var screens: [UIViewController] = []
         self.promptContent.content.forEach({ (content) in
             if let screen = self.getContentViewController(content) {
+                
                 screens.append(screen)
+                
             }
         })
         
@@ -140,6 +155,14 @@ class PromptContentPageViewController: UIPageViewController {
         self.addSharePromptButton()
     }
     
+    func updateScreenData() {
+        self.screens.forEach { (screenVc) in
+            if let promptVc = screenVc as? PromptContentViewController {
+                promptVc.member = self.member
+            }
+        }
+    }
+    
     func updateCelebrate() {
         guard let celebrate = self.celebrateVc else {
             self.logger.info("No celebrate screen existed. Can't update it.")
@@ -149,7 +172,7 @@ class PromptContentPageViewController: UIPageViewController {
         celebrate.reflectionResponse = self.reflectionResponse
     }
     
-    func getContentViewController(_ content: Content) -> UIViewController? {
+    func getContentViewController(_ content: Content) -> PromptContentViewController? {
         var viewController: PromptContentViewController?
         var backgroundColor: UIColor? = CactusColor.promptBackground
         switch content.contentType {
@@ -181,6 +204,7 @@ class PromptContentPageViewController: UIPageViewController {
             vc.content = content
             vc.promptContent = promptContent
             vc.delegate = self
+            vc.member = self.member
         }
         
         viewController?.view.backgroundColor = backgroundColor

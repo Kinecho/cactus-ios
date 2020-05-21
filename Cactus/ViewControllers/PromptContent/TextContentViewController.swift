@@ -23,6 +23,7 @@ class TextContentViewController: PromptContentViewController {
     @IBOutlet weak var titleLabel: UILabel!
     
     weak var textTouchDelegate: UIGestureRecognizerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initTextView(self.text)
@@ -31,6 +32,11 @@ class TextContentViewController: PromptContentViewController {
     
     override func viewDidLayoutSubviews() {
         self.updateConstraints()
+    }
+    
+    override func memberDidSet(updated: CactusMember?, previous: CactusMember?) {
+        super.memberDidSet(updated: updated, previous: previous)
+        self.configureView()
     }
     
     func updateConstraints() {
@@ -51,11 +57,17 @@ class TextContentViewController: PromptContentViewController {
     }
     
     func configureView() {
-        self.text.text = self.content.text
-        var textString: String? = self.content.text_md
-        if textString == nil || textString?.isEmpty ?? true {
-            textString = self.content.text
+        guard self.isViewLoaded else {
+            return
         }
+        self.text.text = self.content.text
+//        var textString: String? = self.content.text_md
+//        if textString == nil || textString?.isEmpty ?? true {
+//            textString = self.content.text
+//        }
+        
+        let member = CactusMemberService.sharedInstance.currentMember
+        let textString = self.content.getDisplayText(member: member)
         
         if let mdText = MarkdownUtil.centeredMarkdown(textString?.preventOrphanedWords(), font: CactusFont.normal(24)) {
             self.text.attributedText = mdText.preventOrphanedWords()

@@ -24,13 +24,17 @@ class PromptContentViewController: UIViewController {
     var tapNavigationEnabled = true
     var selectedTextView: UITextView?
     var appSettings: AppSettings!
+    var member: CactusMember? {
+        didSet {
+            self.memberDidSet(updated: self.member, previous: oldValue)
+        }
+    }
     var logger = Logger("PromptContentViewController")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapGestureHandler(touch:))))
         NotificationCenter.default.addObserver(self, selector: #selector(self.appMovedToBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
-        
     }
     
     @objc func appMovedToBackground() {
@@ -45,6 +49,10 @@ class PromptContentViewController: UIViewController {
     
     func initTextView(_ textView: UITextView) {
         textView.delegate = self
+    }
+    
+    func memberDidSet(updated: CactusMember?, previous: CactusMember?) {
+        ///No Operation. Sub class can override.
     }
     
     func handleViewTapped(touch: UITapGestureRecognizer) {
