@@ -20,16 +20,16 @@ class ReflectContentViewController: PromptContentViewController {
     var reflectLogger = Logger(fileName: "ReflectionContentViewController")
     var animationVc: GenericCactusElementAnimationViewController?
     var player: AVPlayer!
-    var reflectionResponse: ReflectionResponse? {
-        didSet {
-            self.configureResponseView()
-        }
-    }
+//    var reflectionResponse: ReflectionResponse? {
+//        didSet {
+//            self.configureResponseView()
+//        }
+//    }
     var editViewController: EditReflectionViewController?
         
     var startTime: Date?
     var endTime: Date?
-          
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.pottedCactusPlaceholderImage.removeFromSuperview()
@@ -44,6 +44,10 @@ class ReflectContentViewController: PromptContentViewController {
         self.createAnimation()
     }
    
+    func getQuestionMarkdownString() -> String? {
+        return self.content.getDisplayText(member: self.member, preferredIndex: self.promptContent.preferredCoreValueIndex, coreValue: self.reflectionResponse?.coreValue)
+    }
+    
     func createAnimation() {
         let container = self.cactusAnimationContainerView!
         
@@ -169,7 +173,7 @@ class ReflectContentViewController: PromptContentViewController {
             self.setSaving(true)
         }
         
-        ReflectionResponseService.sharedInstance.save(response) { (saved, error) in
+        super.delegate?.save(response, nextPageOnSuccess: nextPageOnSuccess, addReflectionLog: true, completion: { (saved, error) in
             if let error = error {
                 self.reflectLogger.error("Error saving reflection response", error)
             }
@@ -178,23 +182,33 @@ class ReflectContentViewController: PromptContentViewController {
                 self.setSaving(false)
             }
             completion?(saved, error)
-            if error == nil, nextPageOnSuccess {
-                self.delegate?.nextScreen()
-            }
-        }
+        })
+        
     }
     
     func createEditReflectionModal() -> EditReflectionViewController {
         let editView = EditReflectionViewController.loadFromNib()
         editView.delegate = self
         editView.response = self.reflectionResponse
-        editView.questionText = self.content.text
-        
+        editView.questionText = self.getQuestionMarkdownString()        
         return editView
     }
     
+    override func memberDidSet(updated: CactusMember?, previous: CactusMember? ) {
+        super.memberDidSet(updated: updated, previous: previous)
+        self.configureView()
+    }
+    
+    override func reflectionResponseDidSet(updated: ReflectionResponse?, previous: ReflectionResponse?) {
+        super.reflectionResponseDidSet(updated: updated, previous: previous)
+        self.configureView()
+    }
+ 
     func configureView() {
-        let questionText = !FormatUtils.isBlank(content.text_md) ? content.text_md : content.text
+        guard self.isViewLoaded else {
+            return
+        }
+        let questionText = self.getQuestionMarkdownString()
         self.questionTextView.attributedText = MarkdownUtil.centeredMarkdown(questionText?.preventOrphanedWords(), font: CactusFont.normal(24))
         self.view.backgroundColor = CactusColor.promptBackground
         self.reflectionTextView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.addNoteTapped)))

@@ -24,6 +24,12 @@ class PromptContentViewController: UIViewController {
     var tapNavigationEnabled = true
     var selectedTextView: UITextView?
     var appSettings: AppSettings!
+    var reflectionResponse: ReflectionResponse? {
+        didSet {
+            self.reflectionResponseDidSet(updated: self.reflectionResponse, previous: oldValue)
+        }
+    }
+    
     var member: CactusMember? {
         didSet {
             self.memberDidSet(updated: self.member, previous: oldValue)
@@ -51,9 +57,11 @@ class PromptContentViewController: UIViewController {
         textView.delegate = self
     }
     
-    func memberDidSet(updated: CactusMember?, previous: CactusMember?) {
-        ///No Operation. Sub class can override.
-    }
+    ///No Operation. Sub class can override.
+    func memberDidSet(updated: CactusMember?, previous: CactusMember?) {}
+    
+    ///No Operation. Sub Class can override.
+    func reflectionResponseDidSet(updated: ReflectionResponse?, previous: ReflectionResponse?){}
     
     func handleViewTapped(touch: UITapGestureRecognizer) {
         self.logger.info("Handle view tapped called")

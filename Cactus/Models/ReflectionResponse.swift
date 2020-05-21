@@ -71,6 +71,7 @@ class ReflectionResponse: FirestoreIdentifiable, Hashable {
     var shared: Bool? = false
     var sharedAt: Date?
     var unsharedAt: Date?
+    var coreValue: String?
     
     static func == (lhs: ReflectionResponse, rhs: ReflectionResponse) -> Bool {
         return lhs.id != nil && rhs.id != nil && lhs.id == rhs.id

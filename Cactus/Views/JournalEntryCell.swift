@@ -313,12 +313,14 @@ class JournalEntryCell: UICollectionViewCell {
     
     // MARK: Helper functions
     func getQuestionText() -> String? {
-        let reflectContent = self.promptContent?.content.first(where: { (content) -> Bool in
-            content.contentType == .reflect
-        })
+//        let reflectContent = self.promptContent?.content.first(where: { (content) -> Bool in
+//            content.contentType == .reflect
+//        })
+//        let reflectText = FormatUtils.isBlank(reflectContent?.text) ? nil : reflectContent?.text
+        let member = CactusMemberService.sharedInstance.currentMember
+        let coreValue = self.responses?.first { $0.coreValue != nil }?.coreValue
         
-        let reflectText = FormatUtils.isBlank(reflectContent?.text) ? nil : reflectContent?.text
-        let questionText = reflectText ?? self.prompt?.question
+        let questionText = self.promptContent?.getDisplayableQuestion(member: member, coreValue: coreValue) ?? self.prompt?.question
         return questionText?.preventOrphanedWords()
     }
 }

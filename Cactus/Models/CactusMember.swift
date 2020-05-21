@@ -187,4 +187,14 @@ class CactusMember: FirestoreIdentifiable, Hashable {
         
         return TimeZone(identifier: userTimeZone)
     }
+    
+    func getCoreValue(at preferredIndex: Int? = nil) -> String? {
+        let valuesSize = self.coreValues?.count ?? 0
+        guard !(self.coreValues?.isEmpty ?? true), valuesSize > 0 else {
+            return nil
+        }
+        
+        let index = min(preferredIndex ?? 0, valuesSize)
+        return self.coreValues?[index]
+    }
 }

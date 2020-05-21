@@ -39,6 +39,11 @@ class TextContentViewController: PromptContentViewController {
         self.configureView()
     }
     
+    override func reflectionResponseDidSet(updated: ReflectionResponse?, previous: ReflectionResponse?) {
+        super.reflectionResponseDidSet(updated: updated, previous: previous)
+        self.configureView()
+    }
+    
     func updateConstraints() {
         if self.content.backgroundImage?.isEmpty ?? true {
             self.stackViewContainerBottomToImageConstraint.isActive = false
@@ -65,9 +70,9 @@ class TextContentViewController: PromptContentViewController {
 //        if textString == nil || textString?.isEmpty ?? true {
 //            textString = self.content.text
 //        }
-        
+        let coreValue = self.reflectionResponse?.coreValue
         let member = CactusMemberService.sharedInstance.currentMember
-        let textString = self.content.getDisplayText(member: member)
+        let textString = self.content.getDisplayText(member: member, preferredIndex: self.promptContent.preferredCoreValueIndex, coreValue: coreValue)
         
         if let mdText = MarkdownUtil.centeredMarkdown(textString?.preventOrphanedWords(), font: CactusFont.normal(24)) {
             self.text.attributedText = mdText.preventOrphanedWords()

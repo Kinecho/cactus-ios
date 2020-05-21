@@ -42,7 +42,7 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
             self.isModalInPresentation = true
         }
         
-        self.questionTextView.text = questionText
+        self.questionTextView.attributedText = MarkdownUtil.toMarkdown(questionText, font: CactusFont.normal(24))
         self.responseTextView.text = response.content.text
         
         self.configureView()

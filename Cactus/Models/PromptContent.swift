@@ -204,6 +204,10 @@ let CORE_VALUE_REPLACE_TOKEN_DEFAULT = "{{CORE_VALUE}}"
 class ContentCoreValues: Codable {
     var textTemplateMd: String?
     var valueReplaceToken: String? = CORE_VALUE_REPLACE_TOKEN_DEFAULT
+    
+    func getMemberCoreValue(member: CactusMember?, preferredIndex: Int?=0) -> String? {
+        return member?.getCoreValue(at: preferredIndex ?? 0)
+    }
 }
 
 class Content: Codable {
@@ -287,15 +291,24 @@ class Content: Codable {
         self.showElementIcon = try? container.decode(Bool.self, forKey: ContentCodingKeys.showElementIcon)
     }
     
-    func getDisplayText(member: CactusMember?=nil) -> String? {
+    /**
+        Get the `text` of the content, with possible Core Values overrides. Resulting text should be considered in markdown format.
+        - Parameter member: The member that the content is displayed for.
+         This is typically the currently logged in member. If present, member specific core values overrides will be applied, if avilable.
+        - Parameter coreValue: The core value to use for the string replacement, if applicable.
+         This lets us use a pre-set value rather than the member's core value list.
+        - Returns: The string to be displayed in any `text` fields.
+     */
+    func getDisplayText(member: CactusMember?=nil, preferredIndex: Int?=0, coreValue: String?=nil) -> String? {
         var textString: String? = self.text_md
         if textString == nil || textString?.isEmpty ?? true {
             textString = self.text
         }
-        
-        if let firstValue = member?.coreValues?.first, let coreValuesTemplate = self.coreValues?.textTemplateMd {
+                        
+        if let coreValue = coreValue ?? self.coreValues?.getMemberCoreValue(member: member, preferredIndex: preferredIndex),
+            let coreValuesTemplate = self.coreValues?.textTemplateMd {
             let token = self.coreValues?.valueReplaceToken ?? CORE_VALUE_REPLACE_TOKEN_DEFAULT
-            textString = coreValuesTemplate.replacingOccurrences(of: token, with: firstValue)
+            textString = coreValuesTemplate.replacingOccurrences(of: token, with: coreValue)
         }
         
         return textString
@@ -327,6 +340,8 @@ class PromptContent: FlamelinkIdentifiable {
     var contentStatus: ContentStatus = .unknown
     var subscriptionTiers: [SubscriptionTier] = []
     
+    var preferredCoreValueIndex: Int? = 0
+    
     enum CodingKeys: String, CodingKey {
         case _fl_meta_
         case documentId
@@ -340,6 +355,7 @@ class PromptContent: FlamelinkIdentifiable {
         case cactusElement
         case contentStatus
         case subscriptionTiers
+        case preferredCoreValueIndex
     }
     
     public required init(from decoder: Decoder) throws {
@@ -357,10 +373,7 @@ class PromptContent: FlamelinkIdentifiable {
         self.cactusElement = try? values.decode(CactusElement.self, forKey: .cactusElement)
         self.contentStatus = (try? values.decode(ContentStatus.self, forKey: .contentStatus)) ?? .unknown
         self.subscriptionTiers = (try? values.decode([SubscriptionTier].self, forKey: .subscriptionTiers)) ?? []
-    }
-    
-    func getQuestion() -> String? {
-        self.content.first {$0.contentType == .reflect}?.text
+        self.preferredCoreValueIndex = try? values.decode(Int.self, forKey: .preferredCoreValueIndex)
     }
     
     func getIntroText() -> String? {
@@ -378,6 +391,19 @@ class PromptContent: FlamelinkIdentifiable {
         return imageContent?.backgroundImage
     }
     
+    func getDisplayableQuestion(member: CactusMember?=nil, coreValue: String?=nil) -> String? {
+        let content = self.getReflectContent()
+        return content?.getDisplayText(member: member, preferredIndex: self.preferredCoreValueIndex ?? 0, coreValue: coreValue)
+    }
+    
+    func getReflectContent() -> Content? {
+        return self.content.first {$0.contentType == .reflect}
+    }
+    
+    func getQuestion() -> String? {
+        self.content.first {$0.contentType == .reflect}?.text
+    }
+        
     func getQuestionMarkdown() -> String? {
         let content = self.content.first {$0.contentType == .reflect}
         return FormatUtils.isBlank(content?.text_md) ? content?.text : content?.text_md

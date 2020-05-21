@@ -28,7 +28,7 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     weak var promptContentDelegate: PromptContentPageViewControllerDelegate?
     
     private let itemsPerRow: CGFloat = 1
-//    private let reuseIdentifier = ReuseIdentifier.JournalEntryCell.rawValue
+    //    private let reuseIdentifier = ReuseIdentifier.JournalEntryCell.rawValue
     private let defaultCellHeight: CGFloat = 220
     private let defaultPadding: CGFloat = 20
     private let defaultResponseTextHeight: CGFloat = 110
@@ -92,7 +92,6 @@ class JournalFeedCollectionViewController: UICollectionViewController {
             flowLayout.estimatedItemSize = getCellEstimatedSize(self.view.bounds.size)
         }
         self.view.translatesAutoresizingMaskIntoConstraints = false
-        
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(self.appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
@@ -244,17 +243,17 @@ class JournalFeedCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView,
                                  cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-//        guard let journalCell = cell as? JournalEntryCollectionViewCell else {
-//            return cell
-//        }
-//
-//        let journalEntry = self.dataSource.get(at: indexPath.row)
-//        journalCell.journalEntry = journalEntry
-//        journalCell.updateView()
-//        journalCell.setCellWidth(self.getCellEstimatedSize(self.view.bounds.size).width)
-//        journalCell.delegate = self
-//        return journalCell
+        //        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        //        guard let journalCell = cell as? JournalEntryCollectionViewCell else {
+        //            return cell
+        //        }
+        //
+        //        let journalEntry = self.dataSource.get(at: indexPath.row)
+        //        journalCell.journalEntry = journalEntry
+        //        journalCell.updateView()
+        //        journalCell.setCellWidth(self.getCellEstimatedSize(self.view.bounds.size).width)
+        //        journalCell.delegate = self
+        //        return journalCell
         
         let _cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         let cellWidth = self.getCellEstimatedSize(self.view.bounds.size).width
@@ -379,50 +378,52 @@ extension JournalFeedCollectionViewController: JournalEntryCollectionVieweCellDe
     }
     
     func presentEditReflectionModal(_ data: JournalEntry) -> EditReflectionViewController? {
-            let editView = EditReflectionViewController.loadFromNib()
-            editView.delegate = self
-            
-            var response = data.responses?.first
-            let questionText = data.promptContent?.getQuestion() ?? data.prompt?.question
-            if response == nil, let promptId = data.sentPrompt?.promptId {
-                let element = data.promptContent?.cactusElement
+        let editView = EditReflectionViewController.loadFromNib()
+        editView.delegate = self
+        
+        var response = data.responses?.first
+        let coreValue = data.responses?.first {$0.coreValue != nil }?.coreValue
+        let questionText = data.promptContent?.getDisplayableQuestion(member: member, coreValue: coreValue) ?? data.prompt?.question
                 
-                response = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: questionText, element: element, medium: .JOURNAL_IOS)
-            }
+        if response == nil, let promptId = data.sentPrompt?.promptId {
+            let element = data.promptContent?.cactusElement
             
-            guard let reflectionResponse = response else {
-                return nil
-            }
-            
-            editView.response = reflectionResponse
-            editView.questionText = questionText
-                    
-            self.editViewController = editView
-            NavigationService.sharedInstance.present(editView, animated: true)
-        
-            return editView
+            response = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: questionText, element: element, medium: .JOURNAL_IOS)            
         }
         
-        func done(text: String?, response: ReflectionResponse?) {
-            guard let response = response else {
-                self.editViewController?.dismiss(animated: true, completion: nil)
-                return
-            }
-            
-            response.content.text = text
-//            self.reloadVisibleViews()
-            
-            ReflectionResponseService.sharedInstance.save(response) { (saved, error) in
-                self.logger.debug("Saved the response! \(saved?.id ?? "no id found")")
-                self.editViewController?.isSaving = false
-                if error == nil {
-                    self.editViewController?.dismiss(animated: true, completion: nil)
-                }
-            }
+        guard let reflectionResponse = response else {
+            return nil
         }
         
-        func cancel() {
+        editView.response = reflectionResponse
+        editView.questionText = questionText
+        
+        self.editViewController = editView
+        NavigationService.sharedInstance.present(editView, animated: true)
+        
+        return editView
+    }
+    
+    func done(text: String?, response: ReflectionResponse?) {
+        guard let response = response else {
             self.editViewController?.dismiss(animated: true, completion: nil)
+            return
         }
+        
+        response.content.text = text
+        //            self.reloadVisibleViews()
+        
+        ReflectionResponseService.sharedInstance.save(response) { (saved, error) in
+            self.logger.debug("Saved the response! \(saved?.id ?? "no id found")")
+            self.editViewController?.isSaving = false
+            if error == nil {
+                self.editViewController?.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func cancel() {
+        self.editViewController?.dismiss(animated: true, completion: nil)
+    }
     
 }

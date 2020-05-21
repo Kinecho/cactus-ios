@@ -6,7 +6,7 @@ executors:
   cactus-ios: 
     working_directory: /Users/distiller/project
     macos:
-      xcode: "11.2.1"
+      xcode: "11.5.0"
     environment:
       FL_OUTPUT_DIR: fl_output
   cactus-web:
@@ -92,10 +92,11 @@ commands:
   install-pods:
     steps:
       - restore-pods-cache
-      - run:
-          name: Install CocoaPods Master Repo
-          command: |
-            curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf      
+# Pods are new installed via the CDN
+#      - run:
+#          name: Install CocoaPods Master Repo
+#          command: |
+#            curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
       - run:
           name: "Install CocoaPods"
           command: bundle exec pod install --verbose      

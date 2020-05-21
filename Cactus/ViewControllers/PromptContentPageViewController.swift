@@ -21,6 +21,7 @@ class PromptContentPageViewController: UIPageViewController {
     var pageControl: UIPageControl?
     var reflectionResponse: ReflectionResponse? {
         didSet {
+            self.updateScreenData()
             self.updateCelebrate()
         }
     }
@@ -159,6 +160,7 @@ class PromptContentPageViewController: UIPageViewController {
         self.screens.forEach { (screenVc) in
             if let promptVc = screenVc as? PromptContentViewController {
                 promptVc.member = self.member
+                promptVc.reflectionResponse = self.reflectionResponse
             }
         }
     }
@@ -401,6 +403,14 @@ extension PromptContentPageViewController: PromptContentViewControllerDelegate {
     }
     
     func save(_ response: ReflectionResponse, nextPageOnSuccess: Bool=false, addReflectionLog: Bool=true, completion: ((ReflectionResponse?, Any?) -> Void)?=nil) {
+//        self.member
+        let coreValueIndex = self.promptContent.preferredCoreValueIndex ?? 0
+        let memberCoreValue = self.member?.getCoreValue(at: coreValueIndex)
+        
+        if response.coreValue == nil {
+            response.coreValue = memberCoreValue
+        }
+        
         ReflectionResponseService.sharedInstance.save(response, addReflectionLog: addReflectionLog) { (saved, error) in
             if let error = error {
                 self.logger.error("Error saving reflection response", error)
