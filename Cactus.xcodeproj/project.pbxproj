@@ -2012,6 +2012,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			inputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Assets.car",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
@@ -2185,6 +2186,9 @@
 			);
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Assets.car",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
