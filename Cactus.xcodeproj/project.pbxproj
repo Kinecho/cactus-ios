@@ -113,8 +113,6 @@
 		30265C6123453CB100934041 /* UIImage+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30265C5F23453CB100934041 /* UIImage+SwiftyGif.swift */; };
 		30265C6323453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30265C6223453CD100934041 /* UIImageView+SwiftyGif.swift */; };
 		30265C6423453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30265C6223453CD100934041 /* UIImageView+SwiftyGif.swift */; };
-		3026B297234D1AF200CD2D34 /* cactus-growing-green-588.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3026B296234D1AF200CD2D34 /* cactus-growing-green-588.mp4 */; };
-		3026B298234D1AF200CD2D34 /* cactus-growing-green-588.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3026B296234D1AF200CD2D34 /* cactus-growing-green-588.mp4 */; };
 		3026B29A234D3E2800CD2D34 /* PromptContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3026B299234D3E2800CD2D34 /* PromptContentViewController.swift */; };
 		3026B29B234D3E2800CD2D34 /* PromptContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3026B299234D3E2800CD2D34 /* PromptContentViewController.swift */; };
 		302C4F492347D7A700798560 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F482347D7A700798560 /* SettingsTableViewController.swift */; };
@@ -379,7 +377,6 @@
 		304B217623D39484007B016C /* SocialInviteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3006442323D26BAB00712ED1 /* SocialInviteService.swift */; };
 		304B217723D394B5007B016C /* ApiTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67423623010002634A8 /* ApiTypes.swift */; };
 		304B217823D394E4007B016C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0A222EAC204005B25FD /* AuthService.swift */; };
-		304B217923D39570007B016C /* ProdAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30A281EB22EA61FA0041158E /* ProdAssets.xcassets */; };
 		304B217A23D39575007B016C /* SharedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */; };
 		304B217C23D39AA4007B016C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3095619922ECF1CD009357BD /* GoogleService-Info.plist */; };
 		304B217D23D39AA4007B016C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30A281EF22EA62650041158E /* LaunchScreen.storyboard */; };
@@ -850,7 +847,6 @@
 		30265C5C23453C8D00934041 /* SwiftyGifManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyGifManager.swift; sourceTree = "<group>"; };
 		30265C5F23453CB100934041 /* UIImage+SwiftyGif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+SwiftyGif.swift"; sourceTree = "<group>"; };
 		30265C6223453CD100934041 /* UIImageView+SwiftyGif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+SwiftyGif.swift"; sourceTree = "<group>"; };
-		3026B296234D1AF200CD2D34 /* cactus-growing-green-588.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "cactus-growing-green-588.mp4"; sourceTree = "<group>"; };
 		3026B299234D3E2800CD2D34 /* PromptContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptContentViewController.swift; sourceTree = "<group>"; };
 		302C4F482347D7A700798560 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		302C4F4B2347E25A00798560 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
@@ -1123,7 +1119,6 @@
 		300AC18123398E86005C6555 /* Video */ = {
 			isa = PBXGroup;
 			children = (
-				3026B296234D1AF200CD2D34 /* cactus-growing-green-588.mp4 */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -1832,7 +1827,6 @@
 				304B210C23D383E1007B016C /* MainInterface.storyboard in Resources */,
 				303282102412B87D00FC197A /* PricingFeatureView.xib in Resources */,
 				3019A4DA243BDF7E003D0074 /* WebViewController.xib in Resources */,
-				304B217923D39570007B016C /* ProdAssets.xcassets in Resources */,
 				304B217D23D39AA4007B016C /* LaunchScreen.storyboard in Resources */,
 				304B217A23D39575007B016C /* SharedAssets.xcassets in Resources */,
 				304B217C23D39AA4007B016C /* GoogleService-Info.plist in Resources */,
@@ -1843,7 +1837,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3026B298234D1AF200CD2D34 /* cactus-growing-green-588.mp4 in Resources */,
 				30A281E222EA61A30041158E /* SharedAssets.xcassets in Resources */,
 				3020DD9B23640BE300EC40AE /* CactusElementsViewController.xib in Resources */,
 				30673B99233FDEC300EDE7BD /* Lato-Bold.ttf in Resources */,
@@ -1929,7 +1922,6 @@
 				30B6EA7822EA5AA100443E46 /* SharedAssets.xcassets in Resources */,
 				3084E9672348FE9C00788279 /* CelebrateViewController.xib in Resources */,
 				3032820D2412B87D00FC197A /* PricingFeatureView.xib in Resources */,
-				3026B297234D1AF200CD2D34 /* cactus-growing-green-588.mp4 in Resources */,
 				303C9DD0237FD7D1006B9786 /* ViewSharedReflectionViewController.xib in Resources */,
 				30B6EA7622EA5A9F00443E46 /* Main.storyboard in Resources */,
 				300F236E237A61F100F35CDE /* SharedReflectionViewController.xib in Resources */,
