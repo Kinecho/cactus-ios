@@ -301,7 +301,7 @@ class JournalEntryCell: UICollectionViewCell {
     
     // MARK: Actions functions
     func startEdit() {
-        guard let data = self.data, let vc = self.delegate?.presentEditReflectionModal(data) else {
+        guard let data = self.data, self.delegate?.presentEditReflectionModal(data) != nil else {
             self.logger.warn("Unable to get the edit modal", functionName: #function)
             return
         }        

@@ -46,8 +46,7 @@ def today_pods
 #    pod 'FacebookCore'
 end
 
-target 'Cactus Stage' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+target 'Cactus Stage' do  
   use_frameworks!
   inhibit_all_warnings!
   
@@ -56,7 +55,6 @@ target 'Cactus Stage' do
 end
 
 target 'Cactus Prod' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
   inhibit_all_warnings!
 

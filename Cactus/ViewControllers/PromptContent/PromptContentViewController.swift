@@ -61,7 +61,7 @@ class PromptContentViewController: UIViewController {
     func memberDidSet(updated: CactusMember?, previous: CactusMember?) {}
     
     ///No Operation. Sub Class can override.
-    func reflectionResponseDidSet(updated: ReflectionResponse?, previous: ReflectionResponse?){}
+    func reflectionResponseDidSet(updated: ReflectionResponse?, previous: ReflectionResponse?) {}
     
     func handleViewTapped(touch: UITapGestureRecognizer) {
         self.logger.info("Handle view tapped called")

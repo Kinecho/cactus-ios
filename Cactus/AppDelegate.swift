@@ -17,6 +17,7 @@ import FacebookCore
 import Branch
 import FirebaseInAppMessaging
 import StoreKit
+import FirebaseInstanceID
 
 typealias SentryUser = Sentry.User
 
@@ -238,7 +239,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate: NavigationServiceDelegate {
-    func open(url: URL, options: [UIApplication.OpenExternalURLOptionsKey : Any], completionHandler: ((Bool) -> Void)?) {
+    func open(url: URL, options: [UIApplication.OpenExternalURLOptionsKey: Any], completionHandler: ((Bool) -> Void)?) {
         UIApplication.shared.open(url, options: options, completionHandler: completionHandler)
     }    
 }

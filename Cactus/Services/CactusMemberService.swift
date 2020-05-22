@@ -145,7 +145,6 @@ class CactusMemberService {
             })
         }
         
-        
 //        InstanceID.instanceID().instanceID { (result, error) in
 //            if let error = error {
 //                self.logger.error("Error fetching remote instance ID: \(error)")
@@ -238,7 +237,7 @@ class CactusMemberService {
         return self.currentMember
     }
     
-    func awaitCurrentUser(_ onCompleted: @escaping (User?) -> Void) -> Void {
+    func awaitCurrentUser(_ onCompleted: @escaping (User?) -> Void) {
         let task = AuthenticatedTask { (_, user, taskCompleted) in
             defer {
                 taskCompleted()

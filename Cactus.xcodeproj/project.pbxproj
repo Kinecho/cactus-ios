@@ -215,7 +215,6 @@
 		303C9DF123841ABB006B9786 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E9572348042800788279 /* PrivacyPolicyViewController.swift */; };
 		303C9DF223841ABB006B9786 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E95A2348087100788279 /* HelpViewController.swift */; };
 		303C9DF323841ABB006B9786 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E95D234810B300788279 /* FeedbackViewController.swift */; };
-		303C9DF423841ABB006B9786 /* LanguageSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E9602348118000788279 /* LanguageSettingsViewController.swift */; };
 		303C9DF523841ABB006B9786 /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE566E234E73A000AA6D4D /* NotificationsTableViewController.swift */; };
 		303C9DF623841ABB006B9786 /* NotificationTimeOfDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE5671234E829100AA6D4D /* NotificationTimeOfDayViewController.swift */; };
 		303C9DF723841ABB006B9786 /* LinkedAccountsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE5674234E982C00AA6D4D /* LinkedAccountsTableViewController.swift */; };
@@ -536,8 +535,6 @@
 		3084E95C2348087100788279 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E95A2348087100788279 /* HelpViewController.swift */; };
 		3084E95E234810B300788279 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E95D234810B300788279 /* FeedbackViewController.swift */; };
 		3084E95F234810B300788279 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E95D234810B300788279 /* FeedbackViewController.swift */; };
-		3084E9612348118000788279 /* LanguageSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E9602348118000788279 /* LanguageSettingsViewController.swift */; };
-		3084E9622348118000788279 /* LanguageSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E9602348118000788279 /* LanguageSettingsViewController.swift */; };
 		3084E9652348FE9C00788279 /* CelebrateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E9632348FE9C00788279 /* CelebrateViewController.swift */; };
 		3084E9662348FE9C00788279 /* CelebrateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E9632348FE9C00788279 /* CelebrateViewController.swift */; };
 		3084E9672348FE9C00788279 /* CelebrateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3084E9642348FE9C00788279 /* CelebrateViewController.xib */; };
@@ -949,7 +946,6 @@
 		3084E9572348042800788279 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		3084E95A2348087100788279 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		3084E95D234810B300788279 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
-		3084E9602348118000788279 /* LanguageSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettingsViewController.swift; sourceTree = "<group>"; };
 		3084E9632348FE9C00788279 /* CelebrateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrateViewController.swift; sourceTree = "<group>"; };
 		3084E9642348FE9C00788279 /* CelebrateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CelebrateViewController.xib; sourceTree = "<group>"; };
 		3084E969234BACE300788279 /* FormatUtilTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatUtilTest.swift; sourceTree = "<group>"; };
@@ -1208,7 +1204,6 @@
 				3084E9572348042800788279 /* PrivacyPolicyViewController.swift */,
 				3084E95A2348087100788279 /* HelpViewController.swift */,
 				3084E95D234810B300788279 /* FeedbackViewController.swift */,
-				3084E9602348118000788279 /* LanguageSettingsViewController.swift */,
 				30BE566E234E73A000AA6D4D /* NotificationsTableViewController.swift */,
 				30BE5671234E829100AA6D4D /* NotificationTimeOfDayViewController.swift */,
 				30BE5674234E982C00AA6D4D /* LinkedAccountsTableViewController.swift */,
@@ -2248,7 +2243,6 @@
 				30D0E449236C89DA00EFC0E3 /* CactusConstants.swift in Sources */,
 				305B187C2331A906003E1561 /* ReflectionResponse.swift in Sources */,
 				3055D935240E921E00981DA2 /* SubscriptionProduct.swift in Sources */,
-				303C9DF423841ABB006B9786 /* LanguageSettingsViewController.swift in Sources */,
 				303C9DE423841AB6006B9786 /* MeaningAnimationViewController.swift in Sources */,
 				303C9E2923841ACC006B9786 /* RoundedView.swift in Sources */,
 				303C9E0723841AC1006B9786 /* CactusElementsViewController.swift in Sources */,
@@ -2654,7 +2648,6 @@
 				30DCA5F924418BAA00D520D4 /* PromptContentData.swift in Sources */,
 				30C7E57C233FEB5800145111 /* FontExtensions.swift in Sources */,
 				308C5A4C24479AA50087345D /* PricingFeaturePageViewController.swift in Sources */,
-				3084E9622348118000788279 /* LanguageSettingsViewController.swift in Sources */,
 				300AC188233A850B005C6555 /* JournalEntrySkeletonViewController.swift in Sources */,
 				30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */,
 				3084E9662348FE9C00788279 /* CelebrateViewController.swift in Sources */,
@@ -2830,7 +2823,6 @@
 				30DCA5F824418BAA00D520D4 /* PromptContentData.swift in Sources */,
 				30C7E57B233FEB5800145111 /* FontExtensions.swift in Sources */,
 				308C5A4B24479AA50087345D /* PricingFeaturePageViewController.swift in Sources */,
-				3084E9612348118000788279 /* LanguageSettingsViewController.swift in Sources */,
 				300AC187233A850B005C6555 /* JournalEntrySkeletonViewController.swift in Sources */,
 				3084E9652348FE9C00788279 /* CelebrateViewController.swift in Sources */,
 				3021B67123622FE7002634A8 /* ApiService.swift in Sources */,
@@ -3110,7 +3102,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -3169,7 +3161,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
