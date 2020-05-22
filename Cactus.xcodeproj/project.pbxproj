@@ -752,6 +752,7 @@
 		30E9B0BD22EAF2FC005B25FD /* SentPromptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */; };
 		30E9B0BE22EAF2FC005B25FD /* SentPromptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */; };
 		30E9D044247826FB00FE4E5F /* UnitTestAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9D043247826FB00FE4E5F /* UnitTestAppDelegate.swift */; };
+		30E9D04624784FBF00FE4E5F /* CactusMemberTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9D04524784FBF00FE4E5F /* CactusMemberTest.swift */; };
 		30F716872379ED32004989DB /* ShareNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F716852379ED32004989DB /* ShareNoteViewController.swift */; };
 		30F716882379ED32004989DB /* ShareNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F716852379ED32004989DB /* ShareNoteViewController.swift */; };
 		30F716892379ED32004989DB /* ShareNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30F716862379ED32004989DB /* ShareNoteViewController.xib */; };
@@ -1043,6 +1044,7 @@
 		30E9B0B922EAF153005B25FD /* SentPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentPrompt.swift; sourceTree = "<group>"; };
 		30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentPromptService.swift; sourceTree = "<group>"; };
 		30E9D043247826FB00FE4E5F /* UnitTestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestAppDelegate.swift; sourceTree = "<group>"; };
+		30E9D04524784FBF00FE4E5F /* CactusMemberTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusMemberTest.swift; sourceTree = "<group>"; };
 		30F716852379ED32004989DB /* ShareNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareNoteViewController.swift; sourceTree = "<group>"; };
 		30F716862379ED32004989DB /* ShareNoteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareNoteViewController.xib; sourceTree = "<group>"; };
 		30FA2C9823741A3300F671AF /* JournalFeedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFeedFlowLayout.swift; sourceTree = "<group>"; };
@@ -1218,6 +1220,7 @@
 				303C9E49238F29E6006B9786 /* SharingServiceTest.swift */,
 				3009EE5A23C98F4400002CCB /* DateUtilTests.swift */,
 				307ED7922408748C008D26C6 /* MemberSubscriptionTest.swift */,
+				30E9D04524784FBF00FE4E5F /* CactusMemberTest.swift */,
 			);
 			path = "Cactus UnitTests";
 			sourceTree = "<group>";
@@ -2292,6 +2295,7 @@
 				305B18742331A8F0003E1561 /* MarkdownUtil.swift in Sources */,
 				307ED7952408748C008D26C6 /* MemberSubscriptionTest.swift in Sources */,
 				308C5A5124479AD60087345D /* PricingFeatureItemViewController.swift in Sources */,
+				30E9D04624784FBF00FE4E5F /* CactusMemberTest.swift in Sources */,
 				30D0E451236C921200EFC0E3 /* FontExtensions.swift in Sources */,
 				303C9DC5237F6799006B9786 /* StorageService.swift in Sources */,
 				303C9DE823841AB6006B9786 /* ExperienceAnimationViewController.swift in Sources */,
