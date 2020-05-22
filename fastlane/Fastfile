@@ -143,8 +143,7 @@ platform :ios do
 	  	# swiftlint(mode: :lint, output_file: "reports/swiftlint/result.xml", reporter: "junit")
 	  	scan(output_types: "junit", 
 	  		scheme: "Cactus Prod", 
-	  		# skip_build: true, 
-	  		skip_build: false, 
+	  		skip_build: true, 
 	  		output_directory: "reports/scan", 
 	  		output_files: "results.xml",
 			device: "iPhone 8",
