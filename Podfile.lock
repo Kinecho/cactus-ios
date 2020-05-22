@@ -463,6 +463,16 @@ DEPENDENCIES:
   - Firebase/Storage
   - FirebaseUI
   - FirebaseUI/Storage
+  - GoogleUtilities/AppDelegateSwizzler
+  - GoogleUtilities/Environment
+  - GoogleUtilities/ISASwizzler
+  - GoogleUtilities/Logger
+  - GoogleUtilities/MethodSwizzler
+  - GoogleUtilities/Network
+  - "GoogleUtilities/NSData+zlib"
+  - GoogleUtilities/Reachability
+  - GoogleUtilities/UserDefaults
+  - GTMSessionFetcher
   - MarkdownKit (= 1.5)
   - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `4.4.1`)
   - SkeletonView
@@ -582,6 +592,6 @@ SPEC CHECKSUMS:
   SkeletonView: ba5370f41280b2f0a76918bb143c1294232bb4f4
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
-PODFILE CHECKSUM: c8ed8a51d52c124a78bc0a3743c219f6f7f78e30
+PODFILE CHECKSUM: 2539419a1ddd8cede725e34bfe1e48d780ac9ec8
 
 COCOAPODS: 1.8.4

@@ -187,7 +187,7 @@ struct DataExportResult: Codable {
     var dataExportId: String?
     var downloadUrl: String?
     
-    static func error(_ message: String?) -> DataExportResult{
+    static func error(_ message: String?) -> DataExportResult {
         var result = DataExportResult()
         result.success = false
         result.message = message

@@ -70,8 +70,6 @@ class MemberInsightsViewController: UIViewController {
     func configureModal() {
         DispatchQueue.main.async {
             
-            
-            
             let hasText = !isBlank(self.reflectionResponse?.content.text)
             let tier = self.member?.subscription?.tier ?? .BASIC
             

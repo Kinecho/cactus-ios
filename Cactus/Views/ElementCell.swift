@@ -73,5 +73,4 @@ class ElementCell: UICollectionViewCell {
         return layoutAttributes
     }
     
-    
 }

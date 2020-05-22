@@ -33,15 +33,12 @@ class NotificationService: NSObject {
         self.notificationCenter.addObserver(self, selector: #selector(self.appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
         self.notificationCenter.addObserver(self, selector: #selector(self.appMovedToBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
         
-        
         Messaging.messaging().delegate = self
         let inAppDelegate = FirebaseInAppMessageDelegate()
         inAppDelegate.fetchId()
         InAppMessaging.inAppMessaging().delegate = inAppDelegate
             
     }
-    
-    
     
     @objc func appMovedToForeground() {
         self.logger.debug("Notification service - app moved to foreground, removing badge count")
@@ -213,8 +210,6 @@ extension NotificationService: UNUserNotificationCenterDelegate {
 }
 // [END ios_10_message_handling]
 
-
-
 extension NotificationService: MessagingDelegate {
     // [START refresh_token]
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
@@ -225,14 +220,7 @@ extension NotificationService: MessagingDelegate {
         // TODO: If necessary send token to application server.
         // Note: This callback is fired at each app startup and whenever a new token is generated.
     }
-    // [END refresh_token]
-    // [START ios_10_data_message]
-    // Receive data messages on iOS 10+ directly from FCM (bypassing APNs) when the app is in the foreground.
-    // To enable direct data messages, you can set Messaging.messaging().shouldEstablishDirectChannel to true.
-    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
-        self.logger.debug("Received data message: \(remoteMessage.appData)")
-    }
-    // [END ios_10_data_message]
+    // [END refresh_token]    
 }
 
 // swiftlint:disable force_cast

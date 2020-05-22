@@ -171,7 +171,6 @@ class JournalFeedCollectionViewController: UICollectionViewController {
         self.reloadVisibleViews()
     }
     
-    
     @IBAction func showPromptContentCards(segue: UIStoryboardSegue) { }
     @IBAction func showDetail(segue: UIStoryboardSegue) { }
     

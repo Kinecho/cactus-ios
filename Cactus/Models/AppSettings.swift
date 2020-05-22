@@ -181,4 +181,3 @@ class CheckoutSettings: Codable {
         }
     }
 }
-
