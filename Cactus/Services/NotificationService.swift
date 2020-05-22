@@ -159,7 +159,7 @@ extension NotificationService: UNUserNotificationCenterDelegate {
         // Print full message.
         self.logger.debug("Message Info: \(userInfo)", functionName: #function, line: #line)
         if let promptContentEntryId = userInfo["promptEntryId"] as? String {
-            AppDelegate.shared.rootViewController.loadPromptContent(promptContentEntryId: promptContentEntryId, link: nil)
+            AppMainViewController.shared.loadPromptContent(promptContentEntryId: promptContentEntryId, link: nil)
         }
         completionHandler(UIBackgroundFetchResult.newData)
     }
@@ -183,7 +183,7 @@ extension NotificationService: UNUserNotificationCenterDelegate {
         NotificationService.sharedInstance.handlePushMessage(userInfo)
         // Change this to your preferred presentation option
         if let promptContentEntryId = userInfo["promptEntryId"] as? String {
-            AppDelegate.shared.rootViewController.loadPromptContent(promptContentEntryId: promptContentEntryId, link: nil)
+            AppMainViewController.shared.loadPromptContent(promptContentEntryId: promptContentEntryId, link: nil)
         }
         
         completionHandler([])
@@ -202,7 +202,7 @@ extension NotificationService: UNUserNotificationCenterDelegate {
         self.logger.debug("Message Info: \(userInfo)", functionName: #function, line: #line)
         
         if let promptContentEntryId = userInfo["promptEntryId"] as? String {
-            AppDelegate.shared.rootViewController.loadPromptContent(promptContentEntryId: promptContentEntryId, link: nil)
+            AppMainViewController.shared.loadPromptContent(promptContentEntryId: promptContentEntryId, link: nil)
         }
         
         completionHandler()
@@ -222,14 +222,3 @@ extension NotificationService: MessagingDelegate {
     }
     // [END refresh_token]    
 }
-
-// swiftlint:disable force_cast
-extension AppDelegate {
-    static var shared: AppDelegate {
-        return UIApplication.shared.delegate as! AppDelegate
-    }
-    var rootViewController: AppMainViewController {
-        return window!.rootViewController as! AppMainViewController
-    }
-}
-// swiftlint:enable force_cast

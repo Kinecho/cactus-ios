@@ -183,7 +183,6 @@
 		303C9DD22384197A006B9786 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B09522EA68AC005B25FD /* FirestoreService.swift */; };
 		303C9DD3238419A9006B9786 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0A222EAC204005B25FD /* AuthService.swift */; };
 		303C9DD4238419BC006B9786 /* CactusMemberService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B09F22EABFBD005B25FD /* CactusMemberService.swift */; };
-		303C9DD5238419C4006B9786 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */; };
 		303C9DD6238419D5006B9786 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2F22ECD0A300F753A7 /* NotificationService.swift */; };
 		303C9DD7238419DD006B9786 /* LinkHandlerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9DB0237E2AB4006B9786 /* LinkHandlerUtil.swift */; };
 		303C9DD8238419E5006B9786 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67023622FE7002634A8 /* ApiService.swift */; };
@@ -752,6 +751,7 @@
 		30E9B0BB22EAF153005B25FD /* SentPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0B922EAF153005B25FD /* SentPrompt.swift */; };
 		30E9B0BD22EAF2FC005B25FD /* SentPromptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */; };
 		30E9B0BE22EAF2FC005B25FD /* SentPromptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */; };
+		30E9D044247826FB00FE4E5F /* UnitTestAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9D043247826FB00FE4E5F /* UnitTestAppDelegate.swift */; };
 		30F716872379ED32004989DB /* ShareNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F716852379ED32004989DB /* ShareNoteViewController.swift */; };
 		30F716882379ED32004989DB /* ShareNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F716852379ED32004989DB /* ShareNoteViewController.swift */; };
 		30F716892379ED32004989DB /* ShareNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30F716862379ED32004989DB /* ShareNoteViewController.xib */; };
@@ -1042,6 +1042,7 @@
 		30E9B0B222EADE2D005B25FD /* CGExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGExtensions.swift; sourceTree = "<group>"; };
 		30E9B0B922EAF153005B25FD /* SentPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentPrompt.swift; sourceTree = "<group>"; };
 		30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentPromptService.swift; sourceTree = "<group>"; };
+		30E9D043247826FB00FE4E5F /* UnitTestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestAppDelegate.swift; sourceTree = "<group>"; };
 		30F716852379ED32004989DB /* ShareNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareNoteViewController.swift; sourceTree = "<group>"; };
 		30F716862379ED32004989DB /* ShareNoteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareNoteViewController.xib; sourceTree = "<group>"; };
 		30FA2C9823741A3300F671AF /* JournalFeedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFeedFlowLayout.swift; sourceTree = "<group>"; };
@@ -1420,6 +1421,7 @@
 				30E9B0A722EAD618005B25FD /* ViewControllers */,
 				30934F9422EBF12D007C4E6C /* Views */,
 				30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */,
+				30E9D043247826FB00FE4E5F /* UnitTestAppDelegate.swift */,
 			);
 			path = Cactus;
 			sourceTree = "<group>";
@@ -2263,7 +2265,6 @@
 				30D0E44A236C913600EFC0E3 /* CactusImage.swift in Sources */,
 				305B18722331A843003E1561 /* FileUtils.swift in Sources */,
 				305B18762331A906003E1561 /* BaseModel.swift in Sources */,
-				303C9DD5238419C4006B9786 /* AppDelegate.swift in Sources */,
 				3021CBF02411769800F58B89 /* MemberInsightsViewController.swift in Sources */,
 				303BF744232A986A00164539 /* CactusUnitTests.swift in Sources */,
 				30D0E44B236C91F500EFC0E3 /* CGExtensions.swift in Sources */,
@@ -2342,6 +2343,7 @@
 				303C9DFE23841AC1006B9786 /* QuoteContentViewController.swift in Sources */,
 				303C9DD9238419F9006B9786 /* NavigationUtil.swift in Sources */,
 				303C9E0423841AC1006B9786 /* CelebrateViewController.swift in Sources */,
+				30E9D044247826FB00FE4E5F /* UnitTestAppDelegate.swift in Sources */,
 				303282232416D3DF00FC197A /* AuthenticatedTaskManager.swift in Sources */,
 				30F7168C237A4B85004989DB /* CactusConfig.swift in Sources */,
 				303C9E4823847A3B006B9786 /* MemberProfileService.swift in Sources */,
