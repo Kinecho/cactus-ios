@@ -39,6 +39,7 @@ class ReflectContentViewController: PromptContentViewController {
             let element = self.promptContent.cactusElement
             self.reflectionResponse = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: question, element: element, medium: .PROMPT_IOS)
         }
+        self.initializeView()
         self.configureView()
         self.videoView.isHidden = true
         self.createAnimation()
@@ -204,17 +205,20 @@ class ReflectContentViewController: PromptContentViewController {
         self.configureView()
     }
  
+    func initializeView() {
+        self.view.backgroundColor = CactusColor.promptBackground
+        self.reflectionTextView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.addNoteTapped)))
+        self.reflectionTextView.layer.borderWidth = 1
+        self.reflectionTextView.layer.cornerRadius = 12
+        self.reflectionTextView.layer.borderColor = CactusColor.textMinimized.cgColor
+    }
+    
     func configureView() {
         guard self.isViewLoaded else {
             return
         }
         let questionText = self.getQuestionMarkdownString()
         self.questionTextView.attributedText = MarkdownUtil.centeredMarkdown(questionText?.preventOrphanedWords(), font: CactusFont.normal(24))
-        self.view.backgroundColor = CactusColor.promptBackground
-        self.reflectionTextView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.addNoteTapped)))
-        self.reflectionTextView.layer.borderWidth = 1
-        self.reflectionTextView.layer.cornerRadius = 12
-        self.reflectionTextView.layer.borderColor = CactusColor.textMinimized.cgColor
         
         self.configureResponseView()
     }

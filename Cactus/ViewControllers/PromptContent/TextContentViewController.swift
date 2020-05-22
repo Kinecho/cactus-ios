@@ -22,12 +22,16 @@ class TextContentViewController: PromptContentViewController {
     @IBOutlet weak var labelLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     
+    
     weak var textTouchDelegate: UIGestureRecognizerDelegate?
+    var contentLink: UIButton?
+    var actionButton: UIButton?
+    var elementGesturesConfigured = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initTextView(self.text)
-        self.configureView()
+        self.configureView()       
     }
     
     override func viewDidLayoutSubviews() {
@@ -66,10 +70,7 @@ class TextContentViewController: PromptContentViewController {
             return
         }
         self.text.text = self.content.text
-//        var textString: String? = self.content.text_md
-//        if textString == nil || textString?.isEmpty ?? true {
-//            textString = self.content.text
-//        }
+
         let coreValue = self.reflectionResponse?.coreValue
         let member = CactusMemberService.sharedInstance.currentMember
         let textString = self.content.getDisplayText(member: member, preferredIndex: self.promptContent.preferredCoreValueIndex, coreValue: coreValue)
@@ -85,16 +86,27 @@ class TextContentViewController: PromptContentViewController {
          if (self.content.showElementIcon ?? false), let element = self.promptContent.cactusElement {
             self.elementLabel.text = element.rawValue.uppercased()
             self.elementImage.image = element.getImage()
-            self.elementImageContainerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.elementTapped)))
-            self.elementLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.elementTapped)))
+            if !self.elementGesturesConfigured {
+                self.elementImageContainerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.elementTapped)))
+                self.elementLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.elementTapped)))
+                self.elementGesturesConfigured = true
+            }
         }
         
-        if let contentButton = self.createContentLink() {
+        if self.contentLink == nil, let contentButton = self.createContentLink() {
+            self.contentLink = contentButton
             self.mainStackView.addArrangedSubview(contentButton)
+        } else if !self.hasValidContentLink() {
+            self.contentLink?.removeFromSuperview()
+            self.contentLink = nil
         }
         
-        if let actionButton = self.createActionButton() {
+        if self.actionButton == nil, let actionButton = self.createActionButton() {
+            self.actionButton = actionButton
             self.mainStackView.addArrangedSubview(actionButton)
+        } else if !self.hasActionButton() {
+            self.actionButton?.removeFromSuperview()
+            self.actionButton = nil
         }
         
         self.labelLabel.text = self.content.label

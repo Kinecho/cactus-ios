@@ -72,12 +72,24 @@ class PromptContentViewController: UIViewController {
         }
     }
     
-    func createActionButton() -> UIButton? {
+    func getValidContentActionButton() -> ActionButton? {
         guard let actionButton = self.content.actionButton,
             actionButton.action != .unknown,
             let label = actionButton.label,
             !isBlank(label) else {
                 return nil
+        }
+        return actionButton
+    }
+    
+    func hasActionButton() -> Bool {
+        return self.getValidContentActionButton() != nil
+    }
+    
+    func createActionButton() -> UIButton? {
+        guard let actionButton = self.getValidContentActionButton(),
+            let label = actionButton.label else {
+            return nil
         }
         
         let linkStyle = actionButton.linkStyle ?? .link
@@ -134,7 +146,7 @@ class PromptContentViewController: UIViewController {
         return button
     }
     
-    func createContentLink() -> UIButton? {
+    func getValidContentLink() -> ContentLink? {
         guard let link = self.content.link,
             let href = link.destinationHref,
             let label = link.linkLabel,
@@ -147,8 +159,19 @@ class PromptContentViewController: UIViewController {
             self.logger.warn("content link's href was not a valid URL. Link.destinationHref=\(href)")
             return nil
         }
+        return link
+    }
+    
+    func hasValidContentLink() -> Bool {
+        return self.getValidContentLink() != nil
+    }
+    
+    func createContentLink() -> UIButton? {
+        guard let link = getValidContentLink(),
+            let label = link.linkLabel else {
+            return nil
+        }
         let style: LinkStyle = link.linkStyle ?? .link
-
         let button = createStyledButton(style: style, label: label)
         button.addTarget(self, action: #selector(self.contentLinkTapped(sender:)), for: .primaryActionTriggered)
         
