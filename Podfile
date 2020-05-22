@@ -3,6 +3,19 @@ source 'https://cdn.cocoapods.org/'
 # Uncomment the next line to define a global platform for your project
  platform :ios, '12.0'
 
+def google_utilites
+  pod 'GTMSessionFetcher'
+  pod 'GoogleUtilities/AppDelegateSwizzler'
+  pod 'GoogleUtilities/Environment'
+  pod 'GoogleUtilities/ISASwizzler'
+  pod 'GoogleUtilities/Logger'
+  pod 'GoogleUtilities/MethodSwizzler'
+  pod 'GoogleUtilities/NSData+zlib'
+  pod 'GoogleUtilities/Network'
+  pod 'GoogleUtilities/Reachability'
+  pod 'GoogleUtilities/UserDefaults'
+end
+
 def app_pods
   pod 'Firebase/Crashlytics'
   pod 'CodableFirebase'
@@ -49,15 +62,16 @@ end
 target 'Cactus Stage' do  
   use_frameworks!
   inhibit_all_warnings!
-  
+
+  google_utilites
   app_pods
-  
 end
 
 target 'Cactus Prod' do
   use_frameworks!
   inhibit_all_warnings!
-
+  
+  google_utilites
   app_pods
 end
 
@@ -65,11 +79,14 @@ target 'Cactus Today Prod' do
   use_frameworks!
   inhibit_all_warnings!
   
+  google_utilites
   today_pods
 end
 
 target 'Cactus UnitTests' do
   use_frameworks!
   inhibit_all_warnings!
+
+  google_utilites
   app_pods
 end
