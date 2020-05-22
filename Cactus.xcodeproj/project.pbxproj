@@ -1676,7 +1676,6 @@
 			buildPhases = (
 				94E6ABEF1163C08E11A34C1D /* [CP] Check Pods Manifest.lock */,
 				30A281D922EA61A30041158E /* Sources */,
-				303BF754232E958C00164539 /* Swiftlint */,
 				30A281DD22EA61A30041158E /* Frameworks */,
 				30A281DF22EA61A30041158E /* Resources */,
 				30BF2E37232993C200A49EB6 /* Install Crashlytics */,
@@ -1976,24 +1975,6 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
-		303BF754232E958C00164539 /* Swiftlint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = Swiftlint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# ${PODS_ROOT}/SwiftLint/swiftlint\n";
-		};
 		30BF2E362329930500A49EB6 /* Install Crashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2037,6 +2018,8 @@
 			);
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Cactus Prod/Pods-Cactus Prod-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
