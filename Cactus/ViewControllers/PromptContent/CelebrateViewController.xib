@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,7 +18,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CelebrateViewController" customModule="Cactus" customModuleProvider="target">
             <connections>
                 <outlet property="descriptionTextView" destination="V9m-W4-NJ0" id="a5I-dr-DCU"/>
-                <outlet property="durationCountNumbereLabel" destination="mbf-rb-fMO" id="FyY-fi-4dK"/>
+                <outlet property="durationCountNumberLabel" destination="mbf-rb-fMO" id="FyY-fi-4dK"/>
                 <outlet property="durationMetricLabel" destination="tAm-p2-IJE" id="Hf5-dE-ike"/>
                 <outlet property="elementStackView" destination="06r-LT-xho" id="xwq-td-A9Y"/>
                 <outlet property="emotionsStatImageView" destination="k1B-nU-U2F" id="FJ9-pB-uHR"/>
@@ -54,12 +52,12 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grainy" translatesAutoresizingMaskIntoConstraints="NO" id="Qfl-dx-1gS" userLabel="background blobNeedle Fixed">
-                    <rect key="frame" x="0.0" y="453" width="414" height="443"/>
+                    <rect key="frame" x="0.0" y="448" width="414" height="448"/>
                     <color key="backgroundColor" name="CelebrateBackground"/>
                     <color key="tintColor" name="GreenDarkest"/>
                 </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7uq-lE-LWz">
-                    <rect key="frame" x="0.0" y="94" width="414" height="802"/>
+                    <rect key="frame" x="0.0" y="50" width="414" height="846"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nHa-LS-XhV">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>

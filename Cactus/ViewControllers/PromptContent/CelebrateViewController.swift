@@ -18,7 +18,7 @@ class CelebrateViewController: UIViewController {
 
     @IBOutlet weak var encouragementLabel: UILabel!
     @IBOutlet weak var reflectionCountNumberLabel: UILabel!
-    @IBOutlet weak var durationCountNumbereLabel: UILabel!
+    @IBOutlet weak var durationCountNumberLabel: UILabel!
     @IBOutlet weak var streakNumberLabel: UILabel!
     @IBOutlet weak var durationMetricLabel: UILabel!
     @IBOutlet weak var reflectionCountMetricLabel: UILabel!
@@ -282,7 +282,7 @@ class CelebrateViewController: UIViewController {
     func resetNumbers() {
         self.reflectionCountNumberLabel.text = "--"
         self.streakNumberLabel.text = "--"
-        self.durationCountNumbereLabel.text = "--"
+        self.durationCountNumberLabel.text = "--"
     }
     
     func updateElements() {
@@ -345,7 +345,6 @@ class CelebrateViewController: UIViewController {
     }
    
     func animateDuration() {
-//        var prev = Int( round(Float(self.previousReflectionDurationMs) / 1000))
         let ms = self.member?.stats?.reflections?.totalDurationMs ?? 0
         var next = Int( round(Float(ms) / 1000))
         var prev = self.currentReflectionStats?.totalDurationMs ?? 0
@@ -358,7 +357,7 @@ class CelebrateViewController: UIViewController {
         }
         
         if self.currentReflectionStats?.totalDurationMs == ms {
-            self.durationCountNumbereLabel.text = "\(Double(next)/10)"
+            self.durationCountNumberLabel.text = "\(Double(next)/10)"
             return
         }
         
@@ -368,9 +367,8 @@ class CelebrateViewController: UIViewController {
                                                 threads: 3)
         self.minutesCountProcess?.duration = animationDurationMs
         self.minutesCountProcess?.finish(valueChanged: { (value) in
-            self.durationCountNumbereLabel.text = "\(Double(value)/10)"
+            self.durationCountNumberLabel.text = String(format: "%.0f", Double(value)/10)
         })
-        
     }
     
     func animateStreak() {
