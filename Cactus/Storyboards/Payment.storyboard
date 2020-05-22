@@ -63,7 +63,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NMG-Nl-xvv">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="25"/>
                                                                 <subviews>
-                                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="EiU-3l-sCc">
+                                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="EiU-3l-sCc">
                                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="25"/>
                                                                         <color key="color" name="TextDefault"/>
                                                                     </activityIndicatorView>

@@ -381,7 +381,6 @@
 		304B217823D394E4007B016C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0A222EAC204005B25FD /* AuthService.swift */; };
 		304B217923D39570007B016C /* ProdAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30A281EB22EA61FA0041158E /* ProdAssets.xcassets */; };
 		304B217A23D39575007B016C /* SharedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */; };
-		304B217B23D39AA4007B016C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30A281F722EA65EC0041158E /* Info.plist */; };
 		304B217C23D39AA4007B016C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3095619922ECF1CD009357BD /* GoogleService-Info.plist */; };
 		304B217D23D39AA4007B016C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30A281EF22EA62650041158E /* LaunchScreen.storyboard */; };
 		304EA2F32343B730001FB8AD /* CountProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304EA2F22343B730001FB8AD /* CountProcess.swift */; };
@@ -1835,7 +1834,6 @@
 				303282102412B87D00FC197A /* PricingFeatureView.xib in Resources */,
 				3019A4DA243BDF7E003D0074 /* WebViewController.xib in Resources */,
 				304B217923D39570007B016C /* ProdAssets.xcassets in Resources */,
-				304B217B23D39AA4007B016C /* Info.plist in Resources */,
 				304B217D23D39AA4007B016C /* LaunchScreen.storyboard in Resources */,
 				304B217A23D39575007B016C /* SharedAssets.xcassets in Resources */,
 				304B217C23D39AA4007B016C /* GoogleService-Info.plist in Resources */,

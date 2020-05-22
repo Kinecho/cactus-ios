@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -22,20 +22,20 @@
             <objects>
                 <viewController id="V8b-El-CMB" customClass="NotificationTimeOfDayViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F8p-WR-WIc">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVx-YA-OSM">
-                                <rect key="frame" x="0.0" y="50" width="768" height="974"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="gFh-Lk-m96">
-                                        <rect key="frame" x="0.0" y="0.0" width="768" height="382.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="427"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="jxI-9W-9ys" userLabel="TimeZone Warning Stack View">
-                                                <rect key="frame" x="20" y="40" width="728" height="106.5"/>
+                                                <rect key="frame" x="20" y="40" width="374" height="126"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looks like you're in a different time zone than usual. Would you like to update to" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5RV-0a-Phd" userLabel="Warning Label">
-                                                        <rect key="frame" x="70.5" y="20" width="587.5" height="20.5"/>
+                                                        <rect key="frame" x="20" y="20" width="310.5" height="40"/>
                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                         <color key="textColor" name="TextDefault"/>
                                                         <nil key="highlightedColor"/>
@@ -44,7 +44,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSl-Ik-Jl0" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
-                                                        <rect key="frame" x="300" y="56.5" width="128" height="30"/>
+                                                        <rect key="frame" x="20" y="76" width="128" height="30"/>
                                                         <state key="normal" title="Update Time Zone"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
@@ -62,10 +62,10 @@
                                                 <variation key="heightClass=regular-widthClass=regular" alignment="center"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="33b-rM-UmM">
-                                                <rect key="frame" x="20" y="196.5" width="728" height="146"/>
+                                                <rect key="frame" x="20" y="216" width="374" height="171"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNf-AU-Udp">
-                                                        <rect key="frame" x="0.0" y="0.0" width="728" height="58"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="84"/>
                                                         <string key="text">When do you want to reflect each day?
 </string>
                                                         <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="24"/>
@@ -76,13 +76,13 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:45 am Mountain Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hs0-6M-gOz">
-                                                        <rect key="frame" x="0.0" y="76" width="728" height="22"/>
+                                                        <rect key="frame" x="0.0" y="102" width="374" height="21"/>
                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                                         <color key="textColor" name="TextDefault"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QOf-Y0-amx" userLabel="Change Date Button">
-                                                        <rect key="frame" x="0.0" y="116" width="728" height="30"/>
+                                                        <rect key="frame" x="0.0" y="141" width="374" height="30"/>
                                                         <state key="normal" title="Change Time"/>
                                                         <connections>
                                                             <action selector="showDatePicker:" destination="V8b-El-CMB" eventType="primaryActionTriggered" id="qJk-vg-IMd"/>
@@ -145,7 +145,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="notificationsScreen" title="Notifications" definesPresentationContext="YES" id="Ofc-Xs-qU7" customClass="NotificationsTableViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3W1-8S-5x7">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -153,17 +153,17 @@
                             <tableViewSection id="WLm-Qr-DIE">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="64" id="CFJ-5J-4On" userLabel="Time of Day Cell">
-                                        <rect key="frame" x="0.0" y="28" width="768" height="64"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CFJ-5J-4On" id="P4d-Iv-80P">
-                                            <rect key="frame" x="0.0" y="0.0" width="737" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="fWl-76-3lg">
-                                                    <rect key="frame" x="20" y="13" width="697" height="38"/>
+                                                    <rect key="frame" x="20" y="12.5" width="343" height="39"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scheduled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAU-oa-hCI">
-                                                            <rect key="frame" x="0.0" y="0.0" width="697" height="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -172,7 +172,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily at 2:45 AM MST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJ2-fm-DGA">
-                                                            <rect key="frame" x="0.0" y="24" width="697" height="14"/>
+                                                            <rect key="frame" x="0.0" y="24.5" width="343" height="14.5"/>
                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                                                             <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -200,29 +200,29 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="64" id="yTw-nY-N5H" userLabel="Push Settings Cell">
-                                        <rect key="frame" x="0.0" y="92" width="768" height="64"/>
+                                        <rect key="frame" x="0.0" y="92" width="414" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yTw-nY-N5H" id="3ik-DW-yuh">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3ax-0Z-Qnp">
-                                                    <rect key="frame" x="699" y="16.5" width="51" height="31"/>
+                                                    <rect key="frame" x="345" y="16.5" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="pushToggleTriggered:" destination="Ofc-Xs-qU7" eventType="valueChanged" id="m88-A1-J8b"/>
                                                     </connections>
                                                 </switch>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="caA-3g-GyY">
-                                                    <rect key="frame" x="20" y="13" width="659" height="38"/>
+                                                    <rect key="frame" x="20" y="12.5" width="305" height="39"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Push" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmM-ec-ee4">
-                                                            <rect key="frame" x="0.0" y="0.0" width="659" height="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="305" height="20.5"/>
                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New reflection prompts pop up on your device." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIa-W2-gok">
-                                                            <rect key="frame" x="0.0" y="24" width="659" height="14"/>
+                                                            <rect key="frame" x="0.0" y="24.5" width="305" height="14.5"/>
                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                                                             <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -246,29 +246,29 @@
                                         </userDefinedRuntimeAttributes>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="64" id="4Fr-C0-s3Z" userLabel="Email Settings Cell">
-                                        <rect key="frame" x="0.0" y="156" width="768" height="64"/>
+                                        <rect key="frame" x="0.0" y="156" width="414" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Fr-C0-s3Z" id="vy3-bW-LEh">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cEN-hz-u3M">
-                                                    <rect key="frame" x="699" y="16.5" width="51" height="31"/>
+                                                    <rect key="frame" x="345" y="16.5" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="emailSettingsToggled:" destination="Ofc-Xs-qU7" eventType="primaryActionTriggered" id="jUm-d5-bS9"/>
                                                     </connections>
                                                 </switch>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="cTb-fh-GS3">
-                                                    <rect key="frame" x="20" y="13" width="659" height="38"/>
+                                                    <rect key="frame" x="20" y="12.5" width="305" height="39"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Seb-pq-zz7">
-                                                            <rect key="frame" x="0.0" y="0.0" width="659" height="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="305" height="20.5"/>
                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New reflection prompts arrive by email." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdt-bb-DbW" userLabel="This must be managed via the website">
-                                                            <rect key="frame" x="0.0" y="24" width="659" height="14"/>
+                                                            <rect key="frame" x="0.0" y="24.5" width="305" height="14.5"/>
                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                                                             <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -323,17 +323,17 @@
             <objects>
                 <viewController storyboardIdentifier="inviteScreen" title="Invite" id="4Id-NV-Bq1" userLabel="Invite View Controller" customClass="InviteSettingsViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lod-Nl-SAt">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="OK5-SD-rak">
-                                <rect key="frame" x="20" y="312" width="728" height="400"/>
+                                <rect key="frame" x="20" y="253" width="374" height="400"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="celebrate" translatesAutoresizingMaskIntoConstraints="NO" id="7kz-PQ-g3w">
-                                        <rect key="frame" x="0.0" y="0.0" width="728" height="350"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="350"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sjq-DG-lmW" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="370" width="728" height="30"/>
+                                        <rect key="frame" x="0.0" y="370" width="374" height="30"/>
                                         <state key="normal" title="Share Link"/>
                                         <connections>
                                             <action selector="shareTapped:" destination="4Id-NV-Bq1" eventType="primaryActionTriggered" id="fjR-fF-zuK"/>
@@ -360,7 +360,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="settingsTable" title="Settings" id="XLO-Dp-R0b" userLabel="Settings Table View Controller" customClass="SettingsTableViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4eP-GZ-IM5">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="Background"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -368,10 +368,10 @@
                             <tableViewSection id="F0P-dW-w7L">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="A7T-be-31c" detailTextLabel="FBh-Ni-bjj" rowHeight="70" style="IBUITableViewCellStyleSubtitle" id="GlW-qw-TUl" userLabel="Email Cell">
-                                        <rect key="frame" x="0.0" y="28" width="768" height="70"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GlW-qw-TUl" id="Wse-yX-7pH">
-                                            <rect key="frame" x="0.0" y="0.0" width="737" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A7T-be-31c">
@@ -397,14 +397,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="VtS-iX-cGM" rowHeight="70" style="IBUITableViewCellStyleDefault" id="9ca-wQ-Ae2" userLabel="Notifications Cell">
-                                        <rect key="frame" x="0.0" y="98" width="768" height="70"/>
+                                        <rect key="frame" x="0.0" y="98" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9ca-wQ-Ae2" id="Lhr-w6-PEc">
-                                            <rect key="frame" x="0.0" y="0.0" width="737" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VtS-iX-cGM">
-                                                    <rect key="frame" x="20" y="0.0" width="709" height="70"/>
+                                                    <rect key="frame" x="20" y="0.0" width="355" height="70"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -419,14 +419,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="KFf-eV-PtK" rowHeight="70" style="IBUITableViewCellStyleDefault" id="fEO-DB-0i6" userLabel="Subscription Cell">
-                                        <rect key="frame" x="0.0" y="168" width="768" height="70"/>
+                                        <rect key="frame" x="0.0" y="168" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fEO-DB-0i6" id="Syn-zO-6qk">
-                                            <rect key="frame" x="0.0" y="0.0" width="737" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subscription" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KFf-eV-PtK">
-                                                    <rect key="frame" x="20" y="0.0" width="709" height="70"/>
+                                                    <rect key="frame" x="20" y="0.0" width="355" height="70"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -441,14 +441,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="MiM-U8-4nM" rowHeight="70" style="IBUITableViewCellStyleDefault" id="72f-IH-JGS" userLabel="Linked Accounts Cell">
-                                        <rect key="frame" x="0.0" y="238" width="768" height="70"/>
+                                        <rect key="frame" x="0.0" y="238" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="72f-IH-JGS" id="Bhw-9j-RHV">
-                                            <rect key="frame" x="0.0" y="0.0" width="737" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Linked Accounts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MiM-U8-4nM">
-                                                    <rect key="frame" x="20" y="0.0" width="709" height="70"/>
+                                                    <rect key="frame" x="20" y="0.0" width="355" height="70"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -464,14 +464,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="VkD-fw-OgK" rowHeight="70" style="IBUITableViewCellStyleDefault" id="RVK-2l-4h1" userLabel="Help Cell">
-                                        <rect key="frame" x="0.0" y="308" width="768" height="70"/>
+                                        <rect key="frame" x="0.0" y="308" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RVK-2l-4h1" id="4d4-ok-bNq">
-                                            <rect key="frame" x="0.0" y="0.0" width="737" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Help" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VkD-fw-OgK">
-                                                    <rect key="frame" x="20" y="0.0" width="709" height="70"/>
+                                                    <rect key="frame" x="20" y="0.0" width="355" height="70"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -486,14 +486,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="a0n-fx-mLH" rowHeight="70" style="IBUITableViewCellStyleDefault" id="gdM-4a-XaV" userLabel="Terms of Service Cell">
-                                        <rect key="frame" x="0.0" y="378" width="768" height="70"/>
+                                        <rect key="frame" x="0.0" y="378" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gdM-4a-XaV" id="vgs-rB-3mi">
-                                            <rect key="frame" x="0.0" y="0.0" width="737" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Terms of Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a0n-fx-mLH">
-                                                    <rect key="frame" x="20" y="0.0" width="709" height="70"/>
+                                                    <rect key="frame" x="20" y="0.0" width="355" height="70"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -508,14 +508,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="OQf-Bn-3a6" rowHeight="70" style="IBUITableViewCellStyleDefault" id="GsB-sL-6cN" userLabel="Send Feedback Cell">
-                                        <rect key="frame" x="0.0" y="448" width="768" height="70"/>
+                                        <rect key="frame" x="0.0" y="448" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GsB-sL-6cN" id="RnK-BK-Yzv">
-                                            <rect key="frame" x="0.0" y="0.0" width="737" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Send Feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OQf-Bn-3a6">
-                                                    <rect key="frame" x="20" y="0.0" width="709" height="70"/>
+                                                    <rect key="frame" x="20" y="0.0" width="355" height="70"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -530,14 +530,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="DZi-nE-cbU" rowHeight="70" style="IBUITableViewCellStyleDefault" id="K9b-k9-kOx" userLabel="Privacy Policy Cell">
-                                        <rect key="frame" x="0.0" y="518" width="768" height="70"/>
+                                        <rect key="frame" x="0.0" y="518" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K9b-k9-kOx" id="DPV-l5-fX0">
-                                            <rect key="frame" x="0.0" y="0.0" width="737" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DZi-nE-cbU">
-                                                    <rect key="frame" x="20" y="0.0" width="709" height="70"/>
+                                                    <rect key="frame" x="20" y="0.0" width="355" height="70"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -552,14 +552,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="W8o-MY-DqD" rowHeight="70" style="IBUITableViewCellStyleDefault" id="xGe-LA-uiR" userLabel="Data Export Cell">
-                                        <rect key="frame" x="0.0" y="588" width="768" height="70"/>
+                                        <rect key="frame" x="0.0" y="588" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xGe-LA-uiR" id="5KD-Wi-SWH">
-                                            <rect key="frame" x="0.0" y="0.0" width="737" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Download Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="W8o-MY-DqD" userLabel="Export Data">
-                                                    <rect key="frame" x="20" y="0.0" width="709" height="70"/>
+                                                    <rect key="frame" x="20" y="0.0" width="355" height="70"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -596,11 +596,11 @@
             <objects>
                 <viewController title="Prompt Content" id="wCk-Ja-bjW" customClass="DataExportViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Hy-4n-6bm">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mj-FI-Uo5">
-                                <rect key="frame" x="184" y="90" width="400" height="29"/>
+                                <rect key="frame" x="124.5" y="128" width="165.5" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="400" id="04X-NF-Zgr"/>
                                 </constraints>
@@ -619,7 +619,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sbu-ve-lkR">
-                                <rect key="frame" x="184" y="129" width="400" height="101.5"/>
+                                <rect key="frame" x="20" y="166" width="374" height="101.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="400" id="1Zh-kd-Zd9"/>
                                 </constraints>
@@ -639,25 +639,25 @@
                                 </variation>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Xoh-xs-4J7">
-                                <rect key="frame" x="184" y="290.5" width="400" height="297.5"/>
+                                <rect key="frame" x="20" y="327.5" width="374" height="295"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hcn-d8-kEO" userLabel="Email Form Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="400" height="115.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="114"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What email should the file be sent to?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6La-23-WWE" userLabel="Email Description Label">
-                                                <rect key="frame" x="0.0" y="0.0" width="400" height="22"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="21"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BZ7-ah-prX" customClass="I">
-                                                <rect key="frame" x="0.0" y="42" width="400" height="34"/>
+                                                <rect key="frame" x="0.0" y="41" width="374" height="34"/>
                                                 <edgeInsets key="layoutMargins" top="12" left="12" bottom="12" right="12"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter a valid email." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pu0-lF-HFS" userLabel="Input Error Label">
-                                                <rect key="frame" x="0.0" y="96" width="400" height="19.5"/>
+                                                <rect key="frame" x="0.0" y="95" width="374" height="19"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                                 <color key="textColor" name="Danger"/>
                                                 <nil key="highlightedColor"/>
@@ -665,20 +665,20 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUF-B8-JeV" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="135.5" width="400" height="30"/>
+                                        <rect key="frame" x="0.0" y="134" width="374" height="30"/>
                                         <state key="normal" title="Email Me"/>
                                         <connections>
                                             <action selector="emailMeTapped:" destination="wCk-Ja-bjW" eventType="primaryActionTriggered" id="GaU-bk-P6d"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yxM-gs-W1j" userLabel="Loading Stack View">
-                                        <rect key="frame" x="0.0" y="185.5" width="400" height="20"/>
+                                        <rect key="frame" x="0.0" y="184" width="374" height="20"/>
                                         <subviews>
                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="R1X-F8-TW4">
                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                                             </activityIndicatorView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preparing your data export" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gI-ys-w4u" userLabel="Loading Label">
-                                                <rect key="frame" x="40" y="0.0" width="360" height="20"/>
+                                                <rect key="frame" x="40" y="0.0" width="334" height="20"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -686,13 +686,13 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Export success" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gW-zB-Az9" userLabel="Result Label">
-                                        <rect key="frame" x="0.0" y="225.5" width="400" height="22"/>
+                                        <rect key="frame" x="0.0" y="224" width="374" height="21"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b20-bW-CnQ" userLabel="Download Button" customClass="SecondaryButton" customModule="Cactus" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="267.5" width="400" height="30"/>
+                                        <rect key="frame" x="0.0" y="265" width="374" height="30"/>
                                         <state key="normal" title="Download Now"/>
                                         <connections>
                                             <action selector="downloadTapped:" destination="wCk-Ja-bjW" eventType="primaryActionTriggered" id="cgh-Yt-DTK"/>
@@ -758,20 +758,20 @@
             <objects>
                 <viewController id="fI4-yp-F0K" customClass="FeedbackViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wHQ-OO-g0b">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4EF-nF-M7d">
-                                <rect key="frame" x="268.5" y="472" width="231" height="80.5"/>
+                                <rect key="frame" x="86" y="408.5" width="242" height="79.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have Feedback?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmP-Z1-T4L">
-                                        <rect key="frame" x="0.0" y="0.0" width="231" height="38.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="242" height="37.5"/>
                                         <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="32"/>
                                         <color key="textColor" name="TextDefault"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ylq-zg-gfU">
-                                        <rect key="frame" x="1" y="46.5" width="229" height="34"/>
+                                        <rect key="frame" x="6.5" y="45.5" width="229" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Email feedback@cactus.app">
                                             <color key="titleColor" name="TextMinimized"/>
@@ -801,20 +801,20 @@
             <objects>
                 <viewController id="dv7-kn-tAt" userLabel="Help View Controller" customClass="HelpViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bDA-v3-7uD">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jH8-O0-8U8">
-                                <rect key="frame" x="20" y="497" width="728" height="80.5"/>
+                                <rect key="frame" x="20" y="435.5" width="374" height="79.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have Questions?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07n-fK-1TU">
-                                        <rect key="frame" x="244" y="0.0" width="240" height="38.5"/>
+                                        <rect key="frame" x="64.5" y="0.0" width="245" height="37.5"/>
                                         <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="32"/>
                                         <color key="textColor" name="TextDefault"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgA-Uo-vrG">
-                                        <rect key="frame" x="269.5" y="46.5" width="189" height="34"/>
+                                        <rect key="frame" x="92.5" y="45.5" width="189" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Email help@cactus.app">
                                             <color key="titleColor" name="TextMinimized"/>
@@ -849,11 +849,11 @@
             <objects>
                 <viewController title="Privacy Policy" id="VmT-AM-J56" userLabel="Terms of Service View Controller" customClass="TermsOfUseServiceController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yem-il-A0u">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k1e-NA-ws0">
-                                <rect key="frame" x="0.0" y="50" width="768" height="974"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
@@ -883,11 +883,11 @@
             <objects>
                 <viewController title="Privacy Policy" id="3AU-GE-eN9" customClass="PrivacyPolicyViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RK6-lF-uf3">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GJR-xY-OOA">
-                                <rect key="frame" x="0.0" y="50" width="768" height="974"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
@@ -917,32 +917,32 @@
             <objects>
                 <viewController title="Profile" id="KAd-di-PWW" userLabel="Profile Settings View Controller" customClass="ProfileSettingsViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NG1-hq-qNb">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C4B-Rb-xe9">
-                                <rect key="frame" x="184" y="50" width="400" height="954"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="754"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aKu-uq-eC4">
-                                        <rect key="frame" x="0.0" y="0.0" width="400" height="884"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="684"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aGo-cF-TIa">
-                                                <rect key="frame" x="0.0" y="0.0" width="400" height="527"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="524.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="center" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6Tm-UU-YRA">
-                                                        <rect key="frame" x="0.0" y="40" width="400" height="407"/>
+                                                        <rect key="frame" x="0.0" y="40" width="414" height="404.5"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="7aZ-Pu-o5a" userLabel="First Name Input Stack View">
-                                                                <rect key="frame" x="20" y="8" width="360" height="55"/>
+                                                                <rect key="frame" x="20" y="8" width="374" height="54.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVg-wc-Xbj">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="360" height="17"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="16.5"/>
                                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                                                         <color key="textColor" name="TextDefault"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zL0-KT-GLX" userLabel="First Name Text Input Field" customClass="CactusTextInputField" customModule="Cactus" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="21" width="360" height="34"/>
+                                                                        <rect key="frame" x="0.0" y="20.5" width="374" height="34"/>
                                                                         <color key="backgroundColor" name="Background"/>
                                                                         <color key="textColor" name="HighContrast"/>
                                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
@@ -964,16 +964,16 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="r1C-cx-YiC" userLabel="Last Name Input Stack View">
-                                                                <rect key="frame" x="20" y="83" width="360" height="54"/>
+                                                                <rect key="frame" x="20" y="82.5" width="374" height="53.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jc2-ub-xmE">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="360" height="16"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="15.5"/>
                                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
                                                                         <color key="textColor" name="TextDefault"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eSo-Ih-uZR" userLabel="Last Name Text Input Field" customClass="CactusTextInputField" customModule="Cactus" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="20" width="360" height="34"/>
+                                                                        <rect key="frame" x="0.0" y="19.5" width="374" height="34"/>
                                                                         <color key="backgroundColor" name="Background"/>
                                                                         <color key="textColor" name="HighContrast"/>
                                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
@@ -995,16 +995,16 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="o3h-h8-PMh" userLabel="Email Input Stack View">
-                                                                <rect key="frame" x="20" y="157" width="360" height="59"/>
+                                                                <rect key="frame" x="20" y="156" width="374" height="58"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePl-Gk-RDP">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="360" height="17"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="16.5"/>
                                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                                                         <color key="textColor" name="TextDefault"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="test@example.com" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ApW-VM-gjv" customClass="BorderedTextView" customModule="Cactus" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="21" width="360" height="38"/>
+                                                                        <rect key="frame" x="0.0" y="20.5" width="374" height="37.5"/>
                                                                         <color key="textColor" name="TextDefault"/>
                                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1020,16 +1020,16 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ZPx-Th-FA3" userLabel="Member ID Stack View">
-                                                                <rect key="frame" x="20" y="236" width="360" height="51"/>
+                                                                <rect key="frame" x="20" y="234" width="374" height="50.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Member ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvI-fo-5g9" userLabel="Member ID">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="360" height="17"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="16.5"/>
                                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                                                         <color key="textColor" name="TextDefault"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="xxxx1234" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BTk-y8-eYi" customClass="BorderedTextView" customModule="Cactus" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="21" width="360" height="30"/>
+                                                                        <rect key="frame" x="0.0" y="20.5" width="374" height="30"/>
                                                                         <color key="textColor" name="TextMinimized"/>
                                                                         <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1045,10 +1045,10 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Qbk-fa-WzT" userLabel="Delete Account StackView">
-                                                                <rect key="frame" x="20" y="307" width="360" height="92"/>
+                                                                <rect key="frame" x="20" y="304.5" width="374" height="92"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2zK-2d-1MB" customClass="RoundedButton" customModule="Cactus" customModuleProvider="target">
-                                                                        <rect key="frame" x="8" y="60" width="344" height="24"/>
+                                                                        <rect key="frame" x="8" y="60" width="358" height="24"/>
                                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                                                         <color key="tintColor" name="Danger"/>
                                                                         <inset key="titleEdgeInsets" minX="6" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1100,17 +1100,17 @@
                                         </variation>
                                     </scrollView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="9Q1-ti-tZe" userLabel="Save Actions">
-                                        <rect key="frame" x="20" y="884" width="360" height="50"/>
+                                        <rect key="frame" x="20" y="684" width="374" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHb-HA-5fO" userLabel="Cancel Button" customClass="TertiaryButton" customModule="Cactus" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="170" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="177" height="50"/>
                                                 <state key="normal" title="Cancel"/>
                                                 <connections>
                                                     <action selector="cancelTapped:" destination="KAd-di-PWW" eventType="primaryActionTriggered" id="xoc-Vw-ckS"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JhN-L9-EV7" userLabel="Save Button" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
-                                                <rect key="frame" x="190" y="0.0" width="170" height="50"/>
+                                                <rect key="frame" x="197" y="0.0" width="177" height="50"/>
                                                 <state key="normal" title="Save"/>
                                                 <connections>
                                                     <action selector="saveTapped:" destination="KAd-di-PWW" eventType="primaryActionTriggered" id="r3e-Yb-6Fb"/>
@@ -1190,20 +1190,20 @@
             <objects>
                 <tableViewController title="Linked Accounts" id="14S-o1-QRg" customClass="LinkedAccountsTableViewController" customModule="Cactus" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hLC-Oa-9cc">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="accountCell" textLabel="Q7r-Xx-EY5" imageView="1WZ-D6-cph" rowHeight="75" style="IBUITableViewCellStyleDefault" id="9pG-D0-kYY" customClass="AuthProviderTableViewCell" customModule="Cactus" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="768" height="75"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9pG-D0-kYY" translatesAutoresizingMaskIntoConstraints="NO" id="g51-KF-luW">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="75"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Facebook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7r-Xx-EY5">
-                                            <rect key="frame" x="110" y="0.0" width="638" height="75"/>
+                                            <rect key="frame" x="110" y="0.0" width="284" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
