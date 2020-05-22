@@ -1,21 +1,21 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
-      "filename" : "plusBg.pdf"
+      "filename" : "plusBg.pdf",
+      "idiom" : "universal"
     },
     {
-      "idiom" : "iphone",
-      "filename" : "plusBg-1.pdf"
+      "filename" : "plusBg-1.pdf",
+      "idiom" : "iphone"
     },
     {
-      "idiom" : "ipad",
-      "filename" : "plusBg-2.pdf"
+      "filename" : "plusBg-2.pdf",
+      "idiom" : "ipad"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   },
   "properties" : {
     "template-rendering-intent" : "original"
