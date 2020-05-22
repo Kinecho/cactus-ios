@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -52,12 +54,12 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grainy" translatesAutoresizingMaskIntoConstraints="NO" id="Qfl-dx-1gS" userLabel="background blobNeedle Fixed">
-                    <rect key="frame" x="0.0" y="448" width="414" height="448"/>
+                    <rect key="frame" x="0.0" y="453" width="414" height="443"/>
                     <color key="backgroundColor" name="CelebrateBackground"/>
                     <color key="tintColor" name="GreenDarkest"/>
                 </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7uq-lE-LWz">
-                    <rect key="frame" x="0.0" y="50" width="414" height="846"/>
+                    <rect key="frame" x="0.0" y="94" width="414" height="802"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nHa-LS-XhV">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
@@ -425,7 +427,7 @@
             <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TextMinimized">
-            <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="0.69999998807907104" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="White">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
