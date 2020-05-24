@@ -638,6 +638,7 @@
 		30BF2E332328C7AD00A49EB6 /* MarkdownTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E312328C7AD00A49EB6 /* MarkdownTypes.swift */; };
 		30BF2E342328D91B00A49EB6 /* PromptContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0C2328171200A49EB6 /* PromptContent.swift */; };
 		30BF2E35232964CD00A49EB6 /* FlamelinkTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0E23281CAA00A49EB6 /* FlamelinkTypes.swift */; };
+		30C18F7C247AC6D400749C56 /* PromptContentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C18F7B247AC6D400749C56 /* PromptContentTest.swift */; };
 		30C49D3422EC299300A2EA95 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3322EC299300A2EA95 /* ViewExtensions.swift */; };
 		30C49D3822EC2D4C00A2EA95 /* CactusColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */; };
 		30C7E57B233FEB5800145111 /* FontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C7E57A233FEB5800145111 /* FontExtensions.swift */; };
@@ -997,6 +998,7 @@
 		30BF2E2923289F9F00A49EB6 /* TextContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextContentViewController.xib; sourceTree = "<group>"; };
 		30BF2E2E2328A8AD00A49EB6 /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
 		30BF2E312328C7AD00A49EB6 /* MarkdownTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownTypes.swift; sourceTree = "<group>"; };
+		30C18F7B247AC6D400749C56 /* PromptContentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptContentTest.swift; sourceTree = "<group>"; };
 		30C49D3322EC299300A2EA95 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusColor.swift; sourceTree = "<group>"; };
 		30C7E57A233FEB5800145111 /* FontExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtensions.swift; sourceTree = "<group>"; };
@@ -1221,6 +1223,7 @@
 				3009EE5A23C98F4400002CCB /* DateUtilTests.swift */,
 				307ED7922408748C008D26C6 /* MemberSubscriptionTest.swift */,
 				30E9D04524784FBF00FE4E5F /* CactusMemberTest.swift */,
+				30C18F7B247AC6D400749C56 /* PromptContentTest.swift */,
 			);
 			path = "Cactus UnitTests";
 			sourceTree = "<group>";
@@ -2240,6 +2243,7 @@
 				3084E96A234BACE300788279 /* FormatUtilTest.swift in Sources */,
 				303C9E0623841AC1006B9786 /* PromptContentViewController.swift in Sources */,
 				3021CBE7241049AC00F58B89 /* StoreObserver.swift in Sources */,
+				30C18F7C247AC6D400749C56 /* PromptContentTest.swift in Sources */,
 				303C9DDC23841A30006B9786 /* JournalFeedCollectionViewController.swift in Sources */,
 				30A292D3243E467F00F546CA /* LoadingViewController.swift in Sources */,
 				30F7168B237A4A9B004989DB /* LoggerUtil.swift in Sources */,

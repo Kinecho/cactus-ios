@@ -208,6 +208,10 @@ class ContentCoreValues: Codable {
     func getMemberCoreValue(member: CactusMember?, preferredIndex: Int?=0) -> String? {
         return member?.getCoreValue(at: preferredIndex ?? 0)
     }
+    
+    var isEmpty: Bool {
+        isBlank(self.textTemplateMd)
+    }
 }
 
 class Content: Codable {
@@ -241,6 +245,10 @@ class Content: Codable {
         case actionButton
         case showElementIcon
         case coreValues
+    }
+    
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -287,6 +295,9 @@ class Content: Codable {
         }
         
         self.coreValues = try? container.decode(ContentCoreValues.self, forKey: ContentCodingKeys.coreValues)
+        if self.coreValues?.isEmpty == true {
+            self.coreValues = nil
+        }
         
         self.showElementIcon = try? container.decode(Bool.self, forKey: ContentCodingKeys.showElementIcon)
     }
@@ -306,7 +317,9 @@ class Content: Codable {
         }
                         
         if let coreValue = coreValue ?? self.coreValues?.getMemberCoreValue(member: member, preferredIndex: preferredIndex),
-            let coreValuesTemplate = self.coreValues?.textTemplateMd {
+            let coreValuesTemplate = self.coreValues?.textTemplateMd,
+            !isBlank(coreValuesTemplate)
+            {
             let token = self.coreValues?.valueReplaceToken ?? CORE_VALUE_REPLACE_TOKEN_DEFAULT
             textString = coreValuesTemplate.replacingOccurrences(of: token, with: coreValue)
         }
@@ -356,6 +369,10 @@ class PromptContent: FlamelinkIdentifiable {
         case contentStatus
         case subscriptionTiers
         case preferredCoreValueIndex
+    }
+    
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
