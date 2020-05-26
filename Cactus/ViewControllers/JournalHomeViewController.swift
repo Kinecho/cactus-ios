@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import StoreKit
 
 class JournalHomeViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
@@ -134,15 +135,21 @@ class JournalHomeViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
-    func presentPermissionsOnboardingIfNeeded() {
+    
+    /**
+            - Returns: true if the permissions screen will be presented, false if not.
+     */
+    func presentPermissionsOnboardingIfNeeded(completed:((Bool) -> Void)?=nil) {
         guard self.journalFeedDataSource.count > 0 else {
             self.logger.info("The data source is empty, not attempting to show onboarding", functionName: #function)
+            completed?(false)
             return
         }
         
         let hasSeenOnboarding = UserDefaults.standard.bool(forKey: UserDefaultsKey.notificationOnboarding)
         if hasSeenOnboarding {
             logger.info("User has seen onboarding via UserDefeaults[\"NotificationOnboarding\"]", functionName: #function)
+            completed?(false)
             return
         }
         
@@ -150,10 +157,12 @@ class JournalHomeViewController: UIViewController {
             DispatchQueue.main.async {
                 guard status != .authorized else {
                     self.logger.info("user already has push notificatiosn enabled")
+                    completed?(false)
                     return
                 }
                 
                 guard let vc = ScreenID.notificationOnboarding.getViewController() as? NotificationOnboardingViewController else {
+                    completed?(false)
                     return
                 }
                 
@@ -162,6 +171,8 @@ class JournalHomeViewController: UIViewController {
                 self.present(vc, animated: true, completion: {
                     UserDefaults.standard.set(true, forKey: UserDefaultsKey.notificationOnboarding)
                 })
+                completed?(true)
+                return
             }
         }
     }
@@ -465,7 +476,14 @@ extension JournalHomeViewController: PromptContentPageViewControllerDelegate {
         guard promptContent.entryId == self.appSettings?.firstPromptContentEntryId,
             !self.member.tier.isPaidTier,
             let pricingVc = ScreenID.Pricing.getViewController() as? PricingViewController else {
-                self.presentPermissionsOnboardingIfNeeded()
+                self.presentPermissionsOnboardingIfNeeded { (didPresentNotificationOnbaording) in
+                    if didPresentNotificationOnbaording {
+                        return
+                    }
+                    if (self.member.stats?.reflections?.totalCount ?? 0) > 2 {
+                        SKStoreReviewController.requestReview()
+                    }
+                }
                 return
         }
     
