@@ -107,6 +107,9 @@
 		3023FE3422ECF06E00F753A7 /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
 		3023FE3522ECF0A800F753A7 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3322EC299300A2EA95 /* ViewExtensions.swift */; };
 		3023FE3622ECF0AE00F753A7 /* CactusColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */; };
+		30242FAA247DCA3900B935F4 /* RatingReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30242FA9247DCA3900B935F4 /* RatingReviewService.swift */; };
+		30242FAB247DCA3900B935F4 /* RatingReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30242FA9247DCA3900B935F4 /* RatingReviewService.swift */; };
+		30242FAC247DCA3900B935F4 /* RatingReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30242FA9247DCA3900B935F4 /* RatingReviewService.swift */; };
 		30265C5D23453C8D00934041 /* SwiftyGifManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30265C5C23453C8D00934041 /* SwiftyGifManager.swift */; };
 		30265C5E23453C8D00934041 /* SwiftyGifManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30265C5C23453C8D00934041 /* SwiftyGifManager.swift */; };
 		30265C6023453CB100934041 /* UIImage+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30265C5F23453CB100934041 /* UIImage+SwiftyGif.swift */; };
@@ -844,6 +847,7 @@
 		3021CBE82410E83800F58B89 /* InsightsWebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsWebViewViewController.swift; sourceTree = "<group>"; };
 		3021CBED2411769800F58B89 /* MemberInsightsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberInsightsViewController.swift; sourceTree = "<group>"; };
 		3023FE2F22ECD0A300F753A7 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		30242FA9247DCA3900B935F4 /* RatingReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingReviewService.swift; sourceTree = "<group>"; };
 		30265C5C23453C8D00934041 /* SwiftyGifManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyGifManager.swift; sourceTree = "<group>"; };
 		30265C5F23453CB100934041 /* UIImage+SwiftyGif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+SwiftyGif.swift"; sourceTree = "<group>"; };
 		30265C6223453CD100934041 /* UIImageView+SwiftyGif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+SwiftyGif.swift"; sourceTree = "<group>"; };
@@ -1515,6 +1519,7 @@
 				3021CBD62410215500F58B89 /* NavigationService.swift */,
 				303282202416D3DF00FC197A /* AuthenticatedTaskManager.swift */,
 				303E8141242C4F2700782B54 /* CactusAnalytics.swift */,
+				30242FA9247DCA3900B935F4 /* RatingReviewService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -2212,6 +2217,7 @@
 				30D0E44F236C920C00EFC0E3 /* ViewControllerExtensions.swift in Sources */,
 				303C9DBE237F5E34006B9786 /* URLExtensionTest.swift in Sources */,
 				303C9DF523841ABB006B9786 /* NotificationsTableViewController.swift in Sources */,
+				30242FAC247DCA3900B935F4 /* RatingReviewService.swift in Sources */,
 				303C9E4A238F29E6006B9786 /* SharingServiceTest.swift in Sources */,
 				307ED78D24084085008D26C6 /* MemberSubscription.swift in Sources */,
 				303C9E3A23841AFC006B9786 /* UIImage+SwiftyGif.swift in Sources */,
@@ -2638,6 +2644,7 @@
 				303BF751232D289A00164539 /* QuoteContentViewController.swift in Sources */,
 				30CF538A2370DDCC00578B22 /* EnergyAnimationViewController.swift in Sources */,
 				300FCCF423EE279500089CFB /* StoreObserver.swift in Sources */,
+				30242FAB247DCA3900B935F4 /* RatingReviewService.swift in Sources */,
 				3026B29B234D3E2800CD2D34 /* PromptContentViewController.swift in Sources */,
 				30E2D377234311C6003D2B27 /* PillLabelView.swift in Sources */,
 				3084E95C2348087100788279 /* HelpViewController.swift in Sources */,
@@ -2813,6 +2820,7 @@
 				3026B29A234D3E2800CD2D34 /* PromptContentViewController.swift in Sources */,
 				30CF53892370DDCC00578B22 /* EnergyAnimationViewController.swift in Sources */,
 				300FCCF323EE279500089CFB /* StoreObserver.swift in Sources */,
+				30242FAA247DCA3900B935F4 /* RatingReviewService.swift in Sources */,
 				30E9B0AF22EADD04005B25FD /* LoginViewController.swift in Sources */,
 				30E2D376234311C6003D2B27 /* PillLabelView.swift in Sources */,
 				3084E95B2348087100788279 /* HelpViewController.swift in Sources */,
