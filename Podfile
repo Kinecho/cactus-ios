@@ -39,6 +39,7 @@ def app_pods
   pod 'FacebookCore'
   pod 'Branch'
   pod 'SkeletonView'
+  pod 'Purchases', '3.2.2'
 end
 
 

@@ -103,7 +103,7 @@ class JournalEntryData {
     
     func setupPromptObserver() {
         self.reflectionPromptData.unsubscriber?.remove()
-        guard let promptId = self.promptId else {
+        guard let promptId = self.promptId, !isBlank(promptId) else {
             JournalEntryData.logger.info("No prompt ID found on JournalEntryData, can't load data")
             self.wontLoad = true
             self.notifyIfLoadingComplete()
