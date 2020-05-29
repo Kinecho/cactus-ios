@@ -53,4 +53,5 @@ protocol AppConfig {
     static var branchPublicKey: String {get}
     static var appGroupId: String {get}
     static var sharedKeychainGroup: String {get}
+    static var revenueCatPublicApiKey: String {get}
 }

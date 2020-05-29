@@ -436,6 +436,7 @@ PODS:
   - nanopb/encode (0.3.9011)
   - PromisesObjC (1.2.8)
   - Protobuf (3.11.4)
+  - Purchases (3.2.2)
   - SDWebImage (5.7.2):
     - SDWebImage/Core (= 5.7.2)
   - SDWebImage/Core (5.7.2)
@@ -474,6 +475,7 @@ DEPENDENCIES:
   - GoogleUtilities/UserDefaults
   - GTMSessionFetcher
   - MarkdownKit (= 1.5)
+  - Purchases (= 3.2.2)
   - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `4.4.1`)
   - SkeletonView
   - SwiftLint
@@ -526,6 +528,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - Protobuf
+    - Purchases
     - SDWebImage
     - SkeletonView
     - SwiftLint
@@ -587,11 +590,12 @@ SPEC CHECKSUMS:
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   Protobuf: 176220c526ad8bd09ab1fb40a978eac3fef665f7
+  Purchases: 392c729893c011c7d4d37d7f7c9f863e597d4a9b
   SDWebImage: d9ea4959d99c52276dfada481987018fcaea3d58
   Sentry: 5d312a04e369154aeac616214f4dfc3cbcc8b296
   SkeletonView: ba5370f41280b2f0a76918bb143c1294232bb4f4
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
-PODFILE CHECKSUM: 2539419a1ddd8cede725e34bfe1e48d780ac9ec8
+PODFILE CHECKSUM: d7bfc9736385ef4c1121b13883d6f5117a5faf48
 
 COCOAPODS: 1.8.4

@@ -19,4 +19,5 @@ struct CactusConfig: AppConfig {
     static let branchPublicKey = "key_live_heLJqNeQvEOgkUX3XUF92hadCFi7uWW0"
     static let appGroupId = "com.cactus.CactusApp.group1"
     static let sharedKeychainGroup = "3ZKVS4B79Q.com.cactus.CactusAppShared"
+    static let revenueCatPublicApiKey = "dlWuxUOEBonywlmBlOMQtTfUQGZXAKbJ"
 }

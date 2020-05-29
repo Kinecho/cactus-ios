@@ -113,6 +113,12 @@ class CactusMemberService {
         self.firestoreService.save(member, onComplete: completed)
     }
     
+    func getFCMToken(complete: @escaping (String, String) -> Void) {
+        self.instanceIDDelegate?.getInstanceId { (token, instanceId) in
+            complete(token, instanceId)
+        }
+    }
+    
     func addFCMToken(member: CactusMember) {
         self.instanceIDDelegate?.getInstanceId { (token, instanceId) in
 //            let instanceId = result.instanceID

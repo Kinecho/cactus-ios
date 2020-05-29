@@ -18,6 +18,8 @@ import Branch
 import FirebaseInAppMessaging
 import StoreKit
 import FirebaseInstanceID
+import Purchases //RevenueCat
+
 
 typealias SentryUser = Sentry.User
 
@@ -47,7 +49,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application,
             didFinishLaunchingWithOptions: launchOptions
         )
-                
+        
+        Purchases.debugLogsEnabled = true
+        Purchases.configure(withAPIKey: CactusConfig.revenueCatPublicApiKey, appUserID: "not_set", observerMode: true)
+        
         logger.debug("Is facebook intent: \(isFacebokIntent)", functionName: #function, line: #line)
         self.setupBranch(launchOptions: launchOptions)
         
@@ -103,7 +108,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let sentryUser = SentryUser(userId: user.uid)
                 sentryUser.email = user.email
                 Client.shared?.user = sentryUser
+                Purchases.shared.setEmail(user.email)
+//                Purchases.shared.setPushToken(us)
+                Purchases.shared.identify(user.uid) { (info, error) in
+                    self.logger.info(String(describing: info))
+                    if let error = error {
+                        self.logger.error("error", error)
+                    }
+                    
+                    CactusMemberService.sharedInstance.getFCMToken { (token, instanceId) in
+//                        Purchases.shared.setPushToken(
+                    }
+                }
             } else {
+                Purchases.shared.reset()
+                
                 if let currentUser = self.currentUser {
                     let logoutEvent = Sentry.Event(level: .info)
                     logoutEvent.message = "\(currentUser.email ?? currentUser.uid) has logged out of the app"
