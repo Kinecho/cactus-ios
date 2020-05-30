@@ -20,7 +20,6 @@ import StoreKit
 import FirebaseInstanceID
 import Purchases //RevenueCat
 
-
 typealias SentryUser = Sentry.User
 
 @UIApplicationMain
@@ -50,10 +49,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             didFinishLaunchingWithOptions: launchOptions
         )
         
+        Purchases.configure(withAPIKey: CactusConfig.revenueCatPublicApiKey, appUserID: nil, observerMode: true)
         Purchases.debugLogsEnabled = true
-        Purchases.configure(withAPIKey: CactusConfig.revenueCatPublicApiKey, appUserID: "not_set", observerMode: true)
         Purchases.shared.finishTransactions = false //set to false because we are finishing the transaction ourself in Cactus code.
-        
         
         logger.debug("Is facebook intent: \(isFacebokIntent)", functionName: #function, line: #line)
         self.setupBranch(launchOptions: launchOptions)
