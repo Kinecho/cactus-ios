@@ -116,8 +116,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         self.logger.error("error", error)
                     }
                     
-                    CactusMemberService.sharedInstance.getFCMToken { (token, instanceId) in
-//                        Purchases.shared.setPushToken(
+                    CactusMemberService.sharedInstance.getFCMToken { (token, _) in
+                        Purchases.shared.setPushToken(token.data(using: .utf8))
                     }
                 }
             } else {
