@@ -52,6 +52,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Purchases.debugLogsEnabled = true
         Purchases.configure(withAPIKey: CactusConfig.revenueCatPublicApiKey, appUserID: "not_set", observerMode: true)
+        Purchases.shared.finishTransactions = false //set to false because we are finishing the transaction ourself in Cactus code.
+        
         
         logger.debug("Is facebook intent: \(isFacebokIntent)", functionName: #function, line: #line)
         self.setupBranch(launchOptions: launchOptions)
