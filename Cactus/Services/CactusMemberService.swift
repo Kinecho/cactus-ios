@@ -26,6 +26,7 @@ class CactusMemberService {
     let logger = Logger("CactusMemberService")
     private init() {
         self.firestoreService = FirestoreService.sharedInstance
+        self.currentUser = Auth.auth().currentUser
         self.memberListener = self.observeCurrentMember { (member, _, user) in
             
             if let member = member, member != self.currentMember {
