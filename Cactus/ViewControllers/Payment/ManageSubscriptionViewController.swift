@@ -50,6 +50,10 @@ class ManageSubscriptionViewController: UIViewController {
     }
     
     var formattedPrice: String {
+        if let applePrice = self.subscriptionDetails?.upcomingInvoice?.appleProductPrice?.localePriceFormatted {
+            return applePrice;
+        }
+        
         return formatPriceCents(self.subscriptionDetails?.upcomingInvoice?.amountCentsUsd, truncateWholeDollar: true) ?? "$0.00"
     }
     

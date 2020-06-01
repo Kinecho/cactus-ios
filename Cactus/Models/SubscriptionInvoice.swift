@@ -118,6 +118,12 @@ class PaymentMethod: Codable {
     var isDefault: Bool?
 }
 
+class AppleProductPrice: Codable {
+    var localePriceFormatted: String?
+    var price: Decimal?
+    var priceLocale: String?    
+}
+
 class SubscriptionInvoice: Codable {
     var defaultPaymentMethod: PaymentMethod?
     var amountCentsUsd: Int?
@@ -138,7 +144,7 @@ class SubscriptionInvoice: Codable {
     var subscriptionStatus: SubscriptionStatus
     var optOutTrialStartsAt_epoch_seconds: Int?
     var optOutTrialEndsAt_epoch_seconds: Int?
-    
+    var appleProductPrice: AppleProductPrice?
     // MARK: computed properties
     var isInOptOutTrial: Bool {
         return self.subscriptionStatus == .in_trial

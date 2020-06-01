@@ -17,6 +17,13 @@ func isBlank(_ input: String? ) -> Bool {
     return FormatUtils.isBlank(input)
 }
 
+func formatApplePrice(_ price: NSDecimalNumber?, locale: Locale?) -> String? {
+    guard let price = price else {
+        return nil
+    }
+    return formatApplePrice(price, locale: locale)
+}
+
 func formatApplePrice(_ price: NSDecimalNumber, locale: Locale?) -> String? {
     let currencyFormatter = NumberFormatter()
     currencyFormatter.usesGroupingSeparator = true

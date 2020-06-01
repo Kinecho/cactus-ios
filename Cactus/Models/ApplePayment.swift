@@ -8,13 +8,21 @@
 
 import Foundation
 import StoreKit
+
 struct CompletePurchaseRequest: Codable {
     ///Base64 encoded receipt data
     var receiptData: String
     var restored: Bool
-    init(receiptData: String, restored: Bool) {
+    var localePriceFormatted: String?
+    var price: Decimal?
+    var priceLocale: String?
+    
+    init(receiptData: String, restored: Bool, product: SKProduct?) {
         self.receiptData = receiptData
         self.restored = restored
+        self.localePriceFormatted = formatApplePrice(product?.price, locale: product?.priceLocale)
+        self.priceLocale = product?.priceLocale.identifier
+        self.price = product?.price.decimalValue
     }
 }
 

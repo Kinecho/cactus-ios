@@ -63,8 +63,9 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
     
     func handlePurchased(_ transaction: SKPaymentTransaction) {
         self.logger.info("Handling purchased transaction ID = \(transaction.transactionIdentifier ?? "no txn id")")
+        
         let task = AuthenticatedTask { (_, _, taskCompleted) in
-            SubscriptionService.sharedInstance.completePurchase(restored: false) { (result, error) in
+            SubscriptionService.sharedInstance.completePurchase(restored: false, transaction: transaction) { (result, error) in
                 defer {
                     taskCompleted()
                     self.delegate?.handlePurchseCompleted(verifyReceiptResult: result, error: error)
@@ -109,7 +110,7 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
     func handleRestored(_ transaction: SKPaymentTransaction) {
         self.logger.info("Handle restored Transaction ID = \(transaction.transactionIdentifier ?? "none")")
         let task = AuthenticatedTask { (_, _, taskCompleted) in
-            SubscriptionService.sharedInstance.completePurchase(restored: true) { (result, error) in
+            SubscriptionService.sharedInstance.completePurchase(restored: true, transaction: transaction) { (result, error) in
                 defer {
                     taskCompleted()
                 }

@@ -26,6 +26,7 @@ class CactusMemberService {
     let logger = Logger("CactusMemberService")
     private init() {
         self.firestoreService = FirestoreService.sharedInstance
+        self.currentUser = Auth.auth().currentUser
         self.memberListener = self.observeCurrentMember { (member, _, user) in
             
             if let member = member, member != self.currentMember {
@@ -111,6 +112,12 @@ class CactusMemberService {
     
     func save(_ member: CactusMember, completed: @escaping (CactusMember?, Any?) -> Void) {
         self.firestoreService.save(member, onComplete: completed)
+    }
+    
+    func getFCMToken(complete: @escaping (String, String) -> Void) {
+        self.instanceIDDelegate?.getInstanceId { (token, instanceId) in
+            complete(token, instanceId)
+        }
     }
     
     func addFCMToken(member: CactusMember) {

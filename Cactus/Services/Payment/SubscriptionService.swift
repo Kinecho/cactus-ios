@@ -115,32 +115,41 @@ class SubscriptionService: NSObject {
         NavigationService.sharedInstance.present(alert, animated: true)
     }
     
-    func completePurchase(restored: Bool=false, onComplete: @escaping ((CompletePurchaseResult?, Any?) -> Void)) {
-        if let appStoreReceiptURL = Bundle.main.appStoreReceiptURL,
-            FileManager.default.fileExists(atPath: appStoreReceiptURL.path) {
+    func completePurchase(restored: Bool=false, transaction: SKPaymentTransaction, onComplete: @escaping ((CompletePurchaseResult?, Any?) -> Void)) {
+        let productId = transaction.payment.productIdentifier
+        self.fetchAppleProducts(appleProductIds: [productId]) { (products) in
+            let product = products.first {$0.productIdentifier == productId}
+            
+            if let appStoreReceiptURL = Bundle.main.appStoreReceiptURL,
+                FileManager.default.fileExists(atPath: appStoreReceiptURL.path) {
 
-            do {
-                let receiptData = try Data(contentsOf: appStoreReceiptURL, options: .alwaysMapped)
-                let receiptString = receiptData.base64EncodedString(options: [])
-                
-                let receiptParams = CompletePurchaseRequest(receiptData: receiptString, restored: restored)
-                
-                self.logger.info("Sending verify receipt data to backend")
-                ApiService.sharedInstance.post(path: ApiPath.appleCompletePurchase, body: receiptParams, responseType: CompletePurchaseResult.self, authenticated: true) { result, error in
-                    if let error = error {
-                        self.logger.error("Failed to verify receit. error", error)
+                do {
+                    let receiptData = try Data(contentsOf: appStoreReceiptURL, options: .alwaysMapped)
+                    let receiptString = receiptData.base64EncodedString(options: [])
+                    
+                    let receiptParams = CompletePurchaseRequest(receiptData: receiptString,
+                                                                restored: restored,
+                                                                product: product)
+                    
+                    self.logger.info("Sending verify receipt data to backend")
+                    ApiService.sharedInstance.post(path: ApiPath.appleCompletePurchase, body: receiptParams, responseType: CompletePurchaseResult.self, authenticated: true) { result, error in
+                        if let error = error {
+                            self.logger.error("Failed to verify receit. error", error)
+                        }
+                        self.logger.info("completed verify receipt call result: \(String(describing: result))")
+                        onComplete(result, error)
                     }
-                    self.logger.info("completed verify receipt call result: \(String(describing: result))")
-                    onComplete(result, error)
+                } catch {
+                    self.logger.error("Couldn't read receipt data with error: " + error.localizedDescription, error)
+                    onComplete(nil, error)
                 }
-            } catch {
-                self.logger.error("Couldn't read receipt data with error: " + error.localizedDescription, error)
-                onComplete(nil, error)
+            } else {
+                self.logger.warn("Unable to get receipt data")
+                onComplete(nil, "No apple receipt found on the device")
             }
-        } else {
-            self.logger.warn("Unable to get receipt data")
-            onComplete(nil, "No apple receipt found on the device")
+            
         }
+        
         
     }
 }

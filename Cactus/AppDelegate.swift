@@ -18,6 +18,8 @@ import Branch
 import FirebaseInAppMessaging
 import StoreKit
 import FirebaseInstanceID
+import Purchases //RevenueCat
+import AdSupport //RevenueCat
 
 typealias SentryUser = Sentry.User
 
@@ -26,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let logger = Logger(fileName: String(describing: AppDelegate.self))
     var fcmToken: String?
     var window: UIWindow?
+    var authHasLoaded = false
     var branchInstance: Branch?
     private var currentUser: FirebaseAuth.User?
     
@@ -42,14 +45,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         logger.info("Loading app will start", functionName: #function)
-        SKPaymentQueue.default().add(StoreObserver.sharedInstance)
+        self.currentUser = Auth.auth().currentUser
+        
+        logger.info("EARLY AUTH USER: \(Auth.auth().currentUser?.uid ?? "none")")
         let isFacebokIntent = FacebookCore.ApplicationDelegate.shared.application(
             application,
             didFinishLaunchingWithOptions: launchOptions
         )
-                
         logger.debug("Is facebook intent: \(isFacebokIntent)", functionName: #function, line: #line)
+        
         self.setupBranch(launchOptions: launchOptions)
+        
+        self.setupRevenueCat()
+        SKPaymentQueue.default().add(StoreObserver.sharedInstance)
+        
+        
         
         Logger.configureLogging(auth: Auth.auth())
         NotificationService.start(application: application)
@@ -67,11 +77,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func setupRevenueCat() {
+        self.logger.info("Setting upu RevenueuCat purchases sdk")
+        Purchases.configure(withAPIKey: CactusConfig.revenueCatPublicApiKey, appUserID: self.currentUser?.uid, observerMode: true)
+        Purchases.addAttributionData([:], from: .facebook)
+        Purchases.debugLogsEnabled = true
+        Purchases.shared.finishTransactions = false //set to false because we are finishing the transaction ourself in Cactus code.
+    }
+    
     func setupBranch(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         Branch.setBranchKey(CactusConfig.branchPublicKey)
         
         let branchInstance = Branch.getInstance()
         self.branchInstance = branchInstance
+        branchInstance.setIdentity(self.currentUser?.uid)
         branchInstance.initSession(launchOptions: launchOptions) { (params, error) in
             defer {
                 self.startAuthListener()
@@ -103,7 +122,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let sentryUser = SentryUser(userId: user.uid)
                 sentryUser.email = user.email
                 Client.shared?.user = sentryUser
+                Purchases.shared.setEmail(user.email)
+                Purchases.shared.identify(user.uid) { (info, error) in
+                    self.logger.info(String(describing: info))
+                    if let error = error {
+                        self.logger.error("error", error)
+                    }
+                    
+                    CactusMemberService.sharedInstance.getFCMToken { (token, _) in
+                        Purchases.shared.setPushToken(token.data(using: .utf8))
+                    }
+                }
             } else {
+                Purchases.shared.reset()
+                
                 if let currentUser = self.currentUser {
                     let logoutEvent = Sentry.Event(level: .info)
                     logoutEvent.message = "\(currentUser.email ?? currentUser.uid) has logged out of the app"
@@ -113,6 +145,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             CactusAnalytics.shared.setUserId(user?.uid)
             self.currentUser = user
+            self.authHasLoaded = true
         }
     }
     
