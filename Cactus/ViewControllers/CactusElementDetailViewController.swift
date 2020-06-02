@@ -23,15 +23,12 @@ class CactusElementDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.setupView()
-        // Do any additional setup after loading the view.
     }
 
     func setupView() {
         self.imageContainerView.layer.cornerRadius = self.imageContainerView.bounds.height / 2
-//        self.view.layer.cornerRadius = 16
-        
+        self.elementImage.tintColor = self.element.color
         self.elementImage.image = self.element.getImage()
         self.nameTextView.text = self.element.rawValue.capitalized
         self.descriptionTextView.text = self.element.description
@@ -41,14 +38,4 @@ class CactusElementDetailViewController: UIViewController {
     @IBAction func closeButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

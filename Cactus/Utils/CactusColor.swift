@@ -56,6 +56,7 @@ struct CactusColor {
     static let darkBeige: UIColor = UIColor(hex: "E5DFDB")
     static let magenta: UIColor = UIColor(named: "Magenta")!
     static let dolphin = UIColor(named: "Dolphin")!
+    static let dolphinLight = UIColor(named: "DolphinLight")!
     static let promptBackground: UIColor = UIColor(named: "PromptBackground")!
     static let accentBeige: UIColor = UIColor(named: "AccentBeige")!
     static let alertYellow: UIColor = UIColor(named: "AlertYellow")!
@@ -72,6 +73,7 @@ struct CactusColor {
     static let aqua = UIColor(named: "Aqua")!
     static let fancyLinkHighlight = UIColor(named: "FancyLinkHighlight")!
     static let danger = UIColor(named: "Danger")!
+    static let coral = UIColor(named: "Coral")!
 }
 
 extension UIColor {
