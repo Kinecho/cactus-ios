@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,12 +17,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReflectContentViewController" customModule="Cactus" customModuleProvider="target">
             <connections>
                 <outlet property="addNoteButton" destination="SQf-qu-GoP" id="S7k-Wt-6gL"/>
-                <outlet property="cactusAnimationContainerView" destination="HSm-4V-Hmx" id="AQP-du-hGh"/>
-                <outlet property="pottedCactusPlaceholderImage" destination="lak-qi-UqW" id="lrS-j6-zvp"/>
+                <outlet property="elementAnimationWebView" destination="nHs-Gq-iBW" id="3LN-60-cRi"/>
                 <outlet property="questionTextView" destination="kau-mV-hyr" id="xwz-Wa-91C"/>
                 <outlet property="reflectionTextView" destination="KbP-hJ-CGv" id="deJ-d4-KQq"/>
                 <outlet property="sharedNoteStackView" destination="45X-z1-aZS" id="Hif-4V-EFX"/>
-                <outlet property="videoView" destination="ggY-Bf-lGx" id="dH0-IL-rUb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -63,174 +61,186 @@
                         <constraint firstAttribute="width" constant="250" id="hxn-G2-yTc"/>
                     </constraints>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSm-4V-Hmx" userLabel="CactusAnimationContainer">
-                    <rect key="frame" x="40" y="281" width="334" height="334"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="HSm-4V-Hmx" secondAttribute="height" multiplier="1:1" id="Pf5-fV-PEa"/>
-                    </constraints>
-                </view>
-                <view clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggY-Bf-lGx" userLabel="VideoView">
-                    <rect key="frame" x="60" y="306" width="294" height="294"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wFQ-2h-xz4">
+                    <rect key="frame" x="0.0" y="144" width="414" height="554"/>
                     <subviews>
-                        <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pottedCactus" translatesAutoresizingMaskIntoConstraints="NO" id="lak-qi-UqW">
-                            <rect key="frame" x="0.0" y="0.0" width="294" height="294"/>
-                        </imageView>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="bottom" secondItem="lak-qi-UqW" secondAttribute="bottom" placeholder="YES" id="Kwm-qT-ieu"/>
-                        <constraint firstAttribute="trailing" secondItem="lak-qi-UqW" secondAttribute="trailing" placeholder="YES" id="P6c-KH-ZZ4"/>
-                        <constraint firstItem="lak-qi-UqW" firstAttribute="top" secondItem="ggY-Bf-lGx" secondAttribute="top" placeholder="YES" id="aRr-2d-gaQ"/>
-                        <constraint firstAttribute="width" secondItem="ggY-Bf-lGx" secondAttribute="height" multiplier="1:1" id="tLN-jA-Cpa"/>
-                        <constraint firstItem="lak-qi-UqW" firstAttribute="leading" secondItem="ggY-Bf-lGx" secondAttribute="leading" placeholder="YES" id="uda-AO-XVD"/>
-                    </constraints>
-                </view>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kau-mV-hyr">
-                    <rect key="frame" x="20" y="144" width="374" height="45"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <color key="textColor" name="TextDefault"/>
-                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQf-qu-GoP" customClass="BorderedButton" customModule="Cactus" customModuleProvider="target">
-                    <rect key="frame" x="40" y="792" width="334" height="50"/>
-                    <color key="backgroundColor" name="SecondaryButtonBackground"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50" id="2sE-55-Mnq"/>
-                        <constraint firstAttribute="width" constant="300" id="DKP-iN-Y0i"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
-                    <color key="tintColor" name="IconDefault"/>
-                    <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
-                    <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <inset key="imageEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="Add a Note" image="pencil">
-                        <color key="titleColor" name="TextDefault"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="imageWidth">
-                            <real key="value" value="25"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="imageHeight">
-                            <real key="value" value="25"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                            <real key="value" value="1"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                            <color key="value" name="SecondaryBorder"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
-                            <real key="value" value="25"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="DKP-iN-Y0i"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=regular">
-                        <mask key="constraints">
-                            <include reference="DKP-iN-Y0i"/>
-                        </mask>
-                    </variation>
-                    <connections>
-                        <action selector="addNoteTapped:" destination="-1" eventType="primaryActionTriggered" id="oMT-sN-pDV"/>
-                    </connections>
-                </button>
-                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="45X-z1-aZS" userLabel="Shared Note Stack View">
-                    <rect key="frame" x="116" y="769" width="182" height="21"/>
-                    <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="users" translatesAutoresizingMaskIntoConstraints="NO" id="Pyi-cX-7bU">
-                            <rect key="frame" x="0.0" y="0.5" width="20" height="20"/>
-                            <color key="tintColor" name="GreenDark"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z9F-Ek-uqo">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="337"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="wY6-ze-WYQ">
+                                    <rect key="frame" x="20" y="0.0" width="374" height="337"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Sample Text" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kau-mV-hyr">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="45"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="textColor" name="TextDefault"/>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4DB-3M-TzN">
+                                            <rect key="frame" x="0.0" y="137" width="374" height="200"/>
+                                            <subviews>
+                                                <wkWebView opaque="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="nHs-Gq-iBW" customClass="CactusElementWebView" customModule="Cactus" customModuleProvider="target">
+                                                    <rect key="frame" x="87" y="0.0" width="200" height="200"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="200" id="asb-Yc-UWd"/>
+                                                        <constraint firstAttribute="height" constant="200" id="pOd-tO-eUa"/>
+                                                    </constraints>
+                                                    <wkWebViewConfiguration key="configuration">
+                                                        <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                                        <wkPreferences key="preferences"/>
+                                                    </wkWebViewConfiguration>
+                                                </wkWebView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="nHs-Gq-iBW" firstAttribute="centerX" secondItem="4DB-3M-TzN" secondAttribute="centerX" id="0ma-Vw-97O"/>
+                                                <constraint firstAttribute="bottom" secondItem="nHs-Gq-iBW" secondAttribute="bottom" id="DJo-Ls-Uyy"/>
+                                                <constraint firstItem="nHs-Gq-iBW" firstAttribute="top" secondItem="4DB-3M-TzN" secondAttribute="top" id="zgv-VJ-kSb"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="20" id="BeO-UV-fRp"/>
-                                <constraint firstAttribute="width" constant="20" id="D5B-7K-wEA"/>
+                                <constraint firstAttribute="trailing" secondItem="wY6-ze-WYQ" secondAttribute="trailing" constant="20" id="X6i-fV-meR"/>
+                                <constraint firstItem="wY6-ze-WYQ" firstAttribute="centerY" secondItem="z9F-Ek-uqo" secondAttribute="centerY" id="eLs-2a-GKh"/>
+                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="wY6-ze-WYQ" secondAttribute="bottom" id="la2-Ng-LEH"/>
+                                <constraint firstItem="wY6-ze-WYQ" firstAttribute="leading" secondItem="z9F-Ek-uqo" secondAttribute="leading" constant="20" id="oF3-dX-a15"/>
+                                <constraint firstItem="wY6-ze-WYQ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="z9F-Ek-uqo" secondAttribute="top" id="tnS-Kk-K46"/>
                             </constraints>
-                        </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This note is shared" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHU-di-dY2" userLabel="Shared Label">
-                            <rect key="frame" x="30" y="0.0" width="152" height="21"/>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="z9F-Ek-uqo" firstAttribute="trailing" secondItem="vsa-3E-i12" secondAttribute="trailing" id="Ev4-7s-b0n"/>
+                        <constraint firstItem="z9F-Ek-uqo" firstAttribute="leading" secondItem="vsa-3E-i12" secondAttribute="leading" id="Qmb-FJ-FT8"/>
+                        <constraint firstItem="cTI-xw-Ajz" firstAttribute="trailing" secondItem="z9F-Ek-uqo" secondAttribute="trailing" id="fJr-d9-u1f"/>
+                        <constraint firstItem="z9F-Ek-uqo" firstAttribute="leading" secondItem="cTI-xw-Ajz" secondAttribute="leading" id="fSs-iV-XEy"/>
+                        <constraint firstItem="z9F-Ek-uqo" firstAttribute="bottom" secondItem="vsa-3E-i12" secondAttribute="bottom" id="iiC-hW-MbA"/>
+                        <constraint firstItem="z9F-Ek-uqo" firstAttribute="top" secondItem="vsa-3E-i12" secondAttribute="top" id="l89-Y6-jnk"/>
+                        <constraint firstItem="z9F-Ek-uqo" firstAttribute="width" secondItem="cTI-xw-Ajz" secondAttribute="width" id="wk7-gb-QCo"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="vsa-3E-i12"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="cTI-xw-Ajz"/>
+                </scrollView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="oz3-gK-tPc" userLabel="Footer Stack View">
+                    <rect key="frame" x="20" y="718" width="374" height="124"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="45X-z1-aZS" userLabel="Shared Note Stack View">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="22"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="users" translatesAutoresizingMaskIntoConstraints="NO" id="Pyi-cX-7bU">
+                                    <rect key="frame" x="0.0" y="1" width="20" height="20"/>
+                                    <color key="tintColor" name="GreenDark"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="BeO-UV-fRp"/>
+                                        <constraint firstAttribute="width" constant="20" id="D5B-7K-wEA"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This note is shared" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHU-di-dY2" userLabel="Shared Label">
+                                    <rect key="frame" x="30" y="0.0" width="344" height="22"/>
+                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                    <color key="textColor" name="TextMinimized"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <edgeInsets key="layoutMargins" top="8" left="10" bottom="8" right="8"/>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQf-qu-GoP" customClass="BorderedButton" customModule="Cactus" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="28" width="374" height="50"/>
+                            <color key="backgroundColor" name="SecondaryButtonBackground"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="2sE-55-Mnq"/>
+                                <constraint firstAttribute="width" constant="300" id="DKP-iN-Y0i"/>
+                            </constraints>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
-                            <color key="textColor" name="TextMinimized"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                            <color key="tintColor" name="IconDefault"/>
+                            <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
+                            <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Add a Note" image="pencil">
+                                <color key="titleColor" name="TextDefault"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="imageWidth">
+                                    <real key="value" value="25"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="imageHeight">
+                                    <real key="value" value="25"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" name="SecondaryBorder"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
+                                    <real key="value" value="25"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="DKP-iN-Y0i"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=regular">
+                                <mask key="constraints">
+                                    <include reference="DKP-iN-Y0i"/>
+                                </mask>
+                            </variation>
+                            <connections>
+                                <action selector="addNoteTapped:" destination="-1" eventType="primaryActionTriggered" id="oMT-sN-pDV"/>
+                            </connections>
+                        </button>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KbP-hJ-CGv" customClass="GrowingTextView" customModule="Cactus" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="84" width="374" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="500" id="8ZI-Ug-7Nc"/>
+                                <constraint firstAttribute="height" constant="40" placeholder="YES" id="YuA-wQ-oae"/>
+                            </constraints>
+                            <color key="textColor" name="TextDefault"/>
+                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="maxHeight">
+                                    <real key="value" value="200"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="8ZI-Ug-7Nc"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=regular">
+                                <mask key="constraints">
+                                    <include reference="8ZI-Ug-7Nc"/>
+                                </mask>
+                            </variation>
+                        </textView>
                     </subviews>
                 </stackView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KbP-hJ-CGv" customClass="GrowingTextView" customModule="Cactus" customModuleProvider="target">
-                    <rect key="frame" x="20" y="800" width="374" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="500" id="8ZI-Ug-7Nc"/>
-                        <constraint firstAttribute="height" constant="40" placeholder="YES" id="YuA-wQ-oae"/>
-                    </constraints>
-                    <color key="textColor" name="TextDefault"/>
-                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="maxHeight">
-                            <real key="value" value="200"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="8ZI-Ug-7Nc"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=regular">
-                        <mask key="constraints">
-                            <include reference="8ZI-Ug-7Nc"/>
-                        </mask>
-                    </variation>
-                </textView>
             </subviews>
             <color key="backgroundColor" name="Beige"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="KbP-hJ-CGv" secondAttribute="bottom" constant="22" id="0jt-Ql-8UX"/>
-                <constraint firstItem="ggY-Bf-lGx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1R0-7k-pcb"/>
-                <constraint firstItem="KbP-hJ-CGv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="3HJ-hf-Fdk"/>
-                <constraint firstItem="kau-mV-hyr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="5Gw-u5-vSV"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HSm-4V-Hmx" secondAttribute="trailing" constant="40" id="C9F-gy-JtD"/>
-                <constraint firstItem="HSm-4V-Hmx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="CuQ-pC-dM7"/>
-                <constraint firstItem="ggY-Bf-lGx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="FJL-oR-T7h"/>
-                <constraint firstItem="HSm-4V-Hmx" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Hme-5h-wl3"/>
-                <constraint firstItem="SQf-qu-GoP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="NxS-bu-U7M"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kau-mV-hyr" secondAttribute="trailing" constant="20" id="SqO-Qo-o52"/>
+                <constraint firstItem="oz3-gK-tPc" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-20" id="7OG-YJ-pT6"/>
+                <constraint firstItem="oz3-gK-tPc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="8Zb-b6-Z4H"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="leading" secondItem="wFQ-2h-xz4" secondAttribute="leading" id="F5a-i7-UIe"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="oz3-gK-tPc" secondAttribute="trailing" constant="20" id="KKk-Y0-75H"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wFQ-2h-xz4" secondAttribute="trailing" id="QSQ-Kz-dqA"/>
+                <constraint firstItem="wFQ-2h-xz4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="T3D-fw-hgz"/>
                 <constraint firstItem="mHL-au-wC2" firstAttribute="top" secondItem="GGN-Rc-luJ" secondAttribute="centerY" constant="-95" id="TVa-sF-zNO"/>
                 <constraint firstItem="GGN-Rc-luJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-50" id="UID-Ze-ogB"/>
-                <constraint firstItem="kau-mV-hyr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Vvz-B4-jqI"/>
                 <constraint firstItem="tbd-wr-MpV" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="bTd-o2-880"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ggY-Bf-lGx" secondAttribute="trailing" constant="60" id="cJ0-W8-yNY"/>
-                <constraint firstItem="45X-z1-aZS" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="chH-iT-KcM"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="SQf-qu-GoP" secondAttribute="trailing" constant="40" id="gLu-Sj-ueR"/>
+                <constraint firstItem="oz3-gK-tPc" firstAttribute="top" secondItem="wFQ-2h-xz4" secondAttribute="bottom" constant="20" id="dIu-XT-0qF"/>
                 <constraint firstAttribute="leading" secondItem="Z7M-NV-7xD" secondAttribute="trailing" constant="-60" id="gsB-ua-D0l"/>
-                <constraint firstItem="KbP-hJ-CGv" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="h4z-xb-7Qn"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="SQf-qu-GoP" secondAttribute="bottom" constant="20" id="hrg-3b-mHT"/>
-                <constraint firstItem="KbP-hJ-CGv" firstAttribute="top" secondItem="45X-z1-aZS" secondAttribute="bottom" constant="10" id="kqh-mM-MUw"/>
                 <constraint firstItem="mHL-au-wC2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-60" id="lWC-VG-B0B"/>
                 <constraint firstItem="Z7M-NV-7xD" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="my6-Ro-U3t"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="KbP-hJ-CGv" secondAttribute="trailing" constant="20" id="oH4-HE-bHW"/>
                 <constraint firstItem="GGN-Rc-luJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="-50" id="r5J-VH-deN"/>
-                <constraint firstItem="ggY-Bf-lGx" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="rAe-YA-0hd"/>
-                <constraint firstItem="SQf-qu-GoP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="tse-6n-o6R"/>
                 <constraint firstItem="tbd-wr-MpV" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="40" id="zSr-wt-7Hh"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="NxS-bu-U7M"/>
-                    <exclude reference="h4z-xb-7Qn"/>
-                </mask>
-            </variation>
-            <variation key="heightClass=regular-widthClass=regular">
-                <mask key="constraints">
-                    <exclude reference="gLu-Sj-ueR"/>
-                    <exclude reference="oH4-HE-bHW"/>
-                    <include reference="NxS-bu-U7M"/>
-                    <exclude reference="tse-6n-o6R"/>
-                    <exclude reference="3HJ-hf-Fdk"/>
-                    <include reference="h4z-xb-7Qn"/>
-                </mask>
-            </variation>
             <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>
         </view>
     </objects>
@@ -239,7 +249,6 @@
         <image name="blob3" width="202" height="204"/>
         <image name="blobNeedle" width="826" height="604"/>
         <image name="pencil" width="24" height="24"/>
-        <image name="pottedCactus" width="150" height="150"/>
         <image name="users" width="48" height="48"/>
         <namedColor name="AccentBeige">
             <color red="0.89800000190734863" green="0.875" blue="0.85900002717971802" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -248,7 +257,7 @@
             <color red="0.94117647058823528" green="0.92549019607843142" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="GreenDark">
-            <color red="0.16099999845027924" green="0.63899999856948853" blue="0.53700000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.16078431372549021" green="0.63529411764705879" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="IconDefault">
             <color red="0.20000000000000001" green="0.80000000000000004" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -263,7 +272,7 @@
             <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TextMinimized">
-            <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="0.80000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="0.69999998807907104" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
