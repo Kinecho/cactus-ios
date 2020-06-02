@@ -28,9 +28,6 @@ class ElementCell: UICollectionViewCell {
         super.awakeFromNib()
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
         self.translatesAutoresizingMaskIntoConstraints = false
-        
-        //        self.widthConstraint.constant = self.getWidth()
-        
         self.contentView.clipsToBounds = true
         self.layer.cornerRadius = 10
         self.contentView.layer.cornerRadius = 10
@@ -38,17 +35,11 @@ class ElementCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        //        self.layer.shadowColor = UIColor.black.cgColor
-        //        self.layer.shadowOffset = CGSize(width: -1 * margin/2, height: 10.0)
-        //        self.layer.shadowRadius = self.layer.cornerRadius
-        //        self.layer.shadowOpacity = 0.2
-        //        self.layer.masksToBounds = false
-        //        self.layer.shadowPath = UIBezierPath(roundedRect: self.contentView.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath
     }
     
     func updateView() {
         self.imageView.image = self.elementEntry.image
+        self.imageView.tintColor = self.elementEntry.element.color
         self.titleLabel.text = self.elementEntry.title
         self.descriptionLabel.text = self.elementEntry.description
     }

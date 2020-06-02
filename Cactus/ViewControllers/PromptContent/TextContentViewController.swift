@@ -22,7 +22,6 @@ class TextContentViewController: PromptContentViewController {
     @IBOutlet weak var labelLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     
-    
     weak var textTouchDelegate: UIGestureRecognizerDelegate?
     var contentLink: UIButton?
     var actionButton: UIButton?
@@ -86,6 +85,7 @@ class TextContentViewController: PromptContentViewController {
          if (self.content.showElementIcon ?? false), let element = self.promptContent.cactusElement {
             self.elementLabel.text = element.rawValue.uppercased()
             self.elementImage.image = element.getImage()
+            self.elementImage.tintColor = element.color
             if !self.elementGesturesConfigured {
                 self.elementImageContainerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.elementTapped)))
                 self.elementLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.elementTapped)))
