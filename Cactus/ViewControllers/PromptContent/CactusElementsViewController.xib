@@ -48,8 +48,8 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OCY-G8-KiZ" userLabel="Elements View Container">
                                     <rect key="frame" x="0.0" y="90" width="374" height="502"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MYh-JU-2XA">
-                                            <rect key="frame" x="137" y="0.0" width="100" height="129.5"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="MYh-JU-2XA">
+                                            <rect key="frame" x="137" y="0.0" width="100" height="119.5"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energy" translatesAutoresizingMaskIntoConstraints="NO" id="cf6-aT-9ln" userLabel="Energy Image">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -60,7 +60,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ENERGY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCL-Y7-fJl" userLabel="Energy">
-                                                    <rect key="frame" x="0.0" y="110" width="100" height="19.5"/>
+                                                    <rect key="frame" x="0.0" y="100" width="100" height="19.5"/>
                                                     <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
                                                     <color key="textColor" name="TextDefault"/>
                                                     <nil key="highlightedColor"/>
@@ -68,17 +68,17 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="center" distribution="equalSpacing" alignment="center" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="Prx-mz-Vra" userLabel="Middle Stack View">
-                                            <rect key="frame" x="41" y="149.5" width="292" height="163"/>
+                                            <rect key="frame" x="41" y="139.5" width="292" height="183"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4Dc-Kl-nYO">
-                                                    <rect key="frame" x="0.0" y="17" width="100" height="129.5"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4Dc-Kl-nYO">
+                                                    <rect key="frame" x="0.0" y="32" width="100" height="119.5"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="experience" translatesAutoresizingMaskIntoConstraints="NO" id="tOD-lc-Qdv" userLabel="Experience Cactus">
                                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                             <color key="tintColor" name="Royal"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXPERIENCE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ql-dn-EJl" userLabel="Experience">
-                                                            <rect key="frame" x="2" y="110" width="96" height="19.5"/>
+                                                            <rect key="frame" x="2" y="100" width="96" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
                                                             <color key="textColor" name="TextDefault"/>
                                                             <nil key="highlightedColor"/>
@@ -88,8 +88,8 @@
                                                         <constraint firstItem="tOD-lc-Qdv" firstAttribute="width" secondItem="tOD-lc-Qdv" secondAttribute="height" multiplier="1:1" id="psD-QQ-Wha"/>
                                                     </constraints>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sZM-zl-XV2">
-                                                    <rect key="frame" x="170" y="17" width="122" height="129.5"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sZM-zl-XV2">
+                                                    <rect key="frame" x="170" y="32" width="122" height="119.5"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="relationships" translatesAutoresizingMaskIntoConstraints="NO" id="XfD-yL-x2F" userLabel="Relationships Cactus">
                                                             <rect key="frame" x="11" y="0.0" width="100" height="100"/>
@@ -99,7 +99,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RELATIONSHIPS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vze-gd-GgK" userLabel="Relationships">
-                                                            <rect key="frame" x="0.0" y="110" width="122" height="19.5"/>
+                                                            <rect key="frame" x="0.0" y="100" width="122" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
                                                             <color key="textColor" name="TextDefault"/>
                                                             <nil key="highlightedColor"/>
@@ -109,17 +109,17 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="center" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="iZ7-1j-xUy" userLabel="Bottom Stack View">
-                                            <rect key="frame" x="72" y="332.5" width="230" height="129.5"/>
+                                            <rect key="frame" x="72" y="342.5" width="230" height="119.5"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="II7-SE-0F6">
-                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="129.5"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="II7-SE-0F6">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="119.5"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emotions" translatesAutoresizingMaskIntoConstraints="NO" id="tF9-tg-EIL" userLabel="Emotions Cactus">
                                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                             <color key="tintColor" name="Green"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMOTIONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NUw-Ld-aED">
-                                                            <rect key="frame" x="0.0" y="110" width="100" height="19.5"/>
+                                                            <rect key="frame" x="0.0" y="100" width="100" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
                                                             <color key="textColor" name="TextDefault"/>
                                                             <nil key="highlightedColor"/>
@@ -129,8 +129,8 @@
                                                         <constraint firstItem="tF9-tg-EIL" firstAttribute="width" secondItem="tF9-tg-EIL" secondAttribute="height" multiplier="1:1" id="PFv-b1-DFz"/>
                                                     </constraints>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eW6-bX-zba">
-                                                    <rect key="frame" x="130" y="0.5" width="100" height="128.5"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eW6-bX-zba">
+                                                    <rect key="frame" x="130" y="0.5" width="100" height="118.5"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meaning" translatesAutoresizingMaskIntoConstraints="NO" id="sSx-cx-NoD" userLabel="Meaning Cactus">
                                                             <rect key="frame" x="0.0" y="0.0" width="100" height="99"/>
@@ -140,7 +140,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MEANING" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4R-wJ-ObL">
-                                                            <rect key="frame" x="0.0" y="109" width="100" height="19.5"/>
+                                                            <rect key="frame" x="0.0" y="99" width="100" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
                                                             <color key="textColor" name="TextDefault"/>
                                                             <nil key="highlightedColor"/>
