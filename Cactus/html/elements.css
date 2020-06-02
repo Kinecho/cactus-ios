@@ -1,0 +1,65 @@
+html {
+    background: transparent;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: transparent;
+}
+
+svg {
+    height: 180px;
+    margin: 20px;
+    width: 180px;
+    background: transparent;
+    
+}
+
+
+svg.running .path {
+    animation-play-state: running;
+    -webkit-animation-play-state: running;
+}
+
+.path {
+    stroke-dasharray: 0 1000;
+    stroke-dashoffset: 1;
+    animation: dash 35s ease-out 1s forwards;
+    animation-play-state: paused;
+    -webkit-animation-play-state: paused;
+}
+
+.experience .path {
+    animation-duration: 130s;
+}
+.relationships .path {
+    animation-duration: 60s;
+}
+
+.d0 {
+    animation-delay: 4s;
+}
+
+.d1 {
+    animation-delay: 8s;
+}
+
+.d2 {
+    animation-delay: 12s;
+}
+
+.d3 {
+    animation-delay: 16s;
+}
+
+@keyframes dash {
+    from {
+        stroke-dasharray: 0 1000;
+    }
+    to {
+        stroke-dasharray: 1000 0;
+    }
+}

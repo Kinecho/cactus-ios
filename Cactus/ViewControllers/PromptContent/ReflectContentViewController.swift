@@ -10,15 +10,12 @@ import UIKit
 import AVKit
 
 class ReflectContentViewController: PromptContentViewController {
-    @IBOutlet weak var videoView: UIView!
     @IBOutlet weak var questionTextView: UITextView!
-    @IBOutlet weak var pottedCactusPlaceholderImage: UIImageView!
     @IBOutlet weak var addNoteButton: BorderedButton!
     @IBOutlet weak var reflectionTextView: UITextView!
-    @IBOutlet weak var cactusAnimationContainerView: UIView!
     @IBOutlet weak var sharedNoteStackView: UIStackView!
+    @IBOutlet weak var elementAnimationWebView: CactusElementWebView!
     var reflectLogger = Logger(fileName: "ReflectionContentViewController")
-    var animationVc: GenericCactusElementAnimationViewController?
     var player: AVPlayer!
 //    var reflectionResponse: ReflectionResponse? {
 //        didSet {
@@ -32,8 +29,6 @@ class ReflectContentViewController: PromptContentViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.pottedCactusPlaceholderImage.removeFromSuperview()
-        
         if let promptId = self.promptContent.promptId, self.reflectionResponse == nil {
             let question = self.promptContent.getQuestion()
             let element = self.promptContent.cactusElement
@@ -41,7 +36,6 @@ class ReflectContentViewController: PromptContentViewController {
         }
         self.initializeView()
         self.configureView()
-        self.videoView.isHidden = true
         self.createAnimation()
     }
    
@@ -50,42 +44,11 @@ class ReflectContentViewController: PromptContentViewController {
     }
     
     func createAnimation() {
-        let container = self.cactusAnimationContainerView!
+        let element = self.promptContent.cactusElement
+        self.elementAnimationWebView.element = element
+        self.elementAnimationWebView.isHidden = false
+        self.elementAnimationWebView.updateView()
         
-        var cactusVc: GenericCactusElementAnimationViewController?
-        
-        switch self.promptContent.cactusElement {
-        case .meaning:
-            cactusVc = MeaningAnimationViewController.loadFromNib()
-        case .emotions:
-            cactusVc = EmotionsAnimationViewController.loadFromNib()
-        case .experience:
-            cactusVc = ExperienceAnimationViewController.loadFromNib()
-        case .relationships:
-            cactusVc = RelationshipsAnimationViewController.loadFromNib()
-        case .energy:
-            cactusVc = EnergyAnimationViewController.loadFromNib()
-        default:
-            cactusVc = EnergyAnimationViewController.loadFromNib()
-        }
-        
-        guard let animationVc = cactusVc else {
-            self.reflectLogger.warn("Unable to find an animation vc for the element \(String(describing: self.promptContent.cactusElement))")
-            return
-        }
-        
-        self.animationVc = animationVc
-        animationVc.willMove(toParent: self)
-        animationVc.view.frame = container.bounds
-        container.addSubview(animationVc.view)
-        
-        let cactus = animationVc.view
-        cactus?.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
-        cactus?.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
-        cactus?.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
-        cactus?.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
-        
-        animationVc.didMove(toParent: self)
     }
     
     func configureNote() {
@@ -95,42 +58,21 @@ class ReflectContentViewController: PromptContentViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if let video = self.player {
-            video.seek(to: CMTime.zero)
-            video.play()
-        }
         
         self.startTime = Date()
         self.endTime = nil
-        self.animationVc?.startAnimations()        
+        self.elementAnimationWebView.startAnimation()
     }
-    
+        
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        self.animationVc?.pauseAnimations()
+        self.elementAnimationWebView.pauseAnimation()
     }
     
     @IBAction func addNoteTapped(_ sender: Any) {
         let editVc = self.createEditReflectionModal()
         self.editViewController = editVc
         self.present(editVc, animated: true)
-    }
-       
-    func createCactusGrowingVideo() {
-        guard let videoURL =  Bundle.main.url(forResource: "cactus-growing-green-588", withExtension: "mp4") else {
-            self.reflectLogger.warn("Video not found")
-            return
-        }
-        let item = AVPlayerItem(url: videoURL)
-        let videoFrame = AVMakeRect(aspectRatio: CGSize(width: 1, height: 1), insideRect: self.videoView.bounds)
-        player = AVPlayer(playerItem: item)
-        let playerLayer = AVPlayerLayer(player: player)
-        playerLayer.frame = videoFrame
-        self.videoView.clipsToBounds = true
-        self.videoView.layer.addSublayer(playerLayer)
-        playerLayer.pixelBufferAttributes = [(kCVPixelBufferPixelFormatTypeKey as String): kCVPixelFormatType_32BGRA]
-
-        playerLayer.player?.play()
     }
         
     @objc func doneAction(_ sender: Any) {

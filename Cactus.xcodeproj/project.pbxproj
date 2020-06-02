@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -379,6 +379,34 @@
 		304B217A23D39575007B016C /* SharedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */; };
 		304B217C23D39AA4007B016C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3095619922ECF1CD009357BD /* GoogleService-Info.plist */; };
 		304B217D23D39AA4007B016C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30A281EF22EA62650041158E /* LaunchScreen.storyboard */; };
+		304BCE5724858BAB0055A28E /* meaning.html in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE5624858BAB0055A28E /* meaning.html */; };
+		304BCE5824858BAB0055A28E /* meaning.html in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE5624858BAB0055A28E /* meaning.html */; };
+		304BCE5924858BAB0055A28E /* meaning.html in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE5624858BAB0055A28E /* meaning.html */; };
+		304BCE5A24858BAB0055A28E /* meaning.html in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE5624858BAB0055A28E /* meaning.html */; };
+		304BCE6624858CFB0055A28E /* CactusElementWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304BCE6524858CFB0055A28E /* CactusElementWebView.swift */; };
+		304BCE6724858CFB0055A28E /* CactusElementWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304BCE6524858CFB0055A28E /* CactusElementWebView.swift */; };
+		304BCE6824858CFB0055A28E /* CactusElementWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304BCE6524858CFB0055A28E /* CactusElementWebView.swift */; };
+		304BCE6924858CFB0055A28E /* CactusElementWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304BCE6524858CFB0055A28E /* CactusElementWebView.swift */; };
+		304BCE6B2485F0F10055A28E /* elements.css in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE6A2485F0F10055A28E /* elements.css */; };
+		304BCE6C2485F0F10055A28E /* elements.css in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE6A2485F0F10055A28E /* elements.css */; };
+		304BCE6D2485F0F10055A28E /* elements.css in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE6A2485F0F10055A28E /* elements.css */; };
+		304BCE6E2485F0F10055A28E /* elements.css in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE6A2485F0F10055A28E /* elements.css */; };
+		304BCE6F2486008B0055A28E /* emotions.html in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE5B24858C100055A28E /* emotions.html */; };
+		304BCE702486008C0055A28E /* emotions.html in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE5B24858C100055A28E /* emotions.html */; };
+		304BCE712486008D0055A28E /* emotions.html in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE5B24858C100055A28E /* emotions.html */; };
+		304BCE722486008E0055A28E /* emotions.html in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE5B24858C100055A28E /* emotions.html */; };
+		304BCE73248600930055A28E /* experience.html in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE5C24858C230055A28E /* experience.html */; };
+		304BCE74248600930055A28E /* relationships.html in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE5D24858C320055A28E /* relationships.html */; };
+		304BCE75248600930055A28E /* energy.html in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE5E24858C3B0055A28E /* energy.html */; };
+		304BCE76248600950055A28E /* experience.html in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE5C24858C230055A28E /* experience.html */; };
+		304BCE77248600950055A28E /* relationships.html in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE5D24858C320055A28E /* relationships.html */; };
+		304BCE78248600950055A28E /* energy.html in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE5E24858C3B0055A28E /* energy.html */; };
+		304BCE79248600950055A28E /* experience.html in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE5C24858C230055A28E /* experience.html */; };
+		304BCE7A248600950055A28E /* relationships.html in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE5D24858C320055A28E /* relationships.html */; };
+		304BCE7B248600950055A28E /* energy.html in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE5E24858C3B0055A28E /* energy.html */; };
+		304BCE7C248600960055A28E /* experience.html in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE5C24858C230055A28E /* experience.html */; };
+		304BCE7D248600960055A28E /* relationships.html in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE5D24858C320055A28E /* relationships.html */; };
+		304BCE7E248600960055A28E /* energy.html in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE5E24858C3B0055A28E /* energy.html */; };
 		304EA2F32343B730001FB8AD /* CountProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304EA2F22343B730001FB8AD /* CountProcess.swift */; };
 		304EA2F42343B730001FB8AD /* CountProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304EA2F22343B730001FB8AD /* CountProcess.swift */; };
 		305130D3234FE9F10088B51F /* InviteSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305130D2234FE9F10088B51F /* InviteSettingsViewController.swift */; };
@@ -887,6 +915,13 @@
 		304B210823D383E1007B016C /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		304B210B23D383E1007B016C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		304B210D23D383E1007B016C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		304BCE5624858BAB0055A28E /* meaning.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = meaning.html; sourceTree = "<group>"; };
+		304BCE5B24858C100055A28E /* emotions.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = emotions.html; sourceTree = "<group>"; };
+		304BCE5C24858C230055A28E /* experience.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = experience.html; sourceTree = "<group>"; };
+		304BCE5D24858C320055A28E /* relationships.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = relationships.html; sourceTree = "<group>"; };
+		304BCE5E24858C3B0055A28E /* energy.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = energy.html; sourceTree = "<group>"; };
+		304BCE6524858CFB0055A28E /* CactusElementWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusElementWebView.swift; sourceTree = "<group>"; };
+		304BCE6A2485F0F10055A28E /* elements.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = elements.css; sourceTree = "<group>"; };
 		304EA2F22343B730001FB8AD /* CountProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountProcess.swift; sourceTree = "<group>"; };
 		305130D2234FE9F10088B51F /* InviteSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteSettingsViewController.swift; sourceTree = "<group>"; };
 		305424E923AC0432003F82A2 /* UIStackViewExtensionis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExtensionis.swift; sourceTree = "<group>"; };
@@ -1238,6 +1273,27 @@
 			path = "Cactus Today";
 			sourceTree = "<group>";
 		};
+		304BCE5524858B5E0055A28E /* html */ = {
+			isa = PBXGroup;
+			children = (
+				304BCE5B24858C100055A28E /* emotions.html */,
+				304BCE5C24858C230055A28E /* experience.html */,
+				304BCE5D24858C320055A28E /* relationships.html */,
+				304BCE5E24858C3B0055A28E /* energy.html */,
+				304BCE5624858BAB0055A28E /* meaning.html */,
+				304BCE6A2485F0F10055A28E /* elements.css */,
+			);
+			path = html;
+			sourceTree = "<group>";
+		};
+		304BCE5F24858CB00055A28E /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				304BCE6524858CFB0055A28E /* CactusElementWebView.swift */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
 		30673B85233FDEB600EDE7BD /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -1267,38 +1323,39 @@
 		30934F9422EBF12D007C4E6C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3099D1EF2408D9E400BD9CC4 /* Payment */,
+				304BCE5F24858CB00055A28E /* Elements */,
 				30BC2CFF234EA63E00AB7B89 /* AuthProviderTableViewCell.swift */,
 				30934F9822EBF235007C4E6C /* BorderedButton.swift */,
 				300F2377237B4DE400F35CDE /* BorderedTextView.swift */,
 				3021B67723623AE3002634A8 /* CactusTextInputField.swift */,
 				30D7386C23D00C0C006F4DA6 /* CircleImageView.swift */,
 				300F2370237A629800F35CDE /* CircleView.swift */,
+				30762E5C2440E4A4000A18B3 /* ElementCell.swift */,
+				30762E5D2440E4A4000A18B3 /* ElementCell.xib */,
+				300FCCE923ECB3D000089CFB /* FancyLinkButton.swift */,
 				305B1884233273C4003E1561 /* GrowingTextView.swift */,
 				30051A4B23A86306005F812B /* InvertableImageView.swift */,
+				30DFCA8524609D85007187FC /* JournalEntryCell.swift */,
+				30DFCA8624609D85007187FC /* JournalEntryCell.xib */,
 				30FA2C9823741A3300F671AF /* JournalFeedFlowLayout.swift */,
+				3062201E23EC7A0A002FAAD9 /* MarkdownTextView.swift */,
 				30BF2E312328C7AD00A49EB6 /* MarkdownTypes.swift */,
+				3099D1EF2408D9E400BD9CC4 /* Payment */,
 				30E2D375234311C6003D2B27 /* PillLabelView.swift */,
+				303282112412B8E600FC197A /* PricingFeatureView.swift */,
+				3032820C2412B87D00FC197A /* PricingFeatureView.xib */,
 				3084E96B234BC5FE00788279 /* PrimaryButton.swift */,
-				300FCCE923ECB3D000089CFB /* FancyLinkButton.swift */,
+				30DCA5E32441207500D520D4 /* PromptEntryCollectionViewCell.swift */,
+				30DCA5E42441207500D520D4 /* PromptEntryCollectionViewCell.xib */,
 				30934F9522EBF146007C4E6C /* RoundedButton.swift */,
 				303EB0872343A0B800AC8741 /* RoundedView.swift */,
 				300F2376237A7C8600F35CDE /* SecondaryButton.swift */,
 				300F2373237A6F7500F35CDE /* ShadowView.swift */,
 				30D7387023D00EBF006F4DA6 /* Social */,
+				300FCD0523EE811200089CFB /* SubscriptionProductCell.swift */,
 				3014A38B2378CA0300121729 /* TertiaryButton.swift */,
 				3020DD932363F37D00EC40AE /* UIImageViewAligned.swift */,
-				3062201E23EC7A0A002FAAD9 /* MarkdownTextView.swift */,
-				300FCD0523EE811200089CFB /* SubscriptionProductCell.swift */,
 				307ED79A24088C7E008D26C6 /* UpgradeJournalFeedCollectionReusableView.swift */,
-				3032820C2412B87D00FC197A /* PricingFeatureView.xib */,
-				303282112412B8E600FC197A /* PricingFeatureView.swift */,
-				30762E5C2440E4A4000A18B3 /* ElementCell.swift */,
-				30762E5D2440E4A4000A18B3 /* ElementCell.xib */,
-				30DCA5E32441207500D520D4 /* PromptEntryCollectionViewCell.swift */,
-				30DCA5E42441207500D520D4 /* PromptEntryCollectionViewCell.xib */,
-				30DFCA8524609D85007187FC /* JournalEntryCell.swift */,
-				30DFCA8624609D85007187FC /* JournalEntryCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1411,6 +1468,7 @@
 		30B6EA6D22EA5A9F00443E46 /* Cactus */ = {
 			isa = PBXGroup;
 			children = (
+				304BCE5524858B5E0055A28E /* html */,
 				30265C5B23453C7B00934041 /* SwiftyGif */,
 				30673B85233FDEB600EDE7BD /* Fonts */,
 				300AC18B233AE16C005C6555 /* Data */,
@@ -1784,6 +1842,7 @@
 				3021CBE52410345E00F58B89 /* WebViewController.xib in Resources */,
 				303C9E0B23841AC1006B9786 /* LoadablePromptContentViewController.xib in Resources */,
 				303C9DE523841AB6006B9786 /* MeaningAnimationViewController.xib in Resources */,
+				304BCE6D2485F0F10055A28E /* elements.css in Resources */,
 				303C9DEB23841AB6006B9786 /* EnergyAnimationViewController.xib in Resources */,
 				303C9E1523841AC6006B9786 /* CactusElementDetailViewController.xib in Resources */,
 				3062200F23EAB12B002FAAD9 /* Lato-Regular.ttf in Resources */,
@@ -1791,6 +1850,7 @@
 				303C9E1123841AC6006B9786 /* NavigationMenuViewController.xib in Resources */,
 				3032820F2412B87D00FC197A /* PricingFeatureView.xib in Resources */,
 				303C9DE923841AB6006B9786 /* ExperienceAnimationViewController.xib in Resources */,
+				304BCE7B248600950055A28E /* energy.html in Resources */,
 				303C9E1E23841AC6006B9786 /* LoadableSharedReflectionViewController.xib in Resources */,
 				303C9E2023841AC6006B9786 /* ViewSharedReflectionViewController.xib in Resources */,
 				303C9E0A23841AC1006B9786 /* VideoContentViewController.xib in Resources */,
@@ -1799,7 +1859,9 @@
 				30DFCA8C24609D86007187FC /* JournalEntryCell.xib in Resources */,
 				3062201223EAB12B002FAAD9 /* Lato-BoldItalic.ttf in Resources */,
 				30D7386623D00AC6006F4DA6 /* Social.storyboard in Resources */,
+				304BCE79248600950055A28E /* experience.html in Resources */,
 				3062201323EAB12B002FAAD9 /* Lato-Light.ttf in Resources */,
+				304BCE5924858BAB0055A28E /* meaning.html in Resources */,
 				303C9DFB23841ABB006B9786 /* JournalEntrySkeletonViewController.xib in Resources */,
 				303C9E0523841AC1006B9786 /* CelebrateViewController.xib in Resources */,
 				30762E632440E4A4000A18B3 /* ElementCell.xib in Resources */,
@@ -1809,6 +1871,7 @@
 				303C9E1D23841AC6006B9786 /* SharedReflectionViewController.xib in Resources */,
 				3062200E23EAB12B002FAAD9 /* Lato-Black.ttf in Resources */,
 				3062201123EAB12B002FAAD9 /* OFL.txt in Resources */,
+				304BCE7A248600950055A28E /* relationships.html in Resources */,
 				30D7387423D00F7C006F4DA6 /* SocialActivityCardView.xib in Resources */,
 				303C9DE723841AB6006B9786 /* EmotionsAnimationViewController.xib in Resources */,
 				303C9E1923841AC6006B9786 /* EditReflectionViewController.xib in Resources */,
@@ -1817,6 +1880,7 @@
 				303C9DFF23841AC1006B9786 /* QuoteContentViewController.xib in Resources */,
 				30D7386223CFFC62006F4DA6 /* InviteContentViewController.xib in Resources */,
 				3062200B23EAB12B002FAAD9 /* Lato-LightItalic.ttf in Resources */,
+				304BCE712486008D0055A28E /* emotions.html in Resources */,
 				3062201023EAB12B002FAAD9 /* Lato-BlackItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1825,13 +1889,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				304BCE7C248600960055A28E /* experience.html in Resources */,
+				304BCE722486008E0055A28E /* emotions.html in Resources */,
+				304BCE6E2485F0F10055A28E /* elements.css in Resources */,
 				304B215F23D392C8007B016C /* SocialActivityCardView.xib in Resources */,
 				304B210C23D383E1007B016C /* MainInterface.storyboard in Resources */,
 				303282102412B87D00FC197A /* PricingFeatureView.xib in Resources */,
 				3019A4DA243BDF7E003D0074 /* WebViewController.xib in Resources */,
 				304B217D23D39AA4007B016C /* LaunchScreen.storyboard in Resources */,
 				304B217A23D39575007B016C /* SharedAssets.xcassets in Resources */,
+				304BCE5A24858BAB0055A28E /* meaning.html in Resources */,
+				304BCE7D248600960055A28E /* relationships.html in Resources */,
 				304B217C23D39AA4007B016C /* GoogleService-Info.plist in Resources */,
+				304BCE7E248600960055A28E /* energy.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1851,17 +1921,22 @@
 				30673BA5233FDEC300EDE7BD /* Lato-Light.ttf in Resources */,
 				30673BA7233FDEC300EDE7BD /* Lato-ThinItalic.ttf in Resources */,
 				30DCA5E92441207500D520D4 /* PromptEntryCollectionViewCell.xib in Resources */,
+				304BCE702486008C0055A28E /* emotions.html in Resources */,
+				304BCE77248600950055A28E /* relationships.html in Resources */,
 				30F7168A2379ED32004989DB /* ShareNoteViewController.xib in Resources */,
 				30D7386123CFFC62006F4DA6 /* InviteContentViewController.xib in Resources */,
 				303C9DCB237FCF06006B9786 /* LoadableSharedReflectionViewController.xib in Resources */,
 				305B1866233175DC003E1561 /* PhotoContentViewController.xib in Resources */,
 				3084E9682348FE9C00788279 /* CelebrateViewController.xib in Resources */,
 				30CF53802370B10F00578B22 /* EmotionsAnimationViewController.xib in Resources */,
+				304BCE5824858BAB0055A28E /* meaning.html in Resources */,
 				30AB8ED6237C86380048CFD2 /* Onboarding.storyboard in Resources */,
 				30CF53862370C58100578B22 /* ExperienceAnimationViewController.xib in Resources */,
 				305B18832331E162003E1561 /* ReflectContentViewController.xib in Resources */,
 				303C9DD1237FD7D1006B9786 /* ViewSharedReflectionViewController.xib in Resources */,
 				300F236F237A61F100F35CDE /* SharedReflectionViewController.xib in Resources */,
+				304BCE6C2485F0F10055A28E /* elements.css in Resources */,
+				304BCE76248600950055A28E /* experience.html in Resources */,
 				30CF53922370FBB800578B22 /* RelationshipsAnimationViewController.xib in Resources */,
 				30D7F70C236BAAB100379EE0 /* EditReflectionViewController.xib in Resources */,
 				30CF539B23732EC300578B22 /* VideoContentViewController.xib in Resources */,
@@ -1878,6 +1953,7 @@
 				3099D1F52408DA2A00BD9CC4 /* SubscriptionPlanOptionView.xib in Resources */,
 				30DFCA8B24609D86007187FC /* JournalEntryCell.xib in Resources */,
 				30E2D37D23432B21003D2B27 /* NavigationMenuViewController.xib in Resources */,
+				304BCE78248600950055A28E /* energy.html in Resources */,
 				30673B9F233FDEC300EDE7BD /* Lato-BlackItalic.ttf in Resources */,
 				30727441236A43AA00309B3C /* CactusElementDetailViewController.xib in Resources */,
 				3032820E2412B87D00FC197A /* PricingFeatureView.xib in Resources */,
@@ -1902,9 +1978,13 @@
 				30D7387223D00F7B006F4DA6 /* SocialActivityCardView.xib in Resources */,
 				30673BA4233FDEC300EDE7BD /* Lato-Light.ttf in Resources */,
 				30762E612440E4A4000A18B3 /* ElementCell.xib in Resources */,
+				304BCE5724858BAB0055A28E /* meaning.html in Resources */,
 				3099D1F42408DA2A00BD9CC4 /* SubscriptionPlanOptionView.xib in Resources */,
 				30CF53912370FBB800578B22 /* RelationshipsAnimationViewController.xib in Resources */,
+				304BCE75248600930055A28E /* energy.html in Resources */,
+				304BCE73248600930055A28E /* experience.html in Resources */,
 				30673B92233FDEC300EDE7BD /* Lato-Italic.ttf in Resources */,
+				304BCE6B2485F0F10055A28E /* elements.css in Resources */,
 				303C9DCA237FCF06006B9786 /* LoadableSharedReflectionViewController.xib in Resources */,
 				3095619C22ECF214009357BD /* GoogleService-Info.plist in Resources */,
 				300AC189233A850B005C6555 /* JournalEntrySkeletonViewController.xib in Resources */,
@@ -1925,6 +2005,7 @@
 				303C9DD0237FD7D1006B9786 /* ViewSharedReflectionViewController.xib in Resources */,
 				30B6EA7622EA5A9F00443E46 /* Main.storyboard in Resources */,
 				300F236E237A61F100F35CDE /* SharedReflectionViewController.xib in Resources */,
+				304BCE74248600930055A28E /* relationships.html in Resources */,
 				30CF539A23732EC300578B22 /* VideoContentViewController.xib in Resources */,
 				30A266DA2329BB73003C708E /* config.yml in Resources */,
 				30673BA6233FDEC300EDE7BD /* Lato-ThinItalic.ttf in Resources */,
@@ -1938,6 +2019,7 @@
 				303BF752232D289A00164539 /* QuoteContentViewController.xib in Resources */,
 				30673B9A233FDEC300EDE7BD /* Lato-Black.ttf in Resources */,
 				30727440236A43AA00309B3C /* CactusElementDetailViewController.xib in Resources */,
+				304BCE6F2486008B0055A28E /* emotions.html in Resources */,
 				30CF537F2370B10F00578B22 /* EmotionsAnimationViewController.xib in Resources */,
 				30D7386423D00AC6006F4DA6 /* Social.storyboard in Resources */,
 				30CF53852370C58100578B22 /* ExperienceAnimationViewController.xib in Resources */,
@@ -2237,6 +2319,7 @@
 				3021CBDC2410251E00F58B89 /* SubscriptionPlanOptionView.swift in Sources */,
 				303C9E2723841ACC006B9786 /* GrowingTextView.swift in Sources */,
 				3055D940240E994400981DA2 /* SubscriptionProductService.swift in Sources */,
+				304BCE6824858CFB0055A28E /* CactusElementWebView.swift in Sources */,
 				3062201823EB1B68002FAAD9 /* FirebaseInAppMessageDelegate.swift in Sources */,
 				303C9E3223841AEB006B9786 /* ImageService.swift in Sources */,
 				303C9E1823841AC6006B9786 /* EditReflectionViewController.swift in Sources */,
@@ -2406,6 +2489,7 @@
 				304B215223D392C2007B016C /* GrowingTextView.swift in Sources */,
 				3055D93B240E97AC00981DA2 /* SubscriptionService.swift in Sources */,
 				3055D937240E923C00981DA2 /* SubscriptionProductGroup.swift in Sources */,
+				304BCE6924858CFB0055A28E /* CactusElementWebView.swift in Sources */,
 				30392FF92410075400F2A8FC /* ModelDecoder.swift in Sources */,
 				304B213523D38F79007B016C /* CactusColor.swift in Sources */,
 				304B217223D39484007B016C /* SharingService.swift in Sources */,
@@ -2536,6 +2620,7 @@
 				30A292D2243E467F00F546CA /* LoadingViewController.swift in Sources */,
 				3084E95F234810B300788279 /* FeedbackViewController.swift in Sources */,
 				300F236D237A61F100F35CDE /* SharedReflectionViewController.swift in Sources */,
+				304BCE6724858CFB0055A28E /* CactusElementWebView.swift in Sources */,
 				3062201723EB1B68002FAAD9 /* FirebaseInAppMessageDelegate.swift in Sources */,
 				30934FA422EBF4E6007C4E6C /* FormatUtils.swift in Sources */,
 				303C9DC4237F6799006B9786 /* StorageService.swift in Sources */,
@@ -2711,6 +2796,7 @@
 				30A292D1243E467F00F546CA /* LoadingViewController.swift in Sources */,
 				3084E95E234810B300788279 /* FeedbackViewController.swift in Sources */,
 				300F236C237A61F100F35CDE /* SharedReflectionViewController.swift in Sources */,
+				304BCE6624858CFB0055A28E /* CactusElementWebView.swift in Sources */,
 				3062201623EB1B68002FAAD9 /* FirebaseInAppMessageDelegate.swift in Sources */,
 				30BF2E2F2328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */,
 				303C9DC3237F6799006B9786 /* StorageService.swift in Sources */,

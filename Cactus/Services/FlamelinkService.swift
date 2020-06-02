@@ -92,13 +92,6 @@ class FlamelinkService {
     func getByEntryId<T: FlamelinkIdentifiable>(_ id: String, schema: FlamelinkSchema, _ onData: @escaping (_ object: T?, _ error: Any?) -> Void) {
         let query = getEntryIdQuery(id, schema: schema)
         self.getFirst(query, onData)
-//        query.getDocuments { docs, error in
-//            guard let doc = docs?.documents.first else {
-//                return onData(nil, error)
-//            }
-//            let object = try? doc.decode(as: T.self, includingId: false)
-//            onData(object, error)
-//        }
     }
     
     func observeByEntryId<T: FlamelinkIdentifiable>(_ id: String, _ onData: @escaping (T?, Any?) -> Void) -> ListenerRegistration {
@@ -110,10 +103,7 @@ class FlamelinkService {
     }
     
     func addListener<T: FlamelinkIdentifiable>(_ query: Query, _ onData: @escaping ([T]?, Any?) -> Void) -> ListenerRegistration {
-        // let query = query.whereField(BaseModelField.deleted, isEqualTo: false)
-        // NOTE: For straight up firstore queries, we append a "deleted" filter. For Flamelink we do not.
-        let listener = query.addSnapshotListener(self.snapshotListener(onData))
-        
+        let listener = query.addSnapshotListener(self.snapshotListener(onData))        
         return listener
     }
     
