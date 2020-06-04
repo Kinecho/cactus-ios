@@ -18,6 +18,10 @@ extension NSMutableAttributedString {
 extension String {
     func preventOrphanedWords() -> String {
         var string = String(self)
+        
+        if self.contains("\u{00A0}") {
+            return string
+        }
         if let index = self.lastIndex(of: " ") {
             string.replaceSubrange(index...index, with: "\u{00A0}")
         }

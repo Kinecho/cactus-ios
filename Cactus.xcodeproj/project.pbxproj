@@ -407,6 +407,7 @@
 		304BCE7C248600960055A28E /* experience.html in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE5C24858C230055A28E /* experience.html */; };
 		304BCE7D248600960055A28E /* relationships.html in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE5D24858C320055A28E /* relationships.html */; };
 		304BCE7E248600960055A28E /* energy.html in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE5E24858C3B0055A28E /* energy.html */; };
+		304BCE80248962B50055A28E /* StringExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304BCE7F248962B50055A28E /* StringExtensionsTest.swift */; };
 		304EA2F32343B730001FB8AD /* CountProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304EA2F22343B730001FB8AD /* CountProcess.swift */; };
 		304EA2F42343B730001FB8AD /* CountProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304EA2F22343B730001FB8AD /* CountProcess.swift */; };
 		305130D3234FE9F10088B51F /* InviteSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305130D2234FE9F10088B51F /* InviteSettingsViewController.swift */; };
@@ -922,6 +923,7 @@
 		304BCE5E24858C3B0055A28E /* energy.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = energy.html; sourceTree = "<group>"; };
 		304BCE6524858CFB0055A28E /* CactusElementWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusElementWebView.swift; sourceTree = "<group>"; };
 		304BCE6A2485F0F10055A28E /* elements.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = elements.css; sourceTree = "<group>"; };
+		304BCE7F248962B50055A28E /* StringExtensionsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionsTest.swift; sourceTree = "<group>"; };
 		304EA2F22343B730001FB8AD /* CountProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountProcess.swift; sourceTree = "<group>"; };
 		305130D2234FE9F10088B51F /* InviteSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteSettingsViewController.swift; sourceTree = "<group>"; };
 		305424E923AC0432003F82A2 /* UIStackViewExtensionis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExtensionis.swift; sourceTree = "<group>"; };
@@ -1259,6 +1261,7 @@
 				307ED7922408748C008D26C6 /* MemberSubscriptionTest.swift */,
 				30E9D04524784FBF00FE4E5F /* CactusMemberTest.swift */,
 				30C18F7B247AC6D400749C56 /* PromptContentTest.swift */,
+				304BCE7F248962B50055A28E /* StringExtensionsTest.swift */,
 			);
 			path = "Cactus UnitTests";
 			sourceTree = "<group>";
@@ -2409,6 +2412,7 @@
 				303C9DF023841ABB006B9786 /* TermsOfServiceViewController.swift in Sources */,
 				30DCA5EE244120A700D520D4 /* PromptContentCollectionViewController.swift in Sources */,
 				303282192414556A00FC197A /* ApplePayment.swift in Sources */,
+				304BCE80248962B50055A28E /* StringExtensionsTest.swift in Sources */,
 				303C9DDE23841A3E006B9786 /* LoadableSharedReflectionViewController.swift in Sources */,
 				303C9E2623841ACC006B9786 /* MarkdownTypes.swift in Sources */,
 				305B187B2331A906003E1561 /* ReflectionPrompt.swift in Sources */,

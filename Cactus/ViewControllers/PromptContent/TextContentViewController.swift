@@ -75,7 +75,7 @@ class TextContentViewController: PromptContentViewController {
         let textString = self.content.getDisplayText(member: member, preferredIndex: self.promptContent.preferredCoreValueIndex, coreValue: coreValue)
         
         if let mdText = MarkdownUtil.centeredMarkdown(textString?.preventOrphanedWords(), font: CactusFont.normal(24)) {
-            self.text.attributedText = mdText.preventOrphanedWords()
+            self.text.attributedText = mdText
         }
         
         self.text.tintColor = CactusColor.darkGreen
