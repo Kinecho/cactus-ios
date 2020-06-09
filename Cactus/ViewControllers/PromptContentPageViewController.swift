@@ -33,6 +33,7 @@ class PromptContentPageViewController: UIPageViewController {
     var appSettings: AppSettings?
     var settingsUnsubscriber: ListenerRegistration?
     var memberUnsubscriber: Unsubscriber?
+
     var member: CactusMember? {
         didSet {
             self.updateScreenData()
@@ -80,6 +81,11 @@ class PromptContentPageViewController: UIPageViewController {
     deinit {
         self.settingsUnsubscriber?.remove()
         self.memberUnsubscriber?()
+    }
+    
+    var currentIsReflect: Bool {
+        let vc = self.viewControllers?.first
+        return vc is ReflectContentViewController
     }
     
     /** Create a reflection response if it wasn't present. Return true if it was created
@@ -432,6 +438,24 @@ extension PromptContentPageViewController: PromptContentViewControllerDelegate {
     
     func handleTapGesture(touch: UITapGestureRecognizer) {
         self.tapGestureHandler(touch: touch)
+    }
+    
+    override func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        guard let key = presses.first?.key else { return }
+
+        guard self.tapNavigationEnabled, !self.currentIsReflect else {
+            super.pressesEnded(presses, with: event)
+            return
+        }
+        
+        switch key.keyCode {
+        case .keyboardRightArrow:
+                self.nextScreen()
+        case .keyboardLeftArrow:
+                self.previousScreen()
+        default:
+            super.pressesEnded(presses, with: event)
+        }
     }
 }
 
