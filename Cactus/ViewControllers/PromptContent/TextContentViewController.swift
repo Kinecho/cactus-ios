@@ -70,9 +70,10 @@ class TextContentViewController: PromptContentViewController {
         }
         self.text.text = self.content.text
 
-        let coreValue = self.reflectionResponse?.coreValue
+//        let coreValue = self.reflectionResponse?.coreValue
+//        let dynamicValues = self.reflectionResponse?.dynamicValues
         let member = CactusMemberService.sharedInstance.currentMember
-        let textString = self.content.getDisplayText(member: member, preferredIndex: self.promptContent.preferredCoreValueIndex, coreValue: coreValue)
+        let textString = self.content.getDisplayText(member: member, preferredIndex: self.promptContent.preferredCoreValueIndex, response: self.reflectionResponse)
         
         if let mdText = MarkdownUtil.centeredMarkdown(textString?.preventOrphanedWords(), font: CactusFont.normal(24)) {
             self.text.attributedText = mdText

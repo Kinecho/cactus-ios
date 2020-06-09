@@ -40,7 +40,7 @@ class ReflectContentViewController: PromptContentViewController {
     }
    
     func getQuestionMarkdownString() -> String? {
-        return self.content.getDisplayText(member: self.member, preferredIndex: self.promptContent.preferredCoreValueIndex, coreValue: self.reflectionResponse?.coreValue)
+        return self.content.getDisplayText(member: self.member, preferredIndex: self.promptContent.preferredCoreValueIndex, response: self.reflectionResponse)
     }
     
     func createAnimation() {

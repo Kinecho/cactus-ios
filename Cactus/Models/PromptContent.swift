@@ -229,6 +229,7 @@ class Content: Codable {
     var actionButton: ActionButton?
     var showElementIcon: Bool?
     var coreValues: ContentCoreValues?
+    var dynamicContent: DynamicContent?
     
     enum ContentCodingKeys: CodingKey {
         case contentType
@@ -245,6 +246,7 @@ class Content: Codable {
         case actionButton
         case showElementIcon
         case coreValues
+        case dynamicContent
     }
     
     public init() {
@@ -299,7 +301,16 @@ class Content: Codable {
             self.coreValues = nil
         }
         
+        self.dynamicContent = try? container.decode(DynamicContent.self, forKey: ContentCodingKeys.dynamicContent)
+        if self.dynamicContent?.isEmpty == true {
+            self.dynamicContent = nil
+        }
+        
         self.showElementIcon = try? container.decode(Bool.self, forKey: ContentCodingKeys.showElementIcon)
+    }
+    
+    func getDisplayText(member: CactusMember?=nil, preferredIndex: Int?=0, response: ReflectionResponse?=nil) -> String? {
+        return self.getDisplayText(member: member, preferredIndex: preferredIndex, coreValue: response?.coreValue, dynamicValues: response?.dynamicValues)
     }
     
     /**
@@ -310,7 +321,7 @@ class Content: Codable {
          This lets us use a pre-set value rather than the member's core value list.
         - Returns: The string to be displayed in any `text` fields.
      */
-    func getDisplayText(member: CactusMember?=nil, preferredIndex: Int?=0, coreValue: String?=nil) -> String? {
+    func getDisplayText(member: CactusMember?=nil, preferredIndex: Int?=0, coreValue: String?=nil, dynamicValues: DynamicResponseValues?=nil) -> String? {
         var textString: String? = self.text_md
         if textString == nil || textString?.isEmpty ?? true {
             textString = self.text
@@ -318,13 +329,64 @@ class Content: Codable {
                         
         if let coreValue = coreValue ?? self.coreValues?.getMemberCoreValue(member: member, preferredIndex: preferredIndex),
             let coreValuesTemplate = self.coreValues?.textTemplateMd,
-            !isBlank(coreValuesTemplate)
-            {
+            !isBlank(coreValuesTemplate) {
             let token = self.coreValues?.valueReplaceToken ?? CORE_VALUE_REPLACE_TOKEN_DEFAULT
             textString = coreValuesTemplate.replacingOccurrences(of: token, with: coreValue)
         }
         
-        return textString
+        let dynamicText = self.buildDynamicContent(dynamicValues: dynamicValues)
+        
+        return dynamicText ?? textString
+    }
+    
+    func buildDynamicContent(dynamicValues: DynamicResponseValues?=nil) -> String? {
+        //ensure we have dynamic values and it is enabled
+        guard let dynamicValues = dynamicValues,
+            let dynamicContent = self.dynamicContent,
+            dynamicContent.enabled == true else {
+            return nil
+        }
+        
+        //ensure there is a valid template and replacement values are registered
+        guard let templateTextMd = dynamicContent.templateTextMd, !isBlank(templateTextMd),
+            let replacements = dynamicContent.dynamicValues,
+            replacements.isEmpty == false else {
+            return nil
+        }
+        
+        //ensure we have values for every replacement, or valid default values
+        let allReplacementsValid = replacements.allSatisfy { (r) -> Bool in
+            guard let token = r.token, !isBlank(token) else {
+                return false
+            }
+                        
+            if let value = dynamicValues[token], !isBlank(value) {
+                //A non-blank value was found in the dynamic content for the token.
+                return true
+            } else if r.valueRequired == true {
+                //A replacement value was required, but no value was found
+                return false
+            }
+            
+            return !isBlank(r.defaultValue)
+        }
+        
+        guard allReplacementsValid else {
+            return nil
+        }
+        
+        let processedText = replacements.reduce(templateTextMd) { (text, replacement) -> String in
+            guard let token = replacement.token else {
+                return text
+            }
+            
+            let dynamicValue = dynamicValues[token] ?? nil
+            let value = dynamicValue ?? replacement.defaultValue ?? ""
+            
+            return text.replacingOccurrences(of: token, with: value)
+        }
+        
+        return processedText
     }
 }
 
@@ -335,6 +397,22 @@ struct PromptContentField {
     static let contentStatus = "contentStatus"
     static let subscriptionTiers = "subscriptionTiers"
     static let cactusElement = "cactusElement"
+}
+
+struct DynamicPromptValue: Codable {
+    var token: String?
+    var defaultValue: String?
+    var valueRequired: Bool?
+}
+
+struct DynamicContent: Codable {
+    var enabled: Bool?
+    var templateTextMd: String?
+    var dynamicValues: [DynamicPromptValue]?
+    
+    var isEmpty: Bool {
+        return isBlank(self.templateTextMd) && (self.dynamicValues ?? []).isEmpty
+    }
 }
 
 class PromptContent: FlamelinkIdentifiable {
@@ -408,9 +486,9 @@ class PromptContent: FlamelinkIdentifiable {
         return imageContent?.backgroundImage
     }
     
-    func getDisplayableQuestion(member: CactusMember?=nil, coreValue: String?=nil) -> String? {
+    func getDisplayableQuestion(member: CactusMember?=nil, coreValue: String?=nil, dynamicValues: DynamicResponseValues?=nil) -> String? {
         let content = self.getReflectContent()
-        return content?.getDisplayText(member: member, preferredIndex: self.preferredCoreValueIndex ?? 0, coreValue: coreValue)
+        return content?.getDisplayText(member: member, preferredIndex: self.preferredCoreValueIndex ?? 0, coreValue: coreValue, dynamicValues: dynamicValues)
     }
     
     func getReflectContent() -> Content? {

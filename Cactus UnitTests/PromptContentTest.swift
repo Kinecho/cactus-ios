@@ -64,4 +64,48 @@ class PromptContentTest: XCTestCase {
     }
 
 
+    func testDynamicContent() throws {
+        let c = Content()
+        c.text = "plain text"
+        c.text_md = "plain markdown"
+        var userValues: DynamicResponseValues = [:]
+        XCTAssertEqual(c.getDisplayText(member: nil, preferredIndex: 0, coreValue: nil, dynamicValues: userValues), "plain markdown")
+                
+        var dynamicContent = DynamicContent()
+        dynamicContent.enabled = false
+        dynamicContent.templateTextMd = "Dynamic {{VALUE}}"
+        
+        var contentValues: [DynamicPromptValue] = [
+            DynamicPromptValue(token: "{{VALUE}}", defaultValue: nil, valueRequired: true)
+        ]
+        
+        dynamicContent.dynamicValues = contentValues
+        c.dynamicContent = dynamicContent
+        
+        //content is not enabled yet
+        XCTAssertEqual(c.getDisplayText(member: nil, preferredIndex: 0, coreValue: nil, dynamicValues: userValues), "plain markdown")
+
+        
+        dynamicContent.enabled = true
+        c.dynamicContent = dynamicContent
+        //content is enabled but not valid yet - no default nor value passed in
+        XCTAssertEqual(c.getDisplayText(member: nil, preferredIndex: 0, coreValue: nil, dynamicValues: userValues), "plain markdown")
+        
+        userValues["{{VALUE}}"] = "XcodeValue"
+        XCTAssertEqual(c.getDisplayText(member: nil, preferredIndex: 0, coreValue: nil, dynamicValues: userValues), "Dynamic XcodeValue")
+        
+        userValues["{{OTHER}}"] = "SecondValue"
+        
+        contentValues.append(DynamicPromptValue(token: "{{DEFAULT_VALUE}}", defaultValue: "DefaultValue", valueRequired: false))
+        dynamicContent.dynamicValues = contentValues
+        dynamicContent.templateTextMd = "Dynamic {{VALUE}} with {{DEFAULT_VALUE}}"
+        c.dynamicContent = dynamicContent
+        
+        //use some default fallback value
+        XCTAssertEqual(c.getDisplayText(member: nil, preferredIndex: 0, coreValue: nil, dynamicValues: userValues), "Dynamic XcodeValue with DefaultValue")
+        
+        //provide a value for the second default replacement
+        userValues["{{DEFAULT_VALUE}}"] = "UserValue"
+        XCTAssertEqual(c.getDisplayText(member: nil, preferredIndex: 0, coreValue: nil, dynamicValues: userValues), "Dynamic XcodeValue with UserValue")
+    }
 }

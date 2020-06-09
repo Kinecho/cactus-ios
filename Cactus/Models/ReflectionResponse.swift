@@ -42,6 +42,8 @@ struct ReflectionContent: Codable {
     var text: String?
 }
 
+typealias DynamicResponseValues = [String: String?]
+
 class ReflectionResponse: FirestoreIdentifiable, Hashable {
     static let collectionName = FirestoreCollectionName.reflectionResponses
     static let Field = ReflectionResponseField.self
@@ -72,6 +74,7 @@ class ReflectionResponse: FirestoreIdentifiable, Hashable {
     var sharedAt: Date?
     var unsharedAt: Date?
     var coreValue: String?
+    var dynamicValues: DynamicResponseValues?
     
     static func == (lhs: ReflectionResponse, rhs: ReflectionResponse) -> Bool {
         return lhs.id != nil && rhs.id != nil && lhs.id == rhs.id
