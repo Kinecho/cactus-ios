@@ -54,11 +54,11 @@
 	<key>CFBundleVersion</key>
 	<string>172</string>
 	<key>FacebookAdvertiserIDCollectionEnabled</key>
-	<false/>
+	<true/>
 	<key>FacebookAppID</key>
 	<string>1303868239764571</string>
 	<key>FacebookAutoLogAppEventsEnabled</key>
-	<false/>
+	<true/>
 	<key>FacebookDisplayName</key>
 	<string>Cactus</string>
 	<key>FirebaseDynamicLinksCustomDomains</key>

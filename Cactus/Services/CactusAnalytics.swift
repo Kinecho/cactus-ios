@@ -56,16 +56,11 @@ class CactusAnalytics {
         ])
     }
     
+    /*
+     @Deprecated This method no longer does anything as Firebase + revenuecat report revenue automatically
+     */
     func purchaseCompleted(productEntry: ProductEntry?) {
-        let price = productEntry?.subscriptionProduct.priceCentsUsd ?? 0
-        let priceString = formatPriceCents(price, currencySymbol: "")
-        FacebookEvents.logEvent(FacebookEvents.Name.startTrial,
-                                valueToSum: Double(price)/100,
-                                parameters: ["currency": "USD",
-                                             "predicted_ltv": priceString ?? "0.00",
-                                             "value": priceString ?? "0.00"
-        ])
-        //Note: firebase automatically fires in app purchase events.
+        //no op
     }
     
     func sendLoginAnalyticsEvent(_ loginEvent: LoginEvent, screen: ScreenID?=nil, anonymousUpgrade: Bool = false) {
@@ -83,7 +78,7 @@ class CactusAnalytics {
         if loginEvent.isNewUser {
             self.logger.sentryInfo(":wave: \(email) signed up on iOS via \(providerId). Email: \(email)")
             FirebaseAnalytics.logEvent(AnalyticsEventSignUp, parameters: analyticsParams)
-            logCompleteRegistrationFacebookEvent(registrationMethod: providerId)
+            self.logCompleteRegistrationFacebookEvent(registrationMethod: providerId)
         } else {
             self.logger.sentryInfo("\(email) logged in on iOS via \(providerId)")
             FirebaseAnalytics.logEvent(AnalyticsEventLogin, parameters: analyticsParams)
@@ -91,8 +86,9 @@ class CactusAnalytics {
     }
     
     func logCompleteRegistrationFacebookEvent(registrationMethod: String) {
-        FacebookEvents.logEvent(.completedRegistration, parameters: [
-            FacebookEvents.ParameterName.registrationMethod.rawValue: registrationMethod
+        FacebookEvents.logEvent(.completedRegistration, valueToSum: 0.0, parameters: [
+            FacebookEvents.ParameterName.registrationMethod.rawValue: registrationMethod,
+            FacebookEvents.ParameterName.currency.rawValue: "USD",
         ])
     }
     

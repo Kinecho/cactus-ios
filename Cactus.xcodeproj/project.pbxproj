@@ -783,6 +783,8 @@
 		30E9B0BE22EAF2FC005B25FD /* SentPromptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */; };
 		30E9D044247826FB00FE4E5F /* UnitTestAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9D043247826FB00FE4E5F /* UnitTestAppDelegate.swift */; };
 		30E9D04624784FBF00FE4E5F /* CactusMemberTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9D04524784FBF00FE4E5F /* CactusMemberTest.swift */; };
+		30F1BBB32492DB9A0099169C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30F1BBB22492DB9A0099169C /* AdSupport.framework */; };
+		30F1BBB42492DBB50099169C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30F1BBB22492DB9A0099169C /* AdSupport.framework */; };
 		30F716872379ED32004989DB /* ShareNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F716852379ED32004989DB /* ShareNoteViewController.swift */; };
 		30F716882379ED32004989DB /* ShareNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F716852379ED32004989DB /* ShareNoteViewController.swift */; };
 		30F716892379ED32004989DB /* ShareNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30F716862379ED32004989DB /* ShareNoteViewController.xib */; };
@@ -1084,6 +1086,7 @@
 		30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentPromptService.swift; sourceTree = "<group>"; };
 		30E9D043247826FB00FE4E5F /* UnitTestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestAppDelegate.swift; sourceTree = "<group>"; };
 		30E9D04524784FBF00FE4E5F /* CactusMemberTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusMemberTest.swift; sourceTree = "<group>"; };
+		30F1BBB22492DB9A0099169C /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		30F716852379ED32004989DB /* ShareNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareNoteViewController.swift; sourceTree = "<group>"; };
 		30F716862379ED32004989DB /* ShareNoteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareNoteViewController.xib; sourceTree = "<group>"; };
 		30FA2C9823741A3300F671AF /* JournalFeedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFeedFlowLayout.swift; sourceTree = "<group>"; };
@@ -1124,6 +1127,7 @@
 			files = (
 				76F23F2602ADC65094F1CF3B /* Pods_Cactus_Prod.framework in Frameworks */,
 				300FCCF023EE21CD00089CFB /* StoreKit.framework in Frameworks */,
+				30F1BBB32492DB9A0099169C /* AdSupport.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1132,6 +1136,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				300FCCEF23EE21C000089CFB /* StoreKit.framework in Frameworks */,
+				30F1BBB42492DBB50099169C /* AdSupport.framework in Frameworks */,
 				95087B85A8F99A3282E6AE87 /* Pods_Cactus_Stage.framework in Frameworks */,
 				3018B1262376687B0005333A /* NetworkExtension.framework in Frameworks */,
 			);
@@ -1143,6 +1148,7 @@
 		19CA97E6FF714D2347BC4076 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				30F1BBB22492DB9A0099169C /* AdSupport.framework */,
 				300FCCEE23EE21C000089CFB /* StoreKit.framework */,
 				3018B1252376687B0005333A /* NetworkExtension.framework */,
 				05E8C1EB665F6286E3CD0BE5 /* Pods_Cactus_Prod.framework */,

@@ -106,7 +106,7 @@ func isValidEmail(_ emailStr: String?) -> Bool {
     guard let email = emailStr else {return false}
     
     let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-
+    
     let emailPred = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
     return emailPred.evaluate(with: email)
 }
@@ -143,4 +143,18 @@ struct CactusFont {
     static func italic(_ size: CGFloat) -> UIFont {
         return get(FontName.italic, size)
     }
+}
+
+
+
+func destructureDisplayName(displayName: String?) -> (firstName: String?, lastName: String?) {
+    var lastName:String?
+    var firstName: String?
+    if var components = displayName?.components(separatedBy: " ") {
+        if components.count > 0 {
+            firstName = components.removeFirst()
+            lastName = components.joined(separator: " ")
+        }
+    }
+    return (firstName: firstName, lastName: lastName)
 }
