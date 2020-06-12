@@ -52,6 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application,
             didFinishLaunchingWithOptions: launchOptions
         )
+                
         logger.debug("Is facebook intent: \(isFacebokIntent)", functionName: #function, line: #line)
         
         self.setupBranch(launchOptions: launchOptions)
