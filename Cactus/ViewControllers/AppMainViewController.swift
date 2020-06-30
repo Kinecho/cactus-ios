@@ -15,6 +15,7 @@ class AppMainViewController: UIViewController {
     let logger = Logger(fileName: "AppMainViewController")
     var member: CactusMember?
     var memberUnsubscriber: Unsubscriber?
+    var appSettings: AppSettings?
     
     var currentStatusBarStyle: UIStatusBarStyle = .default
     var pendingAction: (() -> Void)?
@@ -57,8 +58,15 @@ class AppMainViewController: UIViewController {
         current.view.frame = view.bounds
         view.addSubview(current.view)
         current.didMove(toParent: self)
-        logger.info("***** setting up auth*****")
-        self.setupAuth()
+                
+        AppSettingsService.sharedInstance.getSettings { (settings, error) in
+            if let error = error {
+                self.logger.error("Failed to get app settings and can not start the app properly.", error)
+            }
+            self.appSettings = settings
+            self.logger.info("***** setting up auth*****")
+            self.setupAuth()
+        }
     }
     
     func setupAuth() {        

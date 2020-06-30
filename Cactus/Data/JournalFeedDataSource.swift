@@ -36,6 +36,12 @@ class JournalFeedDataSource {
             handleMemberUpdated(oldMember: oldValue, newMember: self.currentMember)
         }
     }
+    var appSettings: AppSettings? {
+        didSet {
+            handleSettingsChanged(current: self.appSettings, previous: oldValue)
+        }
+    }
+    
     var journalEntryDataByPromptId: [String: JournalEntryData] = [:]
     var sentPrompts: [SentPrompt] = []
     var count: Int {
@@ -43,19 +49,25 @@ class JournalFeedDataSource {
     }
     var orderedPromptIds: [String] = []
     
-    var promptsListener: ListenerRegistration?
-    
     weak var delegate: JournalFeedDataSourceDelegate?
     var hasLoaded = false
     func resetData() {
-        self.orderedPromptIds.removeAll()
         self.unsubscribeAll()
+        self.orderedPromptIds.removeAll()
+        self.pages.removeAll()
+        self.todayData = nil
         journalEntryDataByPromptId.removeAll()
-        self.delegate?.dataLoaded()
+        self.hasStarted = false
+        self.delegate?.dataLoaded()        
     }
     
     func unsubscribeAll() {
-        promptsListener?.remove()
+        self.pages.forEach { (page) in
+            page.listener?.remove()
+        }
+        journalEntryDataByPromptId.values.forEach { (entry) in
+            entry.stop()
+        }
     }
     
     var currentStreak: Int {
@@ -89,7 +101,7 @@ class JournalFeedDataSource {
     var pageSize: Int = 10
     var mightHaveMore: Bool {self.pages.last?.result?.mightHaveMore ?? false}
     
-//    var todayCurrentDate: Date?
+    //    var todayCurrentDate: Date?
     var todayDateString: String?
     var todayData: JournalEntryData?
     var todayLoaded: Bool = false
@@ -110,8 +122,9 @@ class JournalFeedDataSource {
         self.resetData()
     }
     
-    init(member: CactusMember?=nil) {
+    init(member: CactusMember?=nil, appSettings: AppSettings?=nil) {
         self.currentMember = member
+        self.appSettings = appSettings
     }
     
     var startDate: Date?
@@ -121,10 +134,10 @@ class JournalFeedDataSource {
             self.logger.warn("data source has already been started. Returning")
             return
         }
-                
+        
         if self.currentMember == nil {
             self.logger.info("No member found, returning", functionName: #function)
-//            self.resetData()
+            //            self.resetData()
             return
         }
         self.logger.info("Starting journal feed data source")
@@ -134,6 +147,27 @@ class JournalFeedDataSource {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.dayChanged), name: .NSCalendarDayChanged, object: nil)
         
+    }
+    
+    var onlyCompletedPrompts: Bool {
+        let tier = self.currentMember?.tier ?? .BASIC
+        let enabledTiers: [SubscriptionTier] = self.appSettings?.journal?.enableAllSentPromptsForTiers ?? []
+        let onlyCompleted = !enabledTiers.contains(tier)
+        logger.info("Using only completed = \(onlyCompleted)")
+        return onlyCompleted
+    }
+    
+    func handleSettingsChanged(current: AppSettings?, previous: AppSettings?) {
+        let currentTiers: [SubscriptionTier] = current?.journal?.enableAllSentPromptsForTiers ?? []
+        let previousTiers: [SubscriptionTier] = previous?.journal?.enableAllSentPromptsForTiers ?? []
+        guard !currentTiers.containsSameElements(as: previousTiers) else {
+            logger.info("Enabled Tiers are the same, not doing anything")
+            return
+        }
+        
+        logger.info("Settings have changed")
+        self.resetData()
+        self.start()
     }
     
     func handleMemberUpdated(oldMember: CactusMember?, newMember: CactusMember?) {
@@ -175,7 +209,7 @@ class JournalFeedDataSource {
                 self.logger.error("Failed to fetch todays prompt content", error)
                 return
             }
-
+            
             guard let promptId = promptContent?.promptId else {
                 self.logger.warn("There was no error loading todays prompt content, but no promptId was found.")
                 return
@@ -186,9 +220,9 @@ class JournalFeedDataSource {
                 oldData.delegate?.onData(oldData.getJournalEntry())
                 oldData.stop()
                 self.logger.info("Had old data for Today Prompt, used to remove it but am not anymore")
-//                if let oldPromptId = oldData.promptId {
-//                    self.journalEntryDataByPromptId.removeValue(forKey: oldPromptId)
-//                }
+                //                if let oldPromptId = oldData.promptId {
+                //                    self.journalEntryDataByPromptId.removeValue(forKey: oldPromptId)
+                //                }
             }
             
             self.todayDateString = currentDateString
@@ -215,7 +249,7 @@ class JournalFeedDataSource {
         
         let startDate = Date()
         self.startDate = startDate
-        futurePage.listener = SentPromptService.sharedInstance.observeFuturePrompts(member: member, since: startDate, limit: nil, { (pageResult) in
+        futurePage.listener = SentPromptService.sharedInstance.observeFuturePrompts(member: member, since: startDate, onlyCompleted: self.onlyCompletedPrompts, limit: nil, { (pageResult) in
             futurePage.result = pageResult
             self.logger.info("Got \"future\" journal entry data with \(pageResult.results?.count ?? 0) results", functionName: "initializePages", line: #line)
             
@@ -229,16 +263,21 @@ class JournalFeedDataSource {
         
         let firstPage = PageLoader<SentPrompt>()
         self.pages.insert(firstPage, at: 1)
-        firstPage.listener = SentPromptService.sharedInstance.observeSentPromptsPage(member: member, beforeOrEqualTo: startDate, limit: self.pageSize, lastResult: nil, { (pageResult) in
-            firstPage.result = pageResult
-            self.logger.info("Got first page data with \(pageResult.results?.count ?? 0) results", functionName: "initializePages", line: #line)
-            
-            if !self.hasLoaded {
-                self.delegate?.handleEmptyState(hasResults: !(pageResult.results?.isEmpty ?? true))
-            }
-            
-            self.configurePages()
-            self.hasLoaded = true
+        firstPage.listener = SentPromptService.sharedInstance.observeSentPromptsPage(member: member,
+                                                                                     beforeOrEqualTo: startDate,
+                                                                                     onlyCompleted: self.onlyCompletedPrompts,
+                                                                                     limit: self.pageSize,
+                                                                                     lastResult: nil, { (pageResult) in
+                                                                                        firstPage.result = pageResult
+                                                                                        self.logger.info("Got first page data with \(pageResult.results?.count ?? 0) results",
+                                                                                            functionName: "initializePages", line: #line)
+                                                                                        
+                                                                                        if !self.hasLoaded {
+                                                                                            self.delegate?.handleEmptyState(hasResults: !(pageResult.results?.isEmpty ?? true))
+                                                                                        }
+                                                                                        
+                                                                                        self.configurePages()
+                                                                                        self.hasLoaded = true
         })
     }
     
@@ -269,7 +308,10 @@ class JournalFeedDataSource {
         self.logger.info("Creating page loader. This will be page \(nextIndex)", functionName: #function, line: #line)
         let page = PageLoader<SentPrompt>()
         self.pages.append(page)
-        page.listener = SentPromptService.sharedInstance.observeSentPromptsPage(member: member, limit: self.pageSize, lastResult: previousResult, { (pageResult) in
+        page.listener = SentPromptService.sharedInstance.observeSentPromptsPage(member: member,
+                                                                                onlyCompleted: self.onlyCompletedPrompts,
+                                                                                limit: self.pageSize,
+                                                                                lastResult: previousResult, { (pageResult) in
             page.result = pageResult
             self.logger.info("Got page data with \(pageResult.results?.count ?? 0) results", functionName: "JournalFeedDataSource", line: #line)
             self.configurePages()
@@ -299,7 +341,7 @@ class JournalFeedDataSource {
                 self.logger.info("NO sent prompts found")
                 return
             }
-                        
+            
             sentPrompts.reversed().forEach { (sentPrompt) in
                 if !self.sentPrompts.contains(sentPrompt) {
                     self.logger.custom("found a new prompt!", icon: Emoji.tada)
@@ -364,7 +406,7 @@ class JournalFeedDataSource {
             }
             guard !updatedOrderedPromptIds.contains(promptId) else {
                 let existingIndex = updatedOrderedPromptIds.firstIndex(of: promptId)
-//                self.logger.info("sentPrompts.forEach, orderedPromptIds: \(updatedOrderedPromptIds.joined(separator: "\n"))")
+                //                self.logger.info("sentPrompts.forEach, orderedPromptIds: \(updatedOrderedPromptIds.joined(separator: "\n"))")
                 self.logger.warn("\(Emoji.redFlag) (Not fixed) Index=\(sentPromptIndex). ordered prompt ids already contains promptId \(promptId) at index \(existingIndex ?? -1). " +
                     "SentPromptId = \(sentPrompt.id ?? "unknown") This shouldn't happen, but will not affect user experience. PromptID = \(sentPrompt.promptId ?? "unknown")")
                 return
@@ -379,7 +421,7 @@ class JournalFeedDataSource {
             }
             updatedOrderedPromptIds.append(promptId)
         }
-             
+        
         if let todayPromptId = self.todayData?.promptId {
             ///remove all existing entries that have the same prompt ID as today's prompt
             updatedOrderedPromptIds.removeAll { (id) -> Bool in

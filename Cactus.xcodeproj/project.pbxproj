@@ -539,6 +539,10 @@
 		30762E612440E4A4000A18B3 /* ElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30762E5D2440E4A4000A18B3 /* ElementCell.xib */; };
 		30762E622440E4A4000A18B3 /* ElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30762E5D2440E4A4000A18B3 /* ElementCell.xib */; };
 		30762E632440E4A4000A18B3 /* ElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30762E5D2440E4A4000A18B3 /* ElementCell.xib */; };
+		307B623824ABE5A100A4560E /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B623724ABE5A100A4560E /* ArrayExtensions.swift */; };
+		307B623924ABE5A100A4560E /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B623724ABE5A100A4560E /* ArrayExtensions.swift */; };
+		307B623A24ABE5A100A4560E /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B623724ABE5A100A4560E /* ArrayExtensions.swift */; };
+		307B623B24ABE5A100A4560E /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B623724ABE5A100A4560E /* ArrayExtensions.swift */; };
 		307DB73A241823120084B9AC /* StoreObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCF223EE279500089CFB /* StoreObserver.swift */; };
 		307ED78B24084085008D26C6 /* MemberSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED78A24084085008D26C6 /* MemberSubscription.swift */; };
 		307ED78C24084085008D26C6 /* MemberSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED78A24084085008D26C6 /* MemberSubscription.swift */; };
@@ -969,6 +973,7 @@
 		30762E50243FF4A5000A18B3 /* BrowseElementsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseElementsCollectionViewController.swift; sourceTree = "<group>"; };
 		30762E5C2440E4A4000A18B3 /* ElementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementCell.swift; sourceTree = "<group>"; };
 		30762E5D2440E4A4000A18B3 /* ElementCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ElementCell.xib; sourceTree = "<group>"; };
+		307B623724ABE5A100A4560E /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		307ED78A24084085008D26C6 /* MemberSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberSubscription.swift; sourceTree = "<group>"; };
 		307ED78E24086E82008D26C6 /* SubscriptionUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionUtil.swift; sourceTree = "<group>"; };
 		307ED7922408748C008D26C6 /* MemberSubscriptionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberSubscriptionTest.swift; sourceTree = "<group>"; };
@@ -1664,15 +1669,16 @@
 			children = (
 				30E9B0B222EADE2D005B25FD /* CGExtensions.swift */,
 				30934F9B22EBF2AB007C4E6C /* ColorExtensions.swift */,
-				30C49D3322EC299300A2EA95 /* ViewExtensions.swift */,
 				30BF2E10232822E600A49EB6 /* FirebaseExtensions.swift */,
-				30BF2E2E2328A8AD00A49EB6 /* ViewControllerExtensions.swift */,
-				305B186A23319A72003E1561 /* ImageExtensions.swift */,
 				30C7E57A233FEB5800145111 /* FontExtensions.swift */,
-				30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */,
+				305B186A23319A72003E1561 /* ImageExtensions.swift */,
 				30D0E453236C98C100EFC0E3 /* StringExtensions.swift */,
-				303C9DB9237F5DCC006B9786 /* URLExtensions.swift */,
+				30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */,
 				305424E923AC0432003F82A2 /* UIStackViewExtensionis.swift */,
+				303C9DB9237F5DCC006B9786 /* URLExtensions.swift */,
+				30BF2E2E2328A8AD00A49EB6 /* ViewControllerExtensions.swift */,
+				30C49D3322EC299300A2EA95 /* ViewExtensions.swift */,
+				307B623724ABE5A100A4560E /* ArrayExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2430,6 +2436,7 @@
 				303282232416D3DF00FC197A /* AuthenticatedTaskManager.swift in Sources */,
 				30F7168C237A4B85004989DB /* CactusConfig.swift in Sources */,
 				303C9E4823847A3B006B9786 /* MemberProfileService.swift in Sources */,
+				307B623A24ABE5A100A4560E /* ArrayExtensions.swift in Sources */,
 				303C9DD3238419A9006B9786 /* AuthService.swift in Sources */,
 				303C9E442384778A006B9786 /* MemberProfile.swift in Sources */,
 				303C9DE123841A8F006B9786 /* JournalFeedDataSource.swift in Sources */,
@@ -2496,6 +2503,7 @@
 				304B214C23D392B8007B016C /* InvertableImageView.swift in Sources */,
 				3019A4D9243BDF74003D0074 /* WebViewController.swift in Sources */,
 				304B214523D3914C007B016C /* UIAlertControllerExtensions.swift in Sources */,
+				307B623B24ABE5A100A4560E /* ArrayExtensions.swift in Sources */,
 				304B215223D392C2007B016C /* GrowingTextView.swift in Sources */,
 				3055D93B240E97AC00981DA2 /* SubscriptionService.swift in Sources */,
 				3055D937240E923C00981DA2 /* SubscriptionProductGroup.swift in Sources */,
@@ -2578,6 +2586,7 @@
 				305130D4234FE9F10088B51F /* InviteSettingsViewController.swift in Sources */,
 				30D7385E23CFFC62006F4DA6 /* InviteContentViewController.swift in Sources */,
 				30D7386E23D00C0C006F4DA6 /* CircleImageView.swift in Sources */,
+				307B623924ABE5A100A4560E /* ArrayExtensions.swift in Sources */,
 				304EA2F42343B730001FB8AD /* CountProcess.swift in Sources */,
 				307ED78C24084085008D26C6 /* MemberSubscription.swift in Sources */,
 				30E9B0AA22EAD68B005B25FD /* AppMainViewController.swift in Sources */,
@@ -2754,6 +2763,7 @@
 				305130D3234FE9F10088B51F /* InviteSettingsViewController.swift in Sources */,
 				30D7385D23CFFC62006F4DA6 /* InviteContentViewController.swift in Sources */,
 				30D7386D23D00C0C006F4DA6 /* CircleImageView.swift in Sources */,
+				307B623824ABE5A100A4560E /* ArrayExtensions.swift in Sources */,
 				304EA2F32343B730001FB8AD /* CountProcess.swift in Sources */,
 				307ED78B24084085008D26C6 /* MemberSubscription.swift in Sources */,
 				30BF2E0B232816CC00A49EB6 /* PromptContentService.swift in Sources */,

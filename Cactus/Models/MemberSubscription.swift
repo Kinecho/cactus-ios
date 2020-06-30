@@ -10,7 +10,7 @@ import Foundation
 
 let DEFAULT_TRIAL_LENGTH_DAYS = 7
 
-enum SubscriptionTier: String, Codable {
+enum SubscriptionTier: String, Codable, Equatable, Comparable {    
     case BASIC
     case PLUS
     case PREMIUM
@@ -18,6 +18,10 @@ enum SubscriptionTier: String, Codable {
     
     public init(from decoder: Decoder) throws {
         self = try SubscriptionTier(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .UNKNOWN
+    }
+    
+    static func < (lhs: SubscriptionTier, rhs: SubscriptionTier) -> Bool {
+        return lhs.rawValue < rhs.rawValue
     }
     
     var displayName: String {
