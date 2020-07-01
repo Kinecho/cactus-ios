@@ -9,6 +9,7 @@
 import Foundation
 import WebKit
 class CactusElementWebView: WKWebView {
+    let logger = Logger("CactusElementWebView")
     var element: CactusElement? {
         didSet {
             self.updateView()
@@ -18,6 +19,7 @@ class CactusElementWebView: WKWebView {
     var fileUrl: URL? {
         guard let element = self.element,
             let path = Bundle.main.path(forResource: element.rawValue, ofType: "html") else {
+                self.logger.info("Can not find animation file for element \(self.element?.rawValue ?? "unknown")")
                 return nil
         }
         

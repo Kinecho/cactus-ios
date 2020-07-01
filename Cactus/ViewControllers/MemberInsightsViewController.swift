@@ -42,6 +42,8 @@ class MemberInsightsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .clear
+        self.view.isOpaque = false
         self.view.translatesAutoresizingMaskIntoConstraints = false
         self.member = CactusMemberService.sharedInstance.currentMember
         

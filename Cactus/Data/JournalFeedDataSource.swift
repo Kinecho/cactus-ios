@@ -58,7 +58,7 @@ class JournalFeedDataSource {
         self.todayData = nil
         journalEntryDataByPromptId.removeAll()
         self.hasStarted = false
-        self.delegate?.dataLoaded()        
+        self.delegate?.dataLoaded()
     }
     
     func unsubscribeAll() {
@@ -176,7 +176,9 @@ class JournalFeedDataSource {
             return
         }
         logger.info("Member has changed subscription status, updating today query")
-        self.initializeToday()
+//        self.initializeToday()
+        self.resetData()
+        self.start()
     }
     
     @objc func dayChanged() {

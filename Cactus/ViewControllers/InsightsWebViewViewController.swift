@@ -54,15 +54,18 @@ class InsightsWebViewViewController: UIViewController {
         webView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         webView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         
-//        webView.heightAnchor.constraint(pro)
         webView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1.0).isActive = true
         
         self.webView = webView
     }
     
     func buildUrl() -> URL? {
-//        return URL(string: "https://cactuslocal.ngrok.io/insights-embed")
-        return URL(string: "\(CactusConfig.webDomain)/insights-embed?chart_type=wordbubble")
+        guard let path = Bundle.main.path(forResource: "wordBubbles", ofType: "html") else {
+                self.logger.info("Can not find word bubble page in the bundle")
+                return nil
+        }
+        
+        return URL(fileURLWithPath: path)
     }
     
     func loadInsights() {
