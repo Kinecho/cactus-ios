@@ -382,8 +382,8 @@ extension JournalFeedCollectionViewController: JournalEntryCollectionVieweCellDe
         
         var response = data.responses?.first
         let coreValue = data.responses?.first {$0.coreValue != nil }?.coreValue
-        let questionText = data.promptContent?.getDisplayableQuestion(member: member, coreValue: coreValue) ?? data.prompt?.question
-                
+        let questionText = data.promptContent?.getDisplayableQuestion(member: member, coreValue: coreValue) ?? data.prompt?.question ?? response?.promptQuestion
+        let prompt = data.prompt
         if response == nil, let promptId = data.sentPrompt?.promptId {
             let element = data.promptContent?.cactusElement
             
@@ -396,7 +396,7 @@ extension JournalFeedCollectionViewController: JournalEntryCollectionVieweCellDe
         
         editView.response = reflectionResponse
         editView.questionText = questionText
-        
+        editView.prompt = prompt
         self.editViewController = editView
         NavigationService.sharedInstance.present(editView, animated: true)
         
@@ -417,6 +417,36 @@ extension JournalFeedCollectionViewController: JournalEntryCollectionVieweCellDe
             self.editViewController?.isSaving = false
             if error == nil {
                 self.editViewController?.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func done(text: String?, response: ReflectionResponse?, title: String?, prompt: ReflectionPrompt?) {
+        guard let response = response else {
+            self.editViewController?.dismiss(animated: true, completion: nil)
+            return
+        }
+        
+        response.content.text = text
+        
+        ReflectionResponseService.sharedInstance.save(response) { (saved, error) in
+            self.logger.debug("Saved the response! \(saved?.id ?? "no id found")")
+            if let prompt = prompt, prompt.isCustomPrompt == true {
+                prompt.question = title ?? ""
+                ReflectionPromptService.sharedInstance.save(prompt: prompt) { (_, promptError) in
+                    if let promptError = promptError {
+                        self.logger.error("Failed to save custom prompt question", promptError)
+                    }
+                    self.editViewController?.isSaving = false
+                    if error == nil {
+                        self.editViewController?.dismiss(animated: true, completion: nil)
+                    }
+                }
+            } else {
+                self.editViewController?.isSaving = false
+                if error == nil {
+                    self.editViewController?.dismiss(animated: true, completion: nil)
+                }
             }
         }
     }

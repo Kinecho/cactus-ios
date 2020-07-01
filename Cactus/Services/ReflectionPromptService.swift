@@ -25,4 +25,8 @@ class ReflectionPromptService {
     func observeById(id: String, _ onData: @escaping (ReflectionPrompt?, Any?) -> Void) -> ListenerRegistration? {
         return self.firestoreService.observeById(id, onData)
     }
+    
+    func save(prompt: ReflectionPrompt, _ onData: @escaping (ReflectionPrompt?, Any?) -> Void) {
+        return self.firestoreService.save(prompt, onComplete: onData)
+    }
 }

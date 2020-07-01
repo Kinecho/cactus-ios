@@ -145,10 +145,8 @@ struct CactusFont {
     }
 }
 
-
-
 func destructureDisplayName(displayName: String?) -> (firstName: String?, lastName: String?) {
-    var lastName:String?
+    var lastName: String?
     var firstName: String?
     if var components = displayName?.components(separatedBy: " ") {
         if components.count > 0 {

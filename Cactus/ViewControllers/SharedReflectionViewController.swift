@@ -18,6 +18,7 @@ class SharedReflectionViewController: UIViewController {
     
     var authorProfile: MemberProfile?
     var promptContent: PromptContent?
+    var prompt: ReflectionPrompt?
     var reflectionResponse: ReflectionResponse?
     
     var logger = Logger("SharedReflectionViewController")
@@ -87,7 +88,7 @@ class SharedReflectionViewController: UIViewController {
     }
     
     func configureQuestionView() {
-        if let question = self.promptContent?.getQuestionMarkdown(), !FormatUtils.isBlank(question) {
+        if let question = self.promptContent?.getQuestionMarkdown() ?? self.prompt?.question, !FormatUtils.isBlank(question) {
             self.questionTextView.attributedText = MarkdownUtil.toMarkdown(question, font: CactusFont.bold(FontSize.normal), color: CactusColor.textDefault)
             self.questionTextView.isHidden = false
         } else {

@@ -143,13 +143,16 @@ class PromptShareItem: NSObject, UIActivityItemSource {
 }
 
 class ReflectionShareItem: NSObject, UIActivityItemSource {
-    let promptContent: PromptContent!
+    let promptContent: PromptContent?
     let reflectionResponse: ReflectionResponse!
+    let prompt: ReflectionPrompt?
+    
     let logger = Logger("ReflectShareItem")
     
-    init(_ reflectionResponse: ReflectionResponse, _ promptContent: PromptContent) {
+    init(_ reflectionResponse: ReflectionResponse, _ promptContent: PromptContent?, _ prompt: ReflectionPrompt?) {
         self.promptContent = promptContent
         self.reflectionResponse = reflectionResponse
+        self.prompt = prompt
     }
     
     func getShareTitle() -> String {
@@ -167,7 +170,7 @@ class ReflectionShareItem: NSObject, UIActivityItemSource {
     }
     
     func getPromptQuestion() -> String {
-        return self.promptContent.getQuestion() ?? self.reflectionResponse?.promptQuestion ?? ""
+        return self.promptContent?.getQuestion() ?? self.prompt?.question ?? self.reflectionResponse?.promptQuestion ?? ""
     }
     
     func getLink() -> String? {
@@ -193,7 +196,7 @@ class ReflectionShareItem: NSObject, UIActivityItemSource {
     }
     
     var question: String? {
-         self.reflectionResponse?.promptQuestion ?? self.promptContent.getQuestion()
+        self.reflectionResponse?.promptQuestion ?? self.prompt?.question ?? self.promptContent?.getQuestion()
     }
     
     var questionAndResponseText: String {
@@ -349,9 +352,9 @@ class SharingService {
         target.present(ac, animated: true)
     }
     
-    func shareNoteCompleted(promptContent: PromptContent, activityType: UIActivity.ActivityType?) {
-        let subjectLine = promptContent.subjectLine ?? ""
-        let promptId = promptContent.promptId ?? "unknown"
+    func shareNoteCompleted(promptContent: PromptContent?, prompt: ReflectionPrompt?, activityType: UIActivity.ActivityType?) {
+        let subjectLine = promptContent?.subjectLine ?? ""
+        let promptId = promptContent?.promptId ?? prompt?.id ?? "unknown"
         let typeString = getShareActivityTypeDisplayName(activityType)
         self.logger.sentryInfo(":share: :white_check_mark: Note shared via \(typeString). " +
             "SubjectLine=\"\(subjectLine)\" promptId=\(promptId)")
@@ -361,13 +364,13 @@ class SharingService {
         ])
     }
     
-    func shareNote(response: ReflectionResponse, promptContent: PromptContent, target: UIViewController, sender: UIView) {
-        let subjectLine = promptContent.subjectLine ?? ""
-        let promptId = promptContent.promptId ?? "unknown"
+    func shareNote(response: ReflectionResponse, prompt: ReflectionPrompt?, promptContent: PromptContent?, target: UIViewController, sender: UIView) {
+        let subjectLine = promptContent?.subjectLine ?? ""
+        let promptId = promptContent?.promptId ?? prompt?.id ?? "unknown"
         
-        self.logger.sentryInfo(":share: :hourglass: Share Note share sheet tapped. SubjectLine=\"\(promptContent.subjectLine ?? "")\" promptId=\(promptId)")
+        self.logger.sentryInfo(":share: :hourglass: Share Note share sheet tapped. SubjectLine=\"\(promptContent?.subjectLine ?? "")\" promptId=\(promptId)")
         var items: [Any] = []
-        let shareItem = ReflectionShareItem(response, promptContent)
+        let shareItem = ReflectionShareItem(response, promptContent, prompt)
         items.append(shareItem)
 
         var activities: [UIActivity] = [CopyLinkActivity()]
@@ -382,7 +385,7 @@ class SharingService {
         
         ac.completionWithItemsHandler = { activityType, completed, items, error in
             if completed {
-                self.shareNoteCompleted(promptContent: promptContent, activityType: activityType)
+                self.shareNoteCompleted(promptContent: promptContent, prompt: prompt, activityType: activityType)
                 
             } else {
                 self.logger.sentryInfo(":share: :x: Share Note action canceled. SubjectLine=\"\(subjectLine)\" promptId=\(promptId)")

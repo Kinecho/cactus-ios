@@ -17,8 +17,9 @@ class ShareNoteViewController: UIViewController {
     @IBOutlet weak var shareButton: TertiaryButton!
     var logger = Logger(fileName: "ShareNoteViewController")
     var reflectionVc: SharedReflectionViewController?
-    var promptContent: PromptContent!
+    var promptContent: PromptContent?
     var reflectionResponse: ReflectionResponse!
+    var prompt: ReflectionPrompt?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +47,7 @@ class ShareNoteViewController: UIViewController {
         
         vc.reflectionResponse = self.reflectionResponse
         vc.promptContent = self.promptContent
+        vc.prompt = self.prompt
         vc.authorProfile = MemberProfileService.sharedInstance.currentMemberProfile
         vc.view.translatesAutoresizingMaskIntoConstraints = false
         self.noteContainerView.addSubview(vc.view)
@@ -77,7 +79,7 @@ class ShareNoteViewController: UIViewController {
                 self.logger.error("Failed to share reflection response", error)
             }
             if let shared = saved {
-                Analytics.logEvent("generate_note_share_link", parameters: ["prompt_id": self.promptContent.promptId ?? ""])
+                Analytics.logEvent("generate_note_share_link", parameters: ["prompt_id": self.promptContent?.promptId ?? ""])
                 self.reflectionResponse = shared
             }
             
@@ -86,6 +88,6 @@ class ShareNoteViewController: UIViewController {
         }
     }
     @IBAction func shareTapped(_ sender: UIView) {
-        SharingService.shared.shareNote(response: self.reflectionResponse, promptContent: self.promptContent, target: self, sender: sender)
+        SharingService.shared.shareNote(response: self.reflectionResponse, prompt: self.prompt, promptContent: self.promptContent, target: self, sender: sender)
     }
 }

@@ -122,7 +122,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 sentryUser.email = user.email
                 Client.shared?.user = sentryUser
                 let nameParts = destructureDisplayName(displayName: user.displayName)
-                AppEvents.setUser(email: user.email?.lowercased(), firstName: nameParts.firstName?.lowercased(), lastName: nameParts.lastName?.lowercased(), phone: nil, dateOfBirth: nil, gender: nil, city: nil, state: nil, zip: nil, country: nil)
+                AppEvents.setUser(email: user.email?.lowercased(),
+                                  firstName: nameParts.firstName?.lowercased(),
+                                  lastName: nameParts.lastName?.lowercased(),
+                                  phone: nil,
+                                  dateOfBirth: nil,
+                                  gender: nil,
+                                  city: nil,
+                                  state: nil,
+                                  zip: nil,
+                                  country: nil)
                 Purchases.shared.setEmail(user.email)
                 Purchases.shared.identify(user.uid) { (info, error) in
                     self.logger.info(String(describing: info))
