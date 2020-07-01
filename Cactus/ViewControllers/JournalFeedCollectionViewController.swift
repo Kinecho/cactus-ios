@@ -432,7 +432,7 @@ extension JournalFeedCollectionViewController: JournalEntryCollectionVieweCellDe
         ReflectionResponseService.sharedInstance.save(response) { (saved, error) in
             self.logger.debug("Saved the response! \(saved?.id ?? "no id found")")
             if let prompt = prompt, prompt.isCustomPrompt == true {
-                prompt.question = title
+                prompt.question = title ?? ""
                 ReflectionPromptService.sharedInstance.save(prompt: prompt) { (_, promptError) in
                     if let promptError = promptError {
                         self.logger.error("Failed to save custom prompt question", promptError)

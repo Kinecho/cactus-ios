@@ -71,7 +71,9 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
     }
 
     @objc func appMovedToForeground() {
-        self.responseTextView.becomeFirstResponder()
+        if !isBlank( self.titleTextViewDelegate.text) {
+            self.responseTextView.becomeFirstResponder()
+        }
     }
     
     @objc func appMovedToBackground() {
@@ -88,7 +90,9 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.responseTextView.becomeFirstResponder()
+        if !isBlank( self.titleTextViewDelegate.text) {
+            self.responseTextView.becomeFirstResponder()
+        }
     }
     
     func configureSaving() {
