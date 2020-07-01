@@ -16,6 +16,17 @@ class ReflectionPromptField: BaseModelField {
     static let topic = "topic"
 }
 
+enum PromptType: String, Codable {
+    case CACTUS
+    case FREE_FORM
+    
+    static let customPromptTypes: [PromptType] = [.FREE_FORM]
+    
+    var isCustomPrompt: Bool {
+        return PromptType.customPromptTypes.contains(self)
+    }
+}
+
 class ReflectionPrompt: FirestoreIdentifiable, Hashable {
     static let collectionName = FirestoreCollectionName.reflectionPrompt
     static let Field = ReflectionPromptField.self
@@ -31,11 +42,20 @@ class ReflectionPrompt: FirestoreIdentifiable, Hashable {
     var topic: String?
     var promptContentEntryId: String?
     
+    // Custom Prompt fields
+    var memberId: String?
+    var promptType: PromptType = PromptType.CACTUS
+    var sourceApp: AppType?
+    
     static func == (lhs: ReflectionPrompt, rhs: ReflectionPrompt) -> Bool {
         return lhs.id != nil && rhs.id != nil && lhs.id == rhs.id
     }
     
     func hash(into hasher: inout Hasher) {
         id.hash(into: &hasher)
+    }
+    
+    var isCustomPrompt: Bool {
+        return self.memberId != nil && self.promptType.isCustomPrompt
     }
 }

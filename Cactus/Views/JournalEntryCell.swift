@@ -255,13 +255,15 @@ class JournalEntryCell: UICollectionViewCell {
             popoverController.sourceView = sender
         }
         
-        alert.addAction(UIAlertAction(title: "Reflect", style: .default, handler: { _ in
-            self.logger.info("Reflect tapped")
-            closeAnimation()
-            self.reflectTapped()
-        }))
+        if self.promptContent != nil {
+            alert.addAction(UIAlertAction(title: "Reflect", style: .default, handler: { _ in
+                self.logger.info("Reflect tapped")
+                closeAnimation()
+                self.reflectTapped()
+            }))
+        }
         
-        if isComplete {
+        if isComplete || self.prompt?.isCustomPrompt == true {
             let label = hasNote ? "Edit Note" : "Add Note"
             alert.addAction(UIAlertAction(title: label, style: .default) { _ in
                 self.logger.debug("Edit reflection tapped")
@@ -270,6 +272,7 @@ class JournalEntryCell: UICollectionViewCell {
             })
         }
         
+        // only show the reflect button if there is prompt content
         if let promptContent = self.promptContent {
             alert.addAction(UIAlertAction(title: "Share Prompt", style: .default) { _ in
                 closeAnimation()
@@ -281,13 +284,14 @@ class JournalEntryCell: UICollectionViewCell {
         if hasNote {
             alert.addAction(UIAlertAction(title: "Share Note", style: .default, handler: { _ in
                 closeAnimation()
-                guard let reflectionResponse = self.responses?.first, let promptContent = self.promptContent else {
+                guard let reflectionResponse = self.responses?.first else {
                     return
                 }
                 
                 let vc = ShareNoteViewController.loadFromNib()
                 vc.reflectionResponse = reflectionResponse
-                vc.promptContent = promptContent
+                vc.promptContent = self.promptContent
+                vc.prompt = self.prompt
                 AppMainViewController.shared.present(vc, animated: true)
             }))
         }
