@@ -14,12 +14,6 @@ protocol EditReflectionViewControllerDelegate: class {
     func cancel()
 }
 
-extension EditReflectionViewControllerDelegate {
-    func done(text: String?, response: ReflectionResponse?, title: String?=nil, prompt: ReflectionPrompt?=nil) {
-        done(text: text, response: response, title: title, prompt: prompt)
-    }
-}
-
 class EditReflectionViewController: UIViewController, UIAdaptivePresentationControllerDelegate {
     @IBOutlet weak var questionTextView: UITextView!
     @IBOutlet weak var responseTextView: UITextView!
@@ -161,7 +155,7 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
         self.logger.info("done tapped")
 //        self.delegate?.done(text: self.responseTextView.text)
         if self.prompt == nil || self.prompt?.isCustomPrompt != true {
-            self.delegate?.done(text: self.noteTextViewDelegate.text, response: self.response )
+            self.delegate?.done(text: self.noteTextViewDelegate.text, response: self.response, title: nil, prompt: nil )
         } else {
             self.delegate?.done(text: self.noteTextViewDelegate.text, response: self.response, title: self.titleTextViewDelegate.text, prompt: self.prompt )
         }

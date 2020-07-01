@@ -263,8 +263,7 @@ class JournalFeedDataSource {
             beforeOrEqualTo: startDate,
             onlyCompleted: self.onlyCompletedPrompts,
             limit: self.pageSize,
-            lastResult: nil,
-            { (pageResult) in
+            lastResult: nil, { (pageResult) in
                 firstPage.result = pageResult
                 self.logger.info("Got first page data with \(pageResult.results?.count ?? 0) results",
                     functionName: "initializePages", line: #line)
