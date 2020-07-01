@@ -134,7 +134,8 @@ class CelebrateViewController: UIViewController {
         
         self.addChild(insightsVc)
         self.insightsContainerView.addSubview(subView)
-        
+//        subView.backgroundColor = .clear
+//        subView.isOpaque = false
         insightsVc.didMove(toParent: self)
         
         subView.translatesAutoresizingMaskIntoConstraints = false

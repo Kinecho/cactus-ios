@@ -539,6 +539,38 @@
 		30762E612440E4A4000A18B3 /* ElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30762E5D2440E4A4000A18B3 /* ElementCell.xib */; };
 		30762E622440E4A4000A18B3 /* ElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30762E5D2440E4A4000A18B3 /* ElementCell.xib */; };
 		30762E632440E4A4000A18B3 /* ElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30762E5D2440E4A4000A18B3 /* ElementCell.xib */; };
+		307B623824ABE5A100A4560E /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B623724ABE5A100A4560E /* ArrayExtensions.swift */; };
+		307B623924ABE5A100A4560E /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B623724ABE5A100A4560E /* ArrayExtensions.swift */; };
+		307B623A24ABE5A100A4560E /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B623724ABE5A100A4560E /* ArrayExtensions.swift */; };
+		307B623B24ABE5A100A4560E /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B623724ABE5A100A4560E /* ArrayExtensions.swift */; };
+		307B626824AC322000A4560E /* vendors.css in Resources */ = {isa = PBXBuildFile; fileRef = 307B626124AC321F00A4560E /* vendors.css */; };
+		307B626924AC322000A4560E /* vendors.css in Resources */ = {isa = PBXBuildFile; fileRef = 307B626124AC321F00A4560E /* vendors.css */; };
+		307B626A24AC322000A4560E /* vendors.css in Resources */ = {isa = PBXBuildFile; fileRef = 307B626124AC321F00A4560E /* vendors.css */; };
+		307B626B24AC322000A4560E /* vendors.css in Resources */ = {isa = PBXBuildFile; fileRef = 307B626124AC321F00A4560E /* vendors.css */; };
+		307B626C24AC322000A4560E /* wordBubbles.js in Resources */ = {isa = PBXBuildFile; fileRef = 307B626224AC321F00A4560E /* wordBubbles.js */; };
+		307B626D24AC322000A4560E /* wordBubbles.js in Resources */ = {isa = PBXBuildFile; fileRef = 307B626224AC321F00A4560E /* wordBubbles.js */; };
+		307B626E24AC322000A4560E /* wordBubbles.js in Resources */ = {isa = PBXBuildFile; fileRef = 307B626224AC321F00A4560E /* wordBubbles.js */; };
+		307B626F24AC322000A4560E /* wordBubbles.js in Resources */ = {isa = PBXBuildFile; fileRef = 307B626224AC321F00A4560E /* wordBubbles.js */; };
+		307B627024AC322000A4560E /* wordBubbles.css in Resources */ = {isa = PBXBuildFile; fileRef = 307B626324AC321F00A4560E /* wordBubbles.css */; };
+		307B627124AC322000A4560E /* wordBubbles.css in Resources */ = {isa = PBXBuildFile; fileRef = 307B626324AC321F00A4560E /* wordBubbles.css */; };
+		307B627224AC322000A4560E /* wordBubbles.css in Resources */ = {isa = PBXBuildFile; fileRef = 307B626324AC321F00A4560E /* wordBubbles.css */; };
+		307B627324AC322000A4560E /* wordBubbles.css in Resources */ = {isa = PBXBuildFile; fileRef = 307B626324AC321F00A4560E /* wordBubbles.css */; };
+		307B627424AC322000A4560E /* wordBubbles.html in Resources */ = {isa = PBXBuildFile; fileRef = 307B626424AC321F00A4560E /* wordBubbles.html */; };
+		307B627524AC322000A4560E /* wordBubbles.html in Resources */ = {isa = PBXBuildFile; fileRef = 307B626424AC321F00A4560E /* wordBubbles.html */; };
+		307B627624AC322000A4560E /* wordBubbles.html in Resources */ = {isa = PBXBuildFile; fileRef = 307B626424AC321F00A4560E /* wordBubbles.html */; };
+		307B627724AC322000A4560E /* wordBubbles.html in Resources */ = {isa = PBXBuildFile; fileRef = 307B626424AC321F00A4560E /* wordBubbles.html */; };
+		307B627824AC322000A4560E /* vendors.js in Resources */ = {isa = PBXBuildFile; fileRef = 307B626524AC321F00A4560E /* vendors.js */; };
+		307B627924AC322000A4560E /* vendors.js in Resources */ = {isa = PBXBuildFile; fileRef = 307B626524AC321F00A4560E /* vendors.js */; };
+		307B627A24AC322000A4560E /* vendors.js in Resources */ = {isa = PBXBuildFile; fileRef = 307B626524AC321F00A4560E /* vendors.js */; };
+		307B627B24AC322000A4560E /* vendors.js in Resources */ = {isa = PBXBuildFile; fileRef = 307B626524AC321F00A4560E /* vendors.js */; };
+		307B627C24AC322000A4560E /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 307B626624AC321F00A4560E /* favicon.ico */; };
+		307B627D24AC322000A4560E /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 307B626624AC321F00A4560E /* favicon.ico */; };
+		307B627E24AC322000A4560E /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 307B626624AC321F00A4560E /* favicon.ico */; };
+		307B627F24AC322000A4560E /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 307B626624AC321F00A4560E /* favicon.ico */; };
+		307B628024AC322000A4560E /* runtime.js in Resources */ = {isa = PBXBuildFile; fileRef = 307B626724AC322000A4560E /* runtime.js */; };
+		307B628124AC322000A4560E /* runtime.js in Resources */ = {isa = PBXBuildFile; fileRef = 307B626724AC322000A4560E /* runtime.js */; };
+		307B628224AC322000A4560E /* runtime.js in Resources */ = {isa = PBXBuildFile; fileRef = 307B626724AC322000A4560E /* runtime.js */; };
+		307B628324AC322000A4560E /* runtime.js in Resources */ = {isa = PBXBuildFile; fileRef = 307B626724AC322000A4560E /* runtime.js */; };
 		307DB73A241823120084B9AC /* StoreObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCF223EE279500089CFB /* StoreObserver.swift */; };
 		307ED78B24084085008D26C6 /* MemberSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED78A24084085008D26C6 /* MemberSubscription.swift */; };
 		307ED78C24084085008D26C6 /* MemberSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED78A24084085008D26C6 /* MemberSubscription.swift */; };
@@ -969,6 +1001,14 @@
 		30762E50243FF4A5000A18B3 /* BrowseElementsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseElementsCollectionViewController.swift; sourceTree = "<group>"; };
 		30762E5C2440E4A4000A18B3 /* ElementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementCell.swift; sourceTree = "<group>"; };
 		30762E5D2440E4A4000A18B3 /* ElementCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ElementCell.xib; sourceTree = "<group>"; };
+		307B623724ABE5A100A4560E /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
+		307B626124AC321F00A4560E /* vendors.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = vendors.css; sourceTree = "<group>"; };
+		307B626224AC321F00A4560E /* wordBubbles.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = wordBubbles.js; sourceTree = "<group>"; };
+		307B626324AC321F00A4560E /* wordBubbles.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = wordBubbles.css; sourceTree = "<group>"; };
+		307B626424AC321F00A4560E /* wordBubbles.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = wordBubbles.html; sourceTree = "<group>"; };
+		307B626524AC321F00A4560E /* vendors.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = vendors.js; sourceTree = "<group>"; };
+		307B626624AC321F00A4560E /* favicon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = favicon.ico; sourceTree = "<group>"; };
+		307B626724AC322000A4560E /* runtime.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = runtime.js; sourceTree = "<group>"; };
 		307ED78A24084085008D26C6 /* MemberSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberSubscription.swift; sourceTree = "<group>"; };
 		307ED78E24086E82008D26C6 /* SubscriptionUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionUtil.swift; sourceTree = "<group>"; };
 		307ED7922408748C008D26C6 /* MemberSubscriptionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberSubscriptionTest.swift; sourceTree = "<group>"; };
@@ -1285,12 +1325,8 @@
 		304BCE5524858B5E0055A28E /* html */ = {
 			isa = PBXGroup;
 			children = (
-				304BCE5B24858C100055A28E /* emotions.html */,
-				304BCE5C24858C230055A28E /* experience.html */,
-				304BCE5D24858C320055A28E /* relationships.html */,
-				304BCE5E24858C3B0055A28E /* energy.html */,
-				304BCE5624858BAB0055A28E /* meaning.html */,
-				304BCE6A2485F0F10055A28E /* elements.css */,
+				307B623D24AC24A600A4560E /* Animations */,
+				307B623C24AC249B00A4560E /* Charts */,
 			);
 			path = html;
 			sourceTree = "<group>";
@@ -1327,6 +1363,33 @@
 				30673B91233FDEC300EDE7BD /* Lato-ThinItalic.ttf */,
 			);
 			path = Lato;
+			sourceTree = "<group>";
+		};
+		307B623C24AC249B00A4560E /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				307B626624AC321F00A4560E /* favicon.ico */,
+				307B626724AC322000A4560E /* runtime.js */,
+				307B626124AC321F00A4560E /* vendors.css */,
+				307B626524AC321F00A4560E /* vendors.js */,
+				307B626324AC321F00A4560E /* wordBubbles.css */,
+				307B626424AC321F00A4560E /* wordBubbles.html */,
+				307B626224AC321F00A4560E /* wordBubbles.js */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
+		307B623D24AC24A600A4560E /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				304BCE5B24858C100055A28E /* emotions.html */,
+				304BCE5C24858C230055A28E /* experience.html */,
+				304BCE5D24858C320055A28E /* relationships.html */,
+				304BCE5E24858C3B0055A28E /* energy.html */,
+				304BCE5624858BAB0055A28E /* meaning.html */,
+				304BCE6A2485F0F10055A28E /* elements.css */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 		30934F9422EBF12D007C4E6C /* Views */ = {
@@ -1664,15 +1727,16 @@
 			children = (
 				30E9B0B222EADE2D005B25FD /* CGExtensions.swift */,
 				30934F9B22EBF2AB007C4E6C /* ColorExtensions.swift */,
-				30C49D3322EC299300A2EA95 /* ViewExtensions.swift */,
 				30BF2E10232822E600A49EB6 /* FirebaseExtensions.swift */,
-				30BF2E2E2328A8AD00A49EB6 /* ViewControllerExtensions.swift */,
-				305B186A23319A72003E1561 /* ImageExtensions.swift */,
 				30C7E57A233FEB5800145111 /* FontExtensions.swift */,
-				30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */,
+				305B186A23319A72003E1561 /* ImageExtensions.swift */,
 				30D0E453236C98C100EFC0E3 /* StringExtensions.swift */,
-				303C9DB9237F5DCC006B9786 /* URLExtensions.swift */,
+				30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */,
 				305424E923AC0432003F82A2 /* UIStackViewExtensionis.swift */,
+				303C9DB9237F5DCC006B9786 /* URLExtensions.swift */,
+				30BF2E2E2328A8AD00A49EB6 /* ViewControllerExtensions.swift */,
+				30C49D3322EC299300A2EA95 /* ViewExtensions.swift */,
+				307B623724ABE5A100A4560E /* ArrayExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1848,6 +1912,8 @@
 				303C9E0823841AC1006B9786 /* CactusElementsViewController.xib in Resources */,
 				3062200C23EAB12B002FAAD9 /* Lato-Thin.ttf in Resources */,
 				303C9DED23841AB6006B9786 /* RelationshipsAnimationViewController.xib in Resources */,
+				307B627A24AC322000A4560E /* vendors.js in Resources */,
+				307B628224AC322000A4560E /* runtime.js in Resources */,
 				3021CBE52410345E00F58B89 /* WebViewController.xib in Resources */,
 				303C9E0B23841AC1006B9786 /* LoadablePromptContentViewController.xib in Resources */,
 				303C9DE523841AB6006B9786 /* MeaningAnimationViewController.xib in Resources */,
@@ -1858,10 +1924,12 @@
 				3062200D23EAB12B002FAAD9 /* Lato-Bold.ttf in Resources */,
 				303C9E1123841AC6006B9786 /* NavigationMenuViewController.xib in Resources */,
 				3032820F2412B87D00FC197A /* PricingFeatureView.xib in Resources */,
+				307B627E24AC322000A4560E /* favicon.ico in Resources */,
 				303C9DE923841AB6006B9786 /* ExperienceAnimationViewController.xib in Resources */,
 				304BCE7B248600950055A28E /* energy.html in Resources */,
 				303C9E1E23841AC6006B9786 /* LoadableSharedReflectionViewController.xib in Resources */,
 				303C9E2023841AC6006B9786 /* ViewSharedReflectionViewController.xib in Resources */,
+				307B627224AC322000A4560E /* wordBubbles.css in Resources */,
 				303C9E0A23841AC1006B9786 /* VideoContentViewController.xib in Resources */,
 				303C9E0323841AC1006B9786 /* ReflectContentViewController.xib in Resources */,
 				30DCA5EA2441207500D520D4 /* PromptEntryCollectionViewCell.xib in Resources */,
@@ -1872,14 +1940,17 @@
 				3062201323EAB12B002FAAD9 /* Lato-Light.ttf in Resources */,
 				304BCE5924858BAB0055A28E /* meaning.html in Resources */,
 				303C9DFB23841ABB006B9786 /* JournalEntrySkeletonViewController.xib in Resources */,
+				307B627624AC322000A4560E /* wordBubbles.html in Resources */,
 				303C9E0523841AC1006B9786 /* CelebrateViewController.xib in Resources */,
 				30762E632440E4A4000A18B3 /* ElementCell.xib in Resources */,
 				3062200A23EAB128002FAAD9 /* Lato-Italic.ttf in Resources */,
+				307B626A24AC322000A4560E /* vendors.css in Resources */,
 				303C9DFD23841AC1006B9786 /* TextContentViewController.xib in Resources */,
 				3062201423EAB12B002FAAD9 /* Lato-ThinItalic.ttf in Resources */,
 				303C9E1D23841AC6006B9786 /* SharedReflectionViewController.xib in Resources */,
 				3062200E23EAB12B002FAAD9 /* Lato-Black.ttf in Resources */,
 				3062201123EAB12B002FAAD9 /* OFL.txt in Resources */,
+				307B626E24AC322000A4560E /* wordBubbles.js in Resources */,
 				304BCE7A248600950055A28E /* relationships.html in Resources */,
 				30D7387423D00F7C006F4DA6 /* SocialActivityCardView.xib in Resources */,
 				303C9DE723841AB6006B9786 /* EmotionsAnimationViewController.xib in Resources */,
@@ -1898,17 +1969,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				307B626F24AC322000A4560E /* wordBubbles.js in Resources */,
+				307B627324AC322000A4560E /* wordBubbles.css in Resources */,
+				307B627724AC322000A4560E /* wordBubbles.html in Resources */,
 				304BCE7C248600960055A28E /* experience.html in Resources */,
+				307B627F24AC322000A4560E /* favicon.ico in Resources */,
 				304BCE722486008E0055A28E /* emotions.html in Resources */,
 				304BCE6E2485F0F10055A28E /* elements.css in Resources */,
+				307B627B24AC322000A4560E /* vendors.js in Resources */,
 				304B215F23D392C8007B016C /* SocialActivityCardView.xib in Resources */,
 				304B210C23D383E1007B016C /* MainInterface.storyboard in Resources */,
+				307B626B24AC322000A4560E /* vendors.css in Resources */,
 				303282102412B87D00FC197A /* PricingFeatureView.xib in Resources */,
 				3019A4DA243BDF7E003D0074 /* WebViewController.xib in Resources */,
 				304B217D23D39AA4007B016C /* LaunchScreen.storyboard in Resources */,
 				304B217A23D39575007B016C /* SharedAssets.xcassets in Resources */,
 				304BCE5A24858BAB0055A28E /* meaning.html in Resources */,
 				304BCE7D248600960055A28E /* relationships.html in Resources */,
+				307B628324AC322000A4560E /* runtime.js in Resources */,
 				304B217C23D39AA4007B016C /* GoogleService-Info.plist in Resources */,
 				304BCE7E248600960055A28E /* energy.html in Resources */,
 			);
@@ -1932,12 +2010,14 @@
 				30DCA5E92441207500D520D4 /* PromptEntryCollectionViewCell.xib in Resources */,
 				304BCE702486008C0055A28E /* emotions.html in Resources */,
 				304BCE77248600950055A28E /* relationships.html in Resources */,
+				307B627D24AC322000A4560E /* favicon.ico in Resources */,
 				30F7168A2379ED32004989DB /* ShareNoteViewController.xib in Resources */,
 				30D7386123CFFC62006F4DA6 /* InviteContentViewController.xib in Resources */,
 				303C9DCB237FCF06006B9786 /* LoadableSharedReflectionViewController.xib in Resources */,
 				305B1866233175DC003E1561 /* PhotoContentViewController.xib in Resources */,
 				3084E9682348FE9C00788279 /* CelebrateViewController.xib in Resources */,
 				30CF53802370B10F00578B22 /* EmotionsAnimationViewController.xib in Resources */,
+				307B627524AC322000A4560E /* wordBubbles.html in Resources */,
 				304BCE5824858BAB0055A28E /* meaning.html in Resources */,
 				30AB8ED6237C86380048CFD2 /* Onboarding.storyboard in Resources */,
 				30CF53862370C58100578B22 /* ExperienceAnimationViewController.xib in Resources */,
@@ -1956,14 +2036,18 @@
 				30D7386523D00AC6006F4DA6 /* Social.storyboard in Resources */,
 				30673B97233FDEC300EDE7BD /* Lato-Thin.ttf in Resources */,
 				301C1A94236F7EB700F06A3D /* MeaningAnimationViewController.xib in Resources */,
+				307B628124AC322000A4560E /* runtime.js in Resources */,
 				303BF753232D289A00164539 /* QuoteContentViewController.xib in Resources */,
 				30D7387323D00F7C006F4DA6 /* SocialActivityCardView.xib in Resources */,
 				30673B93233FDEC300EDE7BD /* Lato-Italic.ttf in Resources */,
 				3099D1F52408DA2A00BD9CC4 /* SubscriptionPlanOptionView.xib in Resources */,
 				30DFCA8B24609D86007187FC /* JournalEntryCell.xib in Resources */,
 				30E2D37D23432B21003D2B27 /* NavigationMenuViewController.xib in Resources */,
+				307B626D24AC322000A4560E /* wordBubbles.js in Resources */,
+				307B626924AC322000A4560E /* vendors.css in Resources */,
 				304BCE78248600950055A28E /* energy.html in Resources */,
 				30673B9F233FDEC300EDE7BD /* Lato-BlackItalic.ttf in Resources */,
+				307B627924AC322000A4560E /* vendors.js in Resources */,
 				30727441236A43AA00309B3C /* CactusElementDetailViewController.xib in Resources */,
 				3032820E2412B87D00FC197A /* PricingFeatureView.xib in Resources */,
 				30762E622440E4A4000A18B3 /* ElementCell.xib in Resources */,
@@ -1972,6 +2056,7 @@
 				30673B9D233FDEC300EDE7BD /* Lato-Regular.ttf in Resources */,
 				30673BA3233FDEC300EDE7BD /* Lato-BoldItalic.ttf in Resources */,
 				300FCCF723EE2DBE00089CFB /* Payment.storyboard in Resources */,
+				307B627124AC322000A4560E /* wordBubbles.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1997,7 +2082,9 @@
 				303C9DCA237FCF06006B9786 /* LoadableSharedReflectionViewController.xib in Resources */,
 				3095619C22ECF214009357BD /* GoogleService-Info.plist in Resources */,
 				300AC189233A850B005C6555 /* JournalEntrySkeletonViewController.xib in Resources */,
+				307B627824AC322000A4560E /* vendors.js in Resources */,
 				30DFCA8A24609D86007187FC /* JournalEntryCell.xib in Resources */,
+				307B626824AC322000A4560E /* vendors.css in Resources */,
 				3020DD9A23640BE300EC40AE /* CactusElementsViewController.xib in Resources */,
 				30673B98233FDEC300EDE7BD /* Lato-Bold.ttf in Resources */,
 				3021CBE32410345E00F58B89 /* WebViewController.xib in Resources */,
@@ -2005,10 +2092,14 @@
 				30D7F70B236BAAB100379EE0 /* EditReflectionViewController.xib in Resources */,
 				30673BA0233FDEC300EDE7BD /* OFL.txt in Resources */,
 				305B18822331E162003E1561 /* ReflectContentViewController.xib in Resources */,
+				307B626C24AC322000A4560E /* wordBubbles.js in Resources */,
+				307B628024AC322000A4560E /* runtime.js in Resources */,
 				303C9DAC237E1470006B9786 /* LoadablePromptContentViewController.xib in Resources */,
 				30F716892379ED32004989DB /* ShareNoteViewController.xib in Resources */,
 				30673BA2233FDEC300EDE7BD /* Lato-BoldItalic.ttf in Resources */,
+				307B627024AC322000A4560E /* wordBubbles.css in Resources */,
 				30B6EA7822EA5AA100443E46 /* SharedAssets.xcassets in Resources */,
+				307B627C24AC322000A4560E /* favicon.ico in Resources */,
 				3084E9672348FE9C00788279 /* CelebrateViewController.xib in Resources */,
 				3032820D2412B87D00FC197A /* PricingFeatureView.xib in Resources */,
 				303C9DD0237FD7D1006B9786 /* ViewSharedReflectionViewController.xib in Resources */,
@@ -2024,6 +2115,7 @@
 				305B1865233175DC003E1561 /* PhotoContentViewController.xib in Resources */,
 				30CF538B2370DDCC00578B22 /* EnergyAnimationViewController.xib in Resources */,
 				300FCCF623EE2DBE00089CFB /* Payment.storyboard in Resources */,
+				307B627424AC322000A4560E /* wordBubbles.html in Resources */,
 				30DCA5E82441207500D520D4 /* PromptEntryCollectionViewCell.xib in Resources */,
 				303BF752232D289A00164539 /* QuoteContentViewController.xib in Resources */,
 				30673B9A233FDEC300EDE7BD /* Lato-Black.ttf in Resources */,
@@ -2430,6 +2522,7 @@
 				303282232416D3DF00FC197A /* AuthenticatedTaskManager.swift in Sources */,
 				30F7168C237A4B85004989DB /* CactusConfig.swift in Sources */,
 				303C9E4823847A3B006B9786 /* MemberProfileService.swift in Sources */,
+				307B623A24ABE5A100A4560E /* ArrayExtensions.swift in Sources */,
 				303C9DD3238419A9006B9786 /* AuthService.swift in Sources */,
 				303C9E442384778A006B9786 /* MemberProfile.swift in Sources */,
 				303C9DE123841A8F006B9786 /* JournalFeedDataSource.swift in Sources */,
@@ -2496,6 +2589,7 @@
 				304B214C23D392B8007B016C /* InvertableImageView.swift in Sources */,
 				3019A4D9243BDF74003D0074 /* WebViewController.swift in Sources */,
 				304B214523D3914C007B016C /* UIAlertControllerExtensions.swift in Sources */,
+				307B623B24ABE5A100A4560E /* ArrayExtensions.swift in Sources */,
 				304B215223D392C2007B016C /* GrowingTextView.swift in Sources */,
 				3055D93B240E97AC00981DA2 /* SubscriptionService.swift in Sources */,
 				3055D937240E923C00981DA2 /* SubscriptionProductGroup.swift in Sources */,
@@ -2578,6 +2672,7 @@
 				305130D4234FE9F10088B51F /* InviteSettingsViewController.swift in Sources */,
 				30D7385E23CFFC62006F4DA6 /* InviteContentViewController.swift in Sources */,
 				30D7386E23D00C0C006F4DA6 /* CircleImageView.swift in Sources */,
+				307B623924ABE5A100A4560E /* ArrayExtensions.swift in Sources */,
 				304EA2F42343B730001FB8AD /* CountProcess.swift in Sources */,
 				307ED78C24084085008D26C6 /* MemberSubscription.swift in Sources */,
 				30E9B0AA22EAD68B005B25FD /* AppMainViewController.swift in Sources */,
@@ -2754,6 +2849,7 @@
 				305130D3234FE9F10088B51F /* InviteSettingsViewController.swift in Sources */,
 				30D7385D23CFFC62006F4DA6 /* InviteContentViewController.swift in Sources */,
 				30D7386D23D00C0C006F4DA6 /* CircleImageView.swift in Sources */,
+				307B623824ABE5A100A4560E /* ArrayExtensions.swift in Sources */,
 				304EA2F32343B730001FB8AD /* CountProcess.swift in Sources */,
 				307ED78B24084085008D26C6 /* MemberSubscription.swift in Sources */,
 				30BF2E0B232816CC00A49EB6 /* PromptContentService.swift in Sources */,

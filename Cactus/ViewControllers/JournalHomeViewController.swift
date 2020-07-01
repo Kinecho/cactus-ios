@@ -73,7 +73,8 @@ class JournalHomeViewController: UIViewController {
         self.setNeedsStatusBarAppearanceUpdate()
         
         self.logger.info("Creating journal feed data source with member \(self.member.email ?? "none")", functionName: #function)
-        self.journalFeedDataSource = JournalFeedDataSource(member: self.member)
+        self.appSettings = AppSettingsService.sharedInstance.currentSettings
+        self.journalFeedDataSource = JournalFeedDataSource(member: self.member, appSettings: self.appSettings)
         self.journalFeedDataSource.delegate = self
         
         self.setupView()
@@ -90,6 +91,7 @@ class JournalHomeViewController: UIViewController {
                 return
             }
             self.appSettings = settings
+            self.journalFeedDataSource.appSettings = settings
         })
         
         self.memberListener = CactusMemberService.sharedInstance.observeCurrentMember { (member, error, user) in

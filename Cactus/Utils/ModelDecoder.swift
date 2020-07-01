@@ -8,6 +8,10 @@
 
 import Foundation
 
+enum ModelDecoderError: Error {
+    case invalidContainer
+}
+
 class ModelDecoder<T: CodingKey> {
     var decoder: Decoder
     var container: KeyedDecodingContainer<T>
@@ -18,9 +22,9 @@ class ModelDecoder<T: CodingKey> {
         
     }
     
-    static func create<T: CodingKey>(decoder: Decoder, codingKeys: T.Type) -> ModelDecoder<T>? {
+    static func create<T: CodingKey>(decoder: Decoder, codingKeys: T.Type) throws -> ModelDecoder<T> {
         guard let container = try? decoder.container(keyedBy: T.self)  else {
-            return nil
+            throw ModelDecoderError.invalidContainer
         }
         
         return ModelDecoder<T>(decoder: decoder, container: container)
@@ -38,6 +42,16 @@ class ModelDecoder<T: CodingKey> {
     
     func optionalInt(_ key: T) -> Int? {
         let value = try? self.container.decode(Int.self, forKey: key)
+        return value
+    }
+    
+    func subscriptionTierArray(_ key: T) -> [SubscriptionTier] {
+        let value = try? container.decode([SubscriptionTier].self, forKey: key)
+        return value ?? []
+    }
+    
+    func optionalSubscriptionTierArray(_ key: T) -> [SubscriptionTier]? {
+        let value = try? container.decode([SubscriptionTier].self, forKey: key)
         return value
     }
     

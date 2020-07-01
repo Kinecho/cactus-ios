@@ -100,9 +100,7 @@ class Quote: Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        guard let model = ModelDecoder<QuoteCodingKey>.create(decoder: decoder, codingKeys: QuoteCodingKey.self) else {
-            return
-        }
+        let model = try ModelDecoder<QuoteCodingKey>.create(decoder: decoder, codingKeys: QuoteCodingKey.self)
         
         self.text = model.optionalString(.text, blankAsNil: true)
         self.authorName = model.optionalString(.authorName, blankAsNil: true)
@@ -254,9 +252,7 @@ class Content: Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        guard let model = ModelDecoder<ContentCodingKeys>.create(decoder: decoder, codingKeys: ContentCodingKeys.self) else {
-            return
-        }
+        let model = try ModelDecoder<ContentCodingKeys>.create(decoder: decoder, codingKeys: ContentCodingKeys.self)
         let container = model.container
         
         self.contentType = (try? container.decode(ContentType.self, forKey: ContentCodingKeys.contentType)) ?? ContentType.text

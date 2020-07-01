@@ -23,6 +23,7 @@ class AppSettings: FlamelinkIdentifiable {
     var apiDomain: String?
     var upgradeCopy: UpgradeCopy?
     var dataExport: DataExportSettings?
+    var journal: JournalSettings?
     
     enum AppSettingsField: CodingKey {
         case _fl_meta_
@@ -37,12 +38,11 @@ class AppSettings: FlamelinkIdentifiable {
         case apiDomain
         case upgradeCopy
         case dataExport
+        case journal
     }
     
     public required init(from decoder: Decoder) throws {
-        guard let model = ModelDecoder<AppSettingsField>.create(decoder: decoder, codingKeys: AppSettingsField.self) else {
-            return
-        }
+        let model = try ModelDecoder<AppSettingsField>.create(decoder: decoder, codingKeys: AppSettingsField.self) 
         self._fl_meta_ = try? model.container.decode(FlamelinkMeta.self, forKey: ._fl_meta_)
         self.documentId = model.optionalString(.documentId, blankAsNil: true)
         self.entryId = model.optionalString(.entryId, blankAsNil: true)
@@ -55,6 +55,7 @@ class AppSettings: FlamelinkIdentifiable {
         self.apiDomain = model.optionalString(.apiDomain, blankAsNil: true)
         self.upgradeCopy = try? model.container.decode(UpgradeCopy.self, forKey: .upgradeCopy)
         self.dataExport = try? model.container.decode(DataExportSettings.self, forKey: .dataExport)
+        self.journal = try? model.container.decode(JournalSettings.self, forKey: .journal)
     }
     
 }
@@ -96,10 +97,7 @@ class DataExportSettings: Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        guard let model = ModelDecoder<DataExportSettingsField>.create(decoder: decoder, codingKeys: DataExportSettingsField.self) else {
-            return
-        }
-        
+        let model = try ModelDecoder<DataExportSettingsField>.create(decoder: decoder, codingKeys: DataExportSettingsField.self)
         self.enabledTiers = (try? model.container.decode([SubscriptionTier].self, forKey: .enabledTiers)) ?? []
     }
     
@@ -179,5 +177,18 @@ class CheckoutSettings: Codable {
         } catch {
             Logger.shared.error("Failed to decode checkout settings", error)
         }
+    }
+}
+
+class JournalSettings: Codable {
+    var enableAllSentPromptsForTiers: [SubscriptionTier] = []
+    
+    enum Key: CodingKey {
+        case enableAllSentPromptsForTiers
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let model = try ModelDecoder<Key>.create(decoder: decoder, codingKeys: Key.self)
+        self.enableAllSentPromptsForTiers = model.subscriptionTierArray(.enableAllSentPromptsForTiers)
     }
 }
