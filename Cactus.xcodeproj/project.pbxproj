@@ -571,6 +571,10 @@
 		307B628124AC322000A4560E /* runtime.js in Resources */ = {isa = PBXBuildFile; fileRef = 307B626724AC322000A4560E /* runtime.js */; };
 		307B628224AC322000A4560E /* runtime.js in Resources */ = {isa = PBXBuildFile; fileRef = 307B626724AC322000A4560E /* runtime.js */; };
 		307B628324AC322000A4560E /* runtime.js in Resources */ = {isa = PBXBuildFile; fileRef = 307B626724AC322000A4560E /* runtime.js */; };
+		307B628524AD3B7200A4560E /* TextViewPlaceholderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B628424AD3B7200A4560E /* TextViewPlaceholderDelegate.swift */; };
+		307B628624AD3B7200A4560E /* TextViewPlaceholderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B628424AD3B7200A4560E /* TextViewPlaceholderDelegate.swift */; };
+		307B628724AD3B7200A4560E /* TextViewPlaceholderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B628424AD3B7200A4560E /* TextViewPlaceholderDelegate.swift */; };
+		307B628824AD3B7200A4560E /* TextViewPlaceholderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B628424AD3B7200A4560E /* TextViewPlaceholderDelegate.swift */; };
 		307DB73A241823120084B9AC /* StoreObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCF223EE279500089CFB /* StoreObserver.swift */; };
 		307ED78B24084085008D26C6 /* MemberSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED78A24084085008D26C6 /* MemberSubscription.swift */; };
 		307ED78C24084085008D26C6 /* MemberSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED78A24084085008D26C6 /* MemberSubscription.swift */; };
@@ -1009,6 +1013,7 @@
 		307B626524AC321F00A4560E /* vendors.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = vendors.js; sourceTree = "<group>"; };
 		307B626624AC321F00A4560E /* favicon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = favicon.ico; sourceTree = "<group>"; };
 		307B626724AC322000A4560E /* runtime.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = runtime.js; sourceTree = "<group>"; };
+		307B628424AD3B7200A4560E /* TextViewPlaceholderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewPlaceholderDelegate.swift; sourceTree = "<group>"; };
 		307ED78A24084085008D26C6 /* MemberSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberSubscription.swift; sourceTree = "<group>"; };
 		307ED78E24086E82008D26C6 /* SubscriptionUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionUtil.swift; sourceTree = "<group>"; };
 		307ED7922408748C008D26C6 /* MemberSubscriptionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberSubscriptionTest.swift; sourceTree = "<group>"; };
@@ -1737,6 +1742,7 @@
 				30BF2E2E2328A8AD00A49EB6 /* ViewControllerExtensions.swift */,
 				30C49D3322EC299300A2EA95 /* ViewExtensions.swift */,
 				307B623724ABE5A100A4560E /* ArrayExtensions.swift */,
+				307B628424AD3B7200A4560E /* TextViewPlaceholderDelegate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2480,6 +2486,7 @@
 				3021CBD92410215500F58B89 /* NavigationService.swift in Sources */,
 				303C9DF723841ABB006B9786 /* LinkedAccountsTableViewController.swift in Sources */,
 				303C9DE323841AA3006B9786 /* NotificationOnboardingViewController.swift in Sources */,
+				307B628724AD3B7200A4560E /* TextViewPlaceholderDelegate.swift in Sources */,
 				303C9DFA23841ABB006B9786 /* JournalEntrySkeletonViewController.swift in Sources */,
 				303C9E3E23841B1B006B9786 /* AppSettings.swift in Sources */,
 				303C9E1A23841AC6006B9786 /* ShareNoteViewController.swift in Sources */,
@@ -2631,6 +2638,7 @@
 				304B213123D38F65007B016C /* MailchimpModels.swift in Sources */,
 				3032821A2414556A00FC197A /* ApplePayment.swift in Sources */,
 				304B216E23D3947F007B016C /* MemberProfileService.swift in Sources */,
+				307B628824AD3B7200A4560E /* TextViewPlaceholderDelegate.swift in Sources */,
 				304B212923D38F5A007B016C /* BaseModel.swift in Sources */,
 				304B214923D39233007B016C /* SwiftyGifManager.swift in Sources */,
 				304B215123D392C2007B016C /* CircleView.swift in Sources */,
@@ -2745,6 +2753,7 @@
 				30727450236B504B00309B3C /* JournalHomeEmptyStateViewController.swift in Sources */,
 				3084E96D234BC5FE00788279 /* PrimaryButton.swift in Sources */,
 				303282182414556A00FC197A /* ApplePayment.swift in Sources */,
+				307B628624AD3B7200A4560E /* TextViewPlaceholderDelegate.swift in Sources */,
 				3072744D236A56AD00309B3C /* ModalViewController.swift in Sources */,
 				303C9E4723847A3B006B9786 /* MemberProfileService.swift in Sources */,
 				307ED79024086E82008D26C6 /* SubscriptionUtil.swift in Sources */,
@@ -2922,6 +2931,7 @@
 				3072744F236B504B00309B3C /* JournalHomeEmptyStateViewController.swift in Sources */,
 				3084E96C234BC5FE00788279 /* PrimaryButton.swift in Sources */,
 				303282172414556A00FC197A /* ApplePayment.swift in Sources */,
+				307B628524AD3B7200A4560E /* TextViewPlaceholderDelegate.swift in Sources */,
 				3072744C236A56AD00309B3C /* ModalViewController.swift in Sources */,
 				303C9E4623847A3B006B9786 /* MemberProfileService.swift in Sources */,
 				307ED78F24086E82008D26C6 /* SubscriptionUtil.swift in Sources */,

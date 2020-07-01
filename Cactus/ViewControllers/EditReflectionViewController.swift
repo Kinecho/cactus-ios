@@ -9,8 +9,15 @@
 import UIKit
 
 protocol EditReflectionViewControllerDelegate: class {
-    func done(text: String?, response: ReflectionResponse?)
+//    func done(text: String?, response: ReflectionResponse?)
+    func done(text: String?, response: ReflectionResponse?, title: String?, prompt: ReflectionPrompt?)
     func cancel()
+}
+
+extension EditReflectionViewControllerDelegate {
+    func done(text: String?, response: ReflectionResponse?, title: String?=nil, prompt: ReflectionPrompt?=nil) {
+        done(text: text, response: response, title: title, prompt: prompt)
+    }
 }
 
 class EditReflectionViewController: UIViewController, UIAdaptivePresentationControllerDelegate {
@@ -24,6 +31,11 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
     let logger = Logger("EditReflectionViewController")
     let padding: CGFloat = 10
     var response: ReflectionResponse!
+    var prompt: ReflectionPrompt?
+    // swiftlint:disable weak_delegate
+    var titleTextViewDelegate: TextViewPlaceholderDelegate!
+    // swiftlint:disable weak_delegate
+    var noteTextViewDelegate: TextViewPlaceholderDelegate!
     var questionText: String?
     var isSaving: Bool = false {
         didSet {
@@ -44,6 +56,13 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
         
         self.questionTextView.attributedText = MarkdownUtil.toMarkdown(questionText, font: CactusFont.normal(24))
         self.responseTextView.text = response.content.text
+                
+        self.titleTextViewDelegate = TextViewPlaceholderDelegate("Title", self.questionTextView)
+        self.noteTextViewDelegate = TextViewPlaceholderDelegate("Write something...", self.responseTextView)
+        
+        if self.prompt?.isCustomPrompt == true {
+            self.questionTextView.isEditable = true
+        }
         
         self.configureView()
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillChangeFrame), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
@@ -103,7 +122,9 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
         let currentText: String = self.responseTextView.text.trimmingCharacters(in: .whitespacesAndNewlines)
         let originalText: String = self.response.content.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         
-        return currentText != originalText
+        let questionChanged = self.questionTextView.text != self.questionText ?? ""
+        
+        return currentText != originalText || questionChanged
     }
     
     func handleDismiss(_ sender: UIView?) {
@@ -135,6 +156,11 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
     @IBAction func doneButtonTapped(_ sender: Any) {
         self.logger.info("done tapped")
 //        self.delegate?.done(text: self.responseTextView.text)
-        self.delegate?.done(text: self.responseTextView.text, response: self.response )
+        if self.prompt == nil || self.prompt?.isCustomPrompt != true {
+            self.delegate?.done(text: self.noteTextViewDelegate.text, response: self.response )
+        } else {
+            self.delegate?.done(text: self.noteTextViewDelegate.text, response: self.response, title: self.titleTextViewDelegate.text, prompt: self.prompt )
+        }
+        
     }
 }
