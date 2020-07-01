@@ -101,7 +101,6 @@ class JournalFeedDataSource {
     var pageSize: Int = 10
     var mightHaveMore: Bool {self.pages.last?.result?.mightHaveMore ?? false}
     
-    //    var todayCurrentDate: Date?
     var todayDateString: String?
     var todayData: JournalEntryData?
     var todayLoaded: Bool = false
@@ -137,7 +136,6 @@ class JournalFeedDataSource {
         
         if self.currentMember == nil {
             self.logger.info("No member found, returning", functionName: #function)
-            //            self.resetData()
             return
         }
         self.logger.info("Starting journal feed data source")
@@ -172,11 +170,9 @@ class JournalFeedDataSource {
     
     func handleMemberUpdated(oldMember: CactusMember?, newMember: CactusMember?) {
         if newMember == nil || oldMember?.tier == newMember?.tier {
-            //nothing to change
             return
         }
         logger.info("Member has changed subscription status, updating today query")
-//        self.initializeToday()
         self.resetData()
         self.start()
     }
@@ -216,15 +212,12 @@ class JournalFeedDataSource {
                 self.logger.warn("There was no error loading todays prompt content, but no promptId was found.")
                 return
             }
-            ///TODO: do we want to remove the todayData object if no new prompt is found?
+            //TODO: do we want to remove the todayData object if no new prompt is found?
             if let oldData = self.todayData {
                 oldData.isTodaysPrompt = false
                 oldData.delegate?.onData(oldData.getJournalEntry())
                 oldData.stop()
                 self.logger.info("Had old data for Today Prompt, used to remove it but am not anymore")
-                //                if let oldPromptId = oldData.promptId {
-                //                    self.journalEntryDataByPromptId.removeValue(forKey: oldPromptId)
-                //                }
             }
             
             self.todayDateString = currentDateString
@@ -256,7 +249,7 @@ class JournalFeedDataSource {
             self.logger.info("Got \"future\" journal entry data with \(pageResult.results?.count ?? 0) results", functionName: "initializePages", line: #line)
             
             if !(pageResult.results?.isEmpty ?? true) && self.hasLoaded {
-                //need to update the UI for the first appearance so we can show onboarding
+                // need to update the UI for the first appearance so we can show onboarding
                 self.delegate?.handleEmptyState(hasResults: true)
             }
             
@@ -265,21 +258,23 @@ class JournalFeedDataSource {
         
         let firstPage = PageLoader<SentPrompt>()
         self.pages.insert(firstPage, at: 1)
-        firstPage.listener = SentPromptService.sharedInstance.observeSentPromptsPage(member: member,
-                                                                                     beforeOrEqualTo: startDate,
-                                                                                     onlyCompleted: self.onlyCompletedPrompts,
-                                                                                     limit: self.pageSize,
-                                                                                     lastResult: nil, { (pageResult) in
-                                                                                        firstPage.result = pageResult
-                                                                                        self.logger.info("Got first page data with \(pageResult.results?.count ?? 0) results",
-                                                                                            functionName: "initializePages", line: #line)
-                                                                                        
-                                                                                        if !self.hasLoaded {
-                                                                                            self.delegate?.handleEmptyState(hasResults: !(pageResult.results?.isEmpty ?? true))
-                                                                                        }
-                                                                                        
-                                                                                        self.configurePages()
-                                                                                        self.hasLoaded = true
+        firstPage.listener = SentPromptService.sharedInstance.observeSentPromptsPage(
+            member: member,
+            beforeOrEqualTo: startDate,
+            onlyCompleted: self.onlyCompletedPrompts,
+            limit: self.pageSize,
+            lastResult: nil,
+            { (pageResult) in
+                firstPage.result = pageResult
+                self.logger.info("Got first page data with \(pageResult.results?.count ?? 0) results",
+                    functionName: "initializePages", line: #line)
+                
+                if !self.hasLoaded {
+                    self.delegate?.handleEmptyState(hasResults: !(pageResult.results?.isEmpty ?? true))
+                }
+                
+                self.configurePages()
+                self.hasLoaded = true
         })
     }
     
