@@ -8,7 +8,7 @@
 
 import UIKit
 import WebKit
-
+import FirebaseFirestore
 class CoreValuesAssessmentViewController: UIViewController {
     
     @IBOutlet weak var topToolbar: UIToolbar!
@@ -16,6 +16,8 @@ class CoreValuesAssessmentViewController: UIViewController {
     var loadingVc: LoadingViewController?
     var webView: WKWebView!
     let logger = Logger("CoreValuesAssessmentViewController")
+    
+    var memberUnsubscriber: Unsubscriber?
     
     var member: CactusMember? {
         didSet {
@@ -35,6 +37,10 @@ class CoreValuesAssessmentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()        
         self.member = self.member ?? CactusMemberService.sharedInstance.currentMember
+        self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember { (member, _, _) in
+            self.member = member ?? self.member
+        }
+        
         let settings = AppSettingsService.sharedInstance.currentSettings
         let contentController = WKUserContentController()
         contentController.registerMessageHandlers(with: self)
@@ -112,6 +118,11 @@ class CoreValuesAssessmentViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }        
     }
+    
+    func onPricingClosed() {
+        logger.info("Pricing closed")
+        self.updateMemberInfoWithWeb()
+    }
 }
 
 extension CoreValuesAssessmentViewController: WKScriptMessageHandler, WKNavigationDelegate {
@@ -129,7 +140,12 @@ extension CoreValuesAssessmentViewController: WKScriptMessageHandler, WKNavigati
             self.logger.info("Closing core values")
             self.closeCoreValues()
         case .showPricing:
-            let pricingVc = ScreenID.Pricing.getViewController()
+            guard let pricingVc = ScreenID.Pricing.getViewController() as? PricingViewController else {
+                return
+            }
+            pricingVc.onDismiss = {
+                self.onPricingClosed()
+            }
             pricingVc.modalPresentationStyle = .overCurrentContext
             NavigationService.sharedInstance.present(pricingVc, animated: true)
         }
