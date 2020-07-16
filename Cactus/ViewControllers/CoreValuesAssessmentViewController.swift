@@ -65,6 +65,10 @@ class CoreValuesAssessmentViewController: UIViewController {
         webView.load(URLRequest(url: url))
     }
     
+    deinit {
+        self.memberUnsubscriber?()
+    }
+    
     func showLoadingIndicator() {
         guard let loadingVc = self.loadingVc ?? ScreenID.LoadingFullScreen.getViewController() as? LoadingViewController else {
             return
