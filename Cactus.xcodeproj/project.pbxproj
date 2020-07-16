@@ -634,6 +634,244 @@
 		30A3BC0524C0CDF90016955C /* WebAppInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A3BC0324C0CDF90016955C /* WebAppInterface.swift */; };
 		30A3BC0624C0CDF90016955C /* WebAppInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A3BC0324C0CDF90016955C /* WebAppInterface.swift */; };
 		30A3BC0724C0CDF90016955C /* WebAppInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A3BC0324C0CDF90016955C /* WebAppInterface.swift */; };
+		30A3BC0C24C113780016955C /* PricingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099D1EC2408D13C00BD9CC4 /* PricingViewController.swift */; };
+		30A3BC0D24C113780016955C /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F2376237A7C8600F35CDE /* SecondaryButton.swift */; };
+		30A3BC0F24C113780016955C /* ReflectionResponseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FAE22EC0558007C4E6C /* ReflectionResponseService.swift */; };
+		30A3BC1024C113780016955C /* AuthenticatedTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3032821B2416D29F00FC197A /* AuthenticatedTask.swift */; };
+		30A3BC1124C113780016955C /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */; };
+		30A3BC1224C113780016955C /* NotificationTimeOfDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE5671234E829100AA6D4D /* NotificationTimeOfDayViewController.swift */; };
+		30A3BC1324C113780016955C /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9B22EBF2AB007C4E6C /* ColorExtensions.swift */; };
+		30A3BC1424C113780016955C /* InviteSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305130D2234FE9F10088B51F /* InviteSettingsViewController.swift */; };
+		30A3BC1524C113780016955C /* InviteContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D7385B23CFFC62006F4DA6 /* InviteContentViewController.swift */; };
+		30A3BC1624C113780016955C /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D7386C23D00C0C006F4DA6 /* CircleImageView.swift */; };
+		30A3BC1724C113780016955C /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B623724ABE5A100A4560E /* ArrayExtensions.swift */; };
+		30A3BC1824C113780016955C /* CountProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304EA2F22343B730001FB8AD /* CountProcess.swift */; };
+		30A3BC1924C113780016955C /* MemberSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED78A24084085008D26C6 /* MemberSubscription.swift */; };
+		30A3BC1A24C113780016955C /* PromptContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0A232816CC00A49EB6 /* PromptContentService.swift */; };
+		30A3BC1B24C113780016955C /* CactusElementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30727445236A4A3100309B3C /* CactusElementDetailViewController.swift */; };
+		30A3BC1C24C113780016955C /* AppMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0A822EAD68B005B25FD /* AppMainViewController.swift */; };
+		30A3BC1D24C113780016955C /* JournalEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCA8524609D85007187FC /* JournalEntryCell.swift */; };
+		30A3BC1E24C113780016955C /* FancyLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCE923ECB3D000089CFB /* FancyLinkButton.swift */; };
+		30A3BC1F24C113780016955C /* ReflectionPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FA522EBFF27007C4E6C /* ReflectionPrompt.swift */; };
+		30A3BC2024C113780016955C /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0AB22EAD6EC005B25FD /* NavigationUtil.swift */; };
+		30A3BC2124C113780016955C /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D0E453236C98C100EFC0E3 /* StringExtensions.swift */; };
+		30A3BC2224C113780016955C /* ContactService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305CB0FB23D03C080046E8A8 /* ContactService.swift */; };
+		30A3BC2324C113780016955C /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9822EBF235007C4E6C /* BorderedButton.swift */; };
+		30A3BC2424C113780016955C /* SubscriptionInvoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304A252B240DCC2200737C57 /* SubscriptionInvoice.swift */; };
+		30A3BC2524C113780016955C /* ReflectionPromptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FAB22EC02A6007C4E6C /* ReflectionPromptService.swift */; };
+		30A3BC2624C113780016955C /* SocialContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308505A423D0E490001179E2 /* SocialContactTableViewCell.swift */; };
+		30A3BC2724C113780016955C /* SubscriptionProductGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099D20124098EF400BD9CC4 /* SubscriptionProductGroup.swift */; };
+		30A3BC2824C113780016955C /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B186D23319E09003E1561 /* FileUtils.swift */; };
+		30A3BC2924C113780016955C /* MeaningAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301C1A8F236F7E9700F06A3D /* MeaningAnimationViewController.swift */; };
+		30A3BC2A24C113780016955C /* PromptContentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5EF24417AA400D520D4 /* PromptContentDataSource.swift */; };
+		30A3BC2B24C113780016955C /* NavigationMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2D37823432B21003D2B27 /* NavigationMenuViewController.swift */; };
+		30A3BC2C24C113780016955C /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F4F2347FAA400798560 /* ProfileSettingsViewController.swift */; };
+		30A3BC2D24C113780016955C /* SubscriptionPlanOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099D1F02408DA1000BD9CC4 /* SubscriptionPlanOptionView.swift */; };
+		30A3BC2E24C113780016955C /* FormatUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FA222EBF4E6007C4E6C /* FormatUtils.swift */; };
+		30A3BC2F24C113780016955C /* PromptContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0C2328171200A49EB6 /* PromptContent.swift */; };
+		30A3BC3024C113780016955C /* LinkHandlerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9DB0237E2AB4006B9786 /* LinkHandlerUtil.swift */; };
+		30A3BC3124C113780016955C /* ExperienceAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF53812370C58100578B22 /* ExperienceAnimationViewController.swift */; };
+		30A3BC3224C113780016955C /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB072B244E449D006ACB98 /* File.swift */; };
+		30A3BC3324C113780016955C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30328208241215D900FC197A /* WelcomeViewController.swift */; };
+		30A3BC3424C113780016955C /* SocialActivityCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D7387523D00F96006F4DA6 /* SocialActivityCardView.swift */; };
+		30A3BC3524C113780016955C /* MarkdownTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062201E23EC7A0A002FAAD9 /* MarkdownTextView.swift */; };
+		30A3BC3624C113780016955C /* NavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBD62410215500F58B89 /* NavigationService.swift */; };
+		30A3BC3724C113780016955C /* LoadablePromptContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9DA8237E1470006B9786 /* LoadablePromptContentViewController.swift */; };
+		30A3BC3824C113780016955C /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E9572348042800788279 /* PrivacyPolicyViewController.swift */; };
+		30A3BC3924C113780016955C /* CGExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0B222EADE2D005B25FD /* CGExtensions.swift */; };
+		30A3BC3A24C113780016955C /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30727430236A289900309B3C /* AppSettings.swift */; };
+		30A3BC3B24C113780016955C /* CoreValuesAssessmentResponseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB072F244E4762006ACB98 /* CoreValuesAssessmentResponseService.swift */; };
+		30A3BC3C24C113780016955C /* CactusConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30727436236A312800309B3C /* CactusConstants.swift */; };
+		30A3BC3D24C113780016955C /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F2373237A6F7500F35CDE /* ShadowView.swift */; };
+		30A3BC3E24C113780016955C /* TertiaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3014A38B2378CA0300121729 /* TertiaryButton.swift */; };
+		30A3BC3F24C113780016955C /* PricingFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303282112412B8E600FC197A /* PricingFeatureView.swift */; };
+		30A3BC4024C113780016955C /* SubscriptionProductGroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099D1FD240974F200BD9CC4 /* SubscriptionProductGroupService.swift */; };
+		30A3BC4124C113780016955C /* CactusAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E8141242C4F2700782B54 /* CactusAnalytics.swift */; };
+		30A3BC4224C113780016955C /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EB0872343A0B800AC8741 /* RoundedView.swift */; };
+		30A3BC4324C113780016955C /* RelationshipsAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF538D2370FBB800578B22 /* RelationshipsAnimationViewController.swift */; };
+		30A3BC4424C113780016955C /* PromptContentPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E1723289D1200A49EB6 /* PromptContentPageViewController.swift */; };
+		30A3BC4524C113780016955C /* ImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B186A23319A72003E1561 /* ImageExtensions.swift */; };
+		30A3BC4624C113780016955C /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9DB9237F5DCC006B9786 /* URLExtensions.swift */; };
+		30A3BC4724C113780016955C /* UserServiceFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9DB6237F595A006B9786 /* UserServiceFile.swift */; };
+		30A3BC4824C113780016955C /* SentPromptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */; };
+		30A3BC4924C113780016955C /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A292D0243E467F00F546CA /* LoadingViewController.swift */; };
+		30A3BC4A24C113780016955C /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E95D234810B300788279 /* FeedbackViewController.swift */; };
+		30A3BC4B24C113780016955C /* SharedReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F236A237A61F100F35CDE /* SharedReflectionViewController.swift */; };
+		30A3BC4C24C113780016955C /* CactusElementWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304BCE6524858CFB0055A28E /* CactusElementWebView.swift */; };
+		30A3BC4D24C113780016955C /* FirebaseInAppMessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062201523EB1B68002FAAD9 /* FirebaseInAppMessageDelegate.swift */; };
+		30A3BC4E24C113780016955C /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E2E2328A8AD00A49EB6 /* ViewControllerExtensions.swift */; };
+		30A3BC4F24C113780016955C /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9DC2237F6799006B9786 /* StorageService.swift */; };
+		30A3BC5024C113780016955C /* BorderedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F2377237B4DE400F35CDE /* BorderedTextView.swift */; };
+		30A3BC5124C113780016955C /* FlamelinkTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0E23281CAA00A49EB6 /* FlamelinkTypes.swift */; };
+		30A3BC5224C113780016955C /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE566E234E73A000AA6D4D /* NotificationsTableViewController.swift */; };
+		30A3BC5324C113780016955C /* JournalFeedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */; };
+		30A3BC5424C113780016955C /* JournalEntryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018B1222376182D0005333A /* JournalEntryData.swift */; };
+		30A3BC5524C113780016955C /* SubscriptionProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCFF23EE3CD200089CFB /* SubscriptionProductService.swift */; };
+		30A3BC5624C113780016955C /* CoreValuesAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB0727244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift */; };
+		30A3BC5724C113780016955C /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F482347D7A700798560 /* SettingsTableViewController.swift */; };
+		30A3BC5824C113780016955C /* ReflectContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B187E2331E162003E1561 /* ReflectContentViewController.swift */; };
+		30A3BC5924C113780016955C /* CactusMemberService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B09F22EABFBD005B25FD /* CactusMemberService.swift */; };
+		30A3BC5A24C113780016955C /* PaymentNavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3055D93C240E98BB00981DA2 /* PaymentNavigationService.swift */; };
+		30A3BC5B24C113780016955C /* CactusImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC17E2339839A005C6555 /* CactusImage.swift */; };
+		30A3BC5C24C113780016955C /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3322EC299300A2EA95 /* ViewExtensions.swift */; };
+		30A3BC5D24C113780016955C /* JournalHomeEmptyStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072744E236B504B00309B3C /* JournalHomeEmptyStateViewController.swift */; };
+		30A3BC5E24C113780016955C /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E96B234BC5FE00788279 /* PrimaryButton.swift */; };
+		30A3BC5F24C113780016955C /* ApplePayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303282162414556A00FC197A /* ApplePayment.swift */; };
+		30A3BC6024C113780016955C /* TextViewPlaceholderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B628424AD3B7200A4560E /* TextViewPlaceholderDelegate.swift */; };
+		30A3BC6124C113780016955C /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072744B236A56AD00309B3C /* ModalViewController.swift */; };
+		30A3BC6224C113780016955C /* MemberProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9E4523847A3B006B9786 /* MemberProfileService.swift */; };
+		30A3BC6324C113780016955C /* SubscriptionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED78E24086E82008D26C6 /* SubscriptionUtil.swift */; };
+		30A3BC6424C113780016955C /* CactusColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49D3722EC2D4C00A2EA95 /* CactusColor.swift */; };
+		30A3BC6524C113780016955C /* AuthProviderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC2CFF234EA63E00AB7B89 /* AuthProviderTableViewCell.swift */; };
+		30A3BC6624C113780016955C /* FirebaseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E10232822E600A49EB6 /* FirebaseExtensions.swift */; };
+		30A3BC6724C113780016955C /* CactusElementAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF53932371183F00578B22 /* CactusElementAnimationViewController.swift */; };
+		30A3BC6824C113780016955C /* VideoContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF539623732EC300578B22 /* VideoContentViewController.swift */; };
+		30A3BC6924C113780016955C /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B09522EA68AC005B25FD /* FirestoreService.swift */; };
+		30A3BC6A24C113780016955C /* ReflectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934FA822EC0001007C4E6C /* ReflectionResponse.swift */; };
+		30A3BC6B24C113780016955C /* BrowseElementsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30762E50243FF4A5000A18B3 /* BrowseElementsCollectionViewController.swift */; };
+		30A3BC6C24C113780016955C /* SharingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072742A236950AC00309B3C /* SharingService.swift */; };
+		30A3BC6D24C113780016955C /* PromptEntryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5E32441207500D520D4 /* PromptEntryCollectionViewCell.swift */; };
+		30A3BC6E24C113780016955C /* ElementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30762E5C2440E4A4000A18B3 /* ElementCell.swift */; };
+		30A3BC6F24C113780016955C /* TextContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E2823289F9F00A49EB6 /* TextContentViewController.swift */; };
+		30A3BC7024C113780016955C /* InvertableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051A4B23A86306005F812B /* InvertableImageView.swift */; };
+		30A3BC7124C113780016955C /* UIImage+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30265C5F23453CB100934041 /* UIImage+SwiftyGif.swift */; };
+		30A3BC7224C113780016955C /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F2370237A629800F35CDE /* CircleView.swift */; };
+		30A3BC7324C113780016955C /* CactusElementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3020DD9623640BE300EC40AE /* CactusElementsViewController.swift */; };
+		30A3BC7424C113780016955C /* LinkedAccountsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE5674234E982C00AA6D4D /* LinkedAccountsTableViewController.swift */; };
+		30A3BC7524C113780016955C /* ModelDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30392FF52410075400F2A8FC /* ModelDecoder.swift */; };
+		30A3BC7624C113780016955C /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309561A322EE16D7009357BD /* AppConfig.swift */; };
+		30A3BC7724C113780016955C /* SubscriptionProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCFC23EE3B5F00089CFB /* SubscriptionProduct.swift */; };
+		30A3BC7824C113780016955C /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E954234802C300788279 /* TermsOfServiceViewController.swift */; };
+		30A3BC7924C113780016955C /* MarkdownUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */; };
+		30A3BC7A24C113780016955C /* LoggerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018B11F2376041A0005333A /* LoggerUtil.swift */; };
+		30A3BC7B24C113780016955C /* UIStackViewExtensionis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305424E923AC0432003F82A2 /* UIStackViewExtensionis.swift */; };
+		30A3BC7C24C113780016955C /* AppSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30727433236A295300309B3C /* AppSettingsService.swift */; };
+		30A3BC7D24C113780016955C /* UpgradeJournalFeedCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED79A24088C7E008D26C6 /* UpgradeJournalFeedCollectionReusableView.swift */; };
+		30A3BC7E24C113780016955C /* ViewSharedReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9DCC237FD7D1006B9786 /* ViewSharedReflectionViewController.swift */; };
+		30A3BC7F24C113780016955C /* CactusMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B09C22EA7FC3005B25FD /* CactusMember.swift */; };
+		30A3BC8024C113780016955C /* PricingFeatureItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C5A4E24479AD60087345D /* PricingFeatureItemViewController.swift */; };
+		30A3BC8124C113780016955C /* DataExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004400E243F9CF80002A293 /* DataExportViewController.swift */; };
+		30A3BC8224C113780016955C /* NotificationOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB8ED8237C86910048CFD2 /* NotificationOnboardingViewController.swift */; };
+		30A3BC8324C113780016955C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0A222EAC204005B25FD /* AuthService.swift */; };
+		30A3BC8424C113780016955C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */; };
+		30A3BC8524C113780016955C /* EmotionsAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF537B2370B10F00578B22 /* EmotionsAnimationViewController.swift */; };
+		30A3BC8624C113780016955C /* InsightsWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBE82410E83800F58B89 /* InsightsWebViewViewController.swift */; };
+		30A3BC8724C113780016955C /* PhotoContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1861233175DC003E1561 /* PhotoContentViewController.swift */; };
+		30A3BC8824C113780016955C /* MarkdownTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E312328C7AD00A49EB6 /* MarkdownTypes.swift */; };
+		30A3BC8924C113780016955C /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
+		30A3BC8A24C113780016955C /* JournalFeedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FA2C9823741A3300F671AF /* JournalFeedFlowLayout.swift */; };
+		30A3BC8B24C113780016955C /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9522EBF146007C4E6C /* RoundedButton.swift */; };
+		30A3BC8C24C113780016955C /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305CB10323D049E30046E8A8 /* ContactsTableViewController.swift */; };
+		30A3BC8D24C113780016955C /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B09822EA6A81005B25FD /* BaseModel.swift */; };
+		30A3BC8E24C113780016955C /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBDD2410345E00F58B89 /* WebViewController.swift */; };
+		30A3BC8F24C113780016955C /* ApiTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67423623010002634A8 /* ApiTypes.swift */; };
+		30A3BC9024C113780016955C /* PromptContentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5EB244120A700D520D4 /* PromptContentCollectionViewController.swift */; };
+		30A3BC9124C113780016955C /* EditReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D7F707236BAAB100379EE0 /* EditReflectionViewController.swift */; };
+		30A3BC9224C113780016955C /* UIImageViewAligned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3020DD932363F37D00EC40AE /* UIImageViewAligned.swift */; };
+		30A3BC9324C113780016955C /* SocialInviteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3006442323D26BAB00712ED1 /* SocialInviteService.swift */; };
+		30A3BC9424C113780016955C /* PromptContentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5F724418BAA00D520D4 /* PromptContentData.swift */; };
+		30A3BC9524C113780016955C /* FontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C7E57A233FEB5800145111 /* FontExtensions.swift */; };
+		30A3BC9624C113780016955C /* PricingFeaturePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C5A4A24479AA50087345D /* PricingFeaturePageViewController.swift */; };
+		30A3BC9724C113780016955C /* JournalEntrySkeletonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC185233A850B005C6555 /* JournalEntrySkeletonViewController.swift */; };
+		30A3BC9824C113780016955C /* CelebrateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E9632348FE9C00788279 /* CelebrateViewController.swift */; };
+		30A3BC9924C113780016955C /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67023622FE7002634A8 /* ApiService.swift */; };
+		30A3BC9A24C113780016955C /* MemberProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9E412384778A006B9786 /* MemberProfile.swift */; };
+		30A3BC9B24C113780016955C /* MemberInsightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBED2411769800F58B89 /* MemberInsightsViewController.swift */; };
+		30A3BC9C24C113780016955C /* CactusTextInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67723623AE3002634A8 /* CactusTextInputField.swift */; };
+		30A3BC9D24C113780016955C /* SendFriendInviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305CB0FF23D048B60046E8A8 /* SendFriendInviteViewController.swift */; };
+		30A3BC9E24C113780016955C /* QuoteContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303BF74E232D289A00164539 /* QuoteContentViewController.swift */; };
+		30A3BC9F24C113780016955C /* PromptContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3026B299234D3E2800CD2D34 /* PromptContentViewController.swift */; };
+		30A3BCA024C113780016955C /* WebAppInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A3BC0324C0CDF90016955C /* WebAppInterface.swift */; };
+		30A3BCA124C113780016955C /* EnergyAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF53872370DDCC00578B22 /* EnergyAnimationViewController.swift */; };
+		30A3BCA224C113780016955C /* StoreObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCF223EE279500089CFB /* StoreObserver.swift */; };
+		30A3BCA324C113780016955C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0AE22EADD04005B25FD /* LoginViewController.swift */; };
+		30A3BCA424C113780016955C /* PillLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2D375234311C6003D2B27 /* PillLabelView.swift */; };
+		30A3BCA524C113780016955C /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E95A2348087100788279 /* HelpViewController.swift */; };
+		30A3BCA624C113780016955C /* AuthenticatedTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303282202416D3DF00FC197A /* AuthenticatedTaskManager.swift */; };
+		30A3BCA724C113780016955C /* UIImageView+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30265C6223453CD100934041 /* UIImageView+SwiftyGif.swift */; };
+		30A3BCA824C113780016955C /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F4B2347E25A00798560 /* DateUtil.swift */; };
+		30A3BCA924C113780016955C /* LoadableSharedReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9DC6237FCF06006B9786 /* LoadableSharedReflectionViewController.swift */; };
+		30A3BCAA24C113780016955C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
+		30A3BCAB24C113780016955C /* ShareNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F716852379ED32004989DB /* ShareNoteViewController.swift */; };
+		30A3BCAC24C113780016955C /* AppIconSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018B11C23751DE70005333A /* AppIconSettingsViewController.swift */; };
+		30A3BCAD24C113780016955C /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099D1F62409740D00BD9CC4 /* SubscriptionService.swift */; };
+		30A3BCAE24C113780016955C /* SwiftyGifManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30265C5C23453C8D00934041 /* SwiftyGifManager.swift */; };
+		30A3BCAF24C113780016955C /* CactusElementPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30727448236A4AC200309B3C /* CactusElementPageViewController.swift */; };
+		30A3BCB024C113780016955C /* FlamelinkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E13232824AB00A49EB6 /* FlamelinkService.swift */; };
+		30A3BCB124C113780016955C /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1867233178A8003E1561 /* ImageService.swift */; };
+		30A3BCB224C113780016955C /* GrowingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1884233273C4003E1561 /* GrowingTextView.swift */; };
+		30A3BCB324C113780016955C /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2F22ECD0A300F753A7 /* NotificationService.swift */; };
+		30A3BCB424C113780016955C /* JournalHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC17B23397A77005C6555 /* JournalHomeViewController.swift */; };
+		30A3BCB524C113780016955C /* ManageSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCF923EE2EF900089CFB /* ManageSubscriptionViewController.swift */; };
+		30A3BCB624C113780016955C /* SubscriptionProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCD0523EE811200089CFB /* SubscriptionProductCell.swift */; };
+		30A3BCB724C113780016955C /* SentPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0B922EAF153005B25FD /* SentPrompt.swift */; };
+		30A3BCB924C113780016955C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300FCCEE23EE21C000089CFB /* StoreKit.framework */; };
+		30A3BCBA24C113780016955C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30F1BBB22492DB9A0099169C /* AdSupport.framework */; };
+		30A3BCBB24C113780016955C /* Pods_Cactus_Stage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 518BD147DF40E10B6D005DB2 /* Pods_Cactus_Stage.framework */; };
+		30A3BCBC24C113780016955C /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3018B1252376687B0005333A /* NetworkExtension.framework */; };
+		30A3BCBE24C113780016955C /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B8D233FDEC300EDE7BD /* Lato-BlackItalic.ttf */; };
+		30A3BCBF24C113780016955C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7922EA5AA100443E46 /* LaunchScreen.storyboard */; };
+		30A3BCC024C113780016955C /* NavigationMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30E2D37923432B21003D2B27 /* NavigationMenuViewController.xib */; };
+		30A3BCC124C113780016955C /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30AB8ED4237C86380048CFD2 /* Onboarding.storyboard */; };
+		30A3BCC224C113780016955C /* TextContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30BF2E2923289F9F00A49EB6 /* TextContentViewController.xib */; };
+		30A3BCC324C113780016955C /* SocialActivityCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D7387123D00F7B006F4DA6 /* SocialActivityCardView.xib */; };
+		30A3BCC424C113780016955C /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B90233FDEC300EDE7BD /* Lato-Light.ttf */; };
+		30A3BCC524C113780016955C /* ElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30762E5D2440E4A4000A18B3 /* ElementCell.xib */; };
+		30A3BCC624C113780016955C /* meaning.html in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE5624858BAB0055A28E /* meaning.html */; };
+		30A3BCC724C113780016955C /* SubscriptionPlanOptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3099D1F32408DA2A00BD9CC4 /* SubscriptionPlanOptionView.xib */; };
+		30A3BCC824C113780016955C /* RelationshipsAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CF538E2370FBB800578B22 /* RelationshipsAnimationViewController.xib */; };
+		30A3BCC924C113780016955C /* energy.html in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE5E24858C3B0055A28E /* energy.html */; };
+		30A3BCCA24C113780016955C /* experience.html in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE5C24858C230055A28E /* experience.html */; };
+		30A3BCCB24C113780016955C /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B87233FDEC300EDE7BD /* Lato-Italic.ttf */; };
+		30A3BCCC24C113780016955C /* elements.css in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE6A2485F0F10055A28E /* elements.css */; };
+		30A3BCCD24C113780016955C /* LoadableSharedReflectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303C9DC7237FCF06006B9786 /* LoadableSharedReflectionViewController.xib */; };
+		30A3BCCE24C113780016955C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3095619B22ECF214009357BD /* GoogleService-Info.plist */; };
+		30A3BCCF24C113780016955C /* runtime.js in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAE24B50A1000608293 /* runtime.js */; };
+		30A3BCD024C113780016955C /* JournalEntrySkeletonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 300AC186233A850B005C6555 /* JournalEntrySkeletonViewController.xib */; };
+		30A3BCD124C113780016955C /* JournalEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30DFCA8624609D85007187FC /* JournalEntryCell.xib */; };
+		30A3BCD224C113780016955C /* wordBubbles.js in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAD24B50A1000608293 /* wordBubbles.js */; };
+		30A3BCD324C113780016955C /* CactusElementsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3020DD9723640BE300EC40AE /* CactusElementsViewController.xib */; };
+		30A3BCD424C113780016955C /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B8A233FDEC300EDE7BD /* Lato-Bold.ttf */; };
+		30A3BCD524C113780016955C /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3021CBDE2410345E00F58B89 /* WebViewController.xib */; };
+		30A3BCD624C113780016955C /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CB024B50A1000608293 /* favicon.ico */; };
+		30A3BCD724C113780016955C /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B89233FDEC300EDE7BD /* Lato-Thin.ttf */; };
+		30A3BCD824C113780016955C /* EditReflectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D7F708236BAAB100379EE0 /* EditReflectionViewController.xib */; };
+		30A3BCD924C113780016955C /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 30673B8E233FDEC300EDE7BD /* OFL.txt */; };
+		30A3BCDA24C113780016955C /* ReflectContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 305B187F2331E162003E1561 /* ReflectContentViewController.xib */; };
+		30A3BCDB24C113780016955C /* LoadablePromptContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303C9DA9237E1470006B9786 /* LoadablePromptContentViewController.xib */; };
+		30A3BCDC24C113780016955C /* ShareNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30F716862379ED32004989DB /* ShareNoteViewController.xib */; };
+		30A3BCDD24C113780016955C /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B8F233FDEC300EDE7BD /* Lato-BoldItalic.ttf */; };
+		30A3BCDE24C113780016955C /* SharedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */; };
+		30A3BCDF24C113780016955C /* wordBubbles.html in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAA24B50A0F00608293 /* wordBubbles.html */; };
+		30A3BCE024C113780016955C /* wordBubbles.css in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAC24B50A0F00608293 /* wordBubbles.css */; };
+		30A3BCE124C113780016955C /* CelebrateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3084E9642348FE9C00788279 /* CelebrateViewController.xib */; };
+		30A3BCE224C113780016955C /* PricingFeatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3032820C2412B87D00FC197A /* PricingFeatureView.xib */; };
+		30A3BCE324C113780016955C /* ViewSharedReflectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303C9DCD237FD7D1006B9786 /* ViewSharedReflectionViewController.xib */; };
+		30A3BCE424C113780016955C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7422EA5A9F00443E46 /* Main.storyboard */; };
+		30A3BCE524C113780016955C /* SharedReflectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 300F236B237A61F100F35CDE /* SharedReflectionViewController.xib */; };
+		30A3BCE624C113780016955C /* relationships.html in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE5D24858C320055A28E /* relationships.html */; };
+		30A3BCE724C113780016955C /* VideoContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CF539723732EC300578B22 /* VideoContentViewController.xib */; };
+		30A3BCE824C113780016955C /* config.yml in Resources */ = {isa = PBXBuildFile; fileRef = 30A266D92329BB73003C708E /* config.yml */; };
+		30A3BCE924C113780016955C /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B91233FDEC300EDE7BD /* Lato-ThinItalic.ttf */; };
+		30A3BCEA24C113780016955C /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30CD90A92346F06B00703FE2 /* Settings.storyboard */; };
+		30A3BCEB24C113780016955C /* InviteContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D7385C23CFFC62006F4DA6 /* InviteContentViewController.xib */; };
+		30A3BCEC24C113780016955C /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B8C233FDEC300EDE7BD /* Lato-Regular.ttf */; };
+		30A3BCED24C113780016955C /* vendors.css in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAF24B50A1000608293 /* vendors.css */; };
+		30A3BCEE24C113780016955C /* PhotoContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 305B1862233175DC003E1561 /* PhotoContentViewController.xib */; };
+		30A3BCEF24C113780016955C /* EnergyAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CF53882370DDCC00578B22 /* EnergyAnimationViewController.xib */; };
+		30A3BCF024C113780016955C /* Payment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 300FCCF523EE2DBE00089CFB /* Payment.storyboard */; };
+		30A3BCF124C113780016955C /* PromptEntryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30DCA5E42441207500D520D4 /* PromptEntryCollectionViewCell.xib */; };
+		30A3BCF224C113780016955C /* QuoteContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303BF74F232D289A00164539 /* QuoteContentViewController.xib */; };
+		30A3BCF324C113780016955C /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B8B233FDEC300EDE7BD /* Lato-Black.ttf */; };
+		30A3BCF424C113780016955C /* CactusElementDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3072743D236A43AA00309B3C /* CactusElementDetailViewController.xib */; };
+		30A3BCF524C113780016955C /* emotions.html in Resources */ = {isa = PBXBuildFile; fileRef = 304BCE5B24858C100055A28E /* emotions.html */; };
+		30A3BCF624C113780016955C /* vendors.js in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAB24B50A0F00608293 /* vendors.js */; };
+		30A3BCF724C113780016955C /* EmotionsAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CF537C2370B10F00578B22 /* EmotionsAnimationViewController.xib */; };
+		30A3BCF824C113780016955C /* Social.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30D7386323D00AC6006F4DA6 /* Social.storyboard */; };
+		30A3BCF924C113780016955C /* ExperienceAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CF53822370C58100578B22 /* ExperienceAnimationViewController.xib */; };
+		30A3BCFA24C113780016955C /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B88233FDEC300EDE7BD /* Lato-LightItalic.ttf */; };
+		30A3BCFB24C113780016955C /* MeaningAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 301C1A92236F7EB700F06A3D /* MeaningAnimationViewController.xib */; };
+		30A3BD0524C113A20016955C /* CactusConfigLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A3BD0424C113980016955C /* CactusConfigLocal.swift */; };
 		30AB0728244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB0727244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift */; };
 		30AB0729244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB0727244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift */; };
 		30AB072A244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB0727244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift */; };
@@ -1055,6 +1293,9 @@
 		30A281F722EA65EC0041158E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30A292D0243E467F00F546CA /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		30A3BC0324C0CDF90016955C /* WebAppInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebAppInterface.swift; sourceTree = "<group>"; };
+		30A3BD0224C113780016955C /* Cactus Local.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cactus Local.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		30A3BD0324C113780016955C /* Cactus Stage copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Cactus Stage copy-Info.plist"; path = "/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Cactus Stage copy-Info.plist"; sourceTree = "<absolute>"; };
+		30A3BD0424C113980016955C /* CactusConfigLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusConfigLocal.swift; sourceTree = "<group>"; };
 		30AB0727244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreValuesAssessmentViewController.swift; sourceTree = "<group>"; };
 		30AB072B244E449D006ACB98 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		30AB072F244E4762006ACB98 /* CoreValuesAssessmentResponseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreValuesAssessmentResponseService.swift; sourceTree = "<group>"; };
@@ -1178,6 +1419,17 @@
 				76F23F2602ADC65094F1CF3B /* Pods_Cactus_Prod.framework in Frameworks */,
 				300FCCF023EE21CD00089CFB /* StoreKit.framework in Frameworks */,
 				30F1BBB32492DB9A0099169C /* AdSupport.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30A3BCB824C113780016955C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30A3BCB924C113780016955C /* StoreKit.framework in Frameworks */,
+				30A3BCBA24C113780016955C /* AdSupport.framework in Frameworks */,
+				30A3BCBB24C113780016955C /* Pods_Cactus_Stage.framework in Frameworks */,
+				30A3BCBC24C113780016955C /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1495,6 +1747,7 @@
 				3095619B22ECF214009357BD /* GoogleService-Info.plist */,
 				30B6EA7C22EA5AA100443E46 /* Info.plist */,
 				30B6EA7922EA5AA100443E46 /* LaunchScreen.storyboard */,
+				30A3BD0424C113980016955C /* CactusConfigLocal.swift */,
 				309561A122EE16C3009357BD /* CactusConfig.swift */,
 			);
 			path = ConfigStage;
@@ -1541,6 +1794,7 @@
 				30B6EA6C22EA5A9F00443E46 /* Products */,
 				7D73091CC55662ADF17682E8 /* Pods */,
 				19CA97E6FF714D2347BC4076 /* Frameworks */,
+				30A3BD0324C113780016955C /* Cactus Stage copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1551,6 +1805,7 @@
 				30A281E722EA61A30041158E /* Cactus.app */,
 				303BF741232A986A00164539 /* Cactus UnitTests.xctest */,
 				304B210423D383E1007B016C /* Cactus Today Prod.appex */,
+				30A3BD0224C113780016955C /* Cactus Local.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1841,6 +2096,28 @@
 			productReference = 30A281E722EA61A30041158E /* Cactus.app */;
 			productType = "com.apple.product-type.application";
 		};
+		30A3BC0824C113780016955C /* Cactus Local */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30A3BCFF24C113780016955C /* Build configuration list for PBXNativeTarget "Cactus Local" */;
+			buildPhases = (
+				30A3BC0924C113780016955C /* [CP] Check Pods Manifest.lock */,
+				30A3BC0A24C113780016955C /* SwiftLint */,
+				30A3BC0B24C113780016955C /* Sources */,
+				30A3BCB824C113780016955C /* Frameworks */,
+				30A3BCBD24C113780016955C /* Resources */,
+				30A3BCFC24C113780016955C /* Install Crashlytics */,
+				30A3BCFD24C113780016955C /* [CP] Embed Pods Frameworks */,
+				30A3BCFE24C113780016955C /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Cactus Local";
+			productName = Cactus;
+			productReference = 30A3BD0224C113780016955C /* Cactus Local.app */;
+			productType = "com.apple.product-type.application";
+		};
 		30B6EA6A22EA5A9F00443E46 /* Cactus Stage */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 30B6EA7F22EA5AA100443E46 /* Build configuration list for PBXNativeTarget "Cactus Stage" */;
@@ -1916,10 +2193,11 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				30A3BC0824C113780016955C /* Cactus Local */,
 				30B6EA6A22EA5A9F00443E46 /* Cactus Stage */,
 				30A281D722EA61A30041158E /* Cactus Prod */,
-				303BF740232A986A00164539 /* Cactus UnitTests */,
 				304B210323D383E1007B016C /* Cactus Today Prod */,
+				303BF740232A986A00164539 /* Cactus UnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -2080,6 +2358,75 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		30A3BCBD24C113780016955C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30A3BCBE24C113780016955C /* Lato-BlackItalic.ttf in Resources */,
+				30A3BCBF24C113780016955C /* LaunchScreen.storyboard in Resources */,
+				30A3BCC024C113780016955C /* NavigationMenuViewController.xib in Resources */,
+				30A3BCC124C113780016955C /* Onboarding.storyboard in Resources */,
+				30A3BCC224C113780016955C /* TextContentViewController.xib in Resources */,
+				30A3BCC324C113780016955C /* SocialActivityCardView.xib in Resources */,
+				30A3BCC424C113780016955C /* Lato-Light.ttf in Resources */,
+				30A3BCC524C113780016955C /* ElementCell.xib in Resources */,
+				30A3BCC624C113780016955C /* meaning.html in Resources */,
+				30A3BCC724C113780016955C /* SubscriptionPlanOptionView.xib in Resources */,
+				30A3BCC824C113780016955C /* RelationshipsAnimationViewController.xib in Resources */,
+				30A3BCC924C113780016955C /* energy.html in Resources */,
+				30A3BCCA24C113780016955C /* experience.html in Resources */,
+				30A3BCCB24C113780016955C /* Lato-Italic.ttf in Resources */,
+				30A3BCCC24C113780016955C /* elements.css in Resources */,
+				30A3BCCD24C113780016955C /* LoadableSharedReflectionViewController.xib in Resources */,
+				30A3BCCE24C113780016955C /* GoogleService-Info.plist in Resources */,
+				30A3BCCF24C113780016955C /* runtime.js in Resources */,
+				30A3BCD024C113780016955C /* JournalEntrySkeletonViewController.xib in Resources */,
+				30A3BCD124C113780016955C /* JournalEntryCell.xib in Resources */,
+				30A3BCD224C113780016955C /* wordBubbles.js in Resources */,
+				30A3BCD324C113780016955C /* CactusElementsViewController.xib in Resources */,
+				30A3BCD424C113780016955C /* Lato-Bold.ttf in Resources */,
+				30A3BCD524C113780016955C /* WebViewController.xib in Resources */,
+				30A3BCD624C113780016955C /* favicon.ico in Resources */,
+				30A3BCD724C113780016955C /* Lato-Thin.ttf in Resources */,
+				30A3BCD824C113780016955C /* EditReflectionViewController.xib in Resources */,
+				30A3BCD924C113780016955C /* OFL.txt in Resources */,
+				30A3BCDA24C113780016955C /* ReflectContentViewController.xib in Resources */,
+				30A3BCDB24C113780016955C /* LoadablePromptContentViewController.xib in Resources */,
+				30A3BCDC24C113780016955C /* ShareNoteViewController.xib in Resources */,
+				30A3BCDD24C113780016955C /* Lato-BoldItalic.ttf in Resources */,
+				30A3BCDE24C113780016955C /* SharedAssets.xcassets in Resources */,
+				30A3BCDF24C113780016955C /* wordBubbles.html in Resources */,
+				30A3BCE024C113780016955C /* wordBubbles.css in Resources */,
+				30A3BCE124C113780016955C /* CelebrateViewController.xib in Resources */,
+				30A3BCE224C113780016955C /* PricingFeatureView.xib in Resources */,
+				30A3BCE324C113780016955C /* ViewSharedReflectionViewController.xib in Resources */,
+				30A3BCE424C113780016955C /* Main.storyboard in Resources */,
+				30A3BCE524C113780016955C /* SharedReflectionViewController.xib in Resources */,
+				30A3BCE624C113780016955C /* relationships.html in Resources */,
+				30A3BCE724C113780016955C /* VideoContentViewController.xib in Resources */,
+				30A3BCE824C113780016955C /* config.yml in Resources */,
+				30A3BCE924C113780016955C /* Lato-ThinItalic.ttf in Resources */,
+				30A3BCEA24C113780016955C /* Settings.storyboard in Resources */,
+				30A3BCEB24C113780016955C /* InviteContentViewController.xib in Resources */,
+				30A3BCEC24C113780016955C /* Lato-Regular.ttf in Resources */,
+				30A3BCED24C113780016955C /* vendors.css in Resources */,
+				30A3BCEE24C113780016955C /* PhotoContentViewController.xib in Resources */,
+				30A3BCEF24C113780016955C /* EnergyAnimationViewController.xib in Resources */,
+				30A3BCF024C113780016955C /* Payment.storyboard in Resources */,
+				30A3BCF124C113780016955C /* PromptEntryCollectionViewCell.xib in Resources */,
+				30A3BCF224C113780016955C /* QuoteContentViewController.xib in Resources */,
+				30A3BCF324C113780016955C /* Lato-Black.ttf in Resources */,
+				30A3BCF424C113780016955C /* CactusElementDetailViewController.xib in Resources */,
+				30A3BCF524C113780016955C /* emotions.html in Resources */,
+				30A3BCF624C113780016955C /* vendors.js in Resources */,
+				30A3BCF724C113780016955C /* EmotionsAnimationViewController.xib in Resources */,
+				30A3BCF824C113780016955C /* Social.storyboard in Resources */,
+				30A3BCF924C113780016955C /* ExperienceAnimationViewController.xib in Resources */,
+				30A3BCFA24C113780016955C /* Lato-LightItalic.ttf in Resources */,
+				30A3BCFB24C113780016955C /* MeaningAnimationViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		30B6EA6922EA5A9F00443E46 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2169,6 +2516,94 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
+		30A3BC0924C113780016955C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cactus Stage-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		30A3BC0A24C113780016955C /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
+		30A3BCFC24C113780016955C /* Install Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Install Crashlytics";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n# \"${PODS_ROOT}/FirebaseCrashlytics/upload-symbols\"\n# \"${PODS_ROOT}/FirebaseCrashlytics/upload-symbols\" -gsp \"${PROJECT_DIR}/Cactus/ConfigStage/GoogleService-Info.plist\" -p ios \"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\"\n\n";
+		};
+		30A3BCFD24C113780016955C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		30A3BCFE24C113780016955C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cactus Stage/Pods-Cactus Stage-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		30BF2E362329930500A49EB6 /* Install Crashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2860,6 +3295,185 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		30A3BC0B24C113780016955C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30A3BC0C24C113780016955C /* PricingViewController.swift in Sources */,
+				30A3BC0D24C113780016955C /* SecondaryButton.swift in Sources */,
+				30A3BC0F24C113780016955C /* ReflectionResponseService.swift in Sources */,
+				30A3BC1024C113780016955C /* AuthenticatedTask.swift in Sources */,
+				30A3BC1124C113780016955C /* UIAlertControllerExtensions.swift in Sources */,
+				30A3BC1224C113780016955C /* NotificationTimeOfDayViewController.swift in Sources */,
+				30A3BC1324C113780016955C /* ColorExtensions.swift in Sources */,
+				30A3BC1424C113780016955C /* InviteSettingsViewController.swift in Sources */,
+				30A3BC1524C113780016955C /* InviteContentViewController.swift in Sources */,
+				30A3BC1624C113780016955C /* CircleImageView.swift in Sources */,
+				30A3BC1724C113780016955C /* ArrayExtensions.swift in Sources */,
+				30A3BC1824C113780016955C /* CountProcess.swift in Sources */,
+				30A3BC1924C113780016955C /* MemberSubscription.swift in Sources */,
+				30A3BC1A24C113780016955C /* PromptContentService.swift in Sources */,
+				30A3BC1B24C113780016955C /* CactusElementDetailViewController.swift in Sources */,
+				30A3BC1C24C113780016955C /* AppMainViewController.swift in Sources */,
+				30A3BC1D24C113780016955C /* JournalEntryCell.swift in Sources */,
+				30A3BC1E24C113780016955C /* FancyLinkButton.swift in Sources */,
+				30A3BC1F24C113780016955C /* ReflectionPrompt.swift in Sources */,
+				30A3BC2024C113780016955C /* NavigationUtil.swift in Sources */,
+				30A3BC2124C113780016955C /* StringExtensions.swift in Sources */,
+				30A3BC2224C113780016955C /* ContactService.swift in Sources */,
+				30A3BC2324C113780016955C /* BorderedButton.swift in Sources */,
+				30A3BC2424C113780016955C /* SubscriptionInvoice.swift in Sources */,
+				30A3BC2524C113780016955C /* ReflectionPromptService.swift in Sources */,
+				30A3BC2624C113780016955C /* SocialContactTableViewCell.swift in Sources */,
+				30A3BC2724C113780016955C /* SubscriptionProductGroup.swift in Sources */,
+				30A3BC2824C113780016955C /* FileUtils.swift in Sources */,
+				30A3BC2924C113780016955C /* MeaningAnimationViewController.swift in Sources */,
+				30A3BC2A24C113780016955C /* PromptContentDataSource.swift in Sources */,
+				30A3BC2B24C113780016955C /* NavigationMenuViewController.swift in Sources */,
+				30A3BC2C24C113780016955C /* ProfileSettingsViewController.swift in Sources */,
+				30A3BC2D24C113780016955C /* SubscriptionPlanOptionView.swift in Sources */,
+				30A3BC2E24C113780016955C /* FormatUtils.swift in Sources */,
+				30A3BC2F24C113780016955C /* PromptContent.swift in Sources */,
+				30A3BC3024C113780016955C /* LinkHandlerUtil.swift in Sources */,
+				30A3BC3124C113780016955C /* ExperienceAnimationViewController.swift in Sources */,
+				30A3BC3224C113780016955C /* File.swift in Sources */,
+				30A3BC3324C113780016955C /* WelcomeViewController.swift in Sources */,
+				30A3BC3424C113780016955C /* SocialActivityCardView.swift in Sources */,
+				30A3BC3524C113780016955C /* MarkdownTextView.swift in Sources */,
+				30A3BC3624C113780016955C /* NavigationService.swift in Sources */,
+				30A3BC3724C113780016955C /* LoadablePromptContentViewController.swift in Sources */,
+				30A3BC3824C113780016955C /* PrivacyPolicyViewController.swift in Sources */,
+				30A3BC3924C113780016955C /* CGExtensions.swift in Sources */,
+				30A3BC3A24C113780016955C /* AppSettings.swift in Sources */,
+				30A3BC3B24C113780016955C /* CoreValuesAssessmentResponseService.swift in Sources */,
+				30A3BC3C24C113780016955C /* CactusConstants.swift in Sources */,
+				30A3BC3D24C113780016955C /* ShadowView.swift in Sources */,
+				30A3BC3E24C113780016955C /* TertiaryButton.swift in Sources */,
+				30A3BC3F24C113780016955C /* PricingFeatureView.swift in Sources */,
+				30A3BC4024C113780016955C /* SubscriptionProductGroupService.swift in Sources */,
+				30A3BC4124C113780016955C /* CactusAnalytics.swift in Sources */,
+				30A3BC4224C113780016955C /* RoundedView.swift in Sources */,
+				30A3BC4324C113780016955C /* RelationshipsAnimationViewController.swift in Sources */,
+				30A3BC4424C113780016955C /* PromptContentPageViewController.swift in Sources */,
+				30A3BC4524C113780016955C /* ImageExtensions.swift in Sources */,
+				30A3BC4624C113780016955C /* URLExtensions.swift in Sources */,
+				30A3BC4724C113780016955C /* UserServiceFile.swift in Sources */,
+				30A3BC4824C113780016955C /* SentPromptService.swift in Sources */,
+				30A3BC4924C113780016955C /* LoadingViewController.swift in Sources */,
+				30A3BC4A24C113780016955C /* FeedbackViewController.swift in Sources */,
+				30A3BC4B24C113780016955C /* SharedReflectionViewController.swift in Sources */,
+				30A3BC4C24C113780016955C /* CactusElementWebView.swift in Sources */,
+				30A3BD0524C113A20016955C /* CactusConfigLocal.swift in Sources */,
+				30A3BC4D24C113780016955C /* FirebaseInAppMessageDelegate.swift in Sources */,
+				30A3BC4E24C113780016955C /* ViewControllerExtensions.swift in Sources */,
+				30A3BC4F24C113780016955C /* StorageService.swift in Sources */,
+				30A3BC5024C113780016955C /* BorderedTextView.swift in Sources */,
+				30A3BC5124C113780016955C /* FlamelinkTypes.swift in Sources */,
+				30A3BC5224C113780016955C /* NotificationsTableViewController.swift in Sources */,
+				30A3BC5324C113780016955C /* JournalFeedDataSource.swift in Sources */,
+				30A3BC5424C113780016955C /* JournalEntryData.swift in Sources */,
+				30A3BC5524C113780016955C /* SubscriptionProductService.swift in Sources */,
+				30A3BC5624C113780016955C /* CoreValuesAssessmentViewController.swift in Sources */,
+				30A3BC5724C113780016955C /* SettingsTableViewController.swift in Sources */,
+				30A3BC5824C113780016955C /* ReflectContentViewController.swift in Sources */,
+				30A3BC5924C113780016955C /* CactusMemberService.swift in Sources */,
+				30A3BC5A24C113780016955C /* PaymentNavigationService.swift in Sources */,
+				30A3BC5B24C113780016955C /* CactusImage.swift in Sources */,
+				30A3BC5C24C113780016955C /* ViewExtensions.swift in Sources */,
+				30A3BC5D24C113780016955C /* JournalHomeEmptyStateViewController.swift in Sources */,
+				30A3BC5E24C113780016955C /* PrimaryButton.swift in Sources */,
+				30A3BC5F24C113780016955C /* ApplePayment.swift in Sources */,
+				30A3BC6024C113780016955C /* TextViewPlaceholderDelegate.swift in Sources */,
+				30A3BC6124C113780016955C /* ModalViewController.swift in Sources */,
+				30A3BC6224C113780016955C /* MemberProfileService.swift in Sources */,
+				30A3BC6324C113780016955C /* SubscriptionUtil.swift in Sources */,
+				30A3BC6424C113780016955C /* CactusColor.swift in Sources */,
+				30A3BC6524C113780016955C /* AuthProviderTableViewCell.swift in Sources */,
+				30A3BC6624C113780016955C /* FirebaseExtensions.swift in Sources */,
+				30A3BC6724C113780016955C /* CactusElementAnimationViewController.swift in Sources */,
+				30A3BC6824C113780016955C /* VideoContentViewController.swift in Sources */,
+				30A3BC6924C113780016955C /* FirestoreService.swift in Sources */,
+				30A3BC6A24C113780016955C /* ReflectionResponse.swift in Sources */,
+				30A3BC6B24C113780016955C /* BrowseElementsCollectionViewController.swift in Sources */,
+				30A3BC6C24C113780016955C /* SharingService.swift in Sources */,
+				30A3BC6D24C113780016955C /* PromptEntryCollectionViewCell.swift in Sources */,
+				30A3BC6E24C113780016955C /* ElementCell.swift in Sources */,
+				30A3BC6F24C113780016955C /* TextContentViewController.swift in Sources */,
+				30A3BC7024C113780016955C /* InvertableImageView.swift in Sources */,
+				30A3BC7124C113780016955C /* UIImage+SwiftyGif.swift in Sources */,
+				30A3BC7224C113780016955C /* CircleView.swift in Sources */,
+				30A3BC7324C113780016955C /* CactusElementsViewController.swift in Sources */,
+				30A3BC7424C113780016955C /* LinkedAccountsTableViewController.swift in Sources */,
+				30A3BC7524C113780016955C /* ModelDecoder.swift in Sources */,
+				30A3BC7624C113780016955C /* AppConfig.swift in Sources */,
+				30A3BC7724C113780016955C /* SubscriptionProduct.swift in Sources */,
+				30A3BC7824C113780016955C /* TermsOfServiceViewController.swift in Sources */,
+				30A3BC7924C113780016955C /* MarkdownUtil.swift in Sources */,
+				30A3BC7A24C113780016955C /* LoggerUtil.swift in Sources */,
+				30A3BC7B24C113780016955C /* UIStackViewExtensionis.swift in Sources */,
+				30A3BC7C24C113780016955C /* AppSettingsService.swift in Sources */,
+				30A3BC7D24C113780016955C /* UpgradeJournalFeedCollectionReusableView.swift in Sources */,
+				30A3BC7E24C113780016955C /* ViewSharedReflectionViewController.swift in Sources */,
+				30A3BC7F24C113780016955C /* CactusMember.swift in Sources */,
+				30A3BC8024C113780016955C /* PricingFeatureItemViewController.swift in Sources */,
+				30A3BC8124C113780016955C /* DataExportViewController.swift in Sources */,
+				30A3BC8224C113780016955C /* NotificationOnboardingViewController.swift in Sources */,
+				30A3BC8324C113780016955C /* AuthService.swift in Sources */,
+				30A3BC8424C113780016955C /* AppDelegate.swift in Sources */,
+				30A3BC8524C113780016955C /* EmotionsAnimationViewController.swift in Sources */,
+				30A3BC8624C113780016955C /* InsightsWebViewViewController.swift in Sources */,
+				30A3BC8724C113780016955C /* PhotoContentViewController.swift in Sources */,
+				30A3BC8824C113780016955C /* MarkdownTypes.swift in Sources */,
+				30A3BC8924C113780016955C /* MailchimpModels.swift in Sources */,
+				30A3BC8A24C113780016955C /* JournalFeedFlowLayout.swift in Sources */,
+				30A3BC8B24C113780016955C /* RoundedButton.swift in Sources */,
+				30A3BC8C24C113780016955C /* ContactsTableViewController.swift in Sources */,
+				30A3BC8D24C113780016955C /* BaseModel.swift in Sources */,
+				30A3BC8E24C113780016955C /* WebViewController.swift in Sources */,
+				30A3BC8F24C113780016955C /* ApiTypes.swift in Sources */,
+				30A3BC9024C113780016955C /* PromptContentCollectionViewController.swift in Sources */,
+				30A3BC9124C113780016955C /* EditReflectionViewController.swift in Sources */,
+				30A3BC9224C113780016955C /* UIImageViewAligned.swift in Sources */,
+				30A3BC9324C113780016955C /* SocialInviteService.swift in Sources */,
+				30A3BC9424C113780016955C /* PromptContentData.swift in Sources */,
+				30A3BC9524C113780016955C /* FontExtensions.swift in Sources */,
+				30A3BC9624C113780016955C /* PricingFeaturePageViewController.swift in Sources */,
+				30A3BC9724C113780016955C /* JournalEntrySkeletonViewController.swift in Sources */,
+				30A3BC9824C113780016955C /* CelebrateViewController.swift in Sources */,
+				30A3BC9924C113780016955C /* ApiService.swift in Sources */,
+				30A3BC9A24C113780016955C /* MemberProfile.swift in Sources */,
+				30A3BC9B24C113780016955C /* MemberInsightsViewController.swift in Sources */,
+				30A3BC9C24C113780016955C /* CactusTextInputField.swift in Sources */,
+				30A3BC9D24C113780016955C /* SendFriendInviteViewController.swift in Sources */,
+				30A3BC9E24C113780016955C /* QuoteContentViewController.swift in Sources */,
+				30A3BC9F24C113780016955C /* PromptContentViewController.swift in Sources */,
+				30A3BCA024C113780016955C /* WebAppInterface.swift in Sources */,
+				30A3BCA124C113780016955C /* EnergyAnimationViewController.swift in Sources */,
+				30A3BCA224C113780016955C /* StoreObserver.swift in Sources */,
+				30A3BCA324C113780016955C /* LoginViewController.swift in Sources */,
+				30A3BCA424C113780016955C /* PillLabelView.swift in Sources */,
+				30A3BCA524C113780016955C /* HelpViewController.swift in Sources */,
+				30A3BCA624C113780016955C /* AuthenticatedTaskManager.swift in Sources */,
+				30A3BCA724C113780016955C /* UIImageView+SwiftyGif.swift in Sources */,
+				30A3BCA824C113780016955C /* DateUtil.swift in Sources */,
+				30A3BCA924C113780016955C /* LoadableSharedReflectionViewController.swift in Sources */,
+				30A3BCAA24C113780016955C /* JournalFeedCollectionViewController.swift in Sources */,
+				30A3BCAB24C113780016955C /* ShareNoteViewController.swift in Sources */,
+				30A3BCAC24C113780016955C /* AppIconSettingsViewController.swift in Sources */,
+				30A3BCAD24C113780016955C /* SubscriptionService.swift in Sources */,
+				30A3BCAE24C113780016955C /* SwiftyGifManager.swift in Sources */,
+				30A3BCAF24C113780016955C /* CactusElementPageViewController.swift in Sources */,
+				30A3BCB024C113780016955C /* FlamelinkService.swift in Sources */,
+				30A3BCB124C113780016955C /* ImageService.swift in Sources */,
+				30A3BCB224C113780016955C /* GrowingTextView.swift in Sources */,
+				30A3BCB324C113780016955C /* NotificationService.swift in Sources */,
+				30A3BCB424C113780016955C /* JournalHomeViewController.swift in Sources */,
+				30A3BCB524C113780016955C /* ManageSubscriptionViewController.swift in Sources */,
+				30A3BCB624C113780016955C /* SubscriptionProductCell.swift in Sources */,
+				30A3BCB724C113780016955C /* SentPrompt.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		30B6EA6722EA5A9F00443E46 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3230,6 +3844,63 @@
 			};
 			name = Release;
 		};
+		30A3BD0024C113780016955C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4367361CF4B35F9E8F97DC27 /* Pods-Cactus Stage.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Cactus Stage.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Cactus Developer (26UAQFK66N)";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 175;
+				DEFINES_MODULE = NO;
+				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
+				INFOPLIST_FILE = "Cactus Stage copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"$(CONFIGURATION_BUILD_DIR)",
+				);
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cactus.StageCactus;
+				PRODUCT_NAME = "Cactus Local";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.cactus.StageCactus 1576192239";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		30A3BD0124C113780016955C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74F3C20610CFC85363610D59 /* Pods-Cactus Stage.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Cactus Stage.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 175;
+				DEFINES_MODULE = NO;
+				DEVELOPMENT_TEAM = 3ZKVS4B79Q;
+				ENABLE_TESTABILITY = YES;
+				INFOPLIST_FILE = "Cactus Stage copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"$(CONFIGURATION_BUILD_DIR)",
+				);
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cactus.StageCactus;
+				PRODUCT_NAME = "Cactus Local";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.cactus.StageCactus";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
 		30B6EA7D22EA5AA100443E46 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -3437,6 +4108,15 @@
 			buildConfigurations = (
 				30A281E522EA61A30041158E /* Debug */,
 				30A281E622EA61A30041158E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30A3BCFF24C113780016955C /* Build configuration list for PBXNativeTarget "Cactus Local" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30A3BD0024C113780016955C /* Debug */,
+				30A3BD0124C113780016955C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
