@@ -24,6 +24,8 @@ class PromptContentViewController: UIViewController {
     var tapNavigationEnabled = true
     var selectedTextView: UITextView?
     var appSettings: AppSettings!
+    var coreValuesViewController: CoreValuesAssessmentViewController?
+    
     var reflectionResponse: ReflectionResponse? {
         didSet {
             self.reflectionResponseDidSet(updated: self.reflectionResponse, previous: oldValue)
@@ -58,7 +60,9 @@ class PromptContentViewController: UIViewController {
     }
     
     ///No Operation. Sub class can override.
-    func memberDidSet(updated: CactusMember?, previous: CactusMember?) {}
+    func memberDidSet(updated: CactusMember?, previous: CactusMember?) {
+        self.coreValuesViewController?.member = updated
+    }
     
     ///No Operation. Sub Class can override.
     func reflectionResponseDidSet(updated: ReflectionResponse?, previous: ReflectionResponse?) {}
@@ -119,7 +123,9 @@ class PromptContentViewController: UIViewController {
                 return
             }
             vc.showTopNavbar = true
+            vc.member = self.member
             vc.modalPresentationStyle = .overCurrentContext
+            self.coreValuesViewController = vc
             NavigationService.sharedInstance.present(vc)
         default:
             //no action

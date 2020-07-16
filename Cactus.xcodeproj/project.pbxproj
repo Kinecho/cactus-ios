@@ -630,6 +630,10 @@
 		30A292D2243E467F00F546CA /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A292D0243E467F00F546CA /* LoadingViewController.swift */; };
 		30A292D3243E467F00F546CA /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A292D0243E467F00F546CA /* LoadingViewController.swift */; };
 		30A292D4243E467F00F546CA /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A292D0243E467F00F546CA /* LoadingViewController.swift */; };
+		30A3BC0424C0CDF90016955C /* WebAppInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A3BC0324C0CDF90016955C /* WebAppInterface.swift */; };
+		30A3BC0524C0CDF90016955C /* WebAppInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A3BC0324C0CDF90016955C /* WebAppInterface.swift */; };
+		30A3BC0624C0CDF90016955C /* WebAppInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A3BC0324C0CDF90016955C /* WebAppInterface.swift */; };
+		30A3BC0724C0CDF90016955C /* WebAppInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A3BC0324C0CDF90016955C /* WebAppInterface.swift */; };
 		30AB0728244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB0727244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift */; };
 		30AB0729244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB0727244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift */; };
 		30AB072A244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB0727244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift */; };
@@ -1050,6 +1054,7 @@
 		30A281EF22EA62650041158E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30A281F722EA65EC0041158E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30A292D0243E467F00F546CA /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		30A3BC0324C0CDF90016955C /* WebAppInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebAppInterface.swift; sourceTree = "<group>"; };
 		30AB0727244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreValuesAssessmentViewController.swift; sourceTree = "<group>"; };
 		30AB072B244E449D006ACB98 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		30AB072F244E4762006ACB98 /* CoreValuesAssessmentResponseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreValuesAssessmentResponseService.swift; sourceTree = "<group>"; };
@@ -1507,6 +1512,14 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		30A3BC0224C0CDD80016955C /* WebApp */ = {
+			isa = PBXGroup;
+			children = (
+				30A3BC0324C0CDF90016955C /* WebAppInterface.swift */,
+			);
+			path = WebApp;
+			sourceTree = "<group>";
+		};
 		30AB8ED7237C86650048CFD2 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -1545,6 +1558,7 @@
 		30B6EA6D22EA5A9F00443E46 /* Cactus */ = {
 			isa = PBXGroup;
 			children = (
+				30A3BC0224C0CDD80016955C /* WebApp */,
 				304BCE5524858B5E0055A28E /* html */,
 				30265C5B23453C7B00934041 /* SwiftyGif */,
 				30673B85233FDEB600EDE7BD /* Fonts */,
@@ -2489,6 +2503,7 @@
 				307B628724AD3B7200A4560E /* TextViewPlaceholderDelegate.swift in Sources */,
 				303C9DFA23841ABB006B9786 /* JournalEntrySkeletonViewController.swift in Sources */,
 				303C9E3E23841B1B006B9786 /* AppSettings.swift in Sources */,
+				30A3BC0624C0CDF90016955C /* WebAppInterface.swift in Sources */,
 				303C9E1A23841AC6006B9786 /* ShareNoteViewController.swift in Sources */,
 				303C9DDD23841A38006B9786 /* LoadablePromptContentViewController.swift in Sources */,
 				303C9E1323841AC6006B9786 /* CactusElementPageViewController.swift in Sources */,
@@ -2649,6 +2664,7 @@
 				3062202223EC7A0A002FAAD9 /* MarkdownTextView.swift in Sources */,
 				304B217523D39484007B016C /* ContactService.swift in Sources */,
 				304B216923D3947F007B016C /* AppSettingsService.swift in Sources */,
+				30A3BC0724C0CDF90016955C /* WebAppInterface.swift in Sources */,
 				304B217423D39484007B016C /* StorageService.swift in Sources */,
 				304B213A23D38F79007B016C /* DateUtil.swift in Sources */,
 				304B212A23D38F65007B016C /* AppSettings.swift in Sources */,
@@ -2817,6 +2833,7 @@
 				305CB10123D048B60046E8A8 /* SendFriendInviteViewController.swift in Sources */,
 				3021B67923623AE3002634A8 /* CactusTextInputField.swift in Sources */,
 				303BF751232D289A00164539 /* QuoteContentViewController.swift in Sources */,
+				30A3BC0524C0CDF90016955C /* WebAppInterface.swift in Sources */,
 				30CF538A2370DDCC00578B22 /* EnergyAnimationViewController.swift in Sources */,
 				300FCCF423EE279500089CFB /* StoreObserver.swift in Sources */,
 				3026B29B234D3E2800CD2D34 /* PromptContentViewController.swift in Sources */,
@@ -2995,6 +3012,7 @@
 				305CB10023D048B60046E8A8 /* SendFriendInviteViewController.swift in Sources */,
 				303BF750232D289A00164539 /* QuoteContentViewController.swift in Sources */,
 				3026B29A234D3E2800CD2D34 /* PromptContentViewController.swift in Sources */,
+				30A3BC0424C0CDF90016955C /* WebAppInterface.swift in Sources */,
 				30CF53892370DDCC00578B22 /* EnergyAnimationViewController.swift in Sources */,
 				300FCCF323EE279500089CFB /* StoreObserver.swift in Sources */,
 				30E9B0AF22EADD04005B25FD /* LoginViewController.swift in Sources */,

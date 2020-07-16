@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="skj-bj-glJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="skj-bj-glJ">
     <device id="retina4_7" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -371,7 +371,7 @@
                         <constraints>
                             <constraint firstItem="tix-aT-vDb" firstAttribute="leading" secondItem="YKE-aR-Zhq" secondAttribute="leading" id="JMg-Yd-Ixq"/>
                             <constraint firstAttribute="trailing" secondItem="tix-aT-vDb" secondAttribute="trailing" id="eKX-pq-6A0"/>
-                            <constraint firstItem="tix-aT-vDb" firstAttribute="bottom" secondItem="YKE-aR-Zhq" secondAttribute="bottom" id="tFX-hj-owk"/>
+                            <constraint firstItem="tix-aT-vDb" firstAttribute="bottom" secondItem="biM-Bd-iXa" secondAttribute="bottom" id="tFX-hj-owk"/>
                             <constraint firstItem="tix-aT-vDb" firstAttribute="top" secondItem="YKE-aR-Zhq" secondAttribute="top" id="vor-GR-Xjo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YKE-aR-Zhq"/>
@@ -680,6 +680,7 @@
                     </view>
                     <connections>
                         <outlet property="messageLabel" destination="jJM-qg-n60" id="Ify-LO-SJ9"/>
+                        <outlet property="stackView" destination="VH8-W2-lbw" id="Hej-x8-aek"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RtS-hk-6Xm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
