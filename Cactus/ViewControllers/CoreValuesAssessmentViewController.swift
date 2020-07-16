@@ -147,6 +147,8 @@ extension CoreValuesAssessmentViewController: WKScriptMessageHandler, WKNavigati
             guard let pricingVc = ScreenID.Pricing.getViewController() as? PricingViewController else {
                 return
             }
+            pricingVc.titleOvereride = "Get your quiz results with Cactus Plus"
+            pricingVc.subTitleOverride = "You'll also get access to daily prompts, personalized insights, and more"
             pricingVc.onDismiss = {
                 self.onPricingClosed()
             }

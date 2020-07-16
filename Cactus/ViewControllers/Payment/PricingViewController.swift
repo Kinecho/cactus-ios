@@ -50,6 +50,8 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
         }
     }
     var selectedProductEntry: ProductEntry?
+    var titleOvereride: String?
+    var subTitleOverride: String?
     
     var onDismiss: (() -> Void)?
     
@@ -60,8 +62,8 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
         self.appSettings = AppSettingsService.sharedInstance.currentSettings
         self.closeButton.isHidden = !self.showCloseButton
         self.setupHeaderBackground()
-        self.titleLabel.text = "Get more with Cactus Plus"
-        self.descriptionLabel.text = "Daily prompts, personalized insights, and more"
+        self.titleLabel.text = self.titleOvereride ?? "Get more with Cactus Plus"
+        self.descriptionLabel.text = self.subTitleOverride ?? "Daily prompts, personalized insights, and more"
         self.configureFromSettings()
         self.loadSubscriptionProducts()
         CactusAnalytics.shared.pricingPageDisplay()
@@ -132,15 +134,13 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     func updateAllCopy() {
         DispatchQueue.main.async {
             let settings = self.appSettings?.pricingScreen
-            let pageTitle = settings?.pageTitleMarkdown ?? "Get more with Cactus Plus"
-            self.titleLabel.attributedText = MarkdownUtil.centeredMarkdown(pageTitle, font: CactusFont.bold(26), color: CactusColor.white, boldColor: CactusColor.white)?.preventOrphanedWords()
-            
-            let pageDescription = settings?.pageDescriptionMarkdown ?? "Daily prompts, personalized insights, and more"
-            self.descriptionLabel.attributedText = MarkdownUtil.centeredMarkdown(pageDescription, font: CactusFont.normal(18), color: CactusColor.white)?.preventOrphanedWords()
-            
-            self.updateFeatures()
-            
+            let pageTitle = self.titleOvereride ?? settings?.pageTitleMarkdown ?? "Get more with Cactus Plus"
+            let pageDescription = self.subTitleOverride ?? settings?.pageDescriptionMarkdown ?? "Daily prompts, personalized insights, and more"
             let continueText = isBlank(settings?.purchaseButtonText) ? "Try Cactus Plus" : settings?.purchaseButtonText
+            
+            self.titleLabel.attributedText = MarkdownUtil.centeredMarkdown(pageTitle, font: CactusFont.bold(26), color: CactusColor.white, boldColor: CactusColor.white)?.preventOrphanedWords()
+            self.descriptionLabel.attributedText = MarkdownUtil.centeredMarkdown(pageDescription, font: CactusFont.normal(18), color: CactusColor.white)?.preventOrphanedWords()
+            self.updateFeatures()            
             self.continueButton.setTitle(continueText, for: .normal)
         }
     }
