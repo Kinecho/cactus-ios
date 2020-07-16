@@ -21,6 +21,7 @@ class AppSettings: FlamelinkIdentifiable {
     var welcome: WelcomeSettings?
     var pricingScreen: PricingScreenSettings?
     var apiDomain: String?
+    var coreValuesPath: String? = "/core-values?embed=true"
     var upgradeCopy: UpgradeCopy?
     var dataExport: DataExportSettings?
     var journal: JournalSettings?
@@ -39,6 +40,7 @@ class AppSettings: FlamelinkIdentifiable {
         case upgradeCopy
         case dataExport
         case journal
+        case coreValuesPath
     }
     
     public required init(from decoder: Decoder) throws {
@@ -56,6 +58,7 @@ class AppSettings: FlamelinkIdentifiable {
         self.upgradeCopy = try? model.container.decode(UpgradeCopy.self, forKey: .upgradeCopy)
         self.dataExport = try? model.container.decode(DataExportSettings.self, forKey: .dataExport)
         self.journal = try? model.container.decode(JournalSettings.self, forKey: .journal)
+        self.coreValuesPath = model.optionalString(.coreValuesPath, blankAsNil: true) ?? "/core-values/embed"
     }
     
 }

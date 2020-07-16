@@ -98,6 +98,7 @@ class SubscriptionService: NSObject {
         
         self.logger.info("Starting checkout for apple product \(product.productIdentifier)")
         let payment = SKPayment(product: product)
+//        payment.paymentDiscount?.dura
         
         SKPaymentQueue.default().add(payment)
         self.logger.info("Payment added to queue. \(payment.productIdentifier)")
@@ -147,10 +148,7 @@ class SubscriptionService: NSObject {
                 self.logger.warn("Unable to get receipt data")
                 onComplete(nil, "No apple receipt found on the device")
             }
-            
         }
-        
-        
     }
 }
 

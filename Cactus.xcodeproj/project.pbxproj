@@ -543,34 +543,6 @@
 		307B623924ABE5A100A4560E /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B623724ABE5A100A4560E /* ArrayExtensions.swift */; };
 		307B623A24ABE5A100A4560E /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B623724ABE5A100A4560E /* ArrayExtensions.swift */; };
 		307B623B24ABE5A100A4560E /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B623724ABE5A100A4560E /* ArrayExtensions.swift */; };
-		307B626824AC322000A4560E /* vendors.css in Resources */ = {isa = PBXBuildFile; fileRef = 307B626124AC321F00A4560E /* vendors.css */; };
-		307B626924AC322000A4560E /* vendors.css in Resources */ = {isa = PBXBuildFile; fileRef = 307B626124AC321F00A4560E /* vendors.css */; };
-		307B626A24AC322000A4560E /* vendors.css in Resources */ = {isa = PBXBuildFile; fileRef = 307B626124AC321F00A4560E /* vendors.css */; };
-		307B626B24AC322000A4560E /* vendors.css in Resources */ = {isa = PBXBuildFile; fileRef = 307B626124AC321F00A4560E /* vendors.css */; };
-		307B626C24AC322000A4560E /* wordBubbles.js in Resources */ = {isa = PBXBuildFile; fileRef = 307B626224AC321F00A4560E /* wordBubbles.js */; };
-		307B626D24AC322000A4560E /* wordBubbles.js in Resources */ = {isa = PBXBuildFile; fileRef = 307B626224AC321F00A4560E /* wordBubbles.js */; };
-		307B626E24AC322000A4560E /* wordBubbles.js in Resources */ = {isa = PBXBuildFile; fileRef = 307B626224AC321F00A4560E /* wordBubbles.js */; };
-		307B626F24AC322000A4560E /* wordBubbles.js in Resources */ = {isa = PBXBuildFile; fileRef = 307B626224AC321F00A4560E /* wordBubbles.js */; };
-		307B627024AC322000A4560E /* wordBubbles.css in Resources */ = {isa = PBXBuildFile; fileRef = 307B626324AC321F00A4560E /* wordBubbles.css */; };
-		307B627124AC322000A4560E /* wordBubbles.css in Resources */ = {isa = PBXBuildFile; fileRef = 307B626324AC321F00A4560E /* wordBubbles.css */; };
-		307B627224AC322000A4560E /* wordBubbles.css in Resources */ = {isa = PBXBuildFile; fileRef = 307B626324AC321F00A4560E /* wordBubbles.css */; };
-		307B627324AC322000A4560E /* wordBubbles.css in Resources */ = {isa = PBXBuildFile; fileRef = 307B626324AC321F00A4560E /* wordBubbles.css */; };
-		307B627424AC322000A4560E /* wordBubbles.html in Resources */ = {isa = PBXBuildFile; fileRef = 307B626424AC321F00A4560E /* wordBubbles.html */; };
-		307B627524AC322000A4560E /* wordBubbles.html in Resources */ = {isa = PBXBuildFile; fileRef = 307B626424AC321F00A4560E /* wordBubbles.html */; };
-		307B627624AC322000A4560E /* wordBubbles.html in Resources */ = {isa = PBXBuildFile; fileRef = 307B626424AC321F00A4560E /* wordBubbles.html */; };
-		307B627724AC322000A4560E /* wordBubbles.html in Resources */ = {isa = PBXBuildFile; fileRef = 307B626424AC321F00A4560E /* wordBubbles.html */; };
-		307B627824AC322000A4560E /* vendors.js in Resources */ = {isa = PBXBuildFile; fileRef = 307B626524AC321F00A4560E /* vendors.js */; };
-		307B627924AC322000A4560E /* vendors.js in Resources */ = {isa = PBXBuildFile; fileRef = 307B626524AC321F00A4560E /* vendors.js */; };
-		307B627A24AC322000A4560E /* vendors.js in Resources */ = {isa = PBXBuildFile; fileRef = 307B626524AC321F00A4560E /* vendors.js */; };
-		307B627B24AC322000A4560E /* vendors.js in Resources */ = {isa = PBXBuildFile; fileRef = 307B626524AC321F00A4560E /* vendors.js */; };
-		307B627C24AC322000A4560E /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 307B626624AC321F00A4560E /* favicon.ico */; };
-		307B627D24AC322000A4560E /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 307B626624AC321F00A4560E /* favicon.ico */; };
-		307B627E24AC322000A4560E /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 307B626624AC321F00A4560E /* favicon.ico */; };
-		307B627F24AC322000A4560E /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 307B626624AC321F00A4560E /* favicon.ico */; };
-		307B628024AC322000A4560E /* runtime.js in Resources */ = {isa = PBXBuildFile; fileRef = 307B626724AC322000A4560E /* runtime.js */; };
-		307B628124AC322000A4560E /* runtime.js in Resources */ = {isa = PBXBuildFile; fileRef = 307B626724AC322000A4560E /* runtime.js */; };
-		307B628224AC322000A4560E /* runtime.js in Resources */ = {isa = PBXBuildFile; fileRef = 307B626724AC322000A4560E /* runtime.js */; };
-		307B628324AC322000A4560E /* runtime.js in Resources */ = {isa = PBXBuildFile; fileRef = 307B626724AC322000A4560E /* runtime.js */; };
 		307B628524AD3B7200A4560E /* TextViewPlaceholderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B628424AD3B7200A4560E /* TextViewPlaceholderDelegate.swift */; };
 		307B628624AD3B7200A4560E /* TextViewPlaceholderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B628424AD3B7200A4560E /* TextViewPlaceholderDelegate.swift */; };
 		307B628724AD3B7200A4560E /* TextViewPlaceholderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B628424AD3B7200A4560E /* TextViewPlaceholderDelegate.swift */; };
@@ -658,6 +630,10 @@
 		30A292D2243E467F00F546CA /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A292D0243E467F00F546CA /* LoadingViewController.swift */; };
 		30A292D3243E467F00F546CA /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A292D0243E467F00F546CA /* LoadingViewController.swift */; };
 		30A292D4243E467F00F546CA /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A292D0243E467F00F546CA /* LoadingViewController.swift */; };
+		30A3BC0424C0CDF90016955C /* WebAppInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A3BC0324C0CDF90016955C /* WebAppInterface.swift */; };
+		30A3BC0524C0CDF90016955C /* WebAppInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A3BC0324C0CDF90016955C /* WebAppInterface.swift */; };
+		30A3BC0624C0CDF90016955C /* WebAppInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A3BC0324C0CDF90016955C /* WebAppInterface.swift */; };
+		30A3BC0724C0CDF90016955C /* WebAppInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A3BC0324C0CDF90016955C /* WebAppInterface.swift */; };
 		30AB0728244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB0727244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift */; };
 		30AB0729244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB0727244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift */; };
 		30AB072A244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB0727244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift */; };
@@ -675,6 +651,34 @@
 		30B6EA7622EA5A9F00443E46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7422EA5A9F00443E46 /* Main.storyboard */; };
 		30B6EA7822EA5AA100443E46 /* SharedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */; };
 		30B6EA7B22EA5AA100443E46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7922EA5AA100443E46 /* LaunchScreen.storyboard */; };
+		30B79CB124B50A1000608293 /* wordBubbles.html in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAA24B50A0F00608293 /* wordBubbles.html */; };
+		30B79CB224B50A1000608293 /* wordBubbles.html in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAA24B50A0F00608293 /* wordBubbles.html */; };
+		30B79CB324B50A1000608293 /* wordBubbles.html in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAA24B50A0F00608293 /* wordBubbles.html */; };
+		30B79CB424B50A1000608293 /* wordBubbles.html in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAA24B50A0F00608293 /* wordBubbles.html */; };
+		30B79CB524B50A1000608293 /* vendors.js in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAB24B50A0F00608293 /* vendors.js */; };
+		30B79CB624B50A1000608293 /* vendors.js in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAB24B50A0F00608293 /* vendors.js */; };
+		30B79CB724B50A1000608293 /* vendors.js in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAB24B50A0F00608293 /* vendors.js */; };
+		30B79CB824B50A1000608293 /* vendors.js in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAB24B50A0F00608293 /* vendors.js */; };
+		30B79CB924B50A1000608293 /* wordBubbles.css in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAC24B50A0F00608293 /* wordBubbles.css */; };
+		30B79CBA24B50A1000608293 /* wordBubbles.css in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAC24B50A0F00608293 /* wordBubbles.css */; };
+		30B79CBB24B50A1000608293 /* wordBubbles.css in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAC24B50A0F00608293 /* wordBubbles.css */; };
+		30B79CBC24B50A1000608293 /* wordBubbles.css in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAC24B50A0F00608293 /* wordBubbles.css */; };
+		30B79CBD24B50A1000608293 /* wordBubbles.js in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAD24B50A1000608293 /* wordBubbles.js */; };
+		30B79CBE24B50A1000608293 /* wordBubbles.js in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAD24B50A1000608293 /* wordBubbles.js */; };
+		30B79CBF24B50A1000608293 /* wordBubbles.js in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAD24B50A1000608293 /* wordBubbles.js */; };
+		30B79CC024B50A1000608293 /* wordBubbles.js in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAD24B50A1000608293 /* wordBubbles.js */; };
+		30B79CC124B50A1000608293 /* runtime.js in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAE24B50A1000608293 /* runtime.js */; };
+		30B79CC224B50A1000608293 /* runtime.js in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAE24B50A1000608293 /* runtime.js */; };
+		30B79CC324B50A1000608293 /* runtime.js in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAE24B50A1000608293 /* runtime.js */; };
+		30B79CC424B50A1000608293 /* runtime.js in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAE24B50A1000608293 /* runtime.js */; };
+		30B79CC524B50A1000608293 /* vendors.css in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAF24B50A1000608293 /* vendors.css */; };
+		30B79CC624B50A1000608293 /* vendors.css in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAF24B50A1000608293 /* vendors.css */; };
+		30B79CC724B50A1000608293 /* vendors.css in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAF24B50A1000608293 /* vendors.css */; };
+		30B79CC824B50A1000608293 /* vendors.css in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CAF24B50A1000608293 /* vendors.css */; };
+		30B79CC924B50A1000608293 /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CB024B50A1000608293 /* favicon.ico */; };
+		30B79CCA24B50A1000608293 /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CB024B50A1000608293 /* favicon.ico */; };
+		30B79CCB24B50A1000608293 /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CB024B50A1000608293 /* favicon.ico */; };
+		30B79CCC24B50A1000608293 /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 30B79CB024B50A1000608293 /* favicon.ico */; };
 		30BC2D00234EA63E00AB7B89 /* AuthProviderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC2CFF234EA63E00AB7B89 /* AuthProviderTableViewCell.swift */; };
 		30BC2D01234EA63E00AB7B89 /* AuthProviderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC2CFF234EA63E00AB7B89 /* AuthProviderTableViewCell.swift */; };
 		30BE566F234E73A000AA6D4D /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE566E234E73A000AA6D4D /* NotificationsTableViewController.swift */; };
@@ -1006,13 +1010,6 @@
 		30762E5C2440E4A4000A18B3 /* ElementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementCell.swift; sourceTree = "<group>"; };
 		30762E5D2440E4A4000A18B3 /* ElementCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ElementCell.xib; sourceTree = "<group>"; };
 		307B623724ABE5A100A4560E /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
-		307B626124AC321F00A4560E /* vendors.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = vendors.css; sourceTree = "<group>"; };
-		307B626224AC321F00A4560E /* wordBubbles.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = wordBubbles.js; sourceTree = "<group>"; };
-		307B626324AC321F00A4560E /* wordBubbles.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = wordBubbles.css; sourceTree = "<group>"; };
-		307B626424AC321F00A4560E /* wordBubbles.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = wordBubbles.html; sourceTree = "<group>"; };
-		307B626524AC321F00A4560E /* vendors.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = vendors.js; sourceTree = "<group>"; };
-		307B626624AC321F00A4560E /* favicon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = favicon.ico; sourceTree = "<group>"; };
-		307B626724AC322000A4560E /* runtime.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = runtime.js; sourceTree = "<group>"; };
 		307B628424AD3B7200A4560E /* TextViewPlaceholderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewPlaceholderDelegate.swift; sourceTree = "<group>"; };
 		307ED78A24084085008D26C6 /* MemberSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberSubscription.swift; sourceTree = "<group>"; };
 		307ED78E24086E82008D26C6 /* SubscriptionUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionUtil.swift; sourceTree = "<group>"; };
@@ -1057,6 +1054,7 @@
 		30A281EF22EA62650041158E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30A281F722EA65EC0041158E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30A292D0243E467F00F546CA /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		30A3BC0324C0CDF90016955C /* WebAppInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebAppInterface.swift; sourceTree = "<group>"; };
 		30AB0727244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreValuesAssessmentViewController.swift; sourceTree = "<group>"; };
 		30AB072B244E449D006ACB98 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		30AB072F244E4762006ACB98 /* CoreValuesAssessmentResponseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreValuesAssessmentResponseService.swift; sourceTree = "<group>"; };
@@ -1068,6 +1066,13 @@
 		30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SharedAssets.xcassets; sourceTree = "<group>"; };
 		30B6EA7A22EA5AA100443E46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30B6EA7C22EA5AA100443E46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30B79CAA24B50A0F00608293 /* wordBubbles.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = wordBubbles.html; sourceTree = "<group>"; };
+		30B79CAB24B50A0F00608293 /* vendors.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = vendors.js; sourceTree = "<group>"; };
+		30B79CAC24B50A0F00608293 /* wordBubbles.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = wordBubbles.css; sourceTree = "<group>"; };
+		30B79CAD24B50A1000608293 /* wordBubbles.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = wordBubbles.js; sourceTree = "<group>"; };
+		30B79CAE24B50A1000608293 /* runtime.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = runtime.js; sourceTree = "<group>"; };
+		30B79CAF24B50A1000608293 /* vendors.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = vendors.css; sourceTree = "<group>"; };
+		30B79CB024B50A1000608293 /* favicon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = favicon.ico; sourceTree = "<group>"; };
 		30BC2CFF234EA63E00AB7B89 /* AuthProviderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProviderTableViewCell.swift; sourceTree = "<group>"; };
 		30BE566E234E73A000AA6D4D /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
 		30BE5671234E829100AA6D4D /* NotificationTimeOfDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTimeOfDayViewController.swift; sourceTree = "<group>"; };
@@ -1373,13 +1378,13 @@
 		307B623C24AC249B00A4560E /* Charts */ = {
 			isa = PBXGroup;
 			children = (
-				307B626624AC321F00A4560E /* favicon.ico */,
-				307B626724AC322000A4560E /* runtime.js */,
-				307B626124AC321F00A4560E /* vendors.css */,
-				307B626524AC321F00A4560E /* vendors.js */,
-				307B626324AC321F00A4560E /* wordBubbles.css */,
-				307B626424AC321F00A4560E /* wordBubbles.html */,
-				307B626224AC321F00A4560E /* wordBubbles.js */,
+				30B79CB024B50A1000608293 /* favicon.ico */,
+				30B79CAE24B50A1000608293 /* runtime.js */,
+				30B79CAF24B50A1000608293 /* vendors.css */,
+				30B79CAB24B50A0F00608293 /* vendors.js */,
+				30B79CAC24B50A0F00608293 /* wordBubbles.css */,
+				30B79CAA24B50A0F00608293 /* wordBubbles.html */,
+				30B79CAD24B50A1000608293 /* wordBubbles.js */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -1507,6 +1512,14 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		30A3BC0224C0CDD80016955C /* WebApp */ = {
+			isa = PBXGroup;
+			children = (
+				30A3BC0324C0CDF90016955C /* WebAppInterface.swift */,
+			);
+			path = WebApp;
+			sourceTree = "<group>";
+		};
 		30AB8ED7237C86650048CFD2 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -1545,6 +1558,7 @@
 		30B6EA6D22EA5A9F00443E46 /* Cactus */ = {
 			isa = PBXGroup;
 			children = (
+				30A3BC0224C0CDD80016955C /* WebApp */,
 				304BCE5524858B5E0055A28E /* html */,
 				30265C5B23453C7B00934041 /* SwiftyGif */,
 				30673B85233FDEB600EDE7BD /* Fonts */,
@@ -1918,11 +1932,10 @@
 				303C9E0823841AC1006B9786 /* CactusElementsViewController.xib in Resources */,
 				3062200C23EAB12B002FAAD9 /* Lato-Thin.ttf in Resources */,
 				303C9DED23841AB6006B9786 /* RelationshipsAnimationViewController.xib in Resources */,
-				307B627A24AC322000A4560E /* vendors.js in Resources */,
-				307B628224AC322000A4560E /* runtime.js in Resources */,
 				3021CBE52410345E00F58B89 /* WebViewController.xib in Resources */,
 				303C9E0B23841AC1006B9786 /* LoadablePromptContentViewController.xib in Resources */,
 				303C9DE523841AB6006B9786 /* MeaningAnimationViewController.xib in Resources */,
+				30B79CB724B50A1000608293 /* vendors.js in Resources */,
 				304BCE6D2485F0F10055A28E /* elements.css in Resources */,
 				303C9DEB23841AB6006B9786 /* EnergyAnimationViewController.xib in Resources */,
 				303C9E1523841AC6006B9786 /* CactusElementDetailViewController.xib in Resources */,
@@ -1930,15 +1943,17 @@
 				3062200D23EAB12B002FAAD9 /* Lato-Bold.ttf in Resources */,
 				303C9E1123841AC6006B9786 /* NavigationMenuViewController.xib in Resources */,
 				3032820F2412B87D00FC197A /* PricingFeatureView.xib in Resources */,
-				307B627E24AC322000A4560E /* favicon.ico in Resources */,
 				303C9DE923841AB6006B9786 /* ExperienceAnimationViewController.xib in Resources */,
+				30B79CB324B50A1000608293 /* wordBubbles.html in Resources */,
 				304BCE7B248600950055A28E /* energy.html in Resources */,
+				30B79CBB24B50A1000608293 /* wordBubbles.css in Resources */,
 				303C9E1E23841AC6006B9786 /* LoadableSharedReflectionViewController.xib in Resources */,
 				303C9E2023841AC6006B9786 /* ViewSharedReflectionViewController.xib in Resources */,
-				307B627224AC322000A4560E /* wordBubbles.css in Resources */,
 				303C9E0A23841AC1006B9786 /* VideoContentViewController.xib in Resources */,
 				303C9E0323841AC1006B9786 /* ReflectContentViewController.xib in Resources */,
+				30B79CCB24B50A1000608293 /* favicon.ico in Resources */,
 				30DCA5EA2441207500D520D4 /* PromptEntryCollectionViewCell.xib in Resources */,
+				30B79CC324B50A1000608293 /* runtime.js in Resources */,
 				30DFCA8C24609D86007187FC /* JournalEntryCell.xib in Resources */,
 				3062201223EAB12B002FAAD9 /* Lato-BoldItalic.ttf in Resources */,
 				30D7386623D00AC6006F4DA6 /* Social.storyboard in Resources */,
@@ -1946,17 +1961,16 @@
 				3062201323EAB12B002FAAD9 /* Lato-Light.ttf in Resources */,
 				304BCE5924858BAB0055A28E /* meaning.html in Resources */,
 				303C9DFB23841ABB006B9786 /* JournalEntrySkeletonViewController.xib in Resources */,
-				307B627624AC322000A4560E /* wordBubbles.html in Resources */,
+				30B79CBF24B50A1000608293 /* wordBubbles.js in Resources */,
 				303C9E0523841AC1006B9786 /* CelebrateViewController.xib in Resources */,
 				30762E632440E4A4000A18B3 /* ElementCell.xib in Resources */,
 				3062200A23EAB128002FAAD9 /* Lato-Italic.ttf in Resources */,
-				307B626A24AC322000A4560E /* vendors.css in Resources */,
 				303C9DFD23841AC1006B9786 /* TextContentViewController.xib in Resources */,
 				3062201423EAB12B002FAAD9 /* Lato-ThinItalic.ttf in Resources */,
 				303C9E1D23841AC6006B9786 /* SharedReflectionViewController.xib in Resources */,
 				3062200E23EAB12B002FAAD9 /* Lato-Black.ttf in Resources */,
+				30B79CC724B50A1000608293 /* vendors.css in Resources */,
 				3062201123EAB12B002FAAD9 /* OFL.txt in Resources */,
-				307B626E24AC322000A4560E /* wordBubbles.js in Resources */,
 				304BCE7A248600950055A28E /* relationships.html in Resources */,
 				30D7387423D00F7C006F4DA6 /* SocialActivityCardView.xib in Resources */,
 				303C9DE723841AB6006B9786 /* EmotionsAnimationViewController.xib in Resources */,
@@ -1975,26 +1989,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				307B626F24AC322000A4560E /* wordBubbles.js in Resources */,
-				307B627324AC322000A4560E /* wordBubbles.css in Resources */,
-				307B627724AC322000A4560E /* wordBubbles.html in Resources */,
 				304BCE7C248600960055A28E /* experience.html in Resources */,
-				307B627F24AC322000A4560E /* favicon.ico in Resources */,
+				30B79CBC24B50A1000608293 /* wordBubbles.css in Resources */,
 				304BCE722486008E0055A28E /* emotions.html in Resources */,
+				30B79CB424B50A1000608293 /* wordBubbles.html in Resources */,
+				30B79CC024B50A1000608293 /* wordBubbles.js in Resources */,
+				30B79CB824B50A1000608293 /* vendors.js in Resources */,
 				304BCE6E2485F0F10055A28E /* elements.css in Resources */,
-				307B627B24AC322000A4560E /* vendors.js in Resources */,
 				304B215F23D392C8007B016C /* SocialActivityCardView.xib in Resources */,
 				304B210C23D383E1007B016C /* MainInterface.storyboard in Resources */,
-				307B626B24AC322000A4560E /* vendors.css in Resources */,
 				303282102412B87D00FC197A /* PricingFeatureView.xib in Resources */,
 				3019A4DA243BDF7E003D0074 /* WebViewController.xib in Resources */,
 				304B217D23D39AA4007B016C /* LaunchScreen.storyboard in Resources */,
 				304B217A23D39575007B016C /* SharedAssets.xcassets in Resources */,
 				304BCE5A24858BAB0055A28E /* meaning.html in Resources */,
+				30B79CCC24B50A1000608293 /* favicon.ico in Resources */,
 				304BCE7D248600960055A28E /* relationships.html in Resources */,
-				307B628324AC322000A4560E /* runtime.js in Resources */,
 				304B217C23D39AA4007B016C /* GoogleService-Info.plist in Resources */,
 				304BCE7E248600960055A28E /* energy.html in Resources */,
+				30B79CC824B50A1000608293 /* vendors.css in Resources */,
+				30B79CC424B50A1000608293 /* runtime.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2008,22 +2022,24 @@
 				30BF2E2D23289F9F00A49EB6 /* TextContentViewController.xib in Resources */,
 				30CD90AB2346F06B00703FE2 /* Settings.storyboard in Resources */,
 				300AC18A233A850B005C6555 /* JournalEntrySkeletonViewController.xib in Resources */,
+				30B79CBE24B50A1000608293 /* wordBubbles.js in Resources */,
+				30B79CB624B50A1000608293 /* vendors.js in Resources */,
 				30673B9B233FDEC300EDE7BD /* Lato-Black.ttf in Resources */,
 				3095619A22ECF1CD009357BD /* GoogleService-Info.plist in Resources */,
+				30B79CC224B50A1000608293 /* runtime.js in Resources */,
 				3021CBE42410345E00F58B89 /* WebViewController.xib in Resources */,
 				30673BA5233FDEC300EDE7BD /* Lato-Light.ttf in Resources */,
 				30673BA7233FDEC300EDE7BD /* Lato-ThinItalic.ttf in Resources */,
 				30DCA5E92441207500D520D4 /* PromptEntryCollectionViewCell.xib in Resources */,
 				304BCE702486008C0055A28E /* emotions.html in Resources */,
+				30B79CB224B50A1000608293 /* wordBubbles.html in Resources */,
 				304BCE77248600950055A28E /* relationships.html in Resources */,
-				307B627D24AC322000A4560E /* favicon.ico in Resources */,
 				30F7168A2379ED32004989DB /* ShareNoteViewController.xib in Resources */,
 				30D7386123CFFC62006F4DA6 /* InviteContentViewController.xib in Resources */,
 				303C9DCB237FCF06006B9786 /* LoadableSharedReflectionViewController.xib in Resources */,
 				305B1866233175DC003E1561 /* PhotoContentViewController.xib in Resources */,
 				3084E9682348FE9C00788279 /* CelebrateViewController.xib in Resources */,
 				30CF53802370B10F00578B22 /* EmotionsAnimationViewController.xib in Resources */,
-				307B627524AC322000A4560E /* wordBubbles.html in Resources */,
 				304BCE5824858BAB0055A28E /* meaning.html in Resources */,
 				30AB8ED6237C86380048CFD2 /* Onboarding.storyboard in Resources */,
 				30CF53862370C58100578B22 /* ExperienceAnimationViewController.xib in Resources */,
@@ -2034,26 +2050,24 @@
 				304BCE76248600950055A28E /* experience.html in Resources */,
 				30CF53922370FBB800578B22 /* RelationshipsAnimationViewController.xib in Resources */,
 				30D7F70C236BAAB100379EE0 /* EditReflectionViewController.xib in Resources */,
+				30B79CCA24B50A1000608293 /* favicon.ico in Resources */,
 				30CF539B23732EC300578B22 /* VideoContentViewController.xib in Resources */,
 				30CF538C2370DDCC00578B22 /* EnergyAnimationViewController.xib in Resources */,
 				30673BA1233FDEC300EDE7BD /* OFL.txt in Resources */,
 				30A281F022EA62650041158E /* LaunchScreen.storyboard in Resources */,
 				30A281E322EA61A30041158E /* Main.storyboard in Resources */,
+				30B79CC624B50A1000608293 /* vendors.css in Resources */,
 				30D7386523D00AC6006F4DA6 /* Social.storyboard in Resources */,
 				30673B97233FDEC300EDE7BD /* Lato-Thin.ttf in Resources */,
 				301C1A94236F7EB700F06A3D /* MeaningAnimationViewController.xib in Resources */,
-				307B628124AC322000A4560E /* runtime.js in Resources */,
 				303BF753232D289A00164539 /* QuoteContentViewController.xib in Resources */,
 				30D7387323D00F7C006F4DA6 /* SocialActivityCardView.xib in Resources */,
 				30673B93233FDEC300EDE7BD /* Lato-Italic.ttf in Resources */,
 				3099D1F52408DA2A00BD9CC4 /* SubscriptionPlanOptionView.xib in Resources */,
 				30DFCA8B24609D86007187FC /* JournalEntryCell.xib in Resources */,
 				30E2D37D23432B21003D2B27 /* NavigationMenuViewController.xib in Resources */,
-				307B626D24AC322000A4560E /* wordBubbles.js in Resources */,
-				307B626924AC322000A4560E /* vendors.css in Resources */,
 				304BCE78248600950055A28E /* energy.html in Resources */,
 				30673B9F233FDEC300EDE7BD /* Lato-BlackItalic.ttf in Resources */,
-				307B627924AC322000A4560E /* vendors.js in Resources */,
 				30727441236A43AA00309B3C /* CactusElementDetailViewController.xib in Resources */,
 				3032820E2412B87D00FC197A /* PricingFeatureView.xib in Resources */,
 				30762E622440E4A4000A18B3 /* ElementCell.xib in Resources */,
@@ -2062,7 +2076,7 @@
 				30673B9D233FDEC300EDE7BD /* Lato-Regular.ttf in Resources */,
 				30673BA3233FDEC300EDE7BD /* Lato-BoldItalic.ttf in Resources */,
 				300FCCF723EE2DBE00089CFB /* Payment.storyboard in Resources */,
-				307B627124AC322000A4560E /* wordBubbles.css in Resources */,
+				30B79CBA24B50A1000608293 /* wordBubbles.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2087,25 +2101,24 @@
 				304BCE6B2485F0F10055A28E /* elements.css in Resources */,
 				303C9DCA237FCF06006B9786 /* LoadableSharedReflectionViewController.xib in Resources */,
 				3095619C22ECF214009357BD /* GoogleService-Info.plist in Resources */,
+				30B79CC124B50A1000608293 /* runtime.js in Resources */,
 				300AC189233A850B005C6555 /* JournalEntrySkeletonViewController.xib in Resources */,
-				307B627824AC322000A4560E /* vendors.js in Resources */,
 				30DFCA8A24609D86007187FC /* JournalEntryCell.xib in Resources */,
-				307B626824AC322000A4560E /* vendors.css in Resources */,
+				30B79CBD24B50A1000608293 /* wordBubbles.js in Resources */,
 				3020DD9A23640BE300EC40AE /* CactusElementsViewController.xib in Resources */,
 				30673B98233FDEC300EDE7BD /* Lato-Bold.ttf in Resources */,
 				3021CBE32410345E00F58B89 /* WebViewController.xib in Resources */,
+				30B79CC924B50A1000608293 /* favicon.ico in Resources */,
 				30673B96233FDEC300EDE7BD /* Lato-Thin.ttf in Resources */,
 				30D7F70B236BAAB100379EE0 /* EditReflectionViewController.xib in Resources */,
 				30673BA0233FDEC300EDE7BD /* OFL.txt in Resources */,
 				305B18822331E162003E1561 /* ReflectContentViewController.xib in Resources */,
-				307B626C24AC322000A4560E /* wordBubbles.js in Resources */,
-				307B628024AC322000A4560E /* runtime.js in Resources */,
 				303C9DAC237E1470006B9786 /* LoadablePromptContentViewController.xib in Resources */,
 				30F716892379ED32004989DB /* ShareNoteViewController.xib in Resources */,
 				30673BA2233FDEC300EDE7BD /* Lato-BoldItalic.ttf in Resources */,
-				307B627024AC322000A4560E /* wordBubbles.css in Resources */,
 				30B6EA7822EA5AA100443E46 /* SharedAssets.xcassets in Resources */,
-				307B627C24AC322000A4560E /* favicon.ico in Resources */,
+				30B79CB124B50A1000608293 /* wordBubbles.html in Resources */,
+				30B79CB924B50A1000608293 /* wordBubbles.css in Resources */,
 				3084E9672348FE9C00788279 /* CelebrateViewController.xib in Resources */,
 				3032820D2412B87D00FC197A /* PricingFeatureView.xib in Resources */,
 				303C9DD0237FD7D1006B9786 /* ViewSharedReflectionViewController.xib in Resources */,
@@ -2118,15 +2131,16 @@
 				30CD90AA2346F06B00703FE2 /* Settings.storyboard in Resources */,
 				30D7386023CFFC62006F4DA6 /* InviteContentViewController.xib in Resources */,
 				30673B9C233FDEC300EDE7BD /* Lato-Regular.ttf in Resources */,
+				30B79CC524B50A1000608293 /* vendors.css in Resources */,
 				305B1865233175DC003E1561 /* PhotoContentViewController.xib in Resources */,
 				30CF538B2370DDCC00578B22 /* EnergyAnimationViewController.xib in Resources */,
 				300FCCF623EE2DBE00089CFB /* Payment.storyboard in Resources */,
-				307B627424AC322000A4560E /* wordBubbles.html in Resources */,
 				30DCA5E82441207500D520D4 /* PromptEntryCollectionViewCell.xib in Resources */,
 				303BF752232D289A00164539 /* QuoteContentViewController.xib in Resources */,
 				30673B9A233FDEC300EDE7BD /* Lato-Black.ttf in Resources */,
 				30727440236A43AA00309B3C /* CactusElementDetailViewController.xib in Resources */,
 				304BCE6F2486008B0055A28E /* emotions.html in Resources */,
+				30B79CB524B50A1000608293 /* vendors.js in Resources */,
 				30CF537F2370B10F00578B22 /* EmotionsAnimationViewController.xib in Resources */,
 				30D7386423D00AC6006F4DA6 /* Social.storyboard in Resources */,
 				30CF53852370C58100578B22 /* ExperienceAnimationViewController.xib in Resources */,
@@ -2489,6 +2503,7 @@
 				307B628724AD3B7200A4560E /* TextViewPlaceholderDelegate.swift in Sources */,
 				303C9DFA23841ABB006B9786 /* JournalEntrySkeletonViewController.swift in Sources */,
 				303C9E3E23841B1B006B9786 /* AppSettings.swift in Sources */,
+				30A3BC0624C0CDF90016955C /* WebAppInterface.swift in Sources */,
 				303C9E1A23841AC6006B9786 /* ShareNoteViewController.swift in Sources */,
 				303C9DDD23841A38006B9786 /* LoadablePromptContentViewController.swift in Sources */,
 				303C9E1323841AC6006B9786 /* CactusElementPageViewController.swift in Sources */,
@@ -2649,6 +2664,7 @@
 				3062202223EC7A0A002FAAD9 /* MarkdownTextView.swift in Sources */,
 				304B217523D39484007B016C /* ContactService.swift in Sources */,
 				304B216923D3947F007B016C /* AppSettingsService.swift in Sources */,
+				30A3BC0724C0CDF90016955C /* WebAppInterface.swift in Sources */,
 				304B217423D39484007B016C /* StorageService.swift in Sources */,
 				304B213A23D38F79007B016C /* DateUtil.swift in Sources */,
 				304B212A23D38F65007B016C /* AppSettings.swift in Sources */,
@@ -2817,6 +2833,7 @@
 				305CB10123D048B60046E8A8 /* SendFriendInviteViewController.swift in Sources */,
 				3021B67923623AE3002634A8 /* CactusTextInputField.swift in Sources */,
 				303BF751232D289A00164539 /* QuoteContentViewController.swift in Sources */,
+				30A3BC0524C0CDF90016955C /* WebAppInterface.swift in Sources */,
 				30CF538A2370DDCC00578B22 /* EnergyAnimationViewController.swift in Sources */,
 				300FCCF423EE279500089CFB /* StoreObserver.swift in Sources */,
 				3026B29B234D3E2800CD2D34 /* PromptContentViewController.swift in Sources */,
@@ -2995,6 +3012,7 @@
 				305CB10023D048B60046E8A8 /* SendFriendInviteViewController.swift in Sources */,
 				303BF750232D289A00164539 /* QuoteContentViewController.swift in Sources */,
 				3026B29A234D3E2800CD2D34 /* PromptContentViewController.swift in Sources */,
+				30A3BC0424C0CDF90016955C /* WebAppInterface.swift in Sources */,
 				30CF53892370DDCC00578B22 /* EnergyAnimationViewController.swift in Sources */,
 				300FCCF323EE279500089CFB /* StoreObserver.swift in Sources */,
 				30E9B0AF22EADD04005B25FD /* LoginViewController.swift in Sources */,

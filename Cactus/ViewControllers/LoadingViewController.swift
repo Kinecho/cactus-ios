@@ -10,24 +10,16 @@ import UIKit
 
 class LoadingViewController: UIViewController {
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var stackView: UIStackView!
     
     var message: String = "Loading..."
     
+    func addAction(_ action: UIView) {
+        self.stackView.addArrangedSubview(action)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.messageLabel.text = self.message
-
-        // Do any additional setup after loading the view.
+        self.messageLabel.text = self.message        
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
