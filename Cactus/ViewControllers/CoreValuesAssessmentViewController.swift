@@ -148,7 +148,7 @@ extension CoreValuesAssessmentViewController: WKScriptMessageHandler, WKNavigati
                 return
             }
             pricingVc.titleOvereride = "Get your quiz results with Cactus Plus"
-            pricingVc.subTitleOverride = "You'll also get access to daily prompts, personalized insights, and more"
+            pricingVc.subTitleOverride = "Try it free and get daily prompts, personal insights and more"
             pricingVc.onDismiss = {
                 self.onPricingClosed()
             }
