@@ -21,7 +21,7 @@ class AppSettings: FlamelinkIdentifiable {
     var welcome: WelcomeSettings?
     var pricingScreen: PricingScreenSettings?
     var apiDomain: String?
-    var coreValuesPath: String? = "/core-values?embed=true"
+    var coreValuesPath: String? = "/core-values/embed"
     var upgradeCopy: UpgradeCopy?
     var dataExport: DataExportSettings?
     var journal: JournalSettings?
