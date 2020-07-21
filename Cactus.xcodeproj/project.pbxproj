@@ -459,6 +459,14 @@
 		305366F024C6A84200927498 /* PromptContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305366EE24C6A84200927498 /* PromptContentView.swift */; };
 		305366F124C6A84200927498 /* PromptContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305366EE24C6A84200927498 /* PromptContentView.swift */; };
 		305366F224C6A84200927498 /* PromptContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305366EE24C6A84200927498 /* PromptContentView.swift */; };
+		305366F424C6C4B900927498 /* MarkdownText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305366F324C6C4B900927498 /* MarkdownText.swift */; };
+		305366F524C6C4B900927498 /* MarkdownText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305366F324C6C4B900927498 /* MarkdownText.swift */; };
+		305366F624C6C4B900927498 /* MarkdownText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305366F324C6C4B900927498 /* MarkdownText.swift */; };
+		305366F724C6C4B900927498 /* MarkdownText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305366F324C6C4B900927498 /* MarkdownText.swift */; };
+		305366F924C75B9600927498 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305366F824C75B9600927498 /* MockData.swift */; };
+		305366FA24C75B9600927498 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305366F824C75B9600927498 /* MockData.swift */; };
+		305366FB24C75B9600927498 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305366F824C75B9600927498 /* MockData.swift */; };
+		305366FC24C75B9600927498 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305366F824C75B9600927498 /* MockData.swift */; };
 		305424EA23AC0432003F82A2 /* UIStackViewExtensionis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305424E923AC0432003F82A2 /* UIStackViewExtensionis.swift */; };
 		305424EB23AC0432003F82A2 /* UIStackViewExtensionis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305424E923AC0432003F82A2 /* UIStackViewExtensionis.swift */; };
 		305424EC23AC0432003F82A2 /* UIStackViewExtensionis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305424E923AC0432003F82A2 /* UIStackViewExtensionis.swift */; };
@@ -1263,6 +1271,8 @@
 		305366E424C69BC100927498 /* JournalFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFeed.swift; sourceTree = "<group>"; };
 		305366E924C6A21600927498 /* JournalEntryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryRow.swift; sourceTree = "<group>"; };
 		305366EE24C6A84200927498 /* PromptContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptContentView.swift; sourceTree = "<group>"; };
+		305366F324C6C4B900927498 /* MarkdownText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownText.swift; sourceTree = "<group>"; };
+		305366F824C75B9600927498 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		305424E923AC0432003F82A2 /* UIStackViewExtensionis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExtensionis.swift; sourceTree = "<group>"; };
 		3054B5BC23313EAA00AA7272 /* MarkdownUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownUtil.swift; sourceTree = "<group>"; };
 		3055D93C240E98BB00981DA2 /* PaymentNavigationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentNavigationService.swift; sourceTree = "<group>"; };
@@ -1534,6 +1544,7 @@
 				3018B1222376182D0005333A /* JournalEntryData.swift */,
 				30DCA5EF24417AA400D520D4 /* PromptContentDataSource.swift */,
 				30DCA5F724418BAA00D520D4 /* PromptContentData.swift */,
+				305366F824C75B9600927498 /* MockData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -1686,6 +1697,7 @@
 			children = (
 				305366DF24C690F600927498 /* Loading.swift */,
 				305366E924C6A21600927498 /* JournalEntryRow.swift */,
+				305366F324C6C4B900927498 /* MarkdownText.swift */,
 			);
 			path = "Supplemental Views";
 			sourceTree = "<group>";
@@ -2896,6 +2908,7 @@
 				303C9E3323841AEB006B9786 /* PromptContentService.swift in Sources */,
 				303C9DDA238419FE006B9786 /* ApiTypes.swift in Sources */,
 				303C9DEE23841AB6006B9786 /* CactusElementAnimationViewController.swift in Sources */,
+				305366FC24C75B9600927498 /* MockData.swift in Sources */,
 				3055D942240E999F00981DA2 /* PaymentNavigationService.swift in Sources */,
 				303C9E0023841AC1006B9786 /* PhotoContentViewController.swift in Sources */,
 				3084E96A234BACE300788279 /* FormatUtilTest.swift in Sources */,
@@ -2977,6 +2990,7 @@
 				303C9DF223841ABB006B9786 /* HelpViewController.swift in Sources */,
 				30DCA5F224417AA400D520D4 /* PromptContentDataSource.swift in Sources */,
 				3021CBD92410215500F58B89 /* NavigationService.swift in Sources */,
+				305366F724C6C4B900927498 /* MarkdownText.swift in Sources */,
 				303C9DF723841ABB006B9786 /* LinkedAccountsTableViewController.swift in Sources */,
 				303C9DE323841AA3006B9786 /* NotificationOnboardingViewController.swift in Sources */,
 				307B628724AD3B7200A4560E /* TextViewPlaceholderDelegate.swift in Sources */,
@@ -3204,6 +3218,7 @@
 				305B186F23319E09003E1561 /* FileUtils.swift in Sources */,
 				30DCA5F124417AA400D520D4 /* PromptContentDataSource.swift in Sources */,
 				301C1A91236F7E9700F06A3D /* MeaningAnimationViewController.swift in Sources */,
+				305366FB24C75B9600927498 /* MockData.swift in Sources */,
 				30E2D37B23432B21003D2B27 /* NavigationMenuViewController.swift in Sources */,
 				3099D1F22408DA1000BD9CC4 /* SubscriptionPlanOptionView.swift in Sources */,
 				302C4F512347FAA400798560 /* ProfileSettingsViewController.swift in Sources */,
@@ -3279,6 +3294,7 @@
 				30DCA5E62441207500D520D4 /* PromptEntryCollectionViewCell.swift in Sources */,
 				30762E5F2440E4A4000A18B3 /* ElementCell.swift in Sources */,
 				309561A522EE172B009357BD /* AppConfig.swift in Sources */,
+				305366F624C6C4B900927498 /* MarkdownText.swift in Sources */,
 				30051A4D23A86306005F812B /* InvertableImageView.swift in Sources */,
 				30265C6123453CB100934041 /* UIImage+SwiftyGif.swift in Sources */,
 				300F2372237A629800F35CDE /* CircleView.swift in Sources */,
@@ -3394,6 +3410,7 @@
 				30A3BC2A24C113780016955C /* PromptContentDataSource.swift in Sources */,
 				30A3BC2B24C113780016955C /* NavigationMenuViewController.swift in Sources */,
 				30A3BC2C24C113780016955C /* ProfileSettingsViewController.swift in Sources */,
+				305366F924C75B9600927498 /* MockData.swift in Sources */,
 				30A3BC2D24C113780016955C /* SubscriptionPlanOptionView.swift in Sources */,
 				30A3BC2E24C113780016955C /* FormatUtils.swift in Sources */,
 				30A3BC2F24C113780016955C /* PromptContent.swift in Sources */,
@@ -3469,6 +3486,7 @@
 				30A3BC6D24C113780016955C /* PromptEntryCollectionViewCell.swift in Sources */,
 				30A3BC6E24C113780016955C /* ElementCell.swift in Sources */,
 				30A3BC6F24C113780016955C /* TextContentViewController.swift in Sources */,
+				305366F424C6C4B900927498 /* MarkdownText.swift in Sources */,
 				30A3BC7024C113780016955C /* InvertableImageView.swift in Sources */,
 				30A3BC7124C113780016955C /* UIImage+SwiftyGif.swift in Sources */,
 				30A3BC7224C113780016955C /* CircleView.swift in Sources */,
@@ -3584,6 +3602,7 @@
 				301C1A90236F7E9700F06A3D /* MeaningAnimationViewController.swift in Sources */,
 				30DCA5F024417AA400D520D4 /* PromptContentDataSource.swift in Sources */,
 				30E2D37A23432B21003D2B27 /* NavigationMenuViewController.swift in Sources */,
+				305366FA24C75B9600927498 /* MockData.swift in Sources */,
 				302C4F502347FAA400798560 /* ProfileSettingsViewController.swift in Sources */,
 				3099D1F12408DA1000BD9CC4 /* SubscriptionPlanOptionView.swift in Sources */,
 				30934FA322EBF4E6007C4E6C /* FormatUtils.swift in Sources */,
@@ -3659,6 +3678,7 @@
 				30DCA5E52441207500D520D4 /* PromptEntryCollectionViewCell.swift in Sources */,
 				30762E5E2440E4A4000A18B3 /* ElementCell.swift in Sources */,
 				30BF2E2A23289F9F00A49EB6 /* TextContentViewController.swift in Sources */,
+				305366F524C6C4B900927498 /* MarkdownText.swift in Sources */,
 				30051A4C23A86306005F812B /* InvertableImageView.swift in Sources */,
 				30265C6023453CB100934041 /* UIImage+SwiftyGif.swift in Sources */,
 				300F2371237A629800F35CDE /* CircleView.swift in Sources */,

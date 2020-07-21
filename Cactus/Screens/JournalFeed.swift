@@ -18,39 +18,39 @@ struct JournalFeed: View {
         List {
             Text("My Journal Entries")
             ForEach(self.entries) { entry in
-                JournalEntryRow(entry: entry)                    
+                JournalEntryRow(entry: entry)
                     .onAppear {
                         Logger("JournalEntryRow on Appear").info("Journal entry will on appear")
                         let lastEntry = self.entries.last
                         if lastEntry?.id == entry.id {
                             self.session.journalFeedDataSource?.loadNextPage()
                         }
-                    }
+                }
             }
-            .padding()
+//            .padding()
             .listRowInsets(EdgeInsets())
+                .padding(30)
         }
         .onAppear(perform: {
             UITableView.appearance().separatorStyle = .none
         })
-        .edgesIgnoringSafeArea(.horizontal)
-        .edgesIgnoringSafeArea(.bottom)
+            .edgesIgnoringSafeArea(.horizontal)
+            .edgesIgnoringSafeArea(.bottom)
     }
 }
 
 struct JournalFeed_Previews: PreviewProvider {
-    static func createEntry(_ id: String) -> JournalEntry {
-        let entry = JournalEntry(promptId: id)
-        
-        return entry
-    }
     
     static func getSession() -> SessionStore {
         let session = SessionStore.mockLoggedIn()
-        session.journalEntries = [createEntry("one"), createEntry("two"), createEntry("two aldjaflskj aslfj sdalkjf dlafkj salfkj lfkajsdflakj lksdfj alkdfj laksj ")]
+        session.journalEntries = [
+            MockData.journalEntry(id: "one", content: [MockData.content("Promt Content Question Text 1")], loaded: false),
+            MockData.journalEntry(id: "two", content: [MockData.content("Second Promt Content Question Text with **really really bold** text in the second sentence. And if it keeps going and going, the entry keeps getting taller and taller!")], loaded: false),
+            MockData.journalEntry(id: "three", content: [MockData.content("Third question text")], loaded: true)
+        ]
         return session
     }
-    
+     
     static var previews: some View {
         JournalFeed().environmentObject(self.getSession())
     }
