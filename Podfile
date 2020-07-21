@@ -1,7 +1,7 @@
 source 'https://cdn.cocoapods.org/'
 
 # Uncomment the next line to define a global platform for your project
-platform :ios, '12.0'
+platform :ios, '13.0'
 install! 'cocoapods', :disable_input_output_paths => true
 
 def google_utilites

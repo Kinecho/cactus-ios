@@ -243,7 +243,7 @@ class NavigationMenuViewController: UIViewController {
     @IBAction func coreValuesTapped(_ sender: Any) {
         let coreValuesVC = ScreenID.CoreValuesAssessment.getViewController()
         coreValuesVC.modalPresentationStyle = .overCurrentContext
-        NavigationService.sharedInstance.present(coreValuesVC, animated: true)
+        NavigationService.shared.present(coreValuesVC, animated: true)
 //        self.navigationController?.pushViewController(coreValuesVC, animated: true)
     }
 }

@@ -62,6 +62,7 @@ class CoreValuesAssessmentViewController: UIViewController {
         guard let url = URL(string: "\(CactusConfig.webDomain)\(settings?.coreValuesPath ?? "/core-values/embed")") else {
             return
         }
+        logger.info("Loading core values url \(url.absoluteString)")
         webView.load(URLRequest(url: url))
     }
     
@@ -153,7 +154,7 @@ extension CoreValuesAssessmentViewController: WKScriptMessageHandler, WKNavigati
                 self.onPricingClosed()
             }
             pricingVc.modalPresentationStyle = .overCurrentContext
-            NavigationService.sharedInstance.present(pricingVc, animated: true)
+            NavigationService.shared.present(pricingVc, animated: true)
         }
     }
     

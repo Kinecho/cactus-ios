@@ -91,7 +91,7 @@ class SubscriptionService: NSObject {
         guard self.isAuthorizedForPayments == true else {
             let alert = UIAlertController(title: "Not Authorized", message: "This device is not authorized to make payments.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
-            NavigationService.sharedInstance.present(alert)
+            NavigationService.shared.present(alert)
             
             return
         }
@@ -113,7 +113,7 @@ class SubscriptionService: NSObject {
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
-        NavigationService.sharedInstance.present(alert, animated: true)
+        NavigationService.shared.present(alert, animated: true)
     }
     
     func completePurchase(restored: Bool=false, transaction: SKPaymentTransaction, onComplete: @escaping ((CompletePurchaseResult?, Any?) -> Void)) {

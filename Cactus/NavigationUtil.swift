@@ -20,6 +20,7 @@ enum ScreenID: String {
     case journalEmpty
     case promptContentPageView
     case Welcome
+    case WelcomeVC
     case LoadingFullScreen
     case BrowsePrompts
     case PromptContentCollection

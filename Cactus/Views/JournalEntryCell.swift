@@ -300,7 +300,7 @@ class JournalEntryCell: UICollectionViewCell {
             closeAnimation()
         }))
         
-        NavigationService.sharedInstance.present(alert, animated: true)
+        NavigationService.shared.present(alert, animated: true)
     }
     
     // MARK: Actions functions

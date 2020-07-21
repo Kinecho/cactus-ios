@@ -51,7 +51,7 @@ class ManageSubscriptionViewController: UIViewController {
     
     var formattedPrice: String {
         if let applePrice = self.subscriptionDetails?.upcomingInvoice?.appleProductPrice?.localePriceFormatted {
-            return applePrice;
+            return applePrice
         }
         
         return formatPriceCents(self.subscriptionDetails?.upcomingInvoice?.amountCentsUsd, truncateWholeDollar: true) ?? "$0.00"
@@ -240,7 +240,7 @@ class ManageSubscriptionViewController: UIViewController {
             logger.info("Unsupported platform")
         }
         if let url = url {
-            NavigationService.sharedInstance.openUrl(url: url)
+            NavigationService.shared.openUrl(url: url)
         }
         
     }

@@ -398,7 +398,7 @@ extension JournalFeedCollectionViewController: JournalEntryCollectionVieweCellDe
         editView.questionText = questionText
         editView.prompt = prompt
         self.editViewController = editView
-        NavigationService.sharedInstance.present(editView, animated: true)
+        NavigationService.shared.present(editView, animated: true)
         
         return editView
     }

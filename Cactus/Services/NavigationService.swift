@@ -18,7 +18,7 @@ class NavigationService {
     private static var _shared: NavigationService?
     weak var delegate: NavigationServiceDelegate?
     
-    static var sharedInstance: NavigationService {
+    static var shared: NavigationService {
         guard let shared = NavigationService._shared else {
             fatalError("You must call \"initialize\" before using the MainNavigationService.")
         }
@@ -93,5 +93,25 @@ class NavigationService {
     
     func openUrl(url: URL) {
         self.delegate?.open(url: url, options: [:], completionHandler: nil)
+    }
+    
+    func loadPromptContent(promptContentEntryId: String, link: String?=nil) {
+        SessionStore.shared.addAuthAction { _ in
+            let vc = LoadablePromptContentViewController.loadFromNib()
+            vc.originalLink = link
+            vc.promptContentEntryId = promptContentEntryId
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .coverVertical
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    func loadSharedReflection(reflectionId: String, link: String?=nil) {
+        SessionStore.shared.addAuthAction { _ in
+            let vc = LoadableSharedReflectionViewController.loadFromNib()
+            vc.originalLink = link
+            vc.reflectionId = reflectionId
+            self.present(vc, animated: true, completion: nil)
+        }
     }
 }

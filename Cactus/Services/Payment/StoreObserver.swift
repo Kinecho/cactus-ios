@@ -99,7 +99,7 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
             DispatchQueue.main.async {
                 let alert = UIAlertController(title: "Purchase Failed", message: "Unable to complete purchase. \(transaction.error?.localizedDescription ?? "")", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
-                NavigationService.sharedInstance.present(alert)
+                NavigationService.shared.present(alert)
             }
         }
         

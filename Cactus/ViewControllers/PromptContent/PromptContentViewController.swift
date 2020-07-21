@@ -113,7 +113,7 @@ class PromptContentViewController: UIViewController {
         case .showPricing:
             let vc = ScreenID.Pricing.getViewController()
             vc.modalPresentationStyle = .overCurrentContext
-            NavigationService.sharedInstance.present(vc)
+            NavigationService.shared.present(vc)
         case .next:
             self.delegate?.nextScreen()
         case .previous:
@@ -126,7 +126,7 @@ class PromptContentViewController: UIViewController {
             vc.member = self.member
             vc.modalPresentationStyle = .overCurrentContext
             self.coreValuesViewController = vc
-            NavigationService.sharedInstance.present(vc)
+            NavigationService.shared.present(vc)
         default:
             //no action
             logger.info("No action handler for action type \(action)")
@@ -198,7 +198,7 @@ class PromptContentViewController: UIViewController {
         }
         components?.queryItems = queryItems
         self.logger.info("navigating to url: \(components?.url?.absoluteString ?? "nil")")
-        NavigationService.sharedInstance.presentWebView(url: components?.url, on: self)
+        NavigationService.shared.presentWebView(url: components?.url, on: self)
     }
 }
 
@@ -219,7 +219,7 @@ extension PromptContentViewController: UITextViewDelegate {
         textView.resignFirstResponder()
         self.resignFirstResponder()
         self.delegate?.viewController.resignFirstResponder()
-        NavigationService.sharedInstance.presentWebView(url: URL)
+        NavigationService.shared.presentWebView(url: URL)
 //        self.delegate?.viewController.present(vc, animated: true, completion: nil)
         
         return false

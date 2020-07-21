@@ -18,7 +18,7 @@ class JournalHomeViewController: UIViewController {
     var emptyStateViewController: JournalHomeEmptyStateViewController?
     var menuDrawerViewController: NavigationMenuViewController!
     var isMenuExpanded = false
-    var memberListener:(() -> Void)?
+//    var memberListener:(() -> Void)?
     let overlayView = UIVisualEffectView()
     var alphaView: UIView!
     let menuContainer = UIView()
@@ -37,6 +37,9 @@ class JournalHomeViewController: UIViewController {
     var member: CactusMember! {
         didSet {
             self.updateViewForMember(member: self.member)
+            if let dataSource = self.journalFeedDataSource {
+                dataSource.currentMember = member
+            }
         }
     }
     
@@ -50,8 +53,14 @@ class JournalHomeViewController: UIViewController {
         return min(400, size.width * 4/5)
     }
     
-    var appSettings: AppSettings?
-    var appSettingsUnsubscriber: ListenerRegistration?
+    var appSettings: AppSettings? {
+        didSet {
+            if let dataSource = self.journalFeedDataSource {
+                dataSource.appSettings = self.appSettings
+            }
+        }
+    }
+//    var appSettingsUnsubscriber: ListenerRegistration?
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
@@ -85,23 +94,23 @@ class JournalHomeViewController: UIViewController {
 
         self.setupDrawer()
         
-        self.appSettingsUnsubscriber = AppSettingsService.sharedInstance.observeSettings({ (settings, error) in
-            if error != nil {
-                self.logger.error("Failed to get app settings", error)
-                return
-            }
-            self.appSettings = settings
-            self.journalFeedDataSource.appSettings = settings
-        })
+//        self.appSettingsUnsubscriber = AppSettingsService.sharedInstance.observeSettings({ (settings, error) in
+//            if error != nil {
+//                self.logger.error("Failed to get app settings", error)
+//                return
+//            }
+//            self.appSettings = settings
+//            self.journalFeedDataSource.appSettings = settings
+//        })
         
-        self.memberListener = CactusMemberService.sharedInstance.observeCurrentMember { (member, error, user) in
-            if let error = error {
-                self.logger.error("error observing cactus member", error)
-            }
-            self.user = user
-            self.member = member
-            self.journalFeedDataSource.currentMember = member
-        }
+//        self.memberListener = CactusMemberService.sharedInstance.observeCurrentMember { (member, error, user) in
+//            if let error = error {
+//                self.logger.error("error observing cactus member", error)
+//            }
+//            self.user = user
+//            self.member = member
+//            self.journalFeedDataSource.currentMember = member
+//        }
         
         if #available(iOS 13.0, *) {
             self.blurEffect = UIBlurEffect(style: .systemUltraThinMaterialDark)
@@ -258,8 +267,8 @@ class JournalHomeViewController: UIViewController {
     }
 
     deinit {
-        self.memberListener?()
-        self.appSettingsUnsubscriber?.remove()
+//        self.memberListener?()
+//        self.appSettingsUnsubscriber?.remove()
     }
 
     func setupView() {
@@ -289,6 +298,9 @@ class JournalHomeViewController: UIViewController {
     
     func updateViewForMember(member: CactusMember?) {
 //        self.journalFeedDataSource?.curr
+        guard self.isViewLoaded else {
+            return
+        }
         self.logger.info("Update view for member", functionName: #function)
         if member?.subscription?.isInOptInTrial == true {
             self.showTrialBanner()
@@ -298,6 +310,9 @@ class JournalHomeViewController: UIViewController {
     }
     
     func updateViewForUser(user: Firebase.User?) {
+        guard self.isViewLoaded else {
+            return
+        }
         self.logger.info("Updating view for user")
         if let imageUrl = user?.photoURL {
             ImageService.shared.setFromUrl(self.profileImageView, url: imageUrl)
@@ -471,6 +486,6 @@ extension JournalHomeViewController: PromptContentPageViewControllerDelegate {
                 return
         }
     
-        NavigationService.sharedInstance.present(pricingVc, on: self.presentingViewController)
+        NavigationService.shared.present(pricingVc, on: self.presentingViewController)
     }
 }

@@ -98,7 +98,7 @@ class JournalFeedDataSource {
     
     var pageListeners: [ListenerRegistration] = []
     var pages: [PageLoader<SentPrompt>] = []
-    var pageSize: Int = 10
+    var pageSize: Int = 3
     var mightHaveMore: Bool {self.pages.last?.result?.mightHaveMore ?? false}
     
     var todayDateString: String?
@@ -280,10 +280,10 @@ class JournalFeedDataSource {
     func loadNextPage() {
         self.logger.info("attempting to load next page", functionName: #function)
         
-        guard !self.isLoading else {
-            logger.info("Already loading more, can't fetch next page", functionName: #function)
-            return
-        }
+//        guard !self.pagesLoading else {
+//            logger.info("Already loading more, can't fetch next page", functionName: #function)
+//            return
+//        }
         guard let member = self.currentMember else {
             logger.warn("No current member found, can't load next page", functionName: #function)
             return

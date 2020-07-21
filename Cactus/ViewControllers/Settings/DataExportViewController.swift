@@ -134,7 +134,7 @@ class DataExportViewController: UIViewController {
                 self.exportResult = result
                 
                 if openOnComplete, let downloadUrl = result.downloadUrl, let url = URL(string: downloadUrl) {
-                    NavigationService.sharedInstance.openUrl(url: url)
+                    NavigationService.shared.openUrl(url: url)
                 }
             }
         }
@@ -145,7 +145,7 @@ class DataExportViewController: UIViewController {
             self.createExport(sendEmail: false, openOnComplete: true)
             return
         }
-        NavigationService.sharedInstance.openUrl(url: url)
+        NavigationService.shared.openUrl(url: url)
     }
     /*
      // MARK: - Navigation

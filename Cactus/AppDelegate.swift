@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application,
             didFinishLaunchingWithOptions: launchOptions
         )
-                
+        
         logger.debug("Is facebook intent: \(isFacebokIntent)", functionName: #function, line: #line)
         
         self.setupBranch(launchOptions: launchOptions)
@@ -63,17 +63,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Logger.configureLogging(auth: Auth.auth())
         NotificationService.start(application: application)
         
-        //Configure Root View controller
-        guard let rootVc = ScreenID.AppMain.getViewController() as? AppMainViewController else {
-            fatalError("Unable to start main view controller in App Delegate")
-        }
-        NavigationService.initialize(rootVc: rootVc, delegate: self)
-        self.window?.rootViewController = rootVc
-        self.window?.makeKeyAndVisible()
+        //moved to scene delegate
+        //        //Configure Root View controller
+        //        guard let rootVc = ScreenID.AppMain.getViewController() as? AppMainViewController else {
+        //            fatalError("Unable to start main view controller in App Delegate")
+        //        }
+        //        NavigationService.initialize(rootVc: rootVc, delegate: self)
+        //        self.window?.rootViewController = rootVc
+        //        self.window?.makeKeyAndVisible()
         
         CactusMemberService.sharedInstance.instanceIDDelegate = self
         
         return true
+    }
+    
+    // MARK: UISceneSession Lifecycle
+    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        // Called when a new scene session is being created.
+        // Use this method to select a configuration to create the new scene with.
+        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+    }
+    
+    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
+        // Called when the user discards a scene session.
+        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
+        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
     func setupRevenueCat() {
@@ -202,7 +216,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             open: url,
             options: options
         )
-       
+        
         guard let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String? else {
             return false
         }
@@ -213,12 +227,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         // other URL handling goes here.
         self.logger.debug("handling custom link scheme \(url)", functionName: #function, line: #line)
-
+        
         if Branch.getInstance().application(app, open: url, options: options) {
             self.logger.info("Branch handled the URL open \(url.absoluteString)", functionName: #function)
             return true
         }
-           
+        
         if UserService.sharedInstance.handleActivityURL(url) {
             return true
         } else if LinkHandlerUtil.handlePromptContent(url) {
@@ -257,8 +271,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             StorageService.sharedInstance.setLocalSignupQueryParams(queryParams)
         }
         if Branch.getInstance().continue(userActivity) {
-           return true
-       }
+            return true
+        }
         
         if let activityUrl = userActivity.webpageURL {
             if Branch.getInstance().handleDeepLink(activityUrl) {
@@ -279,12 +293,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return false
     }
-}
-
-extension AppDelegate: NavigationServiceDelegate {
-    func open(url: URL, options: [UIApplication.OpenExternalURLOptionsKey: Any], completionHandler: ((Bool) -> Void)?) {
-        UIApplication.shared.open(url, options: options, completionHandler: completionHandler)
-    }    
 }
 
 extension AppDelegate: InstanceIDDelegate {

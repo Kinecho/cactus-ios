@@ -62,7 +62,7 @@ class WebViewController: UIViewController {
         if let url = self.webView.url {
             self.resignFirstResponder()
             self.webView.resignFirstResponder()
-            NavigationService.sharedInstance.openUrl(url: url)
+            NavigationService.shared.openUrl(url: url)
         }
     }
     

@@ -99,6 +99,7 @@ class AppMainViewController: UIViewController {
         }
     }
     
+    // @Deprecated - use SessionStore instead
     func addPendingAction(_ action: @escaping () -> Void) {
         self.pendingAction = action
         self.runPendingActions()
@@ -143,40 +144,41 @@ class AppMainViewController: UIViewController {
         return vc
     }
     
-    func loadPromptContent(promptContentEntryId: String, link: String?=nil) {
-        self.addPendingAction {
-            let vc = LoadablePromptContentViewController.loadFromNib()
-            vc.originalLink = link
-            vc.promptContentEntryId = promptContentEntryId
-            vc.modalPresentationStyle = .overFullScreen
-            vc.modalTransitionStyle = .coverVertical
-            self.present(vc, animated: true, completion: nil)
-        }
-    }
+    // @Deprecated - use SessionStore
+//    func loadPromptContent(promptContentEntryId: String, link: String?=nil) {
+//        self.addPendingAction {
+//            let vc = LoadablePromptContentViewController.loadFromNib()
+//            vc.originalLink = link
+//            vc.promptContentEntryId = promptContentEntryId
+//            vc.modalPresentationStyle = .overFullScreen
+//            vc.modalTransitionStyle = .coverVertical
+//            self.present(vc, animated: true, completion: nil)
+//        }
+//    }
     
-    func loadSharedReflection(reflectionId: String, link: String?=nil) {
-        self.addPendingAction {
-            let vc = LoadableSharedReflectionViewController.loadFromNib()
-            vc.originalLink = link
-            vc.reflectionId = reflectionId
-            self.present(vc, animated: true, completion: nil)
-        }
-    }
+//    func loadSharedReflection(reflectionId: String, link: String?=nil) {
+//        self.addPendingAction {
+//            let vc = LoadableSharedReflectionViewController.loadFromNib()
+//            vc.originalLink = link
+//            vc.reflectionId = reflectionId
+//            self.present(vc, animated: true, completion: nil)
+//        }
+//    }
     
-    func sendLoginEvent(_ loginEvent: LoginEvent) {
-        DispatchQueue.global(qos: .background).async {
-            var loginEvent = loginEvent
-            loginEvent.signupQueryParams = StorageService.sharedInstance.getLocalSignupQueryParams()
-            
-            ApiService.sharedInstance.sendLoginEvent(loginEvent, completed: { error in
-                if let error = error {
-                    self.logger.error("Failed to send login event", error)
-                    return
-                }
-                self.logger.info("login event completed")
-            })
-        }
-    }
+//    func sendLoginEvent(_ loginEvent: LoginEvent) {
+//        DispatchQueue.global(qos: .background).async {
+//            var loginEvent = loginEvent
+//            loginEvent.signupQueryParams = StorageService.sharedInstance.getLocalSignupQueryParams()
+//
+//            ApiService.sharedInstance.sendLoginEvent(loginEvent, completed: { error in
+//                if let error = error {
+//                    self.logger.error("Failed to send login event", error)
+//                    return
+//                }
+//                self.logger.info("login event completed")
+//            })
+//        }
+//    }
     
     func showScreen(_ screen: UIViewController, wrapInNav: Bool=false) -> UIViewController {
         var newVc = screen
@@ -215,7 +217,7 @@ class AppMainViewController: UIViewController {
         }
         DispatchQueue.main.async {
             loadingVc.message = "Deleting Account..."
-            NavigationService.sharedInstance.present(loadingVc)
+            NavigationService.shared.present(loadingVc)
         }
         
         UserService.sharedInstance.deleteUserPermenantly { (result) in
@@ -226,7 +228,7 @@ class AppMainViewController: UIViewController {
                         AuthService.sharedInstance.logout()
                         let alert = UIAlertController(title: "Account Deleted", message: "Your account as been successfully deleted.", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
-                        NavigationService.sharedInstance.present(alert)
+                        NavigationService.shared.present(alert)
                     }
                 }
             }

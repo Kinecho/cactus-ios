@@ -31,8 +31,8 @@ class PromptContentPageViewController: UIPageViewController {
     var logger = Logger(fileName: "PromptContentPageViewController")
     var celebrateVc: CelebrateViewController?
     var appSettings: AppSettings?
-    var settingsUnsubscriber: ListenerRegistration?
-    var memberUnsubscriber: Unsubscriber?
+//    var settingsUnsubscriber: ListenerRegistration?
+//    var memberUnsubscriber: Unsubscriber?
 
     var member: CactusMember? {
         didSet {
@@ -49,16 +49,16 @@ class PromptContentPageViewController: UIPageViewController {
         self.dataSource = self
         self.delegate = self
         
-        self.member = CactusMemberService.sharedInstance.currentMember
-        self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, _, _) in
-            self.member = member
-        })
-        
-        self.appSettings = AppSettingsService.sharedInstance.currentSettings
-        self.settingsUnsubscriber = AppSettingsService.sharedInstance.observeSettings { (settings, _) in
-            self.appSettings = settings
-            self.celebrateVc?.appSettings = settings
-        }
+//        self.member = CactusMemberService.sharedInstance.currentMember
+//        self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, _, _) in
+//            self.member = member
+//        })
+//
+//        self.appSettings = AppSettingsService.sharedInstance.currentSettings
+//        self.settingsUnsubscriber = AppSettingsService.sharedInstance.observeSettings { (settings, _) in
+//            self.appSettings = settings
+//            self.celebrateVc?.appSettings = settings
+//        }
         
         self.configureScreens()
         self.view.backgroundColor = CactusColor.promptBackground
@@ -79,8 +79,8 @@ class PromptContentPageViewController: UIPageViewController {
     }
     
     deinit {
-        self.settingsUnsubscriber?.remove()
-        self.memberUnsubscriber?()
+//        self.settingsUnsubscriber?.remove()
+//        self.memberUnsubscriber?()
     }
     
     var currentIsReflect: Bool {

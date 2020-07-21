@@ -11,6 +11,8 @@ disabled_rules:
   - file_length
   - cyclomatic_complexity
   - type_name
+  - force_cast
+  - multiple_closures_with_trailing_closure
 
 included: 
   - Cactus

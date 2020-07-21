@@ -144,7 +144,11 @@ class JournalEntryData {
     }
 }
 
-struct JournalEntry: Equatable {
+struct JournalEntry: Equatable, Identifiable {
+    var id: String {
+        return self.promptId ?? "not-set"
+    }
+
     static func == (lhs: JournalEntry, rhs: JournalEntry) -> Bool {
         return lhs.prompt?.id == rhs.prompt?.id
             && lhs.sentPrompt?.id == rhs.sentPrompt?.id
@@ -168,6 +172,7 @@ struct JournalEntry: Equatable {
     
     init(promptId: String?) {
         self.promptId = promptId
+        
     }
     
 //    var isTodaysPrompt: Bool {
