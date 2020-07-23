@@ -16,7 +16,7 @@ struct JournalFeed: View {
     
     var body: some View {
         List {
-            Text("My Journal Entries")
+            Text("\(session.member?.email ?? "My") Journal Entries")
             ForEach(self.entries) { entry in
                 JournalEntryRow(entry: entry)
                     .onAppear {
@@ -27,9 +27,8 @@ struct JournalFeed: View {
                         }
                 }
             }
-//            .padding()
-            .listRowInsets(EdgeInsets())
-                .padding(30)
+            .padding()
+            .listRowInsets(EdgeInsets())        
         }
         .onAppear(perform: {
             UITableView.appearance().separatorStyle = .none
@@ -45,7 +44,8 @@ struct JournalFeed_Previews: PreviewProvider {
         let session = SessionStore.mockLoggedIn()
         session.journalEntries = [
             MockData.journalEntry(id: "one", content: [MockData.content("Promt Content Question Text 1")], loaded: false),
-            MockData.journalEntry(id: "two", content: [MockData.content("Second Promt Content Question Text with **really really bold** text in the second sentence. And if it keeps going and going, the entry keeps getting taller and taller!")], loaded: false),
+            MockData.journalEntry(id: "two", content: [MockData.content("Second Promt Content Question Text with **really really bold** text in the second sentence."
+                + " And if it keeps going and going, the entry keeps getting taller and taller!")], loaded: false),
             MockData.journalEntry(id: "three", content: [MockData.content("Third question text")], loaded: true)
         ]
         return session

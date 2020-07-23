@@ -8,36 +8,34 @@
 
 import SwiftUI
 
-struct AttributedLabel: UIViewRepresentable {
-    let markdown: String?
-    let width: CGFloat?
-    init(_ markdown: String?, width: CGFloat?) {
-        self.markdown = markdown
+struct TextWithAttributedString: UIViewRepresentable {
+
+    let attributedString: NSAttributedString?
+    var width: CGFloat
+    
+    init(_ attributedString: NSAttributedString?, width: CGFloat) {
+        self.attributedString = attributedString
         self.width = width
     }
     
-    func makeUIView(context: UIViewRepresentableContext<Self>) -> UILabel {
+    func makeUIView(context: Context) -> UILabel {
         let label = UILabel()
-        label.attributedText =  MarkdownUtil.toMarkdown(markdown)
-        label.isHidden = isBlank(self.markdown)
-//        label.sizeThatFits(CGSize(width: 300, height: 200))
-        if let width = self.width {
-            label.preferredMaxLayoutWidth = width
-        }
-//        label.preferredMaxLayoutWidth = context.environment.geo
-        
-        label.numberOfLines = 0
-        label.autoresizesSubviews = true
-        label.translatesAutoresizingMaskIntoConstraints = true
         label.lineBreakMode = .byWordWrapping
-        label.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        label.sizeToFit()
+        label.numberOfLines = 0
+        label.preferredMaxLayoutWidth = width
+        label.backgroundColor = .green
+        label.sizeToFit()
         return label
     }
     
-    func updateUIView(_ uiView: UILabel, context: Context) {
-        uiView.attributedText =  MarkdownUtil.toMarkdown(markdown)
-        uiView.isHidden = isBlank(self.markdown)
+    func updateUIView(_ uiView: UILabel, context: UIViewRepresentableContext<Self>) {
+        guard let attributedString = self.attributedString else {
+            uiView.isHidden = true
+            uiView.attributedText = nil
+            return
+        }
+        uiView.isHidden = false
+        uiView.attributedText = attributedString
     }
 }
 
@@ -48,10 +46,18 @@ struct MarkdownText: View {
         self.markdown = text
     }
     
+    var attributedString: NSAttributedString? {
+        return MarkdownUtil.toMarkdown(self.markdown)
+    }
+    
     var body: some View {
         GeometryReader { geometry in
-            AttributedLabel(self.markdown, width: geometry.size.width).padding(EdgeInsets())
+            TextWithAttributedString(self.attributedString, width: geometry.size.width)
+                .background(Color.blue)
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
+                .background(Color.red)
         }
+        
     }
 
 }
@@ -62,7 +68,7 @@ struct MarkdownText_Previews: PreviewProvider {
         Group {
             MarkdownText("this is **a really great** question! that goes on and on and on for ever until we can't fit on one line anymore.")
                 .multilineTextAlignment(.leading)
-        }.padding(100)
-            .previewLayout(.fixed(width: 400, height: 300))
+        }.padding(20)
+//            .previewLayout(.fixed(width: 400, height: 300))
     }
 }
