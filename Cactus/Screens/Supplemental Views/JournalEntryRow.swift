@@ -9,48 +9,47 @@
 import SwiftUI
 import URLImage
 
-struct JournalEntryRow: View {
+struct JournalEntryAnswered: View {
     var entry: JournalEntry
-    @EnvironmentObject var session: SessionStore
-    @State var showPrompt = false
-    @State var showMoreActions = false
     
-    var imageWidth: CGFloat = 58
-    
-    var questionText: String? {
-        return self.entry.promptContent?.getDisplayableQuestion() ?? self.entry.prompt?.question
+    var body: some View {
+        Text("Hello! Answered")
+    }
+}
+
+struct JournalEntryUnAnswered: View {
+    var entry: JournalEntry
+    var imageWidth: CGFloat = 140
+    var imageOffsetX: CGFloat {
+        return self.imageWidth / 3
     }
     
-    var imageUrl: URL? {
-        let photo = self.entry.promptContent?.getMainImageFile()
-        return ImageService.shared.getUrlFromFile(photo)
+    var textWidthFactor: CGFloat {
+        self.entry.imageUrl != nil ? 2 / 3 : 1
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack(alignment: .center) {
-                Text("Today")
-                Spacer()
-                Button(action: {
-                    self.showMoreActions.toggle()
-                }) {
-                    Image(CactusImage.dots.rawValue)
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                        .rotationEffect(.degrees(self.showMoreActions ? 90 : 0))
-                        .animation(.interpolatingSpring(mass: 0.2, stiffness: 25, damping: 2, initialVelocity: -0.5))
-                        .accentColor(Color(CactusColor.textMinimized))
+        HStack(alignment: .top) {
+//            GeometryReader { geometry in
+                VStack(alignment: .leading) {
+                    if self.entry.questionText != nil {
+                        MDText(markdown: self.entry.questionText!)
+//                            .font(.headline)
+                        .lineLimit(nil)
+                        
+                    }
+                    if self.entry.introText != nil {
+                        MDText(markdown: self.entry.introText!)
+//                            .font(.subheadline)
+                        .lineLimit(nil)
+                        
+                    }
                 }
-            }
             
-            HStack(alignment: .top) {
-                MDText(markdown: self.questionText ?? "")
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 44, maxHeight: .infinity, alignment: .topLeading)
-                    .multilineTextAlignment(.leading)
                 Spacer(minLength: 20)
-
-                if self.imageUrl != nil {
-                    URLImage(self.imageUrl!,
+            
+                if self.entry.imageUrl != nil {
+                    URLImage(self.entry.imageUrl!,
                              delay: 0.1,
                              processors: [ Resize(size: CGSize(width: self.imageWidth, height: self.imageWidth), scale: UIScreen.main.scale) ],
 
@@ -66,17 +65,62 @@ struct JournalEntryRow: View {
                             .aspectRatio(contentMode: .fit)
                             .shadow(radius: 10.0)
                     })
-                        .frame(width: self.imageWidth, height: self.imageWidth)
-                    
+                        .offset(x: self.imageOffsetX, y: 0)
+                        .padding(.leading, -self.imageOffsetX)
+                        
+//                        .frame(width: self.imageWidth, height: self.imageWidth)
+                }
+            }
+
+        }
+        
+//    }
+    
+}
+
+struct JournalEntryRow: View {
+    var entry: JournalEntry
+    @EnvironmentObject var session: SessionStore
+    @State var showPrompt = false
+    @State var showMoreActions = false
+    
+    var hasResponse: Bool {
+        return entry.responsesLoaded && !(entry.responses ?? []).isEmpty
+    }
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            HStack(alignment: .center) {
+                if entry.dateString != nil {
+                    Text(entry.dateString!)
                 }
                 
+                Spacer()
+                Button(action: {
+                    self.showMoreActions.toggle()
+                }) {
+                    Image(CactusImage.dots.rawValue)
+                        .resizable()
+                        .frame(width: 30, height: 30)
+                        .rotationEffect(.degrees(self.showMoreActions ? 90 : 0))
+                        .animation(.interpolatingSpring(mass: 0.2, stiffness: 25, damping: 2, initialVelocity: -0.5))
+                        .accentColor(Color(CactusColor.textMinimized))
+                }
             }
-    
+            VStack(alignment: .leading) {
+                if self.hasResponse {
+                    //                JournalEntryAnswered(entry: self.entry)
+                    JournalEntryUnAnswered(entry: self.entry)
+                } else {
+                    JournalEntryUnAnswered(entry: self.entry)
+                }
+            }
+            
         }
         .onTapGesture {
             self.showPrompt = true
         }
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity, alignment: .topLeading)
         .padding(20)
         .background(Color.white)
         .cornerRadius(10)
@@ -96,61 +140,13 @@ struct JournalEntryRow: View {
 }
 
 struct JournalEntryRow_Previews: PreviewProvider {
-    static func getLoadingEntry() -> JournalEntry {
-        var entry = JournalEntry(promptId: "testId")
-        entry.loadingComplete = false
-        
-        let promptContent = PromptContent()
-        let text = Content()
-        text.contentType = .reflect
-        text.text_md = "this is **a really great** question!"
-        promptContent.content = [
-            text
-        ]
-        entry.promptContent = promptContent
-        
-        return entry
-    }
-    
-    static func getEntry() -> JournalEntry {
-        var entry = JournalEntry(promptId: "testId")
-        entry.loadingComplete = true
-        
-        let promptContent = PromptContent()
-        let text = Content()
-        text.contentType = .reflect
-        text.backgroundImage = ContentBackgroundImage(storageUrl: "https://firebasestorage.googleapis.com/v0/b/cactus-app-prod.appspot.com/o/flamelink%2Fmedia%2F200707.png?alt=media&token=3ff817ca-f58f-457a-aff0-bbefebb095ad")
-        
-        text.text_md = "this is **a really great** question! that goes on and on and on for ever until we can't fit on one line anymore."
-        promptContent.content = [
-            text
-        ]
-        entry.promptContent = promptContent
-        
-        return entry
-    }
-    
-    static func getNoTextEntry() -> JournalEntry {
-          var entry = JournalEntry(promptId: "testId")
-          entry.loadingComplete = true
-          
-          let promptContent = PromptContent()
-          let text = Content()
-          text.contentType = .reflect
-          text.text_md = nil
-          promptContent.content = [
-              text
-          ]
-          entry.promptContent = promptContent
-          
-          return entry
-      }
     
     static var previews: some View {
         Group {
-            JournalEntryRow(entry: self.getLoadingEntry()).previewDisplayName("Loading")
-            JournalEntryRow(entry: self.getNoTextEntry()).previewDisplayName("No Question")
-            JournalEntryRow(entry: self.getEntry()).previewDisplayName("Question & Image")
+            JournalEntryRow(entry: MockData.getLoadingEntry()).previewDisplayName("Loading")
+            JournalEntryRow(entry: MockData.EntryBuilder(question: nil, answer: nil).build()).previewDisplayName("No Question")
+            JournalEntryRow(entry: MockData.getUnansweredEntry()).previewDisplayName("Question & Image")
+            JournalEntryRow(entry: MockData.getUnansweredEntry(isToday: true)).previewDisplayName("Today")
         }
         .padding()
         .background(Color.gray)

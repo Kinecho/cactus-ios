@@ -174,6 +174,32 @@ struct JournalEntry: Equatable, Identifiable {
         self.promptId = promptId
         
     }
+
+    
+   var questionText: String? {
+       return self.promptContent?.getDisplayableQuestion() ?? self.prompt?.question
+   }
+   
+    var introText: String? {
+        return self.promptContent?.getIntroTextMarkdown()
+    }
+    
+   var imageUrl: URL? {
+       let photo = self.promptContent?.getMainImageFile()
+       return ImageService.shared.getUrlFromFile(photo)
+   }
+   
+   var dateString: String? {
+       if self.isTodaysPrompt {
+           return "Today"
+       }
+       
+       guard let date = self.sentPrompt?.firstSentAt ?? self.responses?.first?.createdAt else {
+           return nil
+       }
+               
+       return FormatUtils.formatDate(date)
+   }
     
 //    var isTodaysPrompt: Bool {
 //        guard let date = self.journalDate, self.sentPrompt == nil else {

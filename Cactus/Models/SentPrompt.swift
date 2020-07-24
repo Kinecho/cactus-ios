@@ -35,6 +35,7 @@ class SentPrompt: FirestoreIdentifiable, Hashable {
     var updatedAt: Date?
     var completed: Bool? = false
     var completedAt: Date?
+    var promptType: PromptType? = PromptType.CACTUS
     
     static func == (lhs: SentPrompt, rhs: SentPrompt) -> Bool {
         return lhs.id != nil && rhs.id != nil && lhs.id == rhs.id

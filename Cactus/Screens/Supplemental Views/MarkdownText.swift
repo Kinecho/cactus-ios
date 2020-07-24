@@ -1,4 +1,7 @@
 //
+//  Created by Andre Carrera on 10/9/19.
+//  Copyright © 2019 Lambdo. All rights reserved.
+//  https://github.com/Lambdo-Labs/MDText
 //  MarkdownText.swift
 //  Cactus
 //

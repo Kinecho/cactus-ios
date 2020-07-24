@@ -18,7 +18,7 @@ struct JournalFeed: View {
         List {
             Text("\(session.member?.email ?? "My") Journal Entries")
             ForEach(self.entries) { entry in
-                JournalEntryRow(entry: entry)
+                JournalEntryRow(entry: entry)                    
                     .onAppear {
                         Logger("JournalEntryRow on Appear").info("Journal entry will on appear")
                         let lastEntry = self.entries.last
@@ -43,10 +43,10 @@ struct JournalFeed_Previews: PreviewProvider {
     static func getSession() -> SessionStore {
         let session = SessionStore.mockLoggedIn()
         session.journalEntries = [
-            MockData.journalEntry(id: "one", content: [MockData.content("Promt Content Question Text 1")], loaded: false),
-            MockData.journalEntry(id: "two", content: [MockData.content("Second Promt Content Question Text with **really really bold** text in the second sentence."
-                + " And if it keeps going and going, the entry keeps getting taller and taller!")], loaded: false),
-            MockData.journalEntry(id: "three", content: [MockData.content("Third question text")], loaded: true)
+            MockData.getUnansweredEntry(isToday: true),
+            MockData.getUnansweredEntry(isToday: false),
+            MockData.EntryBuilder(question: "What do you think of SwiftUI?", answer: "This is a really thoughtful response.").build(),
+            MockData.getLoadingEntry(),
         ]
         return session
     }

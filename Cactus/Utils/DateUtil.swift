@@ -176,3 +176,9 @@ func calculateStreak(_ reflections: [ReflectionResponse]?) -> Int {
     
     return calculateStreak(dates)
 }
+
+func dateFromString(_ input: String, format: String?) -> Date? {
+    let df = DateFormatter()
+    df.dateFormat = format ?? "yyyy-MM-dd"
+    return df.date(from: input)
+}
