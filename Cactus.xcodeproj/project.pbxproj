@@ -1042,6 +1042,11 @@
 		30D0E456236C98C100EFC0E3 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D0E453236C98C100EFC0E3 /* StringExtensions.swift */; };
 		30D461372362750900B8AED7 /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */; };
 		30D461382362750D00B8AED7 /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */; };
+		30D6E32424CA6B5300A4EA75 /* MDSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32324CA6B5300A4EA75 /* MDSwift.swift */; };
+		30D6E32524CA6B5300A4EA75 /* MDSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32324CA6B5300A4EA75 /* MDSwift.swift */; };
+		30D6E32624CA6B5300A4EA75 /* MDSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32324CA6B5300A4EA75 /* MDSwift.swift */; };
+		30D6E32724CA6B5300A4EA75 /* MDSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32324CA6B5300A4EA75 /* MDSwift.swift */; };
+		30D6E32824CA6B5300A4EA75 /* MDSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32324CA6B5300A4EA75 /* MDSwift.swift */; };
 		30D7385D23CFFC62006F4DA6 /* InviteContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D7385B23CFFC62006F4DA6 /* InviteContentViewController.swift */; };
 		30D7385E23CFFC62006F4DA6 /* InviteContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D7385B23CFFC62006F4DA6 /* InviteContentViewController.swift */; };
 		30D7385F23CFFC62006F4DA6 /* InviteContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D7385B23CFFC62006F4DA6 /* InviteContentViewController.swift */; };
@@ -1413,6 +1418,7 @@
 		30CF539723732EC300578B22 /* VideoContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoContentViewController.xib; sourceTree = "<group>"; };
 		30D0E453236C98C100EFC0E3 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
+		30D6E32324CA6B5300A4EA75 /* MDSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDSwift.swift; sourceTree = "<group>"; };
 		30D7385B23CFFC62006F4DA6 /* InviteContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteContentViewController.swift; sourceTree = "<group>"; };
 		30D7385C23CFFC62006F4DA6 /* InviteContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InviteContentViewController.xib; sourceTree = "<group>"; };
 		30D7386323D00AC6006F4DA6 /* Social.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Social.storyboard; sourceTree = "<group>"; };
@@ -1698,6 +1704,7 @@
 				305366DF24C690F600927498 /* Loading.swift */,
 				305366E924C6A21600927498 /* JournalEntryRow.swift */,
 				305366F324C6C4B900927498 /* MarkdownText.swift */,
+				30D6E32324CA6B5300A4EA75 /* MDSwift.swift */,
 			);
 			path = "Supplemental Views";
 			sourceTree = "<group>";
@@ -2979,6 +2986,7 @@
 				308C5A5124479AD60087345D /* PricingFeatureItemViewController.swift in Sources */,
 				30E9D04624784FBF00FE4E5F /* CactusMemberTest.swift in Sources */,
 				30D0E451236C921200EFC0E3 /* FontExtensions.swift in Sources */,
+				30D6E32824CA6B5300A4EA75 /* MDSwift.swift in Sources */,
 				303C9DC5237F6799006B9786 /* StorageService.swift in Sources */,
 				303C9DE823841AB6006B9786 /* ExperienceAnimationViewController.swift in Sources */,
 				3055D943240E99BD00981DA2 /* SubscriptionService.swift in Sources */,
@@ -3078,6 +3086,7 @@
 			files = (
 				304B216623D39444007B016C /* FirestoreService.swift in Sources */,
 				304B214223D3914C007B016C /* ViewControllerExtensions.swift in Sources */,
+				30D6E32724CA6B5300A4EA75 /* MDSwift.swift in Sources */,
 				3055D93A240E931900981DA2 /* SubscriptionUtil.swift in Sources */,
 				304B215423D392C2007B016C /* JournalFeedFlowLayout.swift in Sources */,
 				3055D941240E994500981DA2 /* SubscriptionProductService.swift in Sources */,
@@ -3210,6 +3219,7 @@
 				30BF2E35232964CD00A49EB6 /* FlamelinkTypes.swift in Sources */,
 				305366E724C69BC100927498 /* JournalFeed.swift in Sources */,
 				305CB0FD23D03C080046E8A8 /* ContactService.swift in Sources */,
+				30D6E32624CA6B5300A4EA75 /* MDSwift.swift in Sources */,
 				3023FE3122ECD0A300F753A7 /* NotificationService.swift in Sources */,
 				304A252D240DCC2200737C57 /* SubscriptionInvoice.swift in Sources */,
 				30E9B0AD22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
@@ -3402,6 +3412,7 @@
 				30A3BC2324C113780016955C /* BorderedButton.swift in Sources */,
 				305366E524C69BC100927498 /* JournalFeed.swift in Sources */,
 				30A3BC2424C113780016955C /* SubscriptionInvoice.swift in Sources */,
+				30D6E32424CA6B5300A4EA75 /* MDSwift.swift in Sources */,
 				30A3BC2524C113780016955C /* ReflectionPromptService.swift in Sources */,
 				30A3BC2624C113780016955C /* SocialContactTableViewCell.swift in Sources */,
 				30A3BC2724C113780016955C /* SubscriptionProductGroup.swift in Sources */,
@@ -3594,6 +3605,7 @@
 				305CB0FC23D03C080046E8A8 /* ContactService.swift in Sources */,
 				305366E624C69BC100927498 /* JournalFeed.swift in Sources */,
 				30934F9922EBF235007C4E6C /* BorderedButton.swift in Sources */,
+				30D6E32524CA6B5300A4EA75 /* MDSwift.swift in Sources */,
 				304A252C240DCC2200737C57 /* SubscriptionInvoice.swift in Sources */,
 				30934FAC22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */,
 				308505A523D0E490001179E2 /* SocialContactTableViewCell.swift in Sources */,

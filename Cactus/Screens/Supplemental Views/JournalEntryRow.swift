@@ -44,7 +44,7 @@ struct JournalEntryRow: View {
             }
             
             HStack(alignment: .top) {
-                Text(self.questionText ?? "")
+                MDText(markdown: self.questionText ?? "")
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 44, maxHeight: .infinity, alignment: .topLeading)
                     .multilineTextAlignment(.leading)
                 Spacer(minLength: 20)
