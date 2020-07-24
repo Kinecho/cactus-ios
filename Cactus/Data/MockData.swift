@@ -77,7 +77,9 @@ struct MockData {
     static func getUnansweredEntry(isToday: Bool=false) -> JournalEntry {
         let builder = MockData.EntryBuilder(question: "How do you overcome **failure**?", answer: nil)
             .setAllLoaded(true)
-            .prependContent(MockData.content("Today you'll focus on how you conquer difficult challenges and failure.", .text, backgroundImage: "https://firebasestorage.googleapis.com/v0/b/cactus-app-prod.appspot.com/o/flamelink%2Fmedia%2F200707.png?alt=media&token=3ff817ca-f58f-457a-aff0-bbefebb095ad"))
+            .prependContent(MockData.content("Today you'll focus on how you conquer difficult challenges and failure.",
+                                             .text,
+                                             backgroundImage: "https://firebasestorage.googleapis.com/v0/b/cactus-app-prod.appspot.com/o/flamelink%2Fmedia%2F200507.png?alt=media&token=ed3d7256-81a6-4bdd-bb57-16991c284e47"))
             .setTodaysPrompt(isToday)
         
         return builder.build()

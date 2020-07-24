@@ -19,7 +19,8 @@ struct JournalEntryAnswered: View {
 
 struct JournalEntryUnAnswered: View {
     var entry: JournalEntry
-    var imageWidth: CGFloat = 140
+    var imageWidth: CGFloat = 300
+    var imageHeight: CGFloat = 200
     var imageOffsetX: CGFloat {
         return self.imageWidth / 3
     }
@@ -29,53 +30,51 @@ struct JournalEntryUnAnswered: View {
     }
     
     var body: some View {
-        HStack(alignment: .top) {
-//            GeometryReader { geometry in
-                VStack(alignment: .leading) {
-                    if self.entry.questionText != nil {
-                        MDText(markdown: self.entry.questionText!)
-//                            .font(.headline)
-                        .lineLimit(nil)
-                        
-                    }
-                    if self.entry.introText != nil {
-                        MDText(markdown: self.entry.introText!)
-//                            .font(.subheadline)
-                        .lineLimit(nil)
-                        
-                    }
-                }
+        VStack(alignment: .leading) {
+            if self.entry.questionText != nil {
+                MDText(markdown: self.entry.questionText!)
+                    //                            .font(.headline)
+                    .lineLimit(nil)
+                
+            }
+            if self.entry.introText != nil {
+                MDText(markdown: self.entry.introText!)
+                    //                            .font(.subheadline)
+                    .lineLimit(nil)
+                
+            }
             
-                Spacer(minLength: 20)
-            
-                if self.entry.imageUrl != nil {
+            if self.entry.imageUrl != nil {
+                HStack {
+                    Spacer()
                     URLImage(self.entry.imageUrl!,
-                             delay: 0.1,
-                             processors: [ Resize(size: CGSize(width: self.imageWidth, height: self.imageWidth), scale: UIScreen.main.scale) ],
-
-                    placeholder: {  _ in
-                        ActivityIndicator(isAnimating: .constant(true), style: .medium)
-                            .frame(width: self.imageWidth, height: self.imageWidth)
-                            .background(Color(CactusColor.lightGray))
-                            .cornerRadius(12)
+                             processors: [ Resize(size: CGSize(width: self.imageWidth,
+                                                               height: self.imageHeight),
+                                                  scale: UIScreen.main.scale) ],
+                             
+                             placeholder: {  _ in
+                                ActivityIndicator(isAnimating: .constant(true), style: .medium)
+                                    .frame(width: self.imageWidth, height: self.imageHeight)
+                                    .background(Color(CactusColor.lightGray))
+                                    .cornerRadius(12)
+                                    
                     },
-                    content: {
-                        $0.image
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .shadow(radius: 10.0)
+                             content: {
+                                $0.image
+                                    .resizable()
+                                    .frame(width: self.imageWidth, height: self.imageHeight)
+                                    .aspectRatio(contentMode: .fit)
+                                    .scaledToFill()
                     })
-                        .offset(x: self.imageOffsetX, y: 0)
-                        .padding(.leading, -self.imageOffsetX)
-                        
-//                        .frame(width: self.imageWidth, height: self.imageWidth)
+                        .frame(width: self.imageWidth, height: self.imageHeight)
+                        .offset(x: 0, y: 55)
+                        .padding(.top, -55)
+                    Spacer()
+                    
                 }
             }
-
         }
-        
-//    }
-    
+    }
 }
 
 struct JournalEntryRow: View {
@@ -150,7 +149,7 @@ struct JournalEntryRow_Previews: PreviewProvider {
         }
         .padding()
         .background(Color.gray)
-        .previewLayout(.fixed(width: 400, height: 300))
+        .previewLayout(.fixed(width: 400, height: 500))
         //        .previewLayout(.fixed(width: 400, height: 600))
         
     }
