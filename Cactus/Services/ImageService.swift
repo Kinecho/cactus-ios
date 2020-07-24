@@ -19,6 +19,14 @@ class ImageService {
         self.cloudinary = CLDCloudinary(configuration: config)
     }
     
+    func getCloudinaryUrl(string: String) -> URL? {
+        guard let stringUrl = cloudinary.createUrl().setType(.fetch).setFormat("png").generate(string) else {
+            return nil
+        }
+        
+        return URL(string: stringUrl)
+    }
+    
     func setStorageUrl(_ imageView: UIImageView, url: String, gifDelegate: SwiftyGifDelegate?=nil) {
         guard let _url = cloudinary.createUrl().setType(.fetch).setFormat("png").generate(url) else {
             imageView.isHidden = true
@@ -84,6 +92,16 @@ class ImageService {
             imageView.isHidden = false
         } else {
             imageView.isHidden = true
+        }
+    }
+        
+    func getUrlFromFile(_ photo: ImageFile?) -> URL? {
+        if let storageUrl = photo?.storageUrl, !storageUrl.isEmpty {
+            return self.getCloudinaryUrl(string: storageUrl)
+        } else if let url = photo?.url, !FormatUtils.isBlank(url) {
+            return URL(string: url)
+        } else {
+            return nil
         }
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import URLImage
 
 struct JournalEntryRow: View {
     var entry: JournalEntry
@@ -14,8 +15,15 @@ struct JournalEntryRow: View {
     @State var showPrompt = false
     @State var showMoreActions = false
     
+    var imageWidth: CGFloat = 58
+    
     var questionText: String? {
         return self.entry.promptContent?.getDisplayableQuestion() ?? self.entry.prompt?.question
+    }
+    
+    var imageUrl: URL? {
+        let photo = self.entry.promptContent?.getMainImageFile()
+        return ImageService.shared.getUrlFromFile(photo)
     }
     
     var body: some View {
@@ -38,14 +46,32 @@ struct JournalEntryRow: View {
             HStack(alignment: .top) {
                 Text(self.questionText ?? "")
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 44, maxHeight: .infinity, alignment: .topLeading)
-                    .multilineTextAlignment(.leading)                
+                    .multilineTextAlignment(.leading)
                 Spacer(minLength: 20)
-                Image(CactusImage.avatar1.rawValue)
-                    .resizable()
-                    .frame(width: 80, height: 80, alignment: .topTrailing)
+
+                if self.imageUrl != nil {
+                    URLImage(self.imageUrl!,
+                             delay: 0.1,
+                             processors: [ Resize(size: CGSize(width: self.imageWidth, height: self.imageWidth), scale: UIScreen.main.scale) ],
+
+                    placeholder: {  _ in
+                        ActivityIndicator(isAnimating: .constant(true), style: .medium)
+                            .frame(width: self.imageWidth, height: self.imageWidth)
+                            .background(Color(CactusColor.lightGray))
+                            .cornerRadius(12)
+                    },
+                    content: {
+                        $0.image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .shadow(radius: 10.0)
+                    })
+                        .frame(width: self.imageWidth, height: self.imageWidth)
+                    
+                }
+                
             }
-            Divider()
-            Text("This is the bottom Text")
+    
         }
         .onTapGesture {
             self.showPrompt = true
@@ -93,6 +119,8 @@ struct JournalEntryRow_Previews: PreviewProvider {
         let promptContent = PromptContent()
         let text = Content()
         text.contentType = .reflect
+        text.backgroundImage = ContentBackgroundImage(storageUrl: "https://firebasestorage.googleapis.com/v0/b/cactus-app-prod.appspot.com/o/flamelink%2Fmedia%2F200707.png?alt=media&token=3ff817ca-f58f-457a-aff0-bbefebb095ad")
+        
         text.text_md = "this is **a really great** question! that goes on and on and on for ever until we can't fit on one line anymore."
         promptContent.content = [
             text
@@ -120,9 +148,9 @@ struct JournalEntryRow_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            JournalEntryRow(entry: self.getLoadingEntry()).previewDisplayName("Journal Loading")
-            JournalEntryRow(entry: self.getNoTextEntry()).previewDisplayName("Journal No Text")
-            JournalEntryRow(entry: self.getEntry()).previewDisplayName("Journal Entry")
+            JournalEntryRow(entry: self.getLoadingEntry()).previewDisplayName("Loading")
+            JournalEntryRow(entry: self.getNoTextEntry()).previewDisplayName("No Question")
+            JournalEntryRow(entry: self.getEntry()).previewDisplayName("Question & Image")
         }
         .padding()
         .background(Color.gray)

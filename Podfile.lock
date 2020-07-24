@@ -445,6 +445,7 @@ PODS:
   - Sentry/Core (4.4.1)
   - SkeletonView (1.8.7)
   - SwiftLint (0.39.2)
+  - URLImage (0.9.19)
 
 DEPENDENCIES:
   - Branch
@@ -479,6 +480,7 @@ DEPENDENCIES:
   - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `4.4.1`)
   - SkeletonView
   - SwiftLint
+  - URLImage
 
 SPEC REPOS:
   trunk:
@@ -532,6 +534,7 @@ SPEC REPOS:
     - SDWebImage
     - SkeletonView
     - SwiftLint
+    - URLImage
 
 EXTERNAL SOURCES:
   Sentry:
@@ -595,7 +598,8 @@ SPEC CHECKSUMS:
   Sentry: 5d312a04e369154aeac616214f4dfc3cbcc8b296
   SkeletonView: ba5370f41280b2f0a76918bb143c1294232bb4f4
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
+  URLImage: 107320dff147321cceb201af24e8a154f24e6aed
 
-PODFILE CHECKSUM: 92d862f4a93287275ff2d63619f2ca301a0d2bd2
+PODFILE CHECKSUM: d6d95f4cd201621ac4cd1c459f833b39ded3fef8
 
 COCOAPODS: 1.8.4

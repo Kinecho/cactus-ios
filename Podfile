@@ -40,6 +40,7 @@ def app_pods
   pod 'Branch'
   pod 'SkeletonView'
   pod 'Purchases', '3.2.2'
+  pod 'URLImage'
 end
 
 
@@ -53,6 +54,7 @@ def today_pods
     pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '4.4.1'
     pod 'MarkdownKit', '1.5'
     pod 'SkeletonView'
+    pod 'URLImage'
 end
 
 target 'Cactus Stage' do  
