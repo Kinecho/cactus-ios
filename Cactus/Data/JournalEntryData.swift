@@ -46,7 +46,7 @@ class JournalEntryData {
     var loadingComplete: Bool {
         return self.wontLoad || self.reflectionPromptData.hasLoaded && self.responseData.hasLoaded && self.contentData.hasLoaded
     }
-        
+    
     func notifyIfLoadingComplete() {
         self.delegate?.onData(self.getJournalEntry())
     }
@@ -145,10 +145,8 @@ class JournalEntryData {
 }
 
 struct JournalEntry: Equatable, Identifiable {
-    var id: String {
-        return self.promptId ?? "not-set"
-    }
-
+    var id: String = UUID().uuidString
+    
     static func == (lhs: JournalEntry, rhs: JournalEntry) -> Bool {
         return lhs.prompt?.id == rhs.prompt?.id
             && lhs.sentPrompt?.id == rhs.sentPrompt?.id
@@ -174,41 +172,45 @@ struct JournalEntry: Equatable, Identifiable {
         self.promptId = promptId
         
     }
-
     
-   var questionText: String? {
-       return self.promptContent?.getDisplayableQuestion() ?? self.prompt?.question
-   }
-   
+    var responseText: String? {
+        let text = self.responses?.compactMap {$0.content.text}.joined(separator: "\n\n")
+        return isBlank(text) ? nil : text?.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
+    var questionText: String? {
+        return self.promptContent?.getDisplayableQuestion() ?? self.prompt?.question
+    }
+    
     var introText: String? {
         return self.promptContent?.getIntroTextMarkdown()
     }
     
-   var imageUrl: URL? {
-       let photo = self.promptContent?.getMainImageFile()
-       return ImageService.shared.getUrlFromFile(photo)
-   }
-   
-   var dateString: String? {
-       if self.isTodaysPrompt {
-           return "Today"
-       }
-       
-       guard let date = self.sentPrompt?.firstSentAt ?? self.responses?.first?.createdAt else {
-           return nil
-       }
-               
-       return FormatUtils.formatDate(date)
-   }
+    var imageUrl: URL? {
+        let photo = self.promptContent?.getMainImageFile()
+        return ImageService.shared.getUrlFromFile(photo)
+    }
     
-//    var isTodaysPrompt: Bool {
-//        guard let date = self.journalDate, self.sentPrompt == nil else {
-//            return false
-//        }
-//
-//        let journalString = getFlamelinkDateStringAtMidnight(for: date)
-//        let currentString = getFlamelinkDateStringAtMidnight(for: Date())
-//        return journalString == currentString
-//    }
+    var dateString: String? {
+        if self.isTodaysPrompt {
+            return "Today"
+        }
+        
+        guard let date = self.sentPrompt?.firstSentAt ?? self.responses?.first?.createdAt else {
+            return nil
+        }
+        
+        return FormatUtils.formatDate(date)
+    }
+    
+    //    var isTodaysPrompt: Bool {
+    //        guard let date = self.journalDate, self.sentPrompt == nil else {
+    //            return false
+    //        }
+    //
+    //        let journalString = getFlamelinkDateStringAtMidnight(for: date)
+    //        let currentString = getFlamelinkDateStringAtMidnight(for: Date())
+    //        return journalString == currentString
+    //    }
     
 }

@@ -12,12 +12,38 @@ import URLImage
 struct JournalEntryAnswered: View {
     var entry: JournalEntry
     
+    var responseText: String? {
+        return entry.responseText
+    }
+    
     var body: some View {
-        Text("Hello! Answered")
+        VStack(alignment: .leading) {
+            if self.entry.questionText != nil {
+                MDText(markdown: self.entry.questionText!)
+                    .font(Font(CactusFont.bold(FontSize.journalQuestionTitle)))
+                    .foregroundColor(Color(CactusColor.textDefault))
+                    .lineLimit(nil)
+            }
+            
+            if !isBlank(self.responseText) {
+                Text(self.responseText!)
+                    .multilineTextAlignment(.leading)
+                    .font(Font(CactusFont.normal))
+                    .foregroundColor(Color(CactusColor.textDefault))
+                    .padding([.leading, .vertical], 20)
+                    .border(width: 5,
+                            edge: .leading,
+                            color: Color(CactusColor.highlight),
+                            alignment: .leading,
+                            radius: 10,
+                            corners: [.topRight, .bottomRight])
+                    .offset(x: -20, y: 0)
+            }
+        }
     }
 }
 
-struct JournalEntryUnAnswered: View {
+struct JournalEntryNoNote: View {
     var entry: JournalEntry
     var imageWidth: CGFloat = 300
     var imageHeight: CGFloat = 200
@@ -33,38 +59,32 @@ struct JournalEntryUnAnswered: View {
         VStack(alignment: .leading) {
             if self.entry.questionText != nil {
                 MDText(markdown: self.entry.questionText!)
-                    //                            .font(.headline)
+                    .font(Font(CactusFont.bold(FontSize.journalQuestionTitle)))
+                    .foregroundColor(Color(CactusColor.textDefault))
                     .lineLimit(nil)
                 
             }
             if self.entry.introText != nil {
                 MDText(markdown: self.entry.introText!)
-                    //                            .font(.subheadline)
+                    .font(Font(CactusFont.normal))
+                    .foregroundColor(Color(CactusColor.textDefault))
                     .lineLimit(nil)
-                
             }
             
             if self.entry.imageUrl != nil {
                 HStack {
                     Spacer()
                     URLImage(self.entry.imageUrl!,
-                             processors: [ Resize(size: CGSize(width: self.imageWidth,
-                                                               height: self.imageHeight),
-                                                  scale: UIScreen.main.scale) ],
-                             
-                             placeholder: {  _ in
-                                ActivityIndicator(isAnimating: .constant(true), style: .medium)
-                                    .frame(width: self.imageWidth, height: self.imageHeight)
-                                    .background(Color(CactusColor.lightGray))
-                                    .cornerRadius(12)
-                                    
-                    },
+                             processors: [
+                                Resize(size: CGSize(width: self.imageWidth, height: self.imageHeight),
+                                       scale: UIScreen.main.scale)],
+                             placeholder: {_ in
+                                EmptyView() },
                              content: {
                                 $0.image
                                     .resizable()
                                     .frame(width: self.imageWidth, height: self.imageHeight)
                                     .aspectRatio(contentMode: .fit)
-                                    .scaledToFill()
                     })
                         .frame(width: self.imageWidth, height: self.imageHeight)
                         .offset(x: 0, y: 55)
@@ -92,6 +112,8 @@ struct JournalEntryRow: View {
             HStack(alignment: .center) {
                 if entry.dateString != nil {
                     Text(entry.dateString!)
+                        .font(Font(CactusFont.normal(FontSize.journalDate)))
+                        .foregroundColor(Color(CactusColor.textDefault))
                 }
                 
                 Spacer()
@@ -108,17 +130,15 @@ struct JournalEntryRow: View {
             }
             VStack(alignment: .leading) {
                 if self.hasResponse {
-                    //                JournalEntryAnswered(entry: self.entry)
-                    JournalEntryUnAnswered(entry: self.entry)
+                    JournalEntryAnswered(entry: self.entry)
                 } else {
-                    JournalEntryUnAnswered(entry: self.entry)
+                    JournalEntryNoNote(entry: self.entry)
                 }
             }
-            
         }
-        .onTapGesture {
-            self.showPrompt = true
-        }
+//        .onTapGesture {
+//            self.showPrompt = true
+//        }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity, alignment: .topLeading)
         .padding(20)
         .background(Color.white)
@@ -140,17 +160,34 @@ struct JournalEntryRow: View {
 
 struct JournalEntryRow_Previews: PreviewProvider {
     
-    static var previews: some View {
-        Group {
-            JournalEntryRow(entry: MockData.getLoadingEntry()).previewDisplayName("Loading")
-            JournalEntryRow(entry: MockData.EntryBuilder(question: nil, answer: nil).build()).previewDisplayName("No Question")
-            JournalEntryRow(entry: MockData.getUnansweredEntry()).previewDisplayName("Question & Image")
-            JournalEntryRow(entry: MockData.getUnansweredEntry(isToday: true)).previewDisplayName("Today")
+    struct RowData: Identifiable {
+        var id: String {
+            return entry.id
         }
-        .padding()
-        .background(Color.gray)
-        .previewLayout(.fixed(width: 400, height: 500))
-        //        .previewLayout(.fixed(width: 400, height: 600))
+        let entry: JournalEntry
+        let name: String
+    }
+    
+    static var rowData: [(entry: JournalEntry, name: String)] = [
+        (entry: MockData.getLoadingEntry(), name: "loading"),
+        (entry: MockData.getAnsweredEntry(), name: "Has Response"),
+        (entry: MockData.getUnansweredEntry(), name: "Question & Image"),
+        (entry: MockData.getUnansweredEntry(isToday: true), name: "Today"),
+        (entry: MockData.EntryBuilder(question: nil, answer: nil).build(), name: "No Question"),
+    ]
+    
+    static var previews: some View {
         
+        ForEach(self.rowData, id: \.entry.id) { data in
+            List {
+                JournalEntryRow(entry: data.entry)
+                    .listRowInsets(EdgeInsets())
+                    .padding()
+            }
+            .onAppear(perform: {
+                UITableView.appearance().separatorStyle = .none
+            })
+            .previewDisplayName(data.name)
+        }
     }
 }

@@ -33,10 +33,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="231"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="67z-0L-D6r" userLabel="Date Stack View">
-                                                <rect key="frame" x="20" y="0.0" width="560" height="21"/>
+                                                <rect key="frame" x="20" y="0.0" width="560" height="22"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tiv-mm-Pde" userLabel="Date Label">
-                                                        <rect key="frame" x="0.0" y="0.0" width="560" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="560" height="22"/>
                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                                         <color key="textColor" name="TextMinimized"/>
                                                         <nil key="highlightedColor"/>
@@ -53,10 +53,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vmT-W9-PvC" userLabel="Question and Image Stack View">
-                                                <rect key="frame" x="20" y="31" width="560" height="169"/>
+                                                <rect key="frame" x="20" y="32" width="560" height="167"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ns3-j8-V2X" userLabel="Question Label">
-                                                        <rect key="frame" x="0.0" y="0.0" width="492" height="105"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="492" height="108"/>
                                                         <string key="text">Today you'll think about the weekend and what you want to do when you finish up having fun and need to get back to work. Today you'll think about the weekend and what you want to do when you finish up having fun and need to get back to work.</string>
                                                         <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="18"/>
                                                         <color key="textColor" name="TextDefault"/>
@@ -95,7 +95,7 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AW7-l3-ldy" userLabel="Sub Text Label">
-                                                <rect key="frame" x="20" y="210" width="560" height="21"/>
+                                                <rect key="frame" x="20" y="209" width="560" height="22"/>
                                                 <edgeInsets key="layoutMargins" top="0.0" left="20" bottom="20" right="0.0"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                                 <color key="textColor" name="TextDefault"/>

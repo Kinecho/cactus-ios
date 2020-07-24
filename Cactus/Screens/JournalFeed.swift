@@ -18,7 +18,7 @@ struct JournalFeed: View {
         List {
             Text("\(session.member?.email ?? "My") Journal Entries")
             ForEach(self.entries) { entry in
-                JournalEntryRow(entry: entry)                    
+                JournalEntryRow(entry: entry)
                     .onAppear {
                         Logger("JournalEntryRow on Appear").info("Journal entry will on appear")
                         let lastEntry = self.entries.last
@@ -30,9 +30,9 @@ struct JournalFeed: View {
             .padding()
             .listRowInsets(EdgeInsets())        
         }
-        .onAppear(perform: {
-            UITableView.appearance().separatorStyle = .none
-        })
+            .onAppear(perform: {
+                UITableView.appearance().separatorStyle = .none
+            })
             .edgesIgnoringSafeArea(.horizontal)
             .edgesIgnoringSafeArea(.bottom)
     }
@@ -44,6 +44,7 @@ struct JournalFeed_Previews: PreviewProvider {
         let session = SessionStore.mockLoggedIn()
         session.journalEntries = [
             MockData.getUnansweredEntry(isToday: true),
+            MockData.getAnsweredEntry(),
             MockData.getUnansweredEntry(isToday: false),
             MockData.EntryBuilder(question: "What do you think of SwiftUI?", answer: "This is a really thoughtful response.").build(),
             MockData.getLoadingEntry(),

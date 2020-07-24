@@ -42,7 +42,7 @@ struct MockData {
         return entry
     }
     
-    static func EntryBuilder(question: String?, answer: String?, promptId: String="prompt1", memberId: String="m1") -> JournalEntry.Builder {
+    static func EntryBuilder(question: String?, answer: String?, promptId: String=UUID().uuidString, memberId: String="m1") -> JournalEntry.Builder {
         let builder = JournalEntry.Builder(promptId)
             .setAllLoaded(true)
             .setPrompt(ReflectionPrompt.Builder(promptId)
@@ -86,13 +86,10 @@ struct MockData {
     }
     
     static func getAnsweredEntry(isToday: Bool=false) -> JournalEntry {
-        let builder = MockData.EntryBuilder(question: "How do you overcome **failure**?", answer: nil)
+        let builder = MockData.EntryBuilder(question: "How do you overcome **failure**?", answer: "I am going to reflect on the things that make me happy. Using Cactus will help me overcome a lot of bad things!")
             .setAllLoaded(true)
             .prependContent(MockData.content("Today you'll focus on how you conquer difficult challenges and failure.", .text, backgroundImage: "https://firebasestorage.googleapis.com/v0/b/cactus-app-prod.appspot.com/o/flamelink%2Fmedia%2F200707.png?alt=media&token=3ff817ca-f58f-457a-aff0-bbefebb095ad"))
             .setTodaysPrompt(isToday)
-            .addResponse(ReflectionResponse.Builder()
-                .setText("I am going to reflect on the things that make me happy. Using Cactus will help me overcome a lot of bad things!")
-                .build())
         
         return builder.build()
     }
@@ -103,7 +100,7 @@ extension JournalEntry {
     public class Builder {
         var entry: JournalEntry
         
-        init(_ promptId: String?=nil) {
+        init(_ promptId: String?=UUID().uuidString) {
             self.entry = JournalEntry(promptId: promptId)
         }
         

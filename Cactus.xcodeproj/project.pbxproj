@@ -1047,6 +1047,11 @@
 		30D6E32624CA6B5300A4EA75 /* MDSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32324CA6B5300A4EA75 /* MDSwift.swift */; };
 		30D6E32724CA6B5300A4EA75 /* MDSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32324CA6B5300A4EA75 /* MDSwift.swift */; };
 		30D6E32824CA6B5300A4EA75 /* MDSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32324CA6B5300A4EA75 /* MDSwift.swift */; };
+		30D6E32A24CB561E00A4EA75 /* EdgeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32924CB561E00A4EA75 /* EdgeBorder.swift */; };
+		30D6E32B24CB561E00A4EA75 /* EdgeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32924CB561E00A4EA75 /* EdgeBorder.swift */; };
+		30D6E32C24CB561E00A4EA75 /* EdgeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32924CB561E00A4EA75 /* EdgeBorder.swift */; };
+		30D6E32D24CB561E00A4EA75 /* EdgeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32924CB561E00A4EA75 /* EdgeBorder.swift */; };
+		30D6E32E24CB561E00A4EA75 /* EdgeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32924CB561E00A4EA75 /* EdgeBorder.swift */; };
 		30D7385D23CFFC62006F4DA6 /* InviteContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D7385B23CFFC62006F4DA6 /* InviteContentViewController.swift */; };
 		30D7385E23CFFC62006F4DA6 /* InviteContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D7385B23CFFC62006F4DA6 /* InviteContentViewController.swift */; };
 		30D7385F23CFFC62006F4DA6 /* InviteContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D7385B23CFFC62006F4DA6 /* InviteContentViewController.swift */; };
@@ -1419,6 +1424,7 @@
 		30D0E453236C98C100EFC0E3 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
 		30D6E32324CA6B5300A4EA75 /* MDSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDSwift.swift; sourceTree = "<group>"; };
+		30D6E32924CB561E00A4EA75 /* EdgeBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeBorder.swift; sourceTree = "<group>"; };
 		30D7385B23CFFC62006F4DA6 /* InviteContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteContentViewController.swift; sourceTree = "<group>"; };
 		30D7385C23CFFC62006F4DA6 /* InviteContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InviteContentViewController.xib; sourceTree = "<group>"; };
 		30D7386323D00AC6006F4DA6 /* Social.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Social.storyboard; sourceTree = "<group>"; };
@@ -1705,6 +1711,7 @@
 				305366E924C6A21600927498 /* JournalEntryRow.swift */,
 				305366F324C6C4B900927498 /* MarkdownText.swift */,
 				30D6E32324CA6B5300A4EA75 /* MDSwift.swift */,
+				30D6E32924CB561E00A4EA75 /* EdgeBorder.swift */,
 			);
 			path = "Supplemental Views";
 			sourceTree = "<group>";
@@ -2904,6 +2911,7 @@
 				303C9E4023841FAD006B9786 /* ReflectionResponseTest.swift in Sources */,
 				3006442623D26BAB00712ED1 /* SocialInviteService.swift in Sources */,
 				30D7385F23CFFC62006F4DA6 /* InviteContentViewController.swift in Sources */,
+				30D6E32E24CB561E00A4EA75 /* EdgeBorder.swift in Sources */,
 				303C9E3B23841AFC006B9786 /* UIImageView+SwiftyGif.swift in Sources */,
 				303C9E1223841AC6006B9786 /* SettingsTableViewController.swift in Sources */,
 				303C9DD8238419E5006B9786 /* ApiService.swift in Sources */,
@@ -3169,6 +3177,7 @@
 				300FCCED23ECB5D600089CFB /* FancyLinkButton.swift in Sources */,
 				304B214823D3914C007B016C /* UIStackViewExtensionis.swift in Sources */,
 				3021CBEC2410E83800F58B89 /* InsightsWebViewViewController.swift in Sources */,
+				30D6E32D24CB561E00A4EA75 /* EdgeBorder.swift in Sources */,
 				3062202223EC7A0A002FAAD9 /* MarkdownTextView.swift in Sources */,
 				304B217523D39484007B016C /* ContactService.swift in Sources */,
 				304B216923D3947F007B016C /* AppSettingsService.swift in Sources */,
@@ -3338,6 +3347,7 @@
 				3023FE3522ECF0A800F753A7 /* ViewExtensions.swift in Sources */,
 				3021CBE02410345E00F58B89 /* WebViewController.swift in Sources */,
 				3021B67623623010002634A8 /* ApiTypes.swift in Sources */,
+				30D6E32C24CB561E00A4EA75 /* EdgeBorder.swift in Sources */,
 				30DCA5ED244120A700D520D4 /* PromptContentCollectionViewController.swift in Sources */,
 				30D7F70A236BAAB100379EE0 /* EditReflectionViewController.swift in Sources */,
 				3020DD952363F37D00EC40AE /* UIImageViewAligned.swift in Sources */,
@@ -3531,6 +3541,7 @@
 				30A3BC8D24C113780016955C /* BaseModel.swift in Sources */,
 				30A3BC8E24C113780016955C /* WebViewController.swift in Sources */,
 				30A3BC8F24C113780016955C /* ApiTypes.swift in Sources */,
+				30D6E32A24CB561E00A4EA75 /* EdgeBorder.swift in Sources */,
 				30A3BC9024C113780016955C /* PromptContentCollectionViewController.swift in Sources */,
 				30A3BC9124C113780016955C /* EditReflectionViewController.swift in Sources */,
 				30A3BC9224C113780016955C /* UIImageViewAligned.swift in Sources */,
@@ -3724,6 +3735,7 @@
 				30E9B09922EA6A81005B25FD /* BaseModel.swift in Sources */,
 				3021CBDF2410345E00F58B89 /* WebViewController.swift in Sources */,
 				3021B67523623010002634A8 /* ApiTypes.swift in Sources */,
+				30D6E32B24CB561E00A4EA75 /* EdgeBorder.swift in Sources */,
 				30DCA5EC244120A700D520D4 /* PromptContentCollectionViewController.swift in Sources */,
 				30D7F709236BAAB100379EE0 /* EditReflectionViewController.swift in Sources */,
 				3020DD942363F37D00EC40AE /* UIImageViewAligned.swift in Sources */,
