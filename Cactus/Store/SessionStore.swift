@@ -18,7 +18,7 @@ final class SessionStore: ObservableObject {
     @Published var member: CactusMember?
     @Published var user: FirebaseUser?
     @Published var settings: AppSettings?
-    
+    @Published var useImagePlaceholders: Bool = false
     static var shared = SessionStore()
     
     var pendingAuthActions: [PendingAction] = []

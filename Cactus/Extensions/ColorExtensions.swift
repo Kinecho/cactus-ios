@@ -8,8 +8,12 @@
 
 import Foundation
 import UIKit
-
+import SwiftUI
 extension UIColor {
+    
+    var color: Color {
+        return Color(self)
+    }
     
     func lighter(by percentage: CGFloat = 30.0) -> UIColor? {
         return self.adjust(by: abs(percentage) )

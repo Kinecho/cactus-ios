@@ -44,6 +44,8 @@ struct JournalEntryWithNote: View {
 }
 
 struct JournalEntryNoNote: View {
+    @EnvironmentObject var session: SessionStore
+    
     var entry: JournalEntry
     var imageWidth: CGFloat = 300
     var imageHeight: CGFloat = 200
@@ -79,11 +81,18 @@ struct JournalEntryNoNote: View {
                                 Resize(size: CGSize(width: self.imageWidth, height: self.imageHeight),
                                        scale: UIScreen.main.scale)],
                              placeholder: {_ in
-                                EmptyView() },
+                                Group {
+//                                    if self.session.useImagePlaceholders {
+                                        ImagePlaceholder(width: self.imageWidth, height: self.imageHeight)
+//                                    if self.session.useImagePlaceholders {
+//                                        EmptyView()
+//                                    }
+                                }
+                    },
                              content: {
                                 $0.image
                                     .resizable()
-//                                    .frame(width: self.imageWidth, height: self.imageHeight)
+                                    //                                    .frame(width: self.imageWidth, height: self.imageHeight)
                                     .aspectRatio(contentMode: .fit)
                     })
                         .frame(width: self.imageWidth, height: self.imageHeight)
@@ -122,10 +131,10 @@ struct JournalEntryRow: View {
                     .frame(width: 30, height: 30)
                     .rotationEffect(.degrees(self.showMoreActions ? 90 : 0))
                     .animation(.interpolatingSpring(mass: 0.2, stiffness: 25, damping: 2.5, initialVelocity: -0.5))
-//                    .foregroundColor(Color(CactusColor.textDefault))
+                    //                    .foregroundColor(Color(CactusColor.textDefault))
                     .onTapGesture {
                         self.showMoreActions.toggle()
-                    }
+                }
             }
             VStack(alignment: .leading) {
                 if self.hasResponse {
@@ -162,11 +171,11 @@ struct JournalEntryRow_Previews: PreviewProvider {
     }
     
     static var rowData: [(entry: JournalEntry, name: String)] = [
-//        (entry: MockData.getLoadingEntry(blob: 1), name: "loading"),
-//        (entry: MockData.getAnsweredEntry(blob: 2), name: "Has Response"),
-//        (entry: MockData.getUnansweredEntry(blob: 3), name: "Question & Image"),
-//        (entry: MockData.getUnansweredEntry(isToday: true, blob: 4), name: "Today"),
-//        (entry: MockData.EntryBuilder(question: nil, answer: nil, blob: 5).build(), name: "No Question"),
+        (entry: MockData.getLoadingEntry(blob: 1), name: "loading"),
+        (entry: MockData.getAnsweredEntry(blob: 2), name: "Has Response"),
+        (entry: MockData.getUnansweredEntry(blob: 3), name: "Question & Image"),
+        (entry: MockData.getUnansweredEntry(isToday: true, blob: 4), name: "Today"),
+        (entry: MockData.EntryBuilder(question: nil, answer: nil, blob: 5).build(), name: "No Question"),
     ]
     
     static var previews: some View {
@@ -177,10 +186,10 @@ struct JournalEntryRow_Previews: PreviewProvider {
                     .listRowInsets(EdgeInsets())
                     .padding()
             }.environmentObject(SessionStore.mockLoggedIn())
-            .onAppear(perform: {
-                UITableView.appearance().separatorStyle = .none
-            })
-            .previewDisplayName(data.name)
+                .onAppear(perform: {
+                    UITableView.appearance().separatorStyle = .none
+                })
+                .previewDisplayName(data.name)
         }
     }
 }
