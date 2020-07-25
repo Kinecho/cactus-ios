@@ -8,6 +8,17 @@
 
 import Foundation
 
+let blobUrls: [String] = [
+    "https://firebasestorage.googleapis.com/v0/b/cactus-app-prod.appspot.com/o/flamelink%2Fmedia%2F200507.png?alt=media&token=ed3d7256-81a6-4bdd-bb57-16991c284e47",
+    "https://firebasestorage.googleapis.com/v0/b/cactus-app-prod.appspot.com/o/flamelink%2Fmedia%2F200707.png?alt=media&token=3ff817ca-f58f-457a-aff0-bbefebb095ad",
+    "https://firebasestorage.googleapis.com/v0/b/cactus-app-prod.appspot.com/o/flamelink%2Fmedia%2F200705.png?alt=media&token=6c66459d-52b1-41a7-a400-0c040a4c391a",
+    "https://firebasestorage.googleapis.com/v0/b/cactus-app-prod.appspot.com/o/flamelink%2Fmedia%2F2006201.G6OUznQhWomOHO7fXhqq.png?alt=media&token=4b85cb7c-936c-4848-a149-c7f7c20dde13",
+    "https://firebasestorage.googleapis.com/v0/b/cactus-app-prod.appspot.com/o/flamelink%2Fmedia%2F200609.png?alt=media&token=cb746c6c-8eff-48db-ac0e-78f416911884",
+    "https://firebasestorage.googleapis.com/v0/b/cactus-app-prod.appspot.com/o/flamelink%2Fmedia%2Fonboard4.png?alt=media&token=44045a9c-1e23-4ab9-8d4a-ec8e57e75576",
+    "https://firebasestorage.googleapis.com/v0/b/cactus-app-prod.appspot.com/o/flamelink%2Fmedia%2F200601.png?alt=media&token=2ce39b4b-1183-443b-80b8-279d669df99a",
+    "https://firebasestorage.googleapis.com/v0/b/cactus-app-prod.appspot.com/o/flamelink%2Fmedia%2F200528.cKnJYkVwSHsM9ZoWGWwN.png?alt=media&token=6b9a3d70-04ce-4322-9f56-ec500367f254",
+]
+
 struct MockData {
     static func content(_ text: String?, _ contentType: ContentType = .reflect, backgroundImage: String?=nil, photo: String?=nil) -> Content {
         let content = Content()
@@ -27,6 +38,11 @@ struct MockData {
         return content
     }
     
+    static func getBlobImage(_ at: Int) -> String {
+        let index = at % (blobUrls.count - 1)
+        return blobUrls[index]
+    }
+    
     static func promptContent(id: String, content: [Content]) -> PromptContent {
         let prompt = PromptContent()
         prompt.entryId = id
@@ -42,15 +58,22 @@ struct MockData {
         return entry
     }
     
-    static func EntryBuilder(question: String?, answer: String?, promptId: String=UUID().uuidString, memberId: String="m1") -> JournalEntry.Builder {
+    static func EntryBuilder(question: String?, answer: String?, promptId: String=UUID().uuidString, memberId: String="m1", blob: Int?=nil) -> JournalEntry.Builder {
+        let contentBuilder = PromptContent.Builder(promptId)
+        
+        
+        if let blob = blob {
+            contentBuilder.addContent(answer, .text, backgroundBlob: blob)
+        } else {
+            contentBuilder.addContent(answer, .text)
+        }
+        
         let builder = JournalEntry.Builder(promptId)
             .setAllLoaded(true)
             .setPrompt(ReflectionPrompt.Builder(promptId)
                 .setQuestion(question)
                 .build())
-            .setPromptContent(PromptContent.Builder(promptId)
-                .addContent(answer, .text)
-                .build())
+            .setPromptContent(contentBuilder.build())
             .setSentPrompt(SentPrompt.Builder(promptId: promptId, memberId: memberId)
                 .setCompleted(answer != nil)
                 .setFirstSentAt("2020-07-12")
@@ -67,26 +90,28 @@ struct MockData {
         return builder
     }
     
-    static func getLoadingEntry() -> JournalEntry {
-        return MockData.EntryBuilder(question: "How come stuff loads for so long?", answer: nil)
+    static func getLoadingEntry(blob: Int?=nil) -> JournalEntry {
+        return MockData.EntryBuilder(question: "How come stuff loads for so long?", answer: nil, blob: blob)
             .setAllLoaded(false)
             .build()
         
     }
     
-    static func getUnansweredEntry(isToday: Bool=false) -> JournalEntry {
-        let builder = MockData.EntryBuilder(question: "How do you overcome **failure**?", answer: nil)
+    static func getUnansweredEntry(isToday: Bool=false, blob: Int?=nil) -> JournalEntry {
+        let builder = MockData.EntryBuilder(question: "How do you overcome **failure**?", answer: nil, blob: blob)
             .setAllLoaded(true)
-            .prependContent(MockData.content("Today you'll focus on how you conquer difficult challenges and failure.",
-                                             .text,
-                                             backgroundImage: "https://firebasestorage.googleapis.com/v0/b/cactus-app-prod.appspot.com/o/flamelink%2Fmedia%2F200507.png?alt=media&token=ed3d7256-81a6-4bdd-bb57-16991c284e47"))
+            .prependContent(Content.Builder()
+                .setText("Today you'll focus on how you conquer difficult challenges and failure.")
+                .setType(.text)
+                .setBackgroundImage(blob: 0)
+                .build())
             .setTodaysPrompt(isToday)
         
         return builder.build()
     }
     
-    static func getAnsweredEntry(isToday: Bool=false) -> JournalEntry {
-        let builder = MockData.EntryBuilder(question: "How do you overcome **failure**?", answer: "I am going to reflect on the things that make me happy. Using Cactus will help me overcome a lot of bad things!")
+    static func getAnsweredEntry(isToday: Bool=false, blob: Int?=nil) -> JournalEntry {
+        let builder = MockData.EntryBuilder(question: "How do you overcome **failure**?", answer: "I am going to reflect on the things that make me happy. Using Cactus will help me overcome a lot of bad things!", blob: blob)
             .setAllLoaded(true)
             .prependContent(MockData.content("Today you'll focus on how you conquer difficult challenges and failure.", .text, backgroundImage: "https://firebasestorage.googleapis.com/v0/b/cactus-app-prod.appspot.com/o/flamelink%2Fmedia%2F200707.png?alt=media&token=3ff817ca-f58f-457a-aff0-bbefebb095ad"))
             .setTodaysPrompt(isToday)
@@ -272,6 +297,57 @@ extension ReflectionResponse {
     }
 }
 
+extension Content {
+    public class Builder {
+        var content: Content
+        
+        init() {
+            self.content = Content()
+        }
+        
+        func setText(_ text: String) -> Builder {
+            self.content.text = text
+            return self
+        }
+        
+        func setType(_ type: ContentType) -> Builder {
+            self.content.contentType = type
+            return self
+        }
+        
+        func setBackgroundImage(blob index: Int) -> Builder {
+            let url = MockData.getBlobImage(index)
+            self.content.backgroundImage = ContentBackgroundImage(storageUrl: url)
+            return self
+        }
+        
+        func setBackgroundImage(url: String) -> Builder {
+            self.content.backgroundImage = ContentBackgroundImage(storageUrl: url)
+            return self
+        }
+        
+        func setPhoto(blob index: Int) -> Builder {
+            let url = MockData.getBlobImage(index)
+            self.content.photo = ImageFile(storageUrl: url)
+            return self
+        }
+        
+        func setPhoto(url: String) -> Builder {
+            self.content.photo = ImageFile(storageUrl: url)
+            return self
+        }
+        
+        func setQuote(quote: String, author: String, title: String) -> Builder {
+            self.content.quote = Quote(text: quote, name: author, title: title)                        
+            return self
+        }
+        
+        func build() -> Content {
+            return self.content
+        }
+    }
+}
+
 extension PromptContent {
     public class Builder {
         var promptContent: PromptContent
@@ -282,30 +358,48 @@ extension PromptContent {
             self.promptContent.promptId = promptId ?? id
         }
         
+        @discardableResult
         func entryId(_ id: String) -> Builder {
             self.promptContent.entryId = id
             return self
         }
         
+        @discardableResult
         func setPromptId(_ id: String) -> Builder {
             self.promptContent.promptId = id
             return self
         }        
         
+        @discardableResult
         func custom(_ customize: (PromptContent) -> Void) -> Builder {
             customize(self.promptContent)
             return self
         }
         
+        @discardableResult
         func setSubject(_ subject: String?) -> Builder {
             self.promptContent.subjectLine = subject
             return self
         }
         
+        @discardableResult
         func addContent(_ text: String?, _ contentType: ContentType = .reflect, backgroundImage: String?=nil, photo: String?=nil) -> Builder {
             return self.add(MockData.content(text, contentType, backgroundImage: backgroundImage, photo: photo))
         }
         
+        @discardableResult
+        func addContent(_ text: String?, _ contentType: ContentType = .reflect, backgroundBlob: Int) -> Builder {
+            let backgroundUrl = MockData.getBlobImage(backgroundBlob)
+            return self.add(MockData.content(text, contentType, backgroundImage: backgroundUrl, photo: nil))
+        }
+        
+        @discardableResult
+        func addContent(_ text: String?, _ contentType: ContentType = .reflect, photoBlob: Int) -> Builder {
+            let photoUrl = MockData.getBlobImage(photoBlob)
+            return self.add(MockData.content(text, contentType, backgroundImage: nil, photo: photoUrl))
+        }
+        
+        @discardableResult
         func add(_ content: Content) -> Builder {
             self.promptContent.content.append(content)
             return self

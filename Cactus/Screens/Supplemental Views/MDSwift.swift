@@ -64,7 +64,7 @@ struct MDViewGroup: Identifiable {
         print(urlStr)
         guard let url = URL(string: urlStr) else { return }
         #if os(iOS)
-        UIApplication.shared.open(url, options: [:])
+        NavigationService.shared.openUrl(url: url)
         #elseif os(macOS)
         NSWorkspace.shared.open(url)
         #endif
@@ -232,7 +232,7 @@ final class MDTextVM: ObservableObject {
         return Button(action: {
             guard let url = URL(string: textGroup.string) else { return }
             #if os(iOS)
-            UIApplication.shared.open(url, options: [:])
+            NavigationService.shared.openUrl(url: url)
             #elseif os(macOS)
             NSWorkspace.shared.open(url)
             #endif

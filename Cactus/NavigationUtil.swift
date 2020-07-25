@@ -52,8 +52,6 @@ enum ScreenID: String {
     
     func loadFromNib() -> UIViewController? {
         switch self {
-        case .WebView:
-            return WebViewController.loadFromNib()        
         default:
             return nil
         }

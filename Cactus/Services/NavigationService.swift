@@ -80,9 +80,7 @@ class NavigationService {
     
     func presentWebView(url: URL?, animated: Bool=true, on target: UIViewController?=nil, completion: (() -> Void)?=nil) {
         DispatchQueue.main.async { [weak self] in
-            guard let webViewController = ScreenID.WebView.getViewController() as? WebViewController else {
-                return
-            }
+            let webViewController = WebViewController.loadFromNib()
             webViewController.becomeFirstResponder()
             webViewController.url = url
             webViewController.modalPresentationStyle = .overFullScreen

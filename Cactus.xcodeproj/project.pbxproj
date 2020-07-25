@@ -10,7 +10,6 @@
 		09ECD329453B1AEC145043BE /* Pods_Cactus_Stage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 518BD147DF40E10B6D005DB2 /* Pods_Cactus_Stage.framework */; };
 		3004400F243F9CF80002A293 /* DataExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004400E243F9CF80002A293 /* DataExportViewController.swift */; };
 		30044010243F9CF80002A293 /* DataExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004400E243F9CF80002A293 /* DataExportViewController.swift */; };
-		30044011243F9CF80002A293 /* DataExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004400E243F9CF80002A293 /* DataExportViewController.swift */; };
 		30051A4C23A86306005F812B /* InvertableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051A4B23A86306005F812B /* InvertableImageView.swift */; };
 		30051A4D23A86306005F812B /* InvertableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051A4B23A86306005F812B /* InvertableImageView.swift */; };
 		30051A4E23A86306005F812B /* InvertableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30051A4B23A86306005F812B /* InvertableImageView.swift */; };
@@ -65,8 +64,6 @@
 		3018B1232376182D0005333A /* JournalEntryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018B1222376182D0005333A /* JournalEntryData.swift */; };
 		3018B1242376182D0005333A /* JournalEntryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018B1222376182D0005333A /* JournalEntryData.swift */; };
 		3018B1262376687B0005333A /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3018B1252376687B0005333A /* NetworkExtension.framework */; };
-		3019A4D9243BDF74003D0074 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBDD2410345E00F58B89 /* WebViewController.swift */; };
-		3019A4DA243BDF7E003D0074 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3021CBDE2410345E00F58B89 /* WebViewController.xib */; };
 		301C1A90236F7E9700F06A3D /* MeaningAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301C1A8F236F7E9700F06A3D /* MeaningAnimationViewController.swift */; };
 		301C1A91236F7E9700F06A3D /* MeaningAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301C1A8F236F7E9700F06A3D /* MeaningAnimationViewController.swift */; };
 		301C1A93236F7EB700F06A3D /* MeaningAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 301C1A92236F7EB700F06A3D /* MeaningAnimationViewController.xib */; };
@@ -86,23 +83,17 @@
 		3021CBD72410215500F58B89 /* NavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBD62410215500F58B89 /* NavigationService.swift */; };
 		3021CBD82410215500F58B89 /* NavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBD62410215500F58B89 /* NavigationService.swift */; };
 		3021CBD92410215500F58B89 /* NavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBD62410215500F58B89 /* NavigationService.swift */; };
-		3021CBDA2410215500F58B89 /* NavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBD62410215500F58B89 /* NavigationService.swift */; };
 		3021CBDB2410251D00F58B89 /* SubscriptionPlanOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099D1F02408DA1000BD9CC4 /* SubscriptionPlanOptionView.swift */; };
 		3021CBDC2410251E00F58B89 /* SubscriptionPlanOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099D1F02408DA1000BD9CC4 /* SubscriptionPlanOptionView.swift */; };
 		3021CBDF2410345E00F58B89 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBDD2410345E00F58B89 /* WebViewController.swift */; };
 		3021CBE02410345E00F58B89 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBDD2410345E00F58B89 /* WebViewController.swift */; };
-		3021CBE12410345E00F58B89 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBDD2410345E00F58B89 /* WebViewController.swift */; };
 		3021CBE32410345E00F58B89 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3021CBDE2410345E00F58B89 /* WebViewController.xib */; };
 		3021CBE42410345E00F58B89 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3021CBDE2410345E00F58B89 /* WebViewController.xib */; };
-		3021CBE52410345E00F58B89 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3021CBDE2410345E00F58B89 /* WebViewController.xib */; };
 		3021CBE7241049AC00F58B89 /* StoreObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCF223EE279500089CFB /* StoreObserver.swift */; };
 		3021CBE92410E83800F58B89 /* InsightsWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBE82410E83800F58B89 /* InsightsWebViewViewController.swift */; };
 		3021CBEA2410E83800F58B89 /* InsightsWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBE82410E83800F58B89 /* InsightsWebViewViewController.swift */; };
-		3021CBEB2410E83800F58B89 /* InsightsWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBE82410E83800F58B89 /* InsightsWebViewViewController.swift */; };
-		3021CBEC2410E83800F58B89 /* InsightsWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBE82410E83800F58B89 /* InsightsWebViewViewController.swift */; };
 		3021CBEE2411769800F58B89 /* MemberInsightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBED2411769800F58B89 /* MemberInsightsViewController.swift */; };
 		3021CBEF2411769800F58B89 /* MemberInsightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBED2411769800F58B89 /* MemberInsightsViewController.swift */; };
-		3021CBF02411769800F58B89 /* MemberInsightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBED2411769800F58B89 /* MemberInsightsViewController.swift */; };
 		3023FE3022ECD0A300F753A7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2F22ECD0A300F753A7 /* NotificationService.swift */; };
 		3023FE3122ECD0A300F753A7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2F22ECD0A300F753A7 /* NotificationService.swift */; };
 		3023FE3422ECF06E00F753A7 /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
@@ -124,7 +115,6 @@
 		302C4F512347FAA400798560 /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F4F2347FAA400798560 /* ProfileSettingsViewController.swift */; };
 		30328209241215D900FC197A /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30328208241215D900FC197A /* WelcomeViewController.swift */; };
 		3032820A241215D900FC197A /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30328208241215D900FC197A /* WelcomeViewController.swift */; };
-		3032820B241215D900FC197A /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30328208241215D900FC197A /* WelcomeViewController.swift */; };
 		3032820D2412B87D00FC197A /* PricingFeatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3032820C2412B87D00FC197A /* PricingFeatureView.xib */; };
 		3032820E2412B87D00FC197A /* PricingFeatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3032820C2412B87D00FC197A /* PricingFeatureView.xib */; };
 		3032820F2412B87D00FC197A /* PricingFeatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3032820C2412B87D00FC197A /* PricingFeatureView.xib */; };
@@ -184,78 +174,13 @@
 		303C9DD22384197A006B9786 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B09522EA68AC005B25FD /* FirestoreService.swift */; };
 		303C9DD3238419A9006B9786 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0A222EAC204005B25FD /* AuthService.swift */; };
 		303C9DD4238419BC006B9786 /* CactusMemberService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B09F22EABFBD005B25FD /* CactusMemberService.swift */; };
-		303C9DD6238419D5006B9786 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2F22ECD0A300F753A7 /* NotificationService.swift */; };
 		303C9DD7238419DD006B9786 /* LinkHandlerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9DB0237E2AB4006B9786 /* LinkHandlerUtil.swift */; };
 		303C9DD8238419E5006B9786 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67023622FE7002634A8 /* ApiService.swift */; };
 		303C9DD9238419F9006B9786 /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0AB22EAD6EC005B25FD /* NavigationUtil.swift */; };
 		303C9DDA238419FE006B9786 /* ApiTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67423623010002634A8 /* ApiTypes.swift */; };
-		303C9DDB23841A1B006B9786 /* AppMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0A822EAD68B005B25FD /* AppMainViewController.swift */; };
-		303C9DDC23841A30006B9786 /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
-		303C9DDD23841A38006B9786 /* LoadablePromptContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9DA8237E1470006B9786 /* LoadablePromptContentViewController.swift */; };
-		303C9DDE23841A3E006B9786 /* LoadableSharedReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9DC6237FCF06006B9786 /* LoadableSharedReflectionViewController.swift */; };
 		303C9DE023841A71006B9786 /* JournalFeedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FA2C9823741A3300F671AF /* JournalFeedFlowLayout.swift */; };
 		303C9DE123841A8F006B9786 /* JournalFeedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */; };
 		303C9DE223841A9A006B9786 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F4B2347E25A00798560 /* DateUtil.swift */; };
-		303C9DE323841AA3006B9786 /* NotificationOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB8ED8237C86910048CFD2 /* NotificationOnboardingViewController.swift */; };
-		303C9DE423841AB6006B9786 /* MeaningAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301C1A8F236F7E9700F06A3D /* MeaningAnimationViewController.swift */; };
-		303C9DE523841AB6006B9786 /* MeaningAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 301C1A92236F7EB700F06A3D /* MeaningAnimationViewController.xib */; };
-		303C9DE623841AB6006B9786 /* EmotionsAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF537B2370B10F00578B22 /* EmotionsAnimationViewController.swift */; };
-		303C9DE723841AB6006B9786 /* EmotionsAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CF537C2370B10F00578B22 /* EmotionsAnimationViewController.xib */; };
-		303C9DE823841AB6006B9786 /* ExperienceAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF53812370C58100578B22 /* ExperienceAnimationViewController.swift */; };
-		303C9DE923841AB6006B9786 /* ExperienceAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CF53822370C58100578B22 /* ExperienceAnimationViewController.xib */; };
-		303C9DEA23841AB6006B9786 /* EnergyAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF53872370DDCC00578B22 /* EnergyAnimationViewController.swift */; };
-		303C9DEB23841AB6006B9786 /* EnergyAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CF53882370DDCC00578B22 /* EnergyAnimationViewController.xib */; };
-		303C9DEC23841AB6006B9786 /* RelationshipsAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF538D2370FBB800578B22 /* RelationshipsAnimationViewController.swift */; };
-		303C9DED23841AB6006B9786 /* RelationshipsAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CF538E2370FBB800578B22 /* RelationshipsAnimationViewController.xib */; };
-		303C9DEE23841AB6006B9786 /* CactusElementAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF53932371183F00578B22 /* CactusElementAnimationViewController.swift */; };
-		303C9DEF23841ABB006B9786 /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F4F2347FAA400798560 /* ProfileSettingsViewController.swift */; };
-		303C9DF023841ABB006B9786 /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E954234802C300788279 /* TermsOfServiceViewController.swift */; };
-		303C9DF123841ABB006B9786 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E9572348042800788279 /* PrivacyPolicyViewController.swift */; };
-		303C9DF223841ABB006B9786 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E95A2348087100788279 /* HelpViewController.swift */; };
-		303C9DF323841ABB006B9786 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E95D234810B300788279 /* FeedbackViewController.swift */; };
-		303C9DF523841ABB006B9786 /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE566E234E73A000AA6D4D /* NotificationsTableViewController.swift */; };
-		303C9DF623841ABB006B9786 /* NotificationTimeOfDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE5671234E829100AA6D4D /* NotificationTimeOfDayViewController.swift */; };
-		303C9DF723841ABB006B9786 /* LinkedAccountsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE5674234E982C00AA6D4D /* LinkedAccountsTableViewController.swift */; };
-		303C9DF823841ABB006B9786 /* InviteSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305130D2234FE9F10088B51F /* InviteSettingsViewController.swift */; };
-		303C9DF923841ABB006B9786 /* AppIconSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018B11C23751DE70005333A /* AppIconSettingsViewController.swift */; };
-		303C9DFA23841ABB006B9786 /* JournalEntrySkeletonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC185233A850B005C6555 /* JournalEntrySkeletonViewController.swift */; };
-		303C9DFB23841ABB006B9786 /* JournalEntrySkeletonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 300AC186233A850B005C6555 /* JournalEntrySkeletonViewController.xib */; };
-		303C9DFC23841AC1006B9786 /* TextContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E2823289F9F00A49EB6 /* TextContentViewController.swift */; };
-		303C9DFD23841AC1006B9786 /* TextContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30BF2E2923289F9F00A49EB6 /* TextContentViewController.xib */; };
-		303C9DFE23841AC1006B9786 /* QuoteContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303BF74E232D289A00164539 /* QuoteContentViewController.swift */; };
-		303C9DFF23841AC1006B9786 /* QuoteContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303BF74F232D289A00164539 /* QuoteContentViewController.xib */; };
-		303C9E0023841AC1006B9786 /* PhotoContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1861233175DC003E1561 /* PhotoContentViewController.swift */; };
-		303C9E0123841AC1006B9786 /* PhotoContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 305B1862233175DC003E1561 /* PhotoContentViewController.xib */; };
-		303C9E0223841AC1006B9786 /* ReflectContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B187E2331E162003E1561 /* ReflectContentViewController.swift */; };
-		303C9E0323841AC1006B9786 /* ReflectContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 305B187F2331E162003E1561 /* ReflectContentViewController.xib */; };
-		303C9E0423841AC1006B9786 /* CelebrateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E9632348FE9C00788279 /* CelebrateViewController.swift */; };
-		303C9E0523841AC1006B9786 /* CelebrateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3084E9642348FE9C00788279 /* CelebrateViewController.xib */; };
-		303C9E0623841AC1006B9786 /* PromptContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3026B299234D3E2800CD2D34 /* PromptContentViewController.swift */; };
-		303C9E0723841AC1006B9786 /* CactusElementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3020DD9623640BE300EC40AE /* CactusElementsViewController.swift */; };
-		303C9E0823841AC1006B9786 /* CactusElementsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3020DD9723640BE300EC40AE /* CactusElementsViewController.xib */; };
-		303C9E0923841AC1006B9786 /* VideoContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF539623732EC300578B22 /* VideoContentViewController.swift */; };
-		303C9E0A23841AC1006B9786 /* VideoContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CF539723732EC300578B22 /* VideoContentViewController.xib */; };
-		303C9E0B23841AC1006B9786 /* LoadablePromptContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303C9DA9237E1470006B9786 /* LoadablePromptContentViewController.xib */; };
-		303C9E0D23841AC6006B9786 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0AE22EADD04005B25FD /* LoginViewController.swift */; };
-		303C9E0E23841AC6006B9786 /* PromptContentPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E1723289D1200A49EB6 /* PromptContentPageViewController.swift */; };
-		303C9E0F23841AC6006B9786 /* JournalHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC17B23397A77005C6555 /* JournalHomeViewController.swift */; };
-		303C9E1023841AC6006B9786 /* NavigationMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2D37823432B21003D2B27 /* NavigationMenuViewController.swift */; };
-		303C9E1123841AC6006B9786 /* NavigationMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30E2D37923432B21003D2B27 /* NavigationMenuViewController.xib */; };
-		303C9E1223841AC6006B9786 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4F482347D7A700798560 /* SettingsTableViewController.swift */; };
-		303C9E1323841AC6006B9786 /* CactusElementPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30727448236A4AC200309B3C /* CactusElementPageViewController.swift */; };
-		303C9E1423841AC6006B9786 /* CactusElementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30727445236A4A3100309B3C /* CactusElementDetailViewController.swift */; };
-		303C9E1523841AC6006B9786 /* CactusElementDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3072743D236A43AA00309B3C /* CactusElementDetailViewController.xib */; };
-		303C9E1623841AC6006B9786 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072744B236A56AD00309B3C /* ModalViewController.swift */; };
-		303C9E1723841AC6006B9786 /* JournalHomeEmptyStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072744E236B504B00309B3C /* JournalHomeEmptyStateViewController.swift */; };
-		303C9E1823841AC6006B9786 /* EditReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D7F707236BAAB100379EE0 /* EditReflectionViewController.swift */; };
-		303C9E1923841AC6006B9786 /* EditReflectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D7F708236BAAB100379EE0 /* EditReflectionViewController.xib */; };
-		303C9E1A23841AC6006B9786 /* ShareNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F716852379ED32004989DB /* ShareNoteViewController.swift */; };
-		303C9E1B23841AC6006B9786 /* ShareNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30F716862379ED32004989DB /* ShareNoteViewController.xib */; };
-		303C9E1C23841AC6006B9786 /* SharedReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F236A237A61F100F35CDE /* SharedReflectionViewController.swift */; };
-		303C9E1D23841AC6006B9786 /* SharedReflectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 300F236B237A61F100F35CDE /* SharedReflectionViewController.xib */; };
-		303C9E1E23841AC6006B9786 /* LoadableSharedReflectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303C9DC7237FCF06006B9786 /* LoadableSharedReflectionViewController.xib */; };
-		303C9E1F23841AC6006B9786 /* ViewSharedReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C9DCC237FD7D1006B9786 /* ViewSharedReflectionViewController.swift */; };
-		303C9E2023841AC6006B9786 /* ViewSharedReflectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303C9DCD237FD7D1006B9786 /* ViewSharedReflectionViewController.xib */; };
 		303C9E2123841ACC006B9786 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9522EBF146007C4E6C /* RoundedButton.swift */; };
 		303C9E2223841ACC006B9786 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9822EBF235007C4E6C /* BorderedButton.swift */; };
 		303C9E2323841ACC006B9786 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084E96B234BC5FE00788279 /* PrimaryButton.swift */; };
@@ -424,7 +349,6 @@
 		305366C424C66CBB00927498 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305366C324C66CBB00927498 /* AppMain.swift */; };
 		305366C524C66CBB00927498 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305366C324C66CBB00927498 /* AppMain.swift */; };
 		305366C624C66CBB00927498 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305366C324C66CBB00927498 /* AppMain.swift */; };
-		305366C724C66CBB00927498 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305366C324C66CBB00927498 /* AppMain.swift */; };
 		305366C824C66CBB00927498 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305366C324C66CBB00927498 /* AppMain.swift */; };
 		305366CA24C6714300927498 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305366C924C6714300927498 /* SessionStore.swift */; };
 		305366CB24C6714300927498 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305366C924C6714300927498 /* SessionStore.swift */; };
@@ -479,7 +403,6 @@
 		3055D938240E924000981DA2 /* SubscriptionInvoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304A252B240DCC2200737C57 /* SubscriptionInvoice.swift */; };
 		3055D939240E924300981DA2 /* SubscriptionInvoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304A252B240DCC2200737C57 /* SubscriptionInvoice.swift */; };
 		3055D93A240E931900981DA2 /* SubscriptionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED78E24086E82008D26C6 /* SubscriptionUtil.swift */; };
-		3055D93B240E97AC00981DA2 /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099D1F62409740D00BD9CC4 /* SubscriptionService.swift */; };
 		3055D93D240E98BB00981DA2 /* PaymentNavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3055D93C240E98BB00981DA2 /* PaymentNavigationService.swift */; };
 		3055D93E240E98BB00981DA2 /* PaymentNavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3055D93C240E98BB00981DA2 /* PaymentNavigationService.swift */; };
 		3055D93F240E993F00981DA2 /* SubscriptionProductGroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099D1FD240974F200BD9CC4 /* SubscriptionProductGroupService.swift */; };
@@ -487,8 +410,6 @@
 		3055D941240E994500981DA2 /* SubscriptionProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCFF23EE3CD200089CFB /* SubscriptionProductService.swift */; };
 		3055D942240E999F00981DA2 /* PaymentNavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3055D93C240E98BB00981DA2 /* PaymentNavigationService.swift */; };
 		3055D943240E99BD00981DA2 /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099D1F62409740D00BD9CC4 /* SubscriptionService.swift */; };
-		3055D945240EB9A900981DA2 /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0AB22EAD6EC005B25FD /* NavigationUtil.swift */; };
-		3055D947240EECD900981DA2 /* PricingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099D1EC2408D13C00BD9CC4 /* PricingViewController.swift */; };
 		305B1863233175DC003E1561 /* PhotoContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1861233175DC003E1561 /* PhotoContentViewController.swift */; };
 		305B1864233175DC003E1561 /* PhotoContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1861233175DC003E1561 /* PhotoContentViewController.swift */; };
 		305B1865233175DC003E1561 /* PhotoContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 305B1862233175DC003E1561 /* PhotoContentViewController.xib */; };
@@ -523,10 +444,8 @@
 		305CB0FE23D03C080046E8A8 /* ContactService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305CB0FB23D03C080046E8A8 /* ContactService.swift */; };
 		305CB10023D048B60046E8A8 /* SendFriendInviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305CB0FF23D048B60046E8A8 /* SendFriendInviteViewController.swift */; };
 		305CB10123D048B60046E8A8 /* SendFriendInviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305CB0FF23D048B60046E8A8 /* SendFriendInviteViewController.swift */; };
-		305CB10223D048B60046E8A8 /* SendFriendInviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305CB0FF23D048B60046E8A8 /* SendFriendInviteViewController.swift */; };
 		305CB10423D049E30046E8A8 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305CB10323D049E30046E8A8 /* ContactsTableViewController.swift */; };
 		305CB10523D049E30046E8A8 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305CB10323D049E30046E8A8 /* ContactsTableViewController.swift */; };
-		305CB10623D049E30046E8A8 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305CB10323D049E30046E8A8 /* ContactsTableViewController.swift */; };
 		3062200A23EAB128002FAAD9 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B87233FDEC300EDE7BD /* Lato-Italic.ttf */; };
 		3062200B23EAB12B002FAAD9 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B88233FDEC300EDE7BD /* Lato-LightItalic.ttf */; };
 		3062200C23EAB12B002FAAD9 /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30673B89233FDEC300EDE7BD /* Lato-Thin.ttf */; };
@@ -587,7 +506,6 @@
 		30727450236B504B00309B3C /* JournalHomeEmptyStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072744E236B504B00309B3C /* JournalHomeEmptyStateViewController.swift */; };
 		30762E51243FF4A5000A18B3 /* BrowseElementsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30762E50243FF4A5000A18B3 /* BrowseElementsCollectionViewController.swift */; };
 		30762E52243FF4A5000A18B3 /* BrowseElementsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30762E50243FF4A5000A18B3 /* BrowseElementsCollectionViewController.swift */; };
-		30762E53243FF4A5000A18B3 /* BrowseElementsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30762E50243FF4A5000A18B3 /* BrowseElementsCollectionViewController.swift */; };
 		30762E5E2440E4A4000A18B3 /* ElementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30762E5C2440E4A4000A18B3 /* ElementCell.swift */; };
 		30762E5F2440E4A4000A18B3 /* ElementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30762E5C2440E4A4000A18B3 /* ElementCell.swift */; };
 		30762E602440E4A4000A18B3 /* ElementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30762E5C2440E4A4000A18B3 /* ElementCell.swift */; };
@@ -602,7 +520,6 @@
 		307B628624AD3B7200A4560E /* TextViewPlaceholderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B628424AD3B7200A4560E /* TextViewPlaceholderDelegate.swift */; };
 		307B628724AD3B7200A4560E /* TextViewPlaceholderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B628424AD3B7200A4560E /* TextViewPlaceholderDelegate.swift */; };
 		307B628824AD3B7200A4560E /* TextViewPlaceholderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B628424AD3B7200A4560E /* TextViewPlaceholderDelegate.swift */; };
-		307DB73A241823120084B9AC /* StoreObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCF223EE279500089CFB /* StoreObserver.swift */; };
 		307ED78B24084085008D26C6 /* MemberSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED78A24084085008D26C6 /* MemberSubscription.swift */; };
 		307ED78C24084085008D26C6 /* MemberSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED78A24084085008D26C6 /* MemberSubscription.swift */; };
 		307ED78D24084085008D26C6 /* MemberSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307ED78A24084085008D26C6 /* MemberSubscription.swift */; };
@@ -634,10 +551,8 @@
 		308505A723D0E490001179E2 /* SocialContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308505A423D0E490001179E2 /* SocialContactTableViewCell.swift */; };
 		308C5A4B24479AA50087345D /* PricingFeaturePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C5A4A24479AA50087345D /* PricingFeaturePageViewController.swift */; };
 		308C5A4C24479AA50087345D /* PricingFeaturePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C5A4A24479AA50087345D /* PricingFeaturePageViewController.swift */; };
-		308C5A4D24479AA50087345D /* PricingFeaturePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C5A4A24479AA50087345D /* PricingFeaturePageViewController.swift */; };
 		308C5A4F24479AD60087345D /* PricingFeatureItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C5A4E24479AD60087345D /* PricingFeatureItemViewController.swift */; };
 		308C5A5024479AD60087345D /* PricingFeatureItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C5A4E24479AD60087345D /* PricingFeatureItemViewController.swift */; };
-		308C5A5124479AD60087345D /* PricingFeatureItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C5A4E24479AD60087345D /* PricingFeatureItemViewController.swift */; };
 		30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
 		30934F9322EBE7DF007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
 		30934F9622EBF146007C4E6C /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9522EBF146007C4E6C /* RoundedButton.swift */; };
@@ -683,8 +598,6 @@
 		30A281F022EA62650041158E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30A281EF22EA62650041158E /* LaunchScreen.storyboard */; };
 		30A292D1243E467F00F546CA /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A292D0243E467F00F546CA /* LoadingViewController.swift */; };
 		30A292D2243E467F00F546CA /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A292D0243E467F00F546CA /* LoadingViewController.swift */; };
-		30A292D3243E467F00F546CA /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A292D0243E467F00F546CA /* LoadingViewController.swift */; };
-		30A292D4243E467F00F546CA /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A292D0243E467F00F546CA /* LoadingViewController.swift */; };
 		30A3BC0424C0CDF90016955C /* WebAppInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A3BC0324C0CDF90016955C /* WebAppInterface.swift */; };
 		30A3BC0524C0CDF90016955C /* WebAppInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A3BC0324C0CDF90016955C /* WebAppInterface.swift */; };
 		30A3BC0624C0CDF90016955C /* WebAppInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A3BC0324C0CDF90016955C /* WebAppInterface.swift */; };
@@ -928,7 +841,6 @@
 		30A3BD0524C113A20016955C /* CactusConfigLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A3BD0424C113980016955C /* CactusConfigLocal.swift */; };
 		30AB0728244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB0727244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift */; };
 		30AB0729244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB0727244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift */; };
-		30AB072A244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB0727244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift */; };
 		30AB072C244E449D006ACB98 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB072B244E449D006ACB98 /* File.swift */; };
 		30AB072D244E449D006ACB98 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB072B244E449D006ACB98 /* File.swift */; };
 		30AB072E244E449D006ACB98 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB072B244E449D006ACB98 /* File.swift */; };
@@ -1045,19 +957,19 @@
 		30D6E32424CA6B5300A4EA75 /* MDSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32324CA6B5300A4EA75 /* MDSwift.swift */; };
 		30D6E32524CA6B5300A4EA75 /* MDSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32324CA6B5300A4EA75 /* MDSwift.swift */; };
 		30D6E32624CA6B5300A4EA75 /* MDSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32324CA6B5300A4EA75 /* MDSwift.swift */; };
-		30D6E32724CA6B5300A4EA75 /* MDSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32324CA6B5300A4EA75 /* MDSwift.swift */; };
-		30D6E32824CA6B5300A4EA75 /* MDSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32324CA6B5300A4EA75 /* MDSwift.swift */; };
 		30D6E32A24CB561E00A4EA75 /* EdgeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32924CB561E00A4EA75 /* EdgeBorder.swift */; };
 		30D6E32B24CB561E00A4EA75 /* EdgeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32924CB561E00A4EA75 /* EdgeBorder.swift */; };
 		30D6E32C24CB561E00A4EA75 /* EdgeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32924CB561E00A4EA75 /* EdgeBorder.swift */; };
-		30D6E32D24CB561E00A4EA75 /* EdgeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32924CB561E00A4EA75 /* EdgeBorder.swift */; };
 		30D6E32E24CB561E00A4EA75 /* EdgeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32924CB561E00A4EA75 /* EdgeBorder.swift */; };
+		30D6E33124CB916F00A4EA75 /* MDSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32324CA6B5300A4EA75 /* MDSwift.swift */; };
+		30D6E33B24CB91E900A4EA75 /* JournalEntryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018B1222376182D0005333A /* JournalEntryData.swift */; };
+		30D6E33C24CB91F000A4EA75 /* JournalFeedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */; };
+		30D6E33D24CB921300A4EA75 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305366F824C75B9600927498 /* MockData.swift */; };
+		30D6E3A824CB98C400A4EA75 /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0AB22EAD6EC005B25FD /* NavigationUtil.swift */; };
 		30D7385D23CFFC62006F4DA6 /* InviteContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D7385B23CFFC62006F4DA6 /* InviteContentViewController.swift */; };
 		30D7385E23CFFC62006F4DA6 /* InviteContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D7385B23CFFC62006F4DA6 /* InviteContentViewController.swift */; };
-		30D7385F23CFFC62006F4DA6 /* InviteContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D7385B23CFFC62006F4DA6 /* InviteContentViewController.swift */; };
 		30D7386023CFFC62006F4DA6 /* InviteContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D7385C23CFFC62006F4DA6 /* InviteContentViewController.xib */; };
 		30D7386123CFFC62006F4DA6 /* InviteContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D7385C23CFFC62006F4DA6 /* InviteContentViewController.xib */; };
-		30D7386223CFFC62006F4DA6 /* InviteContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D7385C23CFFC62006F4DA6 /* InviteContentViewController.xib */; };
 		30D7386423D00AC6006F4DA6 /* Social.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30D7386323D00AC6006F4DA6 /* Social.storyboard */; };
 		30D7386523D00AC6006F4DA6 /* Social.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30D7386323D00AC6006F4DA6 /* Social.storyboard */; };
 		30D7386623D00AC6006F4DA6 /* Social.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30D7386323D00AC6006F4DA6 /* Social.storyboard */; };
@@ -1082,7 +994,6 @@
 		30DCA5EA2441207500D520D4 /* PromptEntryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30DCA5E42441207500D520D4 /* PromptEntryCollectionViewCell.xib */; };
 		30DCA5EC244120A700D520D4 /* PromptContentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5EB244120A700D520D4 /* PromptContentCollectionViewController.swift */; };
 		30DCA5ED244120A700D520D4 /* PromptContentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5EB244120A700D520D4 /* PromptContentCollectionViewController.swift */; };
-		30DCA5EE244120A700D520D4 /* PromptContentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5EB244120A700D520D4 /* PromptContentCollectionViewController.swift */; };
 		30DCA5F024417AA400D520D4 /* PromptContentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5EF24417AA400D520D4 /* PromptContentDataSource.swift */; };
 		30DCA5F124417AA400D520D4 /* PromptContentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5EF24417AA400D520D4 /* PromptContentDataSource.swift */; };
 		30DCA5F224417AA400D520D4 /* PromptContentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5EF24417AA400D520D4 /* PromptContentDataSource.swift */; };
@@ -1541,13 +1452,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		300AC18123398E86005C6555 /* Video */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Video;
-			sourceTree = "<group>";
-		};
 		300AC18B233AE16C005C6555 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -1946,7 +1850,6 @@
 				30A281ED22EA621E0041158E /* Storyboards */,
 				30265C5B23453C7B00934041 /* SwiftyGif */,
 				30934FA122EBF4CF007C4E6C /* Utils */,
-				300AC18123398E86005C6555 /* Video */,
 				30E9B0A722EAD618005B25FD /* ViewControllers */,
 				30934F9422EBF12D007C4E6C /* Views */,
 				30A3BC0224C0CDD80016955C /* WebApp */,
@@ -2322,28 +2225,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				303C9E0823841AC1006B9786 /* CactusElementsViewController.xib in Resources */,
 				3062200C23EAB12B002FAAD9 /* Lato-Thin.ttf in Resources */,
-				303C9DED23841AB6006B9786 /* RelationshipsAnimationViewController.xib in Resources */,
-				3021CBE52410345E00F58B89 /* WebViewController.xib in Resources */,
-				303C9E0B23841AC1006B9786 /* LoadablePromptContentViewController.xib in Resources */,
-				303C9DE523841AB6006B9786 /* MeaningAnimationViewController.xib in Resources */,
 				30B79CB724B50A1000608293 /* vendors.js in Resources */,
 				304BCE6D2485F0F10055A28E /* elements.css in Resources */,
-				303C9DEB23841AB6006B9786 /* EnergyAnimationViewController.xib in Resources */,
-				303C9E1523841AC6006B9786 /* CactusElementDetailViewController.xib in Resources */,
 				3062200F23EAB12B002FAAD9 /* Lato-Regular.ttf in Resources */,
 				3062200D23EAB12B002FAAD9 /* Lato-Bold.ttf in Resources */,
-				303C9E1123841AC6006B9786 /* NavigationMenuViewController.xib in Resources */,
 				3032820F2412B87D00FC197A /* PricingFeatureView.xib in Resources */,
-				303C9DE923841AB6006B9786 /* ExperienceAnimationViewController.xib in Resources */,
 				30B79CB324B50A1000608293 /* wordBubbles.html in Resources */,
 				304BCE7B248600950055A28E /* energy.html in Resources */,
 				30B79CBB24B50A1000608293 /* wordBubbles.css in Resources */,
-				303C9E1E23841AC6006B9786 /* LoadableSharedReflectionViewController.xib in Resources */,
-				303C9E2023841AC6006B9786 /* ViewSharedReflectionViewController.xib in Resources */,
-				303C9E0A23841AC1006B9786 /* VideoContentViewController.xib in Resources */,
-				303C9E0323841AC1006B9786 /* ReflectContentViewController.xib in Resources */,
 				30B79CCB24B50A1000608293 /* favicon.ico in Resources */,
 				30DCA5EA2441207500D520D4 /* PromptEntryCollectionViewCell.xib in Resources */,
 				30B79CC324B50A1000608293 /* runtime.js in Resources */,
@@ -2353,25 +2243,15 @@
 				304BCE79248600950055A28E /* experience.html in Resources */,
 				3062201323EAB12B002FAAD9 /* Lato-Light.ttf in Resources */,
 				304BCE5924858BAB0055A28E /* meaning.html in Resources */,
-				303C9DFB23841ABB006B9786 /* JournalEntrySkeletonViewController.xib in Resources */,
 				30B79CBF24B50A1000608293 /* wordBubbles.js in Resources */,
-				303C9E0523841AC1006B9786 /* CelebrateViewController.xib in Resources */,
 				30762E632440E4A4000A18B3 /* ElementCell.xib in Resources */,
 				3062200A23EAB128002FAAD9 /* Lato-Italic.ttf in Resources */,
-				303C9DFD23841AC1006B9786 /* TextContentViewController.xib in Resources */,
 				3062201423EAB12B002FAAD9 /* Lato-ThinItalic.ttf in Resources */,
-				303C9E1D23841AC6006B9786 /* SharedReflectionViewController.xib in Resources */,
 				3062200E23EAB12B002FAAD9 /* Lato-Black.ttf in Resources */,
 				30B79CC724B50A1000608293 /* vendors.css in Resources */,
 				3062201123EAB12B002FAAD9 /* OFL.txt in Resources */,
 				304BCE7A248600950055A28E /* relationships.html in Resources */,
 				30D7387423D00F7C006F4DA6 /* SocialActivityCardView.xib in Resources */,
-				303C9DE723841AB6006B9786 /* EmotionsAnimationViewController.xib in Resources */,
-				303C9E1923841AC6006B9786 /* EditReflectionViewController.xib in Resources */,
-				303C9E0123841AC1006B9786 /* PhotoContentViewController.xib in Resources */,
-				303C9E1B23841AC6006B9786 /* ShareNoteViewController.xib in Resources */,
-				303C9DFF23841AC1006B9786 /* QuoteContentViewController.xib in Resources */,
-				30D7386223CFFC62006F4DA6 /* InviteContentViewController.xib in Resources */,
 				3062200B23EAB12B002FAAD9 /* Lato-LightItalic.ttf in Resources */,
 				304BCE712486008D0055A28E /* emotions.html in Resources */,
 				3062201023EAB12B002FAAD9 /* Lato-BlackItalic.ttf in Resources */,
@@ -2392,7 +2272,6 @@
 				304B215F23D392C8007B016C /* SocialActivityCardView.xib in Resources */,
 				304B210C23D383E1007B016C /* MainInterface.storyboard in Resources */,
 				303282102412B87D00FC197A /* PricingFeatureView.xib in Resources */,
-				3019A4DA243BDF7E003D0074 /* WebViewController.xib in Resources */,
 				304B217D23D39AA4007B016C /* LaunchScreen.storyboard in Resources */,
 				304B217A23D39575007B016C /* SharedAssets.xcassets in Resources */,
 				304BCE5A24858BAB0055A28E /* meaning.html in Resources */,
@@ -2895,7 +2774,6 @@
 				30D0E44F236C920C00EFC0E3 /* ViewControllerExtensions.swift in Sources */,
 				303C9DBE237F5E34006B9786 /* URLExtensionTest.swift in Sources */,
 				305366BB24C66BF200927498 /* AppData.swift in Sources */,
-				303C9DF523841ABB006B9786 /* NotificationsTableViewController.swift in Sources */,
 				303C9E4A238F29E6006B9786 /* SharingServiceTest.swift in Sources */,
 				307ED78D24084085008D26C6 /* MemberSubscription.swift in Sources */,
 				303C9E3A23841AFC006B9786 /* UIImage+SwiftyGif.swift in Sources */,
@@ -2904,39 +2782,25 @@
 				30D0E449236C89DA00EFC0E3 /* CactusConstants.swift in Sources */,
 				305B187C2331A906003E1561 /* ReflectionResponse.swift in Sources */,
 				3055D935240E921E00981DA2 /* SubscriptionProduct.swift in Sources */,
-				303C9DE423841AB6006B9786 /* MeaningAnimationViewController.swift in Sources */,
 				303C9E2923841ACC006B9786 /* RoundedView.swift in Sources */,
-				303C9E0723841AC1006B9786 /* CactusElementsViewController.swift in Sources */,
 				305B18752331A8F5003E1561 /* CactusColor.swift in Sources */,
 				303C9E4023841FAD006B9786 /* ReflectionResponseTest.swift in Sources */,
 				3006442623D26BAB00712ED1 /* SocialInviteService.swift in Sources */,
-				30D7385F23CFFC62006F4DA6 /* InviteContentViewController.swift in Sources */,
 				30D6E32E24CB561E00A4EA75 /* EdgeBorder.swift in Sources */,
 				303C9E3B23841AFC006B9786 /* UIImageView+SwiftyGif.swift in Sources */,
-				303C9E1223841AC6006B9786 /* SettingsTableViewController.swift in Sources */,
 				303C9DD8238419E5006B9786 /* ApiService.swift in Sources */,
 				305B187A2331A906003E1561 /* PromptContent.swift in Sources */,
-				303C9DF823841ABB006B9786 /* InviteSettingsViewController.swift in Sources */,
 				303C9E2B23841ACC006B9786 /* CactusTextInputField.swift in Sources */,
 				303282142412B8E600FC197A /* PricingFeatureView.swift in Sources */,
 				303C9E2C23841ACC006B9786 /* BorderedTextView.swift in Sources */,
 				303C9E3323841AEB006B9786 /* PromptContentService.swift in Sources */,
 				303C9DDA238419FE006B9786 /* ApiTypes.swift in Sources */,
-				303C9DEE23841AB6006B9786 /* CactusElementAnimationViewController.swift in Sources */,
 				305366FC24C75B9600927498 /* MockData.swift in Sources */,
 				3055D942240E999F00981DA2 /* PaymentNavigationService.swift in Sources */,
-				303C9E0023841AC1006B9786 /* PhotoContentViewController.swift in Sources */,
 				3084E96A234BACE300788279 /* FormatUtilTest.swift in Sources */,
-				303C9E0623841AC1006B9786 /* PromptContentViewController.swift in Sources */,
 				3021CBE7241049AC00F58B89 /* StoreObserver.swift in Sources */,
 				30C18F7C247AC6D400749C56 /* PromptContentTest.swift in Sources */,
-				303C9DDC23841A30006B9786 /* JournalFeedCollectionViewController.swift in Sources */,
-				30A292D3243E467F00F546CA /* LoadingViewController.swift in Sources */,
 				30F7168B237A4A9B004989DB /* LoggerUtil.swift in Sources */,
-				303C9DFC23841AC1006B9786 /* TextContentViewController.swift in Sources */,
-				303C9E1623841AC6006B9786 /* ModalViewController.swift in Sources */,
-				303C9E1023841AC6006B9786 /* NavigationMenuViewController.swift in Sources */,
-				303C9DEF23841ABB006B9786 /* ProfileSettingsViewController.swift in Sources */,
 				303C9E2F23841ACC006B9786 /* ShadowView.swift in Sources */,
 				3021CBDC2410251E00F58B89 /* SubscriptionPlanOptionView.swift in Sources */,
 				303C9E2723841ACC006B9786 /* GrowingTextView.swift in Sources */,
@@ -2944,92 +2808,61 @@
 				304BCE6824858CFB0055A28E /* CactusElementWebView.swift in Sources */,
 				3062201823EB1B68002FAAD9 /* FirebaseInAppMessageDelegate.swift in Sources */,
 				303C9E3223841AEB006B9786 /* ImageService.swift in Sources */,
-				303C9E1823841AC6006B9786 /* EditReflectionViewController.swift in Sources */,
 				307ED79124086E82008D26C6 /* SubscriptionUtil.swift in Sources */,
-				308C5A4D24479AA50087345D /* PricingFeaturePageViewController.swift in Sources */,
-				303C9DE623841AB6006B9786 /* EmotionsAnimationViewController.swift in Sources */,
 				3032821E2416D29F00FC197A /* AuthenticatedTask.swift in Sources */,
 				305366D324C676D300927498 /* WelcomeController.swift in Sources */,
-				303C9DDB23841A1B006B9786 /* AppMainViewController.swift in Sources */,
-				305CB10623D049E30046E8A8 /* ContactsTableViewController.swift in Sources */,
 				303C9E3123841AEB006B9786 /* FlamelinkService.swift in Sources */,
 				303C9E3C23841B01006B9786 /* CountProcess.swift in Sources */,
 				303C9DBF237F6276006B9786 /* UserServiceFile.swift in Sources */,
 				303C9E3523841AEB006B9786 /* ReflectionResponseService.swift in Sources */,
-				303C9E0E23841AC6006B9786 /* PromptContentPageViewController.swift in Sources */,
 				30D0E44A236C913600EFC0E3 /* CactusImage.swift in Sources */,
 				305366ED24C6A21600927498 /* JournalEntryRow.swift in Sources */,
 				305366E824C69BC100927498 /* JournalFeed.swift in Sources */,
 				305B18722331A843003E1561 /* FileUtils.swift in Sources */,
 				305B18762331A906003E1561 /* BaseModel.swift in Sources */,
-				3021CBF02411769800F58B89 /* MemberInsightsViewController.swift in Sources */,
 				303BF744232A986A00164539 /* CactusUnitTests.swift in Sources */,
 				30D0E44B236C91F500EFC0E3 /* CGExtensions.swift in Sources */,
 				303C9E3023841AEB006B9786 /* AppSettingsService.swift in Sources */,
 				303C9E2A23841ACC006B9786 /* AuthProviderTableViewCell.swift in Sources */,
 				3009EE5B23C98F4400002CCB /* DateUtilTests.swift in Sources */,
-				3021CBE12410345E00F58B89 /* WebViewController.swift in Sources */,
 				305B187D2331A906003E1561 /* MailchimpModels.swift in Sources */,
-				303C9E0D23841AC6006B9786 /* LoginViewController.swift in Sources */,
 				30D7386F23D00C0C006F4DA6 /* CircleImageView.swift in Sources */,
 				303C9E3423841AEB006B9786 /* ReflectionPromptService.swift in Sources */,
 				30051A4E23A86306005F812B /* InvertableImageView.swift in Sources */,
-				30762E53243FF4A5000A18B3 /* BrowseElementsCollectionViewController.swift in Sources */,
 				3099D200240974F200BD9CC4 /* SubscriptionProductGroupService.swift in Sources */,
 				303C9DBC237F5DCC006B9786 /* URLExtensions.swift in Sources */,
-				303C9DF323841ABB006B9786 /* FeedbackViewController.swift in Sources */,
-				3055D947240EECD900981DA2 /* PricingViewController.swift in Sources */,
 				305366CE24C6714400927498 /* SessionStore.swift in Sources */,
-				303C9DF123841ABB006B9786 /* PrivacyPolicyViewController.swift in Sources */,
 				305424EC23AC0432003F82A2 /* UIStackViewExtensionis.swift in Sources */,
 				307ED79D24088C7E008D26C6 /* UpgradeJournalFeedCollectionReusableView.swift in Sources */,
-				303C9DEC23841AB6006B9786 /* RelationshipsAnimationViewController.swift in Sources */,
 				305366D824C67D5E00927498 /* Home.swift in Sources */,
 				305366DD24C688CB00927498 /* JournalHome.swift in Sources */,
 				303C9DD7238419DD006B9786 /* LinkHandlerUtil.swift in Sources */,
-				303C9E1423841AC6006B9786 /* CactusElementDetailViewController.swift in Sources */,
-				303C9DF623841ABB006B9786 /* NotificationTimeOfDayViewController.swift in Sources */,
 				305B18742331A8F0003E1561 /* MarkdownUtil.swift in Sources */,
 				307ED7952408748C008D26C6 /* MemberSubscriptionTest.swift in Sources */,
-				308C5A5124479AD60087345D /* PricingFeatureItemViewController.swift in Sources */,
 				30E9D04624784FBF00FE4E5F /* CactusMemberTest.swift in Sources */,
 				30D0E451236C921200EFC0E3 /* FontExtensions.swift in Sources */,
-				30D6E32824CA6B5300A4EA75 /* MDSwift.swift in Sources */,
 				303C9DC5237F6799006B9786 /* StorageService.swift in Sources */,
-				303C9DE823841AB6006B9786 /* ExperienceAnimationViewController.swift in Sources */,
 				3055D943240E99BD00981DA2 /* SubscriptionService.swift in Sources */,
 				30DCA5E72441207500D520D4 /* PromptEntryCollectionViewCell.swift in Sources */,
 				30AB072E244E449D006ACB98 /* File.swift in Sources */,
 				303C9DE023841A71006B9786 /* JournalFeedFlowLayout.swift in Sources */,
 				303C9E2123841ACC006B9786 /* RoundedButton.swift in Sources */,
-				303C9E1723841AC6006B9786 /* JournalHomeEmptyStateViewController.swift in Sources */,
-				303C9DF223841ABB006B9786 /* HelpViewController.swift in Sources */,
 				30DCA5F224417AA400D520D4 /* PromptContentDataSource.swift in Sources */,
 				3021CBD92410215500F58B89 /* NavigationService.swift in Sources */,
 				305366F724C6C4B900927498 /* MarkdownText.swift in Sources */,
-				303C9DF723841ABB006B9786 /* LinkedAccountsTableViewController.swift in Sources */,
-				303C9DE323841AA3006B9786 /* NotificationOnboardingViewController.swift in Sources */,
 				307B628724AD3B7200A4560E /* TextViewPlaceholderDelegate.swift in Sources */,
-				303C9DFA23841ABB006B9786 /* JournalEntrySkeletonViewController.swift in Sources */,
 				303C9E3E23841B1B006B9786 /* AppSettings.swift in Sources */,
+				30D6E33124CB916F00A4EA75 /* MDSwift.swift in Sources */,
 				30A3BC0624C0CDF90016955C /* WebAppInterface.swift in Sources */,
-				303C9E1A23841AC6006B9786 /* ShareNoteViewController.swift in Sources */,
-				303C9DDD23841A38006B9786 /* LoadablePromptContentViewController.swift in Sources */,
-				303C9E1323841AC6006B9786 /* CactusElementPageViewController.swift in Sources */,
 				303C9E2423841ACC006B9786 /* TertiaryButton.swift in Sources */,
 				303C9DD4238419BC006B9786 /* CactusMemberService.swift in Sources */,
-				303C9E0923841AC1006B9786 /* VideoContentViewController.swift in Sources */,
 				303C9E2823841ACC006B9786 /* PillLabelView.swift in Sources */,
-				303C9DEA23841AB6006B9786 /* EnergyAnimationViewController.swift in Sources */,
 				308505A723D0E490001179E2 /* SocialContactTableViewCell.swift in Sources */,
 				30392FF82410075400F2A8FC /* ModelDecoder.swift in Sources */,
 				305B18732331A8E8003E1561 /* FormatUtils.swift in Sources */,
 				303C9DE223841A9A006B9786 /* DateUtil.swift in Sources */,
-				305CB10223D048B60046E8A8 /* SendFriendInviteViewController.swift in Sources */,
 				303C9E2223841ACC006B9786 /* BorderedButton.swift in Sources */,
-				303C9DF923841ABB006B9786 /* AppIconSettingsViewController.swift in Sources */,
 				30DFCA8924609D86007187FC /* JournalEntryCell.swift in Sources */,
-				30AB072A244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift in Sources */,
 				30F7168D237A4B9C004989DB /* AppConfig.swift in Sources */,
 				303C9E2D23841ACC006B9786 /* UIImageViewAligned.swift in Sources */,
 				30DCA5FA24418BAA00D520D4 /* PromptContentData.swift in Sources */,
@@ -3037,19 +2870,13 @@
 				305B187123319F42003E1561 /* FileUtilsTest.swift in Sources */,
 				305B18772331A906003E1561 /* FlamelinkTypes.swift in Sources */,
 				30762E602440E4A4000A18B3 /* ElementCell.swift in Sources */,
-				303C9DD6238419D5006B9786 /* NotificationService.swift in Sources */,
 				305B18782331A906003E1561 /* CactusMember.swift in Sources */,
-				303C9DF023841ABB006B9786 /* TermsOfServiceViewController.swift in Sources */,
-				30DCA5EE244120A700D520D4 /* PromptContentCollectionViewController.swift in Sources */,
 				303282192414556A00FC197A /* ApplePayment.swift in Sources */,
 				304BCE80248962B50055A28E /* StringExtensionsTest.swift in Sources */,
-				303C9DDE23841A3E006B9786 /* LoadableSharedReflectionViewController.swift in Sources */,
 				303C9E2623841ACC006B9786 /* MarkdownTypes.swift in Sources */,
 				305B187B2331A906003E1561 /* ReflectionPrompt.swift in Sources */,
 				303C9E3D23841B01006B9786 /* JournalEntryData.swift in Sources */,
-				303C9DFE23841AC1006B9786 /* QuoteContentViewController.swift in Sources */,
 				303C9DD9238419F9006B9786 /* NavigationUtil.swift in Sources */,
-				303C9E0423841AC1006B9786 /* CelebrateViewController.swift in Sources */,
 				30E9D044247826FB00FE4E5F /* UnitTestAppDelegate.swift in Sources */,
 				303282232416D3DF00FC197A /* AuthenticatedTaskManager.swift in Sources */,
 				30F7168C237A4B85004989DB /* CactusConfig.swift in Sources */,
@@ -3064,9 +2891,7 @@
 				303C9E3923841AFC006B9786 /* SwiftyGifManager.swift in Sources */,
 				303C9E2523841ACC006B9786 /* SecondaryButton.swift in Sources */,
 				305366F224C6A84200927498 /* PromptContentView.swift in Sources */,
-				303C9E1F23841AC6006B9786 /* ViewSharedReflectionViewController.swift in Sources */,
 				303C9E3723841AF0006B9786 /* SharingService.swift in Sources */,
-				303C9E0F23841AC6006B9786 /* JournalHomeViewController.swift in Sources */,
 				30D0E44D236C920400EFC0E3 /* ViewExtensions.swift in Sources */,
 				305366E324C690F600927498 /* Loading.swift in Sources */,
 				30D7387823D00F96006F4DA6 /* SocialActivityCardView.swift in Sources */,
@@ -3075,16 +2900,11 @@
 				30AB0732244E4762006ACB98 /* CoreValuesAssessmentResponseService.swift in Sources */,
 				30D0E456236C98C100EFC0E3 /* StringExtensions.swift in Sources */,
 				305CB0FE23D03C080046E8A8 /* ContactService.swift in Sources */,
-				30044011243F9CF80002A293 /* DataExportViewController.swift in Sources */,
 				303C9E2323841ACC006B9786 /* PrimaryButton.swift in Sources */,
 				30D0E44E236C920800EFC0E3 /* FirebaseExtensions.swift in Sources */,
 				303C9E3823841AF5006B9786 /* ImageExtensions.swift in Sources */,
 				303C9DC1237F6288006B9786 /* StorageServiceTest.swift in Sources */,
 				305B18792331A906003E1561 /* SentPrompt.swift in Sources */,
-				303C9E1C23841AC6006B9786 /* SharedReflectionViewController.swift in Sources */,
-				3032820B241215D900FC197A /* WelcomeViewController.swift in Sources */,
-				303C9E0223841AC1006B9786 /* ReflectContentViewController.swift in Sources */,
-				3021CBEB2410E83800F58B89 /* InsightsWebViewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3094,20 +2914,16 @@
 			files = (
 				304B216623D39444007B016C /* FirestoreService.swift in Sources */,
 				304B214223D3914C007B016C /* ViewControllerExtensions.swift in Sources */,
-				30D6E32724CA6B5300A4EA75 /* MDSwift.swift in Sources */,
 				3055D93A240E931900981DA2 /* SubscriptionUtil.swift in Sources */,
 				304B215423D392C2007B016C /* JournalFeedFlowLayout.swift in Sources */,
 				3055D941240E994500981DA2 /* SubscriptionProductService.swift in Sources */,
-				307DB73A241823120084B9AC /* StoreObserver.swift in Sources */,
 				304B215023D392C2007B016C /* CactusTextInputField.swift in Sources */,
 				303282242416D3DF00FC197A /* AuthenticatedTaskManager.swift in Sources */,
 				3055D939240E924300981DA2 /* SubscriptionInvoice.swift in Sources */,
-				30A292D4243E467F00F546CA /* LoadingViewController.swift in Sources */,
 				304B213423D38F79007B016C /* FormatUtils.swift in Sources */,
 				304B213623D38F79007B016C /* AppConfig.swift in Sources */,
 				304B213223D38F65007B016C /* CactusConstants.swift in Sources */,
 				304B217623D39484007B016C /* SocialInviteService.swift in Sources */,
-				305366C724C66CBB00927498 /* AppMain.swift in Sources */,
 				304B213B23D38F79007B016C /* LoggerUtil.swift in Sources */,
 				304B213323D38F65007B016C /* MemberProfile.swift in Sources */,
 				304B215923D392C2007B016C /* RoundedView.swift in Sources */,
@@ -3124,11 +2940,9 @@
 				304B213723D38F79007B016C /* MarkdownUtil.swift in Sources */,
 				3055D93F240E993F00981DA2 /* SubscriptionProductGroupService.swift in Sources */,
 				304B214C23D392B8007B016C /* InvertableImageView.swift in Sources */,
-				3019A4D9243BDF74003D0074 /* WebViewController.swift in Sources */,
 				304B214523D3914C007B016C /* UIAlertControllerExtensions.swift in Sources */,
 				307B623B24ABE5A100A4560E /* ArrayExtensions.swift in Sources */,
 				304B215223D392C2007B016C /* GrowingTextView.swift in Sources */,
-				3055D93B240E97AC00981DA2 /* SubscriptionService.swift in Sources */,
 				3055D937240E923C00981DA2 /* SubscriptionProductGroup.swift in Sources */,
 				304BCE6924858CFB0055A28E /* CactusElementWebView.swift in Sources */,
 				30392FF92410075400F2A8FC /* ModelDecoder.swift in Sources */,
@@ -3146,7 +2960,6 @@
 				304B216C23D3947F007B016C /* ImageService.swift in Sources */,
 				304B216123D392C8007B016C /* SocialContactTableViewCell.swift in Sources */,
 				304B215B23D392C2007B016C /* ShadowView.swift in Sources */,
-				3021CBDA2410215500F58B89 /* NavigationService.swift in Sources */,
 				304B214B23D39233007B016C /* UIImageView+SwiftyGif.swift in Sources */,
 				304B217823D394E4007B016C /* AuthService.swift in Sources */,
 				304B214D23D392C2007B016C /* AuthProviderTableViewCell.swift in Sources */,
@@ -3161,6 +2974,7 @@
 				3055D934240E902700981DA2 /* MemberSubscription.swift in Sources */,
 				304B212B23D38F65007B016C /* FlamelinkTypes.swift in Sources */,
 				304B217023D3947F007B016C /* ReflectionResponseService.swift in Sources */,
+				30D6E3A824CB98C400A4EA75 /* NavigationUtil.swift in Sources */,
 				304B212C23D38F65007B016C /* CactusMember.swift in Sources */,
 				304B213923D38F79007B016C /* CactusImage.swift in Sources */,
 				304B216F23D3947F007B016C /* ReflectionPromptService.swift in Sources */,
@@ -3172,12 +2986,12 @@
 				304B212923D38F5A007B016C /* BaseModel.swift in Sources */,
 				305366CD24C6714400927498 /* SessionStore.swift in Sources */,
 				304B214923D39233007B016C /* SwiftyGifManager.swift in Sources */,
+				30D6E33B24CB91E900A4EA75 /* JournalEntryData.swift in Sources */,
 				304B215123D392C2007B016C /* CircleView.swift in Sources */,
 				304B216723D39448007B016C /* PromptContentService.swift in Sources */,
 				300FCCED23ECB5D600089CFB /* FancyLinkButton.swift in Sources */,
+				30D6E33C24CB91F000A4EA75 /* JournalFeedDataSource.swift in Sources */,
 				304B214823D3914C007B016C /* UIStackViewExtensionis.swift in Sources */,
-				3021CBEC2410E83800F58B89 /* InsightsWebViewViewController.swift in Sources */,
-				30D6E32D24CB561E00A4EA75 /* EdgeBorder.swift in Sources */,
 				3062202223EC7A0A002FAAD9 /* MarkdownTextView.swift in Sources */,
 				304B217523D39484007B016C /* ContactService.swift in Sources */,
 				304B216923D3947F007B016C /* AppSettingsService.swift in Sources */,
@@ -3185,11 +2999,11 @@
 				304B217423D39484007B016C /* StorageService.swift in Sources */,
 				304B213A23D38F79007B016C /* DateUtil.swift in Sources */,
 				304B212A23D38F65007B016C /* AppSettings.swift in Sources */,
+				30D6E33D24CB921300A4EA75 /* MockData.swift in Sources */,
 				304B215723D392C2007B016C /* PrimaryButton.swift in Sources */,
 				304B214F23D392C2007B016C /* BorderedTextView.swift in Sources */,
 				3021CBDB2410251D00F58B89 /* SubscriptionPlanOptionView.swift in Sources */,
 				304B215623D392C2007B016C /* PillLabelView.swift in Sources */,
-				3055D945240EB9A900981DA2 /* NavigationUtil.swift in Sources */,
 				304B215E23D392C2007B016C /* CircleImageView.swift in Sources */,
 				304B215823D392C2007B016C /* RoundedButton.swift in Sources */,
 				304B215C23D392C2007B016C /* TertiaryButton.swift in Sources */,

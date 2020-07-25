@@ -9,7 +9,7 @@
 import SwiftUI
 import URLImage
 
-struct JournalEntryAnswered: View {
+struct JournalEntryWithNote: View {
     var entry: JournalEntry
     
     var responseText: String? {
@@ -83,7 +83,7 @@ struct JournalEntryNoNote: View {
                              content: {
                                 $0.image
                                     .resizable()
-                                    .frame(width: self.imageWidth, height: self.imageHeight)
+//                                    .frame(width: self.imageWidth, height: self.imageHeight)
                                     .aspectRatio(contentMode: .fit)
                     })
                         .frame(width: self.imageWidth, height: self.imageHeight)
@@ -104,7 +104,7 @@ struct JournalEntryRow: View {
     @State var showMoreActions = false
     
     var hasResponse: Bool {
-        return entry.responsesLoaded && !(entry.responses ?? []).isEmpty
+        return entry.responsesLoaded && !isBlank(entry.responseText)
     }
     
     var body: some View {
@@ -117,37 +117,30 @@ struct JournalEntryRow: View {
                 }
                 
                 Spacer()
-                Button(action: {
-                    self.showMoreActions.toggle()
-                }) {
-                    Image(CactusImage.dots.rawValue)
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                        .rotationEffect(.degrees(self.showMoreActions ? 90 : 0))
-                        .animation(.interpolatingSpring(mass: 0.2, stiffness: 25, damping: 2, initialVelocity: -0.5))
-                        .accentColor(Color(CactusColor.textMinimized))
-                }
+                Image(CactusImage.dots.rawValue)
+                    .resizable()
+                    .frame(width: 30, height: 30)
+                    .rotationEffect(.degrees(self.showMoreActions ? 90 : 0))
+                    .animation(.interpolatingSpring(mass: 0.2, stiffness: 25, damping: 2.5, initialVelocity: -0.5))
+//                    .foregroundColor(Color(CactusColor.textDefault))
+                    .onTapGesture {
+                        self.showMoreActions.toggle()
+                    }
             }
             VStack(alignment: .leading) {
                 if self.hasResponse {
-                    JournalEntryAnswered(entry: self.entry)
+                    JournalEntryWithNote(entry: self.entry)
                 } else {
                     JournalEntryNoNote(entry: self.entry)
                 }
             }
         }
-//        .onTapGesture {
-//            self.showPrompt = true
-//        }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity, alignment: .topLeading)
         .padding(20)
         .background(Color.white)
         .cornerRadius(10)
         .clipped()
         .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 10)
-        .sheet(isPresented: self.$showPrompt) {
-            PromptContentView(entry: self.entry).environmentObject(self.session)
-        }
         .actionSheet(isPresented: self.$showMoreActions) {
             ActionSheet(title: Text("What do you want to do?"),
                         message: Text("There's only one choice..."),
@@ -169,11 +162,11 @@ struct JournalEntryRow_Previews: PreviewProvider {
     }
     
     static var rowData: [(entry: JournalEntry, name: String)] = [
-        (entry: MockData.getLoadingEntry(), name: "loading"),
-        (entry: MockData.getAnsweredEntry(), name: "Has Response"),
-        (entry: MockData.getUnansweredEntry(), name: "Question & Image"),
-        (entry: MockData.getUnansweredEntry(isToday: true), name: "Today"),
-        (entry: MockData.EntryBuilder(question: nil, answer: nil).build(), name: "No Question"),
+//        (entry: MockData.getLoadingEntry(blob: 1), name: "loading"),
+//        (entry: MockData.getAnsweredEntry(blob: 2), name: "Has Response"),
+//        (entry: MockData.getUnansweredEntry(blob: 3), name: "Question & Image"),
+//        (entry: MockData.getUnansweredEntry(isToday: true, blob: 4), name: "Today"),
+//        (entry: MockData.EntryBuilder(question: nil, answer: nil, blob: 5).build(), name: "No Question"),
     ]
     
     static var previews: some View {
@@ -183,7 +176,7 @@ struct JournalEntryRow_Previews: PreviewProvider {
                 JournalEntryRow(entry: data.entry)
                     .listRowInsets(EdgeInsets())
                     .padding()
-            }
+            }.environmentObject(SessionStore.mockLoggedIn())
             .onAppear(perform: {
                 UITableView.appearance().separatorStyle = .none
             })

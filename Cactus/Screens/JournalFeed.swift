@@ -14,6 +14,19 @@ struct JournalFeed: View {
         session.journalEntries
     }
     
+    @State var selectedEntry: JournalEntry?
+    @State var showDetail: Bool = false
+    
+    func handleEntrySelected(entry: JournalEntry) {
+        if entry.promptContent != nil {
+            self.selectedEntry = entry
+            self.showDetail = true
+        } else {
+            self.selectedEntry = nil
+            self.showDetail = false
+        }
+    }
+    
     var body: some View {
         List {
             Text("\(session.member?.email ?? "My") Journal Entries")
@@ -25,16 +38,22 @@ struct JournalFeed: View {
                         if lastEntry?.id == entry.id {
                             self.session.journalFeedDataSource?.loadNextPage()
                         }
+                }.onTapGesture {
+                    self.handleEntrySelected(entry: entry)
                 }
             }
             .padding()
             .listRowInsets(EdgeInsets())        
         }
+            .navigationBarHidden(true)        
             .onAppear(perform: {
                 UITableView.appearance().separatorStyle = .none
             })
             .edgesIgnoringSafeArea(.horizontal)
             .edgesIgnoringSafeArea(.bottom)
+            .sheet(isPresented: self.$showDetail) {
+                PromptContentView(entry: self.selectedEntry!).environmentObject(self.session)
+            }
     }
 }
 
