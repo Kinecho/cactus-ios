@@ -29,7 +29,15 @@ struct JournalFeed: View {
     
     var body: some View {
         List {
-            Text("\(session.member?.email ?? "My") Journal Entries")
+            if self.session.member?.tier == .BASIC {
+                JournalUpgradeBanner()                    
+            }
+            
+            VStack(alignment: .leading) {
+                Text("Email: \(self.session.member?.email ?? "no email")")
+                Text("Tier: \((self.session.member?.tier ?? SubscriptionTier.BASIC).rawValue)")
+            }
+            
             ForEach(self.entries) { entry in
                 JournalEntryRow(entry: entry)
                     .onAppear {
@@ -43,35 +51,30 @@ struct JournalFeed: View {
                 }
             }
             .padding()
-            .listRowInsets(EdgeInsets())        
+            .listRowInsets(EdgeInsets())
         }
-            .navigationBarHidden(true)        
-            .onAppear(perform: {
-                UITableView.appearance().separatorStyle = .none
-            })
-            .edgesIgnoringSafeArea(.horizontal)
-            .edgesIgnoringSafeArea(.bottom)
+        .navigationBarHidden(true)
+        .onAppear(perform: {
+            UITableView.appearance().separatorStyle = .none
+        })
             .sheet(isPresented: self.$showDetail) {
                 PromptContentView(entry: self.selectedEntry!).environmentObject(self.session)
-            }
+        }
     }
 }
 
 struct JournalFeed_Previews: PreviewProvider {
     
-    static func getSession() -> SessionStore {
-        let session = SessionStore.mockLoggedIn()
-        session.journalEntries = [
-            MockData.getUnansweredEntry(isToday: true),
-            MockData.getAnsweredEntry(),
-            MockData.getUnansweredEntry(isToday: false),
-            MockData.EntryBuilder(question: "What do you think of SwiftUI?", answer: "This is a really thoughtful response.").build(),
-            MockData.getLoadingEntry(),
-        ]
-        return session
-    }
-     
     static var previews: some View {
-        JournalFeed().environmentObject(self.getSession())
+        Group {
+            JournalFeed().environmentObject(SessionStore.mockLoggedIn(tier: .BASIC).setEntries(MockData.getDefaultJournalEntries()))
+                .previewDisplayName("Basic User")
+            
+            JournalFeed().environmentObject(SessionStore.mockLoggedIn(tier: .BASIC).setEntries(MockData.getDefaultJournalEntries()))
+                .previewDisplayName("Basic User - iPhone 5s")
+                .previewDevice("iPhone SE")
+            
+            JournalFeed().environmentObject(SessionStore.mockLoggedIn(tier: .PLUS).setEntries(MockData.getDefaultJournalEntries())).previewDisplayName("Plus User")
+        }
     }
 }

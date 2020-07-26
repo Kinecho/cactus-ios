@@ -75,6 +75,13 @@ final class SessionStore: ObservableObject {
         }
     }
     
+    
+    func setEntries(_ entries: [JournalEntry], loaded: Bool=true) -> SessionStore {
+        self.journalEntries = entries
+        self.journalLoaded = loaded
+        return self
+    }
+    
     func runPendingAuthActions() {
         guard let member = self.member else {
             return
@@ -97,7 +104,7 @@ final class SessionStore: ObservableObject {
 }
 
 extension SessionStore {
-    static func mockLoggedIn() -> SessionStore {
+    static func mockLoggedIn(tier: SubscriptionTier = .BASIC) -> SessionStore {
         let store = SessionStore()
         
         store.settings = nil
@@ -105,6 +112,7 @@ extension SessionStore {
         let member = CactusMember()
         member.email = "test@cactus.app"
         member.id = "test123"
+        member.tier = tier
         store.member = member
         
         return store
@@ -119,6 +127,9 @@ extension SessionStore {
            return store
        }
 }
+
+
+
 
 extension SessionStore: JournalFeedDataSourceDelegate {
     func updateEntry(_ journalEntry: JournalEntry, at: Int?) {

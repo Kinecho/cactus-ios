@@ -30,7 +30,8 @@ struct JournalEntryWithNote: View {
                     .multilineTextAlignment(.leading)
                     .font(Font(CactusFont.normal))
                     .foregroundColor(Color(CactusColor.textDefault))
-                    .padding([.leading, .vertical], 20)
+                    .padding([.leading], 20)
+                    .padding(.vertical, 4)
                     .border(width: 5,
                             edge: .leading,
                             color: Color(CactusColor.highlight),
@@ -58,21 +59,22 @@ struct JournalEntryNoNote: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
-            if self.entry.questionText != nil {
-                MDText(markdown: self.entry.questionText!)
-                    .font(Font(CactusFont.bold(FontSize.journalQuestionTitle)))
-                    .foregroundColor(Color(CactusColor.textDefault))
-                    .lineLimit(nil)
-                
+        VStack(alignment: .leading, spacing: Spacing.normal) {
+            VStack(alignment: .leading, spacing: 0) {
+                if self.entry.questionText != nil {
+                    MDText(markdown: self.entry.questionText!)
+                        .font(Font(CactusFont.bold(FontSize.journalQuestionTitle)))
+                        .foregroundColor(Color(CactusColor.textDefault))
+                        .lineLimit(nil)
+                    
+                }
+                if self.entry.introText != nil {
+                    MDText(markdown: self.entry.introText!)
+                        .font(Font(CactusFont.normal))
+                        .foregroundColor(Color(CactusColor.textDefault))
+                        .lineLimit(nil)
+                }
             }
-            if self.entry.introText != nil {
-                MDText(markdown: self.entry.introText!)
-                    .font(Font(CactusFont.normal))
-                    .foregroundColor(Color(CactusColor.textDefault))
-                    .lineLimit(nil)
-            }
-            
             if self.entry.imageUrl != nil {
                 HStack {
                     Spacer()
@@ -82,17 +84,16 @@ struct JournalEntryNoNote: View {
                                        scale: UIScreen.main.scale)],
                              placeholder: {_ in
                                 Group {
-//                                    if self.session.useImagePlaceholders {
-                                        ImagePlaceholder(width: self.imageWidth, height: self.imageHeight)
-//                                    if self.session.useImagePlaceholders {
-//                                        EmptyView()
-//                                    }
+                                    //                                    if self.session.useImagePlaceholders {
+                                    ImagePlaceholder(width: self.imageWidth, height: self.imageHeight)
+                                    //                                    if self.session.useImagePlaceholders {
+                                    //                                        EmptyView()
+                                    //                                    }
                                 }
                     },
                              content: {
                                 $0.image
                                     .resizable()
-                                    //                                    .frame(width: self.imageWidth, height: self.imageHeight)
                                     .aspectRatio(contentMode: .fit)
                     })
                         .frame(width: self.imageWidth, height: self.imageHeight)
@@ -117,7 +118,7 @@ struct JournalEntryRow: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 0) {
             HStack(alignment: .center) {
                 if entry.dateString != nil {
                     Text(entry.dateString!)
@@ -128,10 +129,12 @@ struct JournalEntryRow: View {
                 Spacer()
                 Image(CactusImage.dots.rawValue)
                     .resizable()
-                    .frame(width: 30, height: 30)
+                    .aspectRatio(contentMode: .fill)
+                    .foregroundColor(Color(CactusColor.textDefault))
+                    .frame(width: 30, height: 20)
                     .rotationEffect(.degrees(self.showMoreActions ? 90 : 0))
                     .animation(.interpolatingSpring(mass: 0.2, stiffness: 25, damping: 2.5, initialVelocity: -0.5))
-                    //                    .foregroundColor(Color(CactusColor.textDefault))
+                    
                     .onTapGesture {
                         self.showMoreActions.toggle()
                 }
@@ -146,7 +149,7 @@ struct JournalEntryRow: View {
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity, alignment: .topLeading)
         .padding(20)
-        .background(Color.white)
+        .background(CactusColor.cardBackground.color)
         .cornerRadius(10)
         .clipped()
         .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 10)
@@ -179,17 +182,39 @@ struct JournalEntryRow_Previews: PreviewProvider {
     ]
     
     static var previews: some View {
-        
-        ForEach(self.rowData, id: \.entry.id) { data in
-            List {
-                JournalEntryRow(entry: data.entry)
-                    .listRowInsets(EdgeInsets())
-                    .padding()
-            }.environmentObject(SessionStore.mockLoggedIn())
-                .onAppear(perform: {
-                    UITableView.appearance().separatorStyle = .none
-                })
-                .previewDisplayName(data.name)
+        Group {
+            ForEach(self.rowData, id: \.entry.id) { data in
+                List {
+                    JournalEntryRow(entry: data.entry)
+                        .listRowInsets(EdgeInsets())
+                        .padding()
+                    .background(CactusColor.background.color)
+                }.environmentObject(SessionStore.mockLoggedIn())
+                    .onAppear(perform: {
+                        UITableView.appearance().separatorStyle = .none
+                        UITableView.appearance().backgroundColor = CactusColor.background
+                    })
+                    .previewDisplayName(data.name)
+                .previewLayout(.fixed(width: 400, height: 400))
+                
+            }
+            
+            ForEach(self.rowData, id: \.entry.id) { data in
+                List {
+                    JournalEntryRow(entry: data.entry)
+                        .listRowInsets(EdgeInsets())
+                        .padding()
+                    .background(CactusColor.background.color)
+                }.environmentObject(SessionStore.mockLoggedIn())
+                    .onAppear(perform: {
+                        UITableView.appearance().separatorStyle = .none
+                        UITableView.appearance().backgroundColor = CactusColor.background
+                    })
+                    .previewDisplayName(data.name + " (Dark)")
+                    .previewLayout(.fixed(width: 400, height: 400))
+                    .colorScheme(.dark)
+                    
+            }
         }
     }
 }

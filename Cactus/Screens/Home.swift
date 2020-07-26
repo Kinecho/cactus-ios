@@ -13,15 +13,14 @@ struct Home: View {
     
     var body: some View {
         NavigationView {
-            JournalHome(member: session.member!,
-                        user: session.user,
-                        settings: session.settings)
-        }
+            JournalHome()
+        }.navigationBarHidden(true)
+    
     }
 }
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        Home().environmentObject(SessionStore.mockLoggedIn())
+        Home().environmentObject(SessionStore.mockLoggedIn().setEntries(MockData.getDefaultJournalEntries()))
     }
 }

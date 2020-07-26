@@ -173,7 +173,14 @@ class CactusMember: FirestoreIdentifiable, Hashable {
     
     //computed properties
     var tier: SubscriptionTier {
-        return self.subscription?.tier ?? SubscriptionTier.BASIC
+        get {
+            return self.subscription?.tier ?? SubscriptionTier.BASIC
+        }
+        set {
+            let subscription = self.subscription ?? MemberSubscription.getDefault()
+            subscription.tier = newValue
+            self.subscription = subscription
+        }
     }
     
     func hash(into hasher: inout Hasher) {

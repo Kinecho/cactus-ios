@@ -9,9 +9,16 @@
 import SwiftUI
 
 struct JournalHomeController: UIViewControllerRepresentable {
-    var member: CactusMember
-    var user: FirebaseUser?
-    var settings: AppSettings?
+    @EnvironmentObject var session: SessionStore
+    var member: CactusMember? {
+        session.member
+    }
+    var user: FirebaseUser? {
+        session.user
+    }
+    var settings: AppSettings? {
+        session.settings
+    }
     
     func makeUIViewController(context: Context) -> JournalHomeViewController {
         let vc = ScreenID.JournalHome.getViewController() as! JournalHomeViewController
@@ -29,21 +36,20 @@ struct JournalHomeController: UIViewControllerRepresentable {
 }
 
 struct JournalHome: View {
-    var member: CactusMember
-    var user: FirebaseUser?
-    var settings: AppSettings?
-//    var entries: [JournalEntry]
+    @EnvironmentObject var session: SessionStore
+
     var body: some View {
 //        JournalHomeController(member: member, user: user, settings: settings)
 //            .edgesIgnoringSafeArea(.vertical)
         JournalFeed()
+        .navigationBarHidden(true)
     }
 }
 
 struct JournalHome_Previews: PreviewProvider {
-    static var mockSession = SessionStore.mockLoggedIn()
+    static var mockSession = SessionStore.mockLoggedIn().setEntries(MockData.getDefaultJournalEntries())
     
     static var previews: some View {
-        JournalHome(member: mockSession.member!, user: mockSession.user, settings: mockSession.settings)
+        JournalHome().environmentObject(mockSession)
     }
 }

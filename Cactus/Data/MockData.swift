@@ -38,6 +38,16 @@ struct MockData {
         return content
     }
     
+    static func getDefaultJournalEntries() -> [JournalEntry] {
+        return [
+            MockData.getUnansweredEntry(isToday: true, blob: 0),
+            MockData.getAnsweredEntry(blob: 1),
+            MockData.getUnansweredEntry(isToday: false, blob: 2),
+            MockData.EntryBuilder(question: "What do you think of SwiftUI?", answer: "This is a really thoughtful response.", blob: 3).build(),
+            MockData.getLoadingEntry(),
+        ]
+    }
+    
     static func getBlobImage(_ at: Int) -> String {
         let index = at % (blobUrls.count - 1)
         return blobUrls[index]
@@ -162,6 +172,9 @@ extension JournalEntry {
         
         func setAllLoaded(_ loaded: Bool) -> Builder {
             self.entry.loadingComplete = loaded
+            self.entry.promptContentLoaded = loaded
+            self.entry.responsesLoaded = loaded
+            self.entry.promptLoaded = loaded
             return self
         }
         
