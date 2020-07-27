@@ -57,26 +57,36 @@ class Logger {
     
     static func configureSentry(auth: Auth) {
         // Create a Sentry client and start crash handler
-        do {
-            Client.shared = try Client(dsn: "https://728bdc63f41d4c93a6ce0884a01b58ea@sentry.io/1515431")
-            try Client.shared?.startCrashHandler()
-            Client.shared?.environment = CactusConfig.environment.rawValue
-            Client.shared?.releaseName = getReleaseName()
-            Client.shared?.dist = getBuildVersion()
-            Client.shared?.beforeSerializeEvent = { event in
-                guard let email = auth.currentUser?.email else {
-                    return
+        
+        SentrySDK.start { options in
+            options.dsn = "https://728bdc63f41d4c93a6ce0884a01b58ea@sentry.io/1515431"
+            options.debug = true // Enabled debug when first installing is always helpful
+            options.releaseName = getReleaseName()
+            options.dist = getBuildVersion()
+            options.environment = CactusConfig.environment.rawValue
+            options.beforeSend = { event in
+                guard let user = auth.currentUser else {
+                    return event
                 }
                 
+                event.user?.userId = user.uid
+                event.user?.email = user.email
+                event.user?.username = user.displayName
+                
                 var tags = event.tags ?? [:]
-                tags["user.email"] = email
+                if let email = user.email {
+                    tags["user.email"] = email
+                }
                 if let member = CactusMemberService.sharedInstance.currentMember, let memberId = member.id {
                     tags["cactusMemberId"] = memberId
                 }
+                let providers = user.providerData.map({ $0.providerID })
+                if !providers.isEmpty {
+                    tags["providerIds"] = providers.joined(separator: ", ")
+                }
                 event.tags = tags
+                return event
             }
-        } catch let error {
-            self.shared.error("error setting up the sentry client \(error)")
         }
     }
     
@@ -170,7 +180,7 @@ class Logger {
     }
     
     // swiftlint:disable cyclomatic_complexity
-    func sendSentryEvent(_ message: String, level: SentrySeverity, extra: Any?=nil, fileName: String?=nil, functionName: String?=nil, line: Int?=nil) {
+    func sendSentryEvent(_ message: String, level: SentryLevel, extra: Any?=nil, fileName: String?=nil, functionName: String?=nil, line: Int?=nil) {
         var prefix = ""
         switch level {
         case .error:
@@ -227,8 +237,7 @@ class Logger {
         }
         
         event.extra = eventExtra
-        
-        Client.shared?.send(event: event, completion: nil)
+        SentrySDK.capture(event: event)
     }
     // swiftlint:enable cyclomatic_complexity
     

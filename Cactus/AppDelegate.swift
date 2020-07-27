@@ -134,7 +134,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if let user = user {
                 let sentryUser = SentryUser(userId: user.uid)
                 sentryUser.email = user.email
-                Client.shared?.user = sentryUser
                 let nameParts = destructureDisplayName(displayName: user.displayName)
                 AppEvents.setUser(email: user.email?.lowercased(),
                                   firstName: nameParts.firstName?.lowercased(),
@@ -159,13 +158,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             } else {
                 Purchases.shared.reset()
-                
                 if let currentUser = self.currentUser {
-                    let logoutEvent = Sentry.Event(level: .info)
-                    logoutEvent.message = "\(currentUser.email ?? currentUser.uid) has logged out of the app"
-                    Client.shared?.send(event: logoutEvent)
+                    self.logger.info( "\(currentUser.email ?? currentUser.uid) has logged out of the app")
                 }
-                Client.shared?.user = nil
             }
             CactusAnalytics.shared.setUserId(user?.uid)
             self.currentUser = user
