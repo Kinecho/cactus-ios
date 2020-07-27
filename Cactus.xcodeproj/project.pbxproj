@@ -531,6 +531,14 @@
 		3077381E24CBFB4E00D0C5BE /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077381C24CBFB4E00D0C5BE /* ViewConstants.swift */; };
 		3077381F24CBFB4E00D0C5BE /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077381C24CBFB4E00D0C5BE /* ViewConstants.swift */; };
 		3077382024CBFB4E00D0C5BE /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077381C24CBFB4E00D0C5BE /* ViewConstants.swift */; };
+		3077382224CE76D100D0C5BE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077382124CE76D100D0C5BE /* SettingsView.swift */; };
+		3077382324CE76D100D0C5BE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077382124CE76D100D0C5BE /* SettingsView.swift */; };
+		3077382424CE76D100D0C5BE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077382124CE76D100D0C5BE /* SettingsView.swift */; };
+		3077382524CE76D100D0C5BE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077382124CE76D100D0C5BE /* SettingsView.swift */; };
+		3077382724CE89B400D0C5BE /* PricingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077382624CE89B400D0C5BE /* PricingView.swift */; };
+		3077382824CE89B400D0C5BE /* PricingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077382624CE89B400D0C5BE /* PricingView.swift */; };
+		3077382924CE89B400D0C5BE /* PricingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077382624CE89B400D0C5BE /* PricingView.swift */; };
+		3077382A24CE89B400D0C5BE /* PricingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077382624CE89B400D0C5BE /* PricingView.swift */; };
 		307B623824ABE5A100A4560E /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B623724ABE5A100A4560E /* ArrayExtensions.swift */; };
 		307B623924ABE5A100A4560E /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B623724ABE5A100A4560E /* ArrayExtensions.swift */; };
 		307B623A24ABE5A100A4560E /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B623724ABE5A100A4560E /* ArrayExtensions.swift */; };
@@ -1259,6 +1267,8 @@
 		3077381224CBD00000D0C5BE /* JournalUpgradeBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalUpgradeBanner.swift; sourceTree = "<group>"; };
 		3077381724CBD39B00D0C5BE /* CactusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusButton.swift; sourceTree = "<group>"; };
 		3077381C24CBFB4E00D0C5BE /* ViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
+		3077382124CE76D100D0C5BE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		3077382624CE89B400D0C5BE /* PricingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingView.swift; sourceTree = "<group>"; };
 		307B623724ABE5A100A4560E /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		307B628424AD3B7200A4560E /* TextViewPlaceholderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewPlaceholderDelegate.swift; sourceTree = "<group>"; };
 		307ED78A24084085008D26C6 /* MemberSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberSubscription.swift; sourceTree = "<group>"; };
@@ -1629,6 +1639,8 @@
 				305366E424C69BC100927498 /* JournalFeed.swift */,
 				305366EE24C6A84200927498 /* PromptContentView.swift */,
 				3077381C24CBFB4E00D0C5BE /* ViewConstants.swift */,
+				3077382124CE76D100D0C5BE /* SettingsView.swift */,
+				3077382624CE89B400D0C5BE /* PricingView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -2864,6 +2876,7 @@
 				303C9DBC237F5DCC006B9786 /* URLExtensions.swift in Sources */,
 				305366CE24C6714400927498 /* SessionStore.swift in Sources */,
 				305424EC23AC0432003F82A2 /* UIStackViewExtensionis.swift in Sources */,
+				3077382A24CE89B400D0C5BE /* PricingView.swift in Sources */,
 				307ED79D24088C7E008D26C6 /* UpgradeJournalFeedCollectionReusableView.swift in Sources */,
 				305366D824C67D5E00927498 /* Home.swift in Sources */,
 				305366DD24C688CB00927498 /* JournalHome.swift in Sources */,
@@ -2939,6 +2952,7 @@
 				303C9E3823841AF5006B9786 /* ImageExtensions.swift in Sources */,
 				303C9DC1237F6288006B9786 /* StorageServiceTest.swift in Sources */,
 				305B18792331A906003E1561 /* SentPrompt.swift in Sources */,
+				3077382524CE76D100D0C5BE /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3131,10 +3145,12 @@
 				300AC18E233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */,
 				3018B1242376182D0005333A /* JournalEntryData.swift in Sources */,
 				300FCD0123EE3CD200089CFB /* SubscriptionProductService.swift in Sources */,
+				3077382924CE89B400D0C5BE /* PricingView.swift in Sources */,
 				305366D224C676D300927498 /* WelcomeController.swift in Sources */,
 				30AB0729244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift in Sources */,
 				302C4F4A2347D7A700798560 /* SettingsTableViewController.swift in Sources */,
 				305366EC24C6A21600927498 /* JournalEntryRow.swift in Sources */,
+				3077382424CE76D100D0C5BE /* SettingsView.swift in Sources */,
 				305B18812331E162003E1561 /* ReflectContentViewController.swift in Sources */,
 				30E9B0BE22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
 				305366E224C690F600927498 /* Loading.swift in Sources */,
@@ -3330,10 +3346,12 @@
 				30A3BC5324C113780016955C /* JournalFeedDataSource.swift in Sources */,
 				30A3BC5424C113780016955C /* JournalEntryData.swift in Sources */,
 				30A3BC5524C113780016955C /* SubscriptionProductService.swift in Sources */,
+				3077382724CE89B400D0C5BE /* PricingView.swift in Sources */,
 				305366D024C676D300927498 /* WelcomeController.swift in Sources */,
 				30A3BC5624C113780016955C /* CoreValuesAssessmentViewController.swift in Sources */,
 				30A3BC5724C113780016955C /* SettingsTableViewController.swift in Sources */,
 				305366EA24C6A21600927498 /* JournalEntryRow.swift in Sources */,
+				3077382224CE76D100D0C5BE /* SettingsView.swift in Sources */,
 				30A3BC5824C113780016955C /* ReflectContentViewController.swift in Sources */,
 				30A3BC5924C113780016955C /* CactusMemberService.swift in Sources */,
 				305366E024C690F600927498 /* Loading.swift in Sources */,
@@ -3529,10 +3547,12 @@
 				300AC18D233AE1B7005C6555 /* JournalFeedDataSource.swift in Sources */,
 				3018B1232376182D0005333A /* JournalEntryData.swift in Sources */,
 				300FCD0023EE3CD200089CFB /* SubscriptionProductService.swift in Sources */,
+				3077382824CE89B400D0C5BE /* PricingView.swift in Sources */,
 				305366D124C676D300927498 /* WelcomeController.swift in Sources */,
 				30AB0728244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift in Sources */,
 				302C4F492347D7A700798560 /* SettingsTableViewController.swift in Sources */,
 				305366EB24C6A21600927498 /* JournalEntryRow.swift in Sources */,
+				3077382324CE76D100D0C5BE /* SettingsView.swift in Sources */,
 				305B18802331E162003E1561 /* ReflectContentViewController.swift in Sources */,
 				30E9B0A022EABFBD005B25FD /* CactusMemberService.swift in Sources */,
 				305366E124C690F600927498 /* Loading.swift in Sources */,

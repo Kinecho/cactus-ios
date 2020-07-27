@@ -52,8 +52,7 @@ struct JournalFeed: View {
             }
             .padding()
             .listRowInsets(EdgeInsets())
-        }
-        .navigationBarHidden(true)
+        }        
         .onAppear(perform: {
             UITableView.appearance().separatorStyle = .none
         })

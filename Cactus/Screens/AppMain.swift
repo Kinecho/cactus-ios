@@ -17,7 +17,7 @@ struct AppMain: View {
                 if self.session.member == nil {
                     Welcome()
                 } else {
-                    Home()
+                    AppTabs()
                 }
             } else {
                 Loading("Loading...")

@@ -27,8 +27,12 @@ class SettingsTableViewController: UITableViewController {
     var logoutButton = RoundedButton()
     let versionTitleLabel = UILabel()
     let versionTextView = UITextView()
-    var settings: AppSettings?
-    var settingsUnsubscriber: ListenerRegistration?
+    var settings: AppSettings? {
+        didSet {
+            self.configureView()
+        }
+    }
+//    var settingsUnsubscriber: ListenerRegistration?
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
@@ -39,22 +43,22 @@ class SettingsTableViewController: UITableViewController {
         self.configureFooter()
         
         self.tableView.tableFooterView = self.footerView
-        self.settings = AppSettingsService.sharedInstance.currentSettings
+//        self.settings = AppSettingsService.sharedInstance.currentSettings
         self.configureView()
 
-        self.settingsUnsubscriber = AppSettingsService.sharedInstance.observeSettings { (settings, _) in
-            guard let settings = settings else {
-                return
-            }
-            DispatchQueue.main.async {
-                self.settings = settings
-                self.configureView()
-            }
-        }
+//        self.settingsUnsubscriber = AppSettingsService.sharedInstance.observeSettings { (settings, _) in
+//            guard let settings = settings else {
+//                return
+//            }
+//            DispatchQueue.main.async {
+//                self.settings = settings
+//                self.configureView()
+//            }
+//        }
     }
 
     deinit {
-        self.settingsUnsubscriber?.remove()
+//        self.settingsUnsubscriber?.remove()
     }
     
     func configureView() {

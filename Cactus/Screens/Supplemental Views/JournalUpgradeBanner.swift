@@ -32,20 +32,24 @@ struct JournalUpgradeBanner: View {
         .clipped()
         .cornerRadius(CornerRadius.normal)
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity, alignment: .topLeading)
-        .actionSheet(isPresented: self.$showPricing) {
-            ActionSheet(title: Text("Pricing Page"),
-                        message: Text("Maybe we show one-click purchase options here..."),
-                        buttons: [
-                            .default(Text("Dismiss Action Sheet"))
-            ])
+        .sheet(isPresented: self.$showPricing) {
+            PricingView().environmentObject(self.session)
         }
+//        .actionSheet(isPresented: self.$showPricing) {
+//            ActionSheet(title: Text("Pricing Page"),
+//                        message: Text("Maybe we show one-click purchase options here..."),
+//                        buttons: [
+//                            .default(Text("Dismiss Action Sheet"))
+//            ])
+//        }
     }
     
 }
 
 struct JournalUpgradeBanner_Previews: PreviewProvider {
     static var previews: some View {
-        JournalUpgradeBanner(paddingTop: 40).environmentObject(SessionStore.mockLoggedIn(tier: .BASIC))
-        .padding()
+        JournalUpgradeBanner(paddingTop: 40)
+            .environmentObject(SessionStore.mockLoggedIn(tier: .BASIC))
+            .padding()
     }
 }

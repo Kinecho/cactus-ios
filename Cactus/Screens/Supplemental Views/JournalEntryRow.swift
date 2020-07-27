@@ -184,36 +184,35 @@ struct JournalEntryRow_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             ForEach(self.rowData, id: \.entry.id) { data in
-                List {
-                    JournalEntryRow(entry: data.entry)
-                        .listRowInsets(EdgeInsets())
-                        .padding()
-                    .background(CactusColor.background.color)
-                }.environmentObject(SessionStore.mockLoggedIn())
-                    .onAppear(perform: {
-                        UITableView.appearance().separatorStyle = .none
-                        UITableView.appearance().backgroundColor = CactusColor.background
-                    })
-                    .previewDisplayName(data.name)
-                .previewLayout(.fixed(width: 400, height: 400))
-                
-            }
-            
-            ForEach(self.rowData, id: \.entry.id) { data in
-                List {
-                    JournalEntryRow(entry: data.entry)
-                        .listRowInsets(EdgeInsets())
-                        .padding()
-                    .background(CactusColor.background.color)
-                }.environmentObject(SessionStore.mockLoggedIn())
-                    .onAppear(perform: {
-                        UITableView.appearance().separatorStyle = .none
-                        UITableView.appearance().backgroundColor = CactusColor.background
-                    })
-                    .previewDisplayName(data.name + " (Dark)")
-                    .previewLayout(.fixed(width: 400, height: 400))
-                    .colorScheme(.dark)
+                Group {
+                    List {
+                        JournalEntryRow(entry: data.entry)
+                            .listRowInsets(EdgeInsets())
+                            .padding()
+                            .background(CactusColor.background.color)
+                    }.environmentObject(SessionStore.mockLoggedIn())
+                        .onAppear(perform: {
+                            UITableView.appearance().separatorStyle = .none
+                            UITableView.appearance().backgroundColor = CactusColor.background
+                        })
+                        .previewDisplayName(data.name)
+                        .previewLayout(.fixed(width: 400, height: 400))
                     
+                    
+                    List {
+                        JournalEntryRow(entry: data.entry)
+                            .listRowInsets(EdgeInsets())
+                            .padding()
+                            .background(CactusColor.background.color)
+                    }.environmentObject(SessionStore.mockLoggedIn())
+                        .onAppear(perform: {
+                            UITableView.appearance().separatorStyle = .none
+                            UITableView.appearance().backgroundColor = CactusColor.background
+                        })
+                        .previewDisplayName(data.name + " (Dark)")
+                        .previewLayout(.fixed(width: 400, height: 400))
+                        .colorScheme(.dark)
+                }
             }
         }
     }

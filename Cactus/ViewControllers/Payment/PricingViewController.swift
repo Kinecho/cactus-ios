@@ -37,8 +37,12 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
             self.updatePurchasingState()
         }
     }
-    var settingsUnsubscriber: ListenerRegistration?
-    var appSettings: AppSettings?
+
+    var appSettings: AppSettings? {
+        didSet {
+            self.updateAllCopy()
+        }
+    }
     var showCloseButton = true
     let logger = Logger("PricingViewController")
     var productsLoaded = false
@@ -87,7 +91,6 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     }
     
     deinit {
-        self.settingsUnsubscriber?.remove()
         if StoreObserver.sharedInstance.delegate as? PricingViewController != nil {
            StoreObserver.sharedInstance.delegate = nil
         }
@@ -132,6 +135,9 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
     }
     
     func updateAllCopy() {
+        guard self.isViewLoaded else {
+            return
+        }
         DispatchQueue.main.async {
             let settings = self.appSettings?.pricingScreen
             let pageTitle = self.titleOvereride ?? settings?.pageTitleMarkdown ?? "Get more with Cactus Plus"
