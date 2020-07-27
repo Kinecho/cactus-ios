@@ -21,6 +21,7 @@ final class SessionStore: ObservableObject {
     @Published var useImagePlaceholders: Bool = false
     static var shared = SessionStore()
     
+    var useMockImages = false
     var pendingAuthActions: [PendingAction] = []
     var settingsObserver: ListenerRegistration?
     var memberUnsubscriber: Unsubscriber?
@@ -114,7 +115,7 @@ extension SessionStore {
         member.id = "test123"
         member.tier = tier
         store.member = member
-        
+        store.useMockImages = true
         return store
     }
     
@@ -123,7 +124,7 @@ extension SessionStore {
            
            store.settings = nil
            store.authLoaded = true
-           
+            store.useMockImages = true
            return store
        }
 }

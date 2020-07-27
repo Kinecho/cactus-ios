@@ -39,7 +39,7 @@ struct JournalFeed: View {
             }
             
             ForEach(self.entries) { entry in
-                JournalEntryRow(entry: entry)
+                JournalEntryRow(entry: entry, index: self.entries.firstIndex(of: entry) ?? 0)
                     .onAppear {
                         Logger("JournalEntryRow on Appear").info("Journal entry will on appear")
                         let lastEntry = self.entries.last
@@ -51,6 +51,7 @@ struct JournalFeed: View {
                 }
             }
             .padding()
+            .padding(.bottom, Spacing.large)
             .listRowInsets(EdgeInsets())
         }        
         .onAppear(perform: {

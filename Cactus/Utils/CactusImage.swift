@@ -70,8 +70,11 @@ enum CactusImage: String {
     //Logos
     case logo
     
-    //blobs
+    //shapes
     case needlePattern    
+    
+    //blobs
+    case blob0
     
     //Brands
     case twitter = "Twitter"

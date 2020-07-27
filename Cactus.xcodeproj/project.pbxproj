@@ -539,6 +539,14 @@
 		3077382824CE89B400D0C5BE /* PricingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077382624CE89B400D0C5BE /* PricingView.swift */; };
 		3077382924CE89B400D0C5BE /* PricingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077382624CE89B400D0C5BE /* PricingView.swift */; };
 		3077382A24CE89B400D0C5BE /* PricingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077382624CE89B400D0C5BE /* PricingView.swift */; };
+		3077382C24CEAFCE00D0C5BE /* JournalEntryNoNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077382B24CEAFCE00D0C5BE /* JournalEntryNoNote.swift */; };
+		3077382D24CEAFCE00D0C5BE /* JournalEntryNoNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077382B24CEAFCE00D0C5BE /* JournalEntryNoNote.swift */; };
+		3077382E24CEAFCE00D0C5BE /* JournalEntryNoNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077382B24CEAFCE00D0C5BE /* JournalEntryNoNote.swift */; };
+		3077382F24CEAFCE00D0C5BE /* JournalEntryNoNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077382B24CEAFCE00D0C5BE /* JournalEntryNoNote.swift */; };
+		3077383124CEB17700D0C5BE /* JournalEntryWithNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077383024CEB17700D0C5BE /* JournalEntryWithNote.swift */; };
+		3077383224CEB17700D0C5BE /* JournalEntryWithNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077383024CEB17700D0C5BE /* JournalEntryWithNote.swift */; };
+		3077383324CEB17700D0C5BE /* JournalEntryWithNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077383024CEB17700D0C5BE /* JournalEntryWithNote.swift */; };
+		3077383424CEB17700D0C5BE /* JournalEntryWithNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077383024CEB17700D0C5BE /* JournalEntryWithNote.swift */; };
 		307B623824ABE5A100A4560E /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B623724ABE5A100A4560E /* ArrayExtensions.swift */; };
 		307B623924ABE5A100A4560E /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B623724ABE5A100A4560E /* ArrayExtensions.swift */; };
 		307B623A24ABE5A100A4560E /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B623724ABE5A100A4560E /* ArrayExtensions.swift */; };
@@ -1269,6 +1277,8 @@
 		3077381C24CBFB4E00D0C5BE /* ViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
 		3077382124CE76D100D0C5BE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3077382624CE89B400D0C5BE /* PricingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingView.swift; sourceTree = "<group>"; };
+		3077382B24CEAFCE00D0C5BE /* JournalEntryNoNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryNoNote.swift; sourceTree = "<group>"; };
+		3077383024CEB17700D0C5BE /* JournalEntryWithNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryWithNote.swift; sourceTree = "<group>"; };
 		307B623724ABE5A100A4560E /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		307B628424AD3B7200A4560E /* TextViewPlaceholderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewPlaceholderDelegate.swift; sourceTree = "<group>"; };
 		307ED78A24084085008D26C6 /* MemberSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberSubscription.swift; sourceTree = "<group>"; };
@@ -1650,12 +1660,14 @@
 			children = (
 				305366DF24C690F600927498 /* Loading.swift */,
 				305366E924C6A21600927498 /* JournalEntryRow.swift */,
+				3077383024CEB17700D0C5BE /* JournalEntryWithNote.swift */,
 				3077380824CBB46E00D0C5BE /* ImagePlaceholder.swift */,
 				305366F324C6C4B900927498 /* MarkdownText.swift */,
 				30D6E32324CA6B5300A4EA75 /* MDSwift.swift */,
 				30D6E32924CB561E00A4EA75 /* EdgeBorder.swift */,
 				3077381224CBD00000D0C5BE /* JournalUpgradeBanner.swift */,
 				3077381724CBD39B00D0C5BE /* CactusButton.swift */,
+				3077382B24CEAFCE00D0C5BE /* JournalEntryNoNote.swift */,
 			);
 			path = "Supplemental Views";
 			sourceTree = "<group>";
@@ -2881,6 +2893,7 @@
 				305366D824C67D5E00927498 /* Home.swift in Sources */,
 				305366DD24C688CB00927498 /* JournalHome.swift in Sources */,
 				303C9DD7238419DD006B9786 /* LinkHandlerUtil.swift in Sources */,
+				3077383424CEB17700D0C5BE /* JournalEntryWithNote.swift in Sources */,
 				305B18742331A8F0003E1561 /* MarkdownUtil.swift in Sources */,
 				307ED7952408748C008D26C6 /* MemberSubscriptionTest.swift in Sources */,
 				30E9D04624784FBF00FE4E5F /* CactusMemberTest.swift in Sources */,
@@ -2941,6 +2954,7 @@
 				3077382024CBFB4E00D0C5BE /* ViewConstants.swift in Sources */,
 				30D0E44D236C920400EFC0E3 /* ViewExtensions.swift in Sources */,
 				305366E324C690F600927498 /* Loading.swift in Sources */,
+				3077382F24CEAFCE00D0C5BE /* JournalEntryNoNote.swift in Sources */,
 				30D7387823D00F96006F4DA6 /* SocialActivityCardView.swift in Sources */,
 				303C9E2E23841ACC006B9786 /* CircleView.swift in Sources */,
 				30D0E452236C921500EFC0E3 /* UIAlertControllerExtensions.swift in Sources */,
@@ -3091,6 +3105,7 @@
 				30BF2E35232964CD00A49EB6 /* FlamelinkTypes.swift in Sources */,
 				305366E724C69BC100927498 /* JournalFeed.swift in Sources */,
 				305CB0FD23D03C080046E8A8 /* ContactService.swift in Sources */,
+				3077382E24CEAFCE00D0C5BE /* JournalEntryNoNote.swift in Sources */,
 				30D6E32624CA6B5300A4EA75 /* MDSwift.swift in Sources */,
 				3023FE3122ECD0A300F753A7 /* NotificationService.swift in Sources */,
 				304A252D240DCC2200737C57 /* SubscriptionInvoice.swift in Sources */,
@@ -3187,6 +3202,7 @@
 				3020DD9923640BE300EC40AE /* CactusElementsViewController.swift in Sources */,
 				30BE5676234E982C00AA6D4D /* LinkedAccountsTableViewController.swift in Sources */,
 				30392FF72410075400F2A8FC /* ModelDecoder.swift in Sources */,
+				3077383324CEB17700D0C5BE /* JournalEntryWithNote.swift in Sources */,
 				30E9B09E22EA7FC3005B25FD /* CactusMember.swift in Sources */,
 				300FCCFE23EE3B5F00089CFB /* SubscriptionProduct.swift in Sources */,
 				3084E956234802C300788279 /* TermsOfServiceViewController.swift in Sources */,
@@ -3292,6 +3308,7 @@
 				30A3BC2324C113780016955C /* BorderedButton.swift in Sources */,
 				305366E524C69BC100927498 /* JournalFeed.swift in Sources */,
 				30A3BC2424C113780016955C /* SubscriptionInvoice.swift in Sources */,
+				3077382C24CEAFCE00D0C5BE /* JournalEntryNoNote.swift in Sources */,
 				30D6E32424CA6B5300A4EA75 /* MDSwift.swift in Sources */,
 				30A3BC2524C113780016955C /* ReflectionPromptService.swift in Sources */,
 				30A3BC2624C113780016955C /* SocialContactTableViewCell.swift in Sources */,
@@ -3388,6 +3405,7 @@
 				30A3BC7324C113780016955C /* CactusElementsViewController.swift in Sources */,
 				30A3BC7424C113780016955C /* LinkedAccountsTableViewController.swift in Sources */,
 				30A3BC7524C113780016955C /* ModelDecoder.swift in Sources */,
+				3077383124CEB17700D0C5BE /* JournalEntryWithNote.swift in Sources */,
 				30A3BC7624C113780016955C /* AppConfig.swift in Sources */,
 				30A3BC7724C113780016955C /* SubscriptionProduct.swift in Sources */,
 				30A3BC7824C113780016955C /* TermsOfServiceViewController.swift in Sources */,
@@ -3493,6 +3511,7 @@
 				305CB0FC23D03C080046E8A8 /* ContactService.swift in Sources */,
 				305366E624C69BC100927498 /* JournalFeed.swift in Sources */,
 				30934F9922EBF235007C4E6C /* BorderedButton.swift in Sources */,
+				3077382D24CEAFCE00D0C5BE /* JournalEntryNoNote.swift in Sources */,
 				30D6E32524CA6B5300A4EA75 /* MDSwift.swift in Sources */,
 				304A252C240DCC2200737C57 /* SubscriptionInvoice.swift in Sources */,
 				30934FAC22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */,
@@ -3589,6 +3608,7 @@
 				3020DD9823640BE300EC40AE /* CactusElementsViewController.swift in Sources */,
 				30BE5675234E982C00AA6D4D /* LinkedAccountsTableViewController.swift in Sources */,
 				30392FF62410075400F2A8FC /* ModelDecoder.swift in Sources */,
+				3077383224CEB17700D0C5BE /* JournalEntryWithNote.swift in Sources */,
 				309561A422EE16D7009357BD /* AppConfig.swift in Sources */,
 				300FCCFD23EE3B5F00089CFB /* SubscriptionProduct.swift in Sources */,
 				3084E955234802C300788279 /* TermsOfServiceViewController.swift in Sources */,

@@ -101,7 +101,7 @@ struct MockData {
     }
     
     static func getLoadingEntry(blob: Int?=nil) -> JournalEntry {
-        return MockData.EntryBuilder(question: "How come stuff loads for so long?", answer: nil, blob: blob)
+        return MockData.EntryBuilder(question: "How come stuff loads for so long? I wish it were faster!", answer: nil, blob: blob)
             .setAllLoaded(false)
             .build()
         
@@ -121,7 +121,25 @@ struct MockData {
     }
     
     static func getAnsweredEntry(isToday: Bool=false, blob: Int?=nil) -> JournalEntry {
-        let builder = MockData.EntryBuilder(question: "How do you overcome **failure**?", answer: "I am going to reflect on the things that make me happy. Using Cactus will help me overcome a lot of bad things!", blob: blob)
+        let builder = MockData.EntryBuilder(question: "How do you overcome **failure** in the face of adversity?", answer: "I am going to reflect on the things that make me happy. Using Cactus will help me overcome a lot of bad things!", blob: blob)
+            .setAllLoaded(true)
+            .prependContent(MockData.content("Today you'll focus on how you conquer difficult challenges and failure.", .text, backgroundImage: "https://firebasestorage.googleapis.com/v0/b/cactus-app-prod.appspot.com/o/flamelink%2Fmedia%2F200707.png?alt=media&token=3ff817ca-f58f-457a-aff0-bbefebb095ad"))
+            .setTodaysPrompt(isToday)
+        
+        return builder.build()
+    }
+    
+    static func getAnsweredEntryLong(isToday: Bool=false, blob: Int?=nil) -> JournalEntry {
+        let builder = MockData.EntryBuilder(question: "How do you overcome **failure** in the face of adversity?", answer: "I am going to reflect on the things that make me happy. Using Cactus will help me overcome a lot of bad things! Then after that i'll go and get ice cream and hang out with friends.\n\nIt will be a great time! I can't wait until I can do this all of the time. I just need more and more text so that I can have a good example of longer answeres. ", blob: blob)
+            .setAllLoaded(true)
+            .prependContent(MockData.content("Today you'll focus on how you conquer difficult challenges and failure.", .text, backgroundImage: "https://firebasestorage.googleapis.com/v0/b/cactus-app-prod.appspot.com/o/flamelink%2Fmedia%2F200707.png?alt=media&token=3ff817ca-f58f-457a-aff0-bbefebb095ad"))
+            .setTodaysPrompt(isToday)
+        
+        return builder.build()
+    }
+    
+    static func getAnsweredEntryShort(isToday: Bool=false, blob: Int?=nil) -> JournalEntry {
+        let builder = MockData.EntryBuilder(question: "Does today's question show up in your feed after answering it?", answer: "Don't know. ", blob: blob)
             .setAllLoaded(true)
             .prependContent(MockData.content("Today you'll focus on how you conquer difficult challenges and failure.", .text, backgroundImage: "https://firebasestorage.googleapis.com/v0/b/cactus-app-prod.appspot.com/o/flamelink%2Fmedia%2F200707.png?alt=media&token=3ff817ca-f58f-457a-aff0-bbefebb095ad"))
             .setTodaysPrompt(isToday)
