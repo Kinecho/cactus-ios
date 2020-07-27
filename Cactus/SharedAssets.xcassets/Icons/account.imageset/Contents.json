@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "home (1).pdf",
+      "filename" : "account.pdf",
       "idiom" : "universal"
     }
   ],
@@ -10,7 +10,6 @@
     "version" : 1
   },
   "properties" : {
-    "preserves-vector-representation" : true,
     "template-rendering-intent" : "template"
   }
 }

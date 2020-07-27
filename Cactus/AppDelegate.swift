@@ -62,16 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Logger.configureLogging(auth: Auth.auth())
         NotificationService.start(application: application)
-        
-        //moved to scene delegate
-        //        //Configure Root View controller
-        //        guard let rootVc = ScreenID.AppMain.getViewController() as? AppMainViewController else {
-        //            fatalError("Unable to start main view controller in App Delegate")
-        //        }
-        //        NavigationService.initialize(rootVc: rootVc, delegate: self)
-        //        self.window?.rootViewController = rootVc
-        //        self.window?.makeKeyAndVisible()
-        
+      
         CactusMemberService.sharedInstance.instanceIDDelegate = self
         
         return true
@@ -135,6 +126,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let sentryUser = SentryUser(userId: user.uid)
                 sentryUser.email = user.email
                 let nameParts = destructureDisplayName(displayName: user.displayName)
+                SentrySDK.configureScope { (scope) in
+                    scope.setUser(sentryUser)
+                }
                 AppEvents.setUser(email: user.email?.lowercased(),
                                   firstName: nameParts.firstName?.lowercased(),
                                   lastName: nameParts.lastName?.lowercased(),
@@ -158,6 +152,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             } else {
                 Purchases.shared.reset()
+                SentrySDK.configureScope { (scope) in
+                    scope.setUser(nil)
+                }
                 if let currentUser = self.currentUser {
                     self.logger.info( "\(currentUser.email ?? currentUser.uid) has logged out of the app")
                 }

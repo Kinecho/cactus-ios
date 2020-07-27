@@ -63,6 +63,7 @@ class Logger {
             options.debug = true // Enabled debug when first installing is always helpful
             options.releaseName = getReleaseName()
             options.dist = getBuildVersion()
+            options.enableAutoSessionTracking = true
             options.environment = CactusConfig.environment.rawValue
             options.beforeSend = { event in
                 guard let user = auth.currentUser else {
