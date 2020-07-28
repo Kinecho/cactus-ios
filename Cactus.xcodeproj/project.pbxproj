@@ -547,6 +547,10 @@
 		3077383224CEB17700D0C5BE /* JournalEntryWithNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077383024CEB17700D0C5BE /* JournalEntryWithNote.swift */; };
 		3077383324CEB17700D0C5BE /* JournalEntryWithNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077383024CEB17700D0C5BE /* JournalEntryWithNote.swift */; };
 		3077383424CEB17700D0C5BE /* JournalEntryWithNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077383024CEB17700D0C5BE /* JournalEntryWithNote.swift */; };
+		3077383624CF6F0500D0C5BE /* CheckoutStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077383524CF6F0500D0C5BE /* CheckoutStore.swift */; };
+		3077383724CF6F0500D0C5BE /* CheckoutStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077383524CF6F0500D0C5BE /* CheckoutStore.swift */; };
+		3077383824CF6F0500D0C5BE /* CheckoutStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077383524CF6F0500D0C5BE /* CheckoutStore.swift */; };
+		3077383924CF6F0500D0C5BE /* CheckoutStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077383524CF6F0500D0C5BE /* CheckoutStore.swift */; };
 		307B623824ABE5A100A4560E /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B623724ABE5A100A4560E /* ArrayExtensions.swift */; };
 		307B623924ABE5A100A4560E /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B623724ABE5A100A4560E /* ArrayExtensions.swift */; };
 		307B623A24ABE5A100A4560E /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B623724ABE5A100A4560E /* ArrayExtensions.swift */; };
@@ -1279,6 +1283,7 @@
 		3077382624CE89B400D0C5BE /* PricingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingView.swift; sourceTree = "<group>"; };
 		3077382B24CEAFCE00D0C5BE /* JournalEntryNoNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryNoNote.swift; sourceTree = "<group>"; };
 		3077383024CEB17700D0C5BE /* JournalEntryWithNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryWithNote.swift; sourceTree = "<group>"; };
+		3077383524CF6F0500D0C5BE /* CheckoutStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutStore.swift; sourceTree = "<group>"; };
 		307B623724ABE5A100A4560E /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		307B628424AD3B7200A4560E /* TextViewPlaceholderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewPlaceholderDelegate.swift; sourceTree = "<group>"; };
 		307ED78A24084085008D26C6 /* MemberSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberSubscription.swift; sourceTree = "<group>"; };
@@ -1633,6 +1638,7 @@
 			children = (
 				305366B624C66BF200927498 /* AppData.swift */,
 				305366C924C6714300927498 /* SessionStore.swift */,
+				3077383524CF6F0500D0C5BE /* CheckoutStore.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -2858,6 +2864,7 @@
 				303C9E2F23841ACC006B9786 /* ShadowView.swift in Sources */,
 				3021CBDC2410251E00F58B89 /* SubscriptionPlanOptionView.swift in Sources */,
 				303C9E2723841ACC006B9786 /* GrowingTextView.swift in Sources */,
+				3077383924CF6F0500D0C5BE /* CheckoutStore.swift in Sources */,
 				3055D940240E994400981DA2 /* SubscriptionProductService.swift in Sources */,
 				304BCE6824858CFB0055A28E /* CactusElementWebView.swift in Sources */,
 				3062201823EB1B68002FAAD9 /* FirebaseInAppMessageDelegate.swift in Sources */,
@@ -3111,6 +3118,7 @@
 				304A252D240DCC2200737C57 /* SubscriptionInvoice.swift in Sources */,
 				30E9B0AD22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
 				308505A623D0E490001179E2 /* SocialContactTableViewCell.swift in Sources */,
+				3077383824CF6F0500D0C5BE /* CheckoutStore.swift in Sources */,
 				3099D20324098EF400BD9CC4 /* SubscriptionProductGroup.swift in Sources */,
 				305B186F23319E09003E1561 /* FileUtils.swift in Sources */,
 				30DCA5F124417AA400D520D4 /* PromptContentDataSource.swift in Sources */,
@@ -3314,6 +3322,7 @@
 				30A3BC2624C113780016955C /* SocialContactTableViewCell.swift in Sources */,
 				30A3BC2724C113780016955C /* SubscriptionProductGroup.swift in Sources */,
 				30A3BC2824C113780016955C /* FileUtils.swift in Sources */,
+				3077383624CF6F0500D0C5BE /* CheckoutStore.swift in Sources */,
 				30A3BC2924C113780016955C /* MeaningAnimationViewController.swift in Sources */,
 				30A3BC2A24C113780016955C /* PromptContentDataSource.swift in Sources */,
 				30A3BC2B24C113780016955C /* NavigationMenuViewController.swift in Sources */,
@@ -3517,6 +3526,7 @@
 				30934FAC22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */,
 				308505A523D0E490001179E2 /* SocialContactTableViewCell.swift in Sources */,
 				3099D20224098EF400BD9CC4 /* SubscriptionProductGroup.swift in Sources */,
+				3077383724CF6F0500D0C5BE /* CheckoutStore.swift in Sources */,
 				305B186E23319E09003E1561 /* FileUtils.swift in Sources */,
 				301C1A90236F7E9700F06A3D /* MeaningAnimationViewController.swift in Sources */,
 				30DCA5F024417AA400D520D4 /* PromptContentDataSource.swift in Sources */,
