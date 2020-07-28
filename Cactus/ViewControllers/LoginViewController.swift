@@ -35,6 +35,7 @@ class LoginViewController: UIViewController {
         self.authHandler = AuthService.sharedInstance.getAuthStateChangeHandler { (_, user) in
             self.configureUI(user)
         }
+        self.emailInputView.backgroundColor = .white
         self.emailInputView.attributedPlaceholder = NSAttributedString(string: "Enter your email address").withColor(CactusColor.darkText)
         self.view.setupKeyboardDismissRecognizer()
         self.emailInputView.delegate = self
