@@ -10,6 +10,7 @@ import SwiftUI
 
 struct JournalUpgradeBanner: View {
     @EnvironmentObject var session: SessionStore
+    @EnvironmentObject var checkout: CheckoutStore
     @State var showPricing = false
     
     var paddingTop: CGFloat = 0
@@ -34,6 +35,7 @@ struct JournalUpgradeBanner: View {
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity, alignment: .topLeading)
         .sheet(isPresented: self.$showPricing) {
             PricingView().environmentObject(self.session)
+                .environmentObject(self.checkout)
         }
 //        .actionSheet(isPresented: self.$showPricing) {
 //            ActionSheet(title: Text("Pricing Page"),
@@ -50,6 +52,7 @@ struct JournalUpgradeBanner_Previews: PreviewProvider {
     static var previews: some View {
         JournalUpgradeBanner(paddingTop: 40)
             .environmentObject(SessionStore.mockLoggedIn(tier: .BASIC))
+            .environmentObject(CheckoutStore.mock())
             .padding()
     }
 }

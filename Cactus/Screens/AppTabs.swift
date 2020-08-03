@@ -15,6 +15,7 @@ enum Tab {
 
 struct AppTabs: View {
     @EnvironmentObject var session: SessionStore
+    @EnvironmentObject var checkout: CheckoutStore
     @State private var selection = Tab.home
     
     let tabImageSize: CGSize = CGSize(width: 30, height: 30)
@@ -70,6 +71,7 @@ struct AppTabs: View {
         .font(Font(CactusFont.normal))
         .foregroundColor(CactusColor.green.color)
         .environmentObject(session)
+        .environmentObject(checkout)
     }
 }
 
@@ -78,19 +80,23 @@ struct LoggedInApp_Previews: PreviewProvider {
         Group {
             AppTabs().environmentObject(SessionStore.mockLoggedIn(tier: .BASIC)
                 .setEntries(MockData.getDefaultJournalEntries()))
+                .environmentObject(CheckoutStore.mock())
                 .previewDisplayName("Basic User")
             
             AppTabs().environmentObject(SessionStore.mockLoggedIn(tier: .PLUS)
                 .setEntries(MockData.getDefaultJournalEntries()))
+                .environmentObject(CheckoutStore.mock())
                 .previewDisplayName("Plus User")
             
             AppTabs().environmentObject(SessionStore.mockLoggedIn(tier: .BASIC)
                 .setEntries(MockData.getDefaultJournalEntries()))
+                .environmentObject(CheckoutStore.mock())
                 .previewDisplayName("Basic User (Dark)")
                 .colorScheme(.dark)
             
             AppTabs().environmentObject(SessionStore.mockLoggedIn(tier: .PLUS)
                 .setEntries(MockData.getDefaultJournalEntries()))
+                .environmentObject(CheckoutStore.mock())
                 .previewDisplayName("Plus User (Dark)")
                 .colorScheme(.dark)
         }

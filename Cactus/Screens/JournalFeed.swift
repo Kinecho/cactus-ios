@@ -10,6 +10,8 @@ import SwiftUI
 
 struct JournalFeed: View {    
     @EnvironmentObject var session: SessionStore
+    @EnvironmentObject var checkout: CheckoutStore
+    
     var entries: [JournalEntry] {
         session.journalEntries
     }
@@ -30,7 +32,7 @@ struct JournalFeed: View {
     var body: some View {
         List {
             if self.session.member?.tier == .BASIC {
-                JournalUpgradeBanner()                    
+                JournalUpgradeBanner()
             }
             
             VStack(alignment: .leading) {
@@ -68,13 +70,17 @@ struct JournalFeed_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             JournalFeed().environmentObject(SessionStore.mockLoggedIn(tier: .BASIC).setEntries(MockData.getDefaultJournalEntries()))
+                .environmentObject(CheckoutStore.mock())
                 .previewDisplayName("Basic User")
             
             JournalFeed().environmentObject(SessionStore.mockLoggedIn(tier: .BASIC).setEntries(MockData.getDefaultJournalEntries()))
+                .environmentObject(CheckoutStore.mock())
                 .previewDisplayName("Basic User - iPhone 5s")
                 .previewDevice("iPhone SE")
             
-            JournalFeed().environmentObject(SessionStore.mockLoggedIn(tier: .PLUS).setEntries(MockData.getDefaultJournalEntries())).previewDisplayName("Plus User")
+            JournalFeed().environmentObject(SessionStore.mockLoggedIn(tier: .PLUS).setEntries(MockData.getDefaultJournalEntries()))
+                .environmentObject(CheckoutStore.mock())
+                .previewDisplayName("Plus User")
         }
     }
 }

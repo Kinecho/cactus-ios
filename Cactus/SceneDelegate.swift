@@ -31,7 +31,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             let sessionStore = SessionStore.shared
             sessionStore.start()
-            let appMain = UIHostingController(rootView: AppMain().environmentObject(sessionStore))
+            
+            let checkoutStore = CheckoutStore.shared
+            checkoutStore.start()
+            
+            let appView = AppMain()
+                .environmentObject(checkoutStore)
+                .environmentObject(sessionStore)
+                
+            
+            let appMain = UIHostingController(rootView: appView)
             
             NavigationService.initialize(rootVc: appMain, delegate: self)
             window.rootViewController = appMain

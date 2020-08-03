@@ -8,6 +8,28 @@
 
 import Foundation
 import UIKit
+import NoveFeatherIcons
+import SwiftUI
+
+struct Icon {
+    static func getImage(_ name: String?) -> UIImage? {
+        guard let name = name else {
+            return nil
+        }
+        if let iconType = IconType(rawValue: name), iconType != .unknown {
+            return iconType.image
+        }
+        return Feather.getIcon(name)
+    }
+    
+    static func getImage(_ feather: Feather.IconName) -> UIImage? {
+        return Feather.getIcon(feather)
+    }
+    
+    static func getImage(_ icon: IconType) -> UIImage? {
+        return icon.image
+    }
+}
 
 enum IconType: String, Codable {
     case heart
@@ -30,7 +52,7 @@ enum IconType: String, Codable {
     case creditCard
     case trash
     case checkCircle
-    
+
     case unknown
     
     public init(from decoder: Decoder) throws {
@@ -162,6 +184,10 @@ enum CactusImage: String {
     
     func getImage() -> UIImage? {
         return UIImage(named: self.rawValue)
+    }
+    
+    var swiftImage: Image {
+        return Image(self.rawValue)
     }
     
     static func forElement(_ element: CactusElement, width: CGFloat? = nil, height: CGFloat? = nil) -> UIImage? {

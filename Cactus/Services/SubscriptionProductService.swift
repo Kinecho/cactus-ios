@@ -43,7 +43,7 @@ class SubscriptionProductService {
     
     func observeAllForSale(_ completed: @escaping (FlamelinkQueryResult<SubscriptionProduct>) -> Void) -> ListenerRegistration {
         let query = self.getBaseQuery().whereField(SubscriptionProduct.Fields.availableForSale, isEqualTo: true)
-        return self.flamelinkService.observe(query) { (results, error) in
+        return self.flamelinkService.addListener(query) { (results, error) in
             completed(FlamelinkQueryResult(results, error))
         }
     }

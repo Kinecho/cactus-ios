@@ -12,16 +12,35 @@ import SwiftUI
 import FirebaseFirestore
 
 final class CheckoutStore: ObservableObject {
-    var subscriptionProducts: [SubscriptionProduct] = []
+//    @Published var subscriptionProducts: [SubscriptionProduct] = []
+//    @Published var productGroupEntryMap: SubscriptionProductGroupEntryMap?
+    @Published var productGroupData: ProductGroupData = ProductGroupData()
     
-    var productGroupEntryMap: SubscriptionProductGroupEntryMap?
+    static var shared = CheckoutStore()
     
-    var productsListener: ListenerRegistration?
+//    init(_ productGroupData: ProductGroupData?=nil) {
+//        self.productGroupData = productGroupData ?? ProductGroupData()
+//        CheckoutStore.shared = self
+//    }
     
     func start() {
-        self.productsListener = SubscriptionService.sharedInstance.getSubscriptionProductGroupEntryMap { (entryMap) in
-            self.productGroupEntryMap = entryMap
-        }
+        productGroupData.start()
     }
     
+    func stop() {
+        self.productGroupData.stop()
+    }
+    
+    deinit {
+        self.stop()
+    }
+}
+
+extension CheckoutStore {
+    static func mock(loading: Bool=false) -> CheckoutStore {
+        let productGroupData = ProductGroupData.mock(loading: loading)
+        let store = CheckoutStore()
+        store.productGroupData = productGroupData
+        return store
+    }
 }

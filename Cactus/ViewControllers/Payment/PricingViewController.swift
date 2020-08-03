@@ -180,7 +180,7 @@ class PricingViewController: UIViewController, MFMailComposeViewControllerDelega
         if let footer = groupEntry.productGroup?.footer {
             self.logger.info("footer \(footer.textMarkdown ?? "no footer text")")
             self.footerDescriptionLabel.attributedText = MarkdownUtil.toMarkdown(footer.textMarkdown)?.withColor(CactusColor.white)
-            self.footerIcon.image = footer.icon?.image
+            self.footerIcon.image = Icon.getImage(footer.icon)
             self.footerStackView.isHidden = false
         } else {
             self.logger.info("No footer")

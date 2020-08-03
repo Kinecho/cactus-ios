@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import NoveFeatherIcons
 
 class AppSettings: FlamelinkIdentifiable {
     static var schema = FlamelinkSchema.appSettings_ios
@@ -64,13 +65,27 @@ class AppSettings: FlamelinkIdentifiable {
 }
 
 struct PricingFeature: Codable {
-    var icon: IconType?
+    var icon: String?
     var titleMarkdown: String?
     var descriptionMarkdown: String?
     
+    enum PricingFeatureKey: CodingKey {
+        case icon
+        case titleMarkdown
+        case descriptionMarkdown
+    }
+    
     static func create(icon: IconType?, title: String?, description: String?) -> PricingFeature {
         var f = PricingFeature()
-        f.icon = icon
+        f.icon = icon?.rawValue
+        f.titleMarkdown = title
+        f.descriptionMarkdown = description
+        return f
+    }
+    
+    static func create(icon: Feather.IconName?, title: String?, description: String?) -> PricingFeature {
+        var f = PricingFeature()
+        f.icon = icon?.rawValue
         f.titleMarkdown = title
         f.descriptionMarkdown = description
         return f
@@ -78,10 +93,10 @@ struct PricingFeature: Codable {
 }
 
 let DEFAULT_PRICING_FEATURES: [PricingFeature] = [
-    PricingFeature.create(icon: .calendar, title: "Make it daily", description: "Improve your focus and positivity at work and home with a fresh prompt, every day."),
+    PricingFeature.create(icon: IconType.calendar, title: "Make it daily", description: "Improve your focus and positivity at work and home with a fresh prompt, every day."),
     PricingFeature.create(icon: .pie, title: "Personalized insights", description: "Visualizations reveal the people, places, and things that contribute to your satisfaction."),
     PricingFeature.create(icon: .journal, title: "Look back", description: "As your journal fills up, celebrate and relive the positive forces in your life."),
-    PricingFeature.create(icon: .lock, title: "Private + secure", description: "Your journal entries are encrypted for your eyes only."),
+    PricingFeature.create(icon: IconType.lock, title: "Private + secure", description: "Your journal entries are encrypted for your eyes only."),
 ]
 
 class PricingScreenSettings: Codable {

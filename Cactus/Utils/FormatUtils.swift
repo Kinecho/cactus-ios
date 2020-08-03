@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 func toEmptyString(_ input: String?) -> String {
     return input ?? ""
@@ -157,4 +158,10 @@ func destructureDisplayName(displayName: String?) -> (firstName: String?, lastNa
         }
     }
     return (firstName: firstName, lastName: lastName)
+}
+
+extension UIFont {
+    var font: Font {
+        return Font(self)
+    }
 }

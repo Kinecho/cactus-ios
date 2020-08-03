@@ -10,6 +10,7 @@ import SwiftUI
 
 struct AppMain: View {
     @EnvironmentObject var session: SessionStore
+    @EnvironmentObject var checkout: CheckoutStore
     
     var body: some View {
         VStack {
@@ -32,9 +33,18 @@ struct AppMain_Previews: PreviewProvider {
     static var MockLoggedOut = SessionStore.mockLoggedOut()
     static var previews: some View {
         Group {
-            AppMain().environmentObject(self.LoadingAppData).previewDisplayName("Auth Loading")
-            AppMain().environmentObject(self.MockAppData).previewDisplayName("Logged In")
-            AppMain().environmentObject(self.MockLoggedOut).previewDisplayName("Logged Out")
+            AppMain().environmentObject(self.LoadingAppData)
+                .environmentObject(CheckoutStore.mock())
+                .previewDisplayName("Auth Loading")            
+            
+            AppMain().environmentObject(self.MockAppData)
+                .environmentObject(CheckoutStore.mock())
+                .previewDisplayName("Logged In")
+                
+            AppMain().environmentObject(self.MockLoggedOut)
+                .environmentObject(CheckoutStore.mock())
+                .previewDisplayName("Logged Out")
+                
         }
     }
 }

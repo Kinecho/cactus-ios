@@ -39,8 +39,9 @@ def app_pods
   pod 'FacebookCore'
   pod 'Branch'
   pod 'SkeletonView'
-  pod 'Purchases', '3.2.2'
+  pod 'Purchases', '3.4.0'
   pod 'URLImage'
+  pod "NoveFeatherIcons", "~> 1.0"
 end
 
 
@@ -55,6 +56,7 @@ def today_pods
     pod 'MarkdownKit', '1.5'
     pod 'SkeletonView'
     pod 'URLImage'
+    pod "NoveFeatherIcons", "~> 1.0"
 end
 
 target 'Cactus Stage' do  

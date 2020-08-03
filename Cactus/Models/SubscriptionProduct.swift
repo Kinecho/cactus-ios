@@ -71,13 +71,17 @@ class SubscriptionProductField {
     public static let availableForSale = "availableForSale"
 }
 
-class SubscriptionProduct: FlamelinkIdentifiable {
+class SubscriptionProduct: FlamelinkIdentifiable, Identifiable {
     static var Fields = SubscriptionProductField.self
     static var schema = FlamelinkSchema.subscriptionProducts
     var _fl_meta_: FlamelinkMeta?
     var order: Int?
     var documentId: String?
     var entryId: String?
+    
+    var id: String {
+        self.entryId ?? UUID().uuidString
+    }
     
     var displayName: String
     var priceCentsUsd: Int
@@ -88,7 +92,50 @@ class SubscriptionProduct: FlamelinkIdentifiable {
     var savingsCopy: String?
     var stripePlanId: String?
     
+    init(displayName: String, priceCents: Int, billingPeriod: BillingPeriod) {
+        self.displayName = displayName
+        self.priceCentsUsd = priceCents
+        self.billingPeriod = billingPeriod
+    }
+    
     var isFree: Bool {
         return self.billingPeriod == .never || self.priceCentsUsd == 0
+    }
+}
+
+extension SubscriptionProduct {
+    class Builder {
+        private var entryId: String?
+        private var displayName: String = "Mock Product - Default Name"
+        private var priceCentsUsd: Int = 999
+        private var billingPeriod: BillingPeriod = .monthly
+        
+        func setEntryId(_ id: String) -> Builder {
+            self.entryId = id
+            return self
+        }
+        
+        func setDisplayName(_ name: String) -> Builder {
+            self.displayName = name
+            return self
+        }
+        
+        func setPrice(centsUsd: Int) -> Builder {
+            self.priceCentsUsd = centsUsd
+            return self
+        }
+        
+        func setBillingPeriod(_ period: BillingPeriod) -> Builder {
+            self.billingPeriod = period
+            return self
+        }
+        
+        func build() -> SubscriptionProduct {
+            let subProduct = SubscriptionProduct(displayName: self.displayName, priceCents: self.priceCentsUsd, billingPeriod: self.billingPeriod)
+            subProduct.entryId = self.entryId
+            
+            
+            return subProduct
+        }
     }
 }

@@ -21,7 +21,10 @@ func getDisplayName(_ tier: SubscriptionTier) -> String {
     }
 }
 
-struct ProductEntry {
+struct ProductEntry: Identifiable {
+    var id: String {
+        self.subscriptionProduct.entryId ?? UUID().uuidString
+    }
     var subscriptionProduct: SubscriptionProduct
     var appleProduct: SKProduct?
     

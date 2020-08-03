@@ -26,9 +26,9 @@ class PricingFeatureView: UIView {
         }
     }
     
-    var icon: IconType? {
+    var icon: String? {
         didSet {
-            self.iconImage = self.icon?.image
+            self.iconImage = Icon.getImage(self.icon)
         }
     }
     

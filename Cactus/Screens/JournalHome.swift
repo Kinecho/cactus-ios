@@ -39,10 +39,8 @@ struct JournalHome: View {
     @EnvironmentObject var session: SessionStore
 
     var body: some View {
-//        JournalHomeController(member: member, user: user, settings: settings)
-//            .edgesIgnoringSafeArea(.vertical)
         JournalFeed()
-        .navigationBarHidden(true)
+            .navigationBarHidden(true)
     }
 }
 
@@ -50,6 +48,6 @@ struct JournalHome_Previews: PreviewProvider {
     static var mockSession = SessionStore.mockLoggedIn().setEntries(MockData.getDefaultJournalEntries())
     
     static var previews: some View {
-        JournalHome().environmentObject(mockSession)
+        JournalHome().environmentObject(mockSession).environmentObject(CheckoutStore.mock())
     }
 }

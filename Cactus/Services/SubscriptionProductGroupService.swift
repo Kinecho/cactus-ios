@@ -40,4 +40,11 @@ class SubscriptionProductGroupService {
             completed(FlamelinkQueryResult(results, error))
         }
     }
+    
+    func observeAll(_ completed: @escaping (FlamelinkQueryResult<SubscriptionProductGroup>) -> Void) -> ListenerRegistration {
+        let query = self.getBaseQuery()
+        return self.flamelinkService.addListener(query) { (results, error) in
+            completed(FlamelinkQueryResult(results, error))
+        }
+    }
 }

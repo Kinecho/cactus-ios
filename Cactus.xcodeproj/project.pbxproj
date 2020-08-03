@@ -551,6 +551,10 @@
 		3077383724CF6F0500D0C5BE /* CheckoutStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077383524CF6F0500D0C5BE /* CheckoutStore.swift */; };
 		3077383824CF6F0500D0C5BE /* CheckoutStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077383524CF6F0500D0C5BE /* CheckoutStore.swift */; };
 		3077383924CF6F0500D0C5BE /* CheckoutStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077383524CF6F0500D0C5BE /* CheckoutStore.swift */; };
+		3077383B24D5DEE300D0C5BE /* ProductGroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077383A24D5DEE300D0C5BE /* ProductGroupData.swift */; };
+		3077383C24D5DEE400D0C5BE /* ProductGroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077383A24D5DEE300D0C5BE /* ProductGroupData.swift */; };
+		3077383D24D5DEE400D0C5BE /* ProductGroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077383A24D5DEE300D0C5BE /* ProductGroupData.swift */; };
+		3077383E24D5DEE400D0C5BE /* ProductGroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077383A24D5DEE300D0C5BE /* ProductGroupData.swift */; };
 		307B623824ABE5A100A4560E /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B623724ABE5A100A4560E /* ArrayExtensions.swift */; };
 		307B623924ABE5A100A4560E /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B623724ABE5A100A4560E /* ArrayExtensions.swift */; };
 		307B623A24ABE5A100A4560E /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B623724ABE5A100A4560E /* ArrayExtensions.swift */; };
@@ -1284,6 +1288,7 @@
 		3077382B24CEAFCE00D0C5BE /* JournalEntryNoNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryNoNote.swift; sourceTree = "<group>"; };
 		3077383024CEB17700D0C5BE /* JournalEntryWithNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryWithNote.swift; sourceTree = "<group>"; };
 		3077383524CF6F0500D0C5BE /* CheckoutStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutStore.swift; sourceTree = "<group>"; };
+		3077383A24D5DEE300D0C5BE /* ProductGroupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductGroupData.swift; sourceTree = "<group>"; };
 		307B623724ABE5A100A4560E /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		307B628424AD3B7200A4560E /* TextViewPlaceholderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewPlaceholderDelegate.swift; sourceTree = "<group>"; };
 		307ED78A24084085008D26C6 /* MemberSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberSubscription.swift; sourceTree = "<group>"; };
@@ -1503,12 +1508,13 @@
 		300AC18B233AE16C005C6555 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */,
 				304EA2F22343B730001FB8AD /* CountProcess.swift */,
 				3018B1222376182D0005333A /* JournalEntryData.swift */,
-				30DCA5EF24417AA400D520D4 /* PromptContentDataSource.swift */,
-				30DCA5F724418BAA00D520D4 /* PromptContentData.swift */,
+				300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */,
 				305366F824C75B9600927498 /* MockData.swift */,
+				3077383A24D5DEE300D0C5BE /* ProductGroupData.swift */,
+				30DCA5F724418BAA00D520D4 /* PromptContentData.swift */,
+				30DCA5EF24417AA400D520D4 /* PromptContentDataSource.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -2828,6 +2834,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3062202123EC7A0A002FAAD9 /* MarkdownTextView.swift in Sources */,
+				3077383E24D5DEE400D0C5BE /* ProductGroupData.swift in Sources */,
 				300FCCEC23ECB5D500089CFB /* FancyLinkButton.swift in Sources */,
 				303C9E3623841AEB006B9786 /* SentPromptService.swift in Sources */,
 				30D0E44F236C920C00EFC0E3 /* ViewControllerExtensions.swift in Sources */,
@@ -3248,6 +3255,7 @@
 				308C5A4C24479AA50087345D /* PricingFeaturePageViewController.swift in Sources */,
 				300AC188233A850B005C6555 /* JournalEntrySkeletonViewController.swift in Sources */,
 				3077380B24CBB46E00D0C5BE /* ImagePlaceholder.swift in Sources */,
+				3077383D24D5DEE400D0C5BE /* ProductGroupData.swift in Sources */,
 				30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */,
 				3084E9662348FE9C00788279 /* CelebrateViewController.swift in Sources */,
 				303C9E432384778A006B9786 /* MemberProfile.swift in Sources */,
@@ -3452,6 +3460,7 @@
 				30A3BC9624C113780016955C /* PricingFeaturePageViewController.swift in Sources */,
 				30A3BC9724C113780016955C /* JournalEntrySkeletonViewController.swift in Sources */,
 				3077380924CBB46E00D0C5BE /* ImagePlaceholder.swift in Sources */,
+				3077383B24D5DEE300D0C5BE /* ProductGroupData.swift in Sources */,
 				30A3BC9824C113780016955C /* CelebrateViewController.swift in Sources */,
 				30A3BC9924C113780016955C /* ApiService.swift in Sources */,
 				30A3BC9A24C113780016955C /* MemberProfile.swift in Sources */,
@@ -3656,6 +3665,7 @@
 				308C5A4B24479AA50087345D /* PricingFeaturePageViewController.swift in Sources */,
 				300AC187233A850B005C6555 /* JournalEntrySkeletonViewController.swift in Sources */,
 				3077380A24CBB46E00D0C5BE /* ImagePlaceholder.swift in Sources */,
+				3077383C24D5DEE400D0C5BE /* ProductGroupData.swift in Sources */,
 				3084E9652348FE9C00788279 /* CelebrateViewController.swift in Sources */,
 				3021B67123622FE7002634A8 /* ApiService.swift in Sources */,
 				303C9E422384778A006B9786 /* MemberProfile.swift in Sources */,
