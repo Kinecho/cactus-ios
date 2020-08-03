@@ -8,6 +8,7 @@
 
 import SwiftUI
 import Purchases
+import SwiftUIX
 
 struct PricingController: UIViewControllerRepresentable {
     @EnvironmentObject var session: SessionStore
@@ -107,7 +108,12 @@ struct PricingView: View {
             .padding()
 //            .background(Color.orange)
             
-             
+            PaginationView(axis: .horizontal) {
+                Text("one")
+                Text("Two")
+                Text("Three")
+            }.background(Color.red)
+            
             HStack {
                 Spacer()
                 VStack(alignment: .leading, spacing: Spacing.normal) {

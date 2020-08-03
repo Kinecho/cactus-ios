@@ -76,7 +76,7 @@ class ProductGroupData {
     func fetchRevenueCatOfferings() {
         Purchases.shared.offerings { (offerings, error) in            
             if let error = error {
-                self.logger.error("Error fetchign revenuecat offerings", error)
+                self.logger.error("Error fetching revenuecat offerings", error)
             }
             
             if let packages = offerings?.current?.availablePackages {
