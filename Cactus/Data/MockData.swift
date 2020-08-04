@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import NoveFeatherIcons
 
 let blobUrls: [String] = [
     "https://firebasestorage.googleapis.com/v0/b/cactus-app-prod.appspot.com/o/flamelink%2Fmedia%2F200507.png?alt=media&token=ed3d7256-81a6-4bdd-bb57-16991c284e47",
@@ -439,5 +440,13 @@ extension PromptContent {
         func build() -> PromptContent {
             return self.promptContent
         }
+    }
+}
+
+extension AppSettings {
+    static func mock() -> AppSettings {
+        let settings = AppSettings()
+        settings.pricingScreen = PricingScreenSettings.defaultSettings()
+        return settings
     }
 }

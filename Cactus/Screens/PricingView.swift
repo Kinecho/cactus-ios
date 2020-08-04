@@ -28,8 +28,16 @@ struct PricingView: View {
     @EnvironmentObject var session: SessionStore
     @EnvironmentObject var checkout: CheckoutStore
     
+    init() {
+        UIScrollView.appearance().alwaysBounceVertical = false
+    }
+    
     var showLoading: Bool {
         return !checkout.productGroupData.allLoaded
+    }
+    
+    var pricingSettings: PricingScreenSettings {
+        self.session.settings?.pricingScreen ?? PricingScreenSettings.defaultSettings()
     }
     
     var plusProductsEntries: [ProductEntry] {
@@ -60,11 +68,15 @@ struct PricingView: View {
     }
     
     var pageTitle: String {
-        return "Get more with Cactus Plus"
+        return self.pricingSettings.pageTitleMarkdown
     }
     
     var pageSubTitle: String {
-        return "Get daily prompts, personalized questions, and more."
+        return self.pricingSettings.pageDescriptionMarkdown
+    }
+    
+    var features: [PricingFeature] {
+        return self.pricingSettings.features
     }
     
 //    var offerings: [Purchases.Offering] {
@@ -72,98 +84,114 @@ struct PricingView: View {
 //    }
     
     var body: some View {
-        VStack(alignment: .center, spacing: Spacing.normal) {
-            HStack {
-                Spacer()
-                VStack(alignment: .center, spacing: Spacing.small) {
-                    Text(self.pageTitle)
-                        .font(CactusFont.bold(FontSize.large).font)
-                        .multilineTextAlignment(.center)
-                    Text(pageSubTitle)
-                        .multilineTextAlignment(.center)
-                    
-                }.padding(.vertical, Spacing.large)
-                .padding(Spacing.large)
-                Spacer()
-            }
-            .font(CactusFont.normal.font)
-            .foregroundColor(CactusColor.white.color)
-            .background(CactusImage.plusBg.swiftImage
-                .resizable()
-            .transformEffect(.init(scaleX: 1.0, y: 1.05))
-                .scaledToFill()
-            )
-            
-            HStack {
-                Spacer()
-                VStack {
-                    Text("Plus Products (\(self.subscriptionProducts.count)):")
-                        .font(CactusFont.bold(22).font)
-                    ForEach(self.subscriptionProducts) { product in
-                        Text(product.displayName)
-                    }
-                }
-                Spacer()
-            }
-            .padding()
-//            .background(Color.orange)
-            
-            PaginationView(axis: .horizontal) {
-                Text("one")
-                Text("Two")
-                Text("Three")
-            }.background(Color.red)
-            
-            HStack {
-                Spacer()
-                VStack(alignment: .leading, spacing: Spacing.normal) {
-                    Text("RevenueCat Packages (\(self.packages.count)):")
-                        .font(CactusFont.bold(22).font)
-                    ForEach(self.packages, id: \.identifier) { package in
-                        VStack {
-                            Text("Package Type \((package as Purchases.Package).packageType.rawValue)")
-                            Text((package as Purchases.Package).localizedPriceString)
-                        }
-                    }
-                }
-                Spacer()
-            }
-            .padding()
-            .background(Color.blue.opacity(0.5))
-            
-            Text("Product Groups (\(self.checkout.productGroupData.productGroups?.count ?? 0))")
-            if self.footer != nil {
-                HStack(alignment: .center, spacing: Spacing.normal) {
+        ScrollView(.vertical) {
+            VStack(alignment: .center, spacing: Spacing.normal) {
+                HStack {
                     Spacer()
-                    if Icon.getImage(self.footer?.icon) != nil {
-                        Image(uiImage: Icon.getImage(self.footer?.icon)!)
-                            .resizable()
-                            .frame(width: 18, height: 18)
-                            .aspectRatio(contentMode: .fit)
-                            .foregroundColor(CactusColor.textDefault.color)
-                    }
-                    if self.footer?.textMarkdown != nil {
-                        MDText(markdown: self.footer!.textMarkdown!).offset(x: 0, y: -4)
-                        .font(Font(CactusFont.normal))
-                        .foregroundColor(Color(CactusColor.textDefault))
+                    VStack(alignment: .center, spacing: Spacing.small) {
+                        Text(self.pageTitle)
+                            .font(CactusFont.bold(FontSize.large).font)
+                            .multilineTextAlignment(.center)
+                            .fixedSize(horizontal: false, vertical: true)
+                        Text(pageSubTitle)
+                            .multilineTextAlignment(.center)
+                            .fixedSize(horizontal: false, vertical: true)
+                        
+                    }.padding(.vertical, Spacing.large)
+                    .padding(Spacing.large)
+                    Spacer()
+                }
+                .font(CactusFont.normal.font)
+                .foregroundColor(CactusColor.white.color)
+                .background(CactusImage.plusBg.swiftImage
+                    .resizable()
+                .transformEffect(.init(scaleX: 1.0, y: 1.05))
+                    .scaledToFill()
+                )
+                
+                PlusFeaturesPagination(features: self.features, height: 250)
+                    .height(250)
+                    .pageIndicatorTintColor(Color.gray)
+                    .currentPageIndicatorTintColor(Color.blue)
+                    .offset(x: 0, y: -20)
+                    .padding(.bottom, -20)
+                 
+                
+                HStack {
+                    Spacer()
+                    VStack {
+                        Text("Plus Products (\(self.subscriptionProducts.count)):")
+                            .font(CactusFont.bold(22).font)
+                        ForEach(self.subscriptionProducts) { product in
+                            Text(product.displayName)
+                        }
                     }
                     Spacer()
                 }
                 .padding()
-                .background(Color.yellow)
+                .background(Color.orange)
+  
+                HStack {
+                    Spacer()
+                    VStack(alignment: .leading, spacing: Spacing.normal) {
+                        Text("RevenueCat Packages (\(self.packages.count)):")
+                            .font(CactusFont.bold(22).font)
+                        ForEach(self.packages, id: \.identifier) { package in
+                            VStack {
+                                Text("Package Type \((package as Purchases.Package).packageType.rawValue)")
+                                Text((package as Purchases.Package).localizedPriceString)
+                            }
+                        }
+                    }
+                    Spacer()
+                }
+                .padding()
+                .background(Color.blue.opacity(0.5))
+                
+                Text("Product Groups (\(self.checkout.productGroupData.productGroups?.count ?? 0))")
+                if self.footer != nil {
+                    HStack(alignment: .center, spacing: Spacing.normal) {
+                        Spacer()
+                        if Icon.getImage(self.footer?.icon) != nil {
+                            Image(uiImage: Icon.getImage(self.footer?.icon)!)
+                                .resizable()
+                                .frame(width: 18, height: 18)
+                                .aspectRatio(contentMode: .fit)
+                                .foregroundColor(CactusColor.textDefault.color)
+                        }
+                        if self.footer?.textMarkdown != nil {
+                            MDText(markdown: self.footer!.textMarkdown!).offset(x: 0, y: -4)
+                            .font(Font(CactusFont.normal))
+                            .foregroundColor(Color(CactusColor.textDefault))
+                        }
+                        Spacer()
+                    }
+                    .padding()
+                    .background(Color.yellow)
+                }
             }
-            Spacer()
-        }
-        .font(Font(CactusFont.normal))
-        .background(CactusColor.background.color)
+            .font(Font(CactusFont.normal))
+            .background(CactusColor.background.color)
+        }.edgesIgnoringSafeArea(.vertical)
+            .background(CactusColor.background.color)
     }
 }
 
 struct PricingView_Previews: PreviewProvider {
     static var previews: some View {
-        PricingView()
-            .environmentObject(SessionStore.mockLoggedIn())
-            .environmentObject(CheckoutStore.mock(loading: false))
+        
+        Group {
+            PricingView()
+                .environmentObject(SessionStore.mockLoggedIn())
+                .environmentObject(CheckoutStore.mock(loading: false))
+            .previewDisplayName("Pricing Page (Light)")
+            
+            PricingView()
+                .environmentObject(SessionStore.mockLoggedIn())
+                .environmentObject(CheckoutStore.mock(loading: false))
+                .colorScheme(.dark)
+            .previewDisplayName("Pricing Page (Dark)")
+        }
     }
 }
     

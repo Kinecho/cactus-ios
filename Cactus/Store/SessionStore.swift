@@ -58,20 +58,20 @@ final class SessionStore: ObservableObject {
         self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember { (member, _, user) in
             self.logger.info("setup auth onData \(member?.email ?? "no email")" )
             
-//            if member == nil && user == nil {
-//                self.logger.info("found member is null. showing loign screen.")
-//                self.showWelcomeScreen()
-//            } else if member == nil && user != nil {
-//                self.logger.info("User is logged in but no member was found (yet). We're probably still creating the member. Don't do anything!")
-//            } else if let member = member, member.id != self.member?.id {
-//                self.logger.info("Found member, not null. showing journal home page")
-//                CactusAnalytics.shared.setSubscriptionTier(member: member)
-//                self.showJournalHome(member: member, wrapInNav: true)
-//            }
+            //            if member == nil && user == nil {
+            //                self.logger.info("found member is null. showing loign screen.")
+            //                self.showWelcomeScreen()
+            //            } else if member == nil && user != nil {
+            //                self.logger.info("User is logged in but no member was found (yet). We're probably still creating the member. Don't do anything!")
+            //            } else if let member = member, member.id != self.member?.id {
+            //                self.logger.info("Found member, not null. showing journal home page")
+            //                CactusAnalytics.shared.setSubscriptionTier(member: member)
+            //                self.showJournalHome(member: member, wrapInNav: true)
+            //            }
             self.member = member
             self.user = user
             self.authLoaded = true
-//            self.runPendingActions()
+            //            self.runPendingActions()
             self.runPendingAuthActions()
         }
     }
@@ -107,8 +107,7 @@ final class SessionStore: ObservableObject {
 extension SessionStore {
     static func mockLoggedIn(tier: SubscriptionTier = .BASIC) -> SessionStore {
         let store = SessionStore()
-        
-        store.settings = nil
+        store.settings = AppSettings.mock()
         store.authLoaded = true
         let member = CactusMember()
         member.email = "test@cactus.app"
@@ -120,13 +119,12 @@ extension SessionStore {
     }
     
     static func mockLoggedOut() -> SessionStore {
-           let store = SessionStore()
-           
-           store.settings = nil
-           store.authLoaded = true
-            store.useMockImages = true
-           return store
-       }
+        let store = SessionStore()
+        store.settings = AppSettings.mock()
+        store.authLoaded = true
+        store.useMockImages = true
+        return store
+    }
 }
 
 

@@ -67,6 +67,12 @@
 		300D37B624D8C1AE00351994 /* CactusElementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30727445236A4A3100309B3C /* CactusElementDetailViewController.swift */; };
 		300D37B724D8C29900351994 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305CB10323D049E30046E8A8 /* ContactsTableViewController.swift */; };
 		300D37B924D8C62D00351994 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 300D37B824D8C62D00351994 /* SwiftUIX */; };
+		300D37BB24D8C7B600351994 /* PlusFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37BA24D8C7B600351994 /* PlusFeature.swift */; };
+		300D37BC24D8C7B600351994 /* PlusFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37BA24D8C7B600351994 /* PlusFeature.swift */; };
+		300D37BD24D8C7B600351994 /* PlusFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37BA24D8C7B600351994 /* PlusFeature.swift */; };
+		300D37BF24D8C9FB00351994 /* PlusFeaturesPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37BE24D8C9FB00351994 /* PlusFeaturesPagination.swift */; };
+		300D37C024D8C9FB00351994 /* PlusFeaturesPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37BE24D8C9FB00351994 /* PlusFeaturesPagination.swift */; };
+		300D37C124D8C9FB00351994 /* PlusFeaturesPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37BE24D8C9FB00351994 /* PlusFeaturesPagination.swift */; };
 		300F236C237A61F100F35CDE /* SharedReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F236A237A61F100F35CDE /* SharedReflectionViewController.swift */; };
 		300F236D237A61F100F35CDE /* SharedReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F236A237A61F100F35CDE /* SharedReflectionViewController.swift */; };
 		300F236E237A61F100F35CDE /* SharedReflectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 300F236B237A61F100F35CDE /* SharedReflectionViewController.xib */; };
@@ -1175,6 +1181,8 @@
 		300AC185233A850B005C6555 /* JournalEntrySkeletonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JournalEntrySkeletonViewController.swift; path = Cactus/ViewControllers/JournalEntrySkeletonViewController.swift; sourceTree = SOURCE_ROOT; };
 		300AC186233A850B005C6555 /* JournalEntrySkeletonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = JournalEntrySkeletonViewController.xib; path = Cactus/ViewControllers/JournalEntrySkeletonViewController.xib; sourceTree = SOURCE_ROOT; };
 		300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFeedDataSource.swift; sourceTree = "<group>"; };
+		300D37BA24D8C7B600351994 /* PlusFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusFeature.swift; sourceTree = "<group>"; };
+		300D37BE24D8C9FB00351994 /* PlusFeaturesPagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusFeaturesPagination.swift; sourceTree = "<group>"; };
 		300F236A237A61F100F35CDE /* SharedReflectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedReflectionViewController.swift; sourceTree = "<group>"; };
 		300F236B237A61F100F35CDE /* SharedReflectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SharedReflectionViewController.xib; sourceTree = "<group>"; };
 		300F2370237A629800F35CDE /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
@@ -1721,6 +1729,8 @@
 				3077381224CBD00000D0C5BE /* JournalUpgradeBanner.swift */,
 				3077381724CBD39B00D0C5BE /* CactusButton.swift */,
 				3077382B24CEAFCE00D0C5BE /* JournalEntryNoNote.swift */,
+				300D37BA24D8C7B600351994 /* PlusFeature.swift */,
+				300D37BE24D8C9FB00351994 /* PlusFeaturesPagination.swift */,
 			);
 			path = "Supplemental Views";
 			sourceTree = "<group>";
@@ -3361,11 +3371,13 @@
 				30E2D377234311C6003D2B27 /* PillLabelView.swift in Sources */,
 				3084E95C2348087100788279 /* HelpViewController.swift in Sources */,
 				305366F124C6A84200927498 /* PromptContentView.swift in Sources */,
+				300D37C124D8C9FB00351994 /* PlusFeaturesPagination.swift in Sources */,
 				303282222416D3DF00FC197A /* AuthenticatedTaskManager.swift in Sources */,
 				30265C6423453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */,
 				302C4F4D2347E25A00798560 /* DateUtil.swift in Sources */,
 				303C9DC9237FCF06006B9786 /* LoadableSharedReflectionViewController.swift in Sources */,
 				30E9B0B022EADD04005B25FD /* LoginViewController.swift in Sources */,
+				300D37BD24D8C7B600351994 /* PlusFeature.swift in Sources */,
 				30F716882379ED32004989DB /* ShareNoteViewController.swift in Sources */,
 				3018B11E23751DE70005333A /* AppIconSettingsViewController.swift in Sources */,
 				3099D1F82409740D00BD9CC4 /* SubscriptionService.swift in Sources */,
@@ -3566,11 +3578,13 @@
 				30A3BCA424C113780016955C /* PillLabelView.swift in Sources */,
 				30A3BCA524C113780016955C /* HelpViewController.swift in Sources */,
 				305366EF24C6A84200927498 /* PromptContentView.swift in Sources */,
+				300D37BF24D8C9FB00351994 /* PlusFeaturesPagination.swift in Sources */,
 				30A3BCA624C113780016955C /* AuthenticatedTaskManager.swift in Sources */,
 				30A3BCA724C113780016955C /* UIImageView+SwiftyGif.swift in Sources */,
 				30A3BCA824C113780016955C /* DateUtil.swift in Sources */,
 				30A3BCA924C113780016955C /* LoadableSharedReflectionViewController.swift in Sources */,
 				30A3BCAA24C113780016955C /* JournalFeedCollectionViewController.swift in Sources */,
+				300D37BB24D8C7B600351994 /* PlusFeature.swift in Sources */,
 				30A3BCAB24C113780016955C /* ShareNoteViewController.swift in Sources */,
 				30A3BCAC24C113780016955C /* AppIconSettingsViewController.swift in Sources */,
 				30A3BCAD24C113780016955C /* SubscriptionService.swift in Sources */,
@@ -3771,11 +3785,13 @@
 				30E2D376234311C6003D2B27 /* PillLabelView.swift in Sources */,
 				3084E95B2348087100788279 /* HelpViewController.swift in Sources */,
 				305366F024C6A84200927498 /* PromptContentView.swift in Sources */,
+				300D37C024D8C9FB00351994 /* PlusFeaturesPagination.swift in Sources */,
 				303282212416D3DF00FC197A /* AuthenticatedTaskManager.swift in Sources */,
 				30265C6323453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */,
 				302C4F4C2347E25A00798560 /* DateUtil.swift in Sources */,
 				303C9DC8237FCF06006B9786 /* LoadableSharedReflectionViewController.swift in Sources */,
 				30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */,
+				300D37BC24D8C7B600351994 /* PlusFeature.swift in Sources */,
 				30F716872379ED32004989DB /* ShareNoteViewController.swift in Sources */,
 				3018B11D23751DE70005333A /* AppIconSettingsViewController.swift in Sources */,
 				3099D1F72409740D00BD9CC4 /* SubscriptionService.swift in Sources */,

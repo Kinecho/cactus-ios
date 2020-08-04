@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import NoveFeatherIcons
+fileprivate let logger = Logger("AppSettings")
 
 class AppSettings: FlamelinkIdentifiable {
     static var schema = FlamelinkSchema.appSettings_ios
@@ -44,6 +45,10 @@ class AppSettings: FlamelinkIdentifiable {
         case coreValuesPath
     }
     
+    init() {
+        logger.info("Using no arg consturctor to create settings object")
+    }
+    
     public required init(from decoder: Decoder) throws {
         let model = try ModelDecoder<AppSettingsField>.create(decoder: decoder, codingKeys: AppSettingsField.self) 
         self._fl_meta_ = try? model.container.decode(FlamelinkMeta.self, forKey: ._fl_meta_)
@@ -64,7 +69,8 @@ class AppSettings: FlamelinkIdentifiable {
     
 }
 
-struct PricingFeature: Codable {
+struct PricingFeature: Codable, Identifiable {
+    var id = UUID()
     var icon: String?
     var titleMarkdown: String?
     var descriptionMarkdown: String?
@@ -73,6 +79,23 @@ struct PricingFeature: Codable {
         case icon
         case titleMarkdown
         case descriptionMarkdown
+    }
+    
+    init() {}
+    
+    public init(from decoder: Decoder) throws {
+        let model = try ModelDecoder<PricingFeatureKey>.create(decoder: decoder, codingKeys: PricingFeatureKey.self)
+        self.icon = model.optionalString(.icon, blankAsNil: true)
+        self.titleMarkdown =  model.optionalString(.titleMarkdown, blankAsNil: true)
+        self.descriptionMarkdown = model.optionalString(.descriptionMarkdown, blankAsNil: true)
+    }
+    
+    static func create(icon: String, title: String?, description: String?) -> PricingFeature {
+        var f = PricingFeature()
+        f.icon = icon
+        f.titleMarkdown = title
+        f.descriptionMarkdown = description
+        return f
     }
     
     static func create(icon: IconType?, title: String?, description: String?) -> PricingFeature {
@@ -100,11 +123,37 @@ let DEFAULT_PRICING_FEATURES: [PricingFeature] = [
 ]
 
 class PricingScreenSettings: Codable {
-    var pageTitleMarkdown: String?
-    var pageDescriptionMarkdown: String?
-    var purchaseButtonText: String?
-    var features: [PricingFeature]?
-    var headerBackgroundHeight: CGFloat? = 260        
+    var pageTitleMarkdown: String = "Get more with Cactus Plus"
+    var pageDescriptionMarkdown: String = "Daily prompts, personalized insights, and more"
+    var purchaseButtonText: String = "Try Cactus Plus"
+    var features: [PricingFeature] = DEFAULT_PRICING_FEATURES
+    var headerBackgroundHeight: CGFloat? = 260
+    
+    enum PricingScreenKey: CodingKey {
+        case pageTitleMarkdown
+        case pageDescriptionMarkdown
+        case purchaseButtonText
+        case features
+        case headerBackgroundHeight
+    }
+    
+    init() {
+        //no op
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let model = try ModelDecoder<PricingScreenKey>.create(decoder: decoder, codingKeys: PricingScreenKey.self)
+        self.pageTitleMarkdown  = model.string(.pageTitleMarkdown, defaultValue: "Get more with Cactus Plus", blankAsNil: true)
+        self.pageDescriptionMarkdown = model.string(.pageDescriptionMarkdown, defaultValue: "Daily prompts, personalized insights, and more", blankAsNil: true)
+        self.purchaseButtonText = model.string(.purchaseButtonText, defaultValue: "Try Cactus Plus", blankAsNil: true)
+        self.headerBackgroundHeight = model.cgFloat(.headerBackgroundHeight, defaultValue: 260)
+        self.features = (try? model.container.decode([PricingFeature].self, forKey: .features)) ?? DEFAULT_PRICING_FEATURES
+    }
+    
+    static func defaultSettings() -> PricingScreenSettings {
+        let settings = PricingScreenSettings()
+        return settings
+    }
 }
 
 class DataExportSettings: Codable {
