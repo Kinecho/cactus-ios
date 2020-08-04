@@ -57,7 +57,9 @@ struct AppTabs: View {
             
             NavigationView {
                 SettingsTable()
-                .navigationBarTitle("Settings")
+                    .background(CactusColor.background.color)
+                    .navigationBarColor(CactusColor.background.color)
+                    .navigationBarTitle("Settings")
             }.tabItem {
                 Image(CactusImage.creditCard.rawValue)
                     .renderingMode(.template)
@@ -65,11 +67,14 @@ struct AppTabs: View {
                 Text("Settings")
             }
             .tag(Tab.settings)
-            
+            .background(CactusColor.background.color)
         }
+        .animation(.easeInOut)
+        .transition(.opacity)
         .accentColor(CactusColor.green.color)
         .font(Font(CactusFont.normal))
         .foregroundColor(CactusColor.green.color)
+        .backgroundColor(CactusColor.background.color)
         .environmentObject(session)
         .environmentObject(checkout)
     }

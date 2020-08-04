@@ -11,9 +11,18 @@ import SwiftUI
 struct CactusButton: View {
     var label: String?
     var style: LinkStyle
-    init(_ label: String?, _ style: LinkStyle = .buttonPrimary) {
+    var disableBorder: Bool = false
+    var fontSize: CGFloat = FontSize.normal
+    
+    
+    init(_ label: String?,
+         _ style: LinkStyle = .buttonPrimary,
+         disableBorder: Bool=false,
+         fontSize: CGFloat=FontSize.normal) {
         self.label = label
         self.style = style
+        self.fontSize = fontSize
+        self.disableBorder = disableBorder
     }
     
     var backgroundColor: Color {
@@ -65,7 +74,7 @@ struct CactusButton: View {
     var borderThickness: CGFloat {
         switch self.style {
         case .buttonPrimary:
-            return 4
+            return self.disableBorder ? 0 : 4
         case .buttonSecondary:
             return 1
         default:
@@ -85,7 +94,7 @@ struct CactusButton: View {
     
     var body: some View {
         Text(self.label ?? "")
-            .font(Font(CactusFont.normal))
+            .font(Font(CactusFont.bold(self.fontSize)))
             .padding(self.paddingAmount)
             .background(self.backgroundColor)
             .foregroundColor(self.textColor)
@@ -126,7 +135,8 @@ struct PrimaryBorderShape: Shape {
 struct CactusButton_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CactusButton("Custom Button").previewDisplayName("Primary Button")
+            CactusButton("Primary Button").previewDisplayName("Primary Button")
+            CactusButton("Primary Button No Border", disableBorder: true).previewDisplayName("Primary Button No Border")
             CactusButton("Secondary Button", .buttonSecondary).previewDisplayName("Secondary Button")
         }
         .padding()
