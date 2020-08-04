@@ -73,6 +73,10 @@
 		300D37BF24D8C9FB00351994 /* PlusFeaturesPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37BE24D8C9FB00351994 /* PlusFeaturesPagination.swift */; };
 		300D37C024D8C9FB00351994 /* PlusFeaturesPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37BE24D8C9FB00351994 /* PlusFeaturesPagination.swift */; };
 		300D37C124D8C9FB00351994 /* PlusFeaturesPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37BE24D8C9FB00351994 /* PlusFeaturesPagination.swift */; };
+		300D37C424DA086900351994 /* SubscriptionCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37C324DA086900351994 /* SubscriptionCopy.swift */; };
+		300D37C524DA086900351994 /* SubscriptionCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37C324DA086900351994 /* SubscriptionCopy.swift */; };
+		300D37C624DA086900351994 /* SubscriptionCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37C324DA086900351994 /* SubscriptionCopy.swift */; };
+		300D37C724DA086900351994 /* SubscriptionCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37C324DA086900351994 /* SubscriptionCopy.swift */; };
 		300F236C237A61F100F35CDE /* SharedReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F236A237A61F100F35CDE /* SharedReflectionViewController.swift */; };
 		300F236D237A61F100F35CDE /* SharedReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F236A237A61F100F35CDE /* SharedReflectionViewController.swift */; };
 		300F236E237A61F100F35CDE /* SharedReflectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 300F236B237A61F100F35CDE /* SharedReflectionViewController.xib */; };
@@ -1183,6 +1187,7 @@
 		300AC18C233AE1B7005C6555 /* JournalFeedDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFeedDataSource.swift; sourceTree = "<group>"; };
 		300D37BA24D8C7B600351994 /* PlusFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusFeature.swift; sourceTree = "<group>"; };
 		300D37BE24D8C9FB00351994 /* PlusFeaturesPagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusFeaturesPagination.swift; sourceTree = "<group>"; };
+		300D37C324DA086900351994 /* SubscriptionCopy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCopy.swift; sourceTree = "<group>"; };
 		300F236A237A61F100F35CDE /* SharedReflectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedReflectionViewController.swift; sourceTree = "<group>"; };
 		300F236B237A61F100F35CDE /* SharedReflectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SharedReflectionViewController.xib; sourceTree = "<group>"; };
 		300F2370237A629800F35CDE /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
@@ -1568,6 +1573,14 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		300D37C224DA083A00351994 /* Copy */ = {
+			isa = PBXGroup;
+			children = (
+				300D37C324DA086900351994 /* SubscriptionCopy.swift */,
+			);
+			path = Copy;
+			sourceTree = "<group>";
+		};
 		300FCCF123EE278000089CFB /* Payment */ = {
 			isa = PBXGroup;
 			children = (
@@ -1947,6 +1960,7 @@
 		30B6EA6D22EA5A9F00443E46 /* Cactus */ = {
 			isa = PBXGroup;
 			children = (
+				300D37C224DA083A00351994 /* Copy */,
 				30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */,
 				30E9B0AB22EAD6EC005B25FD /* NavigationUtil.swift */,
 				305366B124C661AB00927498 /* SceneDelegate.swift */,
@@ -3050,6 +3064,7 @@
 				303C9DD3238419A9006B9786 /* AuthService.swift in Sources */,
 				303C9E442384778A006B9786 /* MemberProfile.swift in Sources */,
 				303C9DE123841A8F006B9786 /* JournalFeedDataSource.swift in Sources */,
+				300D37C724DA086900351994 /* SubscriptionCopy.swift in Sources */,
 				303E8144242C4F2700782B54 /* CactusAnalytics.swift in Sources */,
 				300D379C24D8BE3700351994 /* ViewSharedReflectionViewController.swift in Sources */,
 				3099D20424098EF400BD9CC4 /* SubscriptionProductGroup.swift in Sources */,
@@ -3225,6 +3240,7 @@
 				30E9B0AD22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
 				308505A623D0E490001179E2 /* SocialContactTableViewCell.swift in Sources */,
 				3077383824CF6F0500D0C5BE /* CheckoutStore.swift in Sources */,
+				300D37C624DA086900351994 /* SubscriptionCopy.swift in Sources */,
 				3099D20324098EF400BD9CC4 /* SubscriptionProductGroup.swift in Sources */,
 				305B186F23319E09003E1561 /* FileUtils.swift in Sources */,
 				30DCA5F124417AA400D520D4 /* PromptContentDataSource.swift in Sources */,
@@ -3432,6 +3448,7 @@
 				30A3BC2724C113780016955C /* SubscriptionProductGroup.swift in Sources */,
 				30A3BC2824C113780016955C /* FileUtils.swift in Sources */,
 				3077383624CF6F0500D0C5BE /* CheckoutStore.swift in Sources */,
+				300D37C424DA086900351994 /* SubscriptionCopy.swift in Sources */,
 				30A3BC2924C113780016955C /* MeaningAnimationViewController.swift in Sources */,
 				30A3BC2A24C113780016955C /* PromptContentDataSource.swift in Sources */,
 				30A3BC2B24C113780016955C /* NavigationMenuViewController.swift in Sources */,
@@ -3639,6 +3656,7 @@
 				308505A523D0E490001179E2 /* SocialContactTableViewCell.swift in Sources */,
 				3099D20224098EF400BD9CC4 /* SubscriptionProductGroup.swift in Sources */,
 				3077383724CF6F0500D0C5BE /* CheckoutStore.swift in Sources */,
+				300D37C524DA086900351994 /* SubscriptionCopy.swift in Sources */,
 				305B186E23319E09003E1561 /* FileUtils.swift in Sources */,
 				301C1A90236F7E9700F06A3D /* MeaningAnimationViewController.swift in Sources */,
 				30DCA5F024417AA400D520D4 /* PromptContentDataSource.swift in Sources */,

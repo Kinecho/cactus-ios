@@ -13,14 +13,41 @@ struct JournalUpgradeBanner: View {
     @EnvironmentObject var checkout: CheckoutStore
     @State var showPricing = false
     
+    var copy: JournalBannerCopy? {
+        return SubscriptionCopy.journalBannerText(self.session.member, settings: self.session.settings)
+    }
+    
+    var title: String? {
+        self.copy?.title
+    }
+    
+    var description: String? {
+        self.copy?.description
+    }
+    
+    var buttonText: String {
+        self.copy?.buttonText ?? "Try it free"
+    }
+    
     var paddingTop: CGFloat = 0
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: Spacing.normal) {
-                Text("\(self.session.member?.email ?? "My") Journal Entries")
-                    .font(Font(CactusFont.normal))
-                    .foregroundColor(Color.white)
-                CactusButton("Try it free", .buttonPrimary)
+                VStack(alignment: .leading, spacing: 0) {
+                    if self.title != nil {
+                        Text(self.title!)
+                        .font(Font(CactusFont.normalBold))
+                        .foregroundColor(Color.white)
+                    }
+                    
+                    if self.description != nil {
+                        Text(self.description!)
+                        .font(Font(CactusFont.normal))
+                        .foregroundColor(Color.white)
+                    }
+                }
+                
+                CactusButton(self.buttonText, .buttonPrimary, disableBorder: true)
                     .onTapGesture {
                         self.showPricing = true
                 }
@@ -37,13 +64,6 @@ struct JournalUpgradeBanner: View {
             PricingView().environmentObject(self.session)
                 .environmentObject(self.checkout)
         }
-//        .actionSheet(isPresented: self.$showPricing) {
-//            ActionSheet(title: Text("Pricing Page"),
-//                        message: Text("Maybe we show one-click purchase options here..."),
-//                        buttons: [
-//                            .default(Text("Dismiss Action Sheet"))
-//            ])
-//        }
     }
     
 }

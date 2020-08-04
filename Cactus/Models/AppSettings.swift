@@ -189,27 +189,67 @@ class InsightsSettings: Codable {
 class JournalHomeUpgradeBannerCopy: Codable {
     var title: String = ""
     var descriptionMarkdown: String = ""
-    var upgradeButtonText: String = ""    
+    var upgradeButtonText: String = ""
+    
+    static func defaults() -> JournalHomeUpgradeBannerCopy {
+        let copy = JournalHomeUpgradeBannerCopy()
+        copy.title = "Try Cactus Plus"
+        copy.descriptionMarkdown = "Get daily prompts, personalized insights, and more"
+        copy.upgradeButtonText = "Try it free"
+        return copy
+    }
 }
 
 class JournalHomeUpgradeCopyGroups: Codable {
     var basicTier: JournalHomeUpgradeBannerCopy
+    
+    init(basic: JournalHomeUpgradeBannerCopy) {
+        self.basicTier = basic
+    }
+    
+    static func defaults() -> JournalHomeUpgradeCopyGroups {
+        let groups = JournalHomeUpgradeCopyGroups(basic: JournalHomeUpgradeBannerCopy.defaults())
+        
+        return groups
+    }
 }
 
 class ManageSubscriptionCopy: Codable {
     var upgradeFromOptInTrian: String = ""
     var upgradeFromBasicMarkdown: String = ""
     var upgradeButtonText: String? = "Try Cactus Plus"
+    
+    static func defaults() -> ManageSubscriptionCopy {
+        return ManageSubscriptionCopy()
+    }
 }
 
 class CelebrateUpgradeCopy: Codable {
     var upgradeBasicDescriptionMarkdown: String? = "Get daily insights and more"
+    
+    static func defaults() -> CelebrateUpgradeCopy {
+        return CelebrateUpgradeCopy()
+    }
 }
 
 class UpgradeCopy: Codable {
     var journalHomeBanner: JournalHomeUpgradeCopyGroups
     var manageSubscription: ManageSubscriptionCopy
     var celebrate: CelebrateUpgradeCopy
+    
+    init(banner: JournalHomeUpgradeCopyGroups, subscription: ManageSubscriptionCopy, celebrate: CelebrateUpgradeCopy) {
+        self.journalHomeBanner = banner
+        self.manageSubscription = subscription
+        self.celebrate = celebrate
+    }
+    
+    static func defaults() -> UpgradeCopy {
+        let copy = UpgradeCopy(banner: JournalHomeUpgradeCopyGroups.defaults(),
+                               subscription: ManageSubscriptionCopy.defaults(),
+                               celebrate: CelebrateUpgradeCopy.defaults())
+    
+        return copy
+    }
 }
 
 class CheckoutSettings: Codable {

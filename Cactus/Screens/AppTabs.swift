@@ -68,9 +68,7 @@ struct AppTabs: View {
             }
             .tag(Tab.settings)
             .background(CactusColor.background.color)
-        }
-        .animation(.easeInOut)
-        .transition(.opacity)
+        }        
         .accentColor(CactusColor.green.color)
         .font(Font(CactusFont.normal))
         .foregroundColor(CactusColor.green.color)

@@ -447,6 +447,11 @@ extension AppSettings {
     static func mock() -> AppSettings {
         let settings = AppSettings()
         settings.pricingScreen = PricingScreenSettings.defaultSettings()
+        
+        
+        settings.upgradeCopy = UpgradeCopy.defaults()
+        
+        
         return settings
     }
 }

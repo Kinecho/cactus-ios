@@ -34,12 +34,7 @@ struct JournalFeed: View {
             if self.session.member?.tier == .BASIC {
                 JournalUpgradeBanner()
             }
-            
-            VStack(alignment: .leading) {
-                Text("Email: \(self.session.member?.email ?? "no email")")
-                Text("Tier: \((self.session.member?.tier ?? SubscriptionTier.BASIC).rawValue)")
-            }
-            
+    
             ForEach(self.entries) { entry in
                 JournalEntryRow(entry: entry, index: self.entries.firstIndex(of: entry) ?? 0)
                     .onAppear {
