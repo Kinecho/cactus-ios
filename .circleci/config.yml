@@ -210,6 +210,11 @@ jobs:
         type: string
         default: ""
         description: "The message to send to slack"
+      fastlane_cmd:
+        type: enum
+        description: The fastlane command to execute. Pick from beta or beta_stage to upload a Prod build or a Stage build.
+        default: "beta"
+        enum: ["beta", "beta_stage"]
     executor: cactus-ios    
     shell: /bin/bash --login -o pipefail
     steps:
@@ -227,7 +232,7 @@ jobs:
           command: "bundle exec fastlane create_release"
       - run:
           name: Deploy to TestFlight
-          command: bundle exec fastlane beta
+          command: bundle exec fastlane << parameters.fastlane_cmd >>
           no_output_timeout: 20m
       - slack/notify:
           <<: *webhook-url
@@ -236,7 +241,7 @@ jobs:
           include_visit_job_action: false
           include_project_field: false
           ts: "$(date +%s)"
-          message: "A new iOS build has been uploaded to testflight. <https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID|View CI workflow>"
+          message: "A new iOS build has been uploaded to testflight via \\`<< parameters.fastlane_cmd >>\\`. <https://circleci.com/workflow-run/$CIRCLE_WORKFLOW_ID|View CI workflow>"
       - store_test_results:
           path: reports
       - store_artifacts:
@@ -350,7 +355,7 @@ workflows:
             branches:
               ignore: master
       - run-tests:
-          name: &test-name "Run Unit Tests"
+          name: &test-completed "Run Unit Tests"
           workflow_name: *workflow_name
           filters:
             branches:
@@ -359,8 +364,27 @@ workflows:
           name: Notify Success
           workflow_name: *workflow_name
           requires:
-            - *test-name      
-
+            - *test-completed      
+      - deploy-stage-approval:
+          name: &stage_approval "(Stage) Send To TestFlight"
+          type: approval
+          requires:
+            - *test-completed
+      - upload-to-testflight:
+          name: &testflight-stage "(Stage) Fastlane beta_stage"
+          fastlane_cmd: "beta_stage"
+          requires: 
+            - *stage_approval
+      - deploy-stage-approval:
+          name: &prod_approval "(Prod) Send To TestFlight"
+          type: approval
+          requires:
+            - *test-completed
+      - upload-to-testflight:
+          name: &testflight-stage "(Prod) Fastlane beta"
+          fastlane_cmd: "beta"
+          requires: 
+            - *prod_approval
 
 
 
