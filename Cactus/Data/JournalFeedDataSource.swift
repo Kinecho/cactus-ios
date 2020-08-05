@@ -98,7 +98,7 @@ class JournalFeedDataSource {
     
     var pageListeners: [ListenerRegistration] = []
     var pages: [PageLoader<SentPrompt>] = []
-    var pageSize: Int = 3
+    var pageSize: Int = 15
     var mightHaveMore: Bool {self.pages.last?.result?.mightHaveMore ?? false}
     
     var todayDateString: String?

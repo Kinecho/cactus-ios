@@ -17,21 +17,21 @@ class AppMainViewController: UIViewController {
     var memberUnsubscriber: Unsubscriber?
     var appSettings: AppSettings?
     
-    var currentStatusBarStyle: UIStatusBarStyle = .default
+//    var currentStatusBarStyle: UIStatusBarStyle = .default
     var pendingAction: (() -> Void)?
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        if #available(iOS 13.0, *) {
-            return self.currentStatusBarStyle
-        } else {
-            // Fallback on earlier versions
-            return .default
-        }
-    }
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        if #available(iOS 13.0, *) {
+//            return self.currentStatusBarStyle
+//        } else {
+//            // Fallback on earlier versions
+//            return .default
+//        }
+//    }
     
-    func setStatusBarStyle(_ updatedStyle: UIStatusBarStyle) {
-        self.currentStatusBarStyle = updatedStyle
-    }
+//    func setStatusBarStyle(_ updatedStyle: UIStatusBarStyle) {
+//        self.currentStatusBarStyle = updatedStyle
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -106,7 +106,7 @@ class AppMainViewController: UIViewController {
     }
     
     func showWelcomeScreen() {
-        self.setStatusBarStyle(.lightContent)
+//        self.setStatusBarStyle(.lightContent)
         if self.current as? WelcomeViewController == nil {
             self.logger.info("Showing welcome screen")
             _ = self.showScreen(ScreenID.Welcome, wrapInNav: false)

@@ -54,12 +54,14 @@ struct SettingsHome: View {
                 ForEach(self.items) { item in
                     SettingsItemView(item: item)
                 }
-            }.font(CactusFont.normal.font)
+            }
+            .onAppear {
+                UITableView.appearance().separatorStyle = .singleLine
+            }
+            .font(CactusFont.normal.font)
                 .onAppear {
                     UITableView.appearance().separatorInset = .zero
             }
-                //                .listStyle(PlainListStyle())
-                //                .padding(.leading, 0)
                 .navigationBarTitle("Settings")
         }
         

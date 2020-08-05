@@ -33,19 +33,18 @@ struct JournalFeed: View {
         List {
             if self.session.member?.tier == .BASIC {
                 JournalUpgradeBanner()
-                
-//                .listRowInsets(EdgeInsets())
             }
     
             ForEach(self.entries) { entry in
                 JournalEntryRow(entry: entry, index: self.entries.firstIndex(of: entry) ?? 0)
-                    .onAppear {
-                        Logger("JournalEntryRow on Appear").info("Journal entry will on appear")
-                        let lastEntry = self.entries.last
-                        if lastEntry?.id == entry.id {
-                            self.session.journalFeedDataSource?.loadNextPage()
-                        }
-                }.onTapGesture {
+//                    .onAppear {
+//                        Logger("JournalEntryRow on Appear").info("Journal entry will on appear")
+//                        let lastEntry = self.entries.last
+//                        if lastEntry?.id == entry.id {
+//                            self.session.journalFeedDataSource?.loadNextPage()
+//                        }
+//                }
+                .onTapGesture {
                     self.handleEntrySelected(entry: entry)
                 }
             }

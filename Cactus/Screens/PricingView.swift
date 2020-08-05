@@ -107,8 +107,8 @@ struct PricingView: View {
                 
                 PlusFeaturesPagination(features: self.features, height: 250)
                     .height(250)
-                    .pageIndicatorTintColor(Color.gray)
-                    .currentPageIndicatorTintColor(Color.blue)
+                    .pageIndicatorTintColor(NamedColor.GreenDarkest.color)
+                    .currentPageIndicatorTintColor(NamedColor.Green.color)
                     .offset(x: 0, y: -20)
                     .padding(.bottom, -20)
                  

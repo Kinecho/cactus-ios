@@ -76,10 +76,10 @@ class JournalHomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if #available(iOS 13.0, *) {
-            AppMainViewController.shared.setStatusBarStyle(.default)
-        }
-        self.setNeedsStatusBarAppearanceUpdate()
+//        if #available(iOS 13.0, *) {
+//            AppMainViewController.shared.setStatusBarStyle(.default)
+//        }
+//        self.setNeedsStatusBarAppearanceUpdate()
         
         self.logger.info("Creating journal feed data source with member \(self.member.email ?? "none")", functionName: #function)
         self.appSettings = AppSettingsService.sharedInstance.currentSettings

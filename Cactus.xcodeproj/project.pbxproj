@@ -1154,6 +1154,7 @@
 		30ECACE024DB3D8A00C6BE7C /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30ECACDC24DB24D100C6BE7C /* SwiftUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		30ECACE224DB3D9D00C6BE7C /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 30ECACE124DB3D9D00C6BE7C /* SwiftUIX */; settings = {ATTRIBUTES = (Weak, ); }; };
 		30ECACE324DB3D9D00C6BE7C /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30ECACDC24DB24D100C6BE7C /* SwiftUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		30ECACE524DB5D0C00C6BE7C /* CactusColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ECACE424DB5D0C00C6BE7C /* CactusColorTests.swift */; };
 		30F1BBB32492DB9A0099169C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30F1BBB22492DB9A0099169C /* AdSupport.framework */; };
 		30F1BBB42492DBB50099169C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30F1BBB22492DB9A0099169C /* AdSupport.framework */; };
 		30F716872379ED32004989DB /* ShareNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F716852379ED32004989DB /* ShareNoteViewController.swift */; };
@@ -1514,6 +1515,7 @@
 		30E9D043247826FB00FE4E5F /* UnitTestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestAppDelegate.swift; sourceTree = "<group>"; };
 		30E9D04524784FBF00FE4E5F /* CactusMemberTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusMemberTest.swift; sourceTree = "<group>"; };
 		30ECACDC24DB24D100C6BE7C /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		30ECACE424DB5D0C00C6BE7C /* CactusColorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusColorTests.swift; sourceTree = "<group>"; };
 		30F1BBB22492DB9A0099169C /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		30F716852379ED32004989DB /* ShareNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareNoteViewController.swift; sourceTree = "<group>"; };
 		30F716862379ED32004989DB /* ShareNoteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareNoteViewController.xib; sourceTree = "<group>"; };
@@ -1732,6 +1734,7 @@
 				30E9D04524784FBF00FE4E5F /* CactusMemberTest.swift */,
 				30C18F7B247AC6D400749C56 /* PromptContentTest.swift */,
 				304BCE7F248962B50055A28E /* StringExtensionsTest.swift */,
+				30ECACE424DB5D0C00C6BE7C /* CactusColorTests.swift */,
 			);
 			path = "Cactus UnitTests";
 			sourceTree = "<group>";
@@ -3078,6 +3081,7 @@
 				30DCA5E72441207500D520D4 /* PromptEntryCollectionViewCell.swift in Sources */,
 				30AB072E244E449D006ACB98 /* File.swift in Sources */,
 				303C9DE023841A71006B9786 /* JournalFeedFlowLayout.swift in Sources */,
+				30ECACE524DB5D0C00C6BE7C /* CactusColorTests.swift in Sources */,
 				303C9E2123841ACC006B9786 /* RoundedButton.swift in Sources */,
 				30DCA5F224417AA400D520D4 /* PromptContentDataSource.swift in Sources */,
 				3021CBD92410215500F58B89 /* NavigationService.swift in Sources */,

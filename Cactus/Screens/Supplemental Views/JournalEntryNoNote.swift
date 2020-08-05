@@ -18,7 +18,7 @@ struct JournalEntryNoNote: View {
     var imageOffsetX: CGFloat {
         return self.imageWidth / 3
     }
-    
+    let imageOffsetY: CGFloat = 55
     var textWidthFactor: CGFloat {
         self.entry.imageUrl != nil ? 2 / 3 : 1
     }
@@ -46,9 +46,9 @@ struct JournalEntryNoNote: View {
                 HStack {
                     Spacer()
                     URLImage(self.entry.imageUrl!,
-                             processors: [
-                                Resize(size: CGSize(width: self.imageWidth, height: self.imageHeight),
-                                       scale: UIScreen.main.scale)],
+//                             processors: [
+//                                Resize(size: CGSize(width: self.imageWidth, height: self.imageHeight),
+//                                       scale: UIScreen.main.scale)],
                              placeholder: {_ in
                                 Group {
                                     ImagePlaceholder(width: self.imageWidth, height: self.imageHeight)
@@ -59,9 +59,9 @@ struct JournalEntryNoNote: View {
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                     })
-                        .frame(width: self.imageWidth, height: self.imageHeight)
-                        .offset(x: 0, y: 55)
-                        .padding(.top, -55)
+                        .frame(width: self.imageWidth, height: self.imageHeight, alignment: .top)
+                        .offset(x: 0, y: self.imageOffsetY)
+                        .padding(.top, -self.imageOffsetY)
                     Spacer()
                     
                 }
@@ -89,9 +89,11 @@ struct JournalEntryNoNote_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(self.rowData, id: \.entry.id) { data in
             Group {
-                JournalEntryNoNote(entry: data.entry).environmentObject(SessionStore.mockLoggedIn())
-                    .previewDisplayName(data.name)
-                    .previewLayout(.fixed(width: 400, height: 450))
+                List {
+                    JournalEntryNoNote(entry: data.entry).environmentObject(SessionStore.mockLoggedIn())
+                        .previewDisplayName(data.name)
+                        .previewLayout(.fixed(width: 400, height: 450))
+                }
             }
         }
     }

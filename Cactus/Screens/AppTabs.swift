@@ -21,11 +21,16 @@ struct AppTabs: View {
     let tabImageSize: CGSize = CGSize(width: 30, height: 30)
     
     init() {
-        UITabBar.appearance().barTintColor = CactusColor.background
+        self.updateAppearance()
+    }
+    
+    func updateAppearance() {
+//        UITabBar.appearance().barTintColor = CactusColor.greenRoyal
         UITabBar.appearance().unselectedItemTintColor = CactusColor.textMinimized
+        
         UITabBar.appearance().backgroundColor = CactusColor.background
         UITableView.appearance().backgroundColor = CactusColor.background
-        UITableViewCell.appearance().backgroundColor = CactusColor.background        
+//        UITableViewCell.appearance().backgroundColor = CactusColor.background
     }
     
     var body: some View {
@@ -65,6 +70,10 @@ struct AppTabs: View {
             }
             .tag(Tab.settings)
         }
+        .onAppear {
+            self.updateAppearance()
+        }
+        .accentColor(NamedColor.Magenta.color)
         .font(Font(CactusFont.normal))
         .environmentObject(session)
         .environmentObject(checkout)
