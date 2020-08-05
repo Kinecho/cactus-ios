@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import NoveFeatherIcons
-fileprivate let logger = Logger("AppSettings")
 
 class AppSettings: FlamelinkIdentifiable {
     static var schema = FlamelinkSchema.appSettings_ios
@@ -45,9 +44,7 @@ class AppSettings: FlamelinkIdentifiable {
         case coreValuesPath
     }
     
-    init() {
-        logger.info("Using no arg consturctor to create settings object")
-    }
+    init() { }
     
     public required init(from decoder: Decoder) throws {
         let model = try ModelDecoder<AppSettingsField>.create(decoder: decoder, codingKeys: AppSettingsField.self) 

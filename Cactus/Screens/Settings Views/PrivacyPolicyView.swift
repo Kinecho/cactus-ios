@@ -9,7 +9,7 @@
 import SwiftUI
 
 
-/// @Deprecated - use WebView instead
+/// @Deprecated - use CactusWebView instead
 struct PrivacyPolicyWebController: UIViewControllerRepresentable {
     typealias UIViewControllerType = PrivacyPolicyViewController
     
@@ -33,7 +33,7 @@ struct PrivacyPolicyView: View {
     var body: some View {
         Group {
             LoadingView(isShowing: .constant(webViewStateModel.loading)) {
-                WebView(url: self.url!, webViewStateModel: self.webViewStateModel)
+                CactusWebView(url: self.url!, webViewStateModel: self.webViewStateModel)
             }
             .navigationBarTitle(Text("Privacy Policy"), displayMode: .inline)
         }

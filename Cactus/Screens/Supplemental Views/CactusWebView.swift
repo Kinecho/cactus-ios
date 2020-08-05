@@ -8,7 +8,7 @@ class WebViewStateModel: ObservableObject {
     @Published var goBack: Bool = false
 }
 
-struct WebView: View {
+struct CactusWebView: View {
      enum NavigationAction {
            case decidePolicy(WKNavigationAction, (WKNavigationActionPolicy) -> Void) //manditory
            case didRecieveAuthChallange(URLAuthenticationChallenge, (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) //menditory
@@ -22,7 +22,7 @@ struct WebView: View {
        
     @ObservedObject var webViewStateModel: WebViewStateModel
     // swiftlint:disable weak_delegate
-    private var actionDelegate: ((_ navigationAction: WebView.NavigationAction) -> Void)?
+    private var actionDelegate: ((_ navigationAction: CactusWebView.NavigationAction) -> Void)?
     
     let uRLRequest: URLRequest
     
@@ -35,13 +35,13 @@ struct WebView: View {
     /*
      if passed onNavigationAction it is mendetory to complete URLAuthenticationChallenge and decidePolicyFor callbacks
     */
-    init(uRLRequest: URLRequest, webViewStateModel: WebViewStateModel, onNavigationAction: ((_ navigationAction: WebView.NavigationAction) -> Void)?) {
+    init(uRLRequest: URLRequest, webViewStateModel: WebViewStateModel, onNavigationAction: ((_ navigationAction: CactusWebView.NavigationAction) -> Void)?) {
         self.uRLRequest = uRLRequest
         self.webViewStateModel = webViewStateModel
         self.actionDelegate = onNavigationAction
     }
     
-    init(url: URL, webViewStateModel: WebViewStateModel, onNavigationAction: ((_ navigationAction: WebView.NavigationAction) -> Void)? = nil) {
+    init(url: URL, webViewStateModel: WebViewStateModel, onNavigationAction: ((_ navigationAction: CactusWebView.NavigationAction) -> Void)? = nil) {
         self.init(uRLRequest: URLRequest(url: url),
                   webViewStateModel: webViewStateModel,
                   onNavigationAction: onNavigationAction)

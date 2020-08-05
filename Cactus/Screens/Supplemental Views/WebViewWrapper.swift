@@ -11,12 +11,12 @@ import WebKit
 
 final class WebViewWrapper: UIViewRepresentable {
     @ObservedObject var webViewStateModel: WebViewStateModel //action two way binding
-    let action: ((_ navigationAction: WebView.NavigationAction) -> Void)? //delegates callback
+    let action: ((_ navigationAction: CactusWebView.NavigationAction) -> Void)? //delegates callback
     
     let request: URLRequest
     
     init(webViewStateModel: WebViewStateModel,
-         action: ((_ navigationAction: WebView.NavigationAction) -> Void)?,
+         action: ((_ navigationAction: CactusWebView.NavigationAction) -> Void)?,
          request: URLRequest) {
         self.action = action
         self.request = request
@@ -44,9 +44,9 @@ final class WebViewWrapper: UIViewRepresentable {
     
     final class Coordinator: NSObject {
         @ObservedObject var webViewStateModel: WebViewStateModel
-        let action: ((_ navigationAction: WebView.NavigationAction) -> Void)?
+        let action: ((_ navigationAction: CactusWebView.NavigationAction) -> Void)?
         
-        init(action: ((_ navigationAction: WebView.NavigationAction) -> Void)?,
+        init(action: ((_ navigationAction: CactusWebView.NavigationAction) -> Void)?,
              webViewStateModel: WebViewStateModel) {
             self.action = action
             self.webViewStateModel = webViewStateModel

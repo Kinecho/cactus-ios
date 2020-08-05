@@ -16,7 +16,7 @@ enum Tab {
 struct AppTabs: View {
     @EnvironmentObject var session: SessionStore
     @EnvironmentObject var checkout: CheckoutStore
-    @State private var selection = Tab.settings
+    @State private var selection = Tab.home
     
     let tabImageSize: CGSize = CGSize(width: 30, height: 30)
     

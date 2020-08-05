@@ -21,6 +21,10 @@ platform :ios do
     	setup_circle_ci
   	end
 
+  	lane :clean do 
+  		clear_derivied_data
+  	end
+
   	# Bump build number
   	lane :bump do 
   		increment_build_number(xcodeproj: "Cactus.xcodeproj")
@@ -75,7 +79,6 @@ platform :ios do
 		)
   	end
 
-
   	lane :version_bump do 
 	    tag
 	    increment_build_number(xcodeproj: "Cactus.xcodeproj")
@@ -85,16 +88,29 @@ platform :ios do
     	)
   	end
 
-
 	desc "Push a new beta build to TestFlight"
   	lane :beta do  	
+  		xcversion(version: "11.6")
 		match(
 			type: "appstore", 
 			readonly: is_ci, 
 			app_identifier: ["com.cactus.CactusApp", "com.cactus.CactusApp.Cactus-Today"]
 		)
 		sync_code_signing(type: "appstore")    
-	    build_app(workspace: "Cactus.xcworkspace", scheme: "Cactus Prod", xcargs: "-UseModernBuildSystem=NO")
+	    build_app(workspace: "Cactus.xcworkspace", scheme: "Cactus Prod", xcargs: "-UseModernBuildSystem=YES")
+	    changelog_from_git_commits	    
+	    upload_to_testflight(skip_waiting_for_build_processing: true)	    
+  	end
+
+	desc "Push a new Stage build to TestFlight"
+  	lane :beta_stage do  	
+		match(
+			type: "appstore", 
+			readonly: is_ci,
+			app_identifier: ["com.cactus.StageCactus"]
+		)
+		sync_code_signing(type: "appstore")    
+	    build_app(workspace: "Cactus.xcworkspace", scheme: "Cactus Stage")
 	    changelog_from_git_commits	    
 	    upload_to_testflight(skip_waiting_for_build_processing: true)	    
   	end
@@ -109,16 +125,7 @@ platform :ios do
   			tag: "builds/#{lane_context[SharedValues::BUILD_NUMBER]}"  			
 		)
   	end  	
-
-  	desc "Push a new beta build to TestFlight"
-  	lane :beta_stage do  	
-		match(type: "appstore", readonly: is_ci)
-		sync_code_signing(type: "appstore")    
-	    build_app(workspace: "Cactus.xcworkspace", scheme: "Cactus Stage", xcargs: "-UseModernBuildSystem=NO")
-	    changelog_from_git_commits	    
-	    upload_to_testflight(skip_waiting_for_build_processing: true)	    
-  	end
-
+ 
 	lane :manual_upload do
 		ENV["DELIVER_ITMSTRANSPORTER_ADDITIONAL_UPLOAD_PARAMETERS"] = "-t DAV #"
 		upload_to_testflight(
@@ -166,7 +173,7 @@ platform :ios do
 	  		)
   	end
 
-lane :lintfix do 
+	lane :lintfix do 
 	  	swiftlint(
 	  		mode: :autocorrect,
 	  		config_file: ".swiftlint.yml"
