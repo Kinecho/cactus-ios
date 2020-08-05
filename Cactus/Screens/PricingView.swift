@@ -28,10 +28,6 @@ struct PricingView: View {
     @EnvironmentObject var session: SessionStore
     @EnvironmentObject var checkout: CheckoutStore
     
-    init() {
-        UIScrollView.appearance().alwaysBounceVertical = false
-    }
-    
     var showLoading: Bool {
         return !checkout.productGroupData.allLoaded
     }

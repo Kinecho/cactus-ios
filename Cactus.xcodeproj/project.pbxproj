@@ -77,6 +77,45 @@
 		300D37C524DA086900351994 /* SubscriptionCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37C324DA086900351994 /* SubscriptionCopy.swift */; };
 		300D37C624DA086900351994 /* SubscriptionCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37C324DA086900351994 /* SubscriptionCopy.swift */; };
 		300D37C724DA086900351994 /* SubscriptionCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37C324DA086900351994 /* SubscriptionCopy.swift */; };
+		300D37C924DA187700351994 /* InsightsHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37C824DA187700351994 /* InsightsHome.swift */; };
+		300D37CA24DA187700351994 /* InsightsHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37C824DA187700351994 /* InsightsHome.swift */; };
+		300D37CB24DA187700351994 /* InsightsHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37C824DA187700351994 /* InsightsHome.swift */; };
+		300D37CD24DA190900351994 /* IconImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37CC24DA190900351994 /* IconImage.swift */; };
+		300D37CE24DA190900351994 /* IconImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37CC24DA190900351994 /* IconImage.swift */; };
+		300D37CF24DA190900351994 /* IconImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37CC24DA190900351994 /* IconImage.swift */; };
+		300D37D124DA264D00351994 /* SettingsHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37D024DA264D00351994 /* SettingsHome.swift */; };
+		300D37D224DA264D00351994 /* SettingsHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37D024DA264D00351994 /* SettingsHome.swift */; };
+		300D37D324DA264D00351994 /* SettingsHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37D024DA264D00351994 /* SettingsHome.swift */; };
+		300D37D624DA333600351994 /* ProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37D524DA333600351994 /* ProfileSettingsView.swift */; };
+		300D37D724DA333600351994 /* ProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37D524DA333600351994 /* ProfileSettingsView.swift */; };
+		300D37D824DA333600351994 /* ProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37D524DA333600351994 /* ProfileSettingsView.swift */; };
+		300D37DB24DA3A4900351994 /* NotificationSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37DA24DA3A4900351994 /* NotificationSettingsView.swift */; };
+		300D37DC24DA3A4900351994 /* NotificationSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37DA24DA3A4900351994 /* NotificationSettingsView.swift */; };
+		300D37DD24DA3A4900351994 /* NotificationSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37DA24DA3A4900351994 /* NotificationSettingsView.swift */; };
+		300D37DF24DA464400351994 /* SubscriptionSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37DE24DA464300351994 /* SubscriptionSettingsView.swift */; };
+		300D37E024DA464400351994 /* SubscriptionSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37DE24DA464300351994 /* SubscriptionSettingsView.swift */; };
+		300D37E124DA464400351994 /* SubscriptionSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37DE24DA464300351994 /* SubscriptionSettingsView.swift */; };
+		300D37E324DA4B5D00351994 /* LinkedAccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37E224DA4B5D00351994 /* LinkedAccountsView.swift */; };
+		300D37E424DA4B5D00351994 /* LinkedAccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37E224DA4B5D00351994 /* LinkedAccountsView.swift */; };
+		300D37E524DA4B5D00351994 /* LinkedAccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37E224DA4B5D00351994 /* LinkedAccountsView.swift */; };
+		300D37E724DA533400351994 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37E624DA533400351994 /* HelpView.swift */; };
+		300D37E824DA533400351994 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37E624DA533400351994 /* HelpView.swift */; };
+		300D37E924DA533400351994 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37E624DA533400351994 /* HelpView.swift */; };
+		300D37EB24DA53EA00351994 /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37EA24DA53EA00351994 /* FeedbackView.swift */; };
+		300D37EC24DA53EA00351994 /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37EA24DA53EA00351994 /* FeedbackView.swift */; };
+		300D37ED24DA53EA00351994 /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37EA24DA53EA00351994 /* FeedbackView.swift */; };
+		300D37EF24DA546900351994 /* TermsOfServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37EE24DA546900351994 /* TermsOfServiceView.swift */; };
+		300D37F024DA546900351994 /* TermsOfServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37EE24DA546900351994 /* TermsOfServiceView.swift */; };
+		300D37F124DA546900351994 /* TermsOfServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37EE24DA546900351994 /* TermsOfServiceView.swift */; };
+		300D37F324DA574C00351994 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37F224DA574C00351994 /* PrivacyPolicyView.swift */; };
+		300D37F424DA574C00351994 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37F224DA574C00351994 /* PrivacyPolicyView.swift */; };
+		300D37F524DA574C00351994 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37F224DA574C00351994 /* PrivacyPolicyView.swift */; };
+		300D37F724DA587D00351994 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37F624DA587D00351994 /* WebView.swift */; };
+		300D37F824DA587D00351994 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37F624DA587D00351994 /* WebView.swift */; };
+		300D37F924DA587D00351994 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37F624DA587D00351994 /* WebView.swift */; };
+		300D37FB24DA58F400351994 /* WebViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37FA24DA58F400351994 /* WebViewWrapper.swift */; };
+		300D37FC24DA58F400351994 /* WebViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37FA24DA58F400351994 /* WebViewWrapper.swift */; };
+		300D37FD24DA58F400351994 /* WebViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D37FA24DA58F400351994 /* WebViewWrapper.swift */; };
 		300F236C237A61F100F35CDE /* SharedReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F236A237A61F100F35CDE /* SharedReflectionViewController.swift */; };
 		300F236D237A61F100F35CDE /* SharedReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F236A237A61F100F35CDE /* SharedReflectionViewController.swift */; };
 		300F236E237A61F100F35CDE /* SharedReflectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 300F236B237A61F100F35CDE /* SharedReflectionViewController.xib */; };
@@ -1188,6 +1227,19 @@
 		300D37BA24D8C7B600351994 /* PlusFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusFeature.swift; sourceTree = "<group>"; };
 		300D37BE24D8C9FB00351994 /* PlusFeaturesPagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusFeaturesPagination.swift; sourceTree = "<group>"; };
 		300D37C324DA086900351994 /* SubscriptionCopy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCopy.swift; sourceTree = "<group>"; };
+		300D37C824DA187700351994 /* InsightsHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsHome.swift; sourceTree = "<group>"; };
+		300D37CC24DA190900351994 /* IconImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImage.swift; sourceTree = "<group>"; };
+		300D37D024DA264D00351994 /* SettingsHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHome.swift; sourceTree = "<group>"; };
+		300D37D524DA333600351994 /* ProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsView.swift; sourceTree = "<group>"; };
+		300D37DA24DA3A4900351994 /* NotificationSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsView.swift; sourceTree = "<group>"; };
+		300D37DE24DA464300351994 /* SubscriptionSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionSettingsView.swift; sourceTree = "<group>"; };
+		300D37E224DA4B5D00351994 /* LinkedAccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedAccountsView.swift; sourceTree = "<group>"; };
+		300D37E624DA533400351994 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
+		300D37EA24DA53EA00351994 /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
+		300D37EE24DA546900351994 /* TermsOfServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceView.swift; sourceTree = "<group>"; };
+		300D37F224DA574C00351994 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
+		300D37F624DA587D00351994 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		300D37FA24DA58F400351994 /* WebViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewWrapper.swift; sourceTree = "<group>"; };
 		300F236A237A61F100F35CDE /* SharedReflectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedReflectionViewController.swift; sourceTree = "<group>"; };
 		300F236B237A61F100F35CDE /* SharedReflectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SharedReflectionViewController.xib; sourceTree = "<group>"; };
 		300F2370237A629800F35CDE /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
@@ -1581,6 +1633,21 @@
 			path = Copy;
 			sourceTree = "<group>";
 		};
+		300D37D424DA332400351994 /* Settings Views */ = {
+			isa = PBXGroup;
+			children = (
+				300D37D524DA333600351994 /* ProfileSettingsView.swift */,
+				300D37DA24DA3A4900351994 /* NotificationSettingsView.swift */,
+				300D37DE24DA464300351994 /* SubscriptionSettingsView.swift */,
+				300D37E224DA4B5D00351994 /* LinkedAccountsView.swift */,
+				300D37E624DA533400351994 /* HelpView.swift */,
+				300D37EA24DA53EA00351994 /* FeedbackView.swift */,
+				300D37EE24DA546900351994 /* TermsOfServiceView.swift */,
+				300D37F224DA574C00351994 /* PrivacyPolicyView.swift */,
+			);
+			path = "Settings Views";
+			sourceTree = "<group>";
+		};
 		300FCCF123EE278000089CFB /* Payment */ = {
 			isa = PBXGroup;
 			children = (
@@ -1714,6 +1781,7 @@
 		305366BC24C66C7D00927498 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				300D37D424DA332400351994 /* Settings Views */,
 				305366DE24C6909200927498 /* Supplemental Views */,
 				305366C324C66CBB00927498 /* AppMain.swift */,
 				305366CF24C676D300927498 /* WelcomeController.swift */,
@@ -1725,6 +1793,8 @@
 				3077381C24CBFB4E00D0C5BE /* ViewConstants.swift */,
 				3077382124CE76D100D0C5BE /* SettingsView.swift */,
 				3077382624CE89B400D0C5BE /* PricingView.swift */,
+				300D37C824DA187700351994 /* InsightsHome.swift */,
+				300D37D024DA264D00351994 /* SettingsHome.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -1744,6 +1814,9 @@
 				3077382B24CEAFCE00D0C5BE /* JournalEntryNoNote.swift */,
 				300D37BA24D8C7B600351994 /* PlusFeature.swift */,
 				300D37BE24D8C9FB00351994 /* PlusFeaturesPagination.swift */,
+				300D37CC24DA190900351994 /* IconImage.swift */,
+				300D37F624DA587D00351994 /* WebView.swift */,
+				300D37FA24DA58F400351994 /* WebViewWrapper.swift */,
 			);
 			path = "Supplemental Views";
 			sourceTree = "<group>";
@@ -3227,6 +3300,7 @@
 				30BF2E122328230E00A49EB6 /* FirebaseExtensions.swift in Sources */,
 				30DFCA8824609D85007187FC /* JournalEntryCell.swift in Sources */,
 				300FCCEB23ECB5D400089CFB /* FancyLinkButton.swift in Sources */,
+				300D37E524DA4B5D00351994 /* LinkedAccountsView.swift in Sources */,
 				30BF2E2B23289F9F00A49EB6 /* TextContentViewController.swift in Sources */,
 				30934FA722EBFF27007C4E6C /* ReflectionPrompt.swift in Sources */,
 				30D0E455236C98C100EFC0E3 /* StringExtensions.swift in Sources */,
@@ -3238,12 +3312,14 @@
 				3023FE3122ECD0A300F753A7 /* NotificationService.swift in Sources */,
 				304A252D240DCC2200737C57 /* SubscriptionInvoice.swift in Sources */,
 				30E9B0AD22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
+				300D37F924DA587D00351994 /* WebView.swift in Sources */,
 				308505A623D0E490001179E2 /* SocialContactTableViewCell.swift in Sources */,
 				3077383824CF6F0500D0C5BE /* CheckoutStore.swift in Sources */,
 				300D37C624DA086900351994 /* SubscriptionCopy.swift in Sources */,
 				3099D20324098EF400BD9CC4 /* SubscriptionProductGroup.swift in Sources */,
 				305B186F23319E09003E1561 /* FileUtils.swift in Sources */,
 				30DCA5F124417AA400D520D4 /* PromptContentDataSource.swift in Sources */,
+				300D37D824DA333600351994 /* ProfileSettingsView.swift in Sources */,
 				301C1A91236F7E9700F06A3D /* MeaningAnimationViewController.swift in Sources */,
 				305366FB24C75B9600927498 /* MockData.swift in Sources */,
 				30E2D37B23432B21003D2B27 /* NavigationMenuViewController.swift in Sources */,
@@ -3253,7 +3329,9 @@
 				3023FE3622ECF0AE00F753A7 /* CactusColor.swift in Sources */,
 				303C9DB2237E2AB4006B9786 /* LinkHandlerUtil.swift in Sources */,
 				30AB072D244E449D006ACB98 /* File.swift in Sources */,
+				300D37E924DA533400351994 /* HelpView.swift in Sources */,
 				3032820A241215D900FC197A /* WelcomeViewController.swift in Sources */,
+				300D37F524DA574C00351994 /* PrivacyPolicyView.swift in Sources */,
 				30D7387723D00F96006F4DA6 /* SocialActivityCardView.swift in Sources */,
 				3062202023EC7A0A002FAAD9 /* MarkdownTextView.swift in Sources */,
 				3021CBD82410215500F58B89 /* NavigationService.swift in Sources */,
@@ -3294,11 +3372,13 @@
 				305366D224C676D300927498 /* WelcomeController.swift in Sources */,
 				30AB0729244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift in Sources */,
 				302C4F4A2347D7A700798560 /* SettingsTableViewController.swift in Sources */,
+				300D37F124DA546900351994 /* TermsOfServiceView.swift in Sources */,
 				305366EC24C6A21600927498 /* JournalEntryRow.swift in Sources */,
 				3077382424CE76D100D0C5BE /* SettingsView.swift in Sources */,
 				305B18812331E162003E1561 /* ReflectContentViewController.swift in Sources */,
 				30E9B0BE22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
 				305366E224C690F600927498 /* Loading.swift in Sources */,
+				300D37CB24DA187700351994 /* InsightsHome.swift in Sources */,
 				3055D93E240E98BB00981DA2 /* PaymentNavigationService.swift in Sources */,
 				300AC1802339839A005C6555 /* CactusImage.swift in Sources */,
 				30E9B0A122EABFBD005B25FD /* CactusMemberService.swift in Sources */,
@@ -3314,6 +3394,7 @@
 				307ED79024086E82008D26C6 /* SubscriptionUtil.swift in Sources */,
 				30BF2E1523282BD600A49EB6 /* PromptContentService.swift in Sources */,
 				30BC2D01234EA63E00AB7B89 /* AuthProviderTableViewCell.swift in Sources */,
+				300D37DD24DA3A4900351994 /* NotificationSettingsView.swift in Sources */,
 				30E9B09B22EA6A84005B25FD /* FirestoreService.swift in Sources */,
 				30CF53952371183F00578B22 /* CactusElementAnimationViewController.swift in Sources */,
 				30CF539923732EC300578B22 /* VideoContentViewController.swift in Sources */,
@@ -3324,6 +3405,7 @@
 				30DCA5E62441207500D520D4 /* PromptEntryCollectionViewCell.swift in Sources */,
 				30762E5F2440E4A4000A18B3 /* ElementCell.swift in Sources */,
 				309561A522EE172B009357BD /* AppConfig.swift in Sources */,
+				300D37D324DA264D00351994 /* SettingsHome.swift in Sources */,
 				305366F624C6C4B900927498 /* MarkdownText.swift in Sources */,
 				30051A4D23A86306005F812B /* InvertableImageView.swift in Sources */,
 				30265C6123453CB100934041 /* UIImage+SwiftyGif.swift in Sources */,
@@ -3361,10 +3443,12 @@
 				3021CBE02410345E00F58B89 /* WebViewController.swift in Sources */,
 				3021B67623623010002634A8 /* ApiTypes.swift in Sources */,
 				30D6E32C24CB561E00A4EA75 /* EdgeBorder.swift in Sources */,
+				300D37ED24DA53EA00351994 /* FeedbackView.swift in Sources */,
 				30DCA5ED244120A700D520D4 /* PromptContentCollectionViewController.swift in Sources */,
 				30D7F70A236BAAB100379EE0 /* EditReflectionViewController.swift in Sources */,
 				3020DD952363F37D00EC40AE /* UIImageViewAligned.swift in Sources */,
 				3006442523D26BAB00712ED1 /* SocialInviteService.swift in Sources */,
+				300D37FD24DA58F400351994 /* WebViewWrapper.swift in Sources */,
 				30DCA5F924418BAA00D520D4 /* PromptContentData.swift in Sources */,
 				30C7E57C233FEB5800145111 /* FontExtensions.swift in Sources */,
 				308C5A4C24479AA50087345D /* PricingFeaturePageViewController.swift in Sources */,
@@ -3375,6 +3459,7 @@
 				3084E9662348FE9C00788279 /* CelebrateViewController.swift in Sources */,
 				303C9E432384778A006B9786 /* MemberProfile.swift in Sources */,
 				3021CBEF2411769800F58B89 /* MemberInsightsViewController.swift in Sources */,
+				300D37E124DA464400351994 /* SubscriptionSettingsView.swift in Sources */,
 				3021B67223622FE7002634A8 /* ApiService.swift in Sources */,
 				305CB10123D048B60046E8A8 /* SendFriendInviteViewController.swift in Sources */,
 				3021B67923623AE3002634A8 /* CactusTextInputField.swift in Sources */,
@@ -3390,6 +3475,7 @@
 				300D37C124D8C9FB00351994 /* PlusFeaturesPagination.swift in Sources */,
 				303282222416D3DF00FC197A /* AuthenticatedTaskManager.swift in Sources */,
 				30265C6423453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */,
+				300D37CF24DA190900351994 /* IconImage.swift in Sources */,
 				302C4F4D2347E25A00798560 /* DateUtil.swift in Sources */,
 				303C9DC9237FCF06006B9786 /* LoadableSharedReflectionViewController.swift in Sources */,
 				30E9B0B022EADD04005B25FD /* LoginViewController.swift in Sources */,
@@ -3435,6 +3521,7 @@
 				30A3BC1D24C113780016955C /* JournalEntryCell.swift in Sources */,
 				30A3BC1E24C113780016955C /* FancyLinkButton.swift in Sources */,
 				30A3BC1F24C113780016955C /* ReflectionPrompt.swift in Sources */,
+				300D37E324DA4B5D00351994 /* LinkedAccountsView.swift in Sources */,
 				30A3BC2024C113780016955C /* NavigationUtil.swift in Sources */,
 				30A3BC2124C113780016955C /* StringExtensions.swift in Sources */,
 				30A3BC2224C113780016955C /* ContactService.swift in Sources */,
@@ -3446,12 +3533,14 @@
 				30A3BC2524C113780016955C /* ReflectionPromptService.swift in Sources */,
 				30A3BC2624C113780016955C /* SocialContactTableViewCell.swift in Sources */,
 				30A3BC2724C113780016955C /* SubscriptionProductGroup.swift in Sources */,
+				300D37F724DA587D00351994 /* WebView.swift in Sources */,
 				30A3BC2824C113780016955C /* FileUtils.swift in Sources */,
 				3077383624CF6F0500D0C5BE /* CheckoutStore.swift in Sources */,
 				300D37C424DA086900351994 /* SubscriptionCopy.swift in Sources */,
 				30A3BC2924C113780016955C /* MeaningAnimationViewController.swift in Sources */,
 				30A3BC2A24C113780016955C /* PromptContentDataSource.swift in Sources */,
 				30A3BC2B24C113780016955C /* NavigationMenuViewController.swift in Sources */,
+				300D37D624DA333600351994 /* ProfileSettingsView.swift in Sources */,
 				30A3BC2C24C113780016955C /* ProfileSettingsViewController.swift in Sources */,
 				305366F924C75B9600927498 /* MockData.swift in Sources */,
 				30A3BC2D24C113780016955C /* SubscriptionPlanOptionView.swift in Sources */,
@@ -3461,7 +3550,9 @@
 				30A3BC3124C113780016955C /* ExperienceAnimationViewController.swift in Sources */,
 				30A3BC3224C113780016955C /* File.swift in Sources */,
 				30A3BC3324C113780016955C /* WelcomeViewController.swift in Sources */,
+				300D37E724DA533400351994 /* HelpView.swift in Sources */,
 				30A3BC3424C113780016955C /* SocialActivityCardView.swift in Sources */,
+				300D37F324DA574C00351994 /* PrivacyPolicyView.swift in Sources */,
 				30A3BC3524C113780016955C /* MarkdownTextView.swift in Sources */,
 				30A3BC3624C113780016955C /* NavigationService.swift in Sources */,
 				30A3BC3724C113780016955C /* LoadablePromptContentViewController.swift in Sources */,
@@ -3502,11 +3593,13 @@
 				305366D024C676D300927498 /* WelcomeController.swift in Sources */,
 				30A3BC5624C113780016955C /* CoreValuesAssessmentViewController.swift in Sources */,
 				30A3BC5724C113780016955C /* SettingsTableViewController.swift in Sources */,
+				300D37EF24DA546900351994 /* TermsOfServiceView.swift in Sources */,
 				305366EA24C6A21600927498 /* JournalEntryRow.swift in Sources */,
 				3077382224CE76D100D0C5BE /* SettingsView.swift in Sources */,
 				30A3BC5824C113780016955C /* ReflectContentViewController.swift in Sources */,
 				30A3BC5924C113780016955C /* CactusMemberService.swift in Sources */,
 				305366E024C690F600927498 /* Loading.swift in Sources */,
+				300D37C924DA187700351994 /* InsightsHome.swift in Sources */,
 				30A3BC5A24C113780016955C /* PaymentNavigationService.swift in Sources */,
 				30A3BC5B24C113780016955C /* CactusImage.swift in Sources */,
 				30A3BC5C24C113780016955C /* ViewExtensions.swift in Sources */,
@@ -3522,6 +3615,7 @@
 				30A3BC6324C113780016955C /* SubscriptionUtil.swift in Sources */,
 				30A3BC6424C113780016955C /* CactusColor.swift in Sources */,
 				30A3BC6524C113780016955C /* AuthProviderTableViewCell.swift in Sources */,
+				300D37DB24DA3A4900351994 /* NotificationSettingsView.swift in Sources */,
 				30A3BC6624C113780016955C /* FirebaseExtensions.swift in Sources */,
 				30A3BC6724C113780016955C /* CactusElementAnimationViewController.swift in Sources */,
 				30A3BC6824C113780016955C /* VideoContentViewController.swift in Sources */,
@@ -3532,6 +3626,7 @@
 				30A3BC6D24C113780016955C /* PromptEntryCollectionViewCell.swift in Sources */,
 				30A3BC6E24C113780016955C /* ElementCell.swift in Sources */,
 				30A3BC6F24C113780016955C /* TextContentViewController.swift in Sources */,
+				300D37D124DA264D00351994 /* SettingsHome.swift in Sources */,
 				305366F424C6C4B900927498 /* MarkdownText.swift in Sources */,
 				30A3BC7024C113780016955C /* InvertableImageView.swift in Sources */,
 				30A3BC7124C113780016955C /* UIImage+SwiftyGif.swift in Sources */,
@@ -3569,10 +3664,12 @@
 				30A3BC8E24C113780016955C /* WebViewController.swift in Sources */,
 				30A3BC8F24C113780016955C /* ApiTypes.swift in Sources */,
 				30D6E32A24CB561E00A4EA75 /* EdgeBorder.swift in Sources */,
+				300D37EB24DA53EA00351994 /* FeedbackView.swift in Sources */,
 				30A3BC9024C113780016955C /* PromptContentCollectionViewController.swift in Sources */,
 				30A3BC9124C113780016955C /* EditReflectionViewController.swift in Sources */,
 				30A3BC9224C113780016955C /* UIImageViewAligned.swift in Sources */,
 				30A3BC9324C113780016955C /* SocialInviteService.swift in Sources */,
+				300D37FB24DA58F400351994 /* WebViewWrapper.swift in Sources */,
 				30A3BC9424C113780016955C /* PromptContentData.swift in Sources */,
 				30A3BC9524C113780016955C /* FontExtensions.swift in Sources */,
 				30A3BC9624C113780016955C /* PricingFeaturePageViewController.swift in Sources */,
@@ -3583,6 +3680,7 @@
 				30A3BC9924C113780016955C /* ApiService.swift in Sources */,
 				30A3BC9A24C113780016955C /* MemberProfile.swift in Sources */,
 				30A3BC9B24C113780016955C /* MemberInsightsViewController.swift in Sources */,
+				300D37DF24DA464400351994 /* SubscriptionSettingsView.swift in Sources */,
 				30A3BC9C24C113780016955C /* CactusTextInputField.swift in Sources */,
 				30A3BC9D24C113780016955C /* SendFriendInviteViewController.swift in Sources */,
 				30A3BC9E24C113780016955C /* QuoteContentViewController.swift in Sources */,
@@ -3598,6 +3696,7 @@
 				300D37BF24D8C9FB00351994 /* PlusFeaturesPagination.swift in Sources */,
 				30A3BCA624C113780016955C /* AuthenticatedTaskManager.swift in Sources */,
 				30A3BCA724C113780016955C /* UIImageView+SwiftyGif.swift in Sources */,
+				300D37CD24DA190900351994 /* IconImage.swift in Sources */,
 				30A3BCA824C113780016955C /* DateUtil.swift in Sources */,
 				30A3BCA924C113780016955C /* LoadableSharedReflectionViewController.swift in Sources */,
 				30A3BCAA24C113780016955C /* JournalFeedCollectionViewController.swift in Sources */,
@@ -3643,6 +3742,7 @@
 				30E9B0A922EAD68B005B25FD /* AppMainViewController.swift in Sources */,
 				30DFCA8724609D85007187FC /* JournalEntryCell.swift in Sources */,
 				300FCCEA23ECB5D300089CFB /* FancyLinkButton.swift in Sources */,
+				300D37E424DA4B5D00351994 /* LinkedAccountsView.swift in Sources */,
 				30934FA622EBFF27007C4E6C /* ReflectionPrompt.swift in Sources */,
 				30E9B0AC22EAD6EC005B25FD /* NavigationUtil.swift in Sources */,
 				30D0E454236C98C100EFC0E3 /* StringExtensions.swift in Sources */,
@@ -3654,12 +3754,14 @@
 				304A252C240DCC2200737C57 /* SubscriptionInvoice.swift in Sources */,
 				30934FAC22EC02A6007C4E6C /* ReflectionPromptService.swift in Sources */,
 				308505A523D0E490001179E2 /* SocialContactTableViewCell.swift in Sources */,
+				300D37F824DA587D00351994 /* WebView.swift in Sources */,
 				3099D20224098EF400BD9CC4 /* SubscriptionProductGroup.swift in Sources */,
 				3077383724CF6F0500D0C5BE /* CheckoutStore.swift in Sources */,
 				300D37C524DA086900351994 /* SubscriptionCopy.swift in Sources */,
 				305B186E23319E09003E1561 /* FileUtils.swift in Sources */,
 				301C1A90236F7E9700F06A3D /* MeaningAnimationViewController.swift in Sources */,
 				30DCA5F024417AA400D520D4 /* PromptContentDataSource.swift in Sources */,
+				300D37D724DA333600351994 /* ProfileSettingsView.swift in Sources */,
 				30E2D37A23432B21003D2B27 /* NavigationMenuViewController.swift in Sources */,
 				305366FA24C75B9600927498 /* MockData.swift in Sources */,
 				302C4F502347FAA400798560 /* ProfileSettingsViewController.swift in Sources */,
@@ -3669,7 +3771,9 @@
 				303C9DB1237E2AB4006B9786 /* LinkHandlerUtil.swift in Sources */,
 				30CF53832370C58100578B22 /* ExperienceAnimationViewController.swift in Sources */,
 				30AB072C244E449D006ACB98 /* File.swift in Sources */,
+				300D37E824DA533400351994 /* HelpView.swift in Sources */,
 				30328209241215D900FC197A /* WelcomeViewController.swift in Sources */,
+				300D37F424DA574C00351994 /* PrivacyPolicyView.swift in Sources */,
 				30D7387623D00F96006F4DA6 /* SocialActivityCardView.swift in Sources */,
 				3062201F23EC7A0A002FAAD9 /* MarkdownTextView.swift in Sources */,
 				3021CBD72410215500F58B89 /* NavigationService.swift in Sources */,
@@ -3710,11 +3814,13 @@
 				305366D124C676D300927498 /* WelcomeController.swift in Sources */,
 				30AB0728244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift in Sources */,
 				302C4F492347D7A700798560 /* SettingsTableViewController.swift in Sources */,
+				300D37F024DA546900351994 /* TermsOfServiceView.swift in Sources */,
 				305366EB24C6A21600927498 /* JournalEntryRow.swift in Sources */,
 				3077382324CE76D100D0C5BE /* SettingsView.swift in Sources */,
 				305B18802331E162003E1561 /* ReflectContentViewController.swift in Sources */,
 				30E9B0A022EABFBD005B25FD /* CactusMemberService.swift in Sources */,
 				305366E124C690F600927498 /* Loading.swift in Sources */,
+				300D37CA24DA187700351994 /* InsightsHome.swift in Sources */,
 				3055D93D240E98BB00981DA2 /* PaymentNavigationService.swift in Sources */,
 				300AC17F2339839A005C6555 /* CactusImage.swift in Sources */,
 				30C49D3422EC299300A2EA95 /* ViewExtensions.swift in Sources */,
@@ -3730,6 +3836,7 @@
 				307ED78F24086E82008D26C6 /* SubscriptionUtil.swift in Sources */,
 				30C49D3822EC2D4C00A2EA95 /* CactusColor.swift in Sources */,
 				30BC2D00234EA63E00AB7B89 /* AuthProviderTableViewCell.swift in Sources */,
+				300D37DC24DA3A4900351994 /* NotificationSettingsView.swift in Sources */,
 				30BF2E11232822E600A49EB6 /* FirebaseExtensions.swift in Sources */,
 				30CF53942371183F00578B22 /* CactusElementAnimationViewController.swift in Sources */,
 				30CF539823732EC300578B22 /* VideoContentViewController.swift in Sources */,
@@ -3740,6 +3847,7 @@
 				30DCA5E52441207500D520D4 /* PromptEntryCollectionViewCell.swift in Sources */,
 				30762E5E2440E4A4000A18B3 /* ElementCell.swift in Sources */,
 				30BF2E2A23289F9F00A49EB6 /* TextContentViewController.swift in Sources */,
+				300D37D224DA264D00351994 /* SettingsHome.swift in Sources */,
 				305366F524C6C4B900927498 /* MarkdownText.swift in Sources */,
 				30051A4C23A86306005F812B /* InvertableImageView.swift in Sources */,
 				30265C6023453CB100934041 /* UIImage+SwiftyGif.swift in Sources */,
@@ -3777,10 +3885,12 @@
 				3021CBDF2410345E00F58B89 /* WebViewController.swift in Sources */,
 				3021B67523623010002634A8 /* ApiTypes.swift in Sources */,
 				30D6E32B24CB561E00A4EA75 /* EdgeBorder.swift in Sources */,
+				300D37EC24DA53EA00351994 /* FeedbackView.swift in Sources */,
 				30DCA5EC244120A700D520D4 /* PromptContentCollectionViewController.swift in Sources */,
 				30D7F709236BAAB100379EE0 /* EditReflectionViewController.swift in Sources */,
 				3020DD942363F37D00EC40AE /* UIImageViewAligned.swift in Sources */,
 				3006442423D26BAB00712ED1 /* SocialInviteService.swift in Sources */,
+				300D37FC24DA58F400351994 /* WebViewWrapper.swift in Sources */,
 				30DCA5F824418BAA00D520D4 /* PromptContentData.swift in Sources */,
 				30C7E57B233FEB5800145111 /* FontExtensions.swift in Sources */,
 				308C5A4B24479AA50087345D /* PricingFeaturePageViewController.swift in Sources */,
@@ -3791,6 +3901,7 @@
 				3021B67123622FE7002634A8 /* ApiService.swift in Sources */,
 				303C9E422384778A006B9786 /* MemberProfile.swift in Sources */,
 				3021CBEE2411769800F58B89 /* MemberInsightsViewController.swift in Sources */,
+				300D37E024DA464400351994 /* SubscriptionSettingsView.swift in Sources */,
 				3021B67823623AE3002634A8 /* CactusTextInputField.swift in Sources */,
 				305CB10023D048B60046E8A8 /* SendFriendInviteViewController.swift in Sources */,
 				303BF750232D289A00164539 /* QuoteContentViewController.swift in Sources */,
@@ -3806,6 +3917,7 @@
 				300D37C024D8C9FB00351994 /* PlusFeaturesPagination.swift in Sources */,
 				303282212416D3DF00FC197A /* AuthenticatedTaskManager.swift in Sources */,
 				30265C6323453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */,
+				300D37CE24DA190900351994 /* IconImage.swift in Sources */,
 				302C4F4C2347E25A00798560 /* DateUtil.swift in Sources */,
 				303C9DC8237FCF06006B9786 /* LoadableSharedReflectionViewController.swift in Sources */,
 				30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */,

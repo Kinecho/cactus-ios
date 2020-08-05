@@ -122,9 +122,28 @@ enum FontName: String {
 struct FontSize {
     static let large: CGFloat = 28
     static let normal: CGFloat = 18
+    static let subTitle: CGFloat = 16
     static let journalQuestionTitle: CGFloat = 21
     static let journalDate: CGFloat = 16
 }
+
+func getProviderDisplayName(_ providerId: String) -> String? {
+    switch providerId {
+    case "google.com":
+        return "Google"
+    case "twitter.com":
+        return "Twitter"
+    case "facebook.com":
+        return "Facebook"
+    case "password":
+        return "Email/Password"
+    case "apple.com":
+        return "Apple"
+    default:
+        return nil
+    }
+}
+
 
 struct CactusFont {
     static let normal = UIFont(name: FontName.normal.rawValue, size: FontSize.normal)!

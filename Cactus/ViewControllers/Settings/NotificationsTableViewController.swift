@@ -20,13 +20,17 @@ class NotificationsTableViewController: UITableViewController, MFMailComposeView
     @IBOutlet weak var timeOfDayCell: UITableViewCell!
     var member: CactusMember? {
         didSet {
+            guard self.isViewLoaded else {
+                return
+            }
             self.updateEmailSwitch(animated: true)
+            self.updateNotificationTimeLabel()
         }
     }
     
     var notificationObserver: NSObjectProtocol?
     var managePermissionsInSettings = false
-    var memberUnsubscriber: Unsubscriber?
+    
     let logger = Logger("NotificationsTableViewController")
     let footerView: UIView = UIView()
     override func viewDidLoad() {
@@ -40,13 +44,6 @@ class NotificationsTableViewController: UITableViewController, MFMailComposeView
             }
         }
         
-        self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, error, _) in
-            if let error = error {
-                self.logger.error("error fetching member \(error)")
-            }
-            self.member = member
-            self.updateNotificationTimeLabel()
-        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,6 +55,9 @@ class NotificationsTableViewController: UITableViewController, MFMailComposeView
     }
     
     func updateNotificationTimeLabel() {
+        guard self.isViewLoaded else {
+            return
+        }
         let date: Date?
         let calendar = getMemberCalendar(member: self.member)
         if let timePreference = self.member?.promptSendTime {
@@ -81,7 +81,7 @@ class NotificationsTableViewController: UITableViewController, MFMailComposeView
     }
     
     func updateEmailSwitch(animated: Bool = false) {
-        guard let member = self.member else {return}
+        guard self.isViewLoaded, let member = self.member else {return}
         let emailStatus = member.notificationSettings?["email"] ?? "NOT_SET"
         if emailStatus == "ACTIVE" {
             self.emailSwitch.setOn(true, animated: animated)
@@ -93,9 +93,7 @@ class NotificationsTableViewController: UITableViewController, MFMailComposeView
     deinit {
         if let notifObserver = self.notificationObserver {
             NotificationCenter.default.removeObserver(notifObserver)
-        }
-        
-        self.memberUnsubscriber?()
+        }        
     }
     
     @IBAction func emailSettingsToggled(_ sender: Any) {

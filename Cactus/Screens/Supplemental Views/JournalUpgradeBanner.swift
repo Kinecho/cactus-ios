@@ -57,9 +57,9 @@ struct JournalUpgradeBanner: View {
         .padding(Spacing.normal)
         .background(Image(CactusImage.plusBg.rawValue)
         .background(CactusColor.indigo.color), alignment: .top)
-        .clipped()
+//        .clipped()
         .cornerRadius(CornerRadius.normal)
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity, alignment: .topLeading)
+//        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity, alignment: .topLeading)
         .sheet(isPresented: self.$showPricing) {
             PricingView().environmentObject(self.session)
                 .environmentObject(self.checkout)
@@ -74,5 +74,6 @@ struct JournalUpgradeBanner_Previews: PreviewProvider {
             .environmentObject(SessionStore.mockLoggedIn(tier: .BASIC))
             .environmentObject(CheckoutStore.mock())
             .padding()
+            .previewLayout(.sizeThatFits)
     }
 }

@@ -33,6 +33,8 @@ struct JournalFeed: View {
         List {
             if self.session.member?.tier == .BASIC {
                 JournalUpgradeBanner()
+                
+//                .listRowInsets(EdgeInsets())
             }
     
             ForEach(self.entries) { entry in
@@ -50,9 +52,11 @@ struct JournalFeed: View {
             .padding()
             .padding(.bottom, Spacing.large)
             .listRowInsets(EdgeInsets())
-        }        
+        }
         .onAppear(perform: {
             UITableView.appearance().separatorStyle = .none
+            UITableView.appearance().backgroundColor = CactusColor.background
+            UITableViewCell.appearance().backgroundColor = CactusColor.background
         })
             .sheet(isPresented: self.$showDetail) {
                 PromptContentView(entry: self.selectedEntry!).environmentObject(self.session)
@@ -69,6 +73,11 @@ struct JournalFeed_Previews: PreviewProvider {
                 .previewDisplayName("Basic User")
             
             JournalFeed().environmentObject(SessionStore.mockLoggedIn(tier: .BASIC).setEntries(MockData.getDefaultJournalEntries()))
+            .environmentObject(CheckoutStore.mock())
+                .colorScheme(.dark)
+            .previewDisplayName("Basic User (Dark)")
+            
+            JournalFeed().environmentObject(SessionStore.mockLoggedIn(tier: .BASIC).setEntries(MockData.getDefaultJournalEntries()))
                 .environmentObject(CheckoutStore.mock())
                 .previewDisplayName("Basic User - iPhone 5s")
                 .previewDevice("iPhone SE")
@@ -76,6 +85,11 @@ struct JournalFeed_Previews: PreviewProvider {
             JournalFeed().environmentObject(SessionStore.mockLoggedIn(tier: .PLUS).setEntries(MockData.getDefaultJournalEntries()))
                 .environmentObject(CheckoutStore.mock())
                 .previewDisplayName("Plus User")
+            
+            JournalFeed().environmentObject(SessionStore.mockLoggedIn(tier: .PLUS).setEntries(MockData.getDefaultJournalEntries()))
+                .environmentObject(CheckoutStore.mock())
+                .colorScheme(.dark)
+                .previewDisplayName("Plus User (Dark)")
         }
     }
 }

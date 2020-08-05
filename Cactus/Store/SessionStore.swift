@@ -112,6 +112,8 @@ extension SessionStore {
         let member = CactusMember()
         member.email = "test@cactus.app"
         member.id = "test123"
+        member.firstName = "Cactus"
+        member.lastName = "Tester"
         member.tier = tier
         store.member = member
         store.useMockImages = true

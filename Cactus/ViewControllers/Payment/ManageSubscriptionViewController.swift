@@ -34,7 +34,11 @@ class ManageSubscriptionViewController: UIViewController {
             }
         }
     }
-    var member: CactusMember?
+    var member: CactusMember? {
+        didSet {
+            self.loadSubscriptionDetails()
+        }
+    }
     var isAuthorizedForPayments: Bool {
         return false
     }
@@ -43,8 +47,7 @@ class ManageSubscriptionViewController: UIViewController {
             self.configureLoading()
         }
     }
-    var memberObserver: Unsubscriber?
-    
+
     var isLoading: Bool {
         self.detailsLoading
     }
@@ -57,51 +60,59 @@ class ManageSubscriptionViewController: UIViewController {
         return formatPriceCents(self.subscriptionDetails?.upcomingInvoice?.amountCentsUsd, truncateWholeDollar: true) ?? "$0.00"
     }
     
-    var upgradeCopy: UpgradeCopy? {
-        return AppSettingsService.sharedInstance.currentSettings?.upgradeCopy
-    }
+    var upgradeCopy: UpgradeCopy? = AppSettingsService.sharedInstance.currentSettings?.upgradeCopy
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.managePaymentButton.isHidden = true
         self.invoiceStackView.isHidden = true
         self.paymentStackView.addBackground(color: CactusColor.paymentBackground, cornerRadius: 6)
-        self.memberObserver = CactusMemberService.sharedInstance.observeCurrentMember { (member, error, _) in
-            if let error = error {
-                self.logger.error("Failed to fetch cactus member", error)
-                return
-            }
-            self.detailsLoading = true
-            self.member = member
-            if member?.tier.isPaidTier == true {
-                SubscriptionService.sharedInstance.getSubscriptionDetails { (details, error) in
-                    defer {
-                        self.detailsLoading = false
-                    }
-                    if let error = error {
-                        self.logger.error("Failed to fetch subscription details", error)
-                        DispatchQueue.main.async {
-                            self.subscriptionDetails = nil
-                            
-                            self.showError("Unable to load your subscription details. Please try again later.")
-                        }
-                    } else {
-                        self.subscriptionDetails = details
-                    }
-                }
-            } else {
-                self.detailsLoading = false
-            }
-            self.setupCurrentMembership(member: member)
+      
+        self.setupCurrentMembership(member: self.member)
+        self.loadSubscriptionDetails()
+        self.configureUpcomingInvoice()
+    }
+    
+    func loadSubscriptionDetails() {
+        guard !self.detailsLoading else {
+            return
         }
+        
+        self.detailsLoading = true
+        if self.member?.tier.isPaidTier == true {
+            SubscriptionService.sharedInstance.getSubscriptionDetails { (details, error) in
+                defer {
+                    self.detailsLoading = false
+                }
+                if let error = error {
+                    self.logger.error("Failed to fetch subscription details", error)
+                    DispatchQueue.main.async {
+                        self.subscriptionDetails = nil
+                        
+                        self.showError("Unable to load your subscription details. Please try again later.")
+                    }
+                } else {
+                    self.subscriptionDetails = details
+                }
+            }
+        } else {
+            self.detailsLoading = false
+        }
+        self.setupCurrentMembership(member: member)
     }
     
     func showError(_ message: String) {
+        guard self.isViewLoaded else {
+            return
+        }
         self.nextInvoiceDescriptionLabel.text = message
         self.nextInvoiceDescriptionLabel.isHidden = false
     }
     
     func configureLoading() {
+        guard self.isViewLoaded else {
+            return
+        }
         DispatchQueue.main.async {
             self.detailsContainerStackView.isHidden = self.isLoading            
             self.loadingStackView.isHidden = !self.isLoading
@@ -164,6 +175,9 @@ class ManageSubscriptionViewController: UIViewController {
     }
     
     func configureUpcomingInvoice() {
+        guard self.isViewLoaded else {
+            return
+        }
         guard self.member?.subscription?.isActivated == true,
             let invoice = self.subscriptionDetails?.upcomingInvoice else {
                 self.invoiceStackView.isHidden = true
@@ -246,6 +260,9 @@ class ManageSubscriptionViewController: UIViewController {
     }
     
     func setupCurrentMembership(member: CactusMember?) {
+        guard self.isViewLoaded else {
+            return
+        }
         guard let member = member else {
             self.logger.info("No member, removing sub info")
             return

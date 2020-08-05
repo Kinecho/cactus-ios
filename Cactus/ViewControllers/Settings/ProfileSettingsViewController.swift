@@ -23,8 +23,12 @@ class ProfileSettingsViewController: UIViewController {
     @IBOutlet weak var scrollContentView: UIView!
     @IBOutlet weak var deleteCactusButton: UIButton!
     
-    var member: CactusMember?
-    var memberUnsubscriber: Unsubscriber?
+    var member: CactusMember? {
+        didSet {
+            self.configureViews()
+        }
+    }
+//    var memberUnsubscriber: Unsubscriber?
     var hasChanges: Bool {
         return FormatUtils.hasChanges(self.firstNameInput.text, self.member?.firstName) || FormatUtils.hasChanges(self.lastNameInput.text, self.member?.lastName)
         
@@ -34,14 +38,14 @@ class ProfileSettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.member = CactusMemberService.sharedInstance.currentMember
-        self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, error, _) in
-            if let error = error {
-                self.logger.error("Something went wrong fetching the current member using an observer", error)
-            }
-            
-            self.member = member
-            self.configureViews()
-        })
+//        self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, error, _) in
+//            if let error = error {
+//                self.logger.error("Something went wrong fetching the current member using an observer", error)
+//            }
+//
+//            self.member = member
+//            self.configureViews()
+//        })
         
         self.configureViews()
         self.firstNameInput.delegate = self
@@ -63,9 +67,6 @@ class ProfileSettingsViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillChangeFrame), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
-    deinit {
-        self.memberUnsubscriber?()
-    }
     
     @objc private func keyboardWillChangeFrame(_ notification: Notification) {
         if let endFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
@@ -80,6 +81,9 @@ class ProfileSettingsViewController: UIViewController {
     }
     
     func configureViews() {
+        guard self.isViewLoaded else {
+            return
+        }
         self.configureInputViews()
         self.setupSaveActions()
     }

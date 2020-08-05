@@ -6,7 +6,7 @@
 //  Copyright © 2020 Cactus. All rights reserved.
 //
 import SwiftUI
-
+import NoveFeatherIcons
 enum Tab {
     case home
     case journal
@@ -16,37 +16,37 @@ enum Tab {
 struct AppTabs: View {
     @EnvironmentObject var session: SessionStore
     @EnvironmentObject var checkout: CheckoutStore
-    @State private var selection = Tab.home
+    @State private var selection = Tab.settings
     
     let tabImageSize: CGSize = CGSize(width: 30, height: 30)
     
     init() {
-//        UITabBar.appearance().tintColor = CactusColor.background
-        //        UITabBar.appearance().backgroundColor = CactusColor.green
         UITabBar.appearance().barTintColor = CactusColor.background
         UITabBar.appearance().unselectedItemTintColor = CactusColor.textMinimized
-        
+        UITabBar.appearance().backgroundColor = CactusColor.background
+        UITableView.appearance().backgroundColor = CactusColor.background
+        UITableViewCell.appearance().backgroundColor = CactusColor.background        
     }
     
     var body: some View {
         TabView(selection: $selection) {
-            Group {
-                Text("Insights/Home")
-            }.tabItem {
-                Image(CactusImage.pie.rawValue)
+            NavigationView {
+                InsightsHome()
+                    .navigationBarTitle("Home")
+            }
+            .tabItem {
+                Image(uiImage: Feather.getIcon(.home)!)
                     .renderingMode(.template)
                     .resizable()
                     .padding()
                 
-                Text("Home/Insights")
+                Text("Home")
             }.tag(Tab.home)
             
             NavigationView {
                 JournalFeed()
                 .navigationBarTitle("Journal")
-            }
-        
-            .tabItem {
+            }.tabItem {
                 Image(CactusImage.journal.rawValue)
                     .renderingMode(.template)
                     .resizable()
@@ -55,24 +55,17 @@ struct AppTabs: View {
             }.tag(Tab.journal)
             
             
-            NavigationView {
-                SettingsTable()
-                    .background(CactusColor.background.color)
-                    .navigationBarColor(CactusColor.background.color)
-                    .navigationBarTitle("Settings")
-            }.tabItem {
-                Image(CactusImage.creditCard.rawValue)
+            
+            SettingsHome()
+            .tabItem {
+                Image(uiImage: Feather.getIcon(.settings)!)
                     .renderingMode(.template)
                     .resizable()
                 Text("Settings")
             }
             .tag(Tab.settings)
-            .background(CactusColor.background.color)
-        }        
-        .accentColor(CactusColor.green.color)
+        }
         .font(Font(CactusFont.normal))
-        .foregroundColor(CactusColor.green.color)
-        .backgroundColor(CactusColor.background.color)
         .environmentObject(session)
         .environmentObject(checkout)
     }

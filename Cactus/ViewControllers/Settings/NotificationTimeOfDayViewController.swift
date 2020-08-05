@@ -30,7 +30,7 @@ class NotificationTimeOfDayViewController: UIViewController {
         self.configureTimezone()
         self.configureDatePicker()
         self.configureTimeZoneWarningStackView()
-        
+//        self.navigationItem.title = "Schedule"
         self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, error, _) in
             if let error = error {
                 self.logger.error("Failed to observe cactus member", error)

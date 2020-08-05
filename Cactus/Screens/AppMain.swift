@@ -23,7 +23,7 @@ struct AppMain: View {
             } else {
                 Loading("Loading...")
             }
-        }
+        }.background(CactusColor.background.color)
     }
 }
 
@@ -35,11 +35,21 @@ struct AppMain_Previews: PreviewProvider {
         Group {
             AppMain().environmentObject(self.LoadingAppData)
                 .environmentObject(CheckoutStore.mock())
-                .previewDisplayName("Auth Loading")            
+                .previewDisplayName("Auth Loading")
+            
+            AppMain().environmentObject(self.LoadingAppData)
+            .environmentObject(CheckoutStore.mock())
+                .colorScheme(.dark)
+            .previewDisplayName("Auth Loading (Dark)")
             
             AppMain().environmentObject(self.MockAppData)
                 .environmentObject(CheckoutStore.mock())
                 .previewDisplayName("Logged In")
+            
+            AppMain().environmentObject(self.MockAppData)
+            .environmentObject(CheckoutStore.mock())
+                .colorScheme(.dark)
+            .previewDisplayName("Logged In (Dark)")
                 
             AppMain().environmentObject(self.MockLoggedOut)
                 .environmentObject(CheckoutStore.mock())

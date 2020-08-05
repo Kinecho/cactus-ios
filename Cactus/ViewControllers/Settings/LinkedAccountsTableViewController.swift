@@ -62,7 +62,7 @@ class LinkedAccountsTableViewController: UITableViewController {
             
             return cell
         }
-        cell.textLabel?.text = self.getProviderDisplayName(data.providerID)
+        cell.textLabel?.text = getProviderDisplayName(data.providerID)
         if let image = CactusImage.fromProviderId(data.providerID) {
             cell.imageView?.setImage(image)
         } else {
@@ -70,22 +70,5 @@ class LinkedAccountsTableViewController: UITableViewController {
         }
         
         return cell
-    }
-    
-    func getProviderDisplayName(_ providerId: String) -> String? {
-        switch providerId {
-        case "google.com":
-            return "Google"
-        case "twitter.com":
-            return "Twitter"
-        case "facebook.com":
-            return "Facebook"
-        case "password":
-            return "Email/Password"
-        case "apple.com":
-            return "Apple"
-        default:
-            return nil
-        }
     }
 }

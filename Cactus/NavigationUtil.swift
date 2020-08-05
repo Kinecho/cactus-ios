@@ -30,6 +30,13 @@ enum ScreenID: String {
     case settingsTable
     case inviteScreen
     case notificationsScreen
+    case ProfileSettings
+    case LinkedAccounts
+    case AskQuestions
+    case TermsOfService
+    case PrivacyPolicy
+    case SendFeedback
+    case DownloadData
     
     //Onboarding
     case notificationOnboarding
@@ -61,6 +68,13 @@ enum ScreenID: String {
         switch self {
         case .settingsTable,
              .inviteScreen,
+             .ProfileSettings,
+             .LinkedAccounts,
+             .AskQuestions,
+             .TermsOfService,
+             .PrivacyPolicy,
+             .SendFeedback,
+             .DownloadData,
              .notificationsScreen:
             return StoryboardID.Settings
         case .notificationOnboarding:

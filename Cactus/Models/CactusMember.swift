@@ -183,6 +183,11 @@ class CactusMember: FirestoreIdentifiable, Hashable {
         }
     }
     
+    var fullName: String? {
+        let name = "\(self.firstName ?? "") \(self.lastName ?? "")".trimmingCharacters(in: .whitespacesAndNewlines)
+        return isBlank(name) ? nil : name
+    }
+    
     func hash(into hasher: inout Hasher) {
         id.hash(into: &hasher)
     }

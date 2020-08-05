@@ -33,8 +33,11 @@ struct PlusFeaturesPagination: View {
                                         title: feature.titleMarkdown!,
                                         description: feature.descriptionMarkdown!)
                             .padding()
-                        }.onAppear {
+                        }                    
+                        .onAppear {
                             UIScrollView.appearance().bounces = false
+                        }.onDisappear {
+                            UIScrollView.appearance().bounces = true
                         }
                     }
                 }
