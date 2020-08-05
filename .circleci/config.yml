@@ -368,8 +368,8 @@ workflows:
       - deploy-stage-approval:
           name: &stage_approval "(Stage) Send To TestFlight"
           type: approval
-          requires:
-            - *test-completed
+          # requires:
+          #   - *test-completed
       - upload-to-testflight:
           name: &testflight-stage "(Stage) Fastlane beta_stage"
           fastlane_cmd: "beta_stage"
