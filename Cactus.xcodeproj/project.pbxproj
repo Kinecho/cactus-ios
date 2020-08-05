@@ -223,7 +223,6 @@
 		303282222416D3DF00FC197A /* AuthenticatedTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303282202416D3DF00FC197A /* AuthenticatedTaskManager.swift */; };
 		303282232416D3DF00FC197A /* AuthenticatedTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303282202416D3DF00FC197A /* AuthenticatedTaskManager.swift */; };
 		303282242416D3DF00FC197A /* AuthenticatedTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303282202416D3DF00FC197A /* AuthenticatedTaskManager.swift */; };
-		3034EB4124DA64CA0033C719 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 3034EB4024DA64CA0033C719 /* SwiftUIX */; };
 		30392FF62410075400F2A8FC /* ModelDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30392FF52410075400F2A8FC /* ModelDecoder.swift */; };
 		30392FF72410075400F2A8FC /* ModelDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30392FF52410075400F2A8FC /* ModelDecoder.swift */; };
 		30392FF82410075400F2A8FC /* ModelDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30392FF52410075400F2A8FC /* ModelDecoder.swift */; };
@@ -425,9 +424,6 @@
 		304BCE80248962B50055A28E /* StringExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304BCE7F248962B50055A28E /* StringExtensionsTest.swift */; };
 		304EA2F32343B730001FB8AD /* CountProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304EA2F22343B730001FB8AD /* CountProcess.swift */; };
 		304EA2F42343B730001FB8AD /* CountProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304EA2F22343B730001FB8AD /* CountProcess.swift */; };
-		3050E71024D88FB900DED2E1 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 3050E70F24D88FB900DED2E1 /* SwiftUIX */; };
-		3050E71224D88FC300DED2E1 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 3050E71124D88FC300DED2E1 /* SwiftUIX */; };
-		3050E71424D88FC800DED2E1 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 3050E71324D88FC800DED2E1 /* SwiftUIX */; };
 		305130D3234FE9F10088B51F /* InviteSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305130D2234FE9F10088B51F /* InviteSettingsViewController.swift */; };
 		305130D4234FE9F10088B51F /* InviteSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305130D2234FE9F10088B51F /* InviteSettingsViewController.swift */; };
 		305366B224C661AB00927498 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305366B124C661AB00927498 /* SceneDelegate.swift */; };
@@ -1154,6 +1150,10 @@
 		30E9B0BE22EAF2FC005B25FD /* SentPromptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */; };
 		30E9D044247826FB00FE4E5F /* UnitTestAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9D043247826FB00FE4E5F /* UnitTestAppDelegate.swift */; };
 		30E9D04624784FBF00FE4E5F /* CactusMemberTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9D04524784FBF00FE4E5F /* CactusMemberTest.swift */; };
+		30ECACDF24DB3D8A00C6BE7C /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 30ECACDE24DB3D8A00C6BE7C /* SwiftUIX */; settings = {ATTRIBUTES = (Weak, ); }; };
+		30ECACE024DB3D8A00C6BE7C /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30ECACDC24DB24D100C6BE7C /* SwiftUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		30ECACE224DB3D9D00C6BE7C /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 30ECACE124DB3D9D00C6BE7C /* SwiftUIX */; settings = {ATTRIBUTES = (Weak, ); }; };
+		30ECACE324DB3D9D00C6BE7C /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30ECACDC24DB24D100C6BE7C /* SwiftUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		30F1BBB32492DB9A0099169C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30F1BBB22492DB9A0099169C /* AdSupport.framework */; };
 		30F1BBB42492DBB50099169C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30F1BBB22492DB9A0099169C /* AdSupport.framework */; };
 		30F716872379ED32004989DB /* ShareNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F716852379ED32004989DB /* ShareNoteViewController.swift */; };
@@ -1513,6 +1513,7 @@
 		30E9B0BC22EAF2FC005B25FD /* SentPromptService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentPromptService.swift; sourceTree = "<group>"; };
 		30E9D043247826FB00FE4E5F /* UnitTestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestAppDelegate.swift; sourceTree = "<group>"; };
 		30E9D04524784FBF00FE4E5F /* CactusMemberTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusMemberTest.swift; sourceTree = "<group>"; };
+		30ECACDC24DB24D100C6BE7C /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		30F1BBB22492DB9A0099169C /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		30F716852379ED32004989DB /* ShareNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareNoteViewController.swift; sourceTree = "<group>"; };
 		30F716862379ED32004989DB /* ShareNoteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareNoteViewController.xib; sourceTree = "<group>"; };
@@ -1544,7 +1545,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3034EB4124DA64CA0033C719 /* SwiftUIX in Frameworks */,
 				304B210623D383E1007B016C /* NotificationCenter.framework in Frameworks */,
 				5512428B40A08648C6DB9597 /* Pods_Cactus_Today_Prod.framework in Frameworks */,
 			);
@@ -1554,11 +1554,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30ECACE024DB3D8A00C6BE7C /* SwiftUI.framework in Frameworks */,
 				305EF71024DA70590075821F /* NetworkExtension.framework in Frameworks */,
 				76F23F2602ADC65094F1CF3B /* Pods_Cactus_Prod.framework in Frameworks */,
 				300FCCF023EE21CD00089CFB /* StoreKit.framework in Frameworks */,
+				30ECACDF24DB3D8A00C6BE7C /* SwiftUIX in Frameworks */,
 				30F1BBB32492DB9A0099169C /* AdSupport.framework in Frameworks */,
-				3050E71424D88FC800DED2E1 /* SwiftUIX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1569,7 +1570,6 @@
 				30A3BCB924C113780016955C /* StoreKit.framework in Frameworks */,
 				30A3BCBA24C113780016955C /* AdSupport.framework in Frameworks */,
 				30A3BCBC24C113780016955C /* NetworkExtension.framework in Frameworks */,
-				3050E71024D88FB900DED2E1 /* SwiftUIX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1577,10 +1577,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30ECACE324DB3D9D00C6BE7C /* SwiftUI.framework in Frameworks */,
 				300FCCEF23EE21C000089CFB /* StoreKit.framework in Frameworks */,
 				30F1BBB42492DBB50099169C /* AdSupport.framework in Frameworks */,
 				95087B85A8F99A3282E6AE87 /* Pods_Cactus_Stage.framework in Frameworks */,
-				3050E71224D88FC300DED2E1 /* SwiftUIX in Frameworks */,
+				30ECACE224DB3D9D00C6BE7C /* SwiftUIX in Frameworks */,
 				3018B1262376687B0005333A /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1591,6 +1592,7 @@
 		19CA97E6FF714D2347BC4076 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				30ECACDC24DB24D100C6BE7C /* SwiftUI.framework */,
 				305EF70E24DA68BB0075821F /* Network.framework */,
 				30F1BBB22492DB9A0099169C /* AdSupport.framework */,
 				300FCCEE23EE21C000089CFB /* StoreKit.framework */,
@@ -2289,7 +2291,6 @@
 			);
 			name = "Cactus Today Prod";
 			packageProductDependencies = (
-				3034EB4024DA64CA0033C719 /* SwiftUIX */,
 			);
 			productName = "Cactus Today";
 			productReference = 304B210423D383E1007B016C /* Cactus Today Prod.appex */;
@@ -2315,7 +2316,7 @@
 			);
 			name = "Cactus Prod";
 			packageProductDependencies = (
-				3050E71324D88FC800DED2E1 /* SwiftUIX */,
+				30ECACDE24DB3D8A00C6BE7C /* SwiftUIX */,
 			);
 			productName = Cactus;
 			productReference = 30A281E722EA61A30041158E /* Cactus.app */;
@@ -2337,7 +2338,6 @@
 			);
 			name = "Cactus Local";
 			packageProductDependencies = (
-				3050E70F24D88FB900DED2E1 /* SwiftUIX */,
 			);
 			productName = Cactus;
 			productReference = 30A3BD0224C113780016955C /* Cactus Local.app */;
@@ -2362,7 +2362,7 @@
 			);
 			name = "Cactus Stage";
 			packageProductDependencies = (
-				3050E71124D88FC300DED2E1 /* SwiftUIX */,
+				30ECACE124DB3D9D00C6BE7C /* SwiftUIX */,
 			);
 			productName = Cactus;
 			productReference = 30B6EA6B22EA5A9F00443E46 /* Cactus Stage.app */;
@@ -4422,8 +4422,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.1;
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -4434,22 +4434,12 @@
 			package = 3050E70E24D88FB900DED2E1 /* XCRemoteSwiftPackageReference "SwiftUIX" */;
 			productName = SwiftUIX;
 		};
-		3034EB4024DA64CA0033C719 /* SwiftUIX */ = {
+		30ECACDE24DB3D8A00C6BE7C /* SwiftUIX */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3050E70E24D88FB900DED2E1 /* XCRemoteSwiftPackageReference "SwiftUIX" */;
 			productName = SwiftUIX;
 		};
-		3050E70F24D88FB900DED2E1 /* SwiftUIX */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3050E70E24D88FB900DED2E1 /* XCRemoteSwiftPackageReference "SwiftUIX" */;
-			productName = SwiftUIX;
-		};
-		3050E71124D88FC300DED2E1 /* SwiftUIX */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3050E70E24D88FB900DED2E1 /* XCRemoteSwiftPackageReference "SwiftUIX" */;
-			productName = SwiftUIX;
-		};
-		3050E71324D88FC800DED2E1 /* SwiftUIX */ = {
+		30ECACE124DB3D9D00C6BE7C /* SwiftUIX */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3050E70E24D88FB900DED2E1 /* XCRemoteSwiftPackageReference "SwiftUIX" */;
 			productName = SwiftUIX;
