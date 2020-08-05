@@ -37,16 +37,15 @@ struct JournalFeed: View {
     
             ForEach(self.entries) { entry in
                 JournalEntryRow(entry: entry, index: self.entries.firstIndex(of: entry) ?? 0)
-//                    .onAppear {
-//                        Logger("JournalEntryRow on Appear").info("Journal entry will on appear")
-//                        let lastEntry = self.entries.last
-//                        if lastEntry?.id == entry.id {
-//                            self.session.journalFeedDataSource?.loadNextPage()
-//                        }
-//                }
-                .onTapGesture {
-                    self.handleEntrySelected(entry: entry)
-                }
+                    .onAppear {
+                        let lastEntry = self.entries.last
+                        if lastEntry?.id == entry.id {
+                            self.session.journalFeedDataSource?.loadNextPage()
+                        }
+                    }
+                    .onTapGesture {
+                        self.handleEntrySelected(entry: entry)
+                    }
             }
             .padding()
             .padding(.bottom, Spacing.large)
