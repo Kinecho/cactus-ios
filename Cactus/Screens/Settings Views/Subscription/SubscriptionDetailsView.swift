@@ -116,21 +116,23 @@ struct SubscriptionDetailsView: View {
     var model: SubscriptionDetailsViewModel
     
     var billingCycleMessage: String? {
-        let expiration = FormatUtils.localizedDate(model.expirationDate, dateStyle: .medium, timeStyle: .none)
+        let expiration = FormatUtils.localizedDate(model.expirationDate, dateStyle: .short, timeStyle: .none)
         let expiresInFuture = model.expirationDate != nil ? model.expirationDate! > Date() : false
-        
+        let inTrial = model.periodType == .trial
         
         if expiresInFuture {
-            if model.willRenew, let expires = expiration {
+            if inTrial, model.willRenew, let expires = expiration {
+                  return "Your first bill is on \(expires)."
+            } else if model.willRenew, let expires = expiration {
                 return "Your subscription will renew on \(expires)."
+            } else if inTrial, !model.willRenew, let expires = expiration {
+                return "Your trial will end on \(expires). You will not be billed."
             } else if let expires = expiration {
                 return "Your subscription will end on \(expires)."
             }
         } else if let expires = expiration {
-            return "Your subscription ended on \(expires)."
+            return "Your \(inTrial ? "trial" : "subscription") ended on \(expires)."
         }
-        
-        
         
         return nil
     }
@@ -167,7 +169,14 @@ struct SubscriptionDetailsView_Previews: PreviewProvider {
         SubscriptionDetailsViewModel(tier: .PLUS,
                                      billingPlatform: .APPLE,
                                      willRenew: true,
+                                     periodType: .trial,
                                      expirationDate: Date.plus(days: 4)),
+        SubscriptionDetailsViewModel(tier: .PLUS,
+                                    billingPlatform: .APPLE,
+                                    willRenew: false,
+                                    periodType: .trial,
+                                    expirationDate: Date.plus(days: 4)),
+        
         SubscriptionDetailsViewModel(tier: .PLUS,
                                      billingPlatform: .APPLE,
                                      willRenew: false,
@@ -183,7 +192,7 @@ struct SubscriptionDetailsView_Previews: PreviewProvider {
         Group {
             ForEach(ColorScheme.allCases, id: \.hashIdentifiable) { scheme in
                 ForEach(models) { model in
-                    SubscriptionDetailsView(model: model).previewDisplayName("\(model.loaded ? "" : "Loading -") \(model.billingPlatform?.rawValue.capitalized ?? "No Platform") - \(model.willRenew ? "Renewing" : "Not Renewing") - \(model.tier.displayName) (\(String(describing:scheme)))".trimmingCharacters(in: .whitespaces))
+                    SubscriptionDetailsView(model: model).previewDisplayName("\(model.loaded ? "" : "Loading -") \(model.billingPlatform?.rawValue.capitalized ?? "No Platform")\(model.periodType == .trial ? " - In Trial" : "") - \(model.willRenew ? "Renewing" : "Not Renewing") - \(model.tier.displayName) (\(String(describing:scheme)))".trimmingCharacters(in: .whitespaces))
                 }
                     
                 .padding()
