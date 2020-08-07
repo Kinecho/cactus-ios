@@ -23,36 +23,89 @@ class SubscriberData: ObservableObject {
     
     let logger = Logger("SubscriberData")
     
-    init() {
-        self.fetch(nil)
-    }
-    
-    func fakeFetch() {
-        self.detailsLoaded = false
-        self.purchaserInfoLoaded = false
+    init(autoFetch: Bool=true) {
+        if autoFetch {
+            self.fetch(nil)
+        }
     }
     
     func fetch(_ member: CactusMember?=nil) {
-        self.detailsLoaded = false
-        self.purchaserInfoLoaded = false
+        DispatchQueue.main.async {
+            self.detailsLoaded = false
+            self.purchaserInfoLoaded = false
+        }        
 //        self.member = member
         SubscriptionService.sharedInstance.getSubscriptionDetails { (details, error) in
             if let error = error {
                 self.logger.error("Failed to get revenuecat purchaser info", error)
             }
-            self.subscriptionDetails = details
-            self.detailsLoaded = true
+            DispatchQueue.main.async {
+                self.subscriptionDetails = details
+                self.detailsLoaded = true
+            }
+            
         }
         RevenueCat.shared.invalidatePurchaserInfoCache()
         RevenueCat.shared.purchaserInfo { (info, error) in
             if let error = error {
                 self.logger.error("Failed to get revenuecat purchaser info", error)
             }
-            self.purchaserInfo = info
-            self.error = error
-            self.purchaserInfoLoaded = true
+            DispatchQueue.main.async {
+                self.purchaserInfo = info
+                self.error = error
+                self.purchaserInfoLoaded = true
+            }
         }
+    }
+}
+
+
+extension SubscriberData {
+    static func mock() -> SubscriberData {
+        let data = SubscriberData(autoFetch: false)
+        
+        return data
     }
     
     
+    class Builder {
+        var revenueCatLoaded = true
+        var detailsLoaded = true
+        
+        var details: SubscriptionDetails?
+        var info: RevenueCat.PurchaserInfo?
+        
+        func setPurchaserLoaded(_ loaded: Bool=true) -> Builder {
+            self.revenueCatLoaded = loaded
+            return self
+        }
+        
+        func setDetailsLoaded(_ loaded: Bool=true) -> Builder {
+            self.detailsLoaded = loaded
+            return self
+        }
+        
+        func setPurchaserInfo(_ info: RevenueCat.PurchaserInfo?) -> Builder {
+            self.info = info
+            return self
+        }
+        
+        func setDetails(_ details: SubscriptionDetails?) -> Builder {
+            self.details = details
+            return self
+        }
+        
+        func build() -> SubscriberData {
+            let data = SubscriberData(autoFetch: false)
+            data.detailsLoaded = self.detailsLoaded
+            data.purchaserInfoLoaded = self.revenueCatLoaded
+            data.subscriptionDetails = self.details
+            data.purchaserInfo = self.info
+            return data
+        }
+        
+    }
 }
+
+
+

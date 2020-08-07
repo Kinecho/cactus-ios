@@ -30,7 +30,7 @@ struct CactusButton: View {
         case .buttonPrimary:
             return CactusColor.green.color
         case .buttonSecondary:
-            return CactusColor.white.color
+            return NamedColor.SecondaryButtonBackground.color
         default:
             return .clear
         }
@@ -82,6 +82,17 @@ struct CactusButton: View {
         }
     }
     
+    var font: Font {
+        switch self.style {
+        case .buttonPrimary:
+            return CactusFont.bold(self.fontSize).font
+        case .buttonSecondary:
+            return CactusFont.bold(self.fontSize).font
+        default:
+            return CactusFont.normal(self.fontSize).font
+        }
+    }
+    
     var paddingAmount: EdgeInsets {
         switch self.style {
         case .buttonPrimary:
@@ -94,7 +105,7 @@ struct CactusButton: View {
     
     var body: some View {
         Text(self.label ?? "")
-            .font(Font(CactusFont.bold(self.fontSize)))
+            .font(self.font)
             .padding(self.paddingAmount)
             .background(self.backgroundColor)
             .foregroundColor(self.textColor)
@@ -135,13 +146,29 @@ struct PrimaryBorderShape: Shape {
 struct CactusButton_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CactusButton("Primary Button").previewDisplayName("Primary Button")
-            CactusButton("Primary Button No Border", disableBorder: true).previewDisplayName("Primary Button No Border")
-            CactusButton("Secondary Button", .buttonSecondary).previewDisplayName("Secondary Button")
+            Group {
+                CactusButton("Primary Button").previewDisplayName("Primary Button")
+                CactusButton("Primary Button No Border", disableBorder: true).previewDisplayName("Primary Button No Border")
+                CactusButton("Secondary Button", .buttonSecondary).previewDisplayName("Secondary Button")
+            }
+            .padding()
+            .previewLayout(.sizeThatFits)
+            .background(NamedColor.Background.color)
+            
+            Group {
+                CactusButton("Primary Button").previewDisplayName("Primary Button (Dark)").colorScheme(.dark)
+                CactusButton("Primary Button No Border", disableBorder: true).previewDisplayName("Primary Button No Border (Dark)").colorScheme(.dark)
+                CactusButton("Secondary Button", .buttonSecondary).previewDisplayName("Secondary Button (Dark)")
+            }
+            .padding()
+            .background(NamedColor.Background.color)
+            
+            .previewLayout(.sizeThatFits)
+            .colorScheme(.dark)
+            
+            
         }
-        .padding()
-        .background(Color.gray.opacity(0.3))
-        .previewLayout(.sizeThatFits)
+        
     }
 }
 

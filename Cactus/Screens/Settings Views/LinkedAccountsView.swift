@@ -27,8 +27,8 @@ struct LinkedAccountItem: View {
             if self.image != nil {
                 self.image!
                     .resizable()
+                    .aspectRatio(contentMode: .fit)
                     .frame(width: imageSize, height: imageSize)
-                    .aspectRatio(contentMode: .fill)
                     .ifMatches(provider == "twitter.com") { content in
                         content.foregroundColor(CactusColor.twitter.color)
                     }

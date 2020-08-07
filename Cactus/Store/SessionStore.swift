@@ -20,7 +20,6 @@ final class SessionStore: NSObject, ObservableObject {
     @Published var user: FirebaseUser?
     @Published var settings: AppSettings?
     @Published var useImagePlaceholders: Bool = false
-    @Published var subscriberData: SubscriberData = SubscriberData()
     
     static var shared = SessionStore()
     
@@ -55,10 +54,6 @@ final class SessionStore: NSObject, ObservableObject {
             feed.delegate = self
             feed.start()
         }
-        
-        self.addAuthAction { member in
-            self.subscriberData.fetch(member)
-        }
     }
     
     func setupAuth() {
@@ -77,6 +72,13 @@ final class SessionStore: NSObject, ObservableObject {
             //            }
             self.member = member
             self.user = user
+            
+            if let memberId = member?.id {
+                Purchases.shared.identify(memberId)
+            } else {
+                Purchases.shared.reset()
+            }
+            
             self.authLoaded = true
             //            self.runPendingActions()
             self.runPendingAuthActions()

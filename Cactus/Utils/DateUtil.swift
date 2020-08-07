@@ -182,3 +182,17 @@ func dateFromString(_ input: String, format: String?) -> Date? {
     df.dateFormat = format ?? "yyyy-MM-dd"
     return df.date(from: input)
 }
+
+extension Date {
+    static func plus(days: Int) -> Date? {
+        return Date().plus(days, .day)
+    }
+    
+    func plus(_ amount: Int, _ component: Calendar.Component) -> Date? {
+        let currentDate = self
+        var dateComponent = DateComponents()
+        dateComponent.setValue(amount, for: component)
+        let futureDate = Calendar.current.date(byAdding: dateComponent, to: currentDate)
+        return futureDate
+    }
+}

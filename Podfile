@@ -99,6 +99,7 @@ post_install do |installer|
         config.build_settings['OTHER_SWIFT_FLAGS'] = ['$(inherited)', '-Onone']
         config.build_settings['SWIFT_OPTIMIZATION_LEVEL'] = '-Owholemodule'
       end
+      config.build_settings['LD_NO_PIE'] = 'NO'
     end
   end
 end

@@ -1008,6 +1008,9 @@
 		30BECACA24DCF19C009F95D5 /* SubscriptionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BECAC824DCF19C009F95D5 /* SubscriptionDetailsView.swift */; };
 		30BECACB24DCF19C009F95D5 /* SubscriptionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BECAC824DCF19C009F95D5 /* SubscriptionDetailsView.swift */; };
 		30BECACC24DD0196009F95D5 /* SubscriberData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BECAC324DC7F0A009F95D5 /* SubscriberData.swift */; };
+		30BECACE24DD27CE009F95D5 /* PaymentInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BECACD24DD27CE009F95D5 /* PaymentInfoView.swift */; };
+		30BECACF24DD27CE009F95D5 /* PaymentInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BECACD24DD27CE009F95D5 /* PaymentInfoView.swift */; };
+		30BECAD024DD27CE009F95D5 /* PaymentInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BECACD24DD27CE009F95D5 /* PaymentInfoView.swift */; };
 		30BF2E0B232816CC00A49EB6 /* PromptContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0A232816CC00A49EB6 /* PromptContentService.swift */; };
 		30BF2E0D2328171200A49EB6 /* PromptContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0C2328171200A49EB6 /* PromptContent.swift */; };
 		30BF2E0F23281CAA00A49EB6 /* FlamelinkTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0E23281CAA00A49EB6 /* FlamelinkTypes.swift */; };
@@ -1454,6 +1457,7 @@
 		30BE5674234E982C00AA6D4D /* LinkedAccountsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedAccountsTableViewController.swift; sourceTree = "<group>"; };
 		30BECAC324DC7F0A009F95D5 /* SubscriberData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriberData.swift; sourceTree = "<group>"; };
 		30BECAC824DCF19C009F95D5 /* SubscriptionDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionDetailsView.swift; sourceTree = "<group>"; };
+		30BECACD24DD27CE009F95D5 /* PaymentInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentInfoView.swift; sourceTree = "<group>"; };
 		30BF2E0A232816CC00A49EB6 /* PromptContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptContentService.swift; sourceTree = "<group>"; };
 		30BF2E0C2328171200A49EB6 /* PromptContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptContent.swift; sourceTree = "<group>"; };
 		30BF2E0E23281CAA00A49EB6 /* FlamelinkTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlamelinkTypes.swift; sourceTree = "<group>"; };
@@ -2064,6 +2068,7 @@
 			isa = PBXGroup;
 			children = (
 				30BECAC824DCF19C009F95D5 /* SubscriptionDetailsView.swift */,
+				30BECACD24DD27CE009F95D5 /* PaymentInfoView.swift */,
 			);
 			path = Subscription;
 			sourceTree = "<group>";
@@ -3259,6 +3264,7 @@
 				309561A022EE16B5009357BD /* CactusConfig.swift in Sources */,
 				30934FB022EC0558007C4E6C /* ReflectionResponseService.swift in Sources */,
 				3032821D2416D29F00FC197A /* AuthenticatedTask.swift in Sources */,
+				30BECAD024DD27CE009F95D5 /* PaymentInfoView.swift in Sources */,
 				30D461382362750D00B8AED7 /* UIAlertControllerExtensions.swift in Sources */,
 				3077381F24CBFB4E00D0C5BE /* ViewConstants.swift in Sources */,
 				30BE5673234E829100AA6D4D /* NotificationTimeOfDayViewController.swift in Sources */,
@@ -3481,6 +3487,7 @@
 				30A3BC0F24C113780016955C /* ReflectionResponseService.swift in Sources */,
 				30A3BC1024C113780016955C /* AuthenticatedTask.swift in Sources */,
 				30A3BC1124C113780016955C /* UIAlertControllerExtensions.swift in Sources */,
+				30BECACE24DD27CE009F95D5 /* PaymentInfoView.swift in Sources */,
 				30A3BC1224C113780016955C /* NotificationTimeOfDayViewController.swift in Sources */,
 				3077381D24CBFB4E00D0C5BE /* ViewConstants.swift in Sources */,
 				30A3BC1324C113780016955C /* ColorExtensions.swift in Sources */,
@@ -3703,6 +3710,7 @@
 				309561A222EE16C3009357BD /* CactusConfig.swift in Sources */,
 				30934FAF22EC0558007C4E6C /* ReflectionResponseService.swift in Sources */,
 				3032821C2416D29F00FC197A /* AuthenticatedTask.swift in Sources */,
+				30BECACF24DD27CE009F95D5 /* PaymentInfoView.swift in Sources */,
 				30D461372362750900B8AED7 /* UIAlertControllerExtensions.swift in Sources */,
 				3077381E24CBFB4E00D0C5BE /* ViewConstants.swift in Sources */,
 				30BE5672234E829100AA6D4D /* NotificationTimeOfDayViewController.swift in Sources */,
@@ -4228,7 +4236,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

@@ -87,6 +87,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Purchases.addAttributionData([:], from: .facebook)
         Purchases.debugLogsEnabled = true
         Purchases.shared.finishTransactions = false //set to false because we are finishing the transaction ourself in Cactus code.
+        
     }
     
     func setupBranch(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {

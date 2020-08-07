@@ -58,7 +58,7 @@ class ContactsTableViewController: UITableViewController {
     }
     
     func notifyHeightChanged() {
-        let calculatedHeight = self.tableView.contentSize.height + self.tableView.contentInset.top + self.tableView.contentInset.bottom
+        let calculatedHeight: CGFloat = self.tableView.contentSize.height + self.tableView.contentInset.top + self.tableView.contentInset.bottom
         self.logger.info("Heigt using contentSize: \(calculatedHeight)")
         let contactHeight = CGFloat(self.contacts.count) * CELL_HEIGHT
         self.logger.info("Contat Height: \(contactHeight)")
