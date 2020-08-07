@@ -39,7 +39,6 @@ def app_pods
   pod 'FBSDKCoreKit'
   pod 'FacebookCore'
   pod 'Branch'
-  pod 'SkeletonView'
   pod 'Purchases', '3.4.0'
   pod 'URLImage'
   pod "NoveFeatherIcons", "~> 1.0"
@@ -55,8 +54,7 @@ def today_pods
     pod 'Firebase/Storage'
     pod 'Cloudinary', '~> 2.0'
     pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '5.1.10'
-    pod 'MarkdownKit', '1.5'
-    pod 'SkeletonView'
+    pod 'MarkdownKit', '1.5'    
     pod 'URLImage'
     pod "NoveFeatherIcons", "~> 1.0"
 end

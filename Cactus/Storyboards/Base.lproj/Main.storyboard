@@ -307,9 +307,6 @@
                                 <outlet property="upgradeButton" destination="bFV-X2-DUD" id="LWy-sK-aex"/>
                             </connections>
                         </collectionReusableView>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="dataSource" destination="GWJ-to-hjF" id="TUj-4B-lxt"/>
                             <outlet property="delegate" destination="GWJ-to-hjF" id="tSb-2n-uyb"/>

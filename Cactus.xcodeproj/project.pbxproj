@@ -1007,6 +1007,7 @@
 		30BECAC924DCF19C009F95D5 /* SubscriptionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BECAC824DCF19C009F95D5 /* SubscriptionDetailsView.swift */; };
 		30BECACA24DCF19C009F95D5 /* SubscriptionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BECAC824DCF19C009F95D5 /* SubscriptionDetailsView.swift */; };
 		30BECACB24DCF19C009F95D5 /* SubscriptionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BECAC824DCF19C009F95D5 /* SubscriptionDetailsView.swift */; };
+		30BECACC24DD0196009F95D5 /* SubscriberData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BECAC324DC7F0A009F95D5 /* SubscriberData.swift */; };
 		30BF2E0B232816CC00A49EB6 /* PromptContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0A232816CC00A49EB6 /* PromptContentService.swift */; };
 		30BF2E0D2328171200A49EB6 /* PromptContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0C2328171200A49EB6 /* PromptContent.swift */; };
 		30BF2E0F23281CAA00A49EB6 /* FlamelinkTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0E23281CAA00A49EB6 /* FlamelinkTypes.swift */; };
@@ -3136,6 +3137,7 @@
 				303C9E2323841ACC006B9786 /* PrimaryButton.swift in Sources */,
 				30D0E44E236C920800EFC0E3 /* FirebaseExtensions.swift in Sources */,
 				300D379924D8BDD100351994 /* LoadableSharedReflectionViewController.swift in Sources */,
+				30BECACC24DD0196009F95D5 /* SubscriberData.swift in Sources */,
 				303C9E3823841AF5006B9786 /* ImageExtensions.swift in Sources */,
 				303C9DC1237F6288006B9786 /* StorageServiceTest.swift in Sources */,
 				300D37B624D8C1AE00351994 /* CactusElementDetailViewController.swift in Sources */,

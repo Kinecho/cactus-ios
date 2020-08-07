@@ -9,7 +9,6 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseAnalytics
-import SkeletonView
 
 @IBDesignable
 class JournalFeedCollectionViewController: UICollectionViewController {

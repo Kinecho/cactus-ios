@@ -173,7 +173,6 @@ class NotificationTimeOfDayViewController: UIViewController {
 //        timePicker.datePickerMode = .date
 //        timePicker.maximumDate = Date.distantFuture
 //        timePicker.minimumDate = Date.distantPast
-//        timePicker.isSkeletonable = false
 //        self.timePicker = timePicker
 //        self.timePicker.calendar =
 //        self.timePicker.date = Date()

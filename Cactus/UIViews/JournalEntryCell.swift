@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SkeletonView
 
 protocol JournalEntryCollectionVieweCellDelegate: EditReflectionViewControllerDelegate {
     func goToDetails(cell: UICollectionViewCell)
@@ -28,7 +27,6 @@ class JournalEntryCell: UICollectionViewCell {
     
     @IBOutlet weak var responseStackViewHeightConstraint: NSLayoutConstraint!
     var editViewController: EditReflectionViewController?
-    var skeletonGradient = SkeletonGradient(baseColor: CactusColor.skeletonBase)
     weak var delegate: JournalEntryCollectionVieweCellDelegate?
     let logger = Logger("JournalEntryCell")
     var margin: CGFloat = 20
@@ -99,7 +97,7 @@ class JournalEntryCell: UICollectionViewCell {
         self.responseHighlightView.transform = CGAffineTransform.identity.translatedBy(x: -1 * self.responseHighlightView.bounds.width / 2, y: 0)
         self.layer.shadowPath = UIBezierPath(roundedRect: self.contentView.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath
         
-//        self.layoutSkeletonIfNeeded()
+
     }
     
     func updateView() {
@@ -111,7 +109,6 @@ class JournalEntryCell: UICollectionViewCell {
 //        self.showLoading()
         
         self.showLoadingComplete()
-        self.layoutSkeletonIfNeeded()
         self.setNeedsLayout()
     }
     
@@ -132,9 +129,6 @@ class JournalEntryCell: UICollectionViewCell {
         
         self.responseTextViewHeightConstraint.isActive = false
         self.responseStackViewHeightConstraint.isActive = true
-        self.updateGradient(self.imageView, show: true)
-        self.updateGradient(self.questionLabel, show: true)
-        self.updateGradient(self.responseTextView, show: true)
     }
     
     func showLoadingComplete() {
@@ -144,9 +138,6 @@ class JournalEntryCell: UICollectionViewCell {
         }
         self.responseTextViewHeightConstraint.isActive = false
         self.responseStackViewHeightConstraint.isActive = false
-        self.updateGradient(self.imageView, show: false)
-        self.updateGradient(self.questionLabel, show: false)
-        self.updateGradient(self.responseTextView, show: false)
 
         self.moreButton.isHidden = false
         if data.isTodaysPrompt {
@@ -190,21 +181,7 @@ class JournalEntryCell: UICollectionViewCell {
         self.widthConstraint.constant = width
         self.widthConstraint.isActive = true
         self.setNeedsLayout()
-        self.layoutSkeletonIfNeeded()
-    }
-    
-    func updateGradient(_ view: UIView, show: Bool) {
-        if show && !view.isSkeletonActive {
-            view.showAnimatedGradientSkeleton(usingGradient: self.skeletonGradient)
-        } else if !show {
-            if view.isSkeletonActive {
-                view.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
-            }
-        }
         
-        if show {
-            view.layoutSkeletonIfNeeded()
-        }
     }
     
     //TODO: Removed while testing layout updates to the collection view

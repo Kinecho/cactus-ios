@@ -34,8 +34,7 @@ class NotificationsTableViewController: UITableViewController, MFMailComposeView
     let logger = Logger("NotificationsTableViewController")
     let footerView: UIView = UIView()
     override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.hideSkeleton()
+        super.viewDidLoad()        
         tableView.tableFooterView = footerView
         self.updateNotificationTimeLabel()
         self.notificationObserver = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [unowned self] _ in
