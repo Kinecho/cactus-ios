@@ -37,11 +37,9 @@ def app_pods
   pod 'FirebaseUI'
   pod 'FirebaseUI/Storage'  
   pod 'MarkdownKit', '1.5'
-  pod "NoveFeatherIcons", "~> 1.0"
-  pod 'Purchases', '3.4.0'
+  pod "NoveFeatherIcons", "~> 1.0"  
   pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '5.1.10'  
-  pod 'SwiftLint'    
-  pod 'URLImage'  
+  pod 'SwiftLint'      
 end
 
 
@@ -54,10 +52,8 @@ def today_pods
     pod 'FirebaseFirestoreSwift'
     pod 'Firebase/Storage'        
     pod 'MarkdownKit', '1.5'    
-    pod "NoveFeatherIcons", "~> 1.0"
-    pod 'Purchases', '3.4.0'
-    pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '5.1.10'
-    pod 'URLImage'    
+    pod "NoveFeatherIcons", "~> 1.0"    
+    pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '5.1.10'    
 end
 
 target 'Cactus Stage' do  

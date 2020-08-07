@@ -1011,6 +1011,17 @@
 		30BECACE24DD27CE009F95D5 /* PaymentInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BECACD24DD27CE009F95D5 /* PaymentInfoView.swift */; };
 		30BECACF24DD27CE009F95D5 /* PaymentInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BECACD24DD27CE009F95D5 /* PaymentInfoView.swift */; };
 		30BECAD024DD27CE009F95D5 /* PaymentInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BECACD24DD27CE009F95D5 /* PaymentInfoView.swift */; };
+		30BECAD324DDAF00009F95D5 /* Purchases in Frameworks */ = {isa = PBXBuildFile; productRef = 30BECAD224DDAF00009F95D5 /* Purchases */; };
+		30BECAD524DDAF23009F95D5 /* Purchases in Frameworks */ = {isa = PBXBuildFile; productRef = 30BECAD424DDAF23009F95D5 /* Purchases */; };
+		30BECAD724DDAF2C009F95D5 /* Purchases in Frameworks */ = {isa = PBXBuildFile; productRef = 30BECAD624DDAF2C009F95D5 /* Purchases */; };
+		30BECAD924DDAF39009F95D5 /* Purchases in Frameworks */ = {isa = PBXBuildFile; productRef = 30BECAD824DDAF39009F95D5 /* Purchases */; };
+		30BECADA24DDAF4B009F95D5 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30ECACDC24DB24D100C6BE7C /* SwiftUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		30BECADC24DDAF5A009F95D5 /* Purchases in Frameworks */ = {isa = PBXBuildFile; productRef = 30BECADB24DDAF5A009F95D5 /* Purchases */; };
+		30BECADF24DDB11A009F95D5 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 30BECADE24DDB11A009F95D5 /* URLImage */; };
+		30BECAE124DDB128009F95D5 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 30BECAE024DDB128009F95D5 /* URLImage */; };
+		30BECAE324DDB14E009F95D5 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 30BECAE224DDB14E009F95D5 /* URLImage */; };
+		30BECAE524DDB157009F95D5 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 30BECAE424DDB157009F95D5 /* URLImage */; };
+		30BECAE724DDB163009F95D5 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 30BECAE624DDB163009F95D5 /* URLImage */; };
 		30BF2E0B232816CC00A49EB6 /* PromptContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0A232816CC00A49EB6 /* PromptContentService.swift */; };
 		30BF2E0D2328171200A49EB6 /* PromptContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0C2328171200A49EB6 /* PromptContent.swift */; };
 		30BF2E0F23281CAA00A49EB6 /* FlamelinkTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E0E23281CAA00A49EB6 /* FlamelinkTypes.swift */; };
@@ -1545,6 +1556,8 @@
 			files = (
 				C08E3AB862BAFCA7CA61D1A2 /* Pods_Cactus_UnitTests.framework in Frameworks */,
 				300D37B924D8C62D00351994 /* SwiftUIX in Frameworks */,
+				30BECAE724DDB163009F95D5 /* URLImage in Frameworks */,
+				30BECADC24DDAF5A009F95D5 /* Purchases in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1552,8 +1565,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30BECADA24DDAF4B009F95D5 /* SwiftUI.framework in Frameworks */,
 				304B210623D383E1007B016C /* NotificationCenter.framework in Frameworks */,
 				5512428B40A08648C6DB9597 /* Pods_Cactus_Today_Prod.framework in Frameworks */,
+				30BECAE524DDB157009F95D5 /* URLImage in Frameworks */,
+				30BECAD924DDAF39009F95D5 /* Purchases in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1566,6 +1582,8 @@
 				76F23F2602ADC65094F1CF3B /* Pods_Cactus_Prod.framework in Frameworks */,
 				300FCCF023EE21CD00089CFB /* StoreKit.framework in Frameworks */,
 				30ECACDF24DB3D8A00C6BE7C /* SwiftUIX in Frameworks */,
+				30BECAD324DDAF00009F95D5 /* Purchases in Frameworks */,
+				30BECAE324DDB14E009F95D5 /* URLImage in Frameworks */,
 				30F1BBB32492DB9A0099169C /* AdSupport.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1577,6 +1595,8 @@
 				30A3BCB924C113780016955C /* StoreKit.framework in Frameworks */,
 				30A3BCBA24C113780016955C /* AdSupport.framework in Frameworks */,
 				30A3BCBC24C113780016955C /* NetworkExtension.framework in Frameworks */,
+				30BECADF24DDB11A009F95D5 /* URLImage in Frameworks */,
+				30BECAD724DDAF2C009F95D5 /* Purchases in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1589,6 +1609,8 @@
 				30F1BBB42492DBB50099169C /* AdSupport.framework in Frameworks */,
 				95087B85A8F99A3282E6AE87 /* Pods_Cactus_Stage.framework in Frameworks */,
 				30ECACE224DB3D9D00C6BE7C /* SwiftUIX in Frameworks */,
+				30BECAD524DDAF23009F95D5 /* Purchases in Frameworks */,
+				30BECAE124DDB128009F95D5 /* URLImage in Frameworks */,
 				3018B1262376687B0005333A /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2288,6 +2310,8 @@
 			name = "Cactus UnitTests";
 			packageProductDependencies = (
 				300D37B824D8C62D00351994 /* SwiftUIX */,
+				30BECADB24DDAF5A009F95D5 /* Purchases */,
+				30BECAE624DDB163009F95D5 /* URLImage */,
 			);
 			productName = "Cactus UnitTests";
 			productReference = 303BF741232A986A00164539 /* Cactus UnitTests.xctest */;
@@ -2308,6 +2332,8 @@
 			);
 			name = "Cactus Today Prod";
 			packageProductDependencies = (
+				30BECAD824DDAF39009F95D5 /* Purchases */,
+				30BECAE424DDB157009F95D5 /* URLImage */,
 			);
 			productName = "Cactus Today";
 			productReference = 304B210423D383E1007B016C /* Cactus Today Prod.appex */;
@@ -2334,6 +2360,8 @@
 			name = "Cactus Prod";
 			packageProductDependencies = (
 				30ECACDE24DB3D8A00C6BE7C /* SwiftUIX */,
+				30BECAD224DDAF00009F95D5 /* Purchases */,
+				30BECAE224DDB14E009F95D5 /* URLImage */,
 			);
 			productName = Cactus;
 			productReference = 30A281E722EA61A30041158E /* Cactus.app */;
@@ -2355,6 +2383,8 @@
 			);
 			name = "Cactus Local";
 			packageProductDependencies = (
+				30BECAD624DDAF2C009F95D5 /* Purchases */,
+				30BECADE24DDB11A009F95D5 /* URLImage */,
 			);
 			productName = Cactus;
 			productReference = 30A3BD0224C113780016955C /* Cactus Local.app */;
@@ -2379,6 +2409,8 @@
 			name = "Cactus Stage";
 			packageProductDependencies = (
 				30ECACE124DB3D9D00C6BE7C /* SwiftUIX */,
+				30BECAD424DDAF23009F95D5 /* Purchases */,
+				30BECAE024DDB128009F95D5 /* URLImage */,
 			);
 			productName = Cactus;
 			productReference = 30B6EA6B22EA5A9F00443E46 /* Cactus Stage.app */;
@@ -2436,6 +2468,8 @@
 			mainGroup = 30B6EA6222EA5A9F00443E46;
 			packageReferences = (
 				3050E70E24D88FB900DED2E1 /* XCRemoteSwiftPackageReference "SwiftUIX" */,
+				30BECAD124DDAF00009F95D5 /* XCRemoteSwiftPackageReference "purchases-ios" */,
+				30BECADD24DDB11A009F95D5 /* XCRemoteSwiftPackageReference "url-image" */,
 			);
 			productRefGroup = 30B6EA6C22EA5A9F00443E46 /* Products */;
 			projectDirPath = "";
@@ -4431,6 +4465,22 @@
 				kind = branch;
 			};
 		};
+		30BECAD124DDAF00009F95D5 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.5.2;
+			};
+		};
+		30BECADD24DDB11A009F95D5 /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.9.19;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -4438,6 +4488,56 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3050E70E24D88FB900DED2E1 /* XCRemoteSwiftPackageReference "SwiftUIX" */;
 			productName = SwiftUIX;
+		};
+		30BECAD224DDAF00009F95D5 /* Purchases */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30BECAD124DDAF00009F95D5 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = Purchases;
+		};
+		30BECAD424DDAF23009F95D5 /* Purchases */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30BECAD124DDAF00009F95D5 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = Purchases;
+		};
+		30BECAD624DDAF2C009F95D5 /* Purchases */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30BECAD124DDAF00009F95D5 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = Purchases;
+		};
+		30BECAD824DDAF39009F95D5 /* Purchases */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30BECAD124DDAF00009F95D5 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = Purchases;
+		};
+		30BECADB24DDAF5A009F95D5 /* Purchases */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30BECAD124DDAF00009F95D5 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = Purchases;
+		};
+		30BECADE24DDB11A009F95D5 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30BECADD24DDB11A009F95D5 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+		30BECAE024DDB128009F95D5 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30BECADD24DDB11A009F95D5 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+		30BECAE224DDB14E009F95D5 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30BECADD24DDB11A009F95D5 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+		30BECAE424DDB157009F95D5 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30BECADD24DDB11A009F95D5 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+		30BECAE624DDB163009F95D5 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30BECADD24DDB11A009F95D5 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
 		};
 		30ECACDE24DB3D8A00C6BE7C /* SwiftUIX */ = {
 			isa = XCSwiftPackageProductDependency;

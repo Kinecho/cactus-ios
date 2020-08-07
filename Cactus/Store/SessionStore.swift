@@ -73,12 +73,12 @@ final class SessionStore: NSObject, ObservableObject {
             self.member = member
             self.user = user
             
-            if let memberId = member?.id {
-                Purchases.shared.identify(memberId)
-            } else {
-                Purchases.shared.reset()
-            }
-            
+//            if let memberId = member?.id {
+//                Purchases.shared.identify(memberId)
+//            } else {
+//                Purchases.shared.reset()
+//            }
+//            
             self.authLoaded = true
             //            self.runPendingActions()
             self.runPendingAuthActions()

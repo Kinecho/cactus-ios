@@ -482,7 +482,6 @@ PODS:
   - NoveFeatherIcons (1.0.1)
   - PromisesObjC (1.2.9)
   - Protobuf (3.12.0)
-  - Purchases (3.4.0)
   - SDWebImage (5.8.4):
     - SDWebImage/Core (= 5.8.4)
   - SDWebImage/Core (5.8.4)
@@ -490,7 +489,6 @@ PODS:
     - Sentry/Core (= 5.1.10)
   - Sentry/Core (5.1.10)
   - SwiftLint (0.39.2)
-  - URLImage (0.9.19)
 
 DEPENDENCIES:
   - Branch
@@ -523,10 +521,8 @@ DEPENDENCIES:
   - GTMSessionFetcher
   - MarkdownKit (= 1.5)
   - NoveFeatherIcons (~> 1.0)
-  - Purchases (= 3.4.0)
   - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `5.1.10`)
   - SwiftLint
-  - URLImage
 
 SPEC REPOS:
   trunk:
@@ -573,10 +569,8 @@ SPEC REPOS:
     - NoveFeatherIcons
     - PromisesObjC
     - Protobuf
-    - Purchases
     - SDWebImage
     - SwiftLint
-    - URLImage
 
 EXTERNAL SOURCES:
   Sentry:
@@ -632,12 +626,10 @@ SPEC CHECKSUMS:
   NoveFeatherIcons: 7dc31d48b69cfb4d7bd7886d060d664411facd03
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
   Protobuf: 2793fcd0622a00b546c60e7cbbcc493e043e9bb9
-  Purchases: b8cac232e403ca51541a425a65992b902cecc044
   SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
   Sentry: 8715e88b813bde9ad37aead365d5b04ac7302153
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
-  URLImage: 107320dff147321cceb201af24e8a154f24e6aed
 
-PODFILE CHECKSUM: 9f9badd6c37e74a60b9c26ebcfc6e619ccece19d
+PODFILE CHECKSUM: ce0422dcfb5d4f2c3dfd8ca4284c7b813ca10128
 
 COCOAPODS: 1.8.4
