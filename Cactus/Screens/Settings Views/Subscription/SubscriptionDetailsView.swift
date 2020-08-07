@@ -100,7 +100,7 @@ struct SubscriptionDetailsViewModel: Identifiable {
     static func fromSubscriberData(_ data: SubscriberData, member: CactusMember?) -> SubscriptionDetailsViewModel {
         var model = SubscriptionDetailsViewModel(tier: member?.tier ?? .BASIC)
         model.trialDaysLeft = member?.subscription?.trialDaysLeft
-        model.loaded = !data.hasLoaded
+        model.loaded = data.hasLoaded
         
         let details = data.subscriptionDetails
         let info = data.purchaserInfo
@@ -109,7 +109,6 @@ struct SubscriptionDetailsViewModel: Identifiable {
         
         return model
     }
-    
 }
 
 struct SubscriptionDetailsView: View {
@@ -122,7 +121,7 @@ struct SubscriptionDetailsView: View {
         
         if expiresInFuture {
             if inTrial, model.willRenew, let expires = expiration {
-                  return "Your first bill is on \(expires)."
+                return "Your first bill is on \(expires)."
             } else if model.willRenew, let expires = expiration {
                 return "Your subscription will renew on \(expires)."
             } else if inTrial, !model.willRenew, let expires = expiration {
@@ -138,21 +137,30 @@ struct SubscriptionDetailsView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: Spacing.normal) {
-            VStack(alignment: .leading) {
-                Text("Current Plan").font(CactusFont.bold(FontSize.normal).font).foregroundColor(NamedColor.TextDefault.color)
-                Text(self.model.tier.displayName).foregroundColor(NamedColor.TextDefault.color)
+        Group {
+            if self.model.loaded {
+                VStack(alignment: .leading, spacing: Spacing.normal) {
+                    VStack(alignment: .leading) {
+                        Text("Current Plan").font(CactusFont.bold(FontSize.normal).font).foregroundColor(NamedColor.TextDefault.color)
+                        Text(self.model.tier.displayName).foregroundColor(NamedColor.TextDefault.color)
+                    }
+                    
+                    if self.billingCycleMessage != nil {
+                        Text(self.billingCycleMessage!).foregroundColor(NamedColor.TextDefault.color)
+                    }
+                    
+                    if self.model.billingPlatform != nil {
+                        PaymentInfoView(platform: self.model.billingPlatform!, manageUrl: self.model.manageSubscriptionUrl, cardBrand: self.model.ccBrand, last4: self.model.ccLast4)
+                    }
+                }.font(CactusFont.normal.font)
+            } else {
+                HStack {
+                    ActivityIndicator(isAnimating: .constant(true), style: .medium)
+                    Text("Loading...")
+                }.font(CactusFont.normal.font).foregroundColor(NamedColor.TextDefault.color)
             }
             
-            if self.billingCycleMessage != nil {
-                Text(self.billingCycleMessage!).foregroundColor(NamedColor.TextDefault.color)
-            }
-            
-            if self.model.billingPlatform != nil {
-                PaymentInfoView(platform: self.model.billingPlatform!, manageUrl: self.model.manageSubscriptionUrl, cardBrand: self.model.ccBrand, last4: self.model.ccLast4)
-            }
         }
-        .font(CactusFont.normal.font)
     }
 }
 
@@ -172,19 +180,19 @@ struct SubscriptionDetailsView_Previews: PreviewProvider {
                                      periodType: .trial,
                                      expirationDate: Date.plus(days: 4)),
         SubscriptionDetailsViewModel(tier: .PLUS,
-                                    billingPlatform: .APPLE,
-                                    willRenew: false,
-                                    periodType: .trial,
-                                    expirationDate: Date.plus(days: 4)),
+                                     billingPlatform: .APPLE,
+                                     willRenew: false,
+                                     periodType: .trial,
+                                     expirationDate: Date.plus(days: 4)),
         
         SubscriptionDetailsViewModel(tier: .PLUS,
                                      billingPlatform: .APPLE,
                                      willRenew: false,
                                      expirationDate: Date.plus(days: 4)),
         SubscriptionDetailsViewModel(tier: .PLUS,
-                                    billingPlatform: .APPLE,
-                                    willRenew: false,
-                                    expirationDate: Date.plus(days: -14)),
+                                     billingPlatform: .APPLE,
+                                     willRenew: false,
+                                     expirationDate: Date.plus(days: -14)),
     ]
     
     static var previews: some View {
