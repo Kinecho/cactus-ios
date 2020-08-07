@@ -12,19 +12,11 @@ import SwiftUI
 import FirebaseFirestore
 
 final class CheckoutStore: ObservableObject {
-//    @Published var subscriptionProducts: [SubscriptionProduct] = []
-//    @Published var productGroupEntryMap: SubscriptionProductGroupEntryMap?
     @Published var productGroupData: ProductGroupData = ProductGroupData()
-    
     static var shared = CheckoutStore()
     
-//    init(_ productGroupData: ProductGroupData?=nil) {
-//        self.productGroupData = productGroupData ?? ProductGroupData()
-//        CheckoutStore.shared = self
-//    }
-    
     func start() {
-        productGroupData.start()
+        productGroupData.start()        
     }
     
     func stop() {

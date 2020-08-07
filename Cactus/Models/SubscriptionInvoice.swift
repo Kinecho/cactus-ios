@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Purchases
 
 enum WalletType: String, Codable {
     case amex_express_checkout
@@ -106,10 +107,58 @@ enum BillingPlatform: String, Codable {
     case STRIPE
     case APPLE
     case GOOGLE
+    case PROMOTIONAL
     case unknown
     
     public init(from decoder: Decoder) throws {
         self = try BillingPlatform(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .unknown
+    }
+    
+    var displayName: String {
+        switch self {
+        case .STRIPE:
+            return "Stripe"
+        case .APPLE:
+            return "App Store"
+        case .GOOGLE:
+            return "Play Store"
+        case .PROMOTIONAL:
+            return "Promotional"
+        default:
+            return ""
+        }
+    }
+    
+    var cactusImage: CactusImage? {
+        switch self {
+        case .APPLE:
+            return CactusImage.apple
+        case .GOOGLE:
+            return CactusImage.google
+        case .STRIPE:
+            return CactusImage.creditCard
+        default:
+            return nil
+        }
+    }
+    
+    static func fromStore(_ store: Purchases.Store) -> BillingPlatform {
+        switch store {
+        case .macAppStore:
+            return .APPLE
+        case .appStore:
+            return .APPLE
+        case .playStore:
+            return .GOOGLE
+        case .promotional:
+            return .PROMOTIONAL
+        case .stripe:
+            return .STRIPE
+        case .unknownStore:
+            return .unknown
+        default:
+            return .unknown
+        }
     }
 }
 

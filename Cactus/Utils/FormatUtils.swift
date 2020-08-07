@@ -55,9 +55,25 @@ func formatPriceCents(_ price: Int?, truncateWholeDollar: Bool = true, currencyS
     return currencyFormatter.string(from: NSNumber(value: Double(price)/100))
 }
 
+struct CactusDateFormat {
+    static let journalCurrentYear = "MMMM d"
+    static let journalPastYear = "MMMM d, yyyy"
+}
+
 struct FormatUtils {
     static func hasChanges(_ input: String?, _ original: String?) -> Bool {
         return toEmptyString(input).trimmingCharacters(in: .whitespacesAndNewlines) != toEmptyString(original).trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
+    static func localizedDate(_ date: Date?, dateStyle: DateFormatter.Style = .full, timeStyle: DateFormatter.Style = .none) -> String? {
+        var dateString: String?
+        if let date = date {
+            let df = DateFormatter()
+            df.dateStyle = dateStyle
+            df.timeStyle = timeStyle
+            dateString = df.string(from: date)
+        }
+        return dateString
     }
     
     static func formatDate(_ date: Date?, currentYearFormat: String="MMMM d", previousYearFormat: String="MMMM d, yyyy") -> String? {

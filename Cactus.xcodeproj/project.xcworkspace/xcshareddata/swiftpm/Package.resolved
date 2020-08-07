@@ -5,9 +5,9 @@
         "package": "SwiftUIX",
         "repositoryURL": "https://github.com/SwiftUIX/SwiftUIX.git",
         "state": {
-          "branch": null,
-          "revision": "a8800c46a18e72485c616cbfc8cebc39fe84699e",
-          "version": "0.0.1"
+          "branch": "master",
+          "revision": "fc7185ecb55681c51971533bea0ec54d4500466d",
+          "version": null
         }
       }
     ]

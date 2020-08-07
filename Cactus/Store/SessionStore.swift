@@ -10,15 +10,18 @@ import Foundation
 import Combine
 import SwiftUI
 import FirebaseFirestore
+import Purchases
 
 typealias PendingAction = (_ member: CactusMember?) -> Void
 
-final class SessionStore: ObservableObject {
+final class SessionStore: NSObject, ObservableObject {
     @Published var authLoaded = false
     @Published var member: CactusMember?
     @Published var user: FirebaseUser?
     @Published var settings: AppSettings?
     @Published var useImagePlaceholders: Bool = false
+    @Published var subscriberData: SubscriberData = SubscriberData()
+    
     static var shared = SessionStore()
     
     var useMockImages = false
@@ -51,6 +54,10 @@ final class SessionStore: ObservableObject {
             self.journalFeedDataSource = feed
             feed.delegate = self
             feed.start()
+        }
+        
+        self.addAuthAction { member in
+            self.subscriberData.fetch(member)
         }
     }
     
@@ -183,3 +190,4 @@ extension SessionStore: JournalFeedDataSourceDelegate {
         }
     }
 }
+

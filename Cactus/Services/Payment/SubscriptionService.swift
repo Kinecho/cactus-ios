@@ -8,6 +8,9 @@
 
 import Foundation
 import StoreKit
+import Purchases
+
+typealias RevenueCat = Purchases
 
 //Methods to help with the checkout process
 class SubscriptionService: NSObject {
@@ -79,6 +82,7 @@ class SubscriptionService: NSObject {
         
         return
     }
+    
     
     func getSubscriptionDetails(_ onData: @escaping (SubscriptionDetails?, Any?) -> Void) {
         ApiService.sharedInstance.get(path: .checkoutSubscriptionDetails, responseType: SubscriptionDetails.self, authenticated: true) { response, error in
