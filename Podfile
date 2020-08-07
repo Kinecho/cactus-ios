@@ -18,45 +18,46 @@ def google_utilites
 end
 
 def app_pods
-  pod 'Firebase/Crashlytics'
+  pod 'Branch'
+  pod 'Cloudinary', '~> 2.0'
   pod 'CodableFirebase'
+  pod 'FacebookCore'
+  pod 'FBSDKCoreKit'  
   pod 'Firebase/Auth'
   pod 'Firebase/Core'
+  pod 'Firebase/Crashlytics'
   pod 'Firebase/DynamicLinks'
   pod 'Firebase/Messaging'
   pod 'Firebase/Performance'
   pod 'Firebase/Storage'
-  pod 'Firebase/Firestore'
-  pod 'FirebaseFirestoreSwift'
+  pod 'Firebase/Firestore'  
   pod 'Firebase/InAppMessaging'
   pod 'Firebase/Analytics'
+  pod 'FirebaseFirestoreSwift'
   pod 'FirebaseUI'
-  pod 'FirebaseUI/Storage'
-  pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '5.1.10'
+  pod 'FirebaseUI/Storage'  
   pod 'MarkdownKit', '1.5'
-  pod 'Cloudinary', '~> 2.0'
-  pod 'SwiftLint'
-  pod 'FBSDKCoreKit'
-  pod 'FacebookCore'
-  pod 'Branch'
-  pod 'Purchases', '3.4.0'
-  pod 'URLImage'
   pod "NoveFeatherIcons", "~> 1.0"
+  pod 'Purchases', '3.4.0'
+  pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '5.1.10'  
+  pod 'SwiftLint'    
+  pod 'URLImage'  
 end
 
 
 def today_pods
+    pod 'Cloudinary', '~> 2.0'
     pod 'CodableFirebase'
     pod 'Firebase/Auth'
     pod 'Firebase/Core'
     pod 'Firebase/Firestore'
     pod 'FirebaseFirestoreSwift'
-    pod 'Firebase/Storage'
-    pod 'Cloudinary', '~> 2.0'
-    pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '5.1.10'
+    pod 'Firebase/Storage'        
     pod 'MarkdownKit', '1.5'    
-    pod 'URLImage'
     pod "NoveFeatherIcons", "~> 1.0"
+    pod 'Purchases', '3.4.0'
+    pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '5.1.10'
+    pod 'URLImage'    
 end
 
 target 'Cactus Stage' do  
