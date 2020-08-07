@@ -146,6 +146,14 @@
 		3014D59E24DDD916007AF70B /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = 3014D59D24DDD916007AF70B /* Sentry */; };
 		3014D5A024DDD91E007AF70B /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = 3014D59F24DDD91E007AF70B /* Sentry */; };
 		3014D5A124DDF7D3007AF70B /* SubscriberData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BECAC324DC7F0A009F95D5 /* SubscriberData.swift */; };
+		3014D5A424DE0BD9007AF70B /* NotificationOnboardingRepresentableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3014D5A324DE0BD9007AF70B /* NotificationOnboardingRepresentableView.swift */; };
+		3014D5A524DE0BD9007AF70B /* NotificationOnboardingRepresentableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3014D5A324DE0BD9007AF70B /* NotificationOnboardingRepresentableView.swift */; };
+		3014D5A624DE0BD9007AF70B /* NotificationOnboardingRepresentableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3014D5A324DE0BD9007AF70B /* NotificationOnboardingRepresentableView.swift */; };
+		3014D5A724DE0BD9007AF70B /* NotificationOnboardingRepresentableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3014D5A324DE0BD9007AF70B /* NotificationOnboardingRepresentableView.swift */; };
+		3014D5AA24DE1074007AF70B /* NotificationsOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3014D5A924DE1074007AF70B /* NotificationsOnboardingView.swift */; };
+		3014D5AB24DE1074007AF70B /* NotificationsOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3014D5A924DE1074007AF70B /* NotificationsOnboardingView.swift */; };
+		3014D5AC24DE1074007AF70B /* NotificationsOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3014D5A924DE1074007AF70B /* NotificationsOnboardingView.swift */; };
+		3014D5AD24DE1074007AF70B /* NotificationsOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3014D5A924DE1074007AF70B /* NotificationsOnboardingView.swift */; };
 		3018B11D23751DE70005333A /* AppIconSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018B11C23751DE70005333A /* AppIconSettingsViewController.swift */; };
 		3018B11E23751DE70005333A /* AppIconSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018B11C23751DE70005333A /* AppIconSettingsViewController.swift */; };
 		3018B1202376041A0005333A /* LoggerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018B11F2376041A0005333A /* LoggerUtil.swift */; };
@@ -1263,6 +1271,8 @@
 		300FCCFF23EE3CD200089CFB /* SubscriptionProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionProductService.swift; sourceTree = "<group>"; };
 		300FCD0523EE811200089CFB /* SubscriptionProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionProductCell.swift; sourceTree = "<group>"; };
 		3014A38B2378CA0300121729 /* TertiaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TertiaryButton.swift; sourceTree = "<group>"; };
+		3014D5A324DE0BD9007AF70B /* NotificationOnboardingRepresentableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOnboardingRepresentableView.swift; sourceTree = "<group>"; };
+		3014D5A924DE1074007AF70B /* NotificationsOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsOnboardingView.swift; sourceTree = "<group>"; };
 		3018B11C23751DE70005333A /* AppIconSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSettingsViewController.swift; sourceTree = "<group>"; };
 		3018B11F2376041A0005333A /* LoggerUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerUtil.swift; sourceTree = "<group>"; };
 		3018B1222376182D0005333A /* JournalEntryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryData.swift; sourceTree = "<group>"; };
@@ -1702,6 +1712,22 @@
 			path = Payment;
 			sourceTree = "<group>";
 		};
+		3014D5A224DE0B97007AF70B /* UIRepresentable */ = {
+			isa = PBXGroup;
+			children = (
+				3014D5A324DE0BD9007AF70B /* NotificationOnboardingRepresentableView.swift */,
+			);
+			path = UIRepresentable;
+			sourceTree = "<group>";
+		};
+		3014D5A824DE105D007AF70B /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				3014D5A924DE1074007AF70B /* NotificationsOnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		301C1A8E236F7E7B00F06A3D /* Cactus Animations */ = {
 			isa = PBXGroup;
 			children = (
@@ -1817,6 +1843,8 @@
 		305366BC24C66C7D00927498 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				3014D5A824DE105D007AF70B /* Onboarding */,
+				3014D5A224DE0B97007AF70B /* UIRepresentable */,
 				300D37D424DA332400351994 /* Settings Views */,
 				305366DE24C6909200927498 /* Supplemental Views */,
 				305366C324C66CBB00927498 /* AppMain.swift */,
@@ -3120,8 +3148,10 @@
 				3055D943240E99BD00981DA2 /* SubscriptionService.swift in Sources */,
 				30DCA5E72441207500D520D4 /* PromptEntryCollectionViewCell.swift in Sources */,
 				30AB072E244E449D006ACB98 /* File.swift in Sources */,
+				3014D5AD24DE1074007AF70B /* NotificationsOnboardingView.swift in Sources */,
 				303C9DE023841A71006B9786 /* JournalFeedFlowLayout.swift in Sources */,
 				30ECACE524DB5D0C00C6BE7C /* CactusColorTests.swift in Sources */,
+				3014D5A724DE0BD9007AF70B /* NotificationOnboardingRepresentableView.swift in Sources */,
 				303C9E2123841ACC006B9786 /* RoundedButton.swift in Sources */,
 				30DCA5F224417AA400D520D4 /* PromptContentDataSource.swift in Sources */,
 				3021CBD92410215500F58B89 /* NavigationService.swift in Sources */,
@@ -3420,6 +3450,7 @@
 				3077381024CBC72A00D0C5BE /* AppTabs.swift in Sources */,
 				307B628624AD3B7200A4560E /* TextViewPlaceholderDelegate.swift in Sources */,
 				3072744D236A56AD00309B3C /* ModalViewController.swift in Sources */,
+				3014D5A624DE0BD9007AF70B /* NotificationOnboardingRepresentableView.swift in Sources */,
 				303C9E4723847A3B006B9786 /* MemberProfileService.swift in Sources */,
 				307ED79024086E82008D26C6 /* SubscriptionUtil.swift in Sources */,
 				30BF2E1523282BD600A49EB6 /* PromptContentService.swift in Sources */,
@@ -3453,6 +3484,7 @@
 				3018B1212376041A0005333A /* LoggerUtil.swift in Sources */,
 				305424EB23AC0432003F82A2 /* UIStackViewExtensionis.swift in Sources */,
 				305366C624C66CBB00927498 /* AppMain.swift in Sources */,
+				3014D5AC24DE1074007AF70B /* NotificationsOnboardingView.swift in Sources */,
 				30727435236A295300309B3C /* AppSettingsService.swift in Sources */,
 				307ED79C24088C7E008D26C6 /* UpgradeJournalFeedCollectionReusableView.swift in Sources */,
 				303C9DCF237FD7D1006B9786 /* ViewSharedReflectionViewController.swift in Sources */,
@@ -3643,6 +3675,7 @@
 				3077380E24CBC72A00D0C5BE /* AppTabs.swift in Sources */,
 				30A3BC6024C113780016955C /* TextViewPlaceholderDelegate.swift in Sources */,
 				30A3BC6124C113780016955C /* ModalViewController.swift in Sources */,
+				3014D5A424DE0BD9007AF70B /* NotificationOnboardingRepresentableView.swift in Sources */,
 				30A3BC6224C113780016955C /* MemberProfileService.swift in Sources */,
 				30A3BC6324C113780016955C /* SubscriptionUtil.swift in Sources */,
 				30A3BC6424C113780016955C /* CactusColor.swift in Sources */,
@@ -3676,6 +3709,7 @@
 				30A3BC7A24C113780016955C /* LoggerUtil.swift in Sources */,
 				30A3BC7B24C113780016955C /* UIStackViewExtensionis.swift in Sources */,
 				305366C424C66CBB00927498 /* AppMain.swift in Sources */,
+				3014D5AA24DE1074007AF70B /* NotificationsOnboardingView.swift in Sources */,
 				30A3BC7C24C113780016955C /* AppSettingsService.swift in Sources */,
 				30A3BC7D24C113780016955C /* UpgradeJournalFeedCollectionReusableView.swift in Sources */,
 				30A3BC7E24C113780016955C /* ViewSharedReflectionViewController.swift in Sources */,
@@ -3866,6 +3900,7 @@
 				3077380F24CBC72A00D0C5BE /* AppTabs.swift in Sources */,
 				307B628524AD3B7200A4560E /* TextViewPlaceholderDelegate.swift in Sources */,
 				3072744C236A56AD00309B3C /* ModalViewController.swift in Sources */,
+				3014D5A524DE0BD9007AF70B /* NotificationOnboardingRepresentableView.swift in Sources */,
 				303C9E4623847A3B006B9786 /* MemberProfileService.swift in Sources */,
 				307ED78F24086E82008D26C6 /* SubscriptionUtil.swift in Sources */,
 				30C49D3822EC2D4C00A2EA95 /* CactusColor.swift in Sources */,
@@ -3899,6 +3934,7 @@
 				3018B1202376041A0005333A /* LoggerUtil.swift in Sources */,
 				305424EA23AC0432003F82A2 /* UIStackViewExtensionis.swift in Sources */,
 				305366C524C66CBB00927498 /* AppMain.swift in Sources */,
+				3014D5AB24DE1074007AF70B /* NotificationsOnboardingView.swift in Sources */,
 				30727434236A295300309B3C /* AppSettingsService.swift in Sources */,
 				307ED79B24088C7E008D26C6 /* UpgradeJournalFeedCollectionReusableView.swift in Sources */,
 				303C9DCE237FD7D1006B9786 /* ViewSharedReflectionViewController.swift in Sources */,

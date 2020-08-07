@@ -17,9 +17,7 @@ class JournalFeedPromptDelegate: ObservableObject, PromptContentPageViewControll
         self.logger.info("Prompt was dismissed")
         self.showNotificationsOnboarding = true
     }
-    
 }
-
 
 struct JournalFeed: View  {
     @EnvironmentObject var session: SessionStore
@@ -85,7 +83,7 @@ struct JournalFeed: View  {
             if self.showDetail && self.selectedEntry != nil {
                 PromptContentView(entry: self.selectedEntry!, onPromptDismiss: self.onPromptDismiss).environmentObject(self.session)
             } else if self.showNotificationOnboarding {
-                Text("This is notification Onboarding")
+                NotificationsOnboardingView()
             }
         }
     }
