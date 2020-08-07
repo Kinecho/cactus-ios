@@ -31,8 +31,6 @@ class PromptContentPageViewController: UIPageViewController {
     var logger = Logger(fileName: "PromptContentPageViewController")
     var celebrateVc: CelebrateViewController?
     var appSettings: AppSettings?
-//    var settingsUnsubscriber: ListenerRegistration?
-//    var memberUnsubscriber: Unsubscriber?
 
     var member: CactusMember? {
         didSet {

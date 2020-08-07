@@ -80,7 +80,7 @@ class ManageSubscriptionViewController: UIViewController {
         
         self.detailsLoading = true
         if self.member?.tier.isPaidTier == true {
-            SubscriptionService.sharedInstance.getSubscriptionDetails { (details, error) in
+            ApiService.sharedInstance.getSubscriptionDetails { (details, error) in
                 defer {
                     self.detailsLoading = false
                 }

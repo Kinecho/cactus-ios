@@ -63,7 +63,7 @@ class CountProcess {
                 stepDelayUsec: useconds_t = 10_000,
                 valueChanged: @escaping (_ currentValue: Int) -> Void,
                 completion: ((_ currentValue: Int) -> Void)? = nil) {
-        var step = step
+        var step: Int = step
         var numSteps = UInt32(max((self.maxValue - self.minValue), 1) / step)
         
         while numSteps >= 100 {
@@ -71,7 +71,7 @@ class CountProcess {
             numSteps = UInt32(max((self.maxValue - self.minValue), 1) / step)
         }
         
-        var delay = stepDelayUsec
+        var delay: useconds_t = stepDelayUsec
         if let duration = self.duration {
             delay = UInt32(duration / numSteps) * 1000
         }
@@ -80,7 +80,7 @@ class CountProcess {
             delay = min(UInt32((maxDuration * 1000) / numSteps), delay)
         }
         
-        let actualDelay = max(1, min(delay, 200_000))
+        let actualDelay: useconds_t = max(1, min(delay, 200_000))
         simulateLoading(toValue: maxValue, step: step, stepDelayUsec: actualDelay, valueChanged: valueChanged, completion: completion)
     }
 }

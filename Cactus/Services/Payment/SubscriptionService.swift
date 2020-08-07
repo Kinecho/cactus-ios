@@ -83,13 +83,6 @@ class SubscriptionService: NSObject {
         return
     }
     
-    
-    func getSubscriptionDetails(_ onData: @escaping (SubscriptionDetails?, Any?) -> Void) {
-        ApiService.sharedInstance.get(path: .checkoutSubscriptionDetails, responseType: SubscriptionDetails.self, authenticated: true) { response, error in
-            onData(response, error)
-        }
-    }
-    
     func submitPurchase(product: SKProduct) {
         guard self.isAuthorizedForPayments == true else {
             let alert = UIAlertController(title: "Not Authorized", message: "This device is not authorized to make payments.", preferredStyle: .alert)

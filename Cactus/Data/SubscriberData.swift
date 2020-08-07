@@ -9,6 +9,11 @@
 import Foundation
 import SwiftUI
 import Purchases
+
+enum SubscriberDataError: Error {
+    case noMember
+}
+
 class SubscriberData: ObservableObject {
     var hasLoaded: Bool {
         purchaserInfoLoaded && detailsLoaded
@@ -16,26 +21,44 @@ class SubscriberData: ObservableObject {
     @Published var error: Error?
     @Published var subscriptionDetails: SubscriptionDetails?
     @Published var detailsLoaded = false
-    @Published var purchaserInfo: RevenueCat.PurchaserInfo?
+    @Published var purchaserInfo: Purchases.PurchaserInfo?
     @Published var purchaserInfoLoaded = false
     
-    var member: CactusMember?
-    
+    private var member: CactusMember?
     let logger = Logger("SubscriberData")
     
     init(autoFetch: Bool=true) {
         if autoFetch {
-            self.fetch(nil)
+            self.fetch()
         }
     }
     
-    func fetch(_ member: CactusMember?=nil) {
+    func setMember(_ member: CactusMember?) {
+        let previous = self.member
+        self.member = member
+        if previous?.tier != member?.tier {
+            self.fetch()
+        }
+    }
+    
+    func fetch() {
+        
         DispatchQueue.main.async {
             self.detailsLoaded = false
             self.purchaserInfoLoaded = false
-        }        
-//        self.member = member
-        SubscriptionService.sharedInstance.getSubscriptionDetails { (details, error) in
+            self.error = nil
+        }
+        
+        guard self.member != nil else {
+            DispatchQueue.main.async {
+                self.detailsLoaded = true
+                self.purchaserInfoLoaded = true
+                self.error = SubscriberDataError.noMember
+            }
+            return
+        }
+        
+        ApiService.sharedInstance.getSubscriptionDetails { (details, error) in
             if let error = error {
                 self.logger.error("Failed to get revenuecat purchaser info", error)
             }
@@ -45,8 +68,8 @@ class SubscriberData: ObservableObject {
             }
             
         }
-        RevenueCat.shared.invalidatePurchaserInfoCache()
-        RevenueCat.shared.purchaserInfo { (info, error) in
+        Purchases.shared.invalidatePurchaserInfoCache()
+        Purchases.shared.purchaserInfo { (info, error) in
             if let error = error {
                 self.logger.error("Failed to get revenuecat purchaser info", error)
             }
@@ -73,7 +96,7 @@ extension SubscriberData {
         var detailsLoaded = true
         
         var details: SubscriptionDetails?
-        var info: RevenueCat.PurchaserInfo?
+        var info: Purchases.PurchaserInfo?
         
         func setPurchaserLoaded(_ loaded: Bool=true) -> Builder {
             self.revenueCatLoaded = loaded
@@ -85,7 +108,7 @@ extension SubscriberData {
             return self
         }
         
-        func setPurchaserInfo(_ info: RevenueCat.PurchaserInfo?) -> Builder {
+        func setPurchaserInfo(_ info: Purchases.PurchaserInfo?) -> Builder {
             self.info = info
             return self
         }

@@ -14,14 +14,17 @@ import Purchases
 
 typealias PendingAction = (_ member: CactusMember?) -> Void
 
-final class SessionStore: NSObject, ObservableObject {
+final class SessionStore: ObservableObject {
     @Published var authLoaded = false
     @Published var member: CactusMember?
     @Published var user: FirebaseUser?
     @Published var settings: AppSettings?
     @Published var useImagePlaceholders: Bool = false
+    @Published var subscriberData = SubscriberData(autoFetch: false)
     
     static var shared = SessionStore()
+    
+    var subscriberCancellable: AnyCancellable?
     
     var useMockImages = false
     var pendingAuthActions: [PendingAction] = []
@@ -33,6 +36,11 @@ final class SessionStore: NSObject, ObservableObject {
     @Published var journalLoaded = false
     
     let logger = Logger("SessionStore")
+    
+    
+    init() {
+        self.subscriberCancellable = subscriberData.objectWillChange.sink(receiveValue: { self.objectWillChange.send() })
+    }
     
     func start() {
         self.settingsObserver = AppSettingsService.sharedInstance.observeSettings { (settings, error) in
@@ -59,17 +67,6 @@ final class SessionStore: NSObject, ObservableObject {
     func setupAuth() {
         self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember { (member, _, user) in
             self.logger.info("setup auth onData \(member?.email ?? "no email")" )
-            
-            //            if member == nil && user == nil {
-            //                self.logger.info("found member is null. showing loign screen.")
-            //                self.showWelcomeScreen()
-            //            } else if member == nil && user != nil {
-            //                self.logger.info("User is logged in but no member was found (yet). We're probably still creating the member. Don't do anything!")
-            //            } else if let member = member, member.id != self.member?.id {
-            //                self.logger.info("Found member, not null. showing journal home page")
-            //                CactusAnalytics.shared.setSubscriptionTier(member: member)
-            //                self.showJournalHome(member: member, wrapInNav: true)
-            //            }
             self.member = member
             self.user = user
             
@@ -78,9 +75,8 @@ final class SessionStore: NSObject, ObservableObject {
 //            } else {
 //                Purchases.shared.reset()
 //            }
-//            
+            self.subscriberData.setMember(member)
             self.authLoaded = true
-            //            self.runPendingActions()
             self.runPendingAuthActions()
         }
     }

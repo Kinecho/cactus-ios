@@ -28,10 +28,13 @@ struct LegacySubscriptionSettingsViewController: UIViewControllerRepresentable {
 }
 
 struct SubscriptionSettingsView: View {
-    @ObservedObject var data = SubscriberData()
     @EnvironmentObject var session: SessionStore
     @EnvironmentObject var checkout: CheckoutStore
     @State var showPricing: Bool = false
+    
+    var data: SubscriberData {
+        return session.subscriberData
+    }
     
     var logger = Logger("SubscriptionSettingsView")
     var plusEntitlement: RevenueCat.EntitlementInfo? {
@@ -140,11 +143,11 @@ struct SubscriptionSettingsView: View {
 //                }
                 
             }
-            .onAppear {
-                DispatchQueue.main.async {
-                    self.data.fetch(nil)
-                }
-            }
+//            .onAppear {
+//                DispatchQueue.main.async {
+//                    self.data.fetch()
+//                }
+//            }
             .padding()
             .frame(minWidth: 0,
                    maxWidth: .infinity,

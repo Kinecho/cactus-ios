@@ -9,38 +9,62 @@
 import SwiftUI
 
 struct PromptContentController: UIViewControllerRepresentable {
-    var promptContent: PromptContent
+    var entry: JournalEntry
     @EnvironmentObject var session: SessionStore
-    weak var delegate: PromptContentPageViewControllerDelegate?
+//    weak var delegate: PromptContentPageViewControllerDelegate?
+    var onDismiss: ((PromptContent) -> Void)?
     
     func makeUIViewController(context: Context) -> PromptContentPageViewController {
         let view = ScreenID.promptContentPageView.getViewController() as! PromptContentPageViewController
-        view.promptContent = self.promptContent
-        view.promptDelegate = self.delegate
+        view.promptContent = self.entry.promptContent
+        view.reflectionResponse = self.entry.responses?.first
+        view.promptDelegate = context.coordinator
         view.member = session.member
         view.appSettings = session.settings
         return view
     }
     
     func updateUIViewController(_ uiViewController: PromptContentPageViewController, context: Context) {
-        uiViewController.promptDelegate = self.delegate
+        uiViewController.promptDelegate = context.coordinator
         uiViewController.member = session.member
         uiViewController.appSettings = session.settings
-        uiViewController.promptContent = self.promptContent
+        uiViewController.promptContent = self.entry.promptContent
+        uiViewController.reflectionResponse = self.entry.responses?.first
+    }
+    
+    class Coordinator: PromptContentPageViewControllerDelegate {
+        var parent: PromptContentController
         
+        init(_ parent: PromptContentController) {
+            self.parent = parent
+        }
+        
+        func didDismissPrompt(promptContent: PromptContent) {
+            Logger.shared.info("Coordiator: prompt was dismissed")
+            self.parent.onDismiss?(promptContent)
+        }
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
     }
 }
 
 struct PromptContentView: View {
     @EnvironmentObject var session: SessionStore
     var entry: JournalEntry
-    weak var delegate: PromptContentPageViewControllerDelegate?
+
+    var onPromptDismiss: ((PromptContent) -> Void)?
+    
     var body: some View {
         Group {
-            if self.entry.promptContent == nil || !self.entry.promptContentLoaded {
-                Loading("No Content Found Yet")
+            if self.entry.promptContent == nil || !self.entry.loadingComplete {
+                HStack{
+                    ActivityIndicator(isAnimating: .constant(true), style: .medium)
+                    Loading("Loading...")
+                }
             } else {
-                PromptContentController(promptContent: self.entry.promptContent!, delegate: self.delegate)
+                PromptContentController(entry: self.entry, onDismiss: self.onPromptDismiss)
                     .edgesIgnoringSafeArea(.bottom)
             }
         }

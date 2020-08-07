@@ -141,6 +141,11 @@
 		300FCD0723EE811200089CFB /* SubscriptionProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCD0523EE811200089CFB /* SubscriptionProductCell.swift */; };
 		3014A38C2378CA0300121729 /* TertiaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3014A38B2378CA0300121729 /* TertiaryButton.swift */; };
 		3014A38D2378CA0300121729 /* TertiaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3014A38B2378CA0300121729 /* TertiaryButton.swift */; };
+		3014D59A24DDD8ED007AF70B /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = 3014D59924DDD8ED007AF70B /* Sentry */; };
+		3014D59C24DDD90A007AF70B /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = 3014D59B24DDD90A007AF70B /* Sentry */; };
+		3014D59E24DDD916007AF70B /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = 3014D59D24DDD916007AF70B /* Sentry */; };
+		3014D5A024DDD91E007AF70B /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = 3014D59F24DDD91E007AF70B /* Sentry */; };
+		3014D5A124DDF7D3007AF70B /* SubscriberData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BECAC324DC7F0A009F95D5 /* SubscriberData.swift */; };
 		3018B11D23751DE70005333A /* AppIconSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018B11C23751DE70005333A /* AppIconSettingsViewController.swift */; };
 		3018B11E23751DE70005333A /* AppIconSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018B11C23751DE70005333A /* AppIconSettingsViewController.swift */; };
 		3018B1202376041A0005333A /* LoggerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018B11F2376041A0005333A /* LoggerUtil.swift */; };
@@ -1570,6 +1575,7 @@
 				5512428B40A08648C6DB9597 /* Pods_Cactus_Today_Prod.framework in Frameworks */,
 				30BECAE524DDB157009F95D5 /* URLImage in Frameworks */,
 				30BECAD924DDAF39009F95D5 /* Purchases in Frameworks */,
+				3014D5A024DDD91E007AF70B /* Sentry in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1579,6 +1585,7 @@
 			files = (
 				30ECACE024DB3D8A00C6BE7C /* SwiftUI.framework in Frameworks */,
 				305EF71024DA70590075821F /* NetworkExtension.framework in Frameworks */,
+				3014D59E24DDD916007AF70B /* Sentry in Frameworks */,
 				76F23F2602ADC65094F1CF3B /* Pods_Cactus_Prod.framework in Frameworks */,
 				300FCCF023EE21CD00089CFB /* StoreKit.framework in Frameworks */,
 				30ECACDF24DB3D8A00C6BE7C /* SwiftUIX in Frameworks */,
@@ -1597,6 +1604,7 @@
 				30A3BCBC24C113780016955C /* NetworkExtension.framework in Frameworks */,
 				30BECADF24DDB11A009F95D5 /* URLImage in Frameworks */,
 				30BECAD724DDAF2C009F95D5 /* Purchases in Frameworks */,
+				3014D59A24DDD8ED007AF70B /* Sentry in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1606,6 +1614,7 @@
 			files = (
 				30ECACE324DB3D9D00C6BE7C /* SwiftUI.framework in Frameworks */,
 				300FCCEF23EE21C000089CFB /* StoreKit.framework in Frameworks */,
+				3014D59C24DDD90A007AF70B /* Sentry in Frameworks */,
 				30F1BBB42492DBB50099169C /* AdSupport.framework in Frameworks */,
 				95087B85A8F99A3282E6AE87 /* Pods_Cactus_Stage.framework in Frameworks */,
 				30ECACE224DB3D9D00C6BE7C /* SwiftUIX in Frameworks */,
@@ -2334,6 +2343,7 @@
 			packageProductDependencies = (
 				30BECAD824DDAF39009F95D5 /* Purchases */,
 				30BECAE424DDB157009F95D5 /* URLImage */,
+				3014D59F24DDD91E007AF70B /* Sentry */,
 			);
 			productName = "Cactus Today";
 			productReference = 304B210423D383E1007B016C /* Cactus Today Prod.appex */;
@@ -2362,6 +2372,7 @@
 				30ECACDE24DB3D8A00C6BE7C /* SwiftUIX */,
 				30BECAD224DDAF00009F95D5 /* Purchases */,
 				30BECAE224DDB14E009F95D5 /* URLImage */,
+				3014D59D24DDD916007AF70B /* Sentry */,
 			);
 			productName = Cactus;
 			productReference = 30A281E722EA61A30041158E /* Cactus.app */;
@@ -2385,6 +2396,7 @@
 			packageProductDependencies = (
 				30BECAD624DDAF2C009F95D5 /* Purchases */,
 				30BECADE24DDB11A009F95D5 /* URLImage */,
+				3014D59924DDD8ED007AF70B /* Sentry */,
 			);
 			productName = Cactus;
 			productReference = 30A3BD0224C113780016955C /* Cactus Local.app */;
@@ -2411,6 +2423,7 @@
 				30ECACE124DB3D9D00C6BE7C /* SwiftUIX */,
 				30BECAD424DDAF23009F95D5 /* Purchases */,
 				30BECAE024DDB128009F95D5 /* URLImage */,
+				3014D59B24DDD90A007AF70B /* Sentry */,
 			);
 			productName = Cactus;
 			productReference = 30B6EA6B22EA5A9F00443E46 /* Cactus Stage.app */;
@@ -2470,6 +2483,7 @@
 				3050E70E24D88FB900DED2E1 /* XCRemoteSwiftPackageReference "SwiftUIX" */,
 				30BECAD124DDAF00009F95D5 /* XCRemoteSwiftPackageReference "purchases-ios" */,
 				30BECADD24DDB11A009F95D5 /* XCRemoteSwiftPackageReference "url-image" */,
+				3014D59824DDD8ED007AF70B /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
 			);
 			productRefGroup = 30B6EA6C22EA5A9F00443E46 /* Products */;
 			projectDirPath = "";
@@ -3278,6 +3292,7 @@
 				304B212A23D38F65007B016C /* AppSettings.swift in Sources */,
 				30D6E33D24CB921300A4EA75 /* MockData.swift in Sources */,
 				304B215723D392C2007B016C /* PrimaryButton.swift in Sources */,
+				3014D5A124DDF7D3007AF70B /* SubscriberData.swift in Sources */,
 				304B214F23D392C2007B016C /* BorderedTextView.swift in Sources */,
 				3021CBDB2410251D00F58B89 /* SubscriptionPlanOptionView.swift in Sources */,
 				304B215623D392C2007B016C /* PillLabelView.swift in Sources */,
@@ -4090,7 +4105,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.cactus.CactusApp.Cactus-Today";
 				SKIP_INSTALL = YES;
-				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -4390,7 +4405,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cactus.StageCactus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.cactus.StageCactus";
-				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -4457,6 +4472,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3014D59824DDD8ED007AF70B /* XCRemoteSwiftPackageReference "sentry-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/getsentry/sentry-cocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.0;
+			};
+		};
 		3050E70E24D88FB900DED2E1 /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX.git";
@@ -4488,6 +4511,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3050E70E24D88FB900DED2E1 /* XCRemoteSwiftPackageReference "SwiftUIX" */;
 			productName = SwiftUIX;
+		};
+		3014D59924DDD8ED007AF70B /* Sentry */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3014D59824DDD8ED007AF70B /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
+			productName = Sentry;
+		};
+		3014D59B24DDD90A007AF70B /* Sentry */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3014D59824DDD8ED007AF70B /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
+			productName = Sentry;
+		};
+		3014D59D24DDD916007AF70B /* Sentry */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3014D59824DDD8ED007AF70B /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
+			productName = Sentry;
+		};
+		3014D59F24DDD91E007AF70B /* Sentry */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3014D59824DDD8ED007AF70B /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
+			productName = Sentry;
 		};
 		30BECAD224DDAF00009F95D5 /* Purchases */ = {
 			isa = XCSwiftPackageProductDependency;

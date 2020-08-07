@@ -8,25 +8,50 @@
 
 import SwiftUI
 
-struct JournalFeed: View {    
+class JournalFeedPromptDelegate: ObservableObject, PromptContentPageViewControllerDelegate {
+    let logger = Logger("JournalFeedPromptDelegate")
+    
+    @Published var showNotificationsOnboarding: Bool = false
+    
+    func didDismissPrompt(promptContent: PromptContent) {
+        self.logger.info("Prompt was dismissed")
+        self.showNotificationsOnboarding = true
+    }
+    
+}
+
+
+struct JournalFeed: View  {
     @EnvironmentObject var session: SessionStore
     @EnvironmentObject var checkout: CheckoutStore
+    @ObservedObject var promptDelegate = JournalFeedPromptDelegate()
     
     var entries: [JournalEntry] {
         session.journalEntries
     }
     
     @State var selectedEntry: JournalEntry?
+    @State var isPresenting: Bool = false
     @State var showDetail: Bool = false
+    @State var showNotificationOnboarding: Bool = false
     
     func handleEntrySelected(entry: JournalEntry) {
         if entry.promptContent != nil {
             self.selectedEntry = entry
             self.showDetail = true
+            self.isPresenting = true
         } else {
             self.selectedEntry = nil
             self.showDetail = false
+            self.isPresenting = false
         }
+    }
+    
+    func onPromptDismiss(_ promptContent: PromptContent) {
+        Logger.shared.info("Parent on dismiss for emtry \(promptContent.entryId ?? "no id")")
+        self.selectedEntry = nil
+        self.showNotificationOnboarding = true
+        self.isPresenting = true
     }
     
     var body: some View {
@@ -56,8 +81,12 @@ struct JournalFeed: View {
             UITableView.appearance().backgroundColor = CactusColor.background
             UITableViewCell.appearance().backgroundColor = CactusColor.background
         })
-            .sheet(isPresented: self.$showDetail) {
-                PromptContentView(entry: self.selectedEntry!).environmentObject(self.session)
+        .sheet(isPresented: self.$isPresenting) {
+            if self.showDetail && self.selectedEntry != nil {
+                PromptContentView(entry: self.selectedEntry!, onPromptDismiss: self.onPromptDismiss).environmentObject(self.session)
+            } else if self.showNotificationOnboarding {
+                Text("This is notification Onboarding")
+            }
         }
     }
 }
