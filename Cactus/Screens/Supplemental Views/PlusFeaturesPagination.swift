@@ -29,7 +29,7 @@ struct PlusFeaturesPagination: View {
                 PaginationView(axis: .horizontal) {
                     ForEach(self.items) { feature in
                         ScrollView(.vertical) {
-                            PlusFeature(icon: feature.icon!,
+                            PlusFeatureView(icon: feature.icon!,
                                         title: feature.titleMarkdown!,
                                         description: feature.descriptionMarkdown!)
                             .padding()

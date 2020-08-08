@@ -71,6 +71,7 @@ enum NamedColor: String, Codable, CaseIterable {
     
     /// set up aliases for named colors
     static let LinkColor = NamedColor.GreenDark
+    static let SelectedBuyable = NamedColor.Highlight
     
     var uiColor: UIColor {
         UIColor(named: self.rawValue)!

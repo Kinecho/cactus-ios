@@ -57,12 +57,10 @@ struct SettingsHome: View {
             }
             .onAppear {
                 UITableView.appearance().separatorStyle = .singleLine
+                UITableView.appearance().separatorInset = .zero
             }
             .font(CactusFont.normal.font)
-                .onAppear {
-                    UITableView.appearance().separatorInset = .zero
-            }
-                .navigationBarTitle("Settings")
+            .navigationBarTitle("Settings")
         }
         
     }

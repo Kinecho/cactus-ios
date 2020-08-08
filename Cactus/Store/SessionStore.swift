@@ -20,7 +20,7 @@ final class SessionStore: ObservableObject {
     @Published var user: FirebaseUser?
     @Published var settings: AppSettings?
     @Published var useImagePlaceholders: Bool = false
-    @Published var subscriberData = SubscriberData(autoFetch: false)
+//    @Published var subscriberData = SubscriberData(autoFetch: false)
     
     static var shared = SessionStore()
     
@@ -39,7 +39,7 @@ final class SessionStore: ObservableObject {
     
     
     init() {
-        self.subscriberCancellable = subscriberData.objectWillChange.sink(receiveValue: { self.objectWillChange.send() })
+//        self.subscriberCancellable = subscriberData.objectWillChange.sink(receiveValue: { self.objectWillChange.send() })
     }
     
     func start() {
@@ -75,7 +75,7 @@ final class SessionStore: ObservableObject {
 //            } else {
 //                Purchases.shared.reset()
 //            }
-            self.subscriberData.setMember(member)
+//            self.subscriberData.setMember(member)
             self.authLoaded = true
             self.runPendingAuthActions()
         }

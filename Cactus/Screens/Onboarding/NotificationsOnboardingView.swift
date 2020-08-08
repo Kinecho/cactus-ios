@@ -9,8 +9,9 @@
 import SwiftUI
 
 struct NotificationsOnboardingView: View {
+    var status: UNAuthorizationStatus?
     var body: some View {
-        NotificationOnboardingRepresentableView().edgesIgnoringSafeArea(.vertical)
+        NotificationOnboardingRepresentableView(status: self.status).edgesIgnoringSafeArea(.vertical)
     }
 }
 

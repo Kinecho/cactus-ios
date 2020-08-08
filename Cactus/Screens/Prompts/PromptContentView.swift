@@ -65,7 +65,6 @@ struct PromptContentView: View {
                 }
             } else {
                 PromptContentController(entry: self.entry, onDismiss: self.onPromptDismiss)
-                .padding()
                     .edgesIgnoringSafeArea(.bottom)
             }
         }
@@ -74,14 +73,41 @@ struct PromptContentView: View {
 }
 
 struct PromptContentView_Previews: PreviewProvider {
-    
-    static func getEntry() -> JournalEntry {
-        var entry = JournalEntry(promptId: "testId")
-        entry.loadingComplete = false
-        return entry
-    }
-    
     static var previews: some View {
-        PromptContentView(entry: getEntry()).environmentObject(SessionStore.mockLoggedIn())
+        Group {
+            PromptContentView(entry: MockData.getAnsweredEntry())
+                .environmentObject(SessionStore.mockLoggedIn())
+                .previewDisplayName("Inline Presentation")
+            
+            PromptContentView(entry: MockData.getAnsweredEntry())
+                .environmentObject(SessionStore.mockLoggedIn())
+                .colorScheme(.dark)
+                .previewDisplayName("Inline Presentation (Dark)")
+            
+            VStack {
+                Text("Run Preview to view as Sheet")
+            }.sheet(isPresented: .constant(true)){
+                PromptContentView(entry: MockData.getAnsweredEntry())
+                    .environmentObject(SessionStore.mockLoggedIn())
+                    
+            }.previewDisplayName("Modal Presentation")
+            
+            Group {
+                VStack {
+                    Text("Run Preview to view as Sheet")
+                        .foregroundColor(named: NamedColor.TextDark)
+                        .padding()
+                }.sheet(isPresented: .constant(true)){
+                    PromptContentView(entry: MockData.getAnsweredEntry())
+                        .environmentObject(SessionStore.mockLoggedIn())
+                }
+                .background(named: .Coral)
+            }
+            .padding()
+            .colorScheme(.dark)
+            .previewDisplayName("Modal Presentation (Dark)")
+        }
+        
+        
     }
 }

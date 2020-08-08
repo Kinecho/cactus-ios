@@ -9,11 +9,20 @@
 import Foundation
 import Combine
 import SwiftUI
+import StoreKit
 import FirebaseFirestore
 
-final class CheckoutStore: ObservableObject {
+final class CheckoutStore: ObservableObject, StoreObserverDelegate {
+    
     @Published var productGroupData: ProductGroupData = ProductGroupData()
+    @Published var checkoutInProgress: Bool = false
+    @Published var checkoutResult: CompletePurchaseResult?
+    
     static var shared = CheckoutStore()
+    
+    init() {
+        StoreObserver.sharedInstance.delegate = self
+    }
     
     func start() {
         productGroupData.start()        
@@ -26,6 +35,20 @@ final class CheckoutStore: ObservableObject {
     deinit {
         self.stop()
     }
+    
+    func submitPurchase(_ product: SKProduct) {
+        self.checkoutInProgress = true
+        SubscriptionService.sharedInstance.submitPurchase(product: product)
+    }
+    
+    func handlePurchseCompleted(verifyReceiptResult: CompletePurchaseResult?, error: Any?) {
+        self.checkoutInProgress = false
+        self.checkoutResult = verifyReceiptResult
+        if let error = error {
+            Logger.shared.error("Failed to checkout", error)
+        }
+    }
+    
 }
 
 extension CheckoutStore {

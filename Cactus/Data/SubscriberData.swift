@@ -24,19 +24,10 @@ class SubscriberData: ObservableObject {
     @Published var purchaserInfo: Purchases.PurchaserInfo?
     @Published var purchaserInfoLoaded = false
     
-    private var member: CactusMember?
     let logger = Logger("SubscriberData")
     
     init(autoFetch: Bool=true) {
         if autoFetch {
-            self.fetch()
-        }
-    }
-    
-    func setMember(_ member: CactusMember?) {
-        let previous = self.member
-        self.member = member
-        if previous?.tier != member?.tier {
             self.fetch()
         }
     }
@@ -49,15 +40,6 @@ class SubscriberData: ObservableObject {
             self.error = nil
         }
         
-        guard self.member != nil else {
-            DispatchQueue.main.async {
-                self.detailsLoaded = true
-                self.purchaserInfoLoaded = true
-                self.error = SubscriberDataError.noMember
-            }
-            return
-        }
-        
         ApiService.sharedInstance.getSubscriptionDetails { (details, error) in
             if let error = error {
                 self.logger.error("Failed to get revenuecat purchaser info", error)
@@ -68,7 +50,6 @@ class SubscriberData: ObservableObject {
             }
             
         }
-        Purchases.shared.invalidatePurchaserInfoCache()
         Purchases.shared.purchaserInfo { (info, error) in
             if let error = error {
                 self.logger.error("Failed to get revenuecat purchaser info", error)

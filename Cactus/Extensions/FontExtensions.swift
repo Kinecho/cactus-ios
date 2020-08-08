@@ -16,4 +16,8 @@ extension UIFont {
     class func appBoldFontWith(size: CGFloat) -> UIFont {
         return  CactusFont.bold(size)
     }
+    
+    convenience init(name: FontName, size: FontSize) {
+        self.init(name: name.rawValue, size: size.rawValue)!
+    }
 }

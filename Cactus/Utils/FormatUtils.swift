@@ -135,12 +135,20 @@ enum FontName: String {
     case boldItalic = "Lato-BoldItalic"
 }
 
-struct FontSize {
-    static let large: CGFloat = 28
-    static let normal: CGFloat = 18
-    static let subTitle: CGFloat = 16
-    static let journalQuestionTitle: CGFloat = 21
-    static let journalDate: CGFloat = 16
+enum FontSize: CGFloat {
+    case large = 28
+    case title = 21
+    case normal = 18
+    case subTitle = 16
+   
+    // Aliases
+    static let journalDate: FontSize = .subTitle
+    static let journalQuestionTitle: FontSize = .title
+}
+
+enum Kerning: CGFloat {
+    case normal = 0
+    case title = 2
 }
 
 func getProviderDisplayName(_ providerId: String) -> String? {
@@ -162,15 +170,23 @@ func getProviderDisplayName(_ providerId: String) -> String? {
 
 
 struct CactusFont {
-    static let normal = UIFont(name: FontName.normal.rawValue, size: FontSize.normal)!
-    static let large = UIFont(name: FontName.normal.rawValue, size: FontSize.large)!
-    static let normalBold = UIFont(name: FontName.bold.rawValue, size: FontSize.normal)!
+    static let normal = UIFont(name: FontName.normal, size: FontSize.normal)
+    static let large = UIFont(name: FontName.normal, size: FontSize.large)
+    static let normalBold = UIFont(name: FontName.bold, size: FontSize.normal)
     
     static func get(_ name: FontName, _ size: CGFloat) -> UIFont {
         return UIFont(name: name.rawValue, size: size)!
     }
     
+    static func get(_ name: FontName, _ size: FontSize) -> UIFont {
+        return UIFont(name: name, size: size)
+    }
+    
     static func normal(_ size: CGFloat) -> UIFont {
+        return get(FontName.normal, size)
+    }
+    
+    static func normal(_ size: FontSize) -> UIFont {
         return get(FontName.normal, size)
     }
     
@@ -178,7 +194,15 @@ struct CactusFont {
         return get(FontName.bold, size)
     }
     
+    static func bold(_ size: FontSize) -> UIFont {
+        return get(FontName.bold, size)
+    }
+    
     static func italic(_ size: CGFloat) -> UIFont {
+        return get(FontName.italic, size)
+    }
+    
+    static func italic(_ size: FontSize) -> UIFont {
         return get(FontName.italic, size)
     }
 }

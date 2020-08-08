@@ -8,24 +8,36 @@
 
 import SwiftUI
 
+enum ButtonState {
+    case normal
+    case disabled
+    case loading
+}
+
 struct CactusButton: View {
     var label: String?
     var style: LinkStyle
+    var state: ButtonState
     var disableBorder: Bool = false
-    var fontSize: CGFloat = FontSize.normal
-    
+    var fontSize: CGFloat = FontSize.normal.rawValue
     
     init(_ label: String?,
          _ style: LinkStyle = .buttonPrimary,
+         state: ButtonState = .normal,
          disableBorder: Bool=false,
-         fontSize: CGFloat=FontSize.normal) {
+         fontSize: CGFloat=FontSize.normal.rawValue) {
         self.label = label
         self.style = style
+        self.state = state
         self.fontSize = fontSize
         self.disableBorder = disableBorder
     }
     
     var backgroundColor: Color {
+        if self.state == .loading || self.state == .disabled {
+            return NamedColor.GrayLight.color
+        }
+        
         switch self.style {
         case .buttonPrimary:
             return CactusColor.green.color
@@ -62,6 +74,9 @@ struct CactusButton: View {
     var borderColor: Color {
         switch self.style {
         case .buttonPrimary:
+            if self.state == .loading || self.state == .disabled {
+                return NamedColor.GrayLight.color
+            }
             return CactusColor.darkGreen.color
         case .buttonSecondary:
             return CactusColor.secondaryBorder.color
@@ -147,6 +162,7 @@ struct CactusButton_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             Group {
+                CactusButton("Primary Button", state: .disabled).previewDisplayName("Primary Button (Disabled)")
                 CactusButton("Primary Button").previewDisplayName("Primary Button")
                 CactusButton("Primary Button No Border", disableBorder: true).previewDisplayName("Primary Button No Border")
                 CactusButton("Secondary Button", .buttonSecondary).previewDisplayName("Secondary Button")

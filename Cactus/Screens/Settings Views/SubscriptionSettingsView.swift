@@ -32,9 +32,7 @@ struct SubscriptionSettingsView: View {
     @EnvironmentObject var checkout: CheckoutStore
     @State var showPricing: Bool = false
     
-    var data: SubscriberData {
-        return session.subscriberData
-    }
+    @ObservedObject var data: SubscriberData =  SubscriberData(autoFetch: true)
     
     var logger = Logger("SubscriptionSettingsView")
     var plusEntitlement: RevenueCat.EntitlementInfo? {
@@ -88,7 +86,7 @@ struct SubscriptionSettingsView: View {
                 SubscriptionDetailsView(model: SubscriptionDetailsViewModel.fromSubscriberData(data, member: self.session.member))
                 CactusButton("Refresh", .buttonSecondary)
                     .onTapGesture {
-                        self.logger.info("Fake fetch")
+                        self.logger.info("Refreshing Data")
                         self.data.fetch()
                     }
                 

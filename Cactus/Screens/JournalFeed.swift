@@ -32,6 +32,7 @@ struct JournalFeed: View  {
     @State var isPresenting: Bool = false
     @State var showDetail: Bool = false
     @State var showNotificationOnboarding: Bool = false
+    @State var notificationAuthorizationStatus: UNAuthorizationStatus?
     
     func handleEntrySelected(entry: JournalEntry) {
         if entry.promptContent != nil {
@@ -48,8 +49,30 @@ struct JournalFeed: View  {
     func onPromptDismiss(_ promptContent: PromptContent) {
         Logger.shared.info("Parent on dismiss for emtry \(promptContent.entryId ?? "no id")")
         self.selectedEntry = nil
-        self.showNotificationOnboarding = true
-        self.isPresenting = true
+        self.presentPermissionsOnboardingIfNeeded()
+    }
+    
+    func presentPermissionsOnboardingIfNeeded() {
+        guard self.entries.count > 0 else {
+            return
+        }
+        
+        let hasSeenOnboarding = UserDefaults.standard.bool(forKey: UserDefaultsKey.notificationOnboarding)
+        if hasSeenOnboarding {
+            return
+        }
+        
+        NotificationService.sharedInstance.hasPushPermissions { (status) in
+            DispatchQueue.main.async {
+                guard status != .authorized else {
+                    return
+                }
+            
+                self.notificationAuthorizationStatus = status
+                self.showNotificationOnboarding = true
+                self.isPresenting = true
+            }
+        }
     }
     
     var body: some View {
@@ -83,7 +106,7 @@ struct JournalFeed: View  {
             if self.showDetail && self.selectedEntry != nil {
                 PromptContentView(entry: self.selectedEntry!, onPromptDismiss: self.onPromptDismiss).environmentObject(self.session)
             } else if self.showNotificationOnboarding {
-                NotificationsOnboardingView()
+                NotificationsOnboardingView(status: self.notificationAuthorizationStatus)
             }
         }
     }

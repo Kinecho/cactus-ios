@@ -224,7 +224,7 @@ class PromptContentPageViewController: UIPageViewController {
             //            let bottomConstraint = pageControl.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
             let left = pageControl.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 20)
             let right = pageControl.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -20)
-            let topConstraint = pageControl.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 40)
+            let topConstraint = pageControl.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10)
             //            bottomConstraint.isActive = true
             topConstraint.isActive = true
             left.isActive = true
@@ -310,7 +310,7 @@ class PromptContentPageViewController: UIPageViewController {
             self.pageControl?.removeFromSuperview()
         }
         //        let yPos = self.view.bounds.maxY - self.view.safeAreaInsets.top - 40
-        let yPos = self.view.bounds.minY + self.view.safeAreaInsets.top + 20
+        let yPos = self.view.bounds.minY + self.view.safeAreaInsets.top + 40
         let pageControl =  UIPageControl(frame: CGRect(x: 0, y: yPos, width: self.view.frame.width, height: 50))
         pageControl.backgroundColor = .clear
         pageControl.numberOfPages = self.screens.count

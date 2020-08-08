@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct PlusFeature: View {
+struct PlusFeatureView: View {
     
     var icon: String
     var title: String
@@ -46,8 +46,8 @@ struct PlusFeature: View {
     }
 }
 
-struct PlusFeature_Previews: PreviewProvider {
+struct PlusFeatureView_Previews: PreviewProvider {
     static var previews: some View {
-        PlusFeature(icon: "journal", title: "Daily _Questions_ to reflet on", description: "Get daily prompts to help you keep your journaling habit")
+        PlusFeatureView(icon: "journal", title: "Daily _Questions_ to reflet on", description: "Get daily prompts to help you keep your journaling habit")
     }
 }
