@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 
 class JournalHomeViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
@@ -43,7 +44,7 @@ class JournalHomeViewController: UIViewController {
         }
     }
     
-    var user: Firebase.User? {
+    var user: User? {
         didSet {
             self.updateViewForUser(user: self.user)
         }
@@ -305,7 +306,7 @@ class JournalHomeViewController: UIViewController {
         }
     }
     
-    func updateViewForUser(user: Firebase.User?) {
+    func updateViewForUser(user: User?) {
         guard self.isViewLoaded else {
             return
         }
