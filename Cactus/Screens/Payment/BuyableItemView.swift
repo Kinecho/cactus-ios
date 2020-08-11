@@ -67,7 +67,7 @@ struct BuyableItemView_Previews: PreviewProvider {
     static var colors: [ColorScheme] = [.light, .dark]
     static var previews: some View {
         Group {
-            ForEach(colors, id: \.hashIdentifiable) { color in
+            ForEach(colors, id: \.hashValue) { color in
                 ForEach(items, id: \.id) { item in
                     Group {
                         BuyableItemView(model: item.model, selected: false)

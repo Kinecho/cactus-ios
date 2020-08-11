@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Sentry
 import FirebaseFirestore
 
 class SettingsTableViewController: UITableViewController {

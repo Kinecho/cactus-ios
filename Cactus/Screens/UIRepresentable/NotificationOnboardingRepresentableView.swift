@@ -35,7 +35,7 @@ struct NotificationOnboardingRepresentableView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            ForEach(colors, id: \.hashIdentifiable) {color in
+            ForEach(colors, id: \.hashValue) { color in
                 ForEach(statuses, id: \.name) { item in
                     NotificationOnboardingRepresentableView(status: item.status)
                         .previewDisplayName("\(item.name) - \(String(describing: color))")

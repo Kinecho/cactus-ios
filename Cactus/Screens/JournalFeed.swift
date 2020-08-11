@@ -138,6 +138,16 @@ struct JournalFeed_Previews: PreviewProvider {
                 .environmentObject(CheckoutStore.mock())
                 .colorScheme(.dark)
                 .previewDisplayName("Plus User (Dark)")
+            
+            NavigationView {
+                JournalFeed()
+                    .navigationBarTitle("Journal")
+                
+            }
+                .environmentObject(SessionStore.mockLoggedIn(tier: .PLUS).setEntries(MockData.getDefaultJournalEntries()))
+            .environmentObject(CheckoutStore.mock())
+            .colorScheme(.dark)
+            .previewDisplayName("Plus User NavigationWrapped (Dark)")
         }
     }
 }

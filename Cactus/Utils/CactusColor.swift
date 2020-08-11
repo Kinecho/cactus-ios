@@ -57,6 +57,7 @@ enum NamedColor: String, Codable, CaseIterable {
     case SecondaryButtonBackground
     case SecondaryBorder
     case SkeletonBase
+    case StatIconBackground
     case TextDark
     case TextDefault
     case TextLight

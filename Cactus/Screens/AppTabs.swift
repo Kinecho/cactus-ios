@@ -27,7 +27,7 @@ struct AppTabs: View {
     func updateAppearance() {
 //        UITabBar.appearance().barTintColor = CactusColor.greenRoyal
         UITabBar.appearance().unselectedItemTintColor = CactusColor.textMinimized
-        
+        UIScrollView.appearance().backgroundColor = CactusColor.background
         UITabBar.appearance().backgroundColor = CactusColor.background
         UITableView.appearance().backgroundColor = CactusColor.background
 //        UITableViewCell.appearance().backgroundColor = CactusColor.background
@@ -37,8 +37,6 @@ struct AppTabs: View {
         ]
         
         UINavigationBar.appearance().backgroundColor = NamedColor.Background.uiColor
-
-
     }
     
     var body: some View {
@@ -81,7 +79,6 @@ struct AppTabs: View {
         .onAppear {
             self.updateAppearance()
         }
-        
         .accentColor(NamedColor.Magenta.color)
         .font(Font(CactusFont.normal))
         

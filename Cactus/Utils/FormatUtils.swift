@@ -136,12 +136,14 @@ enum FontName: String {
 }
 
 enum FontSize: CGFloat {
+    case jumbo = 44
     case large = 28
     case title = 21
     case normal = 18
     case subTitle = 16
    
     // Aliases
+    static let statLarge: FontSize = .jumbo
     static let journalDate: FontSize = .subTitle
     static let journalQuestionTitle: FontSize = .title
 }
