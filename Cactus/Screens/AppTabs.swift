@@ -81,9 +81,10 @@ struct AppTabs: View {
         .onAppear {
             self.updateAppearance()
         }
-        .background(named: .Background)
+        
         .accentColor(NamedColor.Magenta.color)
         .font(Font(CactusFont.normal))
+        
         .environmentObject(session)
         .environmentObject(checkout)
     }
