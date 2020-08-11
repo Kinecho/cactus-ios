@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct Home: View {
+struct Home_deprecated: View {
     @EnvironmentObject var session: SessionStore
     
     var body: some View {
@@ -21,6 +21,6 @@ struct Home: View {
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        Home().environmentObject(SessionStore.mockLoggedIn().setEntries(MockData.getDefaultJournalEntries()))
+        Home_deprecated().environmentObject(SessionStore.mockLoggedIn().setEntries(MockData.getDefaultJournalEntries()))
     }
 }

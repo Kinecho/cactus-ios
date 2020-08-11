@@ -32,6 +32,10 @@ extension View {
 
 
 extension Text {
+    init (_ key: StringKey) {
+        self.init(LocalizedStringKey(key.rawValue))
+    }
+    
     func kerning(_ value: Kerning) -> Text {
         return kerning(value.rawValue)
     }

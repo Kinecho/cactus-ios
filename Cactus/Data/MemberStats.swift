@@ -21,14 +21,14 @@ enum StatType: String {
     case reflectionDuration
     case reflectionCount
     
-    var iconName: Feather.IconName {
+    var iconName: String {
         switch self {
         case .streak:
-            return .coffee
+            return IconType.flame.rawValue
         case .reflectionDuration:
-            return .clock
+            return Feather.IconName.clock.rawValue
         case .reflectionCount:
-            return .bookOpen
+            return IconType.journal.rawValue
         }
     }
     

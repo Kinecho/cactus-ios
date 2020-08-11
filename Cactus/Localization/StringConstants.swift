@@ -14,6 +14,8 @@ enum StringKey: String, Codable, CaseIterable {
     case Streak
     case Reflections
     case Duration
+    case LogOut
+    case LogOutConfirm
     
     func localized() -> String {
         return NSLocalizedString(self.rawValue, comment: self.rawValue)

@@ -28,17 +28,14 @@ struct StatView: View {
         return LocalizedUnit(formatter, self.stat.value).unitsOnly.localizedCapitalized
     }
     
-    var icon: Image? {
-        guard let image = Icon.getImage(self.stat.type.iconName) else {
-            return nil
-        }
-        return Image(uiImage: image)
+    var icon: UIImage? {
+        return Icon.getImage(self.stat.type.iconName)
     }
     
     var body: some View {
         HStack(alignment: .center, spacing: Spacing.normal) {
             if self.icon != nil {
-                self.icon!
+                Image(uiImage: self.icon!)
                     .resizable()
                     .frame(width: 35, height: 35)
                     .padding(Spacing.normal)

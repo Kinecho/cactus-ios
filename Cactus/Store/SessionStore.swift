@@ -15,17 +15,13 @@ import Purchases
 typealias PendingAction = (_ member: CactusMember?) -> Void
 
 final class SessionStore: ObservableObject {
+    static var shared = SessionStore()
     @Published var authLoaded = false
     @Published var member: CactusMember?
     @Published var user: FirebaseUser?
     @Published var settings: AppSettings?
     @Published var useImagePlaceholders: Bool = false
-//    @Published var subscriberData = SubscriberData(autoFetch: false)
-    
-    static var shared = SessionStore()
-    
-    var subscriberCancellable: AnyCancellable?
-    
+        
     var useMockImages = false
     var pendingAuthActions: [PendingAction] = []
     var settingsObserver: ListenerRegistration?
@@ -37,9 +33,8 @@ final class SessionStore: ObservableObject {
     
     let logger = Logger("SessionStore")
     
-    
-    init() {
-//        self.subscriberCancellable = subscriberData.objectWillChange.sink(receiveValue: { self.objectWillChange.send() })
+    func logout() {
+        AuthService.sharedInstance.logout()
     }
     
     func start() {

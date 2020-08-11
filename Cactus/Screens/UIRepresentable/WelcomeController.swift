@@ -18,12 +18,9 @@ struct WelcomeController: UIViewControllerRepresentable {
     }
     
     func updateUIViewController(_ uiViewController: WelcomeViewController, context: Context) {
-        //blah
+        // nothing to update
     }
     
-//    var body: some View {
-//        Text("Welcome to Cactus!")
-//    }
 }
 
 struct Welcome: View {

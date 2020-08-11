@@ -52,6 +52,7 @@ enum IconType: String, Codable {
     case creditCard
     case trash
     case checkCircle
+    case flame
 
     case unknown
     
@@ -72,7 +73,7 @@ enum IconType: String, Codable {
         case .journal:
             return CactusImage.journal.getImage()
         case .lock:
-            return CactusImage.lock.getImage()
+            return CactusImage.lock.getImage()        
         default:
             return UIImage(named: self.rawValue)
         }

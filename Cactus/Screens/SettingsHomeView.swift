@@ -50,7 +50,7 @@ struct SettingsItemView: View {
 
 struct SettingsHome: View {
     @EnvironmentObject var session: SessionStore
-    
+    @State var isLoggingOut: Bool = false
     var items: [SettingsItem] {
         let email = self.session.member?.email
         var profileSubTitle: String? = email
@@ -79,6 +79,10 @@ struct SettingsHome: View {
                 ForEach(self.items) { item in
                     SettingsItemView(item: item).background(named: .Background)
                 }
+                Spacer(minLength: Spacing.large)
+                CactusButton("Log Out", .buttonSecondary).onTapGesture {
+                    self.isLoggingOut = true
+                }
             }
             .onAppear {
                 UITableView.appearance().separatorStyle = .singleLine
@@ -87,6 +91,16 @@ struct SettingsHome: View {
             }
             .font(CactusFont.normal.font)
             .navigationBarTitle("Settings")
+        }
+        .actionSheet(isPresented: self.$isLoggingOut) { () -> ActionSheet in
+            ActionSheet(title: Text(.LogOut),
+                        message: Text(.LogOutConfirm),
+                        buttons: [
+                            .destructive(Text(.LogOut), action: {
+                                self.session.logout()
+                            }),
+                            .cancel()
+                        ])
         }
         
     }
