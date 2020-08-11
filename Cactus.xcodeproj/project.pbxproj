@@ -1158,6 +1158,10 @@
 		30D63EF024E264CE00FBD884 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30D63EF424E264CE00FBD884 /* Localizable.strings */; };
 		30D63EF124E264CE00FBD884 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30D63EF424E264CE00FBD884 /* Localizable.strings */; };
 		30D63EF224E264CE00FBD884 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30D63EF424E264CE00FBD884 /* Localizable.strings */; };
+		30D63F0124E3265900FBD884 /* JournalEntryInlineImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D63F0024E3265900FBD884 /* JournalEntryInlineImage.swift */; };
+		30D63F0224E3265900FBD884 /* JournalEntryInlineImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D63F0024E3265900FBD884 /* JournalEntryInlineImage.swift */; };
+		30D63F0324E3265900FBD884 /* JournalEntryInlineImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D63F0024E3265900FBD884 /* JournalEntryInlineImage.swift */; };
+		30D63F0424E3265900FBD884 /* JournalEntryInlineImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D63F0024E3265900FBD884 /* JournalEntryInlineImage.swift */; };
 		30D6E32424CA6B5300A4EA75 /* MDSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32324CA6B5300A4EA75 /* MDSwift.swift */; };
 		30D6E32524CA6B5300A4EA75 /* MDSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32324CA6B5300A4EA75 /* MDSwift.swift */; };
 		30D6E32624CA6B5300A4EA75 /* MDSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32324CA6B5300A4EA75 /* MDSwift.swift */; };
@@ -1581,6 +1585,7 @@
 		30D63ECD24E25AD900FBD884 /* LocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationTests.swift; sourceTree = "<group>"; };
 		30D63ED424E25B8A00FBD884 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		30D63EF324E264CE00FBD884 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		30D63F0024E3265900FBD884 /* JournalEntryInlineImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryInlineImage.swift; sourceTree = "<group>"; };
 		30D6E32324CA6B5300A4EA75 /* MDSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDSwift.swift; sourceTree = "<group>"; };
 		30D6E32924CB561E00A4EA75 /* EdgeBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeBorder.swift; sourceTree = "<group>"; };
 		30D7385B23CFFC62006F4DA6 /* InviteContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteContentViewController.swift; sourceTree = "<group>"; };
@@ -1834,6 +1839,7 @@
 				305366E924C6A21600927498 /* JournalEntryRow.swift */,
 				3077383024CEB17700D0C5BE /* JournalEntryWithNote.swift */,
 				3077381224CBD00000D0C5BE /* JournalUpgradeBanner.swift */,
+				30D63F0024E3265900FBD884 /* JournalEntryInlineImage.swift */,
 			);
 			path = Journal;
 			sourceTree = "<group>";
@@ -3305,6 +3311,7 @@
 				30D63ECC24E25A0E00FBD884 /* StringConstants.swift in Sources */,
 				30D0E451236C921200EFC0E3 /* FontExtensions.swift in Sources */,
 				303C9DC5237F6799006B9786 /* StorageService.swift in Sources */,
+				30D63F0424E3265900FBD884 /* JournalEntryInlineImage.swift in Sources */,
 				3055D943240E99BD00981DA2 /* SubscriptionService.swift in Sources */,
 				30DCA5E72441207500D520D4 /* PromptEntryCollectionViewCell.swift in Sources */,
 				30D63EE124E25F3900FBD884 /* IconImage.swift in Sources */,
@@ -3687,6 +3694,7 @@
 				300D37ED24DA53EA00351994 /* FeedbackView.swift in Sources */,
 				30DCA5ED244120A700D520D4 /* PromptContentCollectionViewController.swift in Sources */,
 				30D7F70A236BAAB100379EE0 /* EditReflectionViewController.swift in Sources */,
+				30D63F0324E3265900FBD884 /* JournalEntryInlineImage.swift in Sources */,
 				3020DD952363F37D00EC40AE /* UIImageViewAligned.swift in Sources */,
 				3006442523D26BAB00712ED1 /* SocialInviteService.swift in Sources */,
 				300D37FD24DA58F400351994 /* WebViewWrapper.swift in Sources */,
@@ -3918,6 +3926,7 @@
 				300D37EB24DA53EA00351994 /* FeedbackView.swift in Sources */,
 				30A3BC9024C113780016955C /* PromptContentCollectionViewController.swift in Sources */,
 				30A3BC9124C113780016955C /* EditReflectionViewController.swift in Sources */,
+				30D63F0124E3265900FBD884 /* JournalEntryInlineImage.swift in Sources */,
 				30A3BC9224C113780016955C /* UIImageViewAligned.swift in Sources */,
 				30A3BC9324C113780016955C /* SocialInviteService.swift in Sources */,
 				300D37FB24DA58F400351994 /* WebViewWrapper.swift in Sources */,
@@ -4149,6 +4158,7 @@
 				300D37EC24DA53EA00351994 /* FeedbackView.swift in Sources */,
 				30DCA5EC244120A700D520D4 /* PromptContentCollectionViewController.swift in Sources */,
 				30D7F709236BAAB100379EE0 /* EditReflectionViewController.swift in Sources */,
+				30D63F0224E3265900FBD884 /* JournalEntryInlineImage.swift in Sources */,
 				3020DD942363F37D00EC40AE /* UIImageViewAligned.swift in Sources */,
 				3006442423D26BAB00712ED1 /* SocialInviteService.swift in Sources */,
 				300D37FC24DA58F400351994 /* WebViewWrapper.swift in Sources */,

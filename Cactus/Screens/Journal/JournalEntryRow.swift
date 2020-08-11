@@ -15,9 +15,14 @@ struct JournalEntryRow: View {
         self.session.useMockImages
     }
     var index: Int = 0
+    var inlineImage: Bool = false
     @EnvironmentObject var session: SessionStore
     @State var showPrompt = false
     @State var showMoreActions = false
+    
+    var showInlineImage: Bool {
+        return self.entry.imageUrl != nil && (!self.hasResponse || self.inlineImage)
+    }
     
     var backgroundImageAlignment: Alignment {
         self.index % 2 == 0  ? .bottomTrailing : .bottomLeading
@@ -65,6 +70,10 @@ struct JournalEntryRow: View {
                     } else {
                         JournalEntryNoNote(entry: self.entry)
                     }
+                    
+                    if self.showInlineImage {
+                        JournalEntryInlineImage(imageUrl: self.entry.imageUrl!)
+                    }
                 }
             }
         }
@@ -74,7 +83,7 @@ struct JournalEntryRow: View {
         .cornerRadius(10)
         .clipped()
         .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 10)
-        .ifMatches(self.hasResponse && self.entry.imageUrl != nil, content: {
+        .ifMatches(!self.showInlineImage && self.hasResponse && self.entry.imageUrl != nil, content: {
             $0.background(
                 GeometryReader { geometry in
                     VStack {

@@ -67,6 +67,9 @@ struct PromptContentView: View {
                 PromptContentController(entry: self.entry, onDismiss: self.onPromptDismiss)
                     .background(named: .CardBackground)
                     .edgesIgnoringSafeArea(.bottom)
+                    .onAppear {
+                        UIScrollView.appearance().backgroundColor = CactusColor.cardBackground
+                }
             }
         }
         

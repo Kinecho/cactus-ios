@@ -61,7 +61,7 @@ struct InsightsHome: View {
                 Group {
                     /// Start Today Entry
                     if self.todayEntry != nil {
-                        JournalEntryRow(entry: self.todayEntry!).onTapGesture {
+                        JournalEntryRow(entry: self.todayEntry!, inlineImage: true).onTapGesture {
                             self.selectedEntry = self.todayEntry
                             self.currentSheet = .promptDetails
                             self.showSheet = true

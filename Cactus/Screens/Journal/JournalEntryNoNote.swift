@@ -19,9 +19,6 @@ struct JournalEntryNoNote: View {
         return self.imageWidth / 3
     }
     let imageOffsetY: CGFloat = 55
-    var textWidthFactor: CGFloat {
-        self.entry.imageUrl != nil ? 2 / 3 : 1
-    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: Spacing.normal) {
@@ -42,30 +39,9 @@ struct JournalEntryNoNote: View {
                 
                 Spacer()
             }
-            if self.entry.imageUrl != nil {
-                HStack {
-                    Spacer()
-                    URLImage(self.entry.imageUrl!,
-//                             processors: [
-//                                Resize(size: CGSize(width: self.imageWidth, height: self.imageHeight),
-//                                       scale: UIScreen.main.scale)],
-                             placeholder: {_ in
-                                Group {
-                                    ImagePlaceholder(width: self.imageWidth, height: self.imageHeight)
-                                }
-                    },
-                             content: {
-                                $0.image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                    })
-                        .frame(width: self.imageWidth, height: self.imageHeight, alignment: .top)
-                        .offset(x: 0, y: self.imageOffsetY)
-                        .padding(.top, -self.imageOffsetY)
-                    Spacer()
-                    
-                }
-            }
+//            if self.entry.imageUrl != nil {
+//                JournalEntryInlineImage(imageUrl: self.entry.imageUrl!)
+//            }
         }
     }
 }
