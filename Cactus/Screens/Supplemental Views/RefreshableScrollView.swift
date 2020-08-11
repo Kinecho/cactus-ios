@@ -11,7 +11,7 @@ import SwiftUI
 
 struct RefreshableScrollView<ROOTVIEW>: UIViewRepresentable where ROOTVIEW: View {
     
-    var width : CGFloat, height : CGFloat
+    var width: CGFloat, height: CGFloat
     let handlePullToRefresh: () -> Void
     let rootView: () -> ROOTVIEW
     @State private var contentView: UIHostingController<ROOTVIEW>?
@@ -60,4 +60,3 @@ struct RefreshableScrollView<ROOTVIEW>: UIViewRepresentable where ROOTVIEW: View
         }
     }
 }
-

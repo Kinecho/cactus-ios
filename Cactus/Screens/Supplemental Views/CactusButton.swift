@@ -149,7 +149,7 @@ struct CactusButton: View {
             .padding(self.paddingAmount)
             .background(self.backgroundColor)
             .foregroundColor(self.textColor)
-            .ifMatches(self.style == .fancyLink){ content in
+            .ifMatches(self.style == .fancyLink) { content in
                 content.background(
                     FancyLinkBackgroundShape(thickness: 10).foregroundColor(NamedColor.FancyLinkHighlight.color)
                 )

@@ -21,6 +21,7 @@ struct PromptContentController: UIViewControllerRepresentable {
         view.promptDelegate = context.coordinator
         view.member = session.member
         view.appSettings = session.settings
+//        view.view.backgroundColor = CactusColor.background
         return view
     }
     
@@ -30,6 +31,7 @@ struct PromptContentController: UIViewControllerRepresentable {
         uiViewController.appSettings = session.settings
         uiViewController.promptContent = self.entry.promptContent
         uiViewController.reflectionResponse = self.entry.responses?.first
+//        uiViewController.view.backgroundColor = CactusColor.background
     }
     
     class Coordinator: PromptContentPageViewControllerDelegate {
@@ -59,17 +61,14 @@ struct PromptContentView: View {
     var body: some View {
         Group {
             if self.entry.promptContent == nil || !self.entry.loadingComplete {
-                HStack{
+                HStack {
                     ActivityIndicator(isAnimating: .constant(true), style: .medium)
                     Loading("Loading...")
                 }
             } else {
                 PromptContentController(entry: self.entry, onDismiss: self.onPromptDismiss)
-                    .background(named: .CardBackground)
+                    .background(named: .Background)
                     .edgesIgnoringSafeArea(.bottom)
-                    .onAppear {
-                        UIScrollView.appearance().backgroundColor = CactusColor.cardBackground
-                }
             }
         }
         
@@ -90,7 +89,7 @@ struct PromptContentView_Previews: PreviewProvider {
             
             VStack {
                 Text("Run Preview to view as Sheet")
-            }.sheet(isPresented: .constant(true)){
+            }.sheet(isPresented: .constant(true)) {
                 PromptContentView(entry: MockData.getAnsweredEntry())
                     .environmentObject(SessionStore.mockLoggedIn())
                     
@@ -101,7 +100,7 @@ struct PromptContentView_Previews: PreviewProvider {
                     Text("Run Preview to view as Sheet")
                         .foregroundColor(named: NamedColor.TextDark)
                         .padding()
-                }.sheet(isPresented: .constant(true)){
+                }.sheet(isPresented: .constant(true)) {
                     PromptContentView(entry: MockData.getAnsweredEntry())
                         .environmentObject(SessionStore.mockLoggedIn())
                 }

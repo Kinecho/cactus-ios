@@ -16,7 +16,7 @@ struct SubscriptionDetailsViewModel: Identifiable {
     var tier: SubscriptionTier
     var loaded: Bool = true
     
-    // Mark: RevenueCat fields
+    // MARK: RevenueCat fields
     var billingPlatform: BillingPlatform?
     var willRenew: Bool = false
     var isActive: Bool = true
@@ -28,7 +28,7 @@ struct SubscriptionDetailsViewModel: Identifiable {
     var billingIssueDetectedDate: Date?
     var skProductID: String?
     
-    // Mark: Cactus Fields
+    // MARK: Cactus Fields
     var ccLast4: String?
     var ccBrand: CardBrand?
     var nextAmountCentsUSD: Int?
@@ -200,7 +200,7 @@ struct SubscriptionDetailsView_Previews: PreviewProvider {
         Group {
             ForEach(ColorScheme.allCases, id: \.hashIdentifiable) { scheme in
                 ForEach(models) { model in
-                    SubscriptionDetailsView(model: model).previewDisplayName("\(model.loaded ? "" : "Loading -") \(model.billingPlatform?.rawValue.capitalized ?? "No Platform")\(model.periodType == .trial ? " - In Trial" : "") - \(model.willRenew ? "Renewing" : "Not Renewing") - \(model.tier.displayName) (\(String(describing:scheme)))".trimmingCharacters(in: .whitespaces))
+                    SubscriptionDetailsView(model: model).previewDisplayName("\(model.loaded ? "" : "Loading -") \(model.billingPlatform?.rawValue.capitalized ?? "No Platform")\(model.periodType == .trial ? " - In Trial" : "") - \(model.willRenew ? "Renewing" : "Not Renewing") - \(model.tier.displayName) (\(String(describing: scheme)))".trimmingCharacters(in: .whitespaces))
                 }
                     
                 .padding()

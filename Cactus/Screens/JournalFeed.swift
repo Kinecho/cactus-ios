@@ -19,9 +19,10 @@ class JournalFeedPromptDelegate: ObservableObject, PromptContentPageViewControll
     }
 }
 
-struct JournalFeed: View  {
+struct JournalFeed: View {
     @EnvironmentObject var session: SessionStore
     @EnvironmentObject var checkout: CheckoutStore
+    //swiftlint:disable:next weak_delegate
     @ObservedObject var promptDelegate = JournalFeedPromptDelegate()
     
     var entries: [JournalEntry] {

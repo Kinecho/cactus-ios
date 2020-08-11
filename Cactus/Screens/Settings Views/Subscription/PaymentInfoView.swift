@@ -35,8 +35,7 @@ struct PaymentInfoView: View {
         }
         if self.platform == .APPLE {
             return URL(string: "https://apps.apple.com/account/subscriptions")
-        }
-        else if self.platform == .GOOGLE {
+        } else if self.platform == .GOOGLE {
             return URL(string: "https://play.google.com/store/account/subscriptions")
         }
         return nil

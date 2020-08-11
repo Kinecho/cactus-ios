@@ -65,5 +65,3 @@ enum StatType: String, CaseIterable {
         }
     }
 }
-
-

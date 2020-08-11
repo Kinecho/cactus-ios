@@ -183,4 +183,3 @@ extension SessionStore: JournalFeedDataSourceDelegate {
         }
     }
 }
-
