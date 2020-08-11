@@ -14,12 +14,34 @@ struct Stat: Identifiable {
     var type: StatType
     var value: Int
     var unit: UnitFormatter?
+    
+    static func fromReflectionStats(stats: ReflectionStats, type: StatType) -> Stat {
+        var stat = Stat(type: type, value: 0, unit: nil)
+        switch type {
+        case .streak:
+            stat.value = stats.currentStreakInfo.count
+            stat.unit = stats.currentStreakInfo.duration.unitFormatter
+        case .reflectionDuration:
+            let unit = LocalizedUnit.fromMiliseconds(stats.totalDurationMs)
+            stat.unit = unit.unitFormatter
+            stat.value = unit.value
+        case .reflectionCount:
+            stat.value = stats.totalCount
+            stat.unit = .none
+        }
+        
+        return stat
+    }
+    
+    static func fromReflectionStats(stats: ReflectionStats) -> [Stat] {
+        return StatType.allCases.map { Stat.fromReflectionStats(stats: stats, type: $0) }
+   }
 }
 
-enum StatType: String {
+enum StatType: String, CaseIterable {
     case streak
-    case reflectionDuration
     case reflectionCount
+    case reflectionDuration
     
     var iconName: String {
         switch self {

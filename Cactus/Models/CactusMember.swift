@@ -66,6 +66,18 @@ enum StreakDuration: String, Codable {
         return plural ? self.pluralLabel : self.singularLabel
     }
     
+    var unitFormatter: UnitFormatter {
+        switch self {
+        case .DAYS:
+            return UnitFormatter.day
+        case .WEEKS:
+            return UnitFormatter.week
+        case .MONTHS:
+            return UnitFormatter.month
+        }
+    }
+    
+    
     var singularLabel: String {
         switch self {
         case .DAYS:

@@ -11,14 +11,20 @@ import NoveFeatherIcons
 struct InsightsHome: View {
     @EnvironmentObject var session: SessionStore
     var todayEntry: JournalEntry? {
-        self.session.journalEntries.first
+        self.session.journalFeedDataSource?.todayData?.getJournalEntry()
     }
     
-    var stats: [Stat] = [
-        Stat(type: .streak, value: 52, unit: UnitFormatter.day),
-        Stat(type: .reflectionCount, value: 128),
-        Stat(type: .reflectionDuration, value: 1, unit: UnitFormatter.minute),
-    ]
+    var todayEntryLoaded: Bool {
+        self.session.journalFeedDataSource?.todayLoaded ?? false
+    }
+    
+    var stats: [Stat] {
+        guard let reflectionStats = self.session.member?.stats?.reflections else {
+            return []
+        }
+        
+        return Stat.fromReflectionStats(stats: reflectionStats)
+    }
     
     var body: some View {
         ScrollView(.vertical) {
@@ -40,6 +46,22 @@ struct InsightsHome: View {
                     /// Start Today Entry
                     if self.todayEntry != nil {
                         JournalEntryRow(entry: self.todayEntry!)
+                    } else if self.todayEntryLoaded {
+                        VStack {
+                            Text("Uh oh").font(CactusFont.bold(.title).font)
+                            Text("There seems to be an issue finding today's prompt. Please check back a little later.")
+                                .font(CactusFont.normal.font)
+                        }.foregroundColor(named: .TextDefault)
+                            .background(named: .CardBackground)
+                            .cornerRadius(CornerRadius.normal)
+                    } else {
+                        HStack(alignment: .center) {
+                            ActivityIndicator(isAnimating: .constant(true), style: .medium)
+                            Text("Loading Today's Prompt")
+                        }
+                        .padding()
+                        .background(named: .CardBackground)
+                        .cornerRadius(CornerRadius.normal)
                     }
                     /// End Today Entry
                     
