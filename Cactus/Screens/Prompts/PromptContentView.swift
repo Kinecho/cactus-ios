@@ -65,6 +65,7 @@ struct PromptContentView: View {
                 }
             } else {
                 PromptContentController(entry: self.entry, onDismiss: self.onPromptDismiss)
+                    .background(named: .CardBackground)
                     .edgesIgnoringSafeArea(.bottom)
             }
         }

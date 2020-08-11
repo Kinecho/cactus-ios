@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import SwiftUI
 /// Localizeable String Keys that do not require any formatting parameters and can be rendered on their own. These values are definied in the Localizable.strings file
 enum StringKey: String, Codable, CaseIterable {
     case Cactus
@@ -16,9 +16,14 @@ enum StringKey: String, Codable, CaseIterable {
     case Duration
     case LogOut
     case LogOutConfirm
+    case Home
     
     func localized() -> String {
         return NSLocalizedString(self.rawValue, comment: self.rawValue)
+    }
+    
+    var key: LocalizedStringKey {
+        return LocalizedStringKey(self.rawValue)
     }
 }
 

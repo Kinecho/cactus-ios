@@ -8,8 +8,20 @@
 
 import SwiftUI
 import NoveFeatherIcons
+
+
+
 struct InsightsHome: View {
+    enum CurrentSheet {
+        case promptDetails
+    }
+
     @EnvironmentObject var session: SessionStore
+    @EnvironmentObject var checkout: CheckoutStore
+    @State var showSheet: Bool = false
+    @State var currentSheet: CurrentSheet = .promptDetails
+    @State var selectedEntry: JournalEntry?
+    
     var todayEntry: JournalEntry? {
         self.session.journalFeedDataSource?.todayData?.getJournalEntry()
     }
@@ -24,6 +36,10 @@ struct InsightsHome: View {
         }
         
         return Stat.fromReflectionStats(stats: reflectionStats)
+    }
+    
+    func onPromptDismiss(_ promptContent: PromptContent) {
+        // no op
     }
     
     var body: some View {
@@ -45,7 +61,11 @@ struct InsightsHome: View {
                 Group {
                     /// Start Today Entry
                     if self.todayEntry != nil {
-                        JournalEntryRow(entry: self.todayEntry!)
+                        JournalEntryRow(entry: self.todayEntry!).onTapGesture {
+                            self.selectedEntry = self.todayEntry
+                            self.currentSheet = .promptDetails
+                            self.showSheet = true
+                        }
                     } else if self.todayEntryLoaded {
                         VStack {
                             Text("Uh oh").font(CactusFont.bold(.title).font)
@@ -124,6 +144,16 @@ struct InsightsHome: View {
                 /// End Padded Content Group
             }
             .backgroundFill(NamedColor.Background.color)
+        }
+        .sheet(isPresented: self.$showSheet) {
+            if self.currentSheet == .promptDetails && self.selectedEntry != nil {
+                PromptContentView(entry: self.selectedEntry!, onPromptDismiss: self.onPromptDismiss)
+                                .environmentObject(self.session)
+                                .environmentObject(self.checkout)
+            } else {
+                EmptyView()
+            }
+            
         }
         
     }

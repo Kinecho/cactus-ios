@@ -24,6 +24,15 @@ struct AppTabs: View {
         self.updateAppearance()
     }
     
+    var homeTitle: LocalizedStringKey {
+//        let welcomeBack = self.session.journalEntries.count > 2
+//        guard let firstName = self.session.member?.firstName, !isBlank(firstName) else {
+//            return welcomeBack ? "Welcome back" : "Welcome"
+//        }
+//        return welcomeBack ? "Welcome back, \(firstName)" : "Welcome, \(firstName)"
+        return StringKey.Home.key
+    }
+    
     func updateAppearance() {
         UIScrollView.appearance().backgroundColor = CactusColor.background
         
@@ -36,15 +45,14 @@ struct AppTabs: View {
         UINavigationBar.appearance().largeTitleTextAttributes = [
             .foregroundColor: NamedColor.TextDefault.uiColor
         ]
-        
-
     }
     
     var body: some View {
         TabView(selection: $selection) {
             NavigationView {
                 InsightsHome()
-                    .navigationBarTitle("Home")
+                    .navigationBarTitle(Text(self.homeTitle), displayMode: .large)
+//                    .navigationBarTitle(Text("Home"), displayMode: .inline)
             }
             .tabItem {
                 Image(uiImage: Feather.getIcon(.home)!)
@@ -52,7 +60,7 @@ struct AppTabs: View {
                     .resizable()
                     .padding()
                 
-                Text("Home")
+                Text(StringKey.Home)
             }.tag(Tab.home)
             
             NavigationView {
