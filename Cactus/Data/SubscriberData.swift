@@ -33,31 +33,31 @@ class SubscriberData: ObservableObject {
     }
     
     func fetch() {
-        
         DispatchQueue.main.async {
             self.detailsLoaded = false
             self.purchaserInfoLoaded = false
             self.error = nil
-        }
-        
-        ApiService.sharedInstance.getSubscriptionDetails { (details, error) in
-            if let error = error {
-                self.logger.error("Failed to get revenuecat purchaser info", error)
-            }
-            DispatchQueue.main.async {
-                self.subscriptionDetails = details
-                self.detailsLoaded = true
-            }
             
-        }
-        Purchases.shared.purchaserInfo { (info, error) in
-            if let error = error {
-                self.logger.error("Failed to get revenuecat purchaser info", error)
+            
+            ApiService.sharedInstance.getSubscriptionDetails { (details, error) in
+                if let error = error {
+                    self.logger.error("Failed to get revenuecat purchaser info", error)
+                }
+                DispatchQueue.main.async {
+                    self.subscriptionDetails = details
+                    self.detailsLoaded = true
+                }
+                
             }
-            DispatchQueue.main.async {
-                self.purchaserInfo = info
-                self.error = error
-                self.purchaserInfoLoaded = true
+            Purchases.shared.purchaserInfo { (info, error) in
+                if let error = error {
+                    self.logger.error("Failed to get revenuecat purchaser info", error)
+                }
+                DispatchQueue.main.async {
+                    self.purchaserInfo = info
+                    self.error = error
+                    self.purchaserInfoLoaded = true
+                }
             }
         }
     }

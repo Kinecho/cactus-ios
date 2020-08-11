@@ -15,6 +15,7 @@ struct LegacyProfileSettingsView: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> ProfileSettingsViewController {
         let vc = ScreenID.ProfileSettings.getViewController() as! ProfileSettingsViewController
         vc.member = session.member
+        vc.view.backgroundColor = NamedColor.Background.uiColor
         return vc
     }
     
@@ -28,12 +29,25 @@ struct ProfileSettingsView: View {
     
     
     var body: some View {
-        LegacyProfileSettingsView()
+        LegacyProfileSettingsView().background(named: .Background)
     }
 }
 
 struct ProfileSettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileSettingsView().environmentObject(SessionStore.mockLoggedIn())
+        Group {
+            NavigationView {
+                ProfileSettingsView()
+            }
+                .background(named: .Background)
+                .environmentObject(SessionStore.mockLoggedIn())
+            
+            
+            NavigationView {
+                ProfileSettingsView()
+            }.environmentObject(SessionStore.mockLoggedIn())
+                .background(named: .Background)
+                .colorScheme(.dark)
+        }
     }
 }

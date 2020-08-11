@@ -13,6 +13,8 @@ struct Spacing {
     static let small: CGFloat = 10
     static let normal: CGFloat = 20
     static let large: CGFloat = 30
+    static let xlarge: CGFloat = 40
+    static let giant: CGFloat = 60
 }
 
 

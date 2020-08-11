@@ -14,7 +14,7 @@ extension View {
      /// Set the background color using a value from `NamedColor` enum
      ///   - Parameter named: The name of the color
     func background(named color: NamedColor) -> some View {
-        return background(color.color)
+        return background(color.color.edgesIgnoringSafeArea(.all))
     }
     
     func foregroundColor(named color: NamedColor) -> some View {

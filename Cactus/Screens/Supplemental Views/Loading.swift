@@ -11,13 +11,20 @@ import SwiftUI
 struct ActivityIndicator: UIViewRepresentable {
     @Binding var isAnimating: Bool
     let style: UIActivityIndicatorView.Style
+    var color: Color = NamedColor.TextDefault.color
+//    fileprivate var configuration = { (indicator: UIView) in }
 
+    
+    
     func makeUIView(context: UIViewRepresentableContext<ActivityIndicator>) -> UIActivityIndicatorView {
-        return UIActivityIndicatorView(style: style)
+        let view = UIActivityIndicatorView(style: style)
+        view.color = self.color.toUIColor()
+        return view
     }
 
     func updateUIView(_ uiView: UIActivityIndicatorView, context: UIViewRepresentableContext<ActivityIndicator>) {
         isAnimating ? uiView.startAnimating() : uiView.stopAnimating()
+        uiView.color = self.color.toUIColor()
     }
 }
 
@@ -36,12 +43,14 @@ struct LoadingView<Content>: View where Content: View {
 
                 VStack {
                     Text("Loading...")
+                        .foregroundColor(NamedColor.TextDefault.color)
+                        .font(CactusFont.normal.font)
                     ActivityIndicator(isAnimating: .constant(true), style: .large)
                 }
+
                 .frame(width: geometry.size.width / 2,
                        height: geometry.size.height / 5)
                 .background(Color.secondary.colorInvert())
-                .foregroundColor(Color.primary)
                 .cornerRadius(20)
                 .opacity(self.isShowing ? 1 : 0)
 
@@ -69,7 +78,8 @@ struct Loading: View {
             .frame(width: geometry.size.width / 2,
                    height: geometry.size.height / 5)
             .background(Color.secondary.colorInvert())
-            .foregroundColor(Color.primary)
+            .foregroundColor(NamedColor.TextDefault.color)
+            .font(CactusFont.normal.font)
             .cornerRadius(20)
         }
     }

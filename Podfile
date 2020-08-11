@@ -18,9 +18,7 @@ def google_utilites
 end
 
 def app_pods
-  pod 'Branch'
-  pod 'Cloudinary', '~> 2.0'
-  pod 'CodableFirebase'
+  pod 'Branch'  
   pod 'FacebookCore'
   pod 'FBSDKCoreKit'  
   pod 'Firebase/Auth'
@@ -37,23 +35,19 @@ def app_pods
   pod 'FirebaseUI'
   pod 'FirebaseUI/Storage'  
   pod 'MarkdownKit', '1.5'
-  pod "NoveFeatherIcons", "~> 1.0"  
-  pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '5.1.10'  
+  pod "NoveFeatherIcons", "~> 1.0"
   pod 'SwiftLint'      
 end
 
 
-def today_pods
-    pod 'Cloudinary', '~> 2.0'
-    pod 'CodableFirebase'
+def today_pods        
     pod 'Firebase/Auth'
     pod 'Firebase/Core'
     pod 'Firebase/Firestore'
     pod 'FirebaseFirestoreSwift'
     pod 'Firebase/Storage'        
     pod 'MarkdownKit', '1.5'    
-    pod "NoveFeatherIcons", "~> 1.0"    
-    pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '5.1.10'    
+    pod "NoveFeatherIcons", "~> 1.0"            
 end
 
 target 'Cactus Stage' do  

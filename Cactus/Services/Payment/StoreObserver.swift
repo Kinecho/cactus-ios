@@ -18,16 +18,12 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
     let logger = Logger("StoreObserver")
     static var sharedInstance = StoreObserver()
     weak var delegate: StoreObserverDelegate?
-    //Initialize the store observer.
+        
     override init() {
         super.init()
-        //Other initialization here.
     }
-    
-    func submitPayment() {
-        //        self.
-    }
-    
+   
+
     func restore() {
         SKPaymentQueue.default().restoreCompletedTransactions()
     }
@@ -77,7 +73,8 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
                     return
                 }
                 if !result.success {
-                    self.logger.error("The receipt was not valid.... might need to do something different here, not removing from queue")
+                    self.logger.error("The receipt was not valid.... might need to do something different here, remove from queue queue")
+                    SKPaymentQueue.default().finishTransaction(transaction)
                 } else {
                     self.logger.info("Payment transaction success. removing from queue")
                     SKPaymentQueue.default().finishTransaction(transaction)

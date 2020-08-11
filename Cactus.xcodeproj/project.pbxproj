@@ -688,6 +688,13 @@
 		308C5A4C24479AA50087345D /* PricingFeaturePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C5A4A24479AA50087345D /* PricingFeaturePageViewController.swift */; };
 		308C5A4F24479AD60087345D /* PricingFeatureItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C5A4E24479AD60087345D /* PricingFeatureItemViewController.swift */; };
 		308C5A5024479AD60087345D /* PricingFeatureItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C5A4E24479AD60087345D /* PricingFeatureItemViewController.swift */; };
+		308F030524E1CC2700984DF3 /* Cloudinary in Frameworks */ = {isa = PBXBuildFile; productRef = 308F030424E1CC2700984DF3 /* Cloudinary */; };
+		308F030724E1CC4400984DF3 /* Cloudinary in Frameworks */ = {isa = PBXBuildFile; productRef = 308F030624E1CC4400984DF3 /* Cloudinary */; };
+		308F030924E1CC4F00984DF3 /* Cloudinary in Frameworks */ = {isa = PBXBuildFile; productRef = 308F030824E1CC4F00984DF3 /* Cloudinary */; };
+		308F030B24E1CC6000984DF3 /* Cloudinary in Frameworks */ = {isa = PBXBuildFile; productRef = 308F030A24E1CC6000984DF3 /* Cloudinary */; };
+		308F030E24E1CC8300984DF3 /* CodableFirebase in Frameworks */ = {isa = PBXBuildFile; productRef = 308F030D24E1CC8300984DF3 /* CodableFirebase */; };
+		308F031024E1CC9100984DF3 /* CodableFirebase in Frameworks */ = {isa = PBXBuildFile; productRef = 308F030F24E1CC9100984DF3 /* CodableFirebase */; };
+		308F031224E1CC9900984DF3 /* CodableFirebase in Frameworks */ = {isa = PBXBuildFile; productRef = 308F031124E1CC9900984DF3 /* CodableFirebase */; };
 		30934F9222EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
 		30934F9322EBE7DF007C4E6C /* JournalFeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9122EBE7DB007C4E6C /* JournalFeedCollectionViewController.swift */; };
 		30934F9622EBF146007C4E6C /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30934F9522EBF146007C4E6C /* RoundedButton.swift */; };
@@ -1108,6 +1115,10 @@
 		30D0E456236C98C100EFC0E3 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D0E453236C98C100EFC0E3 /* StringExtensions.swift */; };
 		30D461372362750900B8AED7 /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */; };
 		30D461382362750D00B8AED7 /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */; };
+		30D63EAC24E20A9D00FBD884 /* RefreshableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D63EAB24E20A9D00FBD884 /* RefreshableScrollView.swift */; };
+		30D63EAD24E20A9D00FBD884 /* RefreshableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D63EAB24E20A9D00FBD884 /* RefreshableScrollView.swift */; };
+		30D63EAE24E20A9D00FBD884 /* RefreshableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D63EAB24E20A9D00FBD884 /* RefreshableScrollView.swift */; };
+		30D63EAF24E20A9D00FBD884 /* RefreshableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D63EAB24E20A9D00FBD884 /* RefreshableScrollView.swift */; };
 		30D6E32424CA6B5300A4EA75 /* MDSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32324CA6B5300A4EA75 /* MDSwift.swift */; };
 		30D6E32524CA6B5300A4EA75 /* MDSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32324CA6B5300A4EA75 /* MDSwift.swift */; };
 		30D6E32624CA6B5300A4EA75 /* MDSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E32324CA6B5300A4EA75 /* MDSwift.swift */; };
@@ -1524,6 +1535,7 @@
 		30CF539723732EC300578B22 /* VideoContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoContentViewController.xib; sourceTree = "<group>"; };
 		30D0E453236C98C100EFC0E3 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
+		30D63EAB24E20A9D00FBD884 /* RefreshableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableScrollView.swift; sourceTree = "<group>"; };
 		30D6E32324CA6B5300A4EA75 /* MDSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDSwift.swift; sourceTree = "<group>"; };
 		30D6E32924CB561E00A4EA75 /* EdgeBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeBorder.swift; sourceTree = "<group>"; };
 		30D7385B23CFFC62006F4DA6 /* InviteContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteContentViewController.swift; sourceTree = "<group>"; };
@@ -1592,6 +1604,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				308F030B24E1CC6000984DF3 /* Cloudinary in Frameworks */,
 				30BECADA24DDAF4B009F95D5 /* SwiftUI.framework in Frameworks */,
 				304B210623D383E1007B016C /* NotificationCenter.framework in Frameworks */,
 				5512428B40A08648C6DB9597 /* Pods_Cactus_Today_Prod.framework in Frameworks */,
@@ -1607,6 +1620,8 @@
 			files = (
 				30ECACE024DB3D8A00C6BE7C /* SwiftUI.framework in Frameworks */,
 				305EF71024DA70590075821F /* NetworkExtension.framework in Frameworks */,
+				308F030924E1CC4F00984DF3 /* Cloudinary in Frameworks */,
+				308F031224E1CC9900984DF3 /* CodableFirebase in Frameworks */,
 				3014D59E24DDD916007AF70B /* Sentry in Frameworks */,
 				76F23F2602ADC65094F1CF3B /* Pods_Cactus_Prod.framework in Frameworks */,
 				300FCCF023EE21CD00089CFB /* StoreKit.framework in Frameworks */,
@@ -1621,7 +1636,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				308F030524E1CC2700984DF3 /* Cloudinary in Frameworks */,
 				30A3BCB924C113780016955C /* StoreKit.framework in Frameworks */,
+				308F030E24E1CC8300984DF3 /* CodableFirebase in Frameworks */,
 				30A3BCBA24C113780016955C /* AdSupport.framework in Frameworks */,
 				30A3BCBC24C113780016955C /* NetworkExtension.framework in Frameworks */,
 				30BECADF24DDB11A009F95D5 /* URLImage in Frameworks */,
@@ -1636,6 +1653,8 @@
 			files = (
 				30ECACE324DB3D9D00C6BE7C /* SwiftUI.framework in Frameworks */,
 				300FCCEF23EE21C000089CFB /* StoreKit.framework in Frameworks */,
+				308F030724E1CC4400984DF3 /* Cloudinary in Frameworks */,
+				308F031024E1CC9100984DF3 /* CodableFirebase in Frameworks */,
 				3014D59C24DDD90A007AF70B /* Sentry in Frameworks */,
 				30F1BBB42492DBB50099169C /* AdSupport.framework in Frameworks */,
 				95087B85A8F99A3282E6AE87 /* Pods_Cactus_Stage.framework in Frameworks */,
@@ -1917,6 +1936,7 @@
 				30D6E32324CA6B5300A4EA75 /* MDSwift.swift */,
 				300D37BE24D8C9FB00351994 /* PlusFeaturesPagination.swift */,
 				300D37FA24DA58F400351994 /* WebViewWrapper.swift */,
+				30D63EAB24E20A9D00FBD884 /* RefreshableScrollView.swift */,
 			);
 			path = "Supplemental Views";
 			sourceTree = "<group>";
@@ -2410,6 +2430,7 @@
 				30BECAD824DDAF39009F95D5 /* Purchases */,
 				30BECAE424DDB157009F95D5 /* URLImage */,
 				3014D59F24DDD91E007AF70B /* Sentry */,
+				308F030A24E1CC6000984DF3 /* Cloudinary */,
 			);
 			productName = "Cactus Today";
 			productReference = 304B210423D383E1007B016C /* Cactus Today Prod.appex */;
@@ -2439,6 +2460,8 @@
 				30BECAD224DDAF00009F95D5 /* Purchases */,
 				30BECAE224DDB14E009F95D5 /* URLImage */,
 				3014D59D24DDD916007AF70B /* Sentry */,
+				308F030824E1CC4F00984DF3 /* Cloudinary */,
+				308F031124E1CC9900984DF3 /* CodableFirebase */,
 			);
 			productName = Cactus;
 			productReference = 30A281E722EA61A30041158E /* Cactus.app */;
@@ -2463,6 +2486,8 @@
 				30BECAD624DDAF2C009F95D5 /* Purchases */,
 				30BECADE24DDB11A009F95D5 /* URLImage */,
 				3014D59924DDD8ED007AF70B /* Sentry */,
+				308F030424E1CC2700984DF3 /* Cloudinary */,
+				308F030D24E1CC8300984DF3 /* CodableFirebase */,
 			);
 			productName = Cactus;
 			productReference = 30A3BD0224C113780016955C /* Cactus Local.app */;
@@ -2490,6 +2515,8 @@
 				30BECAD424DDAF23009F95D5 /* Purchases */,
 				30BECAE024DDB128009F95D5 /* URLImage */,
 				3014D59B24DDD90A007AF70B /* Sentry */,
+				308F030624E1CC4400984DF3 /* Cloudinary */,
+				308F030F24E1CC9100984DF3 /* CodableFirebase */,
 			);
 			productName = Cactus;
 			productReference = 30B6EA6B22EA5A9F00443E46 /* Cactus Stage.app */;
@@ -2550,6 +2577,8 @@
 				30BECAD124DDAF00009F95D5 /* XCRemoteSwiftPackageReference "purchases-ios" */,
 				30BECADD24DDB11A009F95D5 /* XCRemoteSwiftPackageReference "url-image" */,
 				3014D59824DDD8ED007AF70B /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
+				308F030324E1CC2700984DF3 /* XCRemoteSwiftPackageReference "cloudinary_ios" */,
+				308F030C24E1CC8300984DF3 /* XCRemoteSwiftPackageReference "CodableFirebase" */,
 			);
 			productRefGroup = 30B6EA6C22EA5A9F00443E46 /* Products */;
 			projectDirPath = "";
@@ -3096,6 +3125,7 @@
 				3077383E24D5DEE400D0C5BE /* ProductGroupData.swift in Sources */,
 				300FCCEC23ECB5D500089CFB /* FancyLinkButton.swift in Sources */,
 				303C9E3623841AEB006B9786 /* SentPromptService.swift in Sources */,
+				30D63EAF24E20A9D00FBD884 /* RefreshableScrollView.swift in Sources */,
 				30D0E44F236C920C00EFC0E3 /* ViewControllerExtensions.swift in Sources */,
 				303C9DBE237F5E34006B9786 /* URLExtensionTest.swift in Sources */,
 				300D379324D8BC8F00351994 /* JournalFeedCollectionViewController.swift in Sources */,
@@ -3450,6 +3480,7 @@
 				303282132412B8E600FC197A /* PricingFeatureView.swift in Sources */,
 				305366CC24C6714300927498 /* SessionStore.swift in Sources */,
 				3099D1FF240974F200BD9CC4 /* SubscriptionProductGroupService.swift in Sources */,
+				30D63EAE24E20A9D00FBD884 /* RefreshableScrollView.swift in Sources */,
 				303E8143242C4F2700782B54 /* CactusAnalytics.swift in Sources */,
 				3014A38C2378CA0300121729 /* TertiaryButton.swift in Sources */,
 				303EB0892343A0B800AC8741 /* RoundedView.swift in Sources */,
@@ -3677,6 +3708,7 @@
 				30A3BC4024C113780016955C /* SubscriptionProductGroupService.swift in Sources */,
 				305366CA24C6714300927498 /* SessionStore.swift in Sources */,
 				30A3BC4124C113780016955C /* CactusAnalytics.swift in Sources */,
+				30D63EAC24E20A9D00FBD884 /* RefreshableScrollView.swift in Sources */,
 				30A3BC4224C113780016955C /* RoundedView.swift in Sources */,
 				30A3BC4324C113780016955C /* RelationshipsAnimationViewController.swift in Sources */,
 				30A3BC4424C113780016955C /* PromptContentPageViewController.swift in Sources */,
@@ -3904,6 +3936,7 @@
 				303282122412B8E600FC197A /* PricingFeatureView.swift in Sources */,
 				305366CB24C6714300927498 /* SessionStore.swift in Sources */,
 				3099D1FE240974F200BD9CC4 /* SubscriptionProductGroupService.swift in Sources */,
+				30D63EAD24E20A9D00FBD884 /* RefreshableScrollView.swift in Sources */,
 				303E8142242C4F2700782B54 /* CactusAnalytics.swift in Sources */,
 				303EB0882343A0B800AC8741 /* RoundedView.swift in Sources */,
 				30CF538F2370FBB800578B22 /* RelationshipsAnimationViewController.swift in Sources */,
@@ -4572,6 +4605,22 @@
 				kind = branch;
 			};
 		};
+		308F030324E1CC2700984DF3 /* XCRemoteSwiftPackageReference "cloudinary_ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/cloudinary/cloudinary_ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.0;
+			};
+		};
+		308F030C24E1CC8300984DF3 /* XCRemoteSwiftPackageReference "CodableFirebase" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alickbass/CodableFirebase.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.2.2;
+			};
+		};
 		30BECAD124DDAF00009F95D5 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
@@ -4615,6 +4664,41 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3014D59824DDD8ED007AF70B /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
 			productName = Sentry;
+		};
+		308F030424E1CC2700984DF3 /* Cloudinary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 308F030324E1CC2700984DF3 /* XCRemoteSwiftPackageReference "cloudinary_ios" */;
+			productName = Cloudinary;
+		};
+		308F030624E1CC4400984DF3 /* Cloudinary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 308F030324E1CC2700984DF3 /* XCRemoteSwiftPackageReference "cloudinary_ios" */;
+			productName = Cloudinary;
+		};
+		308F030824E1CC4F00984DF3 /* Cloudinary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 308F030324E1CC2700984DF3 /* XCRemoteSwiftPackageReference "cloudinary_ios" */;
+			productName = Cloudinary;
+		};
+		308F030A24E1CC6000984DF3 /* Cloudinary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 308F030324E1CC2700984DF3 /* XCRemoteSwiftPackageReference "cloudinary_ios" */;
+			productName = Cloudinary;
+		};
+		308F030D24E1CC8300984DF3 /* CodableFirebase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 308F030C24E1CC8300984DF3 /* XCRemoteSwiftPackageReference "CodableFirebase" */;
+			productName = CodableFirebase;
+		};
+		308F030F24E1CC9100984DF3 /* CodableFirebase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 308F030C24E1CC8300984DF3 /* XCRemoteSwiftPackageReference "CodableFirebase" */;
+			productName = CodableFirebase;
+		};
+		308F031124E1CC9900984DF3 /* CodableFirebase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 308F030C24E1CC8300984DF3 /* XCRemoteSwiftPackageReference "CodableFirebase" */;
+			productName = CodableFirebase;
 		};
 		30BECAD224DDAF00009F95D5 /* Purchases */ = {
 			isa = XCSwiftPackageProductDependency;

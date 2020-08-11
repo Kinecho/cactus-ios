@@ -15,7 +15,7 @@ struct Home: View {
         NavigationView {
             JournalHome()
         }.navigationBarHidden(true)
-    
+            .background(named: .Background)
     }
 }
 

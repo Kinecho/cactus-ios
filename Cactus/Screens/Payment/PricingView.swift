@@ -28,13 +28,18 @@ struct PricingView: View {
     @EnvironmentObject var session: SessionStore
     @EnvironmentObject var checkout: CheckoutStore
     @State var selectedProductId: String?
-    
+    @State var showActionSheet: Bool = false
     var showLoading: Bool {
         return !checkout.productGroupData.allLoaded
     }
     
+    var isSubscribed: Bool {
+        self.session.member?.tier.isPaidTier ?? false
+    }
+    
     var selectedProduct: SKProduct? {
-        return self.skProducts.first { $0.productIdentifier == self.selectedProductId }
+        let productId = self.defaultSelectedProductId
+        return self.skProducts.first { $0.productIdentifier == productId }
     }
     
     var pricingSettings: PricingScreenSettings {
@@ -88,8 +93,17 @@ struct PricingView: View {
         return  product.subscriptionPeriod?.billingPeriod == defaultPeriod
     }
     
+    var defaultSelectedProductId: String? {
+        if let selectedId = self.selectedProductId {
+            return selectedId
+        }
+        let defaultPeriod = self.plusGroup?.defaultSelectedPeriod ?? BillingPeriod.yearly
+        let defaultProduct = self.skProducts.first { $0.subscriptionPeriod?.billingPeriod == defaultPeriod }
+        return defaultProduct?.productIdentifier
+    }
+    
     var checkoutButtonState: ButtonState {
-        self.checkout.checkoutInProgress ? .disabled : .normal
+        self.checkout.checkoutInProgress ? .loading : .normal
     }
     
     var body: some View {
@@ -131,51 +145,60 @@ struct PricingView: View {
                  .background(named: .Background)
                 
                 VStack {
-                    HStack(alignment: .center, spacing: Spacing.normal) {
-                        Spacer()
-                        ForEach(self.skProducts, id: \.productIdentifier) { product in
-                            BuyableItemView(model: BuyableItemViewModel.fromProduct(product),
-                                            selected: self.isSelectedProduct(product))
-                                .foregroundColor(named: .White)
-                                .onTapGesture {
-                                    self.selectedProductId = product.productIdentifier
+                    if !self.isSubscribed {
+                        HStack(alignment: .center, spacing: Spacing.normal) {
+                            Spacer()
+                            ForEach(self.skProducts, id: \.productIdentifier) { product in
+                                BuyableItemView(model: BuyableItemViewModel.fromProduct(product),
+                                                selected: self.isSelectedProduct(product))
+                                    .foregroundColor(named: .White)
+                                    .onTapGesture {
+                                        self.selectedProductId = product.productIdentifier
+                                    }
+                                    
+                            }
+                            Spacer()
+                        }
+                        
+                        if self.footer != nil {
+                            VStack(alignment: .center) {
+                                HStack(alignment: .center, spacing: Spacing.small) {
+                                    
+                                        if Icon.getImage(self.footer?.icon) != nil {
+                                            Image(uiImage: Icon.getImage(self.footer?.icon)!)
+                                                .resizable()
+                                                .frame(width: 18, height: 18)
+                                                .aspectRatio(contentMode: .fit)
+                                                .foregroundColor(named: .Magenta)
+                                        }
+                                        if self.footer?.textMarkdown != nil {
+                                            Text(self.footer!.textMarkdown!)
+                                                .font(Font(CactusFont.normal))
+                                                .foregroundColor(Color(CactusColor.white))
+                                        }
                                 }
-                                .frame(minWidth: 0,
-                                    maxWidth: .infinity,
-                                    minHeight: 0,
-                                    maxHeight: .infinity)
+                                .padding()
+                            }
                         }
                         Spacer()
-                    }
-                    
-                    if self.footer != nil {
-                        VStack(alignment: .center) {
-                            HStack(alignment: .center, spacing: Spacing.small) {
-                                
-                                    if Icon.getImage(self.footer?.icon) != nil {
-                                        Image(uiImage: Icon.getImage(self.footer?.icon)!)
-                                            .resizable()
-                                            .frame(width: 18, height: 18)
-                                            .aspectRatio(contentMode: .fit)
-                                            .foregroundColor(named: .Magenta)
-                                    }
-                                    if self.footer?.textMarkdown != nil {
-                                        Text(self.footer!.textMarkdown!)
-                                            .font(Font(CactusFont.normal))
-                                            .foregroundColor(Color(CactusColor.white))
-                                    }
+                        CactusButton("Try Cactus Plus", .buttonPrimary, state: self.checkoutButtonState)
+                            .onTapGesture {
+                                if self.selectedProduct != nil {
+                                    self.checkout.submitPurchase(self.selectedProduct!)
+                                }
                             }
-                            .padding()
+                        
+                        CactusButton("Restore Purchases", .link).onTapGesture {
+                            self.showActionSheet = true
                         }
+                        
+                    } else {
+                        Text("Thank you for your support as a Cactus Plus customer.")
+                            .multilineTextAlignment(.center)
+                            .padding(Spacing.large)
+                            .foregroundColor(NamedColor.White.color)
                     }
-                    Spacer()
-                    CactusButton("Try Cactus Plus", .buttonPrimary, state: self.checkoutButtonState)
-                        .onTapGesture {
-                            if self.selectedProduct != nil {
-                                self.checkout.submitPurchase(self.selectedProduct!)
-                            }
-                            
-                        }
+                    Spacer(minLength: Spacing.giant)
                 }
                 .padding()
                 .background(named: .Dolphin)
@@ -185,6 +208,17 @@ struct PricingView: View {
         }
         .background(named: .Dolphin)
         .edgesIgnoringSafeArea(.vertical)
+        .actionSheet(isPresented: self.$showActionSheet) { () -> ActionSheet in
+                ActionSheet(title: Text("Restore Purchases"),
+                            message: Text("Any previous purchases with an active subscription will be restored. This may take a few minutes."),
+                            buttons: [
+                                .cancel(Text("Cacnel")),
+                                .default(Text("Restore Purchases"), action: {
+                                    self.checkout.restorePurchases()
+                                })
+                    ]
+                )
+        } //end action sheet
         
     }
 }
@@ -196,13 +230,26 @@ struct PricingView_Previews: PreviewProvider {
             PricingView()
                 .environmentObject(SessionStore.mockLoggedIn())
                 .environmentObject(CheckoutStore.mock(loading: false))
-            .previewDisplayName("Pricing Page (Light)")
+                .previewDisplayName("Pricing Page (Light)")
             
             PricingView()
                 .environmentObject(SessionStore.mockLoggedIn())
                 .environmentObject(CheckoutStore.mock(loading: false))
                 .colorScheme(.dark)
-            .previewDisplayName("Pricing Page (Dark)")
+                .previewDisplayName("Pricing Page (Dark)")
+            
+            
+            PricingView()
+                .environmentObject(SessionStore.mockLoggedIn(tier: .PLUS))
+                .environmentObject(CheckoutStore.mock(loading: false))
+                .previewDisplayName("Already Subscribed (Light)")
+            
+            PricingView()
+                .environmentObject(SessionStore.mockLoggedIn(tier: .PLUS))
+                .environmentObject(CheckoutStore.mock(loading: false))
+                .colorScheme(.dark)
+                .previewDisplayName("Already Subscribed (Dark)")
+            
         }
     }
 }

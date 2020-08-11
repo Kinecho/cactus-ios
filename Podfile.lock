@@ -224,10 +224,6 @@ PODS:
     - BoringSSL-GRPC/Interface (= 0.0.7)
   - BoringSSL-GRPC/Interface (0.0.7)
   - Branch (0.34.0)
-  - Cloudinary (2.9.0):
-    - Cloudinary/ios (= 2.9.0)
-  - Cloudinary/ios (2.9.0)
-  - CodableFirebase (0.2.1)
   - FacebookCore (0.9.0):
     - FBSDKCoreKit (~> 5.0)
   - FBSDKCoreKit (5.15.1):
@@ -485,15 +481,10 @@ PODS:
   - SDWebImage (5.8.4):
     - SDWebImage/Core (= 5.8.4)
   - SDWebImage/Core (5.8.4)
-  - Sentry (5.1.10):
-    - Sentry/Core (= 5.1.10)
-  - Sentry/Core (5.1.10)
   - SwiftLint (0.39.2)
 
 DEPENDENCIES:
   - Branch
-  - Cloudinary (~> 2.0)
-  - CodableFirebase
   - FacebookCore
   - FBSDKCoreKit
   - Firebase/Analytics
@@ -521,7 +512,6 @@ DEPENDENCIES:
   - GTMSessionFetcher
   - MarkdownKit (= 1.5)
   - NoveFeatherIcons (~> 1.0)
-  - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `5.1.10`)
   - SwiftLint
 
 SPEC REPOS:
@@ -530,8 +520,6 @@ SPEC REPOS:
     - AppAuth
     - BoringSSL-GRPC
     - Branch
-    - Cloudinary
-    - CodableFirebase
     - FacebookCore
     - FBSDKCoreKit
     - FBSDKLoginKit
@@ -572,23 +560,11 @@ SPEC REPOS:
     - SDWebImage
     - SwiftLint
 
-EXTERNAL SOURCES:
-  Sentry:
-    :git: https://github.com/getsentry/sentry-cocoa.git
-    :tag: 5.1.10
-
-CHECKOUT OPTIONS:
-  Sentry:
-    :git: https://github.com/getsentry/sentry-cocoa.git
-    :tag: 5.1.10
-
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
   Branch: 446aeb832102f56f04edf5fa7cb0a752dc392ca7
-  Cloudinary: 8e9511826bd58df6b14f0c6c042f2c5a034081f4
-  CodableFirebase: 0bf201991eeec35eb9fcd987d271ea463cf34a80
   FacebookCore: ba86524b66cfa86d0f8e65d08faa8504a9f732dd
   FBSDKCoreKit: 1d5acf7c9d7a2f92bb1a242dc60cae5b7adb91df
   FBSDKLoginKit: f1ea8026a58b52d30c9f2e6a58ca7d813619fb83
@@ -627,9 +603,8 @@ SPEC CHECKSUMS:
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
   Protobuf: 2793fcd0622a00b546c60e7cbbcc493e043e9bb9
   SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
-  Sentry: 8715e88b813bde9ad37aead365d5b04ac7302153
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
-PODFILE CHECKSUM: 56dcd7830cd51653ba2bf727cdd95e672e9f4cf6
+PODFILE CHECKSUM: 3d930148ca332e960ffc68eff6b475940c417ed8
 
 COCOAPODS: 1.8.4

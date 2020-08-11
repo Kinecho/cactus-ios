@@ -8,7 +8,7 @@
 
 import Foundation
 import Cloudinary
-//import SwiftyGif
+import UIKit
 
 class ImageService {
     static var shared = ImageService()

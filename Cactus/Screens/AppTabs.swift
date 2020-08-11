@@ -31,6 +31,14 @@ struct AppTabs: View {
         UITabBar.appearance().backgroundColor = CactusColor.background
         UITableView.appearance().backgroundColor = CactusColor.background
 //        UITableViewCell.appearance().backgroundColor = CactusColor.background
+        
+        UINavigationBar.appearance().largeTitleTextAttributes = [
+            .foregroundColor: NamedColor.TextDefault.uiColor
+        ]
+        
+        UINavigationBar.appearance().backgroundColor = NamedColor.Background.uiColor
+
+
     }
     
     var body: some View {
@@ -73,6 +81,7 @@ struct AppTabs: View {
         .onAppear {
             self.updateAppearance()
         }
+        .background(named: .Background)
         .accentColor(NamedColor.Magenta.color)
         .font(Font(CactusFont.normal))
         .environmentObject(session)

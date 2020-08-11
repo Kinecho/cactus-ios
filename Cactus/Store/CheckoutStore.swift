@@ -41,12 +41,19 @@ final class CheckoutStore: ObservableObject, StoreObserverDelegate {
         SubscriptionService.sharedInstance.submitPurchase(product: product)
     }
     
+    func restorePurchases() {
+        self.checkoutInProgress = true
+        StoreObserver.sharedInstance.restore()
+    }
+    
     func handlePurchseCompleted(verifyReceiptResult: CompletePurchaseResult?, error: Any?) {
-        self.checkoutInProgress = false
-        self.checkoutResult = verifyReceiptResult
-        if let error = error {
-            Logger.shared.error("Failed to checkout", error)
-        }
+        DispatchQueue.main.async {
+            self.checkoutInProgress = false
+            self.checkoutResult = verifyReceiptResult
+            if let error = error {
+                Logger.shared.error("Failed to checkout", error)
+            }
+        }        
     }
     
 }

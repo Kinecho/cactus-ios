@@ -16,14 +16,14 @@ struct AppMain: View {
         VStack {
             if self.session.authLoaded {
                 if self.session.member == nil {
-                    Welcome()
+                    Welcome().background(named: .Background)
                 } else {
-                    AppTabs()
+                    AppTabs().background(named: .Background)
                 }
             } else {
                 Loading("Loading...")
             }
-        }.background(CactusColor.background.color)
+        }.background(named: .Background)
     }
 }
 

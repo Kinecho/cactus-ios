@@ -27,12 +27,17 @@ struct LegacySubscriptionSettingsViewController: UIViewControllerRepresentable {
     }
 }
 
+enum SubscriptionActionSheet {
+    case restorePurchases
+}
+
 struct SubscriptionSettingsView: View {
     @EnvironmentObject var session: SessionStore
     @EnvironmentObject var checkout: CheckoutStore
-    @State var showPricing: Bool = false
-    
     @ObservedObject var data: SubscriberData =  SubscriberData(autoFetch: true)
+    @State var showPricing: Bool = false
+    @State var showActionSheet: Bool = false
+    @State var currentActionSheet: SubscriptionActionSheet?
     
     var logger = Logger("SubscriptionSettingsView")
     var plusEntitlement: RevenueCat.EntitlementInfo? {
@@ -79,93 +84,75 @@ struct SubscriptionSettingsView: View {
     }
     
     var body: some View {
-        //        LegacySubscriptionSettingsViewController()=
-        
-        ScrollView(.vertical) {
-            VStack(alignment: .leading, spacing: Spacing.normal) {
-                SubscriptionDetailsView(model: SubscriptionDetailsViewModel.fromSubscriberData(data, member: self.session.member))
-                CactusButton("Refresh", .buttonSecondary)
-                    .onTapGesture {
-                        self.logger.info("Refreshing Data")
-                        self.data.fetch()
-                    }
-                
-                if self.showUpgradeButton {
-                    CactusButton("Try Cactus Plus", .buttonPrimary).onTapGesture {
-                        self.showPricing = true
-                    }
-                }
-                
-//                VStack(alignment: .leading) {
-//                    Text("Subscription Invoice Details").font(.headline)
-//                    if !self.data.detailsLoaded {
-//                        HStack {
-//                            ActivityIndicator(isAnimating: .constant(true), style: .medium)
-//                            Text("Loading SubscriptoinDetail")
-//                        }
-//                    } else {
-//                        Text("Invoice Status: \(self.data.subscriptionDetails?.upcomingInvoice?.status?.rawValue ?? "No status")")
-//                    }
-//                }
-                
-                
-                
-//                VStack(alignment: .leading) {
-//                    Text("RevenueCat Details").font(.headline)
-//
-//                    if !self.data.purchaserInfoLoaded {
-//                        HStack {
-//                            ActivityIndicator(isAnimating: .constant(true), style: .medium)
-//                            Text("Loading RevenueCat Info")
-//                        }
-//                    } else if self.plusEntitlement != nil {
-//                        Group {
-//                            Text("RCID: \(self.rcIdentity)")
-//                            Text("Subscritpion Status: \(self.plusEntitlement!.isActive ? "Active" : "Not Active")")
-//                            Text("Will Renew: \(self.plusEntitlement!.willRenew ? "Yes" : "No")")
-//                            Text("In Trial: \(self.plusEntitlement!.periodType == .trial ? "In Trial" : "Not in trial")")
-//                            Text("Period Type: \(self.periodType ?? "--")")
-//                        }
-//                        Group {
-//                            Text("Original Purchase Date \(FormatUtils.localizedDate(self.plusEntitlement!.originalPurchaseDate, dateStyle: .short, timeStyle: .medium) ?? "Unknown")")
-//                            Text("Last Purchase Date \(FormatUtils.localizedDate(self.plusEntitlement!.latestPurchaseDate, dateStyle: .short, timeStyle: .medium) ?? "Unknown")")
-//                            Text("Expiration Date \(FormatUtils.localizedDate(self.plusEntitlement!.expirationDate, dateStyle: .short, timeStyle: .none) ?? "Unknown")")
-//                            Text("Unsubscribed At \(FormatUtils.localizedDate(self.plusEntitlement!.unsubscribeDetectedAt) ?? "none")")
-//                            Text("Billing Issue Detected At (may be delayed) \(FormatUtils.localizedDate(self.plusEntitlement!.billingIssueDetectedAt) ?? "--")")
-//                            Text("Billing Store: \(self.storeName)")
-//                        }
-//                    } else {
-//                        Text("No entitlements")
-//                    }
-//
-//                }
-                
-            }
-//            .onAppear {
-//                DispatchQueue.main.async {
-//                    self.data.fetch()
-//                }
-//            }
-            .padding()
-            .frame(minWidth: 0,
-                   maxWidth: .infinity,
-                   minHeight: 0,
-                   maxHeight: .infinity,
-                   alignment: .topLeading
-            )
-        }
-        .sheet(isPresented: self.$showPricing) {
-            PricingView().environmentObject(self.session)
-                .environmentObject(self.checkout)
-        }
-    }
-}
+        GeometryReader { geometry in
+            RefreshableScrollView(width: geometry.size.width, height: geometry.size.height, handlePullToRefresh: {
+                self.data.fetch()
+            }) {
+                VStack(alignment: .leading, spacing: Spacing.xlarge) {
+                    SubscriptionDetailsView(model: SubscriptionDetailsViewModel.fromSubscriberData(self.data, member: self.session.member))
+                    if self.data.hasLoaded {
+                      
+                        if self.showUpgradeButton {
+                            CactusButton("Try Cactus Plus", .buttonPrimary).onTapGesture {
+                                self.showPricing = true
+                            }
+                        }
+                        
+                        CactusButton("Restore Purchases", .link).onTapGesture {
+                            self.currentActionSheet = .restorePurchases
+                            self.showActionSheet = true
+                        }
+                    } //end loading conditional
+                } //end vstack
+                    .padding()
+                    .frame(minWidth: 0,
+                           maxWidth: .infinity,
+                           minHeight: 0,
+                           maxHeight: .infinity,
+                           alignment: .topLeading
+                )
+                .background(named: .Background)
+            }.background(named: .Background)
+            
+        } //end geometry reader
+            .sheet(isPresented: self.$showPricing) {
+                PricingView().environmentObject(self.session)
+                    .environmentObject(self.checkout)
+        } //end sheet
+            
+            .actionSheet(isPresented: self.$showActionSheet) { () -> ActionSheet in
+                ActionSheet(title: Text("Restore Purchases"),
+                            message: Text("Any previous purchases with an active subscription will be restored. This may take a few minutes."),
+                            buttons: [
+                                .cancel(Text("Cacnel")),
+                                .default(Text("Restore Purchases"), action: {
+                                    self.checkout.restorePurchases()
+                                })
+                    ]
+                )
+        } //end action sheet
+    } //end body
+} // end View
 
 struct SubscriptionSettingsView_Previews: PreviewProvider {
     
     static var previews: some View {
-        SubscriptionSettingsView()
-            .environmentObject(SessionStore.mockLoggedIn())
-            .environmentObject(CheckoutStore.mock())
+        Group {
+            NavigationView {
+            SubscriptionSettingsView()
+                .navigationBarTitle("Subscription")
+                .environmentObject(SessionStore.mockLoggedIn(tier: .PLUS))
+                .environmentObject(CheckoutStore.mock())
+            }.background(named: .Background)
+            
+            NavigationView {
+            SubscriptionSettingsView()
+                .navigationBarTitle("Subscription")
+                .environmentObject(SessionStore.mockLoggedIn(tier: .PLUS))
+                .environmentObject(CheckoutStore.mock())
+                
+            }.background(named: .Background)
+            .colorScheme(.dark)
+        }
     }
 }

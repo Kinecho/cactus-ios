@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+
 struct SettingsItem: Identifiable {
     
     var id = UUID()
@@ -20,6 +21,30 @@ struct SettingsItem: Identifiable {
         self.subtitle = subtitle
         self.destination = AnyView(destination)
         self.setNavigationTitle = setNavigationTitle
+    }
+}
+
+struct SettingsItemView: View {
+    var item: SettingsItem
+    
+    var body: some View {
+        NavigationLink(destination: self.item.destination
+            .ifMatches(self.item.setNavigationTitle) { content in
+                content.navigationBarTitle(item.title)
+            }.background(named: .Background)
+        ) {
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(item.title)
+                    if item.subtitle != nil {
+                        Text(item.subtitle!).font(CactusFont.normal(FontSize.subTitle).font)
+                    }
+                }
+            }
+        }
+        .minHeight(44)
+        .padding()
+        .listRowInsets(EdgeInsets())
     }
 }
 
@@ -41,7 +66,7 @@ struct SettingsHome: View {
             SettingsItem("Notifications", destination: NotificationSettingsView()),
             SettingsItem("Subscription", tier.displayName, destination: SubscriptionSettingsView()),
             SettingsItem("Linked Accounts", destination: LinkedAccountsView(providers: providers).navigationBarTitle("Linked Accounts")),
-            SettingsItem("Help", destination: HelpView(), setNavigationTitle: false),
+            SettingsItem("Help", destination: HelpView(), setNavigationTitle: true),
             SettingsItem("Send Feedback", destination: FeedbackView(), setNavigationTitle: false),
             SettingsItem("Terms of Service", destination: TermsOfServiceView(), setNavigationTitle: false),
             SettingsItem("Privacy Policy", destination: PrivacyPolicyView(), setNavigationTitle: false),
@@ -52,12 +77,13 @@ struct SettingsHome: View {
         NavigationView {
             List {
                 ForEach(self.items) { item in
-                    SettingsItemView(item: item)
+                    SettingsItemView(item: item).background(named: .Background)
                 }
             }
             .onAppear {
                 UITableView.appearance().separatorStyle = .singleLine
                 UITableView.appearance().separatorInset = .zero
+                UITableView.appearance().backgroundColor = NamedColor.Background.uiColor
             }
             .font(CactusFont.normal.font)
             .navigationBarTitle("Settings")
@@ -68,30 +94,15 @@ struct SettingsHome: View {
 
 struct SettingsHome_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsHome().environmentObject(SessionStore.mockLoggedIn())
-    }
-}
-
-struct SettingsItemView: View {
-    var item: SettingsItem
-    
-    var body: some View {
-        NavigationLink(destination: self.item.destination
-            .ifMatches(self.item.setNavigationTitle) { content in
-                content.navigationBarTitle(item.title)
-            }            
-        ) {
-            HStack {
-                VStack(alignment: .leading) {
-                    Text(item.title)
-                    if item.subtitle != nil {
-                        Text(item.subtitle!).font(CactusFont.normal(FontSize.subTitle).font)
-                    }
-                }
-            }
+        Group {
+            SettingsHome().environmentObject(SessionStore.mockLoggedIn())
+                .previewDisplayName("Logged In (Light)")
+            
+            SettingsHome().environmentObject(SessionStore.mockLoggedIn())
+                .colorScheme(.dark)
+                .previewDisplayName("Logged In (Dark)")
         }
-        .minHeight(44)
-        .padding()
-        .listRowInsets(EdgeInsets())
+        .background(named: .Background)
+        
     }
 }

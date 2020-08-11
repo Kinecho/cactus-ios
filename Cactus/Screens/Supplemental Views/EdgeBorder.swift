@@ -9,6 +9,16 @@
 import SwiftUI
 
 
+struct HorizontalLineShape: Shape {
+
+    func path(in rect: CGRect) -> Path {
+        let fill = CGRect(x: 0, y: 0, width: rect.size.width, height: rect.size.height)
+        var path = Path()
+        path.addRoundedRect(in: fill, cornerSize: CGSize(width: 2, height: 2))
+
+        return path
+    }
+}
 
 struct RoundedCorners: Shape {
     var tl: CGFloat = 0.0
@@ -174,6 +184,12 @@ struct EdgeBorder_Previews: PreviewProvider {
             Text("This is some really awesome text")
                 .padding(.leading, 10)
                 .border(width: 10, edge: .leading, color: Color(CactusColor.green), radius: 20, corners: [.topRight, .bottomRight])
-        }.previewLayout(.fixed(width: 400, height: 100))
+            
+            Text("Fancy Link")
+                .padding(.leading, 10)
+                .border(width: 10, edge: .bottom, color: Color(CactusColor.green))
+            
+        }
+        .previewLayout(.fixed(width: 400, height: 100))
     }
 }

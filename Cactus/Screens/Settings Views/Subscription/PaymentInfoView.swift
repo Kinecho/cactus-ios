@@ -57,6 +57,10 @@ struct PaymentInfoView: View {
         return nil
     }
     
+    var isHidden: Bool {
+        return self.text == nil && (self.manageButtonText == nil || self.buttonUrl == nil)
+    }
+    
     var body: some View {
         HStack {
             if self.brandImage != nil {
@@ -81,7 +85,7 @@ struct PaymentInfoView: View {
         }
         .padding(.vertical, Spacing.small)
         .padding(.horizontal, Spacing.normal)
-        .background(NamedColor.PaymentBackground.color)
+        .background(self.isHidden ? Color.clear : NamedColor.PaymentBackground.color)
         .cornerRadius(CornerRadius.normal)
     }
 }
@@ -90,6 +94,7 @@ struct PaymentInfoView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             Group {
+                PaymentInfoView(platform: .PROMOTIONAL).previewDisplayName("Promotional (hidden)")
                 PaymentInfoView(platform: .APPLE).previewDisplayName("Apple")
                 PaymentInfoView(platform: .GOOGLE).previewDisplayName("Google")
                 PaymentInfoView(platform: .STRIPE, cardBrand: CardBrand.visa, last4: "0333").previewDisplayName("Stripe Card")

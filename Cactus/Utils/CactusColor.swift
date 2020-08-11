@@ -22,6 +22,7 @@ enum NamedColor: String, Codable, CaseIterable {
     case BorderLight
     case CardBackground
     case Coral
+    case DisabledButtonBackground
     case Danger
     case Dolphin
     case DolphinLight

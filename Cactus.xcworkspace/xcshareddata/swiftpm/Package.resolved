@@ -2,6 +2,24 @@
   "object": {
     "pins": [
       {
+        "package": "Cloudinary",
+        "repositoryURL": "https://github.com/cloudinary/cloudinary_ios.git",
+        "state": {
+          "branch": null,
+          "revision": "089e2f191adcc0a9b38808396adbeaa0fab2a61d",
+          "version": "2.9.0"
+        }
+      },
+      {
+        "package": "CodableFirebase",
+        "repositoryURL": "https://github.com/alickbass/CodableFirebase.git",
+        "state": {
+          "branch": null,
+          "revision": "a4cda89948db93ec21249a35ecdacab8c489a116",
+          "version": "0.2.2"
+        }
+      },
+      {
         "package": "Purchases",
         "repositoryURL": "https://github.com/RevenueCat/purchases-ios.git",
         "state": {
