@@ -733,6 +733,8 @@
 		3099D20224098EF400BD9CC4 /* SubscriptionProductGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099D20124098EF400BD9CC4 /* SubscriptionProductGroup.swift */; };
 		3099D20324098EF400BD9CC4 /* SubscriptionProductGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099D20124098EF400BD9CC4 /* SubscriptionProductGroup.swift */; };
 		3099D20424098EF400BD9CC4 /* SubscriptionProductGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099D20124098EF400BD9CC4 /* SubscriptionProductGroup.swift */; };
+		309CF36D24EC4E2400DE08EC /* CodableFirebase in Frameworks */ = {isa = PBXBuildFile; productRef = 309CF36C24EC4E2400DE08EC /* CodableFirebase */; };
+		309CF36F24EC4E5100DE08EC /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 309CF36E24EC4E5100DE08EC /* SwiftUIX */; };
 		30A266DA2329BB73003C708E /* config.yml in Resources */ = {isa = PBXBuildFile; fileRef = 30A266D92329BB73003C708E /* config.yml */; };
 		30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */; };
 		30A281E222EA61A30041158E /* SharedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */; };
@@ -1657,8 +1659,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				309CF36F24EC4E5100DE08EC /* SwiftUIX in Frameworks */,
 				308F030B24E1CC6000984DF3 /* Cloudinary in Frameworks */,
 				30BECADA24DDAF4B009F95D5 /* SwiftUI.framework in Frameworks */,
+				309CF36D24EC4E2400DE08EC /* CodableFirebase in Frameworks */,
 				304B210623D383E1007B016C /* NotificationCenter.framework in Frameworks */,
 				5512428B40A08648C6DB9597 /* Pods_Cactus_Today_Prod.framework in Frameworks */,
 				30BECAE524DDB157009F95D5 /* URLImage in Frameworks */,
@@ -2510,6 +2514,8 @@
 				30BECAE424DDB157009F95D5 /* URLImage */,
 				3014D59F24DDD91E007AF70B /* Sentry */,
 				308F030A24E1CC6000984DF3 /* Cloudinary */,
+				309CF36C24EC4E2400DE08EC /* CodableFirebase */,
+				309CF36E24EC4E5100DE08EC /* SwiftUIX */,
 			);
 			productName = "Cactus Today";
 			productReference = 304B210423D383E1007B016C /* Cactus Today Prod.appex */;
@@ -4834,6 +4840,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 308F030C24E1CC8300984DF3 /* XCRemoteSwiftPackageReference "CodableFirebase" */;
 			productName = CodableFirebase;
+		};
+		309CF36C24EC4E2400DE08EC /* CodableFirebase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 308F030C24E1CC8300984DF3 /* XCRemoteSwiftPackageReference "CodableFirebase" */;
+			productName = CodableFirebase;
+		};
+		309CF36E24EC4E5100DE08EC /* SwiftUIX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3050E70E24D88FB900DED2E1 /* XCRemoteSwiftPackageReference "SwiftUIX" */;
+			productName = SwiftUIX;
 		};
 		30BECAD224DDAF00009F95D5 /* Purchases */ = {
 			isa = XCSwiftPackageProductDependency;
