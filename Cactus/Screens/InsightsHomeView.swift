@@ -18,18 +18,11 @@ struct InsightsHome: View {
 
     @EnvironmentObject var session: SessionStore
     @EnvironmentObject var checkout: CheckoutStore
+    
     @State var showSheet: Bool = false
     @State var currentSheet: CurrentSheet = .promptDetails
     @State var selectedEntry: JournalEntry?
-    
-    var todayEntry: JournalEntry? {
-        self.session.journalFeedDataSource?.todayData?.getJournalEntry()
-    }
-    
-    var todayEntryLoaded: Bool {
-        self.session.journalFeedDataSource?.todayLoaded ?? false
-    }
-    
+  
     var stats: [Stat] {
         guard let reflectionStats = self.session.member?.stats?.reflections else {
             return []
@@ -43,10 +36,10 @@ struct InsightsHome: View {
     }
     
     var body: some View {
-        ScrollView(.vertical) {
+        ScrollView(.vertical, showsIndicators: false) {
             VStack {
                 /// Start Stats HScroll View
-                ScrollView(.horizontal) {
+                ScrollView(.horizontal, showsIndicators: false) {
                     HStack(alignment: .top, spacing: Spacing.normal) {
                         ForEach(stats) { stat in
                             StatView(stat: stat)
@@ -59,33 +52,12 @@ struct InsightsHome: View {
                 
                 /// Start padded content group
                 Group {
-                    /// Start Today Entry
-                    if self.todayEntry != nil {
-                        JournalEntryRow(entry: self.todayEntry!, inlineImage: true).onTapGesture {
-                            self.selectedEntry = self.todayEntry
-                            self.currentSheet = .promptDetails
-                            self.showSheet = true
-                        }
-                    } else if self.todayEntryLoaded {
-                        VStack {
-                            Text("Uh oh").font(CactusFont.bold(.title).font)
-                            Text("There seems to be an issue finding today's prompt. Please check back a little later.")
-                                .font(CactusFont.normal.font)
-                        }.foregroundColor(named: .TextDefault)
-                            .background(named: .CardBackground)
-                            .cornerRadius(CornerRadius.normal)
-                    } else {
-                        HStack(alignment: .center) {
-                            ActivityIndicator(isAnimating: .constant(true), style: .medium)
-                            Text("Loading Today's Prompt")
-                        }
-                        .padding()
-                        .background(named: .CardBackground)
-                        .cornerRadius(CornerRadius.normal)
-                    }
-                    /// End Today Entry
-                    
-                    
+                    TodayWidgetView(onTapped: { entry in
+                        self.currentSheet = .promptDetails
+                        self.showSheet = true
+                        self.selectedEntry = entry
+                    })
+                
                     /// Start Core Values
                     VStack(alignment: .leading) {
                         HStack(alignment: .top) {
@@ -154,8 +126,7 @@ struct InsightsHome: View {
                 EmptyView()
             }
             
-        }
-        
+        }        
     }
 }
 

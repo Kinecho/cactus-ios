@@ -41,6 +41,8 @@ struct JournalEntryRow: View {
         return entry.responsesLoaded && !isBlank(entry.responseText)
     }
     
+    let dotsRotationAnimation = Animation.interpolatingSpring(mass: 0.2, stiffness: 25, damping: 2.5, initialVelocity: -0.5)
+    
     var body: some View {
         ZStack {
             VStack(alignment: .leading, spacing: 0) {
@@ -51,18 +53,18 @@ struct JournalEntryRow: View {
                             .foregroundColor(Color(CactusColor.textDefault))
                     }
                     
-                    Spacer()
+                    Spacer().animation(nil)
                     Image(CactusImage.dots.rawValue)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .foregroundColor(Color(CactusColor.textDefault))
                         .frame(width: 30, height: 20)
                         .rotationEffect(.degrees(self.showMoreActions ? 90 : 0))
-                        .animation(.interpolatingSpring(mass: 0.2, stiffness: 25, damping: 2.5, initialVelocity: -0.5))
-                        
                         .onTapGesture {
-                            self.showMoreActions.toggle()
-                    }
+                            withAnimation(self.dotsRotationAnimation) {
+                                self.showMoreActions.toggle()
+                            }
+                        }
                 }
                 Group {
                     if self.hasResponse {

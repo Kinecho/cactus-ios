@@ -34,13 +34,15 @@ struct AppTabs: View {
     }
     
     func updateAppearance() {
-        UIScrollView.appearance().backgroundColor = CactusColor.background
+        UIScrollView.appearance().backgroundColor = CactusColor.background        
         
         UITabBar.appearance().unselectedItemTintColor = CactusColor.textMinimized
         UITabBar.appearance().backgroundColor = CactusColor.background
         
         UITableView.appearance().backgroundColor = CactusColor.background
-        
+        UITableView.appearance().showsVerticalScrollIndicator = false
+        UITableView.appearance().showsHorizontalScrollIndicator = false
+
         UINavigationBar.appearance().backgroundColor = NamedColor.Background.uiColor
         UINavigationBar.appearance().largeTitleTextAttributes = [
             .foregroundColor: NamedColor.TextDefault.uiColor
@@ -88,7 +90,7 @@ struct AppTabs: View {
         .onAppear {
             self.updateAppearance()
         }
-        .accentColor(NamedColor.Magenta.color)
+        .accentColor(NamedColor.Green.color)
         .font(Font(CactusFont.normal))
         
         .environmentObject(session)

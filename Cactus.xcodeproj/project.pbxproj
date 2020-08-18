@@ -735,6 +735,10 @@
 		3099D20424098EF400BD9CC4 /* SubscriptionProductGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099D20124098EF400BD9CC4 /* SubscriptionProductGroup.swift */; };
 		309CF36D24EC4E2400DE08EC /* CodableFirebase in Frameworks */ = {isa = PBXBuildFile; productRef = 309CF36C24EC4E2400DE08EC /* CodableFirebase */; };
 		309CF36F24EC4E5100DE08EC /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 309CF36E24EC4E5100DE08EC /* SwiftUIX */; };
+		309CF37124EC810A00DE08EC /* TodayWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF37024EC810A00DE08EC /* TodayWidgetView.swift */; };
+		309CF37224EC810A00DE08EC /* TodayWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF37024EC810A00DE08EC /* TodayWidgetView.swift */; };
+		309CF37324EC810A00DE08EC /* TodayWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF37024EC810A00DE08EC /* TodayWidgetView.swift */; };
+		309CF37424EC810A00DE08EC /* TodayWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF37024EC810A00DE08EC /* TodayWidgetView.swift */; };
 		30A266DA2329BB73003C708E /* config.yml in Resources */ = {isa = PBXBuildFile; fileRef = 30A266D92329BB73003C708E /* config.yml */; };
 		30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */; };
 		30A281E222EA61A30041158E /* SharedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */; };
@@ -1518,6 +1522,7 @@
 		3099D1F62409740D00BD9CC4 /* SubscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionService.swift; sourceTree = "<group>"; };
 		3099D1FD240974F200BD9CC4 /* SubscriptionProductGroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionProductGroupService.swift; sourceTree = "<group>"; };
 		3099D20124098EF400BD9CC4 /* SubscriptionProductGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionProductGroup.swift; sourceTree = "<group>"; };
+		309CF37024EC810A00DE08EC /* TodayWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayWidgetView.swift; sourceTree = "<group>"; };
 		30A266D92329BB73003C708E /* config.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.yml; sourceTree = "<group>"; };
 		30A281E722EA61A30041158E /* Cactus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cactus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A281EF22EA62650041158E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -2287,6 +2292,7 @@
 			isa = PBXGroup;
 			children = (
 				30D63EB124E232B100FBD884 /* StatView.swift */,
+				309CF37024EC810A00DE08EC /* TodayWidgetView.swift */,
 			);
 			path = Insights;
 			sourceTree = "<group>";
@@ -3255,6 +3261,7 @@
 				300D379A24D8BE2300351994 /* WebViewController.swift in Sources */,
 				303282142412B8E600FC197A /* PricingFeatureView.swift in Sources */,
 				303C9E2C23841ACC006B9786 /* BorderedTextView.swift in Sources */,
+				309CF37424EC810A00DE08EC /* TodayWidgetView.swift in Sources */,
 				3014D5B624DE3DBB007AF70B /* WelcomeController.swift in Sources */,
 				303C9E3323841AEB006B9786 /* PromptContentService.swift in Sources */,
 				30D63EE024E25F3900FBD884 /* CactusWebView.swift in Sources */,
@@ -3721,6 +3728,7 @@
 				3077381524CBD00000D0C5BE /* JournalUpgradeBanner.swift in Sources */,
 				30A3BC0524C0CDF90016955C /* WebAppInterface.swift in Sources */,
 				30CF538A2370DDCC00578B22 /* EnergyAnimationViewController.swift in Sources */,
+				309CF37324EC810A00DE08EC /* TodayWidgetView.swift in Sources */,
 				300FCCF423EE279500089CFB /* StoreObserver.swift in Sources */,
 				3026B29B234D3E2800CD2D34 /* PromptContentViewController.swift in Sources */,
 				30E2D377234311C6003D2B27 /* PillLabelView.swift in Sources */,
@@ -3953,6 +3961,7 @@
 				3077381324CBD00000D0C5BE /* JournalUpgradeBanner.swift in Sources */,
 				30A3BCA024C113780016955C /* WebAppInterface.swift in Sources */,
 				30A3BCA124C113780016955C /* EnergyAnimationViewController.swift in Sources */,
+				309CF37124EC810A00DE08EC /* TodayWidgetView.swift in Sources */,
 				30A3BCA224C113780016955C /* StoreObserver.swift in Sources */,
 				30A3BCA324C113780016955C /* LoginViewController.swift in Sources */,
 				30A3BCA424C113780016955C /* PillLabelView.swift in Sources */,
@@ -4185,6 +4194,7 @@
 				3077381424CBD00000D0C5BE /* JournalUpgradeBanner.swift in Sources */,
 				30A3BC0424C0CDF90016955C /* WebAppInterface.swift in Sources */,
 				30CF53892370DDCC00578B22 /* EnergyAnimationViewController.swift in Sources */,
+				309CF37224EC810A00DE08EC /* TodayWidgetView.swift in Sources */,
 				300FCCF323EE279500089CFB /* StoreObserver.swift in Sources */,
 				30E9B0AF22EADD04005B25FD /* LoginViewController.swift in Sources */,
 				30E2D376234311C6003D2B27 /* PillLabelView.swift in Sources */,
