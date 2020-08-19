@@ -26,10 +26,7 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
     let padding: CGFloat = 10
     var response: ReflectionResponse?
     var prompt: ReflectionPrompt?
-    // swiftlint:disable weak_delegate
-    var titleTextViewDelegate: TextViewPlaceholderDelegate?
-    // swiftlint:disable weak_delegate
-    var noteTextViewDelegate: TextViewPlaceholderDelegate?
+    let placeholderColor = CactusColor.placeholderText
     var questionText: String?
     var isSaving: Bool = false {
         didSet {
@@ -49,20 +46,25 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
         if #available(iOS 13.0, *) {
             self.isModalInPresentation = true
         }
-        
-//        self.questionTextView.text = self.questionText ?? ""
+        self.questionTextView.accessibilityLabel = "Title"
+        self.responseTextView.accessibilityLabel = "Write something..."
         
         if self.prompt?.isCustomPrompt == true {
             self.questionTextView.isEditable = true
-            self.titleTextViewDelegate = TextViewPlaceholderDelegate("Title", self.questionTextView)
+//            self.titleTextViewDelegate = TextViewPlaceholderDelegate("Title", self.questionTextView)
+            self.questionTextView.text = self.questionText ?? ""
+            if self.questionText?.isEmpty == false {
+                self.questionTextView.textColor = CactusColor.textDefault
+            }
+            self.questionTextView.delegate = self
 
         } else {
-            self.questionTextView.attributedText = MarkdownUtil.toMarkdown(questionText, font: CactusFont.normal(24)) ?? NSAttributedString()
+            self.questionTextView.attributedText = MarkdownUtil.toMarkdown(questionText ?? "", font: CactusFont.normal(24)) ?? NSAttributedString()
         }
         
         self.responseTextView.text = self.response?.content.text ?? ""
-        self.noteTextViewDelegate = TextViewPlaceholderDelegate("Write something...", self.responseTextView)
-        
+//        self.noteTextViewDelegate = TextViewPlaceholderDelegate("Write something...", self.responseTextView)
+        self.responseTextView.delegate = self
         
         
         self.configureView()
@@ -75,7 +77,7 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
         guard self.isViewLoaded else {
             return
         }
-        if !isBlank( self.titleTextViewDelegate?.text) {
+        if !isBlank(self.questionTextView.text) && self.questionTextView.text != (self.questionTextView.accessibilityLabel ?? "") {
             self.responseTextView.becomeFirstResponder()
         }
     }
@@ -103,7 +105,7 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
         guard self.isViewLoaded else {
             return
         }
-        if !isBlank( self.titleTextViewDelegate?.text) {
+        if isBlank(self.response?.content.text) {
             self.responseTextView.becomeFirstResponder()
         }
     }
@@ -180,10 +182,28 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
         self.logger.info("done tapped")
 //        self.delegate?.done(text: self.responseTextView.text)
         if self.prompt == nil || self.prompt?.isCustomPrompt != true {
-            self.delegate?.done(text: self.noteTextViewDelegate?.text, response: self.response, title: nil, prompt: nil )
+            self.delegate?.done(text: self.responseTextView.text, response: self.response, title: nil, prompt: nil )
         } else {
-            self.delegate?.done(text: self.noteTextViewDelegate?.text, response: self.response, title: self.titleTextViewDelegate?.text, prompt: self.prompt )
+            self.delegate?.done(text: self.responseTextView.text, response: self.response, title: self.questionTextView.text, prompt: self.prompt )
         }
         
     }
+}
+
+extension EditReflectionViewController: UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == self.placeholderColor {
+            textView.text = nil
+            textView.textColor = CactusColor.textDefault
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = textView.accessibilityLabel ?? ""
+            textView.textColor = self.placeholderColor
+        }
+    }
+    
 }

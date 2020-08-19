@@ -65,7 +65,7 @@ struct EditReflectionControllerRepresentable: UIViewControllerRepresentable {
 
 struct EditNoteView: View {
     let entry: JournalEntry
-        
+    
     var response: ReflectionResponse {
         self.entry.responses?.first ?? ReflectionResponse.Builder(self.entry.promptId ?? self.prompt?.id ?? self.entry.promptContent?.promptId).build()
     }
@@ -83,10 +83,17 @@ struct EditNoteView: View {
     func handleDone(text: String?, response: ReflectionResponse?, title: String?, prompt: ReflectionPrompt?) {
         self.saving = true
         self.response.content.text = text
-        self.response.promptQuestion = title ?? self.response.promptQuestion
-                
-        self.onDone()
-        self.saving = false
+        
+        if prompt?.promptType == PromptType.FREE_FORM {
+            self.response.promptQuestion = title
+        }
+        
+        ReflectionResponseService.sharedInstance.save(self.response) { _, _ in
+            DispatchQueue.main.async {
+                self.saving = false
+                self.onDone()
+            }            
+        }
     }
     
     func handleCancel() {
@@ -103,16 +110,13 @@ struct EditNoteView: View {
     }
     
     var body: some View {
-        VStack {
-            Text(self.questionTitle ?? "No Title Found")
-            Text("Why didn't the other work?")
-                    EditReflectionControllerRepresentable(response: self.response,
-                                                          prompt: self.prompt,
-                                                          title: self.questionTitle,
-                                                          saving: self.saving,
-                                                          onDone: self.handleDone,
-                                                          onCancel: self.handleCancel)
-        }
+        EditReflectionControllerRepresentable(
+            response: self.response,
+            prompt: self.prompt,
+            title: self.questionTitle,
+            saving: self.saving,
+            onDone: self.handleDone,
+            onCancel: self.handleCancel)
     }
 }
 
@@ -122,9 +126,9 @@ struct EditNoteView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             EditNoteView(
-                    entry: entry,
-                 onDone: { print("DONE!") },
-                 onCancel: { print("Cancel tapped") }
+                entry: entry,
+                onDone: { print("DONE!") },
+                onCancel: { print("Cancel tapped") }
             ).environmentObject(SessionStore.mockLoggedIn())
         }
     }

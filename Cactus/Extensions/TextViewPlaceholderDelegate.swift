@@ -55,4 +55,12 @@ class TextViewPlaceholderDelegate: NSObject, UITextViewDelegate {
         }
         return self.textView.text
     }
+    
+    func updateColor() {
+        if self.textView.text.isEmpty {
+            self.textView.textColor = self.placeholderColor
+        } else {
+            self.textView.textColor = CactusColor.textDefault
+        }
+    }
 }
