@@ -83,16 +83,22 @@ struct EditNoteView: View {
     func handleDone(text: String?, response: ReflectionResponse?, title: String?, prompt: ReflectionPrompt?) {
         self.saving = true
         self.response.content.text = text
-        
-        if prompt?.promptType == PromptType.FREE_FORM {
-            self.response.promptQuestion = title
-        }
-        
+        self.response.promptQuestion = title
         ReflectionResponseService.sharedInstance.save(self.response) { _, _ in
-            DispatchQueue.main.async {
-                self.saving = false
-                self.onDone()
-            }            
+            if let prompt = self.prompt, prompt.promptType == PromptType.FREE_FORM {
+                self.prompt?.question = title
+                ReflectionPromptService.sharedInstance.save(prompt: prompt) { _, _ in
+                    DispatchQueue.main.async {
+                        self.saving = false
+                        self.onDone()
+                    }
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.saving = false
+                    self.onDone()
+                }
+            }
         }
     }
     
