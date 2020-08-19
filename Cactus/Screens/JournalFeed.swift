@@ -100,8 +100,8 @@ struct JournalFeed: View {
         }
         .onAppear(perform: {
             UITableView.appearance().separatorStyle = .none
-            UITableView.appearance().backgroundColor = CactusColor.background
-            UITableViewCell.appearance().backgroundColor = CactusColor.background
+//            UITableView.appearance().backgroundColor = CactusColor.background
+//            UITableViewCell.appearance().backgroundColor = CactusColor.background
         })
         .sheet(isPresented: self.$isPresenting) {
             if self.showDetail && self.selectedEntry != nil {

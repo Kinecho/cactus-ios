@@ -28,7 +28,7 @@ struct ProfileSettingsView: View {
     
     
     var body: some View {
-        LegacyProfileSettingsView().background(named: .Background)
+        LegacyProfileSettingsView()
     }
 }
 
@@ -39,14 +39,12 @@ struct ProfileSettingsView_Previews: PreviewProvider {
                 ProfileSettingsView()
                     .navigationBarTitle("Profile")
             }
-                .background(named: .Background)
                 .environmentObject(SessionStore.mockLoggedIn())
             
             
             NavigationView {
                 ProfileSettingsView().navigationBarTitle("Profile")
             }.environmentObject(SessionStore.mockLoggedIn())
-                .background(named: .Background)
                 .colorScheme(.dark)
         }
     }

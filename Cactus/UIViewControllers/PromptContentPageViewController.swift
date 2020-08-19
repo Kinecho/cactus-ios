@@ -149,7 +149,9 @@ class PromptContentPageViewController: UIPageViewController {
         celebrate.appSettings = self.appSettings
         
         self.celebrateVc = celebrate
-        screens.append(celebrate)
+        
+        /// No longer showing celebrate screen at the end of the content
+//        screens.append(celebrate)
         self.screens = screens
         
         if let firstVC = self.screens.first {

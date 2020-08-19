@@ -110,9 +110,8 @@ struct SubscriptionSettingsView: View {
                            minHeight: 0,
                            maxHeight: .infinity,
                            alignment: .topLeading
-                )
-                .background(named: .Background)
-            }.background(named: .Background)
+                )               
+            }
             
         } //end geometry reader
             .sheet(isPresented: self.$showPricing) {
@@ -143,7 +142,7 @@ struct SubscriptionSettingsView_Previews: PreviewProvider {
                 .navigationBarTitle("Subscription")
                 .environmentObject(SessionStore.mockLoggedIn(tier: .PLUS))
                 .environmentObject(CheckoutStore.mock())
-            }.background(named: .Background)
+            }
             
             NavigationView {
             SubscriptionSettingsView()
@@ -151,7 +150,7 @@ struct SubscriptionSettingsView_Previews: PreviewProvider {
                 .environmentObject(SessionStore.mockLoggedIn(tier: .PLUS))
                 .environmentObject(CheckoutStore.mock())
                 
-            }.background(named: .Background)
+            }
             .colorScheme(.dark)
         }
     }

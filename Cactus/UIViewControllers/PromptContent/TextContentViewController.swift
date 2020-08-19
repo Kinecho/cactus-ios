@@ -124,9 +124,11 @@ class TextContentViewController: PromptContentViewController {
         
         guard let contentVc = ScreenID.elementsPageView.getViewController() as? CactusElementPageViewController else {return}
         contentVc.initialElement = element
-        
+        contentVc.backgroundColor = NamedColor.MenuBackground.uiColor
         let modalVc = ModalViewController()
         modalVc.contentVc = contentVc
+        contentVc.view.backgroundColor = NamedColor.MenuBackground.uiColor
+        modalVc.contentView.backgroundColor = NamedColor.MenuBackground.uiColor
         modalVc.modalPresentationStyle = .overCurrentContext
         modalVc.modalTransitionStyle = .crossDissolve
         self.present(modalVc, animated: true, completion: nil)

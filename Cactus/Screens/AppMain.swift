@@ -13,7 +13,7 @@ struct AppMain: View {
     @EnvironmentObject var checkout: CheckoutStore
     
     var body: some View {
-        VStack {
+        Group {
             if self.session.authLoaded {
                 if self.session.member == nil {
                     Welcome().background(named: .Background)
@@ -23,7 +23,7 @@ struct AppMain: View {
             } else {
                 Loading("Loading...")
             }
-        }.background(named: .Background)
+        }
     }
 }
 

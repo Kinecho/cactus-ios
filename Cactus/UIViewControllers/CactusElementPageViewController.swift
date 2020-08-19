@@ -22,7 +22,9 @@ class CactusElementPageViewController: UIPageViewController {
         self.setupPages()
         self.configurePageControl()
         
-        self.view.backgroundColor = backgroundColor        
+        
+        self.view.backgroundColor = backgroundColor
+        self.view.subviews.forEach{$0.backgroundColor = backgroundColor}
     }
 
     func setupPages() {
@@ -50,6 +52,7 @@ class CactusElementPageViewController: UIPageViewController {
         vc.element = element
         vc.hideCloseButton = true
         vc.view.frame = self.view.bounds
+        vc.view.backgroundColor = self.backgroundColor
         return vc
     }
 

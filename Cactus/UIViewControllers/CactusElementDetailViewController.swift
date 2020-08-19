@@ -27,6 +27,10 @@ class CactusElementDetailViewController: UIViewController {
     }
 
     func setupView() {
+        self.nameTextView.backgroundColor = NamedColor.MenuBackground.uiColor
+        self.descriptionTextView.backgroundColor = NamedColor.MenuBackground.uiColor
+        
+        
         self.imageContainerView.layer.cornerRadius = self.imageContainerView.bounds.height / 2
         self.elementImage.tintColor = self.element.color
         self.elementImage.image = self.element.getImage()

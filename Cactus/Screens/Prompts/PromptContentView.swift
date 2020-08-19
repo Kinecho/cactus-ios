@@ -67,11 +67,10 @@ struct PromptContentView: View {
                 }
             } else {
                 PromptContentController(entry: self.entry, onDismiss: self.onPromptDismiss)
-                    .background(named: .Background)
+                    .background(named: .Beige)
                     .edgesIgnoringSafeArea(.bottom)
             }
         }
-        
     }
 }
 

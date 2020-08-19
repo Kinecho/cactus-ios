@@ -739,6 +739,14 @@
 		309CF37224EC810A00DE08EC /* TodayWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF37024EC810A00DE08EC /* TodayWidgetView.swift */; };
 		309CF37324EC810A00DE08EC /* TodayWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF37024EC810A00DE08EC /* TodayWidgetView.swift */; };
 		309CF37424EC810A00DE08EC /* TodayWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF37024EC810A00DE08EC /* TodayWidgetView.swift */; };
+		309CF37624EC8E7200DE08EC /* CoreValuesWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF37524EC8E7200DE08EC /* CoreValuesWidget.swift */; };
+		309CF37724EC8E7200DE08EC /* CoreValuesWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF37524EC8E7200DE08EC /* CoreValuesWidget.swift */; };
+		309CF37824EC8E7200DE08EC /* CoreValuesWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF37524EC8E7200DE08EC /* CoreValuesWidget.swift */; };
+		309CF37924EC8E7200DE08EC /* CoreValuesWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF37524EC8E7200DE08EC /* CoreValuesWidget.swift */; };
+		309CF37B24EC8EB400DE08EC /* GapAnalysisWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF37A24EC8EB400DE08EC /* GapAnalysisWidget.swift */; };
+		309CF37C24EC8EB400DE08EC /* GapAnalysisWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF37A24EC8EB400DE08EC /* GapAnalysisWidget.swift */; };
+		309CF37D24EC8EB400DE08EC /* GapAnalysisWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF37A24EC8EB400DE08EC /* GapAnalysisWidget.swift */; };
+		309CF37E24EC8EB400DE08EC /* GapAnalysisWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF37A24EC8EB400DE08EC /* GapAnalysisWidget.swift */; };
 		30A266DA2329BB73003C708E /* config.yml in Resources */ = {isa = PBXBuildFile; fileRef = 30A266D92329BB73003C708E /* config.yml */; };
 		30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */; };
 		30A281E222EA61A30041158E /* SharedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */; };
@@ -1523,6 +1531,8 @@
 		3099D1FD240974F200BD9CC4 /* SubscriptionProductGroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionProductGroupService.swift; sourceTree = "<group>"; };
 		3099D20124098EF400BD9CC4 /* SubscriptionProductGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionProductGroup.swift; sourceTree = "<group>"; };
 		309CF37024EC810A00DE08EC /* TodayWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayWidgetView.swift; sourceTree = "<group>"; };
+		309CF37524EC8E7200DE08EC /* CoreValuesWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreValuesWidget.swift; sourceTree = "<group>"; };
+		309CF37A24EC8EB400DE08EC /* GapAnalysisWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapAnalysisWidget.swift; sourceTree = "<group>"; };
 		30A266D92329BB73003C708E /* config.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.yml; sourceTree = "<group>"; };
 		30A281E722EA61A30041158E /* Cactus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cactus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A281EF22EA62650041158E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -2293,6 +2303,8 @@
 			children = (
 				30D63EB124E232B100FBD884 /* StatView.swift */,
 				309CF37024EC810A00DE08EC /* TodayWidgetView.swift */,
+				309CF37524EC8E7200DE08EC /* CoreValuesWidget.swift */,
+				309CF37A24EC8EB400DE08EC /* GapAnalysisWidget.swift */,
 			);
 			path = Insights;
 			sourceTree = "<group>";
@@ -3355,6 +3367,7 @@
 				30DFCA8924609D86007187FC /* JournalEntryCell.swift in Sources */,
 				30F7168D237A4B9C004989DB /* AppConfig.swift in Sources */,
 				300D379424D8BC9B00351994 /* LoadingViewController.swift in Sources */,
+				309CF37E24EC8EB400DE08EC /* GapAnalysisWidget.swift in Sources */,
 				303C9E2D23841ACC006B9786 /* UIImageViewAligned.swift in Sources */,
 				30DCA5FA24418BAA00D520D4 /* PromptContentData.swift in Sources */,
 				305B187123319F42003E1561 /* FileUtilsTest.swift in Sources */,
@@ -3406,6 +3419,7 @@
 				30AB0732244E4762006ACB98 /* CoreValuesAssessmentResponseService.swift in Sources */,
 				30D0E456236C98C100EFC0E3 /* StringExtensions.swift in Sources */,
 				305CB0FE23D03C080046E8A8 /* ContactService.swift in Sources */,
+				309CF37924EC8E7200DE08EC /* CoreValuesWidget.swift in Sources */,
 				300D37B024D8C04F00351994 /* CactusElementPageViewController.swift in Sources */,
 				303C9E2323841ACC006B9786 /* PrimaryButton.swift in Sources */,
 				30D0E44E236C920800EFC0E3 /* FirebaseExtensions.swift in Sources */,
@@ -3540,6 +3554,7 @@
 				3077381F24CBFB4E00D0C5BE /* ViewConstants.swift in Sources */,
 				30BE5673234E829100AA6D4D /* NotificationTimeOfDayViewController.swift in Sources */,
 				30934F9D22EBF2AC007C4E6C /* ColorExtensions.swift in Sources */,
+				309CF37824EC8E7200DE08EC /* CoreValuesWidget.swift in Sources */,
 				305130D4234FE9F10088B51F /* InviteSettingsViewController.swift in Sources */,
 				30D7385E23CFFC62006F4DA6 /* InviteContentViewController.swift in Sources */,
 				30D7386E23D00C0C006F4DA6 /* CircleImageView.swift in Sources */,
@@ -3735,6 +3750,7 @@
 				3084E95C2348087100788279 /* HelpViewController.swift in Sources */,
 				305366F124C6A84200927498 /* PromptContentView.swift in Sources */,
 				300D37C124D8C9FB00351994 /* PlusFeaturesPagination.swift in Sources */,
+				309CF37D24EC8EB400DE08EC /* GapAnalysisWidget.swift in Sources */,
 				303282222416D3DF00FC197A /* AuthenticatedTaskManager.swift in Sources */,
 				30265C6423453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */,
 				300D37CF24DA190900351994 /* IconImage.swift in Sources */,
@@ -3773,6 +3789,7 @@
 				3077381D24CBFB4E00D0C5BE /* ViewConstants.swift in Sources */,
 				30A3BC1324C113780016955C /* ColorExtensions.swift in Sources */,
 				30A3BC1424C113780016955C /* InviteSettingsViewController.swift in Sources */,
+				309CF37624EC8E7200DE08EC /* CoreValuesWidget.swift in Sources */,
 				30A3BC1524C113780016955C /* InviteContentViewController.swift in Sources */,
 				30A3BC1624C113780016955C /* CircleImageView.swift in Sources */,
 				30A3BC1724C113780016955C /* ArrayExtensions.swift in Sources */,
@@ -3968,6 +3985,7 @@
 				30A3BCA524C113780016955C /* HelpViewController.swift in Sources */,
 				305366EF24C6A84200927498 /* PromptContentView.swift in Sources */,
 				300D37BF24D8C9FB00351994 /* PlusFeaturesPagination.swift in Sources */,
+				309CF37B24EC8EB400DE08EC /* GapAnalysisWidget.swift in Sources */,
 				30A3BCA624C113780016955C /* AuthenticatedTaskManager.swift in Sources */,
 				30A3BCA724C113780016955C /* UIImageView+SwiftyGif.swift in Sources */,
 				300D37CD24DA190900351994 /* IconImage.swift in Sources */,
@@ -4006,6 +4024,7 @@
 				3077381E24CBFB4E00D0C5BE /* ViewConstants.swift in Sources */,
 				30BE5672234E829100AA6D4D /* NotificationTimeOfDayViewController.swift in Sources */,
 				30934F9C22EBF2AB007C4E6C /* ColorExtensions.swift in Sources */,
+				309CF37724EC8E7200DE08EC /* CoreValuesWidget.swift in Sources */,
 				305130D3234FE9F10088B51F /* InviteSettingsViewController.swift in Sources */,
 				30D7385D23CFFC62006F4DA6 /* InviteContentViewController.swift in Sources */,
 				30D7386D23D00C0C006F4DA6 /* CircleImageView.swift in Sources */,
@@ -4201,6 +4220,7 @@
 				3084E95B2348087100788279 /* HelpViewController.swift in Sources */,
 				305366F024C6A84200927498 /* PromptContentView.swift in Sources */,
 				300D37C024D8C9FB00351994 /* PlusFeaturesPagination.swift in Sources */,
+				309CF37C24EC8EB400DE08EC /* GapAnalysisWidget.swift in Sources */,
 				303282212416D3DF00FC197A /* AuthenticatedTaskManager.swift in Sources */,
 				30265C6323453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */,
 				300D37CE24DA190900351994 /* IconImage.swift in Sources */,

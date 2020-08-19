@@ -43,6 +43,7 @@ enum NamedColor: String, Codable, CaseIterable {
     case TextBoldHighlight
     case Lightest
     case Magenta
+    case MenuBackground
     case NoteBackground
     case PaymentBackground
     case PinkBright
@@ -137,6 +138,7 @@ struct CactusColor {
     static let beige = NamedColor.Beige.uiColor
     static let darkBeige = NamedColor.BeigeDark.uiColor
     static let magenta = NamedColor.Magenta.uiColor
+    static let menuBackground = NamedColor.MenuBackground.uiColor
     static let dolphin = NamedColor.Dolphin.uiColor
     static let dolphinLight = NamedColor.DolphinLight.uiColor
     static let promptBackground = NamedColor.PromptBackground.uiColor

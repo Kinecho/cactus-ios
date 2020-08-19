@@ -22,25 +22,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-//            window.rootViewController = UIHostingController(rootView: CategoryHome().environmentObject(UserData()))
-            
-            //Configure Root View controller
-//            guard let rootVc = ScreenID.AppMain.getViewController() as? AppMainViewController else {
-//                fatalError("Unable to start main view controller in App Delegate")
-//            }
-            
             let sessionStore = SessionStore.shared
             sessionStore.start()
             
             let checkoutStore = CheckoutStore.shared
             checkoutStore.start()
             
-            let appView = AppMain()
+            let appView = AppMain()                
                 .environmentObject(checkoutStore)
                 .environmentObject(sessionStore)
                 
             
             let appMain = UIHostingController(rootView: appView)
+            appMain.view.backgroundColor = NamedColor.Background.uiColor
             
             NavigationService.initialize(rootVc: appMain, delegate: self)
             window.rootViewController = appMain

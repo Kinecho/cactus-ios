@@ -68,7 +68,7 @@ class CactusElementsViewController: PromptContentViewController {
         guard let contentVc = ScreenID.elementsPageView.getViewController() as? CactusElementPageViewController else {return}
         let modalVc = ModalViewController()
         modalVc.setContent(contentVc, size: CGSize(width: 250, height: 350))
-        contentVc.backgroundColor = CactusColor.darkestGreen
+        contentVc.backgroundColor = NamedColor.MenuBackground.uiColor
         contentVc.initialElement = element
         modalVc.modalPresentationStyle = .overCurrentContext
         modalVc.modalTransitionStyle = .crossDissolve

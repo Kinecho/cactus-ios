@@ -31,7 +31,7 @@ struct SettingsItemView: View {
         NavigationLink(destination: self.item.destination
             .ifMatches(self.item.setNavigationTitle) { content in
                 content.navigationBarTitle(item.title)
-            }.background(named: .Background)
+            }
         ) {
             HStack {
                 VStack(alignment: .leading) {
@@ -77,7 +77,7 @@ struct SettingsHome: View {
         NavigationView {
             List {
                 ForEach(self.items) { item in
-                    SettingsItemView(item: item).background(named: .Background)
+                    SettingsItemView(item: item)
                 }
                 Spacer(minLength: Spacing.large)
                 CactusButton("Log Out", .buttonSecondary).onTapGesture {
@@ -87,7 +87,7 @@ struct SettingsHome: View {
             .onAppear {
                 UITableView.appearance().separatorStyle = .singleLine
                 UITableView.appearance().separatorInset = .zero
-                UITableView.appearance().backgroundColor = NamedColor.Background.uiColor
+//                UITableView.appearance().backgroundColor = NamedColor.Background.uiColor
             }
             .font(CactusFont.normal.font)
             .navigationBarTitle("Settings")

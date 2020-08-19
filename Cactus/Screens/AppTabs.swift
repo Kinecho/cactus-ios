@@ -34,67 +34,68 @@ struct AppTabs: View {
     }
     
     func updateAppearance() {
-        UIScrollView.appearance().backgroundColor = CactusColor.background        
+//        UIScrollView.appearance().backgroundColor = NamedColor.Background.uiColor
+        UIScrollView.appearance().backgroundColor = .clear
         
-        UITabBar.appearance().unselectedItemTintColor = CactusColor.textMinimized
-        UITabBar.appearance().backgroundColor = CactusColor.background
-        
-        UITableView.appearance().backgroundColor = CactusColor.background
+        UITabBar.appearance().unselectedItemTintColor = CactusColor.textMinimized        
+                
+//        UITableView.appearance().backgroundColor = CactusColor.background
         UITableView.appearance().showsVerticalScrollIndicator = false
         UITableView.appearance().showsHorizontalScrollIndicator = false
 
-        UINavigationBar.appearance().backgroundColor = NamedColor.Background.uiColor
+//        UINavigationBar.appearance().tintColor = NamedColor.Background.uiColor
+//        UINavigationBar.appearance().barTintColor = NamedColor.Background.uiColor
+//        UINavigationBar.appearance().backgroundColor = NamedColor.Background.uiColor
         UINavigationBar.appearance().largeTitleTextAttributes = [
             .foregroundColor: NamedColor.TextDefault.uiColor
         ]
     }
     
     var body: some View {
-        TabView(selection: $selection) {
-            NavigationView {
-                InsightsHome()
-                    .navigationBarTitle(Text(self.homeTitle), displayMode: .large)
-//                    .navigationBarTitle(Text("Home"), displayMode: .inline)
-            }
-            .tabItem {
-                Image(uiImage: Feather.getIcon(.home)!)
-                    .renderingMode(.template)
-                    .resizable()
-                    .padding()
+            TabView(selection: $selection) {
+                NavigationView {
+                    InsightsHome()
+                        .navigationBarTitle(Text(self.homeTitle), displayMode: .large)
+                }
+                .tabItem {
+                    Image(uiImage: Feather.getIcon(.home)!)
+                        .renderingMode(.template)
+                        .resizable()
+                        .padding()
+                    
+                    Text(StringKey.Home)
+                }.tag(Tab.home)
                 
-                Text(StringKey.Home)
-            }.tag(Tab.home)
-            
-            NavigationView {
-                JournalFeed()
-                .navigationBarTitle("Journal")
-            }.tabItem {
-                Image(CactusImage.journal.rawValue)
-                    .renderingMode(.template)
-                    .resizable()
-                    .padding()
-                Text("Journal")
-            }.tag(Tab.journal)
-            
-            
-            
-            SettingsHome()
-            .tabItem {
-                Image(uiImage: Feather.getIcon(.settings)!)
-                    .renderingMode(.template)
-                    .resizable()
-                Text("Settings")
+                NavigationView {
+                    JournalFeed()
+                    .navigationBarTitle("Journal")
+                }.tabItem {
+                    Image(CactusImage.journal.rawValue)
+                        .renderingMode(.template)
+                        .resizable()
+                        .padding()
+                    Text("Journal")
+                }.tag(Tab.journal)
+                
+                
+                
+                SettingsHome()
+                .tabItem {
+                    Image(uiImage: Feather.getIcon(.settings)!)
+                        .renderingMode(.template)
+                        .resizable()
+                    Text("Settings")
+                }
+                .tag(Tab.settings)
             }
-            .tag(Tab.settings)
-        }
-        .onAppear {
-            self.updateAppearance()
-        }
-        .accentColor(NamedColor.Green.color)
-        .font(Font(CactusFont.normal))
+            .onAppear {
+                self.updateAppearance()
+            }
+            .accentColor(NamedColor.Green.color)
+            .font(Font(CactusFont.normal))
+            .environmentObject(session)
+            .environmentObject(checkout)
         
-        .environmentObject(session)
-        .environmentObject(checkout)
     }
 }
 

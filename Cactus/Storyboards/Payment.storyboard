@@ -179,7 +179,6 @@
                                                 <edgeInsets key="layoutMargins" top="20" left="20" bottom="20" right="20"/>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="wvf-ef-nZX" secondAttribute="bottom" id="Vw7-AR-2QD"/>
                                             <constraint firstItem="wvf-ef-nZX" firstAttribute="leading" secondItem="h3M-dW-Beb" secondAttribute="leading" id="ZXT-58-8yD"/>
@@ -201,7 +200,6 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="mte-4o-mLu"/>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="4dj-bf-e06" firstAttribute="leading" secondItem="qXM-ZC-a9t" secondAttribute="leading" id="H8G-xK-Ugc"/>
                             <constraint firstItem="qXM-ZC-a9t" firstAttribute="top" secondItem="4dj-bf-e06" secondAttribute="top" id="R6M-hu-OUS"/>

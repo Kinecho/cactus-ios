@@ -93,7 +93,6 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="Nb5-so-5Sn"/>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="HVx-YA-OSM" firstAttribute="trailing" secondItem="0jR-g2-Quw" secondAttribute="trailing" id="WG5-no-O9b"/>
                             <constraint firstItem="0jR-g2-Quw" firstAttribute="leading" secondItem="HVx-YA-OSM" secondAttribute="leading" id="bgP-iq-8xa"/>
@@ -662,7 +661,6 @@
                                 </variation>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="Sbu-ve-lkR" firstAttribute="leading" secondItem="7Ev-ns-UmS" secondAttribute="leading" constant="20" id="3iz-C1-FQ9"/>
                             <constraint firstItem="7Ev-ns-UmS" firstAttribute="trailing" secondItem="Xoh-xs-4J7" secondAttribute="trailing" constant="20" id="6Fi-wL-PV7"/>
@@ -731,7 +729,6 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="4EF-nF-M7d" firstAttribute="centerX" secondItem="wHQ-OO-g0b" secondAttribute="centerX" id="8vM-db-gnm"/>
                             <constraint firstItem="4EF-nF-M7d" firstAttribute="centerY" secondItem="wHQ-OO-g0b" secondAttribute="centerY" id="LNk-5K-IKa"/>
@@ -774,7 +771,6 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="jH8-O0-8U8" firstAttribute="centerY" secondItem="vCx-MQ-ROC" secondAttribute="centerY" id="197-4O-QBT"/>
                             <constraint firstItem="jH8-O0-8U8" firstAttribute="centerX" secondItem="vCx-MQ-ROC" secondAttribute="centerX" id="5YJ-Re-jcj"/>
@@ -1088,7 +1084,6 @@
                                 </variation>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" name="Background"/>
                         <color key="tintColor" name="Green"/>
                         <constraints>
                             <constraint firstItem="C4B-Rb-xe9" firstAttribute="top" secondItem="Kz1-Nk-eh8" secondAttribute="top" id="4J8-rh-Mso"/>
