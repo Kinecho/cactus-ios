@@ -747,6 +747,11 @@
 		309CF37C24EC8EB400DE08EC /* GapAnalysisWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF37A24EC8EB400DE08EC /* GapAnalysisWidget.swift */; };
 		309CF37D24EC8EB400DE08EC /* GapAnalysisWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF37A24EC8EB400DE08EC /* GapAnalysisWidget.swift */; };
 		309CF37E24EC8EB400DE08EC /* GapAnalysisWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF37A24EC8EB400DE08EC /* GapAnalysisWidget.swift */; };
+		309CF38024ED9EFC00DE08EC /* EditNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF37F24ED9EFC00DE08EC /* EditNoteView.swift */; };
+		309CF38124ED9EFC00DE08EC /* EditNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF37F24ED9EFC00DE08EC /* EditNoteView.swift */; };
+		309CF38224ED9EFC00DE08EC /* EditNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF37F24ED9EFC00DE08EC /* EditNoteView.swift */; };
+		309CF38324ED9EFC00DE08EC /* EditNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF37F24ED9EFC00DE08EC /* EditNoteView.swift */; };
+		309CF38424EDBA5F00DE08EC /* EditReflectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D7F708236BAAB100379EE0 /* EditReflectionViewController.xib */; };
 		30A266DA2329BB73003C708E /* config.yml in Resources */ = {isa = PBXBuildFile; fileRef = 30A266D92329BB73003C708E /* config.yml */; };
 		30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */; };
 		30A281E222EA61A30041158E /* SharedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */; };
@@ -1533,6 +1538,7 @@
 		309CF37024EC810A00DE08EC /* TodayWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayWidgetView.swift; sourceTree = "<group>"; };
 		309CF37524EC8E7200DE08EC /* CoreValuesWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreValuesWidget.swift; sourceTree = "<group>"; };
 		309CF37A24EC8EB400DE08EC /* GapAnalysisWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapAnalysisWidget.swift; sourceTree = "<group>"; };
+		309CF37F24ED9EFC00DE08EC /* EditNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteView.swift; sourceTree = "<group>"; };
 		30A266D92329BB73003C708E /* config.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.yml; sourceTree = "<group>"; };
 		30A281E722EA61A30041158E /* Cactus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cactus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A281EF22EA62650041158E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1847,6 +1853,7 @@
 			isa = PBXGroup;
 			children = (
 				305366EE24C6A84200927498 /* PromptContentView.swift */,
+				309CF37F24ED9EFC00DE08EC /* EditNoteView.swift */,
 			);
 			path = Prompts;
 			sourceTree = "<group>";
@@ -2717,6 +2724,7 @@
 				30D63EF224E264CE00FBD884 /* Localizable.strings in Resources */,
 				30DFCA8C24609D86007187FC /* JournalEntryCell.xib in Resources */,
 				3062201223EAB12B002FAAD9 /* Lato-BoldItalic.ttf in Resources */,
+				309CF38424EDBA5F00DE08EC /* EditReflectionViewController.xib in Resources */,
 				30D7386623D00AC6006F4DA6 /* Social.storyboard in Resources */,
 				304BCE79248600950055A28E /* experience.html in Resources */,
 				3062201323EAB12B002FAAD9 /* Lato-Light.ttf in Resources */,
@@ -3238,6 +3246,7 @@
 				300D37A824D8BF5600351994 /* BrowseElementsCollectionViewController.swift in Sources */,
 				3077383E24D5DEE400D0C5BE /* ProductGroupData.swift in Sources */,
 				300FCCEC23ECB5D500089CFB /* FancyLinkButton.swift in Sources */,
+				309CF38324ED9EFC00DE08EC /* EditNoteView.swift in Sources */,
 				303C9E3623841AEB006B9786 /* SentPromptService.swift in Sources */,
 				30D63EAF24E20A9D00FBD884 /* RefreshableScrollView.swift in Sources */,
 				30D0E44F236C920C00EFC0E3 /* ViewControllerExtensions.swift in Sources */,
@@ -3575,6 +3584,7 @@
 				30BF2E35232964CD00A49EB6 /* FlamelinkTypes.swift in Sources */,
 				305366E724C69BC100927498 /* JournalFeed.swift in Sources */,
 				305CB0FD23D03C080046E8A8 /* ContactService.swift in Sources */,
+				309CF38224ED9EFC00DE08EC /* EditNoteView.swift in Sources */,
 				30D63EB424E232B100FBD884 /* StatView.swift in Sources */,
 				3077382E24CEAFCE00D0C5BE /* JournalEntryNoNote.swift in Sources */,
 				30D6E32624CA6B5300A4EA75 /* MDSwift.swift in Sources */,
@@ -3810,6 +3820,7 @@
 				30A3BC2324C113780016955C /* BorderedButton.swift in Sources */,
 				305366E524C69BC100927498 /* JournalFeed.swift in Sources */,
 				30A3BC2424C113780016955C /* SubscriptionInvoice.swift in Sources */,
+				309CF38024ED9EFC00DE08EC /* EditNoteView.swift in Sources */,
 				30D63EB224E232B100FBD884 /* StatView.swift in Sources */,
 				3077382C24CEAFCE00D0C5BE /* JournalEntryNoNote.swift in Sources */,
 				30D6E32424CA6B5300A4EA75 /* MDSwift.swift in Sources */,
@@ -4045,6 +4056,7 @@
 				305CB0FC23D03C080046E8A8 /* ContactService.swift in Sources */,
 				305366E624C69BC100927498 /* JournalFeed.swift in Sources */,
 				30934F9922EBF235007C4E6C /* BorderedButton.swift in Sources */,
+				309CF38124ED9EFC00DE08EC /* EditNoteView.swift in Sources */,
 				30D63EB324E232B100FBD884 /* StatView.swift in Sources */,
 				3077382D24CEAFCE00D0C5BE /* JournalEntryNoNote.swift in Sources */,
 				30D6E32524CA6B5300A4EA75 /* MDSwift.swift in Sources */,
@@ -4548,7 +4560,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 183;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;

@@ -17,8 +17,10 @@ struct JournalEntryRow: View {
     var index: Int = 0
     var inlineImage: Bool = false
     @EnvironmentObject var session: SessionStore
-    @State var showPrompt = false
     @State var showMoreActions = false
+    @State var showEditNote = false
+    
+    let logger = Logger("JournalEntryRow")
     
     var showInlineImage: Bool {
         return self.entry.imageUrl != nil && (!self.hasResponse || self.inlineImage)
@@ -39,6 +41,16 @@ struct JournalEntryRow: View {
     
     var hasResponse: Bool {
         return entry.responsesLoaded && !isBlank(entry.responseText)
+    }
+    
+    var moreMenu: ActionSheet {
+        ActionSheet(title: Text("Actions"),
+                    buttons: [
+                        .cancel(Text("Cancel")),
+                        .default(Text("Add/Edit Note"), action: {
+                            self.showEditNote = true
+                        })
+        ])
     }
     
     let dotsRotationAnimation = Animation.interpolatingSpring(mass: 0.2, stiffness: 25, damping: 2.5, initialVelocity: -0.5)
@@ -123,12 +135,17 @@ struct JournalEntryRow: View {
                 }
             )
         })
+        .sheet(isPresented: self.$showEditNote) {
+            EditNoteView(entry: self.entry, onDone: {
+                self.logger.info("Closed reflection")
+                self.showEditNote = false
+            }, onCancel: {
+                self.logger.info("Cancel")
+                self.showEditNote = false
+            }).environmentObject(self.session)            
+        }
         .actionSheet(isPresented: self.$showMoreActions) {
-            ActionSheet(title: Text("What do you want to do?"),
-                        message: Text("There's only one choice..."),
-                        buttons: [
-                            .default(Text("Dismiss Action Sheet"))
-            ])
+            self.moreMenu
         }
     }
 }

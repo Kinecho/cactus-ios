@@ -19,7 +19,7 @@
                 <outlet property="cancelButton" destination="2xV-dh-mpp" id="qAq-B6-v1c"/>
                 <outlet property="doneButton" destination="jbD-rY-rwM" id="Uen-qQ-bQP"/>
                 <outlet property="editTextBottomConstraint" destination="zgW-7h-wJS" id="kLg-Ns-z3U"/>
-                <outlet property="questionTextView" destination="GG4-cB-g9a" id="hhT-kO-c4J"/>
+                <outlet property="questionTextView" destination="GG4-cB-g9a" id="dmK-IF-WOs"/>
                 <outlet property="responseTextView" destination="1w7-mK-MMI" id="Fdq-dY-P8v"/>
                 <outlet property="sharedStackView" destination="ERl-Tw-7jt" id="VDU-7Q-sUC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -64,7 +64,7 @@
                     <rect key="frame" x="20" y="503" width="374" height="50"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ERl-Tw-7jt" userLabel="Shared Stack View">
-                            <rect key="frame" x="0.0" y="15" width="182" height="20"/>
+                            <rect key="frame" x="0.0" y="15" width="176" height="20"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="users" translatesAutoresizingMaskIntoConstraints="NO" id="dKc-FJ-FHW">
                                     <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -75,7 +75,7 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This note is shared" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJO-Vx-TRB">
-                                    <rect key="frame" x="30" y="0.0" width="152" height="20"/>
+                                    <rect key="frame" x="30" y="0.0" width="146" height="20"/>
                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                     <color key="textColor" name="TextMinimized"/>
                                     <nil key="highlightedColor"/>

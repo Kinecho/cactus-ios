@@ -24,16 +24,18 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
     @IBOutlet weak var sharedStackView: UIStackView!
     let logger = Logger("EditReflectionViewController")
     let padding: CGFloat = 10
-    var response: ReflectionResponse!
+    var response: ReflectionResponse?
     var prompt: ReflectionPrompt?
     // swiftlint:disable weak_delegate
-    var titleTextViewDelegate: TextViewPlaceholderDelegate!
+    var titleTextViewDelegate: TextViewPlaceholderDelegate?
     // swiftlint:disable weak_delegate
-    var noteTextViewDelegate: TextViewPlaceholderDelegate!
+    var noteTextViewDelegate: TextViewPlaceholderDelegate?
     var questionText: String?
     var isSaving: Bool = false {
         didSet {
-            self.configureSaving()
+            DispatchQueue.main.async {
+                self.configureSaving()
+            }            
         }
     }
     weak var delegate: EditReflectionViewControllerDelegate?
@@ -48,15 +50,20 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
             self.isModalInPresentation = true
         }
         
-        self.questionTextView.attributedText = MarkdownUtil.toMarkdown(questionText, font: CactusFont.normal(24))
-        self.responseTextView.text = response.content.text
-                
-        self.titleTextViewDelegate = TextViewPlaceholderDelegate("Title", self.questionTextView)
-        self.noteTextViewDelegate = TextViewPlaceholderDelegate("Write something...", self.responseTextView)
+//        self.questionTextView.text = self.questionText ?? ""
         
         if self.prompt?.isCustomPrompt == true {
             self.questionTextView.isEditable = true
+            self.titleTextViewDelegate = TextViewPlaceholderDelegate("Title", self.questionTextView)
+
+        } else {
+            self.questionTextView.attributedText = MarkdownUtil.toMarkdown(questionText, font: CactusFont.normal(24)) ?? NSAttributedString()
         }
+        
+        self.responseTextView.text = self.response?.content.text ?? ""
+        self.noteTextViewDelegate = TextViewPlaceholderDelegate("Write something...", self.responseTextView)
+        
+        
         
         self.configureView()
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillChangeFrame), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
@@ -65,31 +72,46 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
     }
 
     @objc func appMovedToForeground() {
-        if !isBlank( self.titleTextViewDelegate.text) {
+        guard self.isViewLoaded else {
+            return
+        }
+        if !isBlank( self.titleTextViewDelegate?.text) {
             self.responseTextView.becomeFirstResponder()
         }
     }
     
     @objc func appMovedToBackground() {
+        guard self.isViewLoaded else {
+            return
+        }
         self.responseTextView.resignFirstResponder()
     }
     
     func configureView() {
+        guard self.isViewLoaded else {
+            return
+        }
         self.configureSaving()
         self.responseTextView.textContainerInset = UIEdgeInsets(top: 0, left: 6, bottom: 0, right: 6)
         
-        self.sharedStackView.isHidden = !(self.response.shared ?? false)
+        self.sharedStackView.isHidden = !(self.response?.shared ?? false)
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if !isBlank( self.titleTextViewDelegate.text) {
+        guard self.isViewLoaded else {
+            return
+        }
+        if !isBlank( self.titleTextViewDelegate?.text) {
             self.responseTextView.becomeFirstResponder()
         }
     }
     
     func configureSaving() {
+        guard self.isViewLoaded else {
+            return
+        }
         if self.isSaving {
             self.doneButton.setImage(UIImage(), for: .disabled)
             self.doneButton.setTitle("Saving...", for: .disabled)
@@ -117,10 +139,13 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
     }
     
     func hasChanges() -> Bool {
+        guard self.isViewLoaded else {
+            return false
+        }
         let currentText: String = self.responseTextView.text.trimmingCharacters(in: .whitespacesAndNewlines)
-        let originalText: String = self.response.content.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let originalText: String = self.response?.content.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         
-        let questionChanged = self.questionTextView.text != self.questionText ?? ""
+        let questionChanged = self.questionTextView.text != (self.questionText ?? "")
         
         return currentText != originalText || questionChanged
     }
@@ -155,9 +180,9 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
         self.logger.info("done tapped")
 //        self.delegate?.done(text: self.responseTextView.text)
         if self.prompt == nil || self.prompt?.isCustomPrompt != true {
-            self.delegate?.done(text: self.noteTextViewDelegate.text, response: self.response, title: nil, prompt: nil )
+            self.delegate?.done(text: self.noteTextViewDelegate?.text, response: self.response, title: nil, prompt: nil )
         } else {
-            self.delegate?.done(text: self.noteTextViewDelegate.text, response: self.response, title: self.titleTextViewDelegate.text, prompt: self.prompt )
+            self.delegate?.done(text: self.noteTextViewDelegate?.text, response: self.response, title: self.titleTextViewDelegate?.text, prompt: self.prompt )
         }
         
     }
