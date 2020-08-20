@@ -38,7 +38,11 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
     weak var delegate: EditReflectionViewControllerDelegate?
         
     deinit {
-      NotificationCenter.default.removeObserver(self)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIApplication.didEnterBackgroundNotification, object: nil)
+        self.responseTextView.delegate = nil
+        self.responseTextView.resignFirstResponder()
+        self.responseTextView.removeFromSuperview()
     }
     
     override func viewDidLoad() {
@@ -49,39 +53,14 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
         self.questionTextView.accessibilityLabel = "Title"
         self.responseTextView.accessibilityLabel = "Write something..."
         
-        if self.prompt?.isCustomPrompt == true {
-            self.questionTextView.isEditable = true
-//            self.titleTextViewDelegate = TextViewPlaceholderDelegate("Title", self.questionTextView)
-            self.questionTextView.text = self.questionText ?? ""
-            if self.questionText?.isEmpty == false {
-                self.questionTextView.textColor = CactusColor.textDefault
-            }
-            self.questionTextView.delegate = self
-
-        } else {
-            self.questionTextView.attributedText = MarkdownUtil.toMarkdown(questionText ?? "", font: CactusFont.normal(24)) ?? NSAttributedString()
-        }
         
-        self.responseTextView.text = self.response?.content.text ?? ""
-//        self.noteTextViewDelegate = TextViewPlaceholderDelegate("Write something...", self.responseTextView)
-        self.responseTextView.delegate = self
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillChangeFrame), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.appMovedToBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
         
         self.configureView()
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillChangeFrame), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.appMovedToBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        
     }
 
-    @objc func appMovedToForeground() {
-        guard self.isViewLoaded else {
-            return
-        }
-        if !isBlank(self.questionTextView.text) && self.questionTextView.text != (self.questionTextView.accessibilityLabel ?? "") {
-            self.responseTextView.becomeFirstResponder()
-        }
-    }
-    
     @objc func appMovedToBackground() {
         guard self.isViewLoaded else {
             return
@@ -89,27 +68,46 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
         self.responseTextView.resignFirstResponder()
     }
     
-    func configureView() {
-        guard self.isViewLoaded else {
-            return
-        }
-        self.configureSaving()
-        self.responseTextView.textContainerInset = UIEdgeInsets(top: 0, left: 6, bottom: 0, right: 6)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        self.sharedStackView.isHidden = !(self.response?.shared ?? false)
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        guard self.isViewLoaded else {
-            return
-        }
         if isBlank(self.response?.content.text) {
             self.responseTextView.becomeFirstResponder()
         }
     }
     
+    func configureView() {
+        guard self.isViewLoaded else {
+            return
+        }
+        self.questionTextView.isEditable = self.prompt?.isCustomPrompt == true
+        if self.prompt?.isCustomPrompt == true {
+            self.questionTextView.text = self.questionText ?? ""
+            if self.questionText?.isEmpty == false {
+                self.questionTextView.textColor = CactusColor.textDefault
+            } else {
+                self.questionTextView.text = self.questionTextView.accessibilityLabel
+                self.questionTextView.textColor = CactusColor.placeholderText
+            }
+            self.questionTextView.delegate = self
+
+        } else if let questionMarkdown = MarkdownUtil.toMarkdown(questionText ?? "", font: CactusFont.normal(24)) {
+            self.questionTextView.attributedText = questionMarkdown
+        } else {
+            self.questionTextView.text = ""
+        }
+
+        self.responseTextView.text = self.response?.content.text ?? self.responseTextView.accessibilityLabel
+        self.responseTextView.delegate = self
+        self.responseTextView.textColor = isBlank(self.response?.content.text ?? "") ? CactusColor.placeholderText : CactusColor.textDefault
+
+        self.configureSaving()
+        self.responseTextView.textContainerInset = UIEdgeInsets(top: 0, left: 6, bottom: 0, right: 6)
+
+        self.sharedStackView.isHidden = !(self.response?.shared ?? false)
+        
+    }
+   
     func configureSaving() {
         guard self.isViewLoaded else {
             return
@@ -127,10 +125,10 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
         }
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        self.configureSaving()
-    }
+//    override func viewWillLayoutSubviews() {
+//        super.viewWillLayoutSubviews()
+//        self.configureSaving()
+//    }
     
     @objc private func keyboardWillChangeFrame(_ notification: Notification) {
         if let endFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
@@ -200,7 +198,9 @@ extension EditReflectionViewController: UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
+        let t = textView.text ?? ""
+        
+        if t.isEmpty {
             textView.text = textView.accessibilityLabel ?? ""
             textView.textColor = self.placeholderColor
         }

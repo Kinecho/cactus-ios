@@ -24,6 +24,7 @@ import AdSupport //RevenueCat
 typealias SentryUser = Sentry.User
 
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
     let logger = Logger(fileName: String(describing: AppDelegate.self))
     var fcmToken: String?

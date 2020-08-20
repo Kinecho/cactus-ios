@@ -59,20 +59,13 @@ struct EditReflectionControllerRepresentable: UIViewControllerRepresentable {
     
     typealias UIViewControllerType = EditReflectionViewController
     
-    
-    
 }
 
 struct EditNoteView: View {
+    static let logger = Logger("EditNoteView")
     let entry: JournalEntry
-    
-    var response: ReflectionResponse {
-        self.entry.responses?.first ?? ReflectionResponse.Builder(self.entry.promptId ?? self.prompt?.id ?? self.entry.promptContent?.promptId).build()
-    }
-    var prompt: ReflectionPrompt? {
-        self.entry.prompt
-    }
-    
+    let response: ReflectionResponse?
+        
     /** Callback when the prompt is closed - The text of the reflection, the response and the prompt */
     let onDone: () -> Void
     let onCancel: () -> Void
@@ -80,11 +73,40 @@ struct EditNoteView: View {
     @EnvironmentObject var session: SessionStore
     @State var saving: Bool = false
     
+    
+    init(entry: JournalEntry, onDone: @escaping () -> Void, onCancel: @escaping () -> Void) {
+        self.entry = entry
+        self.onDone = onDone
+        self.onCancel = onCancel
+        if let r = (entry.responses?.first {!isBlank($0.content.text)} ?? entry.responses?.first) {
+            self.response = r
+        } else {
+            guard let promptId = entry.promptId ?? entry.prompt?.id ?? entry.promptContent?.promptId else {
+                EditNoteView.logger.warn("No prompt found, can not create response")
+                self.response = nil
+                return
+            }
+            EditNoteView.logger.info("No existing response found, creating new one with promptId \(promptId)")            
+            let newResponse = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: entry.prompt?.question, element: entry.promptContent?.cactusElement, medium: .JOURNAL_IOS)
+            self.response = newResponse
+        }
+        
+    }
+    
+
+    var prompt: ReflectionPrompt? {
+        self.entry.prompt
+    }
+    
     func handleDone(text: String?, response: ReflectionResponse?, title: String?, prompt: ReflectionPrompt?) {
+        
+        guard let response = self.response else {
+            return
+        }
         self.saving = true
-        self.response.content.text = text
-        self.response.promptQuestion = title
-        ReflectionResponseService.sharedInstance.save(self.response) { _, _ in
+        response.content.text = text
+        response.promptQuestion = title
+        ReflectionResponseService.sharedInstance.save(response) { _, _ in
             if let prompt = self.prompt, prompt.promptType == PromptType.FREE_FORM {
                 self.prompt?.question = title
                 ReflectionPromptService.sharedInstance.save(prompt: prompt) { _, _ in
@@ -109,20 +131,28 @@ struct EditNoteView: View {
     var questionTitle: String? {
         
         let member = self.session.member
-        let coreValue = self.response.coreValue
-        let questionText = self.entry.promptContent?.getDisplayableQuestion(member: member, coreValue: coreValue) ?? self.prompt?.question ?? self.response.promptQuestion
+        let coreValue = self.response?.coreValue
+        let questionText = self.entry.promptContent?.getDisplayableQuestion(member: member, coreValue: coreValue) ?? self.prompt?.question ?? self.response?.promptQuestion
         
         return questionText
     }
     
     var body: some View {
-        EditReflectionControllerRepresentable(
-            response: self.response,
-            prompt: self.prompt,
-            title: self.questionTitle,
-            saving: self.saving,
-            onDone: self.handleDone,
-            onCancel: self.handleCancel)
+        Group {
+            if self.response != nil {
+                EditReflectionControllerRepresentable(
+                    response: self.response!,
+                    prompt: self.prompt,
+                    title: self.questionTitle,
+                    saving: self.saving,
+                    onDone: self.handleDone,
+                    onCancel: self.handleCancel)
+            } else {
+                Text("Whoops! No note was found.")
+            }
+        }
+        
+        
     }
 }
 

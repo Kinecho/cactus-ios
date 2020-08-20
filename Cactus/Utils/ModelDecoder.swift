@@ -31,6 +31,14 @@ class ModelDecoder<T: CodingKey> {
         return ModelDecoder<T>(decoder: decoder, container: container)
     }
     
+    func getOpt<Model: Decodable>(_ key: T, as type: Model.Type, default defaultValue: Model?=nil) -> Model? {
+        return (try? self.container.decode(type.self, forKey: key)) ?? defaultValue
+    }
+    
+    func get<Model: Decodable>(_ key: T, as type: Model.Type, default defaultValue: Model) -> Model {
+        return (try? self.container.decode(type.self, forKey: key)) ?? defaultValue
+    }
+    
     func optionalString(_ key: T, blankAsNil: Bool=false) -> String? {
         let text = try? self.container.decode(String.self, forKey: key)
         return blankAsNil && isBlank(text) ? nil : text
@@ -77,6 +85,10 @@ class ModelDecoder<T: CodingKey> {
     func bool(_ key: T, default defaultValue: Bool) -> Bool {
         let value = try? self.container.decode(Bool.self, forKey: key)
         return value ?? defaultValue
+    }
+    
+    func optDate(_ key: T, default defaultValue: Date?=nil) -> Date? {
+        return (try? self.container.decode(Date.self, forKey: key)) ?? defaultValue
     }
     
 }
