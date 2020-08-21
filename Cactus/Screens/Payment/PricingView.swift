@@ -181,15 +181,17 @@ struct PricingView: View {
                             }
                         }
                         Spacer()
-                        CactusButton("Try Cactus Plus", .buttonPrimary, state: self.checkoutButtonState)
-                            .onTapGesture {
-                                if self.selectedProduct != nil {
-                                    self.checkout.submitPurchase(self.selectedProduct!)
+                        VStack(alignment: .center, spacing: Spacing.large) {
+                            CactusButton("Try Cactus Plus", .buttonPrimary, state: self.checkoutButtonState)
+                                .onTapGesture {
+                                    if self.selectedProduct != nil {
+                                        self.checkout.submitPurchase(self.selectedProduct!)
+                                    }
                                 }
+                            
+                            CactusButton("Restore Purchases", .link).onTapGesture {
+                                self.showActionSheet = true
                             }
-                        
-                        CactusButton("Restore Purchases", .link).onTapGesture {
-                            self.showActionSheet = true
                         }
                         
                     } else {
