@@ -53,7 +53,6 @@ enum IconType: String, Codable {
     case trash
     case checkCircle
     case flame
-
     case unknown
     
     public init(from decoder: Decoder) throws {
@@ -182,6 +181,20 @@ enum CactusImage: String {
     case grid
     case trash
     case checkCircle
+    case todayBlob1
+    case todayBlob2
+    case cvBlob
+    case blobTriangle
+    case vBackground
+    case cvResultsBlob
+    case cvBlob1
+    case cvBlob2
+    case cvBlob3
+    case cvBlob4
+    case cvBlob5
+    case cvBlob6
+    case cvBlob7
+    case cvBlob8
     
     func getImage() -> UIImage? {
         return UIImage(named: self.rawValue)

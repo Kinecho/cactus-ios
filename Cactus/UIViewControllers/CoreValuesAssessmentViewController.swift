@@ -9,6 +9,12 @@
 import UIKit
 import WebKit
 import FirebaseFirestore
+
+protocol CoreValuesAssessmentViewControllerDelegate: class {
+    func showUpgrade() -> Void
+    func closeAssessment() -> Void
+}
+
 class CoreValuesAssessmentViewController: UIViewController {
     
     @IBOutlet weak var topToolbar: UIToolbar!
@@ -17,11 +23,13 @@ class CoreValuesAssessmentViewController: UIViewController {
     var webView: WKWebView!
     let logger = Logger("CoreValuesAssessmentViewController")
     
-    var memberUnsubscriber: Unsubscriber?
-    
+//    var memberUnsubscriber: Unsubscriber?
+    weak var delegate: CoreValuesAssessmentViewControllerDelegate?
     var member: CactusMember? {
         didSet {
-            self.handleMemberUpdated()
+            DispatchQueue.main.async {
+                self.handleMemberUpdated()
+            }
         }
     }
     var showTopNavbar: Bool = false {
@@ -36,10 +44,10 @@ class CoreValuesAssessmentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()        
-        self.member = self.member ?? CactusMemberService.sharedInstance.currentMember
-        self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember { (member, _, _) in
-            self.member = member ?? self.member
-        }
+//        self.member = self.member ?? CactusMemberService.sharedInstance.currentMember
+//        self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember { (member, _, _) in
+//            self.member = member ?? self.member
+//        }
         
         let settings = AppSettingsService.sharedInstance.currentSettings
         let contentController = WKUserContentController()
@@ -66,9 +74,9 @@ class CoreValuesAssessmentViewController: UIViewController {
         webView.load(URLRequest(url: url))
     }
     
-    deinit {
-        self.memberUnsubscriber?()
-    }
+//    deinit {
+//        self.memberUnsubscriber?()
+//    }
     
     func showLoadingIndicator() {
         guard let loadingVc = self.loadingVc ?? ScreenID.LoadingFullScreen.getViewController() as? LoadingViewController else {
@@ -97,6 +105,9 @@ class CoreValuesAssessmentViewController: UIViewController {
     }
     
     func updateMemberInfoWithWeb() {
+        guard self.isViewLoaded else {
+            return
+        }
         let tier = self.member?.tier.rawValue ?? ""
         let name = self.member?.firstName ?? ""
         let memberId = self.member?.id ?? ""
@@ -117,6 +128,11 @@ class CoreValuesAssessmentViewController: UIViewController {
     }
     
     func closeCoreValues() {
+        if self.delegate != nil {
+            self.delegate?.closeAssessment()
+            return
+        }
+        
         if self.navigationController != nil {
             self.navigationController?.popViewController(animated: true)
         } else {
@@ -148,13 +164,17 @@ extension CoreValuesAssessmentViewController: WKScriptMessageHandler, WKNavigati
             guard let pricingVc = ScreenID.Pricing.getViewController() as? PricingViewController else {
                 return
             }
-            pricingVc.titleOvereride = "Get your quiz results with Cactus Plus"
-            pricingVc.subTitleOverride = "Try it free and get daily prompts, personal insights and more"
-            pricingVc.onDismiss = {
-                self.onPricingClosed()
+            if self.delegate != nil {
+                self.delegate?.showUpgrade()
+            } else {
+                pricingVc.titleOvereride = "Get your quiz results with Cactus Plus"
+                pricingVc.subTitleOverride = "Try it free and get daily prompts, personal insights and more"
+                pricingVc.onDismiss = {
+                    self.onPricingClosed()
+                }
+                pricingVc.modalPresentationStyle = .overCurrentContext
+                NavigationService.shared.present(pricingVc, animated: true)
             }
-            pricingVc.modalPresentationStyle = .overCurrentContext
-            NavigationService.shared.present(pricingVc, animated: true)
         }
     }
     

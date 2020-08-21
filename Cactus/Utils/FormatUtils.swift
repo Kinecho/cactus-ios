@@ -226,3 +226,25 @@ extension UIFont {
         return Font(self)
     }
 }
+
+/**
+ Doing some shenanigans to only get the lower 32 bits of the number, to match existing JavaScript function
+ */
+func getIntegerFromStringBetween(input: String, max: Int) -> Int {
+    var hash: Int64 = 0
+    
+    var bytes: [UInt8] = []
+    for char in input {
+        if let asciiValue = char.asciiValue {
+            bytes.append(asciiValue)
+            // This needs to be downcast & truncated to 32 bit Integer, because of the way Javascript does this on the web.
+            let shifted = Int64(Int32(truncatingIfNeeded: hash.magnitude << 5))
+            let charCode = Int64(asciiValue)
+            let updatedHash = charCode + (shifted - hash)
+            hash = abs(updatedHash)
+            Logger.shared.info("char value: \(asciiValue) | Hash value: \(hash)")
+        }
+    }
+    
+    return Int(hash) % max
+}

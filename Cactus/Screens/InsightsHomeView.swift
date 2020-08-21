@@ -52,20 +52,21 @@ struct InsightsHome: View {
                         /// End Stats HScroll View
                         
                         /// Start padded content group
-                        Group {
+                        
+                        VStack {
                             TodayWidgetView(onTapped: { entry in
                                 self.currentSheet = .promptDetails
                                 self.showSheet = true
                                 self.selectedEntry = entry
-                            })
-                            
+                            }).fixedSize(horizontal: false, vertical:  true)
+                        
                             /// Start Core Values
                             CoreValuesWidget()
                             
                             /// Start Gap Assessment - not showing for now.
-                            //                   GapAnalysisWidget()
-                            
-                        }.padding()
+                            // GapAnalysisWidget()
+                        
+                        }.padding([.leading, .trailing, .bottom])
                         /// End Padded Content Group
                     }
                 }

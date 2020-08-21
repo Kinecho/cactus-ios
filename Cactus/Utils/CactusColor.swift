@@ -38,6 +38,7 @@ enum NamedColor: String, Codable, CaseIterable {
     case GreenDarker
     case GreenDarkest
     case GreenRoyal
+    case Heading3Text
     case Highlight
     case Indigo
     case TextBoldHighlight
@@ -147,6 +148,7 @@ struct CactusColor {
     static let progressBackground = NamedColor.ProgressBackground.uiColor
     static let textDefault = NamedColor.TextDefault.uiColor
     static let textWhite = NamedColor.TextWhite.uiColor
+    static let heading3Text = NamedColor.Heading3Text.uiColor
     static let textMinimized = NamedColor.TextMinimized.uiColor
     static let secondaryButtonBackground = NamedColor.SecondaryButtonBackground.uiColor
     static let secondaryBorder = NamedColor.SecondaryBorder.uiColor

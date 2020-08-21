@@ -29,12 +29,21 @@ struct TodayWidgetView: View {
                 }
             } else if self.todayEntryLoaded {
                 VStack {
-                    Text("Uh oh").font(CactusFont.bold(.title).font)
+                    Text("Uh oh")
+                        .multilineTextAlignment(.center)
+                        .font(CactusFont.bold(.title).font)
+                        .fixedSize(horizontal: false, vertical: true)
                     Text("There seems to be an issue finding today's prompt. Please check back a little later.")
+                        .multilineTextAlignment(.center)
                         .font(CactusFont.normal.font)
-                }.foregroundColor(named: .TextDefault)
-                    .background(named: .CardBackground)
-                    .cornerRadius(CornerRadius.normal)
+                    .fixedSize(horizontal: false, vertical: true)
+                }
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
+                .foregroundColor(named: .TextDefault)
+                .padding()
+                .background(named: .CardBackground)
+                .cornerRadius(CornerRadius.normal)
+                
             } else {
                 HStack(alignment: .center) {
                     ActivityIndicator(isAnimating: .constant(true), style: .medium)
@@ -44,7 +53,7 @@ struct TodayWidgetView: View {
                 .background(named: .CardBackground)
                 .cornerRadius(CornerRadius.normal)
             }
-        }
+        }.border(NamedColor.BorderLight.color, cornerRadius: CornerRadius.normal, style: .continuous, width: 1)
     }
 }
 

@@ -105,7 +105,7 @@ final class SessionStore: ObservableObject {
 }
 
 extension SessionStore {
-    static func mockLoggedIn(tier: SubscriptionTier = .BASIC) -> SessionStore {
+    static func mockLoggedIn(tier: SubscriptionTier = .BASIC, configMember: ((CactusMember) -> Void)?=nil) -> SessionStore {
         let store = SessionStore()
         store.settings = AppSettings.mock()
         store.authLoaded = true
@@ -117,6 +117,9 @@ extension SessionStore {
         member.tier = tier
         store.member = member
         store.useMockImages = true
+        
+        configMember?(member)
+        
         return store
     }
     
