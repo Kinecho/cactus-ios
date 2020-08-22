@@ -29,7 +29,9 @@ struct TodayWidgetView: View {
     var body: some View {
         Group {
             if self.todayEntry != nil {
-                JournalEntryRow(entry: self.todayEntry!, inlineImage: true, backgroundColor: .clear).onTapGesture {
+                JournalEntryRow(entry: self.todayEntry!, showDetails: {entry in
+                    self.onTapped?(entry)
+                }, inlineImage: true, backgroundColor: .clear).onTapGesture {
                     self.onTapped?(self.todayEntry!)
                 }.onAppear(){
                     withAnimation {
@@ -76,21 +78,21 @@ struct TodayWidgetView: View {
                                             .frame(width: geo.size.width, height: 400)
                                         .aspectRatio(contentMode: .fill)
                                         .foregroundColor(.black)
-                                .scaleEffect(1)
+                                .scaleEffect(1.1)
                                         .opacity(0.03)
-                                .offset(x: -geo.size.width * 2/3, y: -geo.size.height/3)
-                                .rotationEffect(Angle(degrees: self.isAnimating ? 360 : 0), anchor: UnitPoint(x: 0.1, y: 0.4))
-                                        .animation(self.isAnimating ? Animation.linear(duration: 90).repeatForever(autoreverses: false) : nil)
+                                .offset(x: -geo.size.width * 3/4, y: -geo.size.height/3)
+                                .rotationEffect(Angle(degrees: self.isAnimating ? 360 : 0), anchor: UnitPoint(x: 0.1, y: 0.5))
+                                        .animation(self.isAnimating ? Animation.easeInOut(duration: 80).repeatForever(autoreverses: false) : nil)
 
                                     Image(CactusImage.todayBlob2.rawValue)
                                         .resizable()
                                         .aspectRatio(contentMode: .fill)
                                         .foregroundColor(.black)
-                                        .scaleEffect(1)
+                                        .scaleEffect(1.1)
                                         .opacity(0.03)
-                                        .offset(x: geo.size.width * 2/3, y: geo.size.height / 2)
-                                        .rotationEffect(Angle(degrees: self.isAnimating ? 360 : 0), anchor: UnitPoint(x: 0.8, y: 0.5))
-                                        .animation(self.isAnimating ? Animation.linear(duration: 100).repeatForever(autoreverses: false) : nil)
+                                        .offset(x: geo.size.width * 2/3, y: geo.size.height * 1/3)
+                                        .rotationEffect(Angle(degrees: self.isAnimating ? -360 : 0), anchor: UnitPoint(x: 0.8, y: 0.5))
+                                        .animation(self.isAnimating ? Animation.easeInOut(duration: 75).repeatForever(autoreverses: false) : nil)
                         }
                     })
                     
