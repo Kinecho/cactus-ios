@@ -203,6 +203,14 @@ struct JournalEntry: Equatable, Identifiable {
         return FormatUtils.formatDate(date)
     }
     
+    var hasNote: Bool {
+        return FormatUtils.hasNote(self.responses)
+    }
+    
+    var hasReflected: Bool {
+        return self.responses?.isEmpty == false
+    }
+    
     //    var isTodaysPrompt: Bool {
     //        guard let date = self.journalDate, self.sentPrompt == nil else {
     //            return false

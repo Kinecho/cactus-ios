@@ -117,6 +117,10 @@ struct FormatUtils {
     static func responseText(_ responses: [ReflectionResponse]?) -> String? {
         return  responses?.map {$0.content.text ?? ""}.joined(separator: "\n\n")
     }
+    
+    static func hasNote(_ responses: [ReflectionResponse]?) -> Bool {
+        return !isBlank(FormatUtils.responseText(responses))
+    }
 }
 
 func isValidEmail(_ emailStr: String?) -> Bool {

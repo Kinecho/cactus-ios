@@ -35,7 +35,7 @@ struct JournalFeed: View {
     @State var showNotificationOnboarding: Bool = false
     @State var notificationAuthorizationStatus: UNAuthorizationStatus?
     
-    func handleEntrySelected(entry: JournalEntry) {
+    func handleEntrySelected(_ entry: JournalEntry) {
         if entry.promptContent != nil {
             self.selectedEntry = entry
             self.showDetail = true
@@ -83,7 +83,11 @@ struct JournalFeed: View {
             }
     
             ForEach(self.entries) { entry in
-                JournalEntryRow(entry: entry, index: self.entries.firstIndex(of: entry) ?? 0)
+                JournalEntryRow(
+                    entry: entry,
+                    index: self.entries.firstIndex(of: entry) ?? 0,
+                    showDetails: self.handleEntrySelected
+                )
                     .onAppear {
                         let lastEntry = self.entries.last
                         if lastEntry?.id == entry.id {
@@ -91,7 +95,7 @@ struct JournalFeed: View {
                         }
                     }
                     .onTapGesture {
-                        self.handleEntrySelected(entry: entry)
+                        self.handleEntrySelected(entry)
                     }
             }
             .padding()

@@ -10,26 +10,24 @@ import SwiftUI
 import URLImage
 
 struct JournalEntryRow: View {
-    var entry: JournalEntry
-    var usePlaceholder: Bool {
-        self.session.useMockImages
-    }
-    var index: Int = 0
-    var inlineImage: Bool = false
     @EnvironmentObject var session: SessionStore
     @State var showMoreActions = false
     @State var showEditNote = false
     
+    /// Mark: Props
+    var entry: JournalEntry
+    var index: Int = 0
+    var showDetails: ((JournalEntry) -> Void)?=nil
+    var inlineImage: Bool = false
+    var backgroundColor: Color = NamedColor.CardBackground.color
+    /// Mark: Local Variables
     let logger = Logger("JournalEntryRow")
-    
+    var usePlaceholder: Bool { self.session.useMockImages }
     var showInlineImage: Bool {
         return self.entry.imageUrl != nil && (!self.hasResponse || self.inlineImage)
     }
     
-    var backgroundImageAlignment: Alignment {
-        self.index % 2 == 0  ? .bottomTrailing : .bottomLeading
-    }
-    
+    var backgroundImageAlignment: Alignment { self.index % 2 == 0  ? .bottomTrailing : .bottomLeading }
     var backgroundImageSize = CGSize(width: 230, height: 230)
     var backgroundImageOffset: CGFloat = 16
     var backgroundImageOffsetX: CGFloat {
@@ -44,16 +42,28 @@ struct JournalEntryRow: View {
     }
     
     var moreMenu: ActionSheet {
-        ActionSheet(title: Text("Actions"),
-                    buttons: [
-                        .cancel(Text("Cancel")),
-                        .default(Text("Add/Edit Note"), action: {
-                            self.showEditNote = true
-                        })
-        ])
+        var buttons: [Alert.Button] = [
+            .cancel(Text("Cancel")),
+        ]
+        
+        if entry.promptContent != nil {
+            buttons.append(.default(Text("Reflect"), action: {
+                self.showDetails?(self.entry)
+            }))
+        }
+        
+        if entry.hasReflected {
+            let buttonLabel = self.entry.hasNote ? "Edit Note" : "Add Note"
+            buttons.append(
+                .default(Text(buttonLabel), action: {
+                    self.showEditNote = true
+                }))
+        }
+        
+        return ActionSheet(title: Text("Journal Action"), buttons: buttons)
     }
     
-    let dotsRotationAnimation = Animation.interpolatingSpring(mass: 0.2, stiffness: 25, damping: 2.5, initialVelocity: -0.5)
+    
     
     var body: some View {
         ZStack {
@@ -66,17 +76,7 @@ struct JournalEntryRow: View {
                     }
                     
                     Spacer().animation(nil)
-                    Image(CactusImage.dots.rawValue)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .foregroundColor(Color(CactusColor.textDefault))
-                        .frame(width: 30, height: 20)
-                        .rotationEffect(.degrees(self.showMoreActions ? 90 : 0))
-                        .onTapGesture {
-                            withAnimation(self.dotsRotationAnimation) {
-                                self.showMoreActions.toggle()
-                            }
-                        }
+                    MoreActionsButton(active: self.$showMoreActions)
                 }
                 Group {
                     if self.hasResponse {
@@ -93,7 +93,7 @@ struct JournalEntryRow: View {
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
         .padding(Spacing.normal)
-        .background(CactusColor.cardBackground.color)
+        .background(self.backgroundColor)
         .cornerRadius(10)
         .clipped()
         .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 10)
@@ -189,7 +189,7 @@ struct JournalEntryRow_Previews: PreviewProvider {
                     
                     
                     List {
-                        JournalEntryRow(entry: data.entry)
+                        JournalEntryRow(entry: data.entry, showDetails: {_ in })
                             .listRowInsets(EdgeInsets())
                             .padding(Spacing.large)
                             .background(CactusColor.background.color)

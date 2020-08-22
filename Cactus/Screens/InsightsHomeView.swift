@@ -53,7 +53,7 @@ struct InsightsHome: View {
                         
                         /// Start padded content group
                         
-                        VStack {
+                        VStack(alignment: .leading, spacing: Spacing.normal) {
                             TodayWidgetView(onTapped: { entry in
                                 self.currentSheet = .promptDetails
                                 self.showSheet = true

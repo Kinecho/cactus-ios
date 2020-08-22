@@ -76,18 +76,19 @@ struct SettingsHome: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(self.items) { item in
-                    SettingsItemView(item: item)
-                }
-                Spacer(minLength: Spacing.large)
-                CactusButton("Log Out", .buttonSecondary).onTapGesture {
-                    self.isLoggingOut = true
+                Section(footer: CactusButton("Log Out", .buttonSecondary).onTapGesture {
+                        self.isLoggingOut = true
+                }.padding([.top, .bottom], Spacing.large)
+                ) {
+                    ForEach(self.items) { item in
+                        SettingsItemView(item: item)
+                    }
                 }
             }
+            .listStyle(GroupedListStyle())
             .onAppear {
                 UITableView.appearance().separatorStyle = .singleLine
                 UITableView.appearance().separatorInset = .zero
-//                UITableView.appearance().backgroundColor = NamedColor.Background.uiColor
             }
             .font(CactusFont.normal.font)
             .navigationBarTitle("Settings")

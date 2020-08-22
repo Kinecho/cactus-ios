@@ -757,6 +757,9 @@
 		309CF38D24F056FB00DE08EC /* CoreValueBlob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF38B24F056FB00DE08EC /* CoreValueBlob.swift */; };
 		309CF38E24F056FB00DE08EC /* CoreValueBlob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF38B24F056FB00DE08EC /* CoreValueBlob.swift */; };
 		309CF38F24F056FB00DE08EC /* CoreValueBlob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF38B24F056FB00DE08EC /* CoreValueBlob.swift */; };
+		309CF39124F0A28400DE08EC /* MoreActionsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF39024F0A28400DE08EC /* MoreActionsButton.swift */; };
+		309CF39224F0A28400DE08EC /* MoreActionsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF39024F0A28400DE08EC /* MoreActionsButton.swift */; };
+		309CF39324F0A28400DE08EC /* MoreActionsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF39024F0A28400DE08EC /* MoreActionsButton.swift */; };
 		30A266DA2329BB73003C708E /* config.yml in Resources */ = {isa = PBXBuildFile; fileRef = 30A266D92329BB73003C708E /* config.yml */; };
 		30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */; };
 		30A281E222EA61A30041158E /* SharedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */; };
@@ -1546,6 +1549,7 @@
 		309CF37F24ED9EFC00DE08EC /* EditNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteView.swift; sourceTree = "<group>"; };
 		309CF38624F04EA300DE08EC /* CoreValuesAssessmentWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreValuesAssessmentWebView.swift; sourceTree = "<group>"; };
 		309CF38B24F056FB00DE08EC /* CoreValueBlob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreValueBlob.swift; sourceTree = "<group>"; };
+		309CF39024F0A28400DE08EC /* MoreActionsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreActionsButton.swift; sourceTree = "<group>"; };
 		30A266D92329BB73003C708E /* config.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.yml; sourceTree = "<group>"; };
 		30A281E722EA61A30041158E /* Cactus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cactus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A281EF22EA62650041158E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -2028,6 +2032,7 @@
 				300D37BE24D8C9FB00351994 /* PlusFeaturesPagination.swift */,
 				300D37FA24DA58F400351994 /* WebViewWrapper.swift */,
 				30D63EAB24E20A9D00FBD884 /* RefreshableScrollView.swift */,
+				309CF39024F0A28400DE08EC /* MoreActionsButton.swift */,
 			);
 			path = "Supplemental Views";
 			sourceTree = "<group>";
@@ -3779,6 +3784,7 @@
 				305366F124C6A84200927498 /* PromptContentView.swift in Sources */,
 				300D37C124D8C9FB00351994 /* PlusFeaturesPagination.swift in Sources */,
 				309CF37D24EC8EB400DE08EC /* GapAnalysisWidget.swift in Sources */,
+				309CF39324F0A28400DE08EC /* MoreActionsButton.swift in Sources */,
 				303282222416D3DF00FC197A /* AuthenticatedTaskManager.swift in Sources */,
 				30265C6423453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */,
 				300D37CF24DA190900351994 /* IconImage.swift in Sources */,
@@ -4017,6 +4023,7 @@
 				305366EF24C6A84200927498 /* PromptContentView.swift in Sources */,
 				300D37BF24D8C9FB00351994 /* PlusFeaturesPagination.swift in Sources */,
 				309CF37B24EC8EB400DE08EC /* GapAnalysisWidget.swift in Sources */,
+				309CF39124F0A28400DE08EC /* MoreActionsButton.swift in Sources */,
 				30A3BCA624C113780016955C /* AuthenticatedTaskManager.swift in Sources */,
 				30A3BCA724C113780016955C /* UIImageView+SwiftyGif.swift in Sources */,
 				300D37CD24DA190900351994 /* IconImage.swift in Sources */,
@@ -4255,6 +4262,7 @@
 				305366F024C6A84200927498 /* PromptContentView.swift in Sources */,
 				300D37C024D8C9FB00351994 /* PlusFeaturesPagination.swift in Sources */,
 				309CF37C24EC8EB400DE08EC /* GapAnalysisWidget.swift in Sources */,
+				309CF39224F0A28400DE08EC /* MoreActionsButton.swift in Sources */,
 				303282212416D3DF00FC197A /* AuthenticatedTaskManager.swift in Sources */,
 				30265C6323453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */,
 				300D37CE24DA190900351994 /* IconImage.swift in Sources */,

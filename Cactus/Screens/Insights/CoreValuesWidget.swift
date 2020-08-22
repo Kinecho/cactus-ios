@@ -15,6 +15,7 @@ struct CoreValuesWidget: View {
     @EnvironmentObject var checkout: CheckoutStore
     
     @State var showAssessment: Bool = false
+    @State var showMoreActions: Bool = false
     
     var memberCoreValues: [CoreValue]? {
         self.session.member?.tier.isPaidTier == true ? self.session.member?.coreValues : nil
@@ -22,7 +23,7 @@ struct CoreValuesWidget: View {
     
     func getBackground(geo: GeometryProxy) -> some View {
         if self.memberCoreValues?.isEmpty == false {
-            return EmptyView().eraseToAnyView()
+            return NamedColor.CardBackground.color.eraseToAnyView()
         }
         
         return ZStack {
@@ -49,33 +50,57 @@ struct CoreValuesWidget: View {
         }.eraseToAnyView()
     }
     
+    var moreActions: ActionSheet {
+        ActionSheet(title: Text("Core Values"), buttons: [
+            .default(Text("Retake Assessment"), action: {
+                self.showAssessment = true
+            }),
+            .cancel(Text("Cancel"))
+        ])
+    }
+    
     var unlockedBody: some View {
         if let coreValues = self.memberCoreValues {
             return Group {
-                HStack(alignment: .top) {
-                    VStack(alignment: .leading, spacing: Spacing.normal) {
+                VStack {
+                    HStack(alignment: .center) {
                         Text("Core Values").font(CactusFont.bold(.title))
                             .foregroundColor(named: .TextDefault)
-                        
-                        VStack(alignment: .leading, spacing: Spacing.small) {
-                            ForEach(coreValues, id: \.hashValue) { value in
-                                Text("\(value)")
-                                    .font(CactusFont.bold(.normal))
-                                    .foregroundColor(named: .Heading3Text)
+                        Spacer()
+                        MoreActionsButton(active: self.$showMoreActions)
+                    }
+                    HStack(alignment: .top) {
+                        VStack(alignment: .leading, spacing: Spacing.normal) {
+                            
+                            VStack(alignment: .leading, spacing: Spacing.small) {
+                                ForEach(coreValues, id: \.hashValue) { value in
+                                    Text("\(value)")
+                                        .font(CactusFont.bold(.normal))
+                                        .foregroundColor(named: .Heading3Text)
+                                }
                             }
                         }
+                        Spacer()
+                        Image(CoreValueBlob.forCoreValues(self.memberCoreValues ?? []).image.rawValue)
+                        .resizable()
+                            .aspectRatio(contentMode: .fit)
+                        .maxHeight(160)
                     }
-                    Spacer()
-                    Image(CoreValueBlob.forCoreValues(self.memberCoreValues ?? []).image.rawValue)
-                    .resizable()
-                        .aspectRatio(contentMode: .fit)
-                    .maxHeight(160)
                 }
             }.eraseToAnyView()
         }
         
         return Group {
-            Text("You do not have any core values. Take the quiz")
+            VStack(alignment: .leading, spacing: Spacing.normal) {
+                VStack(alignment: .leading) {
+                    Text("What are your core values?").font(CactusFont.bold(.title))
+                    Text("Discover what drives your life decisions and deepest needs.")
+                }
+                CactusButton("Take the Assessment", .buttonSecondary).onTapGesture {
+                    self.showAssessment = true
+                }
+            }
+            
         }.eraseToAnyView()
     }
     
@@ -110,17 +135,20 @@ struct CoreValuesWidget: View {
                 self.lockedBody
             }
             
-        }.foregroundColor(NamedColor.White.color)
-            .frame(minWidth: 0, maxWidth: .infinity)
-            .padding(Spacing.normal)
-            .fixedSize(horizontal: false, vertical: true)
-            .background(GeometryReader { geo in
-                self.getBackground(geo: geo)
-            })
-            .cornerRadius(CornerRadius.normal)
-            .border(NamedColor.BorderLight.color, cornerRadius: CornerRadius.normal, style: .continuous, width: 1)
-            .onTapGesture {
+        }
+        .foregroundColor(NamedColor.White.color)
+        .frame(minWidth: 0, maxWidth: .infinity)
+        .padding(Spacing.normal)
+        .fixedSize(horizontal: false, vertical: true)
+        .background(GeometryReader { geo in
+            self.getBackground(geo: geo)
+        })
+        .cornerRadius(CornerRadius.normal)
+        .border(NamedColor.BorderLight.color, cornerRadius: CornerRadius.normal, style: .continuous, width: 1)
+        .onTapGesture {
+            if (self.memberCoreValues?.isEmpty ?? true) == true{
                 self.showAssessment = true
+            }
         }
         .sheet(isPresented: self.$showAssessment) {
             CoreValuesAssessmentWebView(onClose: {
@@ -128,6 +156,9 @@ struct CoreValuesWidget: View {
             }).environmentObject(self.session)
                 .environmentObject(self.checkout)
         }
+        .actionSheet(isPresented: self.$showMoreActions, content: {
+            self.moreActions
+        })
     }
     
 }
@@ -140,6 +171,7 @@ struct CoreValuesWidget_Previews: PreviewProvider {
                 .padding()
                 .background(named: .Background)
                 .environmentObject(SessionStore.mockLoggedIn(tier: .BASIC))
+                .environmentObject(CheckoutStore.mock())
                 .colorScheme(.dark)
                 .previewLayout(.fixed(width: 440, height: 130))
                 .previewDisplayName("BASIC User - Locked (Dark)")
@@ -148,6 +180,7 @@ struct CoreValuesWidget_Previews: PreviewProvider {
                 .padding()
                 .background(named: .Background)
                 .environmentObject(SessionStore.mockLoggedIn(tier: .BASIC))
+                .environmentObject(CheckoutStore.mock())
                 .colorScheme(.light)
                 .previewLayout(.fixed(width: 440, height: 200))
                 .previewDisplayName("BASIC User - Locked (Light)")
@@ -157,6 +190,7 @@ struct CoreValuesWidget_Previews: PreviewProvider {
                 .padding()
                 .background(named: .Background)
                 .environmentObject(SessionStore.mockLoggedIn(tier: .PLUS))
+                .environmentObject(CheckoutStore.mock())
                 .colorScheme(.dark)
                 .previewLayout(.fixed(width: 440, height: 200))
                 .previewDisplayName("PLUS User - No Core Values (Dark)")
@@ -165,6 +199,7 @@ struct CoreValuesWidget_Previews: PreviewProvider {
                 .padding()
                 .background(named: .Background)
                 .environmentObject(SessionStore.mockLoggedIn(tier: .PLUS))
+                .environmentObject(CheckoutStore.mock())
                 .colorScheme(.light)
                 .previewLayout(.fixed(width: 440, height: 200))
                 .previewDisplayName("PLUS User - No Core Values (Light)")
@@ -173,22 +208,26 @@ struct CoreValuesWidget_Previews: PreviewProvider {
             ///PLUS - With values
             CoreValuesWidget()
                 .padding()
+                .previewLayout(.fixed(width: 440, height: 300))
                 .background(named: .Background)
                 .environmentObject(SessionStore.mockLoggedIn(tier: .PLUS, configMember: { member in
                     member.coreValues = ["Security", "Personal Growth", "Altruism"]
                 }))
+                .environmentObject(CheckoutStore.mock())
                 .colorScheme(.dark)
-                .previewLayout(.fixed(width: 440, height: 200))
+                
                 .previewDisplayName("PLUS User - Has Core Values (Dark)")
             
             CoreValuesWidget()
                 .padding()
+                .previewLayout(.fixed(width: 440, height: 300))
                 .background(named: .Background)
                 .environmentObject(SessionStore.mockLoggedIn(tier: .PLUS, configMember: { member in
                     member.coreValues = ["Security", "Personal Growth", "Altruism"]
                 }))
+                
                 .colorScheme(.light)
-                .previewLayout(.fixed(width: 440, height: 200))
+                
                 .previewDisplayName("PLUS User - Has Core Values (Light)")
         }
     }

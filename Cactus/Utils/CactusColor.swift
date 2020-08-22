@@ -66,6 +66,7 @@ enum NamedColor: String, Codable, CaseIterable {
     case TextMinimized
     case TextPlaceholder
     case TextWhite
+    case TodayWidgetBackground
     case Twitter
     case White
     case WhiteInvertable

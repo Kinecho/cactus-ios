@@ -10,6 +10,7 @@ import Foundation
 import SwiftUI
 
 struct Spacing {
+    static let none: CGFloat = 0
     static let small: CGFloat = 10
     static let normal: CGFloat = 20
     static let large: CGFloat = 30
