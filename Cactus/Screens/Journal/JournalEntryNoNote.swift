@@ -13,6 +13,8 @@ struct JournalEntryNoNote: View {
     @EnvironmentObject var session: SessionStore
     
     var entry: JournalEntry
+    var textColor: Color = NamedColor.TextDefault.color
+    
     var imageWidth: CGFloat = 300
     var imageHeight: CGFloat = 200
     var imageOffsetX: CGFloat {
@@ -26,14 +28,14 @@ struct JournalEntryNoNote: View {
                 if self.entry.questionText != nil {
                     MDText(markdown: self.entry.questionText!, alignment: .leading)
                         .font(Font(CactusFont.bold(FontSize.journalQuestionTitle)))
-                        .foregroundColor(Color(CactusColor.textDefault))
+                        .foregroundColor(self.textColor)
                         .lineLimit(nil)
                     
                 }
                 if self.entry.introText != nil {
                     MDText(markdown: self.entry.introText!)
                         .font(Font(CactusFont.normal))
-                        .foregroundColor(Color(CactusColor.textDefault))
+                        .foregroundColor(self.textColor)
                         .lineLimit(nil)
                 }
                 

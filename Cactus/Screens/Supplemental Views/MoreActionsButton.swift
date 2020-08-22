@@ -11,8 +11,11 @@ import SwiftUI
 struct MoreActionsButton: View {
     @Binding var showMoreActions: Bool
     
-    init(active: Binding<Bool>) {
+    var color: Color
+    
+    init(active: Binding<Bool>, color: Color=NamedColor.TextDefault.color) {
         self._showMoreActions = active
+        self.color = color
     }
     
     let dotsRotationAnimation = Animation.interpolatingSpring(mass: 0.2, stiffness: 25, damping: 2.5, initialVelocity: -0.5)
@@ -21,7 +24,7 @@ struct MoreActionsButton: View {
         Image(CactusImage.dots.rawValue)
             .resizable()
             .aspectRatio(contentMode: .fill)
-            .foregroundColor(Color(CactusColor.textDefault))
+            .foregroundColor(self.color)
             .frame(width: 30, height: 20)
             .rotationEffect(.degrees(self.showMoreActions ? 90 : 0))
             .onTapGesture {

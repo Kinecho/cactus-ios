@@ -437,6 +437,10 @@ extension JournalHomeViewController: NavigationMenuViewControllerDelegate {
 }
 
 extension JournalHomeViewController: JournalFeedDataSourceDelegate {
+    func setTodayEntry(_ journalEntry: JournalEntry?) {
+        //no op
+    }
+    
     func batchUpdate(addedIndexes: [Int], removedIndexes: [Int]) {
         self.journalFeedViewController?.batchUpdate(addedIndexes: addedIndexes, removedIndexes: removedIndexes)
     }

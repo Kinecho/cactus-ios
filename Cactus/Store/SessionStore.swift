@@ -31,6 +31,9 @@ final class SessionStore: ObservableObject {
     @Published var journalEntries: [JournalEntry] = []
     @Published var journalLoaded = false
     
+    @Published var todayEntry: JournalEntry?
+    @Published var todayEntryLoaded: Bool = false
+    
     let logger = Logger("SessionStore")
     
     func logout() {
@@ -105,7 +108,7 @@ final class SessionStore: ObservableObject {
 }
 
 extension SessionStore {
-    static func mockLoggedIn(tier: SubscriptionTier = .BASIC, configMember: ((CactusMember) -> Void)?=nil) -> SessionStore {
+    static func mockLoggedIn(tier: SubscriptionTier = .BASIC, configMember: ((CactusMember) -> Void)?=nil, configStore: ((SessionStore) -> Void)?=nil) -> SessionStore {
         let store = SessionStore()
         store.settings = AppSettings.mock()
         store.authLoaded = true
@@ -119,7 +122,7 @@ extension SessionStore {
         store.useMockImages = true
         
         configMember?(member)
-        
+        configStore?(store)
         return store
     }
     
@@ -153,6 +156,18 @@ extension SessionStore: JournalFeedDataSourceDelegate {
     
     func removeItems(_ indexes: [Int]) {
         self.journalEntries.remove(atOffsets: IndexSet(indexes))
+    }
+    
+    func setTodayEntry(_ journalEntry: JournalEntry?) {
+        self.todayEntry = journalEntry
+        
+        /// if the entry is present but not loaded, set today loaded to false, or else there is no entry for today. 
+        if let entry = journalEntry {
+            self.todayEntryLoaded = entry.loadingComplete
+        } else {
+            self.todayEntryLoaded = true
+        }
+        
     }
     
     func insertItems(_ indexes: [Int]) {

@@ -14,12 +14,14 @@ struct TodayWidgetView: View {
     
     @State var isAnimating: Bool = false
     
+    let textColor: Color = NamedColor.White.color
+    
     var todayEntry: JournalEntry? {
-        self.session.journalFeedDataSource?.todayData?.getJournalEntry()
+        self.session.todayEntry
     }
     
     var todayEntryLoaded: Bool {
-        self.session.journalFeedDataSource?.todayLoaded ?? false
+        self.session.todayEntryLoaded
     }
     
     var blobsAnimating: Bool {
@@ -29,9 +31,16 @@ struct TodayWidgetView: View {
     var body: some View {
         Group {
             if self.todayEntry != nil {
-                JournalEntryRow(entry: self.todayEntry!, showDetails: {entry in
-                    self.onTapped?(entry)
-                }, inlineImage: true, backgroundColor: .clear).onTapGesture {
+                JournalEntryRow(
+                    entry: self.todayEntry!,
+                    showDetails: {entry in
+                        self.onTapped?(entry)
+                    },
+                    inlineImage: true,
+                    backgroundColor: .clear,
+                    textColor: self.textColor
+                )
+                .onTapGesture {
                     self.onTapped?(self.todayEntry!)
                 }.onAppear(){
                     withAnimation {
@@ -51,7 +60,7 @@ struct TodayWidgetView: View {
                     .fixedSize(horizontal: false, vertical: true)
                 }
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-                .foregroundColor(named: .White)
+                .foregroundColor(self.textColor)
                 .padding()
                 .cornerRadius(CornerRadius.normal)
                 
@@ -103,26 +112,48 @@ struct TodayWidgetView: View {
 }
 
 struct TodayWidgetView_Previews: PreviewProvider {
+    struct TodayData: Identifiable {
+        let id = UUID()
+        let session: SessionStore
+        let name: String
+        
+        init(_ name: String, _ session: SessionStore) {
+            self.session = session
+            self.name = name
+        }
+    }
+    
     static let loadingData = SessionStore.mockLoggedIn()
     static func withData() -> SessionStore {
         let store = SessionStore.mockLoggedIn()
-        let todayData = JournalEntryData(promptId: nil, memberId: store.member?.id ?? "test", journalDate: Date())
-//        todayData.wontLoad = true
-        store.journalFeedDataSource?.todayData = todayData
+        store.todayEntryLoaded = true
+        store.todayEntry = MockData.getUnansweredEntry(isToday: true, blob: 2)
         return store
     }
+    
+    static let items: [TodayData] = [
+        TodayData("Loading", SessionStore.mockLoggedIn()),
+        TodayData("Unansered", SessionStore.mockLoggedIn(configStore: { store in
+            store.todayEntryLoaded = true
+            store.todayEntry = MockData.getUnansweredEntry(isToday: true, blob: 2)
+        }))
+    ]
+    
+    
     static var previews: some View {
-        Group {
-            TodayWidgetView()
-                .environmentObject(loadingData)
-                .previewDisplayName("Loading (Light))")
-                .colorScheme(.light)
-            
-            TodayWidgetView()
-                .environmentObject(withData())
-                .previewDisplayName("Unanswered Prompt (Light))")
-                .colorScheme(.light)
+        ForEach(ColorScheme.allCases, id: \.hashValue) { color in
+            ForEach(items) { item in
+                NavigationView {
+                    List {
+                        TodayWidgetView()
+                            .environmentObject(item.session)
+                    }.onAppear(){
+                        UITableView.appearance().separatorStyle = .none
+                    }
+                }
+                .previewDisplayName("\(item.name) (\(String(describing: color)))")
+                .colorScheme(color)
+            }
         }
-        
     }
 }

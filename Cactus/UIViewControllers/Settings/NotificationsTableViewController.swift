@@ -221,7 +221,9 @@ class NotificationsTableViewController: UITableViewController, MFMailComposeView
         NotificationService.sharedInstance.hasPushPermissions { (status) in
             DispatchQueue.main.async {
                 switch status {
-                case .authorized, .provisional:
+                case .authorized,
+                     .ephemeral,
+                     .provisional:
                     self.logger.debug("authorized", functionName: "refreshPermissionsToggle")
                     self.pushSwitch.setOn(true, animated: animated)
                     self.managePermissionsInSettings = true

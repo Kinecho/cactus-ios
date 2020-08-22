@@ -80,6 +80,10 @@ struct JournalFeed: View {
         List {
             if self.session.member?.tier == .BASIC {
                 JournalUpgradeBanner()
+                    .padding([.leading, .trailing, .bottom], Spacing.normal)
+                    .padding(.top, 20)
+                    .listRowInsets(EdgeInsets())
+                    .background(.systemBackground)
             }
     
             ForEach(self.entries) { entry in
@@ -101,9 +105,11 @@ struct JournalFeed: View {
             .padding()
             .padding(.bottom, Spacing.large)
             .listRowInsets(EdgeInsets())
+            .background(.systemBackground)
         }
         .onAppear(perform: {
             UITableView.appearance().separatorStyle = .none
+            UITableView.appearance().separatorColor = .clear
 //            UITableView.appearance().backgroundColor = CactusColor.background
 //            UITableViewCell.appearance().backgroundColor = CactusColor.background
         })

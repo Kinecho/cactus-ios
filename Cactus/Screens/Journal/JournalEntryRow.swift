@@ -20,6 +20,8 @@ struct JournalEntryRow: View {
     var showDetails: ((JournalEntry) -> Void)?=nil
     var inlineImage: Bool = false
     var backgroundColor: Color = NamedColor.CardBackground.color
+    var textColor: Color = NamedColor.TextDefault.color
+    
     /// Mark: Local Variables
     let logger = Logger("JournalEntryRow")
     var usePlaceholder: Bool { self.session.useMockImages }
@@ -72,17 +74,17 @@ struct JournalEntryRow: View {
                     if entry.dateString != nil {
                         Text(entry.dateString!)
                             .font(Font(CactusFont.normal(FontSize.journalDate)))
-                            .foregroundColor(Color(CactusColor.textDefault))
+                            .foregroundColor(self.textColor)
                     }
                     
                     Spacer().animation(nil)
-                    MoreActionsButton(active: self.$showMoreActions)
+                    MoreActionsButton(active: self.$showMoreActions, color: self.textColor)                    
                 }
                 Group {
                     if self.hasResponse {
-                        JournalEntryWithNote(entry: self.entry)
+                        JournalEntryWithNote(entry: self.entry, textColor: self.textColor)
                     } else {
-                        JournalEntryNoNote(entry: self.entry)
+                        JournalEntryNoNote(entry: self.entry, textColor: self.textColor)
                     }
                     
                     if self.showInlineImage {

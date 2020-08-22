@@ -10,7 +10,7 @@ import SwiftUI
 
 struct JournalEntryWithNote: View {
     var entry: JournalEntry
-    
+    var textColor: Color = NamedColor.TextDefault.color
     var responseText: String? {
         return entry.responseText
     }
@@ -20,7 +20,7 @@ struct JournalEntryWithNote: View {
             if self.entry.questionText != nil {
                 MDText(markdown: self.entry.questionText!)
                     .font(Font(CactusFont.bold(FontSize.journalQuestionTitle)))
-                    .foregroundColor(Color(CactusColor.textDefault))
+                    .foregroundColor(self.textColor)
                     .lineLimit(nil)
                 .fixedSize(horizontal: false, vertical: true)
             }
@@ -29,7 +29,7 @@ struct JournalEntryWithNote: View {
                 Text(self.responseText!)
                     .multilineTextAlignment(.leading)
                     .font(Font(CactusFont.normal))
-                    .foregroundColor(Color(CactusColor.textDefault))
+                    .foregroundColor(self.textColor)
                     .padding([.leading], 20)
                     .padding(.vertical, 4)
                     .fixedSize(horizontal: false, vertical: true)

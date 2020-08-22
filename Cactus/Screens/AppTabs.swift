@@ -42,6 +42,7 @@ struct AppTabs: View {
 //        UITableView.appearance().backgroundColor = CactusColor.background
         UITableView.appearance().showsVerticalScrollIndicator = false
         UITableView.appearance().showsHorizontalScrollIndicator = false
+        UITableView.appearance().tableFooterView = UIView()
 
 //        UINavigationBar.appearance().tintColor = NamedColor.Background.uiColor
 //        UINavigationBar.appearance().barTintColor = NamedColor.Background.uiColor

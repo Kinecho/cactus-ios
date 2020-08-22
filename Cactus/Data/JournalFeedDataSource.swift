@@ -27,6 +27,7 @@ protocol JournalFeedDataSourceDelegate: class {
     func batchUpdate(addedIndexes: [Int], removedIndexes: [Int])
     func dataLoaded()
     func handleEmptyState(hasResults: Bool)
+    func setTodayEntry(_ journalEntry: JournalEntry?)
 }
 
 class JournalFeedDataSource {
@@ -50,6 +51,8 @@ class JournalFeedDataSource {
     var orderedPromptIds: [String] = []
     
     weak var delegate: JournalFeedDataSourceDelegate?
+    var todayDelegate: TodayEntryDelegate?
+    
     var hasLoaded = false
     func resetData() {
         self.unsubscribeAll()
@@ -124,6 +127,7 @@ class JournalFeedDataSource {
     init(member: CactusMember?=nil, appSettings: AppSettings?=nil) {
         self.currentMember = member
         self.appSettings = appSettings
+        self.todayDelegate = TodayEntryDelegate(self)
     }
     
     var startDate: Date?
@@ -205,11 +209,13 @@ class JournalFeedDataSource {
             }
             if let error = error {
                 self.logger.error("Failed to fetch todays prompt content", error)
+                self.delegate?.setTodayEntry(nil)
                 return
             }
             
             guard let promptId = promptContent?.promptId else {
                 self.logger.warn("There was no error loading todays prompt content, but no promptId was found.")
+                self.delegate?.setTodayEntry(nil)
                 return
             }
             //TODO: do we want to remove the todayData object if no new prompt is found?
@@ -226,7 +232,7 @@ class JournalFeedDataSource {
             todayEntry.isTodaysPrompt = true
             self.todayData = todayEntry
             self.journalEntryDataByPromptId[promptId] = todayEntry
-            todayEntry.delegate = self
+            todayEntry.delegate = self.todayDelegate
             self.configureDataFeed()
             todayEntry.start()
             self.todayLoaded = true
@@ -467,6 +473,28 @@ extension JournalFeedDataSource: JournalEntryDataDelegate {
             }
             
             self.delegate?.updateEntry(journalEntry, at: index)
+        }
+    }
+}
+
+extension JournalFeedDataSource {
+    class TodayEntryDelegate: JournalEntryDataDelegate {
+        var parent: JournalFeedDataSource
+        
+        init(_ parent: JournalFeedDataSource) {
+            self.parent = parent
+        }
+        
+        func onData(_ journalEntry: JournalEntry) {
+            self.parent.delegate?.setTodayEntry(journalEntry)
+            if journalEntry.loadingComplete {
+                guard let index = self.parent.indexOf(journalEntry) else {
+                    self.parent.logger.warn("No index foud for journalEntry.promptId \(journalEntry.promptId ?? "unknown")")
+                    return
+                }
+                
+                self.parent.delegate?.updateEntry(journalEntry, at: index)
+            }
         }
     }
 }
