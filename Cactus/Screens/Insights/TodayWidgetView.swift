@@ -12,6 +12,8 @@ struct TodayWidgetView: View {
     @EnvironmentObject var session: SessionStore
     var onTapped: ((JournalEntry) -> Void)?
     
+    @State var isAnimating: Bool = false
+    
     var todayEntry: JournalEntry? {
         self.session.journalFeedDataSource?.todayData?.getJournalEntry()
     }
@@ -20,12 +22,20 @@ struct TodayWidgetView: View {
         self.session.journalFeedDataSource?.todayLoaded ?? false
     }
     
+    var blobsAnimating: Bool {
+        return self.todayEntry != nil
+    }
     
     var body: some View {
         Group {
             if self.todayEntry != nil {
                 JournalEntryRow(entry: self.todayEntry!, inlineImage: true, backgroundColor: .clear).onTapGesture {
                     self.onTapped?(self.todayEntry!)
+                }.onAppear(){
+                    withAnimation {
+                        self.isAnimating = true
+                    }
+                    
                 }
             } else if self.todayEntryLoaded {
                 VStack {
@@ -41,7 +51,6 @@ struct TodayWidgetView: View {
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
                 .foregroundColor(named: .White)
                 .padding()
-//                .background(named: .CardBackground)
                 .cornerRadius(CornerRadius.normal)
                 
             } else {
@@ -53,12 +62,39 @@ struct TodayWidgetView: View {
                         Spacer()
                     }
                     .padding(.all, Spacing.large)
-//                    .background(named: .CardBackground)
                     .cornerRadius(CornerRadius.normal)
                 }
             }
         }
-        .background(named: .TodayWidgetBackground)
+        .background(
+            ZStack{
+                NamedColor.TodayWidgetBackground.color
+                    .overlay(GeometryReader{ geo in
+                        ZStack {
+                            Image(CactusImage.todayBlob1.rawValue)
+                                        .resizable()
+                                            .frame(width: geo.size.width, height: 400)
+                                        .aspectRatio(contentMode: .fill)
+                                        .foregroundColor(.black)
+                                .scaleEffect(1)
+                                        .opacity(0.03)
+                                .offset(x: -geo.size.width * 2/3, y: -geo.size.height/3)
+                                .rotationEffect(Angle(degrees: self.isAnimating ? 360 : 0), anchor: UnitPoint(x: 0.1, y: 0.4))
+                                        .animation(self.isAnimating ? Animation.linear(duration: 90).repeatForever(autoreverses: false) : nil)
+
+                                    Image(CactusImage.todayBlob2.rawValue)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .foregroundColor(.black)
+                                        .scaleEffect(1)
+                                        .opacity(0.03)
+                                        .offset(x: geo.size.width * 2/3, y: geo.size.height / 2)
+                                        .rotationEffect(Angle(degrees: self.isAnimating ? 360 : 0), anchor: UnitPoint(x: 0.8, y: 0.5))
+                                        .animation(self.isAnimating ? Animation.linear(duration: 100).repeatForever(autoreverses: false) : nil)
+                        }
+                    })
+                    
+            })
         .foregroundColor(named: .White)
         .border(NamedColor.BorderLight.color, cornerRadius: CornerRadius.normal, style: .continuous, width: 1)
     }

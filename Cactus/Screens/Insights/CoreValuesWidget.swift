@@ -48,8 +48,7 @@ struct CoreValuesWidget: View {
                 .foregroundColor(NamedColor.Magenta.color)
                 .offset(x: geo.size.width * 1/2, y: -50)
         }.eraseToAnyView()
-    }
-    
+    }    
     var moreActions: ActionSheet {
         ActionSheet(title: Text("Core Values"), buttons: [
             .default(Text("Retake Assessment"), action: {
