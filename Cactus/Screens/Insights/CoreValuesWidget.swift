@@ -14,7 +14,7 @@ struct CoreValuesWidget: View {
     @EnvironmentObject var session: SessionStore
     @EnvironmentObject var checkout: CheckoutStore
     
-    @State var showAssessment: Bool = false
+    var showAssessment: (() -> Void)?
     @State var showMoreActions: Bool = false
     
     var memberCoreValues: [CoreValue]? {
@@ -52,13 +52,13 @@ struct CoreValuesWidget: View {
     var moreActions: ActionSheet {
         ActionSheet(title: Text("Core Values"), buttons: [
             .default(Text("Retake Assessment"), action: {
-                self.showAssessment = true
+                self.showAssessment?()
             }),
             .cancel(Text("Cancel"))
         ])
     }
     
-    var unlockedBody: some View {
+    var unlockedBody: AnyView {
         if let coreValues = self.memberCoreValues {
             return Group {
                 VStack {
@@ -96,7 +96,7 @@ struct CoreValuesWidget: View {
                     Text("Discover what drives your life decisions and deepest needs.")
                 }
                 CactusButton("Take the Assessment", .buttonSecondary).onTapGesture {
-                    self.showAssessment = true
+                    self.showAssessment?()
                 }
             }
             
@@ -146,18 +146,12 @@ struct CoreValuesWidget: View {
         .border(NamedColor.BorderLight.color, width: 1, cornerRadius: CornerRadius.normal, style: .continuous)
         .onTapGesture {
             if (self.memberCoreValues?.isEmpty ?? true) == true{
-                self.showAssessment = true
+                self.showAssessment?()
             }
         }
         .actionSheet(isPresented: self.$showMoreActions, content: {
             self.moreActions
         })
-        .sheet(isPresented: self.$showAssessment) {
-            CoreValuesAssessmentWebView(onClose: {
-                self.showAssessment = false
-            }).environmentObject(self.session)
-                .environmentObject(self.checkout)
-        }
     }
     
 }

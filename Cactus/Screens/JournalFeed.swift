@@ -20,8 +20,32 @@ class JournalFeedPromptDelegate: ObservableObject, PromptContentPageViewControll
 }
 
 struct JournalFeed: View {
+    enum CurrentSheet: Identifiable {
+        case notificationOnboarding
+        case promptDetail(JournalEntry)
+        
+        var id: Int {
+            switch self {
+            case .notificationOnboarding:
+                return 0
+            case .promptDetail:
+                return 1
+            }
+        }
+        
+        var journalEntry: JournalEntry? {
+            switch self {
+            case .promptDetail(let entry):
+                return entry
+            default:
+                return nil
+            }
+        }
+    }
+    
     @EnvironmentObject var session: SessionStore
     @EnvironmentObject var checkout: CheckoutStore
+    
     //swiftlint:disable:next weak_delegate
     @ObservedObject var promptDelegate = JournalFeedPromptDelegate()
     
@@ -30,48 +54,47 @@ struct JournalFeed: View {
     }
     
     @State var selectedEntry: JournalEntry?
-    @State var isPresenting: Bool = false
-    @State var showDetail: Bool = false
-    @State var showNotificationOnboarding: Bool = false
     @State var notificationAuthorizationStatus: UNAuthorizationStatus?
+    @State var currentSheet: CurrentSheet?
     
     func handleEntrySelected(_ entry: JournalEntry) {
         if entry.promptContent != nil {
             self.selectedEntry = entry
-            self.showDetail = true
-            self.isPresenting = true
+            self.currentSheet = .promptDetail(entry)
         } else {
             self.selectedEntry = nil
-            self.showDetail = false
-            self.isPresenting = false
+            self.currentSheet = nil
         }
     }
     
     func onPromptDismiss(_ promptContent: PromptContent) {
         Logger.shared.info("Parent on dismiss for emtry \(promptContent.entryId ?? "no id")")
+        self.currentSheet = nil
         self.selectedEntry = nil
         self.presentPermissionsOnboardingIfNeeded()
     }
     
     func presentPermissionsOnboardingIfNeeded() {
         guard self.entries.count > 0 else {
+            self.currentSheet = nil
             return
         }
         
         let hasSeenOnboarding = UserDefaults.standard.bool(forKey: UserDefaultsKey.notificationOnboarding)
         if hasSeenOnboarding {
+            self.currentSheet = nil
             return
         }
         
         NotificationService.sharedInstance.hasPushPermissions { (status) in
             DispatchQueue.main.async {
                 guard status != .authorized else {
+                    self.currentSheet = nil
                     return
                 }
-            
+                UserDefaults.standard.setValue(true, forKey: UserDefaultsKey.notificationOnboarding)
                 self.notificationAuthorizationStatus = status
-                self.showNotificationOnboarding = true
-                self.isPresenting = true
+                self.currentSheet = .notificationOnboarding
             }
         }
     }
@@ -81,6 +104,25 @@ struct JournalFeed: View {
             return Color.systemBackground
         } else {
             return NamedColor.WhiteInvertable.color
+        }
+    }
+    
+    
+    func getSheetContent(_ item: CurrentSheet) -> AnyView {
+        switch item {
+        case .promptDetail(let entry):
+            return PromptContentView(entry: entry,
+                                     onPromptDismiss: self.onPromptDismiss)
+                .environmentObject(self.session)
+                .environmentObject(self.checkout)
+                .eraseToAnyView()
+        case .notificationOnboarding:
+            return NotificationsOnboardingView(status: self.notificationAuthorizationStatus)
+                .environmentObject(self.session)
+                .environmentObject(self.checkout)
+                .eraseToAnyView()
+//        default:
+//            return NoContentErrorView().eraseToAnyView()
         }
     }
     
@@ -119,24 +161,8 @@ struct JournalFeed: View {
             UITableView.appearance().separatorStyle = .none
             UITableView.appearance().separatorColor = .clear
         })
-        .sheet(isPresented: self.$isPresenting) {
-            if self.showDetail && self.selectedEntry != nil {
-                PromptContentView(entry: self.selectedEntry!, onPromptDismiss: self.onPromptDismiss).environmentObject(self.session)
-            } else if self.showNotificationOnboarding {
-                NotificationsOnboardingView(status: self.notificationAuthorizationStatus)
-            } else {
-                VStack {
-                    Text("Whoops, it looks like you ran into an issue caused by the iOS 14 Beta. We are unable to show the Prompt Content.")
-                        .font(CactusFont.normal)
-                        .foregroundColor(named: .TextDefault)
-                        .multilineTextAlignment(.center)
-                        .padding(Spacing.large)
-                    Image(CactusImage.errorBlob.rawValue)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 200, height: 200)
-                }
-            }
+        .sheet(item: self.$currentSheet ) { item in
+            self.getSheetContent(item)
         }
     }
 }

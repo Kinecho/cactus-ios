@@ -1219,6 +1219,9 @@
 		30D7F70A236BAAB100379EE0 /* EditReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D7F707236BAAB100379EE0 /* EditReflectionViewController.swift */; };
 		30D7F70B236BAAB100379EE0 /* EditReflectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D7F708236BAAB100379EE0 /* EditReflectionViewController.xib */; };
 		30D7F70C236BAAB100379EE0 /* EditReflectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D7F708236BAAB100379EE0 /* EditReflectionViewController.xib */; };
+		30DBBE2D24F22FA30067F12A /* NoContentErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DBBE2C24F22FA30067F12A /* NoContentErrorView.swift */; };
+		30DBBE2E24F230C60067F12A /* NoContentErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DBBE2C24F22FA30067F12A /* NoContentErrorView.swift */; };
+		30DBBE2F24F230C60067F12A /* NoContentErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DBBE2C24F22FA30067F12A /* NoContentErrorView.swift */; };
 		30DCA5E52441207500D520D4 /* PromptEntryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5E32441207500D520D4 /* PromptEntryCollectionViewCell.swift */; };
 		30DCA5E62441207500D520D4 /* PromptEntryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5E32441207500D520D4 /* PromptEntryCollectionViewCell.swift */; };
 		30DCA5E72441207500D520D4 /* PromptEntryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5E32441207500D520D4 /* PromptEntryCollectionViewCell.swift */; };
@@ -1630,6 +1633,7 @@
 		30D7387523D00F96006F4DA6 /* SocialActivityCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialActivityCardView.swift; sourceTree = "<group>"; };
 		30D7F707236BAAB100379EE0 /* EditReflectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditReflectionViewController.swift; sourceTree = "<group>"; };
 		30D7F708236BAAB100379EE0 /* EditReflectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditReflectionViewController.xib; sourceTree = "<group>"; };
+		30DBBE2C24F22FA30067F12A /* NoContentErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoContentErrorView.swift; sourceTree = "<group>"; };
 		30DCA5E32441207500D520D4 /* PromptEntryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptEntryCollectionViewCell.swift; sourceTree = "<group>"; };
 		30DCA5E42441207500D520D4 /* PromptEntryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromptEntryCollectionViewCell.xib; sourceTree = "<group>"; };
 		30DCA5EB244120A700D520D4 /* PromptContentCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptContentCollectionViewController.swift; sourceTree = "<group>"; };
@@ -1997,6 +2001,7 @@
 		305366BC24C66C7D00927498 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				30DBBE2B24F22F6F0067F12A /* Errors */,
 				309CF38524F04E9000DE08EC /* Assessments */,
 				30D63EB024E2329500FBD884 /* Insights */,
 				305366C324C66CBB00927498 /* AppMain.swift */,
@@ -2365,6 +2370,14 @@
 				308505A423D0E490001179E2 /* SocialContactTableViewCell.swift */,
 			);
 			path = Social;
+			sourceTree = "<group>";
+		};
+		30DBBE2B24F22F6F0067F12A /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				30DBBE2C24F22FA30067F12A /* NoContentErrorView.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 		30E9B09422EA688D005B25FD /* Services */ = {
@@ -3673,6 +3686,7 @@
 				300FCD0123EE3CD200089CFB /* SubscriptionProductService.swift in Sources */,
 				3077382924CE89B400D0C5BE /* PricingView.swift in Sources */,
 				305366D224C676D300927498 /* WelcomeController.swift in Sources */,
+				30DBBE2F24F230C60067F12A /* NoContentErrorView.swift in Sources */,
 				30AB0729244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift in Sources */,
 				302C4F4A2347D7A700798560 /* SettingsTableViewController.swift in Sources */,
 				300D37F124DA546900351994 /* TermsOfServiceView.swift in Sources */,
@@ -3912,6 +3926,7 @@
 				30A3BC5524C113780016955C /* SubscriptionProductService.swift in Sources */,
 				3077382724CE89B400D0C5BE /* PricingView.swift in Sources */,
 				305366D024C676D300927498 /* WelcomeController.swift in Sources */,
+				30DBBE2D24F22FA30067F12A /* NoContentErrorView.swift in Sources */,
 				30A3BC5624C113780016955C /* CoreValuesAssessmentViewController.swift in Sources */,
 				30A3BC5724C113780016955C /* SettingsTableViewController.swift in Sources */,
 				300D37EF24DA546900351994 /* TermsOfServiceView.swift in Sources */,
@@ -4151,6 +4166,7 @@
 				300FCD0023EE3CD200089CFB /* SubscriptionProductService.swift in Sources */,
 				3077382824CE89B400D0C5BE /* PricingView.swift in Sources */,
 				305366D124C676D300927498 /* WelcomeController.swift in Sources */,
+				30DBBE2E24F230C60067F12A /* NoContentErrorView.swift in Sources */,
 				30AB0728244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift in Sources */,
 				302C4F492347D7A700798560 /* SettingsTableViewController.swift in Sources */,
 				300D37F024DA546900351994 /* TermsOfServiceView.swift in Sources */,

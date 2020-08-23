@@ -12,16 +12,21 @@ import NoveFeatherIcons
 
 
 struct InsightsHome: View {
-    enum CurrentSheet {
+    enum CurrentSheet: Identifiable {
         case promptDetails
+        case coreValuesAssessment
+        
+        var id: Int {
+            self.hashValue
+        }
     }
     
     @EnvironmentObject var session: SessionStore
     @EnvironmentObject var checkout: CheckoutStore
-    
-    @State var showSheet: Bool = false
-    @State var currentSheet: CurrentSheet = .promptDetails
+        
+    @State var currentSheet: CurrentSheet?
     @State var selectedEntry: JournalEntry?
+    @State var showCoreValuesAssessment: Bool = false
     
     var stats: [Stat] {
         guard let reflectionStats = self.session.member?.stats?.reflections else {
@@ -31,8 +36,8 @@ struct InsightsHome: View {
         return Stat.fromReflectionStats(stats: reflectionStats)
     }
     
-    func onPromptDismiss(_ promptContent: PromptContent) {
-        // no op
+    func onPromptDismiss(_ promptContent: PromptContent) {        
+        self.currentSheet = nil
     }
     
     var body: some View {
@@ -52,16 +57,16 @@ struct InsightsHome: View {
                         /// End Stats HScroll View
                         
                         /// Start padded content group
-                        
                         VStack(alignment: .leading, spacing: Spacing.normal) {
                             TodayWidgetView(onTapped: { entry in
-                                self.currentSheet = .promptDetails
-                                self.showSheet = true
                                 self.selectedEntry = entry
+                                self.currentSheet = .promptDetails
                             }).fixedSize(horizontal: false, vertical:  true)
                         
                             /// Start Core Values
-                            CoreValuesWidget()
+                            CoreValuesWidget(showAssessment: {
+                                self.currentSheet = .coreValuesAssessment
+                            })
                             
                             /// Start Gap Assessment - not showing for now.
                             // GapAnalysisWidget()
@@ -70,14 +75,22 @@ struct InsightsHome: View {
                         /// End Padded Content Group
                     }
                 }
-                .sheet(isPresented: self.$showSheet) {
-                    if self.currentSheet == .promptDetails && self.selectedEntry != nil {
-                        PromptContentView(entry: self.selectedEntry!, onPromptDismiss: self.onPromptDismiss)
-                            .environmentObject(self.session)
-                            .environmentObject(self.checkout)
-                    } else {
-                        EmptyView()
-                    }
+            .sheet(item: self.$currentSheet) { item in
+                if item == .promptDetails && self.selectedEntry != nil {
+                    PromptContentView(entry: self.selectedEntry!,
+                                      onPromptDismiss: self.onPromptDismiss)
+                        .environmentObject(self.session)
+                        .environmentObject(self.checkout)
+                        .eraseToAnyView()
+                } else if item == .coreValuesAssessment {
+                    CoreValuesAssessmentWebView(onClose: {
+                        self.currentSheet = nil
+                    }).environmentObject(self.session)
+                        .environmentObject(self.checkout)
+                    .eraseToAnyView()
+                } else {
+                    NoContentErrorView()
+                }
             }
         }
     }
