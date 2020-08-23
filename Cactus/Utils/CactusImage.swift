@@ -195,6 +195,7 @@ enum CactusImage: String {
     case cvBlob6
     case cvBlob7
     case cvBlob8
+    case errorBlob
     
     func getImage() -> UIImage? {
         return UIImage(named: self.rawValue)

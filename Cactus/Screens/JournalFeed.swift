@@ -110,14 +110,24 @@ struct JournalFeed: View {
         .onAppear(perform: {
             UITableView.appearance().separatorStyle = .none
             UITableView.appearance().separatorColor = .clear
-//            UITableView.appearance().backgroundColor = CactusColor.background
-//            UITableViewCell.appearance().backgroundColor = CactusColor.background
         })
         .sheet(isPresented: self.$isPresenting) {
             if self.showDetail && self.selectedEntry != nil {
                 PromptContentView(entry: self.selectedEntry!, onPromptDismiss: self.onPromptDismiss).environmentObject(self.session)
             } else if self.showNotificationOnboarding {
                 NotificationsOnboardingView(status: self.notificationAuthorizationStatus)
+            } else {
+                VStack {
+                    Text("Whoops, it looks like you ran into an issue caused by the iOS 14 Beta. We are unable to show the Prompt Content.")
+                        .font(CactusFont.normal)
+                        .foregroundColor(named: .TextDefault)
+                        .multilineTextAlignment(.center)
+                        .padding(Spacing.large)
+                    Image(CactusImage.errorBlob.rawValue)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 200, height: 200)
+                }
             }
         }
     }

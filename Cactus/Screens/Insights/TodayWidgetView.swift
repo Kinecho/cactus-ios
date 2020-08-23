@@ -58,6 +58,12 @@ struct TodayWidgetView: View {
                         .multilineTextAlignment(.center)
                         .font(CactusFont.normal.font)
                     .fixedSize(horizontal: false, vertical: true)
+                    Image(CactusImage.errorBlob.rawValue)
+                        .resizable()
+                        .frame(width: 200, height: 200)
+                        .aspectRatio(contentMode: .fit)
+                        .offset(x: 0, y: 100)
+                        .padding(.top, -80)
                 }
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
                 .foregroundColor(self.textColor)
@@ -133,6 +139,10 @@ struct TodayWidgetView_Previews: PreviewProvider {
     
     static let items: [TodayData] = [
         TodayData("Loading", SessionStore.mockLoggedIn()),
+        TodayData("No Content", SessionStore.mockLoggedIn(configStore: { store in
+            store.todayEntryLoaded = true
+            store.todayEntry = nil
+        })),
         TodayData("Unansered", SessionStore.mockLoggedIn(configStore: { store in
             store.todayEntryLoaded = true
             store.todayEntry = MockData.getUnansweredEntry(isToday: true, blob: 2)
