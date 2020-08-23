@@ -149,15 +149,15 @@ struct CoreValuesWidget: View {
                 self.showAssessment = true
             }
         }
+        .actionSheet(isPresented: self.$showMoreActions, content: {
+            self.moreActions
+        })
         .sheet(isPresented: self.$showAssessment) {
             CoreValuesAssessmentWebView(onClose: {
                 self.showAssessment = false
             }).environmentObject(self.session)
                 .environmentObject(self.checkout)
         }
-        .actionSheet(isPresented: self.$showMoreActions, content: {
-            self.moreActions
-        })
     }
     
 }

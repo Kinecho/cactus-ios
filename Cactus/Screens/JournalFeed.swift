@@ -76,6 +76,14 @@ struct JournalFeed: View {
         }
     }
     
+    var cellBackgroundColor: Color {
+        if #available(iOS 14, *) {
+            return Color.systemBackground
+        } else {
+            return NamedColor.WhiteInvertable.color
+        }
+    }
+    
     var body: some View {
         List {
             if self.session.member?.tier == .BASIC {
@@ -83,7 +91,7 @@ struct JournalFeed: View {
                     .padding([.leading, .trailing, .bottom], Spacing.normal)
                     .padding(.top, 20)
                     .listRowInsets(EdgeInsets())
-                    .background(.systemBackground)
+                    .background(self.cellBackgroundColor)
             }
     
             ForEach(self.entries) { entry in
@@ -105,7 +113,7 @@ struct JournalFeed: View {
             .padding()
             .padding(.bottom, Spacing.large)
             .listRowInsets(EdgeInsets())
-            .background(.systemBackground)
+            .background(self.cellBackgroundColor)
         }
         .onAppear(perform: {
             UITableView.appearance().separatorStyle = .none
