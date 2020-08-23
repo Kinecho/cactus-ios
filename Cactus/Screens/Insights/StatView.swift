@@ -58,7 +58,7 @@ struct StatView: View {
         .padding()
         .font(CactusFont.normal.font)
         .foregroundColor(named: .TextDefault)
-        .border(CactusColor.borderLight.color, cornerRadius: CornerRadius.normal, style: .continuous, width: 1)
+        .border(CactusColor.borderLight.color, width: 1, cornerRadius: CornerRadius.normal, style: .continuous)
         
     }
 }

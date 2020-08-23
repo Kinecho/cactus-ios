@@ -8,6 +8,33 @@
 
 import SwiftUI
 
+struct TodayEntryNotFoundView: View {
+    var textColor: Color
+    
+    var body: some View {
+        VStack {
+            Text("Uh oh")
+                .multilineTextAlignment(.center)
+                .font(CactusFont.bold(.title).font)
+                .fixedSize(horizontal: false, vertical: true)
+            Text("There seems to be an issue finding today's prompt. Please check back a little later.")
+                .multilineTextAlignment(.center)
+                .font(CactusFont.normal.font)
+            .fixedSize(horizontal: false, vertical: true)
+            Image(CactusImage.errorBlob.rawValue)
+                .resizable()
+                .frame(width: 200, height: 200)
+                .aspectRatio(contentMode: .fit)
+                .offset(x: 0, y: 100)
+                .padding(.top, -80)
+        }
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
+        .foregroundColor(self.textColor)
+        .padding()
+        .cornerRadius(CornerRadius.normal)
+    }
+}
+
 struct TodayWidgetView: View {
     @EnvironmentObject var session: SessionStore
     var onTapped: ((JournalEntry) -> Void)?
@@ -28,48 +55,62 @@ struct TodayWidgetView: View {
         return self.todayEntry != nil
     }
     
+    func getLoadedWidgetBody(_ entry: JournalEntry) -> some View {
+        return JournalEntryRow(
+            entry: entry,
+            showDetails: {entry in
+                self.onTapped?(entry)
+            },
+            inlineImage: true,
+            backgroundColor: .clear,
+            textColor: self.textColor
+        )
+        .onTapGesture {
+            self.onTapped?(self.todayEntry!)
+        }.onAppear(){
+            withAnimation {
+                self.isAnimating = true
+            }
+        }
+    }
+    
+    var animatedBackground: some View {
+        return ZStack{
+            NamedColor.TodayWidgetBackground.color
+                .overlay(GeometryReader{ geo in
+                    ZStack {
+                        Image(CactusImage.todayBlob1.rawValue)
+                                    .resizable()
+                                        .frame(width: geo.size.width, height: 400)
+                                    .aspectRatio(contentMode: .fill)
+                                    .foregroundColor(.black)
+                            .scaleEffect(1.1)
+                                    .opacity(0.03)
+                            .offset(x: -geo.size.width * 3/4, y: -geo.size.height/3)
+                            .rotationEffect(Angle(degrees: self.isAnimating ? 360 : 0), anchor: UnitPoint(x: 0.1, y: 0.5))
+                                    .animation(self.isAnimating ? Animation.easeInOut(duration: 80).repeatForever(autoreverses: false) : nil)
+
+                                Image(CactusImage.todayBlob2.rawValue)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .foregroundColor(.black)
+                                    .scaleEffect(1.1)
+                                    .opacity(0.03)
+                                    .offset(x: geo.size.width * 2/3, y: geo.size.height * 1/3)
+                                    .rotationEffect(Angle(degrees: self.isAnimating ? -360 : 0), anchor: UnitPoint(x: 0.8, y: 0.5))
+                                    .animation(self.isAnimating ? Animation.easeInOut(duration: 75).repeatForever(autoreverses: false) : nil)
+                    }
+                })
+                
+        }
+    }
+    
     var body: some View {
         Group {
             if self.todayEntry != nil {
-                JournalEntryRow(
-                    entry: self.todayEntry!,
-                    showDetails: {entry in
-                        self.onTapped?(entry)
-                    },
-                    inlineImage: true,
-                    backgroundColor: .clear,
-                    textColor: self.textColor
-                )
-                .onTapGesture {
-                    self.onTapped?(self.todayEntry!)
-                }.onAppear(){
-                    withAnimation {
-                        self.isAnimating = true
-                    }
-                    
-                }
+                self.getLoadedWidgetBody(self.todayEntry!)
             } else if self.todayEntryLoaded {
-                VStack {
-                    Text("Uh oh")
-                        .multilineTextAlignment(.center)
-                        .font(CactusFont.bold(.title).font)
-                        .fixedSize(horizontal: false, vertical: true)
-                    Text("There seems to be an issue finding today's prompt. Please check back a little later.")
-                        .multilineTextAlignment(.center)
-                        .font(CactusFont.normal.font)
-                    .fixedSize(horizontal: false, vertical: true)
-                    Image(CactusImage.errorBlob.rawValue)
-                        .resizable()
-                        .frame(width: 200, height: 200)
-                        .aspectRatio(contentMode: .fit)
-                        .offset(x: 0, y: 100)
-                        .padding(.top, -80)
-                }
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-                .foregroundColor(self.textColor)
-                .padding()
-                .cornerRadius(CornerRadius.normal)
-                
+                TodayEntryNotFoundView(textColor: self.textColor)
             } else {
                 VStack {
                     HStack(alignment: .center) {
@@ -79,41 +120,12 @@ struct TodayWidgetView: View {
                         Spacer()
                     }
                     .padding(.all, Spacing.large)
-                    .cornerRadius(CornerRadius.normal)
                 }
             }
         }
-        .background(
-            ZStack{
-                NamedColor.TodayWidgetBackground.color
-                    .overlay(GeometryReader{ geo in
-                        ZStack {
-                            Image(CactusImage.todayBlob1.rawValue)
-                                        .resizable()
-                                            .frame(width: geo.size.width, height: 400)
-                                        .aspectRatio(contentMode: .fill)
-                                        .foregroundColor(.black)
-                                .scaleEffect(1.1)
-                                        .opacity(0.03)
-                                .offset(x: -geo.size.width * 3/4, y: -geo.size.height/3)
-                                .rotationEffect(Angle(degrees: self.isAnimating ? 360 : 0), anchor: UnitPoint(x: 0.1, y: 0.5))
-                                        .animation(self.isAnimating ? Animation.easeInOut(duration: 80).repeatForever(autoreverses: false) : nil)
-
-                                    Image(CactusImage.todayBlob2.rawValue)
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        .foregroundColor(.black)
-                                        .scaleEffect(1.1)
-                                        .opacity(0.03)
-                                        .offset(x: geo.size.width * 2/3, y: geo.size.height * 1/3)
-                                        .rotationEffect(Angle(degrees: self.isAnimating ? -360 : 0), anchor: UnitPoint(x: 0.8, y: 0.5))
-                                        .animation(self.isAnimating ? Animation.easeInOut(duration: 75).repeatForever(autoreverses: false) : nil)
-                        }
-                    })
-                    
-            })
+        .background(self.animatedBackground)
         .foregroundColor(named: .White)
-        .border(NamedColor.BorderLight.color, cornerRadius: CornerRadius.normal, style: .continuous, width: 1)
+        .border(NamedColor.BorderLight.color, width: 1, cornerRadius: CornerRadius.normal, style: RoundedCornerStyle.continuous)
     }
 }
 

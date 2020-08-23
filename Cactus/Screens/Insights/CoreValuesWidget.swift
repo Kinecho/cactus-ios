@@ -143,7 +143,7 @@ struct CoreValuesWidget: View {
             self.getBackground(geo: geo)
         })
         .cornerRadius(CornerRadius.normal)
-        .border(NamedColor.BorderLight.color, cornerRadius: CornerRadius.normal, style: .continuous, width: 1)
+        .border(NamedColor.BorderLight.color, width: 1, cornerRadius: CornerRadius.normal, style: .continuous)
         .onTapGesture {
             if (self.memberCoreValues?.isEmpty ?? true) == true{
                 self.showAssessment = true

@@ -4814,8 +4814,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX.git";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = revision;
+				revision = 6f78890ef2e2fc0f649d6c3c258494fed9df5eba;
 			};
 		};
 		308F030324E1CC2700984DF3 /* XCRemoteSwiftPackageReference "cloudinary_ios" */ = {

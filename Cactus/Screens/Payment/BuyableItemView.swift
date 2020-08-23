@@ -52,7 +52,7 @@ struct BuyableItemView: View {
         }
         .padding()
         .ifMatches(self.selected) { $0.background(named: .SelectedBuyable) }
-        .border(self.borderColor.color, cornerRadius: 10, width: 4)
+        .border(self.borderColor.color, width: 4, cornerRadius: 10)
         
     }
 }

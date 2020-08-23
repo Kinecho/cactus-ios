@@ -218,9 +218,7 @@ class NotificationsTableViewController: UITableViewController, MFMailComposeView
     
     func refreshPermissionsToggle(animated: Bool=false) {
         self.pushSwitch.isEnabled = true
-        NotificationService.sharedInstance.hasPushPermissions { (status) in
-            var status = status
-          
+        NotificationService.sharedInstance.hasPushPermissions { (status) in            
             DispatchQueue.main.async {
                 switch status {
                 case .authorized,
