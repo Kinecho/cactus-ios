@@ -766,6 +766,9 @@
 		309DD91424F43440000BEF39 /* WordBubbleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309DD91324F43440000BEF39 /* WordBubbleWidget.swift */; };
 		309DD91524F43440000BEF39 /* WordBubbleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309DD91324F43440000BEF39 /* WordBubbleWidget.swift */; };
 		309DD91624F43440000BEF39 /* WordBubbleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309DD91324F43440000BEF39 /* WordBubbleWidget.swift */; };
+		309DD91824F4762C000BEF39 /* ComposeNoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309DD91724F4762B000BEF39 /* ComposeNoteButton.swift */; };
+		309DD91924F4762C000BEF39 /* ComposeNoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309DD91724F4762B000BEF39 /* ComposeNoteButton.swift */; };
+		309DD91A24F4762C000BEF39 /* ComposeNoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309DD91724F4762B000BEF39 /* ComposeNoteButton.swift */; };
 		30A266DA2329BB73003C708E /* config.yml in Resources */ = {isa = PBXBuildFile; fileRef = 30A266D92329BB73003C708E /* config.yml */; };
 		30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */; };
 		30A281E222EA61A30041158E /* SharedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */; };
@@ -1561,6 +1564,7 @@
 		309CF39024F0A28400DE08EC /* MoreActionsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreActionsButton.swift; sourceTree = "<group>"; };
 		309DD90F24F41B93000BEF39 /* WordBubblesChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordBubblesChartView.swift; sourceTree = "<group>"; };
 		309DD91324F43440000BEF39 /* WordBubbleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordBubbleWidget.swift; sourceTree = "<group>"; };
+		309DD91724F4762B000BEF39 /* ComposeNoteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeNoteButton.swift; sourceTree = "<group>"; };
 		30A266D92329BB73003C708E /* config.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.yml; sourceTree = "<group>"; };
 		30A281E722EA61A30041158E /* Cactus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cactus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A281EF22EA62650041158E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1877,6 +1881,7 @@
 			children = (
 				305366EE24C6A84200927498 /* PromptContentView.swift */,
 				309CF37F24ED9EFC00DE08EC /* EditNoteView.swift */,
+				309DD91724F4762B000BEF39 /* ComposeNoteButton.swift */,
 			);
 			path = Prompts;
 			sourceTree = "<group>";
@@ -3799,6 +3804,7 @@
 				3077383D24D5DEE400D0C5BE /* ProductGroupData.swift in Sources */,
 				30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */,
 				3084E9662348FE9C00788279 /* CelebrateViewController.swift in Sources */,
+				309DD91A24F4762C000BEF39 /* ComposeNoteButton.swift in Sources */,
 				303C9E432384778A006B9786 /* MemberProfile.swift in Sources */,
 				3021CBEF2411769800F58B89 /* MemberInsightsViewController.swift in Sources */,
 				300D37E124DA464400351994 /* SubscriptionSettingsView.swift in Sources */,
@@ -4041,6 +4047,7 @@
 				3077383B24D5DEE300D0C5BE /* ProductGroupData.swift in Sources */,
 				30A3BC9824C113780016955C /* CelebrateViewController.swift in Sources */,
 				30A3BC9924C113780016955C /* ApiService.swift in Sources */,
+				309DD91824F4762C000BEF39 /* ComposeNoteButton.swift in Sources */,
 				30A3BC9A24C113780016955C /* MemberProfile.swift in Sources */,
 				30A3BC9B24C113780016955C /* MemberInsightsViewController.swift in Sources */,
 				300D37DF24DA464400351994 /* SubscriptionSettingsView.swift in Sources */,
@@ -4283,6 +4290,7 @@
 				3077383C24D5DEE400D0C5BE /* ProductGroupData.swift in Sources */,
 				3084E9652348FE9C00788279 /* CelebrateViewController.swift in Sources */,
 				3021B67123622FE7002634A8 /* ApiService.swift in Sources */,
+				309DD91924F4762C000BEF39 /* ComposeNoteButton.swift in Sources */,
 				303C9E422384778A006B9786 /* MemberProfile.swift in Sources */,
 				3021CBEE2411769800F58B89 /* MemberInsightsViewController.swift in Sources */,
 				300D37E024DA464400351994 /* SubscriptionSettingsView.swift in Sources */,

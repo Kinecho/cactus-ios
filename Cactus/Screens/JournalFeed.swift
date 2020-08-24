@@ -154,8 +154,8 @@ struct JournalFeed: View {
             .padding(.top, Spacing.normal)
             .padding(.bottom, Spacing.large)
             .listRowInsets(EdgeInsets())
-            .background(self.cellBackgroundColor)
-            .offset(x: 0, y: 4)
+            .background(self.cellBackgroundColor.offset(x: 0, y: 4))
+            
         }
         .onAppear(perform: {
             UITableView.appearance().separatorStyle = .none

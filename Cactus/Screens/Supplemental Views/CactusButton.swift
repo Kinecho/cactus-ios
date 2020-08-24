@@ -16,6 +16,7 @@ enum ButtonState {
 
 struct CactusButton: View {
     var label: String?
+    var icon: Image?
     var style: LinkStyle
     var state: ButtonState
     var disabledLabel: String?
@@ -24,11 +25,13 @@ struct CactusButton: View {
     
     init(_ label: String?,
          _ style: LinkStyle = .buttonPrimary,
+         icon: Image?=nil,
          state: ButtonState = .normal,
          disabledLabel: String?=nil,
          disableBorder: Bool=false,
          fontSize: CGFloat=FontSize.normal.rawValue) {
         self.label = label
+        self.icon = icon
         self.style = style
         self.state = state
         self.disabledLabel = disabledLabel
@@ -142,8 +145,17 @@ struct CactusButton: View {
                 if self.state == .loading {
                     ActivityIndicator(isAnimating: .constant(true), style: .medium, color: self.textColor)
                 }
-                Text(self.text)
-                    .font(self.font)
+                if !isBlank(self.text) {
+                    Text(self.text)
+                        .font(self.font)
+                }
+                if self.icon != nil {
+                    self.icon!
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 24, height: 24)
+                        .foregroundColor(self.textColor)
+                }
                 
             }
             .padding(self.paddingAmount)

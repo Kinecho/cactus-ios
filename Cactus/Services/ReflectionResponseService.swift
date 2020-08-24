@@ -113,4 +113,50 @@ class ReflectionResponseService {
     func getById(_ responseId: String, _ completed: @escaping (ReflectionResponse?, Any?) -> Void) {
         self.firestoreService.getById(responseId, from: FirestoreCollectionName.reflectionResponses, completion: completed)
     }
+    
+    
+    func saveFreeformNote(_ response: ReflectionResponse, member: CactusMember, prompt: ReflectionPrompt?, onCompleted: @escaping () -> Void) {
+        guard response.promptType == .FREE_FORM else {
+            return
+        }
+        response.promptId = response.promptId ?? prompt?.id
+        
+        /// There is no prompt ID yet, so we need to set up the prompt and sent prompt
+        if response.promptId == nil {
+            let prompt = prompt ?? ReflectionPrompt.createFreeform(member: member)
+            prompt.question = response.promptQuestion
+            
+            ReflectionPromptService.sharedInstance.save(prompt: prompt) { (savedPrompt, _) in
+                guard let promptId = savedPrompt?.id else {
+                    self.logger.error("No prompt ID found after saving freeform prompt")
+                    onCompleted()
+                    return
+                }
+                response.promptId = promptId
+                //create sent prompt
+                guard let sentPrompt = SentPrompt.createFreeform(prompt: prompt, member: member) else {
+                    self.save(response) { (_, _) in
+                        onCompleted()
+                    }
+                    return
+                }
+                SentPromptService.sharedInstance.firestoreService.save(sentPrompt) { (savedSentPrompt, _) in
+                    self.save(response) { (_, _) in
+                        onCompleted()
+                    }
+                }
+            }
+        } else {
+            self.save(response) { (reflection, _) in
+                if let prompt = prompt, prompt.promptType == PromptType.FREE_FORM {
+                    prompt.question = reflection?.promptQuestion
+                    ReflectionPromptService.sharedInstance.save(prompt: prompt) { _, _ in
+                        onCompleted()                        
+                    }
+                } else {
+                    onCompleted()
+                }
+            }
+        }
+    }
 }

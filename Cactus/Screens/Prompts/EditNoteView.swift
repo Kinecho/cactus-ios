@@ -63,9 +63,11 @@ struct EditReflectionControllerRepresentable: UIViewControllerRepresentable {
 
 struct EditNoteView: View {
     static let logger = Logger("EditNoteView")
-    let entry: JournalEntry
+    let entry: JournalEntry?
     let response: ReflectionResponse?
-        
+    
+    /// For freeform prompts, If no prompt is provided, it will be created along with a sent prompt
+    let prompt: ReflectionPrompt?
     /** Callback when the prompt is closed - The text of the reflection, the response and the prompt */
     let onDone: () -> Void
     let onCancel: () -> Void
@@ -73,9 +75,17 @@ struct EditNoteView: View {
     @EnvironmentObject var session: SessionStore
     @State var saving: Bool = false
     
+    init(response: ReflectionResponse, prompt: ReflectionPrompt?=nil, onDone: @escaping () -> Void, onCancel: @escaping () -> Void) {
+        self.response = response
+        self.entry = nil
+        self.prompt = prompt
+        self.onDone = onDone
+        self.onCancel = onCancel
+    }
     
     init(entry: JournalEntry, onDone: @escaping () -> Void, onCancel: @escaping () -> Void) {
         self.entry = entry
+        self.prompt = entry.prompt
         self.onDone = onDone
         self.onCancel = onCancel
         if let r = (entry.responses?.first {!isBlank($0.content.text)} ?? entry.responses?.first) {
@@ -93,11 +103,6 @@ struct EditNoteView: View {
         
     }
     
-
-    var prompt: ReflectionPrompt? {
-        self.entry.prompt
-    }
-    
     func handleDone(text: String?, response: ReflectionResponse?, title: String?, prompt: ReflectionPrompt?) {
         
         guard let response = self.response else {
@@ -106,6 +111,17 @@ struct EditNoteView: View {
         self.saving = true
         response.content.text = text
         response.promptQuestion = title
+        
+        if response.promptType == .FREE_FORM, let member = self.session.member {
+            ReflectionResponseService.sharedInstance.saveFreeformNote(response, member: member, prompt: self.prompt) {
+                DispatchQueue.main.async {
+                    self.saving = false
+                    self.onDone()
+                }
+            }
+            return
+        }
+                
         ReflectionResponseService.sharedInstance.save(response) { _, _ in
             if let prompt = self.prompt, prompt.promptType == PromptType.FREE_FORM {
                 self.prompt?.question = title
@@ -129,10 +145,9 @@ struct EditNoteView: View {
     }
     
     var questionTitle: String? {
-        
         let member = self.session.member
         let coreValue = self.response?.coreValue
-        let questionText = self.entry.promptContent?.getDisplayableQuestion(member: member, coreValue: coreValue) ?? self.prompt?.question ?? self.response?.promptQuestion
+        let questionText = self.entry?.promptContent?.getDisplayableQuestion(member: member, coreValue: coreValue) ?? self.prompt?.question ?? self.response?.promptQuestion
         
         return questionText
     }

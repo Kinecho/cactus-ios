@@ -62,7 +62,7 @@ struct JournalEntryRow: View {
                 }))
         }
         
-        return ActionSheet(title: Text("Journal Action"), buttons: buttons)
+        return ActionSheet(title: Text("Journal Entry"), buttons: buttons)
     }
     
     
