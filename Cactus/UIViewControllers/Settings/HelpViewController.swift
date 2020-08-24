@@ -10,7 +10,7 @@ import UIKit
 import MessageUI
 
 class HelpViewController: UIViewController, MFMailComposeViewControllerDelegate {
-    @IBOutlet weak var emailButton: UIButton!
+    @IBOutlet weak var emailButton: PrimaryButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()

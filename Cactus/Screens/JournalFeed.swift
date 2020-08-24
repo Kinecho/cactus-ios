@@ -130,8 +130,7 @@ struct JournalFeed: View {
         List {
             if self.session.member?.tier == .BASIC {
                 JournalUpgradeBanner()
-                    .padding([.leading, .trailing, .bottom], Spacing.normal)
-                    .padding(.top, 20)
+                    .padding(.vertical, Spacing.normal)
                     .listRowInsets(EdgeInsets())
                     .background(self.cellBackgroundColor)
             }
@@ -152,10 +151,11 @@ struct JournalFeed: View {
                         self.handleEntrySelected(entry)
                     }
             }
-            .padding()
+            .padding(.top, Spacing.normal)
             .padding(.bottom, Spacing.large)
             .listRowInsets(EdgeInsets())
             .background(self.cellBackgroundColor)
+            .offset(x: 0, y: 4)
         }
         .onAppear(perform: {
             UITableView.appearance().separatorStyle = .none

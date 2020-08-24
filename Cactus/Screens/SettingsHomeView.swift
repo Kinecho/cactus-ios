@@ -67,7 +67,7 @@ struct SettingsHome: View {
             SettingsItem("Subscription", tier.displayName, destination: SubscriptionSettingsView()),
             SettingsItem("Linked Accounts", destination: LinkedAccountsView(providers: providers).navigationBarTitle("Linked Accounts")),
             SettingsItem("Help", destination: HelpView(), setNavigationTitle: true),
-            SettingsItem("Send Feedback", destination: FeedbackView(), setNavigationTitle: false),
+            SettingsItem("Feedback", destination: FeedbackView(), setNavigationTitle: true),
             SettingsItem("Terms of Service", destination: TermsOfServiceView(), setNavigationTitle: false),
             SettingsItem("Privacy Policy", destination: PrivacyPolicyView(), setNavigationTitle: false),
         ]
