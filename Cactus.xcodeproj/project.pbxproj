@@ -54,7 +54,7 @@
 		300D37AE24D8BFF200351994 /* CoreValuesAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB0727244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift */; };
 		300D37AF24D8BFFC00351994 /* TextContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E2823289F9F00A49EB6 /* TextContentViewController.swift */; };
 		300D37B024D8C04F00351994 /* CactusElementPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30727448236A4AC200309B3C /* CactusElementPageViewController.swift */; };
-		300D37B124D8C05600351994 /* InsightsWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBE82410E83800F58B89 /* InsightsWebViewViewController.swift */; };
+		300D37B124D8C05600351994 /* WordBubbleWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBE82410E83800F58B89 /* WordBubbleWebViewController.swift */; };
 		300D37B224D8C05F00351994 /* PromptContentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5EB244120A700D520D4 /* PromptContentCollectionViewController.swift */; };
 		300D37B324D8C06600351994 /* PhotoContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1861233175DC003E1561 /* PhotoContentViewController.swift */; };
 		300D37B424D8C06E00351994 /* InviteContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D7385B23CFFC62006F4DA6 /* InviteContentViewController.swift */; };
@@ -200,8 +200,8 @@
 		3021CBE32410345E00F58B89 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3021CBDE2410345E00F58B89 /* WebViewController.xib */; };
 		3021CBE42410345E00F58B89 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3021CBDE2410345E00F58B89 /* WebViewController.xib */; };
 		3021CBE7241049AC00F58B89 /* StoreObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FCCF223EE279500089CFB /* StoreObserver.swift */; };
-		3021CBE92410E83800F58B89 /* InsightsWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBE82410E83800F58B89 /* InsightsWebViewViewController.swift */; };
-		3021CBEA2410E83800F58B89 /* InsightsWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBE82410E83800F58B89 /* InsightsWebViewViewController.swift */; };
+		3021CBE92410E83800F58B89 /* WordBubbleWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBE82410E83800F58B89 /* WordBubbleWebViewController.swift */; };
+		3021CBEA2410E83800F58B89 /* WordBubbleWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBE82410E83800F58B89 /* WordBubbleWebViewController.swift */; };
 		3021CBEE2411769800F58B89 /* MemberInsightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBED2411769800F58B89 /* MemberInsightsViewController.swift */; };
 		3021CBEF2411769800F58B89 /* MemberInsightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBED2411769800F58B89 /* MemberInsightsViewController.swift */; };
 		3023FE3022ECD0A300F753A7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023FE2F22ECD0A300F753A7 /* NotificationService.swift */; };
@@ -760,6 +760,12 @@
 		309CF39124F0A28400DE08EC /* MoreActionsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF39024F0A28400DE08EC /* MoreActionsButton.swift */; };
 		309CF39224F0A28400DE08EC /* MoreActionsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF39024F0A28400DE08EC /* MoreActionsButton.swift */; };
 		309CF39324F0A28400DE08EC /* MoreActionsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CF39024F0A28400DE08EC /* MoreActionsButton.swift */; };
+		309DD91024F41B93000BEF39 /* WordBubblesChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309DD90F24F41B93000BEF39 /* WordBubblesChartView.swift */; };
+		309DD91124F41B93000BEF39 /* WordBubblesChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309DD90F24F41B93000BEF39 /* WordBubblesChartView.swift */; };
+		309DD91224F41B93000BEF39 /* WordBubblesChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309DD90F24F41B93000BEF39 /* WordBubblesChartView.swift */; };
+		309DD91424F43440000BEF39 /* WordBubbleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309DD91324F43440000BEF39 /* WordBubbleWidget.swift */; };
+		309DD91524F43440000BEF39 /* WordBubbleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309DD91324F43440000BEF39 /* WordBubbleWidget.swift */; };
+		309DD91624F43440000BEF39 /* WordBubbleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309DD91324F43440000BEF39 /* WordBubbleWidget.swift */; };
 		30A266DA2329BB73003C708E /* config.yml in Resources */ = {isa = PBXBuildFile; fileRef = 30A266D92329BB73003C708E /* config.yml */; };
 		30A281DC22EA61A30041158E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */; };
 		30A281E222EA61A30041158E /* SharedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6EA7722EA5AA100443E46 /* SharedAssets.xcassets */; };
@@ -892,7 +898,7 @@
 		30A3BC8324C113780016955C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9B0A222EAC204005B25FD /* AuthService.swift */; };
 		30A3BC8424C113780016955C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EA6E22EA5A9F00443E46 /* AppDelegate.swift */; };
 		30A3BC8524C113780016955C /* EmotionsAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF537B2370B10F00578B22 /* EmotionsAnimationViewController.swift */; };
-		30A3BC8624C113780016955C /* InsightsWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBE82410E83800F58B89 /* InsightsWebViewViewController.swift */; };
+		30A3BC8624C113780016955C /* WordBubbleWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021CBE82410E83800F58B89 /* WordBubbleWebViewController.swift */; };
 		30A3BC8724C113780016955C /* PhotoContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B1861233175DC003E1561 /* PhotoContentViewController.swift */; };
 		30A3BC8824C113780016955C /* MarkdownTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2E312328C7AD00A49EB6 /* MarkdownTypes.swift */; };
 		30A3BC8924C113780016955C /* MailchimpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308446F022ECAE0100FB0683 /* MailchimpModels.swift */; };
@@ -1385,7 +1391,7 @@
 		3021CBD62410215500F58B89 /* NavigationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationService.swift; sourceTree = "<group>"; };
 		3021CBDD2410345E00F58B89 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		3021CBDE2410345E00F58B89 /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
-		3021CBE82410E83800F58B89 /* InsightsWebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsWebViewViewController.swift; sourceTree = "<group>"; };
+		3021CBE82410E83800F58B89 /* WordBubbleWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordBubbleWebViewController.swift; sourceTree = "<group>"; };
 		3021CBED2411769800F58B89 /* MemberInsightsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberInsightsViewController.swift; sourceTree = "<group>"; };
 		3023FE2F22ECD0A300F753A7 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		30265C5C23453C8D00934041 /* SwiftyGifManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyGifManager.swift; sourceTree = "<group>"; };
@@ -1553,6 +1559,8 @@
 		309CF38624F04EA300DE08EC /* CoreValuesAssessmentWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreValuesAssessmentWebView.swift; sourceTree = "<group>"; };
 		309CF38B24F056FB00DE08EC /* CoreValueBlob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreValueBlob.swift; sourceTree = "<group>"; };
 		309CF39024F0A28400DE08EC /* MoreActionsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreActionsButton.swift; sourceTree = "<group>"; };
+		309DD90F24F41B93000BEF39 /* WordBubblesChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordBubblesChartView.swift; sourceTree = "<group>"; };
+		309DD91324F43440000BEF39 /* WordBubbleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordBubbleWidget.swift; sourceTree = "<group>"; };
 		30A266D92329BB73003C708E /* config.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.yml; sourceTree = "<group>"; };
 		30A281E722EA61A30041158E /* Cactus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cactus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A281EF22EA62650041158E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -2001,6 +2009,7 @@
 		305366BC24C66C7D00927498 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				309DD90E24F41B72000BEF39 /* Charts */,
 				30DBBE2B24F22F6F0067F12A /* Errors */,
 				309CF38524F04E9000DE08EC /* Assessments */,
 				30D63EB024E2329500FBD884 /* Insights */,
@@ -2172,6 +2181,14 @@
 			path = Assessments;
 			sourceTree = "<group>";
 		};
+		309DD90E24F41B72000BEF39 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				309DD90F24F41B93000BEF39 /* WordBubblesChartView.swift */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
 		30A266D82329BB73003C708E /* .circleci */ = {
 			isa = PBXGroup;
 			children = (
@@ -2339,6 +2356,7 @@
 				309CF37024EC810A00DE08EC /* TodayWidgetView.swift */,
 				309CF37524EC8E7200DE08EC /* CoreValuesWidget.swift */,
 				309CF37A24EC8EB400DE08EC /* GapAnalysisWidget.swift */,
+				309DD91324F43440000BEF39 /* WordBubbleWidget.swift */,
 			);
 			path = Insights;
 			sourceTree = "<group>";
@@ -2474,7 +2492,7 @@
 				3021CBDD2410345E00F58B89 /* WebViewController.swift */,
 				3021CBDE2410345E00F58B89 /* WebViewController.xib */,
 				30AB0727244E2A51006ACB98 /* CoreValuesAssessmentViewController.swift */,
-				3021CBE82410E83800F58B89 /* InsightsWebViewViewController.swift */,
+				3021CBE82410E83800F58B89 /* WordBubbleWebViewController.swift */,
 				3021CBED2411769800F58B89 /* MemberInsightsViewController.swift */,
 				30328208241215D900FC197A /* WelcomeViewController.swift */,
 				30A292D0243E467F00F546CA /* LoadingViewController.swift */,
@@ -3351,7 +3369,7 @@
 				305B18762331A906003E1561 /* BaseModel.swift in Sources */,
 				303BF744232A986A00164539 /* CactusUnitTests.swift in Sources */,
 				30D0E44B236C91F500EFC0E3 /* CGExtensions.swift in Sources */,
-				300D37B124D8C05600351994 /* InsightsWebViewViewController.swift in Sources */,
+				300D37B124D8C05600351994 /* WordBubbleWebViewController.swift in Sources */,
 				303C9E3023841AEB006B9786 /* AppSettingsService.swift in Sources */,
 				303C9E2A23841ACC006B9786 /* AuthProviderTableViewCell.swift in Sources */,
 				3009EE5B23C98F4400002CCB /* DateUtilTests.swift in Sources */,
@@ -3753,7 +3771,7 @@
 				30E9B09A22EA6A81005B25FD /* BaseModel.swift in Sources */,
 				30BF2E302328A8AD00A49EB6 /* ViewControllerExtensions.swift in Sources */,
 				30CF537E2370B10F00578B22 /* EmotionsAnimationViewController.swift in Sources */,
-				3021CBEA2410E83800F58B89 /* InsightsWebViewViewController.swift in Sources */,
+				3021CBEA2410E83800F58B89 /* WordBubbleWebViewController.swift in Sources */,
 				305B1864233175DC003E1561 /* PhotoContentViewController.swift in Sources */,
 				30934F9722EBF146007C4E6C /* RoundedButton.swift in Sources */,
 				30D63ECA24E25A0E00FBD884 /* StringConstants.swift in Sources */,
@@ -3769,6 +3787,7 @@
 				300D37ED24DA53EA00351994 /* FeedbackView.swift in Sources */,
 				30DCA5ED244120A700D520D4 /* PromptContentCollectionViewController.swift in Sources */,
 				30D7F70A236BAAB100379EE0 /* EditReflectionViewController.swift in Sources */,
+				309DD91624F43440000BEF39 /* WordBubbleWidget.swift in Sources */,
 				30D63F0324E3265900FBD884 /* JournalEntryInlineImage.swift in Sources */,
 				3020DD952363F37D00EC40AE /* UIImageViewAligned.swift in Sources */,
 				3006442523D26BAB00712ED1 /* SocialInviteService.swift in Sources */,
@@ -3810,6 +3829,7 @@
 				30F716882379ED32004989DB /* ShareNoteViewController.swift in Sources */,
 				3018B11E23751DE70005333A /* AppIconSettingsViewController.swift in Sources */,
 				3099D1F82409740D00BD9CC4 /* SubscriptionService.swift in Sources */,
+				309DD91224F41B93000BEF39 /* WordBubblesChartView.swift in Sources */,
 				30265C5E23453C8D00934041 /* SwiftyGifManager.swift in Sources */,
 				3072744A236A4AC200309B3C /* CactusElementPageViewController.swift in Sources */,
 				30BF2E342328D91B00A49EB6 /* PromptContent.swift in Sources */,
@@ -3993,7 +4013,7 @@
 				30A3BC8324C113780016955C /* AuthService.swift in Sources */,
 				30A3BC8424C113780016955C /* AppDelegate.swift in Sources */,
 				30A3BC8524C113780016955C /* EmotionsAnimationViewController.swift in Sources */,
-				30A3BC8624C113780016955C /* InsightsWebViewViewController.swift in Sources */,
+				30A3BC8624C113780016955C /* WordBubbleWebViewController.swift in Sources */,
 				30A3BC8724C113780016955C /* PhotoContentViewController.swift in Sources */,
 				30A3BC8824C113780016955C /* MarkdownTypes.swift in Sources */,
 				30D63EC824E25A0E00FBD884 /* StringConstants.swift in Sources */,
@@ -4009,6 +4029,7 @@
 				300D37EB24DA53EA00351994 /* FeedbackView.swift in Sources */,
 				30A3BC9024C113780016955C /* PromptContentCollectionViewController.swift in Sources */,
 				30A3BC9124C113780016955C /* EditReflectionViewController.swift in Sources */,
+				309DD91424F43440000BEF39 /* WordBubbleWidget.swift in Sources */,
 				30D63F0124E3265900FBD884 /* JournalEntryInlineImage.swift in Sources */,
 				30A3BC9224C113780016955C /* UIImageViewAligned.swift in Sources */,
 				30A3BC9324C113780016955C /* SocialInviteService.swift in Sources */,
@@ -4050,6 +4071,7 @@
 				30A3BCAB24C113780016955C /* ShareNoteViewController.swift in Sources */,
 				30A3BCAC24C113780016955C /* AppIconSettingsViewController.swift in Sources */,
 				30A3BCAD24C113780016955C /* SubscriptionService.swift in Sources */,
+				309DD91024F41B93000BEF39 /* WordBubblesChartView.swift in Sources */,
 				30A3BCAE24C113780016955C /* SwiftyGifManager.swift in Sources */,
 				30A3BCAF24C113780016955C /* CactusElementPageViewController.swift in Sources */,
 				30A3BCB024C113780016955C /* FlamelinkService.swift in Sources */,
@@ -4233,7 +4255,7 @@
 				30E9B0A322EAC204005B25FD /* AuthService.swift in Sources */,
 				30B6EA6F22EA5A9F00443E46 /* AppDelegate.swift in Sources */,
 				30CF537D2370B10F00578B22 /* EmotionsAnimationViewController.swift in Sources */,
-				3021CBE92410E83800F58B89 /* InsightsWebViewViewController.swift in Sources */,
+				3021CBE92410E83800F58B89 /* WordBubbleWebViewController.swift in Sources */,
 				305B1863233175DC003E1561 /* PhotoContentViewController.swift in Sources */,
 				30BF2E322328C7AD00A49EB6 /* MarkdownTypes.swift in Sources */,
 				30D63EC924E25A0E00FBD884 /* StringConstants.swift in Sources */,
@@ -4249,6 +4271,7 @@
 				300D37EC24DA53EA00351994 /* FeedbackView.swift in Sources */,
 				30DCA5EC244120A700D520D4 /* PromptContentCollectionViewController.swift in Sources */,
 				30D7F709236BAAB100379EE0 /* EditReflectionViewController.swift in Sources */,
+				309DD91524F43440000BEF39 /* WordBubbleWidget.swift in Sources */,
 				30D63F0224E3265900FBD884 /* JournalEntryInlineImage.swift in Sources */,
 				3020DD942363F37D00EC40AE /* UIImageViewAligned.swift in Sources */,
 				3006442423D26BAB00712ED1 /* SocialInviteService.swift in Sources */,
@@ -4290,6 +4313,7 @@
 				30F716872379ED32004989DB /* ShareNoteViewController.swift in Sources */,
 				3018B11D23751DE70005333A /* AppIconSettingsViewController.swift in Sources */,
 				3099D1F72409740D00BD9CC4 /* SubscriptionService.swift in Sources */,
+				309DD91124F41B93000BEF39 /* WordBubblesChartView.swift in Sources */,
 				30265C5D23453C8D00934041 /* SwiftyGifManager.swift in Sources */,
 				30727449236A4AC200309B3C /* CactusElementPageViewController.swift in Sources */,
 				30BF2E14232824AB00A49EB6 /* FlamelinkService.swift in Sources */,

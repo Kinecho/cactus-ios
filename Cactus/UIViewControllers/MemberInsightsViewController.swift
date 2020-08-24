@@ -14,7 +14,7 @@ class MemberInsightsViewController: UIViewController {
             self.configureCopy()
         }
     }
-    var insightsWebView: InsightsWebViewViewController!
+    var insightsWebView: WordBubbleWebViewController!
     var modalContainer: UIView?
     var unlockMessageLabel: UILabel?
     var unlockButton: PrimaryButton?
@@ -49,12 +49,12 @@ class MemberInsightsViewController: UIViewController {
         
         self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, _, _) in
             self.member = member
-            self.insightsWebView.member = self.member
+            self.insightsWebView.words = self.member?.wordCloud
         })
         
         self.createWebView()
         
-        self.insightsWebView.member = self.member
+        self.insightsWebView.words = self.member?.wordCloud
         
         self.createUpgradeModal()
         
@@ -120,7 +120,7 @@ class MemberInsightsViewController: UIViewController {
     }
     
     func createWebView() {
-        let webVc = InsightsWebViewViewController()
+        let webVc = WordBubbleWebViewController()
         self.insightsWebView = webVc
         webVc.willMove(toParent: self)
         

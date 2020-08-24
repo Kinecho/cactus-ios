@@ -8,7 +8,7 @@
 
 import UIKit
 import WebKit
-class InsightsWebViewViewController: UIViewController {
+class WordBubbleWebViewController: UIViewController {
 
     var webView: WKWebView!
     let logger = Logger("InsightsWebViewController")
@@ -26,11 +26,14 @@ class InsightsWebViewViewController: UIViewController {
         }
     }
     
-    var member: CactusMember? {
-        didSet {
-            self.setChartData()
-        }
-    }
+    var words: [InsightWord]?
+    
+    /// @Deprecated(since: *, 'Use words instead)
+//    var member: CactusMember? {
+//        didSet {
+//            self.setChartData()
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +42,9 @@ class InsightsWebViewViewController: UIViewController {
     }
     
     func createWebView() {
+        guard self.isViewLoaded else {
+            return
+        }
         let webView = WKWebView()
         webView.translatesAutoresizingMaskIntoConstraints = false
         webView.navigationDelegate = self
@@ -69,6 +75,9 @@ class InsightsWebViewViewController: UIViewController {
     }
     
     func loadInsights() {
+        guard self.isViewLoaded else {
+            return
+        }
         guard let url = self.buildUrl() else {
             self.logger.error("Unable to form a valid URL for the insights")
             return
@@ -82,7 +91,10 @@ class InsightsWebViewViewController: UIViewController {
     }
 
     func getInsightWordsJSONBase64() -> String? {
-        guard let member = self.member, let wordCloud = member.wordCloud else {
+//        guard let member = self.member, let wordCloud = member.wordCloud else {
+//            return nil
+//        }
+        guard let wordCloud = self.words else {
             return nil
         }
         
@@ -211,7 +223,7 @@ class InsightsWebViewViewController: UIViewController {
     }
 }
 
-extension InsightsWebViewViewController: WKNavigationDelegate {
+extension WordBubbleWebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         self.loading = false
         self.loaded = true

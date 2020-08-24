@@ -63,12 +63,15 @@ struct InsightsHome: View {
                                 self.currentSheet = .promptDetails
                             }).fixedSize(horizontal: false, vertical:  true)
                         
-                            /// Start Core Values
+                            if self.session.member?.wordCloud?.isEmpty == false {
+                                WordBubbleWidget()
+                                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                            }
+                            
                             CoreValuesWidget(showAssessment: {
                                 self.currentSheet = .coreValuesAssessment
                             })
-                            
-                            /// Start Gap Assessment - not showing for now.
+                              
                             // GapAnalysisWidget()
                         
                         }.padding([.leading, .trailing, .bottom])
