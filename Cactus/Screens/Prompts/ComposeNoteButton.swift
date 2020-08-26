@@ -43,13 +43,13 @@ struct ComposeNoteButton: View {
     }
     
     var body: some View {
-        Icon.getImage(Feather.IconName.edit)?.image
+        Icon.getImage(Feather.IconName.edit2)?.image
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 24, height: 24)
             .padding()
             .background(named: .Green)
-            .foregroundColor(NamedColor.White.color)
+            .foregroundColor(NamedColor.TextWhite.color)
             .clipShape(Circle())
             .shadow(color: Color.black.opacity(0.25), radius: 20, x: 0, y: 10)
             .onTapGesture{

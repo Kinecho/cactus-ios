@@ -54,7 +54,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="t2a-kg-Fhq" userLabel="ContentStack View">
-                                <rect key="frame" x="20" y="31.5" width="280" height="417"/>
+                                <rect key="frame" x="20" y="31" width="280" height="418"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8Op-eM-NFE" userLabel="Messages Stack View">
                                         <rect key="frame" x="23" y="8" width="234.5" height="301"/>
@@ -168,10 +168,11 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="H0V-7V-5hz" userLabel="Actions Stack View">
-                                        <rect key="frame" x="76" y="349" width="128" height="60"/>
+                                        <rect key="frame" x="73.5" y="349" width="133" height="61"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbC-G6-C2k" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="128" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="133" height="31"/>
+                                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
                                                 <state key="normal" title="Allow Notifications"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
@@ -186,7 +187,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="css-4j-oBX" userLabel="Go To SEttings" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="30" width="128" height="30"/>
+                                                <rect key="frame" x="0.0" y="31" width="133" height="30"/>
                                                 <state key="normal" title="Manage Settings"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="fontSize">

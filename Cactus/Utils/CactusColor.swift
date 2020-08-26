@@ -40,6 +40,7 @@ enum NamedColor: String, Codable, CaseIterable {
     case GreenRoyal
     case Heading3Text
     case Highlight
+    case HighContrast
     case Indigo
     case TextBoldHighlight
     case Lightest
@@ -118,6 +119,7 @@ struct CactusColor {
     static let gray = NamedColor.Gray.uiColor
     static let green = NamedColor.Green.uiColor
     static let greenRoyal = NamedColor.GreenRoyal.uiColor
+    static let highContrast = NamedColor.HighContrast.uiColor
     static let indigo = NamedColor.Indigo.uiColor
     static let lightBlue = NamedColor.BlueLight.uiColor
     static let lightestGreen = NamedColor.GreenLightest.uiColor

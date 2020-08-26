@@ -98,7 +98,7 @@ struct JournalEntryRow: View {
         .background(self.backgroundColor)
         .cornerRadius(10)
         .clipped()
-        .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 10)
+        .shadow(color: Color.black.opacity(0.1), radius: 18, x: 0, y: 15)
         .ifMatches(!self.showInlineImage && self.hasResponse && self.entry.imageUrl != nil, content: {
             $0.background(
                 GeometryReader { geometry in

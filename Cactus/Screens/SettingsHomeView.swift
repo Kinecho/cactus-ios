@@ -37,7 +37,7 @@ struct SettingsItemView: View {
                 VStack(alignment: .leading) {
                     Text(item.title)
                     if item.subtitle != nil {
-                        Text(item.subtitle!).font(CactusFont.normal(FontSize.subTitle).font)
+                        Text(item.subtitle!).font(CactusFont.normal(FontSize.small).font).foregroundColor(CactusColor.textMinimized.color)
                     }
                 }
             }
@@ -45,6 +45,7 @@ struct SettingsItemView: View {
         .minHeight(44)
         .padding()
         .listRowInsets(EdgeInsets())
+        .foregroundColor(CactusColor.highContrast.color)
     }
 }
 
@@ -76,7 +77,7 @@ struct SettingsHome: View {
     var body: some View {
         NavigationView {
             List {
-                Section(footer: CactusButton("Log Out", .buttonSecondary).onTapGesture {
+                Section(footer: CactusButton("Log Out", .link).onTapGesture {
                         self.isLoggingOut = true
                 }.padding([.top, .bottom], Spacing.large)
                 ) {
