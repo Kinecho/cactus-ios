@@ -28,6 +28,7 @@ protocol JournalFeedDataSourceDelegate: class {
     func dataLoaded()
     func handleEmptyState(hasResults: Bool)
     func setTodayEntry(_ journalEntry: JournalEntry?)
+    func setOnboardingEntry(_ journalEntry: JournalEntry?)
 }
 
 class JournalFeedDataSource {
@@ -52,6 +53,7 @@ class JournalFeedDataSource {
     
     weak var delegate: JournalFeedDataSourceDelegate?
     var todayDelegate: TodayEntryDelegate?
+    var onboardingDelegate: OnboardingEntryDelegate?
     
     var hasLoaded = false
     func resetData() {
@@ -128,6 +130,7 @@ class JournalFeedDataSource {
         self.currentMember = member
         self.appSettings = appSettings
         self.todayDelegate = TodayEntryDelegate(self)
+        self.onboardingDelegate = OnboardingEntryDelegate(self)
     }
     
     var startDate: Date?
@@ -146,7 +149,7 @@ class JournalFeedDataSource {
         self.hasStarted = true
         self.initializePages()
         self.initializeToday()
-        
+        self.fetchOnboardingPrompt()
         NotificationCenter.default.addObserver(self, selector: #selector(self.dayChanged), name: .NSCalendarDayChanged, object: nil)
         
     }
@@ -354,6 +357,19 @@ class JournalFeedDataSource {
         }
     }
     
+    func fetchOnboardingPrompt() {
+        
+        guard let entryId = self.appSettings?.firstPromptContentEntryId, let memberId = self.currentMember?.id else {
+            return
+        }
+        if self.journalEntryDataByPromptId[entryId] != nil {
+            return
+        }
+        let data = JournalEntryData(entryId: entryId, memberId: memberId, journalDate: nil)
+        data.delegate = self.onboardingDelegate
+        data.start()
+    }
+    
     func get(at index: Int) -> JournalEntry? {
         guard index < self.orderedPromptIds.count && index >= 0 else {
             return nil
@@ -487,6 +503,26 @@ extension JournalFeedDataSource {
         
         func onData(_ journalEntry: JournalEntry) {
             self.parent.delegate?.setTodayEntry(journalEntry)
+            if journalEntry.loadingComplete {
+                guard let index = self.parent.indexOf(journalEntry) else {
+                    self.parent.logger.warn("No index foud for journalEntry.promptId \(journalEntry.promptId ?? "unknown")")
+                    return
+                }
+                
+                self.parent.delegate?.updateEntry(journalEntry, at: index)
+            }
+        }
+    }
+    
+    class OnboardingEntryDelegate: JournalEntryDataDelegate {
+        var parent: JournalFeedDataSource
+        
+        init(_ parent: JournalFeedDataSource) {
+            self.parent = parent
+        }
+        
+        func onData(_ journalEntry: JournalEntry) {
+            self.parent.delegate?.setOnboardingEntry(journalEntry)
             if journalEntry.loadingComplete {
                 guard let index = self.parent.indexOf(journalEntry) else {
                     self.parent.logger.warn("No index foud for journalEntry.promptId \(journalEntry.promptId ?? "unknown")")

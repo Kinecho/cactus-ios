@@ -319,6 +319,10 @@ extension JournalFeedCollectionViewController: JournalFeedDataSourceDelegate {
         //no op
     }
     
+    func setOnboardingEntry(_ journalEntry: JournalEntry?) {
+        //no op
+    }
+    
     func batchUpdate(addedIndexes: [Int], removedIndexes: [Int]) {
         self.collectionView.performBatchUpdates({
             self.collectionView.deleteItems(at: removedIndexes.map { IndexPath(row: $0, section: 0) })

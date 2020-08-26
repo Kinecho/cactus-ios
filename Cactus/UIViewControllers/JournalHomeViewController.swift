@@ -441,6 +441,10 @@ extension JournalHomeViewController: JournalFeedDataSourceDelegate {
         //no op
     }
     
+    func setOnboardingEntry(_ journalEntry: JournalEntry?) {
+        //no op
+    }
+    
     func batchUpdate(addedIndexes: [Int], removedIndexes: [Int]) {
         self.journalFeedViewController?.batchUpdate(addedIndexes: addedIndexes, removedIndexes: removedIndexes)
     }

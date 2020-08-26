@@ -1245,6 +1245,9 @@
 		30DCA5F824418BAA00D520D4 /* PromptContentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5F724418BAA00D520D4 /* PromptContentData.swift */; };
 		30DCA5F924418BAA00D520D4 /* PromptContentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5F724418BAA00D520D4 /* PromptContentData.swift */; };
 		30DCA5FA24418BAA00D520D4 /* PromptContentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA5F724418BAA00D520D4 /* PromptContentData.swift */; };
+		30DE100A24F6F8BC00CE7A1A /* HomeEmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DE100924F6F8BC00CE7A1A /* HomeEmptyState.swift */; };
+		30DE100B24F6F8BC00CE7A1A /* HomeEmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DE100924F6F8BC00CE7A1A /* HomeEmptyState.swift */; };
+		30DE100C24F6F8BC00CE7A1A /* HomeEmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DE100924F6F8BC00CE7A1A /* HomeEmptyState.swift */; };
 		30DFCA8724609D85007187FC /* JournalEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCA8524609D85007187FC /* JournalEntryCell.swift */; };
 		30DFCA8824609D85007187FC /* JournalEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCA8524609D85007187FC /* JournalEntryCell.swift */; };
 		30DFCA8924609D86007187FC /* JournalEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCA8524609D85007187FC /* JournalEntryCell.swift */; };
@@ -1651,6 +1654,7 @@
 		30DCA5EB244120A700D520D4 /* PromptContentCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptContentCollectionViewController.swift; sourceTree = "<group>"; };
 		30DCA5EF24417AA400D520D4 /* PromptContentDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptContentDataSource.swift; sourceTree = "<group>"; };
 		30DCA5F724418BAA00D520D4 /* PromptContentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptContentData.swift; sourceTree = "<group>"; };
+		30DE100924F6F8BC00CE7A1A /* HomeEmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyState.swift; sourceTree = "<group>"; };
 		30DFCA8524609D85007187FC /* JournalEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryCell.swift; sourceTree = "<group>"; };
 		30DFCA8624609D85007187FC /* JournalEntryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JournalEntryCell.xib; sourceTree = "<group>"; };
 		30E2D375234311C6003D2B27 /* PillLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillLabelView.swift; sourceTree = "<group>"; };
@@ -1862,6 +1866,7 @@
 			isa = PBXGroup;
 			children = (
 				3014D5A924DE1074007AF70B /* NotificationsOnboardingView.swift */,
+				30DE100924F6F8BC00CE7A1A /* HomeEmptyState.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -3620,6 +3625,7 @@
 				3077381F24CBFB4E00D0C5BE /* ViewConstants.swift in Sources */,
 				30BE5673234E829100AA6D4D /* NotificationTimeOfDayViewController.swift in Sources */,
 				30934F9D22EBF2AC007C4E6C /* ColorExtensions.swift in Sources */,
+				30DE100C24F6F8BC00CE7A1A /* HomeEmptyState.swift in Sources */,
 				309CF37824EC8E7200DE08EC /* CoreValuesWidget.swift in Sources */,
 				305130D4234FE9F10088B51F /* InviteSettingsViewController.swift in Sources */,
 				30D7385E23CFFC62006F4DA6 /* InviteContentViewController.swift in Sources */,
@@ -3863,6 +3869,7 @@
 				3077381D24CBFB4E00D0C5BE /* ViewConstants.swift in Sources */,
 				30A3BC1324C113780016955C /* ColorExtensions.swift in Sources */,
 				30A3BC1424C113780016955C /* InviteSettingsViewController.swift in Sources */,
+				30DE100A24F6F8BC00CE7A1A /* HomeEmptyState.swift in Sources */,
 				309CF37624EC8E7200DE08EC /* CoreValuesWidget.swift in Sources */,
 				30A3BC1524C113780016955C /* InviteContentViewController.swift in Sources */,
 				30A3BC1624C113780016955C /* CircleImageView.swift in Sources */,
@@ -4106,6 +4113,7 @@
 				3077381E24CBFB4E00D0C5BE /* ViewConstants.swift in Sources */,
 				30BE5672234E829100AA6D4D /* NotificationTimeOfDayViewController.swift in Sources */,
 				30934F9C22EBF2AB007C4E6C /* ColorExtensions.swift in Sources */,
+				30DE100B24F6F8BC00CE7A1A /* HomeEmptyState.swift in Sources */,
 				309CF37724EC8E7200DE08EC /* CoreValuesWidget.swift in Sources */,
 				305130D3234FE9F10088B51F /* InviteSettingsViewController.swift in Sources */,
 				30D7385D23CFFC62006F4DA6 /* InviteContentViewController.swift in Sources */,

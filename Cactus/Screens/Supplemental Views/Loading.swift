@@ -68,20 +68,20 @@ struct Loading: View {
     }
     
     var body: some View {
-        GeometryReader { geometry in
-            VStack {
+            VStack(alignment: .center) {
+                Spacer()
                 ActivityIndicator(isAnimating: .constant(true), style: .large)
                 if self.text != nil {
                     Text(self.text!)
                 }
+                Spacer()
             }
-            .frame(width: geometry.size.width / 2,
-                   height: geometry.size.height / 5)
+            .frame(width: 200,
+                   height: 150 )
             .background(Color.secondary.colorInvert())
             .foregroundColor(NamedColor.TextDefault.color)
             .font(CactusFont.normal.font)
-            .cornerRadius(20)
-        }
+            .cornerRadius(CornerRadius.normal)
     }
 
 }

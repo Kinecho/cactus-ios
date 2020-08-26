@@ -12,16 +12,40 @@ struct AppMain: View {
     @EnvironmentObject var session: SessionStore
     @EnvironmentObject var checkout: CheckoutStore
     
+    @State var isOnboarding = false
+    
     var body: some View {
         Group {
             if self.session.authLoaded {
                 if self.session.member == nil {
                     Welcome().background(named: .Background)
-                } else {
+                } else if self.session.journalEntries.isEmpty == false && !isOnboarding {
                     AppTabs().background(named: .Background)
+                } else if self.isOnboarding == true || (self.session.journalLoaded && self.session.onboardingEntry != nil) {
+//                    HomeEmptyState().onAppear {
+//                        self.isOnboarding = true
+//                    }
+                    PromptContentView(entry: self.session.onboardingEntry!, onPromptDismiss: { entry in
+                        self.isOnboarding = false
+                    }).onAppear {
+                        self.isOnboarding = true
+                    }
+                    .foregroundColor(named: .TextDefault)
+                    .edgesIgnoringSafeArea(.top)
+                } else {
+                    Loading("Loading...")
                 }
             } else {
-                Loading("Loading...")
+                VStack(alignment: .center) {
+                    Spacer()
+                    HStack(alignment: .center) {
+                        Spacer()
+                        Loading("Loading...")
+                        Spacer()
+                    }
+                    Spacer()
+                }
+                
             }
         }
     }

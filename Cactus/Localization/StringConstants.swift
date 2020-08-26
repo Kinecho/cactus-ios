@@ -17,6 +17,7 @@ enum StringKey: String, Codable, CaseIterable {
     case LogOut
     case LogOutConfirm
     case Home
+    case Welcome
     
     func localized() -> String {
         return NSLocalizedString(self.rawValue, comment: self.rawValue)

@@ -55,9 +55,15 @@ struct AppTabs: View {
     var body: some View {
         ZStack {
             TabView(selection: $selection) {
-                    NavigationView {
-                        InsightsHome()
-                            .navigationBarTitle(Text(self.homeTitle), displayMode: .large)
+                    Group {
+                        if self.session.journalEntries.isEmpty == false {
+                            NavigationView {
+                                InsightsHome()
+                                    .navigationBarTitle(Text(self.homeTitle), displayMode: .large)
+                            }
+                        } else {
+                            HomeEmptyState()
+                        }
                     }
                     .tabItem {
                         Image(uiImage: Feather.getIcon(.home)!)
@@ -68,6 +74,7 @@ struct AppTabs: View {
                         Text(StringKey.Home)
                     }.tag(Tab.home)
                     
+                if self.session.journalEntries.isEmpty == false {
                     NavigationView {
                         JournalFeed()
                         .navigationBarTitle("Journal")
@@ -78,8 +85,7 @@ struct AppTabs: View {
                             .padding()
                         Text("Journal")
                     }.tag(Tab.journal)
-                    
-                    
+                }
                     
                     SettingsHome()
                     .tabItem {
@@ -92,7 +98,7 @@ struct AppTabs: View {
                 }
                 .onAppear {
                     self.updateAppearance()
-                }
+                } 
                 .accentColor(CactusColor.highContrast.color)
                 .font(Font(CactusFont.normal))
                 

@@ -33,6 +33,7 @@ protocol JournalEntryDataDelegate: class {
 class JournalEntryData {
     static var logger = Logger(fileName: "JournalEntryData")
     var promptId: String?
+    var promptContentEntryId: String?
     var memberId: String
     var sentPrompt: SentPrompt?
     var reflectionPromptData = PromptData()
@@ -62,6 +63,13 @@ class JournalEntryData {
     init(promptId: String?, memberId: String, journalDate: Date?) {
         JournalEntryData.logger.debug("Setting up Journal Entry without a SentPrompt for promptId \(promptId ?? "unknown")", functionName: #function, line: #line)
         self.promptId = promptId
+        self.memberId = memberId
+        self.journalDate = journalDate
+    }
+    
+    init(entryId: String?, memberId: String, journalDate: Date?) {
+        JournalEntryData.logger.debug("Setting up Journal Entry without a SentPrompt for promptContentEntryId \(entryId ?? "unknown")", functionName: #function, line: #line)
+        self.promptContentEntryId = entryId
         self.memberId = memberId
         self.journalDate = journalDate
     }
@@ -101,8 +109,35 @@ class JournalEntryData {
         return entry
     }
     
+    ///used to obseve by content id
+    private func setupPromptContent(entryId: String) {
+        guard self.contentData.unsubscriber == nil else {
+            return
+        }
+        self.contentData.unsubscriber = PromptContentService.sharedInstance.observeForEntryId(entryId: entryId) { (promptContent, error) in
+            if let error = error {
+                JournalEntryData.logger.error("Failed to load promptContent. entryId \(entryId)", error, functionName: #function, line: #line)
+            }
+            if let promptContent = promptContent {
+                self.contentData.promptContent = promptContent
+            }
+            self.contentData.hasLoaded = true
+            self.promptId = promptContent?.promptId
+            if self.promptId != nil {
+                self.setupPromptObserver()
+            }
+            self.notifyIfLoadingComplete()
+        }
+    }
+    
     func setupPromptObserver() {
         self.reflectionPromptData.unsubscriber?.remove()
+        
+        if self.promptId == nil, let entryId = self.promptContentEntryId {
+            self.setupPromptContent(entryId: entryId)
+            return
+        }
+        
         guard let promptId = self.promptId, !isBlank(promptId) else {
             JournalEntryData.logger.info("No prompt ID found on JournalEntryData, can't load data")
             self.wontLoad = true

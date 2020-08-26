@@ -34,6 +34,9 @@ final class SessionStore: ObservableObject {
     @Published var todayEntry: JournalEntry?
     @Published var todayEntryLoaded: Bool = false
     
+    @Published var onboardingEntry: JournalEntry?
+    @Published var onboardingEntryLoaded: Bool = false
+    
     let logger = Logger("SessionStore")
     
     func logout() {
@@ -167,7 +170,15 @@ extension SessionStore: JournalFeedDataSourceDelegate {
         } else {
             self.todayEntryLoaded = true
         }
-        
+    }
+    
+    func setOnboardingEntry(_ journalEntry: JournalEntry?) {
+        self.onboardingEntry = journalEntry
+        if let entry = journalEntry {
+            self.onboardingEntryLoaded = entry.loadingComplete
+        } else {
+            self.onboardingEntryLoaded = true
+        }
     }
     
     func insertItems(_ indexes: [Int]) {
