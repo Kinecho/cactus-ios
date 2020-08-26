@@ -25,7 +25,7 @@ struct MoreActionsButton: View {
             .resizable()
             .aspectRatio(contentMode: .fill)
             .foregroundColor(self.color)
-            .frame(width: 30, height: 20)
+            .frame(width: 24, height: 16)
             .rotationEffect(.degrees(self.showMoreActions ? 90 : 0))
             .onTapGesture {
                 withAnimation(self.dotsRotationAnimation) {

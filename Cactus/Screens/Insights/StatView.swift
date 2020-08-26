@@ -33,7 +33,7 @@ struct StatView: View {
     }
     
     var body: some View {
-        HStack(alignment: .center, spacing: Spacing.normal) {
+        HStack(alignment: .center, spacing: Spacing.medium) {
             if self.icon != nil {
                 Image(uiImage: self.icon!)
                     .resizable()

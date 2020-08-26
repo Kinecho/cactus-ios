@@ -46,13 +46,15 @@ struct InsightsHome: View {
                     VStack {
                         /// Start Stats HScroll View
                         ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(alignment: .top, spacing: Spacing.normal) {
+                            HStack(alignment: .top, spacing: Spacing.small) {
                                 ForEach(self.stats) { stat in
                                     StatView(stat: stat)
                                         .background(named: .CardBackground)
                                         .cornerRadius(CornerRadius.normal)                                        
                                 }
-                            }.padding()
+                            }.padding([.leading, .trailing], Spacing.normal)
+                            .padding(.bottom, Spacing.normal)
+                            .padding(.top, Spacing.medium)
                         }
                         /// End Stats HScroll View
                         
@@ -74,7 +76,7 @@ struct InsightsHome: View {
                               
                             // GapAnalysisWidget()
                         
-                        }.padding([.leading, .trailing, .bottom])
+                        }.padding([.leading, .trailing, .bottom], Spacing.normal)
                         /// End Padded Content Group
                     }
                 }

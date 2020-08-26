@@ -138,7 +138,6 @@ struct JournalFeed: View {
                         .padding(.vertical, Spacing.normal)
                         .listRowInsets(EdgeInsets())
                         .background(self.cellBackgroundColor)
-                        .padding([.leading, .trailing], Spacing.journalPadding)
                 }
         
                 ForEach(self.entries) { entry in
@@ -150,11 +149,12 @@ struct JournalFeed: View {
                     .fixedSize(horizontal: false, vertical: true)
                     .onAppear { self.onEntryAppeared(entry) }
                     .onTapGesture { self.handleEntrySelected(entry) }
+                    .padding(.top, Spacing.medium)
+                    .padding(.bottom, Spacing.normal)
                 }
-                .padding(.top, Spacing.normal)
-                .padding(.bottom, Spacing.normal)
-                .padding([.leading, .trailing], Spacing.journalPadding)
+                .padding(.horizontal, Spacing.normal)
             }
+            
         }
         .onAppear(perform: {
             UITableView.appearance().separatorStyle = .none

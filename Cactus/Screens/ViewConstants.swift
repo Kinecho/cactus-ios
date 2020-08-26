@@ -11,13 +11,13 @@ import SwiftUI
 
 struct Spacing {
     static let none: CGFloat = 0
-    static let small: CGFloat = 10
-    static let normal: CGFloat = 20
-    static let large: CGFloat = 30
-    static let xlarge: CGFloat = 40
-    static let giant: CGFloat = 60
-    
-    static let journalPadding: CGFloat = 24
+    static let xsmall: CGFloat = 4
+    static let small: CGFloat = 8
+    static let medium: CGFloat = 16
+    static let normal: CGFloat = 24
+    static let large: CGFloat = 32
+    static let xlarge: CGFloat = 40        
+    static let giant: CGFloat = 64
 }
 
 
