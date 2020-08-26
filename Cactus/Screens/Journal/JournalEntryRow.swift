@@ -65,8 +65,6 @@ struct JournalEntryRow: View {
         return ActionSheet(title: Text("Journal Entry"), buttons: buttons)
     }
     
-    
-    
     var body: some View {
         ZStack {
             VStack(alignment: .leading, spacing: 0) {
@@ -99,9 +97,10 @@ struct JournalEntryRow: View {
         .cornerRadius(10)
         .clipped()
         .shadow(color: Color.black.opacity(0.1), radius: 18, x: 0, y: 15)
-        .ifMatches(!self.showInlineImage && self.hasResponse && self.entry.imageUrl != nil, content: {
-            $0.background(
-                GeometryReader { geometry in
+        .ifMatches(!self.showInlineImage
+                    && self.hasResponse
+                    && self.entry.imageUrl != nil,
+                   content: { $0.background(GeometryReader { geometry in
                     VStack {
                         Spacer()
                         HStack(alignment: .bottom, spacing: 0) {
@@ -115,9 +114,11 @@ struct JournalEntryRow: View {
                                                 Image(CactusImage.blob0.rawValue)
                                                     .resizable()
                                                     .aspectRatio(contentMode: .fit)
-                                                    .frame(width: self.backgroundImageSize.width, height: self.backgroundImageSize.height)
+                                                    .frame(width: self.backgroundImageSize.width,
+                                                           height: self.backgroundImageSize.height)
                                             } else {
-                                                ImagePlaceholder(width: self.backgroundImageSize.width, height: self.backgroundImageSize.height)
+                                                ImagePlaceholder(width: self.backgroundImageSize.width,
+                                                                 height: self.backgroundImageSize.height)
                                             }
                                         }
                             },
@@ -126,17 +127,18 @@ struct JournalEntryRow: View {
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
                             })
-                                .frame(width: min(geometry.size.width, self.backgroundImageSize.width), height: min(geometry.size.height + self.backgroundImageOffset * 2, self.backgroundImageSize.height), alignment: self.backgroundImageAlignment)
-                                .offset(x: self.backgroundImageOffsetX, y: geometry.size.height > self.backgroundImageSize.height ? self.backgroundImageOffset : 0)
+                                .frame(width: min(geometry.size.width, self.backgroundImageSize.width),
+                                       height: min(geometry.size.height + self.backgroundImageOffset * 2, self.backgroundImageSize.height),
+                                       alignment: self.backgroundImageAlignment)
+                                .offset(x: self.backgroundImageOffsetX,
+                                        y: geometry.size.height > self.backgroundImageSize.height ? self.backgroundImageOffset : 0)
                                 
                             if self.backgroundImageOffsetX < 0 {
                                 Spacer()
                             }
                         }
                     }
-                }
-            )
-        })
+                }) })
         .sheet(isPresented: self.$showEditNote) {
             EditNoteView(entry: self.entry, onDone: {
                 self.logger.info("Closed reflection")

@@ -16,6 +16,8 @@ struct Spacing {
     static let large: CGFloat = 30
     static let xlarge: CGFloat = 40
     static let giant: CGFloat = 60
+    
+    static let journalPadding: CGFloat = 24
 }
 
 

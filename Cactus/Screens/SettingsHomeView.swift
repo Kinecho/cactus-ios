@@ -74,19 +74,35 @@ struct SettingsHome: View {
         ]
     }
     
+    var tableFooterView: some View {
+        CactusButton("Log Out", .link).onTapGesture {
+                self.isLoggingOut = true
+        }.padding([.top, .bottom], Spacing.large)
+    }
+    
+    var logoutActionSheet: ActionSheet {
+        ActionSheet(title: Text(.LogOut),
+                    message: Text(.LogOutConfirm),
+                    buttons: [
+                        .destructive(Text(.LogOut), action: {
+                            self.session.logout()
+                        }),
+                        .cancel()
+                    ])
+    }
+    
     var body: some View {
         NavigationView {
             List {
-                Section(footer: CactusButton("Log Out", .link).onTapGesture {
-                        self.isLoggingOut = true
-                }.padding([.top, .bottom], Spacing.large)
-                ) {
+                Section(footer: self.tableFooterView) {
                     ForEach(self.items) { item in
                         SettingsItemView(item: item)
                     }
                 }
             }
+            .listRowInsets(EdgeInsets())
             .listStyle(GroupedListStyle())
+            .environment(\.horizontalSizeClass, .regular)
             .onAppear {
                 UITableView.appearance().separatorStyle = .singleLine
                 UITableView.appearance().separatorInset = .zero
@@ -94,16 +110,7 @@ struct SettingsHome: View {
             .font(CactusFont.normal.font)
             .navigationBarTitle("Settings")
         }
-        .actionSheet(isPresented: self.$isLoggingOut) { () -> ActionSheet in
-            ActionSheet(title: Text(.LogOut),
-                        message: Text(.LogOutConfirm),
-                        buttons: [
-                            .destructive(Text(.LogOut), action: {
-                                self.session.logout()
-                            }),
-                            .cancel()
-                        ])
-        }
+        .actionSheet(isPresented: self.$isLoggingOut) { self.logoutActionSheet }
         
     }
 }
@@ -118,7 +125,7 @@ struct SettingsHome_Previews: PreviewProvider {
                 .colorScheme(.dark)
                 .previewDisplayName("Logged In (Dark)")
         }
-        .background(named: .Background)
+//        .background(named: .Background)
         
     }
 }

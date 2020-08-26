@@ -121,42 +121,40 @@ struct JournalFeed: View {
                 .environmentObject(self.session)
                 .environmentObject(self.checkout)
                 .eraseToAnyView()
-//        default:
-//            return NoContentErrorView().eraseToAnyView()
+        }
+    }
+    
+    func onEntryAppeared(_ entry: JournalEntry) {
+        if self.entries.last?.id == entry.id {
+            self.session.journalFeedDataSource?.loadNextPage()
         }
     }
     
     var body: some View {
-        List {
-            if self.session.member?.tier == .BASIC {
-                JournalUpgradeBanner()
-                    .padding(.vertical, Spacing.normal)
-                    .listRowInsets(EdgeInsets())
-                    .background(self.cellBackgroundColor)
+        ScrollView(.vertical) {
+            Group {
+                if self.session.member?.tier == .BASIC {
+                    JournalUpgradeBanner()
+                        .padding(.vertical, Spacing.normal)
+                        .listRowInsets(EdgeInsets())
+                        .background(self.cellBackgroundColor)
+                        .padding([.leading, .trailing], Spacing.journalPadding)
+                }
+        
+                ForEach(self.entries) { entry in
+                    JournalEntryRow(
+                        entry: entry,
+                        index: self.entries.firstIndex(of: entry) ?? 0,
+                        showDetails: self.handleEntrySelected
+                    )
+                    .fixedSize(horizontal: false, vertical: true)
+                    .onAppear { self.onEntryAppeared(entry) }
+                    .onTapGesture { self.handleEntrySelected(entry) }
+                }
+                .padding(.top, Spacing.normal)
+                .padding(.bottom, Spacing.normal)
+                .padding([.leading, .trailing], Spacing.journalPadding)
             }
-    
-            ForEach(self.entries) { entry in
-                JournalEntryRow(
-                    entry: entry,
-                    index: self.entries.firstIndex(of: entry) ?? 0,
-                    showDetails: self.handleEntrySelected
-                )
-                    .onAppear {
-                        let lastEntry = self.entries.last
-                        if lastEntry?.id == entry.id {
-                            self.session.journalFeedDataSource?.loadNextPage()
-                        }
-                    }
-                    .onTapGesture {
-                        self.handleEntrySelected(entry)
-                    }
-            }
-            .padding(.top, Spacing.normal)
-            .padding(.bottom, Spacing.normal)
-            .padding([.leading, .trailing], 24)
-            .listRowInsets(EdgeInsets())
-            .background(self.cellBackgroundColor.offset(x: 0, y: 4))
-            
         }
         .onAppear(perform: {
             UITableView.appearance().separatorStyle = .none
