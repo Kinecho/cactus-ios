@@ -184,21 +184,17 @@ struct JournalEntryRow_Previews: PreviewProvider {
                     }.environmentObject(SessionStore.mockLoggedIn())
                         .onAppear(perform: {
                             UITableView.appearance().separatorStyle = .none
-//                            UITableView.appearance().backgroundColor = CactusColor.background
                         })
                         .previewDisplayName(data.name)
                         .previewLayout(.fixed(width: 400, height: 450))
-                    
-                    
+                                        
                     List {
                         JournalEntryRow(entry: data.entry, showDetails: {_ in })
                             .listRowInsets(EdgeInsets())
                             .padding(Spacing.large)
-                            .background(CactusColor.background.color)
                     }.environmentObject(SessionStore.mockLoggedIn())
                         .onAppear(perform: {
                             UITableView.appearance().separatorStyle = .none
-//                            UITableView.appearance().backgroundColor = CactusColor.background
                         })
                         .previewDisplayName(data.name + " (Dark)")
                         .previewLayout(.fixed(width: 400, height: 450))
