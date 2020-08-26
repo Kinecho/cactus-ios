@@ -97,16 +97,14 @@ struct SettingsHome: View {
     var body: some View {
         NavigationView {
             List {
-
                 Section(footer: self.tableFooterView) {
                     ForEach(self.items) { item in
                         SettingsItemView(item: item)
                     }
                 }
+                
             }
-            .listRowInsets(EdgeInsets())
             .listStyle(GroupedListStyle())
-            .environment(\.horizontalSizeClass, .regular)
             .onAppear {
                 UITableView.appearance().separatorStyle = .singleLine
                 UITableView.appearance().separatorInset = .zero
