@@ -45,6 +45,7 @@ struct SettingsItemView: View {
         .minHeight(44)
         .padding()
         .listRowInsets(EdgeInsets())
+        .foregroundColor(CactusColor.highContrast.color)
     }
 }
 
