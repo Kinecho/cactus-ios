@@ -93,7 +93,7 @@ struct AppTabs: View {
                 .onAppear {
                     self.updateAppearance()
                 }
-                .accentColor(NamedColor.Green.color)
+                .accentColor(CactusColor.highContrast.color)
                 .font(Font(CactusFont.normal))
                 
             VStack {
