@@ -126,6 +126,7 @@ struct TodayWidgetView: View {
         .background(self.animatedBackground)
         .foregroundColor(named: .White)
         .border(NamedColor.BorderLight.color, width: 1, cornerRadius: CornerRadius.normal, style: RoundedCornerStyle.continuous)
+        .shadow(color: Color.black.opacity(0.1), radius: 18, x: 0, y: 15)
     }
 }
 
