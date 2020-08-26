@@ -152,7 +152,7 @@ struct JournalFeed: View {
                     }
             }
             .padding(.top, Spacing.normal)
-            .padding(.bottom, Spacing.large)
+            .padding(.bottom, Spacing.normal)
             .listRowInsets(EdgeInsets())
             .background(self.cellBackgroundColor.offset(x: 0, y: 4))
             
@@ -163,7 +163,7 @@ struct JournalFeed: View {
         })
         .sheet(item: self.$currentSheet ) { item in
             self.getSheetContent(item)
-        }
+        }.padding([.leading, .trailing], 24)
     }
 }
 

@@ -145,7 +145,8 @@ enum FontSize: CGFloat {
     case title = 21
     case normal = 18
     case subTitle = 16
-   
+    case small = 14
+
     // Aliases
     static let statLarge: FontSize = .jumbo
     static let journalDate: FontSize = .subTitle
@@ -166,7 +167,7 @@ func getProviderDisplayName(_ providerId: String) -> String? {
     case "facebook.com":
         return "Facebook"
     case "password":
-        return "Email/Password"
+        return "Email"
     case "apple.com":
         return "Apple"
     default:
