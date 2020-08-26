@@ -46,6 +46,8 @@ struct StatView: View {
             }
             VStack(alignment: .leading) {
                 Text(self.title).font(CactusFont.normal(FontSize.subTitle).font)
+                    .fixedSize(horizontal: true, vertical: false)
+                    .lineLimit(1)
                 HStack(alignment: .bottom) {
                     Text(self.valueText).font(CactusFont.bold(FontSize.statLarge).font)
                     if self.unit != nil {
@@ -66,6 +68,7 @@ struct StatView: View {
 struct StatView_Previews: PreviewProvider {
     static let stats: [Stat] = [
         Stat(type: .streak, value: 52, unit: UnitFormatter.day),
+        Stat(type: .streak, value: 201, unit: UnitFormatter.week),
         Stat(type: .reflectionCount, value: 128),
         Stat(type: .reflectionDuration, value: 1, unit: UnitFormatter.minute),
     ]

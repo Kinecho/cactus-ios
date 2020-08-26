@@ -50,7 +50,7 @@ struct InsightsHome: View {
                                 ForEach(self.stats) { stat in
                                     StatView(stat: stat)
                                         .background(named: .CardBackground)
-                                        .cornerRadius(CornerRadius.normal)
+                                        .cornerRadius(CornerRadius.normal)                                        
                                 }
                             }.padding()
                         }
