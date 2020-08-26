@@ -30,16 +30,15 @@ struct JournalEntryWithNote: View {
                     .multilineTextAlignment(.leading)
                     .font(Font(CactusFont.normal))
                     .foregroundColor(self.textColor)
-                    .padding([.leading], 20)
-                    .padding(.vertical, 4)
+                    .padding([.leading], Spacing.normal)
                     .fixedSize(horizontal: false, vertical: true)
-                    .border(width: 5,
+                    .border(width: 4,
                             edge: .leading,
                             color: Color(CactusColor.highlight),
                             alignment: .leading,
-                            radius: 10,
+                            radius: 6,
                             corners: [.topRight, .bottomRight])
-                    .offset(x: -20, y: 0)
+                    .offset(x: -(Spacing.normal), y: 0)
             }
         }
     }
