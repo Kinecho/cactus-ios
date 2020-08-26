@@ -151,9 +151,9 @@ struct JournalFeed: View {
                         self.handleEntrySelected(entry)
                     }
             }
-            .padding(.top, Spacing.normal)
+            .padding(.top, Spacing.medium)
             .padding(.bottom, Spacing.normal)
-            .padding([.leading, .trailing], 24)
+            .padding([.leading, .trailing], Spacing.normal)
             .listRowInsets(EdgeInsets())
             .background(self.cellBackgroundColor.offset(x: 0, y: 4))
             

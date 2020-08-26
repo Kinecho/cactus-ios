@@ -43,7 +43,8 @@ struct SettingsItemView: View {
             }
         }
         .minHeight(44)
-        .padding()
+        .padding([.leading, .trailing], Spacing.normal)
+        .padding([.top, .bottom], Spacing.medium)
         .listRowInsets(EdgeInsets())
         .foregroundColor(CactusColor.highContrast.color)
     }
@@ -79,7 +80,8 @@ struct SettingsHome: View {
             List {
                 Section(footer: CactusButton("Log Out", .link).onTapGesture {
                         self.isLoggingOut = true
-                }.padding([.top, .bottom], Spacing.large)
+                }.padding([.top, .bottom], Spacing.normal)
+                    .padding(.leading, Spacing.xsmall)
                 ) {
                     ForEach(self.items) { item in
                         SettingsItemView(item: item)
