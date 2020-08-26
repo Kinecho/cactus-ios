@@ -141,8 +141,8 @@ struct SubscriptionDetailsView: View {
             if self.model.loaded {
                 VStack(alignment: .leading, spacing: Spacing.normal) {
                     VStack(alignment: .leading) {
-                        Text("Current Plan").font(CactusFont.bold(FontSize.normal).font).foregroundColor(NamedColor.TextDefault.color)
-                        Text(self.model.tier.displayName).foregroundColor(NamedColor.TextDefault.color)
+                        Text("Current Plan").font(CactusFont.normal(FontSize.small).font).foregroundColor(NamedColor.TextMinimized.color)
+                        Text(self.model.tier.displayName).font(CactusFont.normal(FontSize.normal).font).foregroundColor(NamedColor.TextDefault.color)
                     }
                     
                     if self.billingCycleMessage != nil {
