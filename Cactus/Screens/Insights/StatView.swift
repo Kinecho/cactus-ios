@@ -45,11 +45,11 @@ struct StatView: View {
                     
             }
             VStack(alignment: .leading) {
-                Text(self.title)
+                Text(self.title).font(CactusFont.normal(FontSize.subTitle).font)
                 HStack(alignment: .bottom) {
                     Text(self.valueText).font(CactusFont.bold(FontSize.statLarge).font)
                     if self.unit != nil {
-                        Text(self.unit!).offset(x: 0, y: -5)
+                        Text(self.unit!).font(CactusFont.bold(FontSize.subTitle).font).offset(x: 0, y: -5)
                     }
                 }
             }
