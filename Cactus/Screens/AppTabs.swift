@@ -78,24 +78,28 @@ struct AppTabs: View {
                     }
                     .tag(Tab.home)
                     
-                    if self.session.journalEntries.isEmpty == false {
-                        NavigationView {
-                            JournalFeed()
-                            .navigationBarTitle("Journal")
+                    Group {
+                        if self.session.journalEntries.isEmpty == false {
+                            NavigationView {
+                                JournalFeed()
+                                .navigationBarTitle("Journal")
+                            }
+                        } else {
+                            JournalEmptyStateView()
                         }
-                        .onDisappear {
-                            Vibration.light.vibrate()
-                        }
-                        .tabItem {
-                            Image(CactusImage.journal.rawValue)
-                                .renderingMode(.template)
-                                .resizable()
-                                .padding()
-                            Text("Journal")
-                        }
-                        .tag(Tab.journal)
-                        
+                    }                    
+                    .onDisappear {
+                        Vibration.light.vibrate()
                     }
+                    .tabItem {
+                        Image(CactusImage.journal.rawValue)
+                            .renderingMode(.template)
+                            .resizable()
+                            .padding()
+                        Text("Journal")
+                    }
+                    .tag(Tab.journal)
+                                        
                     
                     SettingsHome()
                     .onDisappear {

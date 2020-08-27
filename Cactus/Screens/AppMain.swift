@@ -19,14 +19,18 @@ struct AppMain: View {
                     Welcome().background(named: .Background)
                 } else if !self.session.journalLoaded {
                     Loading("Loading...")
+                } else if self.session.showOnboarding == true {
+                    if self.session.onboardingEntry != nil {
+                        PromptContentView(entry: self.session.onboardingEntry!, onPromptDismiss: { entry in
+                            self.session.showOnboarding = false
+                        })
+                        .foregroundColor(named: .TextDefault)
+                        .edgesIgnoringSafeArea(.top)
+                    } else {
+                        Loading("Loading...")
+                    }
                 } else if !self.session.showOnboarding {
                     AppTabs().background(named: .Background)
-                } else if self.session.showOnboarding == true && self.session.onboardingEntry != nil {
-                    PromptContentView(entry: self.session.onboardingEntry!, onPromptDismiss: { entry in
-                        self.session.showOnboarding = false
-                    })
-                    .foregroundColor(named: .TextDefault)
-                    .edgesIgnoringSafeArea(.top)
                 } else {
                     Loading("Loading...")
                 }
