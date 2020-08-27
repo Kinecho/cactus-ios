@@ -13,6 +13,7 @@ protocol PromptContentViewControllerDelegate: class {
     func previousScreen()
     func handleTapGesture(touch: UITapGestureRecognizer)
     func nextScreen()
+    func closePrompt()
     var viewController: UIViewController {get}
 }
 
@@ -25,6 +26,7 @@ class PromptContentViewController: UIViewController {
     var selectedTextView: UITextView?
     var appSettings: AppSettings!
     var coreValuesViewController: CoreValuesAssessmentViewController?
+    var isLastCard: Bool = false
     
     var reflectionResponse: ReflectionResponse? {
         didSet {
@@ -90,6 +92,19 @@ class PromptContentViewController: UIViewController {
         return self.getValidContentActionButton() != nil
     }
     
+    func getLastCardDoneButton() -> UIButton? {
+        if self.isLastCard {
+            let btn = createStyledButton(style: .buttonPrimary, label: "Done")
+            btn.addTarget(self, action: #selector(self.onDone), for: .primaryActionTriggered)            
+            return btn
+        }
+        return nil
+    }
+    
+    @objc func onDone(_ sender: Any?) {
+        self.delegate?.closePrompt()
+    }
+    
     func createActionButton() -> UIButton? {
         guard let actionButton = self.getValidContentActionButton(),
             let label = actionButton.label else {
@@ -118,6 +133,8 @@ class PromptContentViewController: UIViewController {
             self.delegate?.nextScreen()
         case .previous:
             self.delegate?.previousScreen()
+        case .complete:
+            self.delegate?.closePrompt()
         case .coreValues:
             guard let vc = ScreenID.CoreValuesAssessment.getViewController() as? CoreValuesAssessmentViewController else {
                 return

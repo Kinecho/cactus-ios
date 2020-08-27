@@ -142,6 +142,10 @@ class PromptContentPageViewController: UIPageViewController {
             }
         })
         
+        if let lastScreen = screens.last(where: { $0 is PromptContentViewController} ) as? PromptContentViewController {
+            lastScreen.isLastCard = true
+        }
+                
         let celebrate = CelebrateViewController.loadFromNib()
         celebrate.reflectionResponse = self.reflectionResponse
         celebrate.promptContent = self.promptContent
@@ -407,6 +411,10 @@ extension PromptContentPageViewController: UIPageViewControllerDelegate {
 extension PromptContentPageViewController: PromptContentViewControllerDelegate {
     var viewController: UIViewController {
         return self
+    }
+    
+    func closePrompt() {
+        self.dismissPrompt()
     }
     
     func save(_ response: ReflectionResponse, nextPageOnSuccess: Bool=false, addReflectionLog: Bool=true, completion: ((ReflectionResponse?, Any?) -> Void)?=nil) {

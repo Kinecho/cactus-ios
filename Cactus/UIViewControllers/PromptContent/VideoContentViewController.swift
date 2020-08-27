@@ -12,6 +12,7 @@ class VideoContentViewController: PromptContentViewController {
     @IBOutlet weak var videoWebKitView: WKWebView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var mainStackView: UIStackView!
+    var lastCardButton: UIButton?
     
     let videoLogger = Logger("VideoContentViewController")
     override func viewDidLoad() {
@@ -52,5 +53,10 @@ class VideoContentViewController: PromptContentViewController {
             self.textView.isHidden = true
         }
         
+        self.lastCardButton?.removeFromSuperview()
+        if let lastCardButton = self.getLastCardDoneButton() {
+            self.lastCardButton = lastCardButton
+            self.mainStackView.addArrangedSubview(lastCardButton)
+        }
     }
 }

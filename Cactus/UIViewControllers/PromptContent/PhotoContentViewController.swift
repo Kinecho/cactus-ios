@@ -13,6 +13,8 @@ class PhotoContentViewController: PromptContentViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var mainStackView: UIStackView!
     
+    var lastCardButton: UIButton?
+    
     override func viewDidLoad() {
         super.viewDidLoad()        
         configureView()
@@ -35,6 +37,12 @@ class PhotoContentViewController: PromptContentViewController {
             self.textView.isHidden = false
         } else {
             self.textView.isHidden = true
+        }
+        
+        self.lastCardButton?.removeFromSuperview()
+        if let lastCardButton = self.getLastCardDoneButton() {
+            self.lastCardButton = lastCardButton
+            self.mainStackView.addArrangedSubview(lastCardButton)            
         }
         
         if let contentButton = self.createContentLink() {

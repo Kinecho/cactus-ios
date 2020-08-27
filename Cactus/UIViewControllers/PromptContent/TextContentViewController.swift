@@ -26,6 +26,7 @@ class TextContentViewController: PromptContentViewController {
     var contentLink: UIButton?
     var actionButton: UIButton?
     var elementGesturesConfigured = false
+    var lastCardButton: UIButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,6 +109,12 @@ class TextContentViewController: PromptContentViewController {
         } else if !self.hasActionButton() {
             self.actionButton?.removeFromSuperview()
             self.actionButton = nil
+        }
+        
+        self.lastCardButton?.removeFromSuperview()
+        if let closeBtn = super.getLastCardDoneButton() {            
+            self.lastCardButton = closeBtn
+            self.mainStackView.addArrangedSubview(closeBtn)
         }
         
         self.labelLabel.text = self.content.label

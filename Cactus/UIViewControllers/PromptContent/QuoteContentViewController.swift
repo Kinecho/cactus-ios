@@ -14,6 +14,9 @@ class QuoteContentViewController: PromptContentViewController {
     @IBOutlet weak var authorNameTextView: UITextView!
     @IBOutlet weak var authorTitleTextView: UITextView!
     @IBOutlet weak var mainSackView: UIStackView!
+    
+    var lastCardButton: UIButton?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureView()
@@ -37,6 +40,12 @@ class QuoteContentViewController: PromptContentViewController {
             self.quoteText.text = nil
             self.authorTitleTextView.text = nil
             self.authorNameTextView.text = nil
+        }
+        
+        self.lastCardButton?.removeFromSuperview()
+        if let lastCardButton = self.getLastCardDoneButton() {            
+            self.lastCardButton = lastCardButton
+            self.mainSackView.addArrangedSubview(lastCardButton)
         }
         
         if let linkButton = self.createContentLink() {

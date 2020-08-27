@@ -108,25 +108,25 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Hxl-JO-r3i">
-                                        <rect key="frame" x="20" y="118.5" width="335" height="430"/>
+                                        <rect key="frame" x="20" y="120" width="335" height="427"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="center" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ibz-w3-gNj" userLabel="Copy Stack View">
-                                                <rect key="frame" x="0.0" y="0.0" width="335" height="190"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="187"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Cactus" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8E-Kd-lvh" userLabel="Welcome Label">
-                                                        <rect key="frame" x="29" y="0.0" width="277.5" height="38.5"/>
+                                                        <rect key="frame" x="27.5" y="0.0" width="280" height="37.5"/>
                                                         <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="32"/>
                                                         <color key="textColor" name="TextDefault"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To get started, you'll learn about how Cactus works and reflect on your first question of the day." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ecc-M4-fbT" userLabel="Into Label">
-                                                        <rect key="frame" x="2.5" y="58.5" width="330.5" height="61.5"/>
+                                                        <rect key="frame" x="23" y="57.5" width="289.5" height="59.5"/>
                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                         <color key="textColor" name="TextMinimized"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmD-zI-Lke" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
-                                                        <rect key="frame" x="120" y="140" width="95" height="50"/>
+                                                        <rect key="frame" x="117" y="137" width="101" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="4su-rf-UT4"/>
                                                         </constraints>
@@ -139,7 +139,7 @@
                                                 </subviews>
                                             </stackView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyState" translatesAutoresizingMaskIntoConstraints="NO" id="Hjj-3G-eVg">
-                                                <rect key="frame" x="0.0" y="230" width="335" height="200"/>
+                                                <rect key="frame" x="0.0" y="227" width="335" height="200"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="Dij-SN-Mgn"/>
                                                 </constraints>
@@ -207,19 +207,19 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="124"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="y63-Ac-XIQ">
-                                                            <rect key="frame" x="8" y="0.0" width="182" height="124"/>
+                                                            <rect key="frame" x="8" y="0.0" width="185.5" height="124"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="7VZ-dP-Lvg" userLabel="Text Stack View">
-                                                                    <rect key="frame" x="20" y="20" width="142" height="19"/>
+                                                                    <rect key="frame" x="20" y="20" width="145.5" height="19"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6LP-Sv-Oeq">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="142" height="0.0"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="145.5" height="0.0"/>
                                                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="22"/>
                                                                             <color key="textColor" name="White"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Get Daily insights " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrN-JL-Rk1" userLabel="Description Label">
-                                                                            <rect key="frame" x="0.0" y="6" width="142" height="13"/>
+                                                                            <rect key="frame" x="0.0" y="6" width="145.5" height="13"/>
                                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                                                             <color key="textColor" name="White"/>
                                                                             <nil key="highlightedColor"/>
@@ -227,7 +227,7 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="a6V-rh-8WM">
-                                                                    <rect key="frame" x="20" y="59" width="142" height="45"/>
+                                                                    <rect key="frame" x="20" y="59" width="145.5" height="45"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bFV-X2-DUD" userLabel="Upgrade Button" customClass="PrimaryButton" customModule="Cactus" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="78" height="45"/>
@@ -408,7 +408,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="oiA-wK-jhz">
-                                <rect key="frame" x="77.5" y="249.5" width="220" height="168"/>
+                                <rect key="frame" x="77.5" y="250.5" width="220" height="166.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-ondark" translatesAutoresizingMaskIntoConstraints="NO" id="ddb-41-Ob6">
                                         <rect key="frame" x="0.0" y="0.0" width="220" height="75"/>
@@ -417,7 +417,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your private journal for mindfulness." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dc0-xT-rrz">
-                                        <rect key="frame" x="12.5" y="115" width="195" height="53"/>
+                                        <rect key="frame" x="12" y="115" width="196" height="51.5"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="22"/>
                                         <color key="textColor" name="White"/>
                                         <nil key="highlightedColor"/>
@@ -493,13 +493,13 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="center" axis="vertical" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="JP6-tG-hyL" userLabel="Container Stack View">
-                                        <rect key="frame" x="0.0" y="190" width="375" height="577.5"/>
+                                        <rect key="frame" x="0.0" y="190" width="375" height="575"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="dia-5i-NZT" userLabel="TitleStack View">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="42"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dt5-xk-ofP">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="42"/>
                                                         <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="36"/>
                                                         <color key="textColor" name="White"/>
                                                         <nil key="highlightedColor"/>
@@ -507,7 +507,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="RUy-x4-bJ7" userLabel="Email Input Stack">
-                                                <rect key="frame" x="20" y="75.5" width="335" height="116"/>
+                                                <rect key="frame" x="20" y="74" width="335" height="116"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email address" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="S96-g0-ejQ" customClass="CactusTextInputField" customModule="Cactus" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
@@ -543,13 +543,13 @@
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or choose from one of the following:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYq-wW-wiI" userLabel="Choose Provider">
-                                                <rect key="frame" x="20" y="223.5" width="335" height="22"/>
+                                                <rect key="frame" x="20" y="222" width="335" height="21"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                                 <color key="textColor" name="White"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7x3-lF-lM2" userLabel="Login Buttons Container">
-                                                <rect key="frame" x="20" y="277.5" width="335" height="300"/>
+                                                <rect key="frame" x="20" y="275" width="335" height="300"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="300" id="9hh-r5-2L7"/>
                                                 </constraints>
@@ -597,7 +597,7 @@
                                 </variation>
                             </scrollView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWa-gB-GKV" customClass="SecondaryButton" customModule="Cactus" customModuleProvider="target">
-                                <rect key="frame" x="163.5" y="595" width="48" height="32"/>
+                                <rect key="frame" x="162.5" y="596" width="50" height="31"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" name="White"/>
@@ -665,14 +665,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VH8-W2-lbw">
-                                <rect key="frame" x="40" y="309" width="295" height="49.5"/>
+                                <rect key="frame" x="40" y="309" width="295" height="49"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="hUg-fC-JRh">
                                         <rect key="frame" x="137.5" y="0.0" width="20" height="20"/>
                                         <color key="color" name="TextDefault"/>
                                     </activityIndicatorView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJM-qg-n60" userLabel="Message Label">
-                                        <rect key="frame" x="115" y="30" width="65.5" height="19.5"/>
+                                        <rect key="frame" x="112" y="30" width="71.5" height="19"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                         <color key="textColor" name="TextDefault"/>
                                         <nil key="highlightedColor"/>
