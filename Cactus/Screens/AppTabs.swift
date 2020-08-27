@@ -109,7 +109,7 @@ struct AppTabs: View {
                     
 //                    CactusButton(nil, .buttonPrimary, icon: Icon.getImage(Feather.IconName.edit)?.image)
                     ComposeNoteButton()
-                        .offset(x: -Spacing.normal, y: -60)
+                        .offset(x: -Spacing.medium, y: -Spacing.giant)
                 }
             }
         }.environmentObject(session)
