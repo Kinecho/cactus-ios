@@ -11,7 +11,7 @@ import NoveFeatherIcons
 
 struct ComposeNoteButton: View {
     @EnvironmentObject var session: SessionStore
-    let generator = UINotificationFeedbackGenerator()
+    
     enum ActiveSheet: Identifiable {
         case compose
         
@@ -38,8 +38,8 @@ struct ComposeNoteButton: View {
         }
     }
     
-    func simpleSuccess() {
-        generator.notificationOccurred(.success)
+    func vibrate() {
+        Vibration.medium.vibrate()
     }
     
     var body: some View {
@@ -53,7 +53,7 @@ struct ComposeNoteButton: View {
             .clipShape(Circle())
             .shadow(color: Color.black.opacity(0.25), radius: 20, x: 0, y: 10)
             .onTapGesture{
-                self.simpleSuccess()
+                self.vibrate()
                 self.activeSheet = .compose
             }
             .sheet(item: self.$activeSheet) { item in

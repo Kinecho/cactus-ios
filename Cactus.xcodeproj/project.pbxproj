@@ -1151,6 +1151,9 @@
 		30D0E456236C98C100EFC0E3 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D0E453236C98C100EFC0E3 /* StringExtensions.swift */; };
 		30D461372362750900B8AED7 /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */; };
 		30D461382362750D00B8AED7 /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */; };
+		30D598A424F8142C0012A83F /* Vibration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D598A324F8142C0012A83F /* Vibration.swift */; };
+		30D598A524F8142C0012A83F /* Vibration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D598A324F8142C0012A83F /* Vibration.swift */; };
+		30D598A624F8142C0012A83F /* Vibration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D598A324F8142C0012A83F /* Vibration.swift */; };
 		30D63EAC24E20A9D00FBD884 /* RefreshableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D63EAB24E20A9D00FBD884 /* RefreshableScrollView.swift */; };
 		30D63EAD24E20A9D00FBD884 /* RefreshableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D63EAB24E20A9D00FBD884 /* RefreshableScrollView.swift */; };
 		30D63EAE24E20A9D00FBD884 /* RefreshableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D63EAB24E20A9D00FBD884 /* RefreshableScrollView.swift */; };
@@ -1630,6 +1633,7 @@
 		30CF539723732EC300578B22 /* VideoContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoContentViewController.xib; sourceTree = "<group>"; };
 		30D0E453236C98C100EFC0E3 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		30D461362362750900B8AED7 /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
+		30D598A324F8142C0012A83F /* Vibration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vibration.swift; sourceTree = "<group>"; };
 		30D63EAB24E20A9D00FBD884 /* RefreshableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableScrollView.swift; sourceTree = "<group>"; };
 		30D63EB124E232B100FBD884 /* StatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatView.swift; sourceTree = "<group>"; };
 		30D63EB624E2396A00FBD884 /* MemberStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberStats.swift; sourceTree = "<group>"; };
@@ -2169,6 +2173,7 @@
 				307ED78E24086E82008D26C6 /* SubscriptionUtil.swift */,
 				30392FF52410075400F2A8FC /* ModelDecoder.swift */,
 				3032821B2416D29F00FC197A /* AuthenticatedTask.swift */,
+				30D598A324F8142C0012A83F /* Vibration.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -3825,6 +3830,7 @@
 				300FCCF423EE279500089CFB /* StoreObserver.swift in Sources */,
 				3026B29B234D3E2800CD2D34 /* PromptContentViewController.swift in Sources */,
 				30E2D377234311C6003D2B27 /* PillLabelView.swift in Sources */,
+				30D598A624F8142C0012A83F /* Vibration.swift in Sources */,
 				3084E95C2348087100788279 /* HelpViewController.swift in Sources */,
 				305366F124C6A84200927498 /* PromptContentView.swift in Sources */,
 				300D37C124D8C9FB00351994 /* PlusFeaturesPagination.swift in Sources */,
@@ -4069,6 +4075,7 @@
 				30A3BCA224C113780016955C /* StoreObserver.swift in Sources */,
 				30A3BCA324C113780016955C /* LoginViewController.swift in Sources */,
 				30A3BCA424C113780016955C /* PillLabelView.swift in Sources */,
+				30D598A424F8142C0012A83F /* Vibration.swift in Sources */,
 				30A3BCA524C113780016955C /* HelpViewController.swift in Sources */,
 				305366EF24C6A84200927498 /* PromptContentView.swift in Sources */,
 				300D37BF24D8C9FB00351994 /* PlusFeaturesPagination.swift in Sources */,
@@ -4313,6 +4320,7 @@
 				300FCCF323EE279500089CFB /* StoreObserver.swift in Sources */,
 				30E9B0AF22EADD04005B25FD /* LoginViewController.swift in Sources */,
 				30E2D376234311C6003D2B27 /* PillLabelView.swift in Sources */,
+				30D598A524F8142C0012A83F /* Vibration.swift in Sources */,
 				3084E95B2348087100788279 /* HelpViewController.swift in Sources */,
 				305366F024C6A84200927498 /* PromptContentView.swift in Sources */,
 				300D37C024D8C9FB00351994 /* PlusFeaturesPagination.swift in Sources */,

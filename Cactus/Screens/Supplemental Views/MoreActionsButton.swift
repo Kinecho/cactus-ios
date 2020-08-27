@@ -28,6 +28,7 @@ struct MoreActionsButton: View {
             .frame(width: 24, height: 16)
             .rotationEffect(.degrees(self.showMoreActions ? 90 : 0))
             .onTapGesture {
+                Vibration.light.vibrate()
                 withAnimation(self.dotsRotationAnimation) {
                     self.showMoreActions.toggle()
                 }
