@@ -37,10 +37,13 @@ final class SessionStore: ObservableObject {
     @Published var onboardingEntry: JournalEntry?
     @Published var onboardingEntryLoaded: Bool = false
     
+    @Published var showOnboarding: Bool = false
+    
     let logger = Logger("SessionStore")
     
     func logout() {
         AuthService.sharedInstance.logout()
+        self.journalLoaded = false
     }
     
     func start() {
@@ -138,9 +141,6 @@ extension SessionStore {
     }
 }
 
-
-
-
 extension SessionStore: JournalFeedDataSourceDelegate {
     func updateEntry(_ journalEntry: JournalEntry, at: Int?) {
         guard let index = at ?? self.journalFeedDataSource?.indexOf(journalEntry) ?? self.journalEntries.firstIndex(of: journalEntry) else {
@@ -202,11 +202,25 @@ extension SessionStore: JournalFeedDataSourceDelegate {
             .orderedPromptIds
             .compactMap({self.journalFeedDataSource?.journalEntryDataByPromptId[$0]?.getJournalEntry()}) ?? []
         
+//        if entries.isEmpty {
+//            self.showOnboarding = true
+//        } else if entries.count > 1 {
+//            self.showOnboarding = false
+//        }
+//        else if entries.first?.promptContent?.entryId != nil && entries.first?.promptContent?.entryId == self.settings?.firstPromptContentEntryId {
+//            self.showOnboarding = true
+//        }
+//        if  entries.isEmpty {
+//            self.showOnboarding = true
+//        }
+//        self.journalLoaded = true
         self.journalEntries = entries
     }
     
     func handleEmptyState(hasResults: Bool) {
+        self.showOnboarding = !hasResults
         self.journalLoaded = true
+        
         if hasResults == false {
             self.journalEntries = []
         }

@@ -63,6 +63,7 @@ class JournalFeedDataSource {
         self.todayData = nil
         journalEntryDataByPromptId.removeAll()
         self.hasStarted = false
+        self.hasLoaded = false        
         self.delegate?.dataLoaded()
     }
     
@@ -259,7 +260,7 @@ class JournalFeedDataSource {
             
             if !(pageResult.results?.isEmpty ?? true) && self.hasLoaded {
                 // need to update the UI for the first appearance so we can show onboarding
-                self.delegate?.handleEmptyState(hasResults: true)
+//                self.delegate?.handleEmptyState(hasResults: true)
             }
             
             self.configurePages()
@@ -278,11 +279,12 @@ class JournalFeedDataSource {
                     functionName: "initializePages", line: #line)
                 
                 if !self.hasLoaded {
-                    self.delegate?.handleEmptyState(hasResults: !(pageResult.results?.isEmpty ?? true))
+                    self.delegate?.handleEmptyState(hasResults: (pageResult.results?.isEmpty == false))
                 }
                 
                 self.configurePages()
                 self.hasLoaded = true
+                self.delegate?.dataLoaded()
         })
     }
     

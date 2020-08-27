@@ -12,24 +12,19 @@ struct AppMain: View {
     @EnvironmentObject var session: SessionStore
     @EnvironmentObject var checkout: CheckoutStore
     
-    @State var isOnboarding = false
-    
     var body: some View {
         Group {
             if self.session.authLoaded {
                 if self.session.member == nil {
                     Welcome().background(named: .Background)
-                } else if self.session.journalEntries.isEmpty == false && !isOnboarding {
+                } else if !self.session.journalLoaded {
+                    Loading("Loading...")
+                } else if !self.session.showOnboarding {
                     AppTabs().background(named: .Background)
-                } else if self.isOnboarding == true || (self.session.journalLoaded && self.session.onboardingEntry != nil) {
-//                    HomeEmptyState().onAppear {
-//                        self.isOnboarding = true
-//                    }
+                } else if self.session.showOnboarding == true && self.session.onboardingEntry != nil {
                     PromptContentView(entry: self.session.onboardingEntry!, onPromptDismiss: { entry in
-                        self.isOnboarding = false
-                    }).onAppear {
-                        self.isOnboarding = true
-                    }
+                        self.session.showOnboarding = false
+                    })
                     .foregroundColor(named: .TextDefault)
                     .edgesIgnoringSafeArea(.top)
                 } else {

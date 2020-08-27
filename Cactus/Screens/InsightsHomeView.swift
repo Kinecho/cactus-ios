@@ -40,22 +40,43 @@ struct InsightsHome: View {
         self.currentSheet = nil
     }
     
+    var statsView: some View {
+        return ScrollView(.horizontal, showsIndicators: false) {
+            HStack(alignment: .top, spacing: Spacing.small) {
+                ForEach(self.stats) { stat in
+                    StatView(stat: stat)
+                        .background(named: .CardBackground)
+                        .cornerRadius(CornerRadius.normal)
+                    .fixedSize(horizontal: true, vertical: false)
+                }
+            }.padding([.leading, .trailing], Spacing.normal)
+            .padding(.bottom, Spacing.normal)
+            .padding(.top, Spacing.medium)
+        }
+    }
+    
+    func getSheetView(item: CurrentSheet) -> AnyView {
+            if item == .promptDetails && self.selectedEntry != nil {
+                return PromptContentView(entry: self.selectedEntry!,
+                                  onPromptDismiss: self.onPromptDismiss)
+                    .eraseToAnyView()
+            } else if item == .coreValuesAssessment {
+                return CoreValuesAssessmentWebView(onClose: {
+                    self.currentSheet = nil
+                })
+                .eraseToAnyView()
+            } else {
+                return NoContentErrorView()
+                    .eraseToAnyView()
+            }
+    }
+    
     var body: some View {
         VStack {
             ScrollView(.vertical, showsIndicators: false) {
                     VStack {
                         /// Start Stats HScroll View
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(alignment: .top, spacing: Spacing.small) {
-                                ForEach(self.stats) { stat in
-                                    StatView(stat: stat)
-                                        .background(named: .CardBackground)
-                                        .cornerRadius(CornerRadius.normal)                                        
-                                }
-                            }.padding([.leading, .trailing], Spacing.normal)
-                            .padding(.bottom, Spacing.normal)
-                            .padding(.top, Spacing.medium)
-                        }
+                        self.statsView
                         /// End Stats HScroll View
                         
                         /// Start padded content group
@@ -81,21 +102,9 @@ struct InsightsHome: View {
                     }
                 }
             .sheet(item: self.$currentSheet) { item in
-                if item == .promptDetails && self.selectedEntry != nil {
-                    PromptContentView(entry: self.selectedEntry!,
-                                      onPromptDismiss: self.onPromptDismiss)
-                        .environmentObject(self.session)
-                        .environmentObject(self.checkout)
-                        .eraseToAnyView()
-                } else if item == .coreValuesAssessment {
-                    CoreValuesAssessmentWebView(onClose: {
-                        self.currentSheet = nil
-                    }).environmentObject(self.session)
-                        .environmentObject(self.checkout)
-                    .eraseToAnyView()
-                } else {
-                    NoContentErrorView()
-                }
+                self.getSheetView(item: item)
+                    .environmentObject(self.session)
+                    .environmentObject(self.checkout)
             }
         }
     }
@@ -103,26 +112,54 @@ struct InsightsHome: View {
 }
 
 struct InsightsHome_Previews: PreviewProvider {
+    static func addStats(_ member: CactusMember) {
+        
+        let acc = ElementAccumulation()
+        let stats = ReflectionStats(currentStreakDays: 2,
+                                    currentStreakWeeks: 7,
+                                    currentStreakMonths: 12,
+                                    totalDurationMs: 29438283,
+                                    totalCount: 193,
+                                    elementAccumulation: acc)
+        let memberStats = MemberStats(reflections: stats)        
+        member.stats = memberStats
+    }
+    
+    static func addTodayEntry(_ session: SessionStore) {
+        session.todayEntry = MockData.getUnansweredEntry(isToday: true, blob: 4)
+        session.todayEntryLoaded = true
+    }
+    
     static var previews: some View {
         Group {
             ForEach(ColorScheme.allCases, id: \.hashValue) { color in
                 Group {
-                    InsightsHome().previewDisplayName("No Nav Wrapper (\(String(describing: color)))")
+                   NavigationView {
+                       InsightsHome().navigationBarTitle("Home")
+                   }
+                   .previewDisplayName("Loading Today Entry (\(String(describing: color)))")
+                   .background(named: .Background)
+                   .environmentObject(SessionStore.mockLoggedIn(tier: .PLUS, configMember: addStats, configStore: nil)
+                       .setEntries(MockData.getDefaultJournalEntries()))
+                   .colorScheme(color)
+               }
+                Group {
+                    InsightsHome().previewDisplayName("No Today Entry (\(String(describing: color)))")
                         .background(named: .Background)
-                        .environmentObject(SessionStore.mockLoggedIn().setEntries(MockData.getDefaultJournalEntries()))
+                        .environmentObject(SessionStore.mockLoggedIn(tier: .PLUS, configMember: addStats, configStore: {store in
+                            store.todayEntryLoaded = true
+                        })
+                            .setEntries(MockData.getDefaultJournalEntries()))
                         .colorScheme(color)
-                    
                 }
                 Group {
-                    NavigationView {
-                        InsightsHome().navigationBarTitle("Home")
-                    }
-                    .previewDisplayName("Insights Home (\(String(describing: color)))")
-                    .background(named: .Background)
-                    .environmentObject(SessionStore.mockLoggedIn().setEntries(MockData.getDefaultJournalEntries()))
-                    .colorScheme(color)
-                    
+                    InsightsHome().previewDisplayName("With Today Entry (\(String(describing: color)))")
+                        .background(named: .Background)
+                        .environmentObject(SessionStore.mockLoggedIn(tier: .PLUS, configMember: addStats, configStore: addTodayEntry)
+                            .setEntries(MockData.getDefaultJournalEntries()))
+                        .colorScheme(color)
                 }
+               
             }
         }
         
