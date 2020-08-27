@@ -22,6 +22,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var submitEmailButton: PrimaryButton!
     @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var loadingStackView: UIStackView!
     
     var authViewController: UIViewController?
     
@@ -119,6 +120,7 @@ class LoginViewController: UIViewController {
         self.otherProviderLabel.isHidden = false
         self.configureAuthView()
         self.cancelButton.isHidden = true
+        self.loadingStackView.isHidden = false
     }
     
     func showLoggedInUI(_ user: User) {
@@ -130,6 +132,7 @@ class LoginViewController: UIViewController {
         self.otherProviderLabel.isHidden = true
         
         self.activityIndicator.startAnimating()
+        self.loadingStackView.isHidden = false
         self.cancelButton.isHidden = false
         //        self.activityIndicator.isHidden = false
     }

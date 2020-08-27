@@ -44,6 +44,9 @@ final class SessionStore: ObservableObject {
     func logout() {
         AuthService.sharedInstance.logout()
         self.journalLoaded = false
+        self.onboardingEntryLoaded = false
+        SessionStore.shared = SessionStore()
+        SessionStore.shared.start()
     }
     
     func start() {
@@ -72,16 +75,10 @@ final class SessionStore: ObservableObject {
         self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember { (member, _, user) in
             self.logger.info("setup auth onData \(member?.email ?? "no email")" )
             self.member = member
-            self.user = user
-            
-//            if let memberId = member?.id {
-//                Purchases.shared.identify(memberId)
-//            } else {
-//                Purchases.shared.reset()
-//            }
-//            self.subscriberData.setMember(member)
+            self.user = user            
             self.authLoaded = true
             self.runPendingAuthActions()
+            self.journalFeedDataSource?.currentMember = member
         }
     }
     

@@ -60,10 +60,11 @@ class JournalFeedDataSource {
         self.unsubscribeAll()
         self.orderedPromptIds.removeAll()
         self.pages.removeAll()
-        self.todayData = nil
+        self.todayData = nil        
         journalEntryDataByPromptId.removeAll()
         self.hasStarted = false
-        self.hasLoaded = false        
+        self.hasLoaded = false
+        
         self.delegate?.dataLoaded()
     }
     
