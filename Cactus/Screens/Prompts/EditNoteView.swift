@@ -111,8 +111,7 @@ struct EditNoteView: View {
         }
         self.saving = true
         response.content.text = text
-        response.promptQuestion = title
-        Vibration.success.vibrate()
+        response.promptQuestion = title        
         if response.promptType == .FREE_FORM, let member = self.session.member {
             ReflectionResponseService.sharedInstance.saveFreeformNote(response, member: member, prompt: self.prompt) {
                 DispatchQueue.main.async {

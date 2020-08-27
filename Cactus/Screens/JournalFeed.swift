@@ -59,6 +59,7 @@ struct JournalFeed: View {
     
     func handleEntrySelected(_ entry: JournalEntry) {
         if entry.promptContent != nil {
+            Vibration.selection.vibrate()
             self.selectedEntry = entry
             self.currentSheet = .promptDetail(entry)
         } else {

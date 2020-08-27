@@ -42,7 +42,7 @@ struct PromptContentController: UIViewControllerRepresentable {
         }
         
         func didDismissPrompt(promptContent: PromptContent) {
-            Logger.shared.info("Coordiator: prompt was dismissed")
+            Logger.shared.info("Coordiator: prompt was dismissed")            
             self.parent.onDismiss?(promptContent)
         }
     }

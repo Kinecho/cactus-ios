@@ -172,11 +172,13 @@ class EditReflectionViewController: UIViewController, UIAdaptivePresentationCont
     }
     
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
+        Vibration.selection.vibrate()
         self.logger.info("cancel tapped")
         self.handleDismiss(sender)
     }
     
     @IBAction func doneButtonTapped(_ sender: Any) {
+        Vibration.selection.vibrate()
         self.logger.info("done tapped")
 //        self.delegate?.done(text: self.responseTextView.text)
         if self.prompt == nil || self.prompt?.isCustomPrompt != true {

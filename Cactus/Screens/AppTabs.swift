@@ -65,6 +65,9 @@ struct AppTabs: View {
                             HomeEmptyState()
                         }
                     }
+                    .onDisappear {
+                        Vibration.light.vibrate()
+                    }
                     .tabItem {
                         Image(uiImage: Feather.getIcon(.home)!)
                             .renderingMode(.template)
@@ -72,22 +75,32 @@ struct AppTabs: View {
                             .padding()
                         
                         Text(StringKey.Home)
-                    }.tag(Tab.home)
+                    }
+                    .tag(Tab.home)
                     
-                if self.session.journalEntries.isEmpty == false {
-                    NavigationView {
-                        JournalFeed()
-                        .navigationBarTitle("Journal")
-                    }.tabItem {
-                        Image(CactusImage.journal.rawValue)
-                            .renderingMode(.template)
-                            .resizable()
-                            .padding()
-                        Text("Journal")
-                    }.tag(Tab.journal)
-                }
+                    if self.session.journalEntries.isEmpty == false {
+                        NavigationView {
+                            JournalFeed()
+                            .navigationBarTitle("Journal")
+                        }
+                        .onDisappear {
+                            Vibration.light.vibrate()
+                        }
+                        .tabItem {
+                            Image(CactusImage.journal.rawValue)
+                                .renderingMode(.template)
+                                .resizable()
+                                .padding()
+                            Text("Journal")
+                        }
+                        .tag(Tab.journal)
+                        
+                    }
                     
                     SettingsHome()
+                    .onDisappear {
+                        Vibration.light.vibrate()
+                    }
                     .tabItem {
                         Image(uiImage: Feather.getIcon(.settings)!)
                             .renderingMode(.template)
@@ -95,6 +108,7 @@ struct AppTabs: View {
                         Text("Settings")
                     }
                     .tag(Tab.settings)
+
                 }
                 .onAppear {
                     self.updateAppearance()
@@ -106,8 +120,6 @@ struct AppTabs: View {
                 Spacer()
                 HStack {
                     Spacer()
-                    
-//                    CactusButton(nil, .buttonPrimary, icon: Icon.getImage(Feather.IconName.edit)?.image)
                     ComposeNoteButton()
                         .offset(x: -Spacing.medium, y: -Spacing.giant)
                 }

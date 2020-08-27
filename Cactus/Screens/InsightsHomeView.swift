@@ -92,6 +92,7 @@ struct InsightsHome: View {
                             }
                             
                             CoreValuesWidget(showAssessment: {
+                                Vibration.selection.vibrate()
                                 self.currentSheet = .coreValuesAssessment
                             })
                               

@@ -242,6 +242,7 @@ class PromptContentPageViewController: UIPageViewController {
     }
     
     @objc func dismissPrompt() {
+        Vibration.light.vibrate()
         self.dismiss(animated: true, completion: {
             //todo: log analytics that prompt was dismissed
             self.promptDelegate?.didDismissPrompt(promptContent: self.promptContent)

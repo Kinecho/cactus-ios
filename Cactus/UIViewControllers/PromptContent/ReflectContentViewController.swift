@@ -70,6 +70,7 @@ class ReflectContentViewController: PromptContentViewController {
     }
     
     @IBAction func addNoteTapped(_ sender: Any) {
+        Vibration.selection.vibrate()
         let editVc = self.createEditReflectionModal()
         self.editViewController = editVc
         self.present(editVc, animated: true)
