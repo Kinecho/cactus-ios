@@ -40,7 +40,8 @@ def app_pods
 end
 
 
-def today_pods        
+def today_pods
+    pod 'Branch'
     pod 'Firebase/Auth'
     pod 'Firebase/Core'
     pod 'Firebase/Firestore'

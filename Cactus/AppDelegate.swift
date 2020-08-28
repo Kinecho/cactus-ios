@@ -66,6 +66,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       
         CactusMemberService.sharedInstance.instanceIDDelegate = self
         
+        BranchScene.shared().initSession(launchOptions: launchOptions) { (params, error, scene) in
+            // this has the UIScene in the callback (not sure what this means)
+            // See https://help.branch.io/developers-hub/docs/ios-basic-integration#section-apps-using-scenes
+            self.logger.info("Branch Scene Init completed")
+            StorageService.sharedInstance.setBranchParameters(params)
+        }
+        
         return true
     }
     
@@ -214,7 +221,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String? else {
             return false
         }
-        self.logger.debug("Starting application open url method (line 79)", functionName: #function, line: #line)
+        self.logger.debug("Starting application open url method (line 79) \(url.absoluteString)", functionName: #function, line: #line)
         if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
             self.logger.debug("Handled by firebase auth ui")
             return true

@@ -11,6 +11,7 @@ import Combine
 import SwiftUI
 import FirebaseFirestore
 import Purchases
+import Branch
 
 typealias PendingAction = (_ member: CactusMember?) -> Void
 
@@ -76,12 +77,21 @@ final class SessionStore: ObservableObject {
             self.logger.info("setup auth onData \(member?.email ?? "no email")" )
             self.member = member
             self.user = user            
+            self.updateAnalytics(with: member)
             self.authLoaded = true
             self.runPendingAuthActions()
             self.journalFeedDataSource?.currentMember = member
+            
         }
     }
     
+    func updateAnalytics(with member: CactusMember?) {
+        if let member = member, let memberId = member.id {
+            Branch.getInstance().setIdentity(memberId)
+        } else {
+            Branch.getInstance().logout()
+        }
+    }
     
     func setEntries(_ entries: [JournalEntry], loaded: Bool=true) -> SessionStore {
         self.journalEntries = entries
