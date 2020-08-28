@@ -22,6 +22,7 @@ class ProfileSettingsViewController: UIViewController {
     @IBOutlet weak var saveActionsBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var scrollContentView: UIView!
     @IBOutlet weak var deleteCactusButton: UIButton!
+    @IBOutlet weak var signOutButton: SecondaryButton!
     
     var member: CactusMember? {
         didSet {
@@ -214,6 +215,35 @@ class ProfileSettingsViewController: UIViewController {
         
 //        alert.message = alertMessage
         self.present(alert, animated: true, completion: nil)
+    }
+    @IBAction func signOutTapped(_ sender: Any) {
+        
+        var  message = "Are you sure you want to log out?"
+        if let user = AuthService.sharedInstance.getCurrentUser(), (user.displayName != nil || user.email != nil) {
+            var name = user.email
+            if name == nil {
+                name = user.displayName
+            }
+            if name != nil {
+                message = "Are you sure you want to log out of \(name!)?"
+            }
+        }
+        let vc = self
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
+        alert.popoverPresentationController?.sourceView = self.signOutButton
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Log Out", style: .destructive) { _ in
+            CactusMemberService.sharedInstance.removeFCMToken(onCompleted: { (error) in
+                if let error = error {
+                    self.logger.error("Failed to remove tokens from Cactus User. Oh well - still logging out", error)
+                }
+                
+                AuthService.sharedInstance.logout()
+                vc.dismiss(animated: false, completion: nil)
+            })
+        })
+        vc.present(alert, animated: true)
     }
 }
 

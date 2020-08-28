@@ -136,7 +136,9 @@ struct PricingView: View {
                 
                 
                     PlusFeaturesPagination(features: self.features, height: 250)
-                        .height(250)
+//                        .height(250)
+                    .minHeight(270)
+                    .fixedSize(horizontal: false, vertical: true)
                         .pageIndicatorTintColor(NamedColor.GreenDarkest.color)
                         .currentPageIndicatorTintColor(NamedColor.Green.color)
                         .offset(x: 0, y: -20)
@@ -155,6 +157,7 @@ struct PricingView: View {
                                     .onTapGesture {
                                         self.selectedProductId = product.productIdentifier
                                     }
+                            .fixedSize(horizontal: true, vertical: false)
                                     
                             }
                             Spacer()

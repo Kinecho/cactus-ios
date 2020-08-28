@@ -33,7 +33,9 @@ struct PlusFeaturesPagination: View {
                                         title: feature.titleMarkdown!,
                                         description: feature.descriptionMarkdown!)
                             .padding()
-                        }                    
+                            .fixedSize(horizontal: false, vertical: true)
+                        }
+                    .fixedSize(horizontal: false, vertical: true)
                         .onAppear {
                             UIScrollView.appearance().bounces = false
                         }.onDisappear {

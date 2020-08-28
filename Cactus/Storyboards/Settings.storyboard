@@ -872,10 +872,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="684"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aGo-cF-TIa">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="532"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="center" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6Tm-UU-YRA">
-                                                        <rect key="frame" x="0.0" y="40" width="414" height="412"/>
+                                                        <rect key="frame" x="0.0" y="40" width="414" height="503"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="7aZ-Pu-o5a" userLabel="First Name Input Stack View">
                                                                 <rect key="frame" x="20" y="8" width="374" height="54.5"/>
@@ -989,15 +989,37 @@
                                                                     </textView>
                                                                 </subviews>
                                                             </stackView>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Qbk-fa-WzT" userLabel="Delete Account StackView">
-                                                                <rect key="frame" x="20" y="312" width="374" height="92"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="Qbk-fa-WzT" userLabel="Delete Account StackView">
+                                                                <rect key="frame" x="20" y="312" width="374" height="183"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2zK-2d-1MB" customClass="RoundedButton" customModule="Cactus" customModuleProvider="target">
-                                                                        <rect key="frame" x="8" y="60" width="358" height="24"/>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhN-N8-x11" userLabel="Sign Out Button">
+                                                                        <rect key="frame" x="8" y="60" width="200" height="31"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="200" id="dn8-A4-D2p"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
+                                                                        <color key="tintColor" name="Green"/>
+                                                                        <state key="normal" title="Sign Out"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                                <color key="value" name="BorderLight"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="thickness">
+                                                                                <real key="value" value="1"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="showBorder" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="signOutTapped:" destination="KAd-di-PWW" eventType="primaryActionTriggered" id="b0X-Nn-9qk"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2zK-2d-1MB">
+                                                                        <rect key="frame" x="8" y="151" width="144" height="24"/>
                                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                                                         <color key="tintColor" name="Danger"/>
-                                                                        <inset key="titleEdgeInsets" minX="6" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                                        <state key="normal" title="Delete Cactus Account" image="trash">
+                                                                        <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                                                        <state key="normal" title="Delete Account" image="trash">
                                                                             <color key="titleColor" name="Danger"/>
                                                                         </state>
                                                                         <userDefinedRuntimeAttributes>
@@ -1007,12 +1029,23 @@
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="imageHeight">
                                                                                 <real key="value" value="20"/>
                                                                             </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                                <color key="value" name="Danger"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="showBorder" value="YES"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="thickness">
+                                                                                <real key="value" value="1"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                                                <color key="value" name="Danger"/>
+                                                                            </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="deleteAccountTapped:" destination="KAd-di-PWW" eventType="primaryActionTriggered" id="8f2-mp-XD3"/>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
+                                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <edgeInsets key="layoutMargins" top="60" left="8" bottom="8" right="8"/>
                                                             </stackView>
                                                         </subviews>
@@ -1124,6 +1157,7 @@
                         <outlet property="saveActionsStackView" destination="9Q1-ti-tZe" id="xbP-Op-ZBP"/>
                         <outlet property="saveButton" destination="JhN-L9-EV7" id="J5B-JA-Jb7"/>
                         <outlet property="scrollContentView" destination="aGo-cF-TIa" id="zLn-Lm-emh"/>
+                        <outlet property="signOutButton" destination="QhN-N8-x11" id="uUg-ZJ-aAA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pc9-hJ-qYt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1191,6 +1225,9 @@
         <image name="trash" width="24" height="24"/>
         <namedColor name="Background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BorderLight">
+            <color red="0.94509803921568625" green="0.92156862745098034" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Danger">
             <color red="0.80000000000000004" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

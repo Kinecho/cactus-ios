@@ -63,10 +63,7 @@ struct AppTabs: View {
                 HomeEmptyState()
             }
         }
-            .maxWidth(self.maxWidth)
-        .onDisappear {
-            Vibration.light.vibrate()
-        }
+        .maxWidth(self.maxWidth)
         .tabItem {
             Image(uiImage: Feather.getIcon(.home)!)
                 .renderingMode(.template)
@@ -91,9 +88,6 @@ struct AppTabs: View {
             }
         }
             .maxWidth(self.maxWidth)
-        .onDisappear {
-            Vibration.light.vibrate()
-        }
         .tabItem {
             Image(CactusImage.journal.rawValue)
                 .renderingMode(.template)
@@ -106,10 +100,7 @@ struct AppTabs: View {
     }
     
     var settingsTabView: AnyView {
-        return SettingsHome()
-        .onDisappear {
-            Vibration.light.vibrate()
-        }
+        return SettingsHome()        
         .tabItem {
             Image(uiImage: Feather.getIcon(.settings)!)
                 .renderingMode(.template)

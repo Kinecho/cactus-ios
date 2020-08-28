@@ -29,19 +29,20 @@ struct SettingsItemView: View {
     var item: SettingsItem
     @Binding var selectedId: Int?
     
-    let highlightColor: Color = NamedColor.GrayLight.color
+    let highlightColor: Color = NamedColor.Highlight.color.opacity(0.4)
     
     var body: some View {
         NavigationLink(destination: self.item.destination
             .onAppear {
                 self.selectedId = self.item.id
             }
+            .onDisappear {
+                self.selectedId = nil
+            }
             .maxWidth(700)
             .ifMatches(self.item.setNavigationTitle) { content in
                 content.navigationBarTitle(item.title)
-            },
-            tag: self.item.id,
-            selection: self.$selectedId
+            }
         ) {
             HStack {
                 VStack(alignment: .leading) {
@@ -52,10 +53,9 @@ struct SettingsItemView: View {
                             .foregroundColor(CactusColor.textMinimized.color)
                     }
                 }
-            }.tag(item.id)
+            }
         }
         .isDetailLink(true)
-        .tag(item.id)
         .minHeight(44)
         .padding([.leading, .trailing], Spacing.normal)
         .padding([.top, .bottom], Spacing.medium)
@@ -68,7 +68,7 @@ struct SettingsItemView: View {
 struct SettingsHome: View {
     @EnvironmentObject var session: SessionStore
     @State var isLoggingOut: Bool = false
-    @State var selectedItemId: Int? = 1
+    @State var selectedItemId: Int?
     
     var items: [SettingsItem] {
         let email = self.session.member?.email
@@ -92,13 +92,13 @@ struct SettingsHome: View {
         ]
     }
     
-    var tableFooterView: some View {
-        CactusButton("Log Out", .link).onTapGesture {
-                self.isLoggingOut = true
-        }
-        .padding([.top, .bottom], Spacing.normal)
-        .padding(.leading, Spacing.xsmall)
-    }
+//    var tableFooterView: some View {
+//        CactusButton("Log Out", .link).onTapGesture {
+//                self.isLoggingOut = true
+//        }
+//        .padding([.top, .bottom], Spacing.normal)
+//        .padding(.leading, Spacing.xsmall)
+//    }
     
     var logoutActionSheet: ActionSheet {
         ActionSheet(title: Text(.LogOut),
@@ -113,8 +113,8 @@ struct SettingsHome: View {
     
     var body: some View {
         NavigationView {
-            List(selection: self.$selectedItemId) {
-                Section(footer: self.tableFooterView) {
+            List {
+                Section {
                     ForEach(self.items) { item in
                         SettingsItemView(item: item, selectedId: self.$selectedItemId)
                             .tag(item.id)
@@ -138,7 +138,7 @@ struct SettingsHome: View {
         }
         .navigationViewStyle(DoubleColumnNavigationViewStyle())
         .actionSheet(isPresented: self.$isLoggingOut) { self.logoutActionSheet }
-        
+//        .popover(isPresented: self.$isLoggingOut, content: {self.logoutActionSheet})
     }
 }
 

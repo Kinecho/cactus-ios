@@ -37,7 +37,8 @@ class SecondaryButton: UIButton {
         @IBInspectable var verticalPadding: CGFloat = 12
         @IBInspectable var borderColor: UIColor = CactusColor.lightBlue
         @IBInspectable var showBorder: Bool = false
-                
+        @IBInspectable var textColor: UIColor = CactusColor.textDefault
+    
         @IBInspectable var borderRadius: CGFloat {
             get {
                 return self.layer.cornerRadius
@@ -68,7 +69,7 @@ class SecondaryButton: UIButton {
             
             self.setTitleColor(.white, for: .normal)
             self.titleLabel?.font = CactusFont.normal(self.fontSize)
-            self.setTitleColor(CactusColor.textDefault, for: .normal)
+            self.setTitleColor(self.textColor, for: .normal)
             self.setTitleColor(CactusColor.darkText, for: .disabled)
             self.imageView?.tintColor = CactusColor.textDefault
             
