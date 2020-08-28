@@ -56,7 +56,10 @@ struct JournalUpgradeBanner: View {
         }
         .padding(Spacing.normal)
         .background(Image(CactusImage.plusBg.rawValue)
-        .background(CactusColor.indigo.color), alignment: .top)
+        .resizable()
+        .aspectRatio(contentMode: .fill)
+            .background(CactusColor.indigo.color),
+                    alignment: .top)
 //        .clipped()
         .cornerRadius(CornerRadius.normal)
 //        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity, alignment: .topLeading)

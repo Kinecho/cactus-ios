@@ -7,17 +7,23 @@
 //
 
 import SwiftUI
-
+import UIKit
 struct WelcomeController: UIViewControllerRepresentable {
     
     @EnvironmentObject var session: SessionStore
     
-    func makeUIViewController(context: Context) -> WelcomeViewController {
+    func makeUIViewController(context: Context) -> UINavigationController {
         let vc = ScreenID.WelcomeVC.getViewController() as! WelcomeViewController
-        return vc
+        
+//        vc.navigationItem.hide
+        let nav = UINavigationController(rootViewController: vc)
+        nav.hidesBarsOnTap = true
+        nav.navigationBar.isHidden = true
+        
+        return nav
     }
     
-    func updateUIViewController(_ uiViewController: WelcomeViewController, context: Context) {
+    func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {
         // nothing to update
     }
     
@@ -27,10 +33,9 @@ struct Welcome: View {
     @EnvironmentObject var session: SessionStore
     
     var body: some View {
-        NavigationView {
             WelcomeController()
                 .edgesIgnoringSafeArea(.vertical)
-        }
+                .background(named: .Green)
     }
 }
 

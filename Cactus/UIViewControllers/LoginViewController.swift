@@ -58,7 +58,7 @@ class LoginViewController: UIViewController {
     
     func submitMagicLinkEmail(_ email: String?) {
         self.submitEmailButton.setEnabled(false)
-        self.submitEmailButton.setTitle("Submitting...", for: .disabled)
+//        self.submitEmailButton.setTitle("Submitting...", for: .disabled)
         guard let email = email?.trimmingCharacters(in: .whitespacesAndNewlines),
             isValidEmail(email) else {
                 self.showInvalidEmail()
@@ -120,7 +120,7 @@ class LoginViewController: UIViewController {
         self.otherProviderLabel.isHidden = false
         self.configureAuthView()
         self.cancelButton.isHidden = true
-        self.loadingStackView.isHidden = false
+        self.loadingStackView.isHidden = true
     }
     
     func showLoggedInUI(_ user: User) {

@@ -11,12 +11,13 @@ import SwiftUI
 
 struct SettingsItem: Identifiable {
     
-    var id = UUID()
+    var id: Int
     var title: String
     var subtitle: String?
     var destination: AnyView
     var setNavigationTitle: Bool
-    init<V>(_ title: String, _ subtitle: String?=nil, destination: V, setNavigationTitle: Bool=true) where V: View {
+    init<V>(id: Int, _ title: String, _ subtitle: String?=nil, destination: V, setNavigationTitle: Bool=true) where V: View {
+        self.id = id
         self.title = title
         self.subtitle = subtitle
         self.destination = AnyView(destination)
@@ -26,33 +27,49 @@ struct SettingsItem: Identifiable {
 
 struct SettingsItemView: View {
     var item: SettingsItem
+    @Binding var selectedId: Int?
+    
+    let highlightColor: Color = NamedColor.GrayLight.color
     
     var body: some View {
         NavigationLink(destination: self.item.destination
+            .onAppear {
+                self.selectedId = self.item.id
+            }
+            .maxWidth(700)
             .ifMatches(self.item.setNavigationTitle) { content in
                 content.navigationBarTitle(item.title)
-            }
+            },
+            tag: self.item.id,
+            selection: self.$selectedId
         ) {
             HStack {
                 VStack(alignment: .leading) {
                     Text(item.title)
                     if item.subtitle != nil {
-                        Text(item.subtitle!).font(CactusFont.normal(FontSize.small).font).foregroundColor(CactusColor.textMinimized.color)
+                        Text(item.subtitle!)
+                            .font(CactusFont.normal(FontSize.small).font)
+                            .foregroundColor(CactusColor.textMinimized.color)
                     }
                 }
-            }
+            }.tag(item.id)
         }
+        .isDetailLink(true)
+        .tag(item.id)
         .minHeight(44)
         .padding([.leading, .trailing], Spacing.normal)
         .padding([.top, .bottom], Spacing.medium)
         .listRowInsets(EdgeInsets())
         .foregroundColor(CactusColor.highContrast.color)
+        .ifMatches(self.selectedId == self.item.id, content: { $0.background(self.highlightColor)})
     }
 }
 
 struct SettingsHome: View {
     @EnvironmentObject var session: SessionStore
     @State var isLoggingOut: Bool = false
+    @State var selectedItemId: Int? = 1
+    
     var items: [SettingsItem] {
         let email = self.session.member?.email
         var profileSubTitle: String? = email
@@ -64,14 +81,14 @@ struct SettingsHome: View {
         let providers = self.session.user?.providerData.map {$0.providerID} ?? ["password"]
         
         return [
-            SettingsItem("Profile", profileSubTitle, destination: ProfileSettingsView()),
-            SettingsItem("Notifications", destination: NotificationSettingsView()),
-            SettingsItem("Subscription", tier.displayName, destination: SubscriptionSettingsView()),
-            SettingsItem("Linked Accounts", destination: LinkedAccountsView(providers: providers).navigationBarTitle("Linked Accounts")),
-            SettingsItem("Help", destination: HelpView(), setNavigationTitle: true),
-            SettingsItem("Feedback", destination: FeedbackView(), setNavigationTitle: true),
-            SettingsItem("Terms of Service", destination: TermsOfServiceView(), setNavigationTitle: false),
-            SettingsItem("Privacy Policy", destination: PrivacyPolicyView(), setNavigationTitle: false),
+            SettingsItem(id: 1, "Profile", profileSubTitle, destination: ProfileSettingsView()),
+            SettingsItem(id: 2, "Notifications", destination: NotificationSettingsView()),
+            SettingsItem(id: 3, "Subscription", tier.displayName, destination: SubscriptionSettingsView()),
+            SettingsItem(id: 4,"Linked Accounts", destination: LinkedAccountsView(providers: providers).navigationBarTitle("Linked Accounts")),
+            SettingsItem(id: 5,"Help", destination: HelpView(), setNavigationTitle: true),
+            SettingsItem(id: 6,"Feedback", destination: FeedbackView(), setNavigationTitle: true),
+            SettingsItem(id: 7,"Terms of Service", destination: TermsOfServiceView(), setNavigationTitle: false),
+            SettingsItem(id: 8,"Privacy Policy", destination: PrivacyPolicyView(), setNavigationTitle: false),
         ]
     }
     
@@ -96,13 +113,13 @@ struct SettingsHome: View {
     
     var body: some View {
         NavigationView {
-            List {
+            List(selection: self.$selectedItemId) {
                 Section(footer: self.tableFooterView) {
                     ForEach(self.items) { item in
-                        SettingsItemView(item: item)
+                        SettingsItemView(item: item, selectedId: self.$selectedItemId)
+                            .tag(item.id)
                     }
                 }
-                
             }
             .listStyle(GroupedListStyle())
             .onAppear {
@@ -111,7 +128,15 @@ struct SettingsHome: View {
             }
             .font(CactusFont.normal.font)
             .navigationBarTitle("Settings")
+            .navigationViewStyle(DoubleColumnNavigationViewStyle())
+            
+            self.items.first!.destination
+                .ifMatches(self.items.first!.setNavigationTitle) { content in
+                content.navigationBarTitle(self.items.first!.title)
+            }
+            
         }
+        .navigationViewStyle(DoubleColumnNavigationViewStyle())
         .actionSheet(isPresented: self.$isLoggingOut) { self.logoutActionSheet }
         
     }

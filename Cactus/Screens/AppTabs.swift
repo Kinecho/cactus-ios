@@ -17,7 +17,7 @@ struct AppTabs: View {
     @EnvironmentObject var session: SessionStore
     @EnvironmentObject var checkout: CheckoutStore
     @State private var selection = Tab.home
-    
+    let maxWidth: CGFloat = 700
     let tabImageSize: CGSize = CGSize(width: 30, height: 30)
     
     init() {
@@ -52,84 +52,111 @@ struct AppTabs: View {
         ]
     }
     
-    var body: some View {
-        ZStack {
-            TabView(selection: $selection) {
-                    Group {
-                        if self.session.journalEntries.isEmpty == false {
-                            NavigationView {
-                                InsightsHome()
-                                    .navigationBarTitle(Text(self.homeTitle), displayMode: .large)
-                            }
-                        } else {
-                            HomeEmptyState()
-                        }
-                    }
-                    .onDisappear {
-                        Vibration.light.vibrate()
-                    }
-                    .tabItem {
-                        Image(uiImage: Feather.getIcon(.home)!)
-                            .renderingMode(.template)
-                            .resizable()
-                            .padding()
-                        
-                        Text(StringKey.Home)
-                    }
-                    .tag(Tab.home)
-                    
-                    Group {
-                        if self.session.journalEntries.isEmpty == false {
-                            NavigationView {
-                                JournalFeed()
-                                .navigationBarTitle("Journal")
-                            }
-                        } else {
-                            JournalEmptyStateView()
-                        }
-                    }                    
-                    .onDisappear {
-                        Vibration.light.vibrate()
-                    }
-                    .tabItem {
-                        Image(CactusImage.journal.rawValue)
-                            .renderingMode(.template)
-                            .resizable()
-                            .padding()
-                        Text("Journal")
-                    }
-                    .tag(Tab.journal)
-                                        
-                    
-                    SettingsHome()
-                    .onDisappear {
-                        Vibration.light.vibrate()
-                    }
-                    .tabItem {
-                        Image(uiImage: Feather.getIcon(.settings)!)
-                            .renderingMode(.template)
-                            .resizable()
-                        Text("Settings")
-                    }
-                    .tag(Tab.settings)
-
+    var homeTabView: AnyView {
+        return Group {
+            if self.session.journalEntries.isEmpty == false {
+                NavigationView {
+                    InsightsHome()
+                        .navigationBarTitle(Text(self.homeTitle), displayMode: .large)
                 }
-                .onAppear {
-                    self.updateAppearance()
-                } 
-                .accentColor(CactusColor.highContrast.color)
-                .font(Font(CactusFont.normal))
-                
-            VStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    ComposeNoteButton()
-                        .offset(x: -Spacing.medium, y: -Spacing.giant)
-                }
+            } else {
+                HomeEmptyState()
             }
-        }.environmentObject(session)
+        }
+            .maxWidth(self.maxWidth)
+        .onDisappear {
+            Vibration.light.vibrate()
+        }
+        .tabItem {
+            Image(uiImage: Feather.getIcon(.home)!)
+                .renderingMode(.template)
+                .resizable()
+                .padding()
+            
+            Text(StringKey.Home)
+        }
+        .tag(Tab.home)
+        .eraseToAnyView()
+    }
+    
+    var journalTabView: AnyView {
+        return Group {
+            if self.session.journalEntries.isEmpty == false {
+                NavigationView {
+                    JournalFeed()
+                    .navigationBarTitle("Journal")
+                }
+            } else {
+                JournalEmptyStateView()
+            }
+        }
+            .maxWidth(self.maxWidth)
+        .onDisappear {
+            Vibration.light.vibrate()
+        }
+        .tabItem {
+            Image(CactusImage.journal.rawValue)
+                .renderingMode(.template)
+                .resizable()
+                .padding()
+            Text("Journal")
+        }
+        .tag(Tab.journal)
+        .eraseToAnyView()
+    }
+    
+    var settingsTabView: AnyView {
+        return SettingsHome()
+        .onDisappear {
+            Vibration.light.vibrate()
+        }
+        .tabItem {
+            Image(uiImage: Feather.getIcon(.settings)!)
+                .renderingMode(.template)
+                .resizable()
+            Text("Settings")
+        }
+        .tag(Tab.settings)
+        .eraseToAnyView()
+
+    }
+    
+    var appTabView: some View {
+        return TabView(selection: self.$selection) {
+            self.homeTabView
+            self.journalTabView
+            self.settingsTabView
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+        .accentColor(CactusColor.highContrast.color)
+        .font(Font(CactusFont.normal))
+                    
+    }
+    
+    var composeNoteView: some View {
+        VStack {
+            Spacer()
+            HStack {
+                Spacer()
+                ComposeNoteButton()
+                    .offset(x: -Spacing.medium, y: -Spacing.giant)
+            }
+        }
+    }
+    
+    var body: some View {
+//        NavigationView {
+            ZStack {
+                self.appTabView
+                self.composeNoteView
+            }
+//        }
+        .onAppear {
+            self.updateAppearance()
+        }
+        .environmentObject(session)
         .environmentObject(checkout)
+        
         
     }
 }
