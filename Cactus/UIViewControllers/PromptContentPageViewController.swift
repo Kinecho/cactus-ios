@@ -135,16 +135,14 @@ class PromptContentPageViewController: UIPageViewController {
     func configureScreens() {
         var screens: [UIViewController] = []
         self.promptContent.content.forEach({ (content) in
-            if let screen = self.getContentViewController(content) {
-                
+            if let screen = self.getContentViewController(content) {                
                 screens.append(screen)
-                
             }
         })
         
-        if let lastScreen = screens.last(where: { $0 is PromptContentViewController} ) as? PromptContentViewController {
-            lastScreen.isLastCard = true
-        }
+//        if let lastScreen = screens.last(where: { $0 is PromptContentViewController} ) as? PromptContentViewController {
+//            lastScreen.isLastCard = true
+//        }
                 
         let celebrate = CelebrateViewController.loadFromNib()
         celebrate.reflectionResponse = self.reflectionResponse
@@ -185,6 +183,9 @@ class PromptContentPageViewController: UIPageViewController {
     }
     
     func getContentViewController(_ content: Content) -> PromptContentViewController? {
+        let index = self.promptContent.content.firstIndex(where: {$0 === content})
+        let isLast = index == promptContent.content.endIndex - 1
+        
         var viewController: PromptContentViewController?
         var backgroundColor: UIColor? = CactusColor.promptBackground
         switch content.contentType {
@@ -213,6 +214,7 @@ class PromptContentPageViewController: UIPageViewController {
         }
         
         if let vc = viewController {
+            vc.isLastCard = isLast
             vc.content = content
             vc.promptContent = promptContent
             vc.delegate = self

@@ -26,7 +26,10 @@ class InviteContentViewController: PromptContentViewController, CNContactPickerD
         self.configureView()
     }
 
-    func configureView() {
+    override func configureView() {
+        guard self.isViewLoaded else {
+            return
+        }
         invitePreview.addShadows()
         self.inviteDescriptionLabel.text = self.inviteDescriptionLabel.text?.preventOrphanedWords()
     }

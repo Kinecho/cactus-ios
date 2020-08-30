@@ -156,7 +156,7 @@ class ReflectContentViewController: PromptContentViewController {
         self.reflectionTextView.layer.borderColor = CactusColor.textMinimized.cgColor
     }
     
-    func configureView() {
+    override func configureView() {
         guard self.isViewLoaded else {
             return
         }

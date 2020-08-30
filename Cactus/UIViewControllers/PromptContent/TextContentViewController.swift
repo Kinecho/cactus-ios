@@ -65,7 +65,7 @@ class TextContentViewController: PromptContentViewController {
         
     }
     
-    func configureView() {
+    override func configureView() {
         guard self.isViewLoaded else {
             return
         }

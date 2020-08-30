@@ -14,8 +14,8 @@ struct WelcomeController: UIViewControllerRepresentable {
     
     func makeUIViewController(context: Context) -> UINavigationController {
         let vc = ScreenID.WelcomeVC.getViewController() as! WelcomeViewController
-        
-//        vc.navigationItem.hide
+        vc.appSettings = session.settings
+
         let nav = UINavigationController(rootViewController: vc)
         nav.hidesBarsOnTap = true
         nav.navigationBar.isHidden = true

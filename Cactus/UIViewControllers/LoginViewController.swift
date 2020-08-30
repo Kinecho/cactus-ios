@@ -23,6 +23,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var submitEmailButton: PrimaryButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var loadingStackView: UIStackView!
+    @IBOutlet weak var backgroundImageView: UIImageView!
     
     var authViewController: UIViewController?
     
@@ -39,6 +40,8 @@ class LoginViewController: UIViewController {
         self.emailInputView.attributedPlaceholder = NSAttributedString(string: "Enter your email address").withColor(CactusColor.darkText)
         self.view.setupKeyboardDismissRecognizer()
         self.emailInputView.delegate = self
+        self.backgroundImageView.transform = CGAffineTransform(scaleX: -1, y: 1)
+     
     }
     
     deinit {

@@ -23,7 +23,10 @@ class QuoteContentViewController: PromptContentViewController {
         // Do any additional setup after loading the view.
     }
 
-    func configureView() {
+    override func configureView() {
+        guard self.isViewLoaded else {
+            return
+        }
         self.initTextView(self.quoteText)
         self.initTextView(self.authorNameTextView)
         self.initTextView(self.authorTitleTextView)

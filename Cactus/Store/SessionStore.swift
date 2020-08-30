@@ -22,23 +22,21 @@ final class SessionStore: ObservableObject {
     @Published var user: FirebaseUser?
     @Published var settings: AppSettings?
     @Published var useImagePlaceholders: Bool = false
-        
+    @Published var journalEntries: [JournalEntry] = []
+    @Published var journalLoaded = false
+    @Published var todayEntry: JournalEntry?
+    @Published var todayEntryLoaded: Bool = false
+    @Published var onboardingEntry: JournalEntry?
+    @Published var onboardingEntryLoaded: Bool = false
+    @Published var showOnboarding: Bool = false
+    
     var useMockImages = false
     var pendingAuthActions: [PendingAction] = []
     var settingsObserver: ListenerRegistration?
     var memberUnsubscriber: Unsubscriber?
     var journalFeedDataSource: JournalFeedDataSource?
+//    let objectWillChange = PassthroughSubject<SessionStore,Never>()
     
-    @Published var journalEntries: [JournalEntry] = []
-    @Published var journalLoaded = false
-    
-    @Published var todayEntry: JournalEntry?
-    @Published var todayEntryLoaded: Bool = false
-    
-    @Published var onboardingEntry: JournalEntry?
-    @Published var onboardingEntryLoaded: Bool = false
-    
-    @Published var showOnboarding: Bool = false
     
     let logger = Logger("SessionStore")
     
@@ -74,14 +72,16 @@ final class SessionStore: ObservableObject {
     
     func setupAuth() {
         self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember { (member, _, user) in
-            self.logger.info("setup auth onData \(member?.email ?? "no email")" )
-            self.member = member
-            self.user = user            
-            self.updateAnalytics(with: member)
-            self.authLoaded = true
-            self.runPendingAuthActions()
-            self.journalFeedDataSource?.currentMember = member
-            
+            DispatchQueue.main.async {
+                self.logger.info("setup auth onData \(member?.email ?? "no email")" )
+                self.updateAnalytics(with: member)
+                self.journalFeedDataSource?.currentMember = member
+                self.member = member
+                self.user = user
+                self.authLoaded = true
+                self.runPendingAuthActions()
+            }
+                                    
         }
     }
     
@@ -209,18 +209,18 @@ extension SessionStore: JournalFeedDataSourceDelegate {
             .orderedPromptIds
             .compactMap({self.journalFeedDataSource?.journalEntryDataByPromptId[$0]?.getJournalEntry()}) ?? []
         
-//        if entries.isEmpty {
-//            self.showOnboarding = true
-//        } else if entries.count > 1 {
-//            self.showOnboarding = false
-//        }
-//        else if entries.first?.promptContent?.entryId != nil && entries.first?.promptContent?.entryId == self.settings?.firstPromptContentEntryId {
-//            self.showOnboarding = true
-//        }
-//        if  entries.isEmpty {
-//            self.showOnboarding = true
-//        }
-//        self.journalLoaded = true
+        //        if entries.isEmpty {
+        //            self.showOnboarding = true
+        //        } else if entries.count > 1 {
+        //            self.showOnboarding = false
+        //        }
+        //        else if entries.first?.promptContent?.entryId != nil && entries.first?.promptContent?.entryId == self.settings?.firstPromptContentEntryId {
+        //            self.showOnboarding = true
+        //        }
+        //        if  entries.isEmpty {
+        //            self.showOnboarding = true
+        //        }
+        //        self.journalLoaded = true
         self.journalEntries = entries
     }
     

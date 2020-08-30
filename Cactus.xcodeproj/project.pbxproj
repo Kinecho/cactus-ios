@@ -1162,6 +1162,9 @@
 		30D598AE24F9AB970012A83F /* LogOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D598AD24F9AB970012A83F /* LogOutView.swift */; };
 		30D598AF24F9AB970012A83F /* LogOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D598AD24F9AB970012A83F /* LogOutView.swift */; };
 		30D598B024F9AB970012A83F /* LogOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D598AD24F9AB970012A83F /* LogOutView.swift */; };
+		30D598B224F9D93B0012A83F /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D598B124F9D93B0012A83F /* LaunchScreenView.swift */; };
+		30D598B324F9D93B0012A83F /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D598B124F9D93B0012A83F /* LaunchScreenView.swift */; };
+		30D598B424F9D93B0012A83F /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D598B124F9D93B0012A83F /* LaunchScreenView.swift */; };
 		30D63EAC24E20A9D00FBD884 /* RefreshableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D63EAB24E20A9D00FBD884 /* RefreshableScrollView.swift */; };
 		30D63EAD24E20A9D00FBD884 /* RefreshableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D63EAB24E20A9D00FBD884 /* RefreshableScrollView.swift */; };
 		30D63EAE24E20A9D00FBD884 /* RefreshableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D63EAB24E20A9D00FBD884 /* RefreshableScrollView.swift */; };
@@ -1644,6 +1647,7 @@
 		30D598A324F8142C0012A83F /* Vibration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vibration.swift; sourceTree = "<group>"; };
 		30D598A924F83B6C0012A83F /* JournalEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEmptyStateView.swift; sourceTree = "<group>"; };
 		30D598AD24F9AB970012A83F /* LogOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutView.swift; sourceTree = "<group>"; };
+		30D598B124F9D93B0012A83F /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		30D63EAB24E20A9D00FBD884 /* RefreshableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableScrollView.swift; sourceTree = "<group>"; };
 		30D63EB124E232B100FBD884 /* StatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatView.swift; sourceTree = "<group>"; };
 		30D63EB624E2396A00FBD884 /* MemberStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberStats.swift; sourceTree = "<group>"; };
@@ -2054,6 +2058,7 @@
 				300D37D424DA332400351994 /* Settings Views */,
 				305366DE24C6909200927498 /* Supplemental Views */,
 				3014D5A224DE0B97007AF70B /* UIRepresentable */,
+				30D598B124F9D93B0012A83F /* LaunchScreenView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -3718,6 +3723,7 @@
 				305B186C23319A72003E1561 /* ImageExtensions.swift in Sources */,
 				303C9DBB237F5DCC006B9786 /* URLExtensions.swift in Sources */,
 				303C9DB8237F595A006B9786 /* UserServiceFile.swift in Sources */,
+				30D598B424F9D93B0012A83F /* LaunchScreenView.swift in Sources */,
 				30BF2E332328C7AD00A49EB6 /* MarkdownTypes.swift in Sources */,
 				30A292D2243E467F00F546CA /* LoadingViewController.swift in Sources */,
 				3084E95F234810B300788279 /* FeedbackViewController.swift in Sources */,
@@ -3965,6 +3971,7 @@
 				30A3BC4624C113780016955C /* URLExtensions.swift in Sources */,
 				30A3BC4724C113780016955C /* UserServiceFile.swift in Sources */,
 				30A3BC4824C113780016955C /* SentPromptService.swift in Sources */,
+				30D598B224F9D93B0012A83F /* LaunchScreenView.swift in Sources */,
 				30A3BC4924C113780016955C /* LoadingViewController.swift in Sources */,
 				30A3BC4A24C113780016955C /* FeedbackViewController.swift in Sources */,
 				30A3BC4B24C113780016955C /* SharedReflectionViewController.swift in Sources */,
@@ -4212,6 +4219,7 @@
 				305B186B23319A72003E1561 /* ImageExtensions.swift in Sources */,
 				303C9DBA237F5DCC006B9786 /* URLExtensions.swift in Sources */,
 				303C9DB7237F595A006B9786 /* UserServiceFile.swift in Sources */,
+				30D598B324F9D93B0012A83F /* LaunchScreenView.swift in Sources */,
 				30E9B0BD22EAF2FC005B25FD /* SentPromptService.swift in Sources */,
 				30A292D1243E467F00F546CA /* LoadingViewController.swift in Sources */,
 				3084E95E234810B300788279 /* FeedbackViewController.swift in Sources */,

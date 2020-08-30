@@ -20,7 +20,10 @@ class PhotoContentViewController: PromptContentViewController {
         configureView()
     }
 
-    func configureView() {
+    override func configureView() {
+        guard self.isViewLoaded else {
+            return
+        }
         self.initTextView(self.textView)
         if let photo = content.photo {
             self.configurePhoto(photo)

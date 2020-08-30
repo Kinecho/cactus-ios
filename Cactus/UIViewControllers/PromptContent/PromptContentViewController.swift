@@ -61,6 +61,8 @@ class PromptContentViewController: UIViewController {
         textView.delegate = self
     }
     
+    func configureView(){}
+    
     ///No Operation. Sub class can override.
     func memberDidSet(updated: CactusMember?, previous: CactusMember?) {
         self.coreValuesViewController?.member = updated

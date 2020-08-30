@@ -17,26 +17,19 @@ class WelcomeViewController: UIViewController {
             self.updateCopy()
         }
     }
-    var settingsUnsubscriber: ListenerRegistration?
+    
     var hasLoaded = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.taglineLabel.alpha = 0
-        self.settingsUnsubscriber = AppSettingsService.sharedInstance.observeSettings({ (settings, error) in
-            if let error = error {
-                self.logger.error("Failed to fetch app settings", error)
-            }
-            self.appSettings = settings
-        })
-        
-    }
-    
-    deinit {
-        self.settingsUnsubscriber?.remove()
+        self.updateCopy()
     }
     
     func updateCopy() {
+        guard self.isViewLoaded else {
+            return
+        }
         let taglineText = self.appSettings?.welcome?.taglineMarkdown ?? "Your private journal for greater mental fitness."
         self.taglineLabel.attributedText = MarkdownUtil.toMarkdown(taglineText, font: CactusFont.normal, color: CactusColor.white)
         UIView.animate(withDuration: 0.2) {

@@ -43,6 +43,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             .environmentObject(sessionStore)
             
         
+        
         let appMain = UIHostingController(rootView: appView)
         appMain.view.backgroundColor = NamedColor.Background.uiColor
         

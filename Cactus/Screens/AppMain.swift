@@ -13,38 +13,40 @@ struct AppMain: View {
     @EnvironmentObject var checkout: CheckoutStore
     
     var body: some View {
-        Group {
-            if self.session.authLoaded {
-                if self.session.member == nil {
-                    Welcome().background(named: .Background)
-                } else if !self.session.journalLoaded {
-                    Loading("Loading...")
-                } else if self.session.showOnboarding == true {
-                    if self.session.onboardingEntry != nil {
-                        PromptContentView(entry: self.session.onboardingEntry!, onPromptDismiss: { entry in
-                            self.session.showOnboarding = false
-                        })
-                        .foregroundColor(named: .TextDefault)
-                        .edgesIgnoringSafeArea(.top)
-                    } else {
-                        Loading("Loading...")
-                    }
-                } else if !self.session.showOnboarding {
-                    AppTabs().background(named: .Background)
-                } else {
-                    Loading("Loading...")
+        GeometryReader { geo in
+            ZStack {
+                if !self.session.authLoaded {
+                    LaunchScreenView()
+                        .frame(minWidth: geo.size.width, maxWidth: .infinity, minHeight: geo.size.height, maxHeight: .infinity)
+                        .transition(AnyTransition.opacity.animation(Animation.easeInOut(duration: 0.3).delay(1)))
+                        .zIndex(2)
+                        .edgesIgnoringSafeArea(.all)
                 }
-            } else {
-                VStack(alignment: .center) {
-                    Spacer()
-                    HStack(alignment: .center) {
-                        Spacer()
-                        Loading("Loading...")
-                        Spacer()
+                else if self.session.authLoaded {
+                    Group {
+                        if self.session.member == nil {
+                            Welcome().background(named: .Background)
+                        } else if !self.session.journalLoaded {
+                            Loading("Loading Journal...")
+                        } else if self.session.showOnboarding == true {
+                            if self.session.onboardingEntry != nil {
+                                PromptContentView(entry: self.session.onboardingEntry!, onPromptDismiss: { entry in
+                                    self.session.showOnboarding = false
+                                })
+                                .foregroundColor(named: .TextDefault)
+                                .edgesIgnoringSafeArea(.top)
+                            } else {
+                                Loading("Loading Onboarding...")
+                            }
+                        } else if !self.session.showOnboarding {
+                            AppTabs().background(named: .Background)
+                        } else {
+                            LaunchScreenView().edgesIgnoringSafeArea(.all)
+                        }
                     }
-                    Spacer()
+                    .zIndex(1)
+    //                .transition( AnyTransition.opacity.animation(.easeInOut(duration: 1)))
                 }
-                
             }
         }
     }

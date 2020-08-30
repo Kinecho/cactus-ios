@@ -18,10 +18,13 @@ class VideoContentViewController: PromptContentViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.setupViews()
+        self.configureView()
     }
 
-    func setupViews() {
+    override func configureView() {
+        guard self.isViewLoaded else {
+            return
+        }
         self.configureText()
         self.configureVideo()
         
