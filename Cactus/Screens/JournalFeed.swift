@@ -132,11 +132,11 @@ struct JournalFeed: View {
     }
     
     var body: some View {
-        ScrollView(.vertical) {
+        List {
             Group {
                 if self.session.member?.tier == .BASIC {
                     JournalUpgradeBanner()
-                        .padding(.vertical, Spacing.normal)
+                        .padding(.all, Spacing.normal)                    
                         .listRowInsets(EdgeInsets())
                         .background(self.cellBackgroundColor)
                 }
@@ -154,8 +154,8 @@ struct JournalFeed: View {
                     .padding(.bottom, Spacing.normal)
                 }
                 .padding(.horizontal, Spacing.normal)
+                .listRowInsets(EdgeInsets())
             }
-            
         }
         .onAppear(perform: {
             UITableView.appearance().separatorStyle = .none
