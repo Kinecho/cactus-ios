@@ -13,11 +13,16 @@ import NoveFeatherIcons
 
 struct InsightsHome: View {
     enum CurrentSheet: Identifiable {
-        case promptDetails
+        case promptDetails(JournalEntry)
         case coreValuesAssessment
         
         var id: Int {
-            self.hashValue
+            switch self {
+            case .promptDetails:
+                return 1
+            case .coreValuesAssessment:
+                return 2
+            }
         }
     }
     
@@ -25,14 +30,12 @@ struct InsightsHome: View {
     @EnvironmentObject var checkout: CheckoutStore
         
     @State var currentSheet: CurrentSheet?
-    @State var selectedEntry: JournalEntry?
     @State var showCoreValuesAssessment: Bool = false
     
     var stats: [Stat] {
         guard let reflectionStats = self.session.member?.stats?.reflections else {
             return []
         }
-        
         return Stat.fromReflectionStats(stats: reflectionStats)
     }
     
@@ -56,19 +59,20 @@ struct InsightsHome: View {
     }
     
     func getSheetView(item: CurrentSheet) -> AnyView {
-            if item == .promptDetails && self.selectedEntry != nil {
-                return PromptContentView(entry: self.selectedEntry!,
-                                  onPromptDismiss: self.onPromptDismiss)
-                    .eraseToAnyView()
-            } else if item == .coreValuesAssessment {
-                return CoreValuesAssessmentWebView(onClose: {
-                    self.currentSheet = nil
-                })
+        switch item {
+        case .promptDetails(let entry):
+            return PromptContentView(entry: entry, onPromptDismiss: self.onPromptDismiss)
                 .eraseToAnyView()
-            } else {
-                return NoContentErrorView()
-                    .eraseToAnyView()
-            }
+        case .coreValuesAssessment:
+            return CoreValuesAssessmentWebView(onClose: {
+                self.currentSheet = nil
+            })
+            .eraseToAnyView()
+//        default:
+//            return NoContentErrorView()
+//                .eraseToAnyView()
+//        }
+        }
     }
     
     var body: some View {
@@ -82,8 +86,7 @@ struct InsightsHome: View {
                         /// Start padded content group
                         VStack(alignment: .leading, spacing: Spacing.normal) {
                             TodayWidgetView(onTapped: { entry in
-                                self.selectedEntry = entry
-                                self.currentSheet = .promptDetails
+                                self.currentSheet = .promptDetails(entry)
                             }).fixedSize(horizontal: false, vertical:  true)
                         
                             if self.session.member?.wordCloud?.isEmpty == false {
