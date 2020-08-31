@@ -12,7 +12,7 @@ struct NoContentErrorView: View {
     
     var detailMessage: String {
         if #available(iOS 14, *) {
-            return "No content can be shown here. This is likely due to an issue with iOS the 14 Beta."
+            return "No content can be shown here. This is likely due to an issue with the iOS 14 Beta."
         } else {
             return "No content can be shown here."
         }
