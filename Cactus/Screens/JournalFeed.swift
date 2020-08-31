@@ -155,7 +155,7 @@ struct JournalFeed: View {
                 }
                 .padding(.horizontal, Spacing.normal)
                 .listRowInsets(EdgeInsets())
-                .background(Color.systemBackground)
+                .background(self.cellBackgroundColor)
             }
         }
         .onAppear(perform: {
