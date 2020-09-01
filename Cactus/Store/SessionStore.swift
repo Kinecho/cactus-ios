@@ -29,7 +29,7 @@ final class SessionStore: ObservableObject {
     @Published var onboardingEntry: JournalEntry?
     @Published var onboardingEntryLoaded: Bool = false
     @Published var showOnboarding: Bool = false
-    
+    @Published var currentSettengsItemId: Int?
     var useMockImages = false
     var pendingAuthActions: [PendingAction] = []
     var settingsObserver: ListenerRegistration?
@@ -44,6 +44,7 @@ final class SessionStore: ObservableObject {
         AuthService.sharedInstance.logout()
         self.journalLoaded = false
         self.onboardingEntryLoaded = false
+        self.currentSettengsItemId = nil
         SessionStore.shared = SessionStore()
         SessionStore.shared.start()
     }
@@ -72,7 +73,7 @@ final class SessionStore: ObservableObject {
     
     func setupAuth() {
         self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember { (member, _, user) in
-            DispatchQueue.main.async {
+//            DispatchQueue.main.async {
                 self.logger.info("setup auth onData \(member?.email ?? "no email")" )
                 self.updateAnalytics(with: member)
                 self.journalFeedDataSource?.currentMember = member
@@ -80,7 +81,8 @@ final class SessionStore: ObservableObject {
                 self.user = user
                 self.authLoaded = true
                 self.runPendingAuthActions()
-            }
+            
+//            }
                                     
         }
     }

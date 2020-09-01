@@ -26,7 +26,7 @@ struct LegacyNotificationSettingsView: UIViewControllerRepresentable {
 
 struct NotificationSettingsView: View {
     var body: some View {
-        LegacyNotificationSettingsView()
+        LegacyNotificationSettingsView()            
     }
 }
 

@@ -19,43 +19,49 @@ class NotificationTimeOfDayViewController: UIViewController {
     @IBOutlet weak var sendTimeLabel: UILabel!
     
     let logger = Logger("NotificationTimeOfDayViewController")
-    var memberUnsubscriber: Unsubscriber?
-    var member: CactusMember? = CactusMemberService.sharedInstance.currentMember
+    
+    var member: CactusMember? {
+        didSet {
+            self.onMemberChanged()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.initDatePicker()
 //        self.pickerStackView.addArrangedSubview(self.timePicker)
 //        self.view.addSubview(self.timePicker)
+        guard self.member != nil else {
+            return
+        }
         self.configureTimezone()
         self.configureDatePicker()
         self.configureTimeZoneWarningStackView()
+        self.configureSendTimeLabel()
 //        self.navigationItem.title = "Schedule"
-        self.memberUnsubscriber = CactusMemberService.sharedInstance.observeCurrentMember({ (member, error, _) in
-            if let error = error {
-                self.logger.error("Failed to observe cactus member", error)
-            }
-            
-            guard let member = member else {
-                return
-            }
-            
-            self.member = member
-            self.configureTimezone()
-            self.configureDatePicker()
-            self.configureSendTimeLabel()
-        })
-        
     }
 
+    func onMemberChanged() {
+        guard self.isViewLoaded, self.member != nil else {
+            return
+        }
+        
+        self.configureTimezone()
+        self.configureDatePicker()
+        self.configureSendTimeLabel()
+    }
+    
     func configureTimeZoneWarningStackView() {
         self.timezoneWarningStackView.addBackground(color: CactusColor.alertYellow, cornerRadius: 10)
     }
     
     func configureTimezone() {
+        guard let member = self.member else {
+            return
+        }
         let deviceTzOffset = getDeviceTimeZone().secondsFromGMT()
         
-        if let memberTzOffset = self.member?.getPreferredTimeZone()?.secondsFromGMT(), memberTzOffset != deviceTzOffset {
+        if let memberTzOffset = member.getPreferredTimeZone()?.secondsFromGMT(), memberTzOffset != deviceTzOffset {
             let warningBase = "It looks like you're in a different time zone than usual. Would you like to update"
             var warningAttributed = NSAttributedString(string: warningBase)
             if let tzName = getTimeZoneGenericName(getDeviceTimeZone()) {
@@ -73,6 +79,10 @@ class NotificationTimeOfDayViewController: UIViewController {
 //        let tz = self.member?.getPreferredTimeZone() ?? Calendar.current.timeZone
 //        let tzText = "\(getTimeZoneGenericName(tz) ?? "") "
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print("Time settings will disappear")
     }
     
     @IBAction func showDatePicker(_ sender: UIButton) {
@@ -140,7 +150,7 @@ class NotificationTimeOfDayViewController: UIViewController {
                 self.logger.error("Failed to save member's preferred promptSentTime", error)
             }
 //            self.configureDatePicker()
-            self.configureSendTimeLabel()
+//            self.configureSendTimeLabel()
         })
 //        self.configureDatePicker()
     }

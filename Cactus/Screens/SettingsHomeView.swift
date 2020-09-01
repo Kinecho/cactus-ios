@@ -31,18 +31,19 @@ struct SettingsItemView: View {
     
     let highlightColor: Color = NamedColor.Highlight.color.opacity(0.4)
     
-    var body: some View {
-        NavigationLink(destination: self.item.destination
-            .onAppear {
-                self.selectedId = self.item.id
-            }
-            .onDisappear {
-                self.selectedId = nil
-            }
+    var destination: some View {
+        self.item.destination
+            .tag(self.item.id)
             .maxWidth(700)
             .ifMatches(self.item.setNavigationTitle) { content in
                 content.navigationBarTitle(item.title)
             }
+    }
+    
+    var body: some View {
+        NavigationLink(destination: self.destination,
+                       tag: self.item.id,
+                       selection: self.$selectedId
         ) {
             HStack {
                 VStack(alignment: .leading) {
@@ -56,19 +57,20 @@ struct SettingsItemView: View {
             }
         }
         .isDetailLink(true)
+        .tag(self.item.id)
         .minHeight(44)
         .padding([.leading, .trailing], Spacing.normal)
         .padding([.top, .bottom], Spacing.medium)
         .listRowInsets(EdgeInsets())
         .foregroundColor(CactusColor.highContrast.color)
-        .ifMatches(self.selectedId == self.item.id, content: { $0.background(self.highlightColor)})
+//        .ifMatches(self.selectedId == self.item.id, content: { $0.background(self.highlightColor) })
     }
 }
 
 struct SettingsHome: View {
     @EnvironmentObject var session: SessionStore
     @State var isLoggingOut: Bool = false
-    @State var selectedItemId: Int?
+//    @State var selectedItemId: Int?
     
     var items: [SettingsItem] {
         let email = self.session.member?.email
@@ -112,32 +114,30 @@ struct SettingsHome: View {
     }
     
     var body: some View {
-        NavigationView {
-            List {
-                Section {
-                    ForEach(self.items) { item in
-                        SettingsItemView(item: item, selectedId: self.$selectedItemId)
-                            .tag(item.id)
-                    }
+                    
+            NavigationView {
+                List(items, selection: $session.currentSettengsItemId) { item in
+                    SettingsItemView(item: item, selectedId: self.$session.currentSettengsItemId)
+                        .tag(item.id)
+
                 }
+                .listStyle(GroupedListStyle())
+                .onAppear {
+                    UITableView.appearance().separatorStyle = .singleLine
+                    UITableView.appearance().separatorInset = .zero
+                }
+                .font(CactusFont.normal.font)
+                .navigationBarTitle("Settings")
+                .navigationViewStyle(DoubleColumnNavigationViewStyle())
+                
+                self.items.first!.destination
+                    .ifMatches(self.items.first!.setNavigationTitle) { content in
+                    content.navigationBarTitle(self.items.first!.title)
+                }
+                
             }
-            .listStyle(GroupedListStyle())
-            .onAppear {
-                UITableView.appearance().separatorStyle = .singleLine
-                UITableView.appearance().separatorInset = .zero
-            }
-            .font(CactusFont.normal.font)
-            .navigationBarTitle("Settings")
             .navigationViewStyle(DoubleColumnNavigationViewStyle())
-            
-            self.items.first!.destination
-                .ifMatches(self.items.first!.setNavigationTitle) { content in
-                content.navigationBarTitle(self.items.first!.title)
-            }
-            
-        }
-        .navigationViewStyle(DoubleColumnNavigationViewStyle())
-        .actionSheet(isPresented: self.$isLoggingOut) { self.logoutActionSheet }
+            .actionSheet(isPresented: self.$isLoggingOut) { self.logoutActionSheet }
 //        .popover(isPresented: self.$isLoggingOut, content: {self.logoutActionSheet})
     }
 }

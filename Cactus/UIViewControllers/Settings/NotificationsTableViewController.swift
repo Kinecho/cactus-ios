@@ -18,13 +18,18 @@ class NotificationsTableViewController: UITableViewController, MFMailComposeView
     @IBOutlet weak var pushTimeOfDayLabel: UILabel!
     @IBOutlet weak var pushErrorLabel: UILabel!
     @IBOutlet weak var timeOfDayCell: UITableViewCell!
+    weak var timeOfDayVc: NotificationTimeOfDayViewController?
     var member: CactusMember? {
         didSet {
             guard self.isViewLoaded else {
                 return
             }
-            self.updateEmailSwitch(animated: true)
-            self.updateNotificationTimeLabel()
+            DispatchQueue.main.async {
+                self.timeOfDayVc?.member = self.member
+                self.updateEmailSwitch(animated: true)
+                self.updateNotificationTimeLabel()
+            }
+            
         }
     }
     
@@ -46,14 +51,14 @@ class NotificationsTableViewController: UITableViewController, MFMailComposeView
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+//        self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.refreshPermissionsToggle()
         self.updateEmailSwitch()
         self.updateNotificationTimeLabel()
         
     }
     
-    func updateNotificationTimeLabel() {
+    func updateNotificationTimeLabel() -> Void {
         guard self.isViewLoaded else {
             return
         }
@@ -82,9 +87,9 @@ class NotificationsTableViewController: UITableViewController, MFMailComposeView
     func updateEmailSwitch(animated: Bool = false) {
         guard self.isViewLoaded, let member = self.member else {return}
         let emailStatus = member.notificationSettings?["email"] ?? "NOT_SET"
-        if emailStatus == "ACTIVE" {
+        if emailStatus == "ACTIVE" && !self.emailSwitch.isOn {
             self.emailSwitch.setOn(true, animated: animated)
-        } else {
+        } else if emailStatus != "ACTIVE" && self.emailSwitch.isOn {
             self.emailSwitch.setOn(false, animated: animated)
         }
     }
@@ -238,6 +243,13 @@ class NotificationsTableViewController: UITableViewController, MFMailComposeView
                     break
                 }
             }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SetNotificationTime", let destVc = segue.destination as? NotificationTimeOfDayViewController {
+            self.timeOfDayVc = destVc
+            destVc.member = self.member
         }
     }
     
