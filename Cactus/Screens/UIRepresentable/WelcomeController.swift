@@ -48,13 +48,6 @@ struct IntroView: View {
         }
         .padding()
         .foregroundColor(named: .White)
-//        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
-//        .edgesIgnoringSafeArea(.all)
-//        .background(CactusImage.background_darkBlobs.swiftImage
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fill)
-//                        .edgesIgnoringSafeArea(.all)
-//        )
     }
 }
 
@@ -84,29 +77,11 @@ struct Welcome: View {
             
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
-        .edgesIgnoringSafeArea(.all)
         .background(Image(CactusImage.background_darkBlobs.rawValue)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .edgesIgnoringSafeArea(.all)
         )
-        
-        
-        
-        
-//        PaginationView(axis: .horizontal) {
-//
-////            WelcomeController().eraseToAnyView()
-//            IntroView(currentPageIndex: self.$currentPage).eraseToAnyView()
-//            LoginView().eraseToAnyView()
-//
-//
-////                .edgesIgnoringSafeArea(.vertical)
-////                .background(named: .Green)
-//        }.currentPageIndex(self.$currentPage)
-//        .initialPageIndex(0)
-//        .edgesIgnoringSafeArea(.all)
-//
     }
 }
 
