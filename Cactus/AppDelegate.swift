@@ -24,6 +24,7 @@ import AdSupport //RevenueCat
 typealias SentryUser = Sentry.User
 
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
     let logger = Logger(fileName: String(describing: AppDelegate.self))
     var fcmToken: String?
@@ -52,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application,
             didFinishLaunchingWithOptions: launchOptions
         )
-                
+        
         logger.debug("Is facebook intent: \(isFacebokIntent)", functionName: #function, line: #line)
         
         self.setupBranch(launchOptions: launchOptions)
@@ -62,18 +63,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Logger.configureLogging(auth: Auth.auth())
         NotificationService.start(application: application)
-        
-        //Configure Root View controller
-        guard let rootVc = ScreenID.AppMain.getViewController() as? AppMainViewController else {
-            fatalError("Unable to start main view controller in App Delegate")
-        }
-        NavigationService.initialize(rootVc: rootVc, delegate: self)
-        self.window?.rootViewController = rootVc
-        self.window?.makeKeyAndVisible()
-        
+      
         CactusMemberService.sharedInstance.instanceIDDelegate = self
         
+        BranchScene.shared().initSession(launchOptions: launchOptions) { (params, error, scene) in
+            // this has the UIScene in the callback (not sure what this means)
+            // See https://help.branch.io/developers-hub/docs/ios-basic-integration#section-apps-using-scenes
+            self.logger.info("Branch Scene Init completed")
+            StorageService.sharedInstance.setBranchParameters(params)
+        }
+        
         return true
+    }
+    
+    // MARK: UISceneSession Lifecycle
+    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        // Called when a new scene session is being created.
+        // Use this method to select a configuration to create the new scene with.
+        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+    }
+    
+    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
+        // Called when the user discards a scene session.
+        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
+        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
     func setupRevenueCat() {
@@ -82,6 +95,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Purchases.addAttributionData([:], from: .facebook)
         Purchases.debugLogsEnabled = true
         Purchases.shared.finishTransactions = false //set to false because we are finishing the transaction ourself in Cactus code.
+        
     }
     
     func setupBranch(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
@@ -120,8 +134,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if let user = user {
                 let sentryUser = SentryUser(userId: user.uid)
                 sentryUser.email = user.email
-                Client.shared?.user = sentryUser
                 let nameParts = destructureDisplayName(displayName: user.displayName)
+                SentrySDK.configureScope { (scope) in
+                    scope.setUser(sentryUser)
+                }
                 AppEvents.setUser(email: user.email?.lowercased(),
                                   firstName: nameParts.firstName?.lowercased(),
                                   lastName: nameParts.lastName?.lowercased(),
@@ -145,13 +161,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             } else {
                 Purchases.shared.reset()
-                
-                if let currentUser = self.currentUser {
-                    let logoutEvent = Sentry.Event(level: .info)
-                    logoutEvent.message = "\(currentUser.email ?? currentUser.uid) has logged out of the app"
-                    Client.shared?.send(event: logoutEvent)
+                SentrySDK.configureScope { (scope) in
+                    scope.setUser(nil)
                 }
-                Client.shared?.user = nil
+                if let currentUser = self.currentUser {
+                    self.logger.info( "\(currentUser.email ?? currentUser.uid) has logged out of the app")
+                }
             }
             CactusAnalytics.shared.setUserId(user?.uid)
             self.currentUser = user
@@ -202,23 +217,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             open: url,
             options: options
         )
-       
+        
         guard let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String? else {
             return false
         }
-        self.logger.debug("Starting application open url method (line 79)", functionName: #function, line: #line)
+        self.logger.debug("Starting application open url method (line 79) \(url.absoluteString)", functionName: #function, line: #line)
         if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
             self.logger.debug("Handled by firebase auth ui")
             return true
         }
         // other URL handling goes here.
         self.logger.debug("handling custom link scheme \(url)", functionName: #function, line: #line)
-
+        
         if Branch.getInstance().application(app, open: url, options: options) {
             self.logger.info("Branch handled the URL open \(url.absoluteString)", functionName: #function)
             return true
         }
-           
+        
         if UserService.sharedInstance.handleActivityURL(url) {
             return true
         } else if LinkHandlerUtil.handlePromptContent(url) {
@@ -257,8 +272,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             StorageService.sharedInstance.setLocalSignupQueryParams(queryParams)
         }
         if Branch.getInstance().continue(userActivity) {
-           return true
-       }
+            return true
+        }
         
         if let activityUrl = userActivity.webpageURL {
             if Branch.getInstance().handleDeepLink(activityUrl) {
@@ -279,12 +294,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return false
     }
-}
-
-extension AppDelegate: NavigationServiceDelegate {
-    func open(url: URL, options: [UIApplication.OpenExternalURLOptionsKey: Any], completionHandler: ((Bool) -> Void)?) {
-        UIApplication.shared.open(url, options: options, completionHandler: completionHandler)
-    }    
 }
 
 extension AppDelegate: InstanceIDDelegate {

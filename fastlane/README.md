@@ -16,6 +16,11 @@ or alternatively using `brew install fastlane`
 
 # Available Actions
 ## iOS
+### ios clean
+```
+fastlane ios clean
+```
+
 ### ios bump
 ```
 fastlane ios bump
@@ -41,6 +46,11 @@ fastlane ios patch
 fastlane ios minor
 ```
 
+### ios push_version
+```
+fastlane ios push_version
+```
+
 ### ios version_bump
 ```
 fastlane ios version_bump
@@ -51,16 +61,16 @@ fastlane ios version_bump
 fastlane ios beta
 ```
 Push a new beta build to TestFlight
+### ios beta_stage
+```
+fastlane ios beta_stage
+```
+Push a new Stage build to TestFlight
 ### ios tag
 ```
 fastlane ios tag
 ```
 
-### ios beta_stage
-```
-fastlane ios beta_stage
-```
-Push a new beta build to TestFlight
 ### ios manual_upload
 ```
 fastlane ios manual_upload

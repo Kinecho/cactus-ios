@@ -62,4 +62,17 @@ class FormatUtilTest: XCTestCase {
         XCTAssertEqual(formatPriceCents(199), "$1.99")
         XCTAssertEqual(formatPriceCents(199, currencySymbol: ""), "1.99")
     }
+    
+    func testGetIntegerFromStringInRange() {
+        XCTAssertEqual( getIntegerFromStringBetween(input: "abc", max: 5), 4)
+        XCTAssertEqual( getIntegerFromStringBetween(input: "abc124", max: 5), 1)
+        XCTAssertEqual( getIntegerFromStringBetween(input: "HumorNature", max: 5), 0)
+        XCTAssertEqual( getIntegerFromStringBetween(input: "HumorNature", max: 8), 4)
+        XCTAssertEqual( getIntegerFromStringBetween(input: "aaaa", max: 5), 3)
+        XCTAssertEqual( getIntegerFromStringBetween(input: "a", max: 5), 2)
+        XCTAssertEqual( getIntegerFromStringBetween(input: "b", max: 5), 3)
+        XCTAssertEqual( getIntegerFromStringBetween(input: "c", max: 5), 4)
+        XCTAssertEqual( getIntegerFromStringBetween(input: "d", max: 5), 0)
+        XCTAssertEqual( getIntegerFromStringBetween(input: "", max: 5), 0)
+    }
 }

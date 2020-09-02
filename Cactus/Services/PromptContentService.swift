@@ -47,6 +47,10 @@ class PromptContentService {
         }
     }
     
+    func observeForEntryId(entryId: String, _ onData: @escaping (PromptContent?, Any?) -> Void) -> ListenerRegistration {
+        return flamelinkService.observeByEntryId(entryId, onData)
+    }
+    
     func getPromptContent(for date: Date=Date(), status: ContentStatus?=nil, member: CactusMember?, _ onData: @escaping (PromptContent?, Any?) -> Void) {
         let dateRange = getPromptContentDateRangeStrings(for: date)
         

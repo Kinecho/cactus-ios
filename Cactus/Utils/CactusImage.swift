@@ -8,6 +8,28 @@
 
 import Foundation
 import UIKit
+import NoveFeatherIcons
+import SwiftUI
+
+struct Icon {
+    static func getImage(_ name: String?) -> UIImage? {
+        guard let name = name else {
+            return nil
+        }
+        if let iconType = IconType(rawValue: name), iconType != .unknown {
+            return iconType.image
+        }
+        return Feather.getIcon(name)
+    }
+    
+    static func getImage(_ feather: Feather.IconName) -> UIImage? {
+        return Feather.getIcon(feather)
+    }
+    
+    static func getImage(_ icon: IconType) -> UIImage? {
+        return icon.image
+    }
+}
 
 enum IconType: String, Codable {
     case heart
@@ -30,7 +52,7 @@ enum IconType: String, Codable {
     case creditCard
     case trash
     case checkCircle
-    
+    case flame
     case unknown
     
     public init(from decoder: Decoder) throws {
@@ -50,7 +72,7 @@ enum IconType: String, Codable {
         case .journal:
             return CactusImage.journal.getImage()
         case .lock:
-            return CactusImage.lock.getImage()
+            return CactusImage.lock.getImage()        
         default:
             return UIImage(named: self.rawValue)
         }
@@ -70,8 +92,11 @@ enum CactusImage: String {
     //Logos
     case logo
     
-    //blobs
+    //shapes
     case needlePattern    
+    
+    //blobs
+    case blob0
     
     //Brands
     case twitter = "Twitter"
@@ -156,9 +181,31 @@ enum CactusImage: String {
     case grid
     case trash
     case checkCircle
+    case todayBlob1
+    case todayBlob2
+    case cvBlob
+    case blobTriangle
+    case vBackground
+    case cvResultsBlob
+    case cvBlob1
+    case cvBlob2
+    case cvBlob3
+    case cvBlob4
+    case cvBlob5
+    case cvBlob6
+    case cvBlob7
+    case cvBlob8
+    case errorBlob
+    case emptyState
+    case background_darkBlobs
+    case logoWhite = "logo-ondark"
     
     func getImage() -> UIImage? {
         return UIImage(named: self.rawValue)
+    }
+    
+    var swiftImage: Image {
+        return Image(self.rawValue)
     }
     
     static func forElement(_ element: CactusElement, width: CGFloat? = nil, height: CGFloat? = nil) -> UIImage? {

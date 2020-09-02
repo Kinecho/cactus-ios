@@ -11,6 +11,8 @@ import FirebaseFirestore
 import Firebase
 import FirebaseAuth
 
+typealias FirebaseUser = FirebaseAuth.User
+
 protocol InstanceIDDelegate: class {
     func getInstanceId(_ completed: @escaping (_ token: String, _ id: String) -> Void)
 }
@@ -23,6 +25,7 @@ class CactusMemberService {
     var currentUser: User?
     weak var instanceIDDelegate: InstanceIDDelegate?
     static let sharedInstance = CactusMemberService()
+    
     let logger = Logger("CactusMemberService")
     private init() {
         self.firestoreService = FirestoreService.sharedInstance

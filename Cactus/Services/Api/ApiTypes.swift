@@ -109,7 +109,7 @@ struct EmailNotificationStatusResponse: Codable {
 }
 
 struct SocialInviteRequest: Codable {
-    let app: AppType = AppType.IOS
+    var app: AppType = AppType.IOS
     let toContacts: [EmailContact]
     let message: String?
     

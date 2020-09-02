@@ -9,6 +9,16 @@
 import Foundation
 import UIKit
 
+enum PromptSendMedium: String, Codable {
+    case EMAIL_MAILCHIMP
+    case EMAIL_SENDGRID
+    case PROMPT_CONTENT
+    case FREE_FORM
+    case CRON_JOB
+    case CUSTOM_SENT_PROMPT_TIME
+    case PUSH
+}
+
 class SentPromptField: BaseModelField {
     static let promptId = "promptId"
     static let userId = "userId"
@@ -35,6 +45,8 @@ class SentPrompt: FirestoreIdentifiable, Hashable {
     var updatedAt: Date?
     var completed: Bool? = false
     var completedAt: Date?
+    var promptType: PromptType? = PromptType.CACTUS
+    var medium: PromptSendMedium?
     
     static func == (lhs: SentPrompt, rhs: SentPrompt) -> Bool {
         return lhs.id != nil && rhs.id != nil && lhs.id == rhs.id
@@ -42,5 +54,28 @@ class SentPrompt: FirestoreIdentifiable, Hashable {
     
     func hash(into hasher: inout Hasher) {
         id.hash(into: &hasher)
+    }
+    
+    static func createId(memberId: String, promptId: String) -> String {
+        return "\(memberId)_\(promptId)"
+    }
+    
+    static func createFreeform(prompt: ReflectionPrompt, member: CactusMember) -> SentPrompt? {
+        guard let memberId = member.id, let promptId = prompt.id else {
+            return nil
+        }
+        let sentPrompt = SentPrompt()
+        sentPrompt.cactusMemberId = member.id
+        sentPrompt.id = SentPrompt.createId(memberId: memberId, promptId: promptId)
+        sentPrompt.promptType = .FREE_FORM
+        sentPrompt.firstSentAt = Date()
+        sentPrompt.lastSentAt = Date()
+        sentPrompt.memberEmail = member.email
+        sentPrompt.userId = member.userId
+        sentPrompt.medium = .FREE_FORM
+        sentPrompt.completed = true
+        sentPrompt.completedAt = Date()
+        
+        return sentPrompt
     }
 }

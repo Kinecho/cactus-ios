@@ -9,6 +9,7 @@
 import FirebaseFirestore
 //import FirebaseStorage
 //import FirebaseAuth
+import Firebase
 import Foundation
 import CodableFirebase
 

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum ModelDecoderError: Error {
     case invalidContainer
@@ -30,9 +31,21 @@ class ModelDecoder<T: CodingKey> {
         return ModelDecoder<T>(decoder: decoder, container: container)
     }
     
+    func getOpt<Model: Decodable>(_ key: T, as type: Model.Type, default defaultValue: Model?=nil) -> Model? {
+        return (try? self.container.decode(type.self, forKey: key)) ?? defaultValue
+    }
+    
+    func get<Model: Decodable>(_ key: T, as type: Model.Type, default defaultValue: Model) -> Model {
+        return (try? self.container.decode(type.self, forKey: key)) ?? defaultValue
+    }
+    
     func optionalString(_ key: T, blankAsNil: Bool=false) -> String? {
         let text = try? self.container.decode(String.self, forKey: key)
         return blankAsNil && isBlank(text) ? nil : text
+    }
+    
+    func string(_ key: T, defaultValue: String, blankAsNil: Bool=false) -> String {
+        return self.optionalString(key, blankAsNil: blankAsNil) ?? defaultValue
     }
     
     func optionalBool(_ key: T) -> Bool? {
@@ -42,6 +55,20 @@ class ModelDecoder<T: CodingKey> {
     
     func optionalInt(_ key: T) -> Int? {
         let value = try? self.container.decode(Int.self, forKey: key)
+        return value
+    }
+    
+    func int(_ key: T, defaultValue: Int) -> Int {
+        return self.optionalInt(key) ?? defaultValue
+    }
+    
+    func cgFloat(_ key: T, defaultValue: CGFloat=0) -> CGFloat {
+        let value = try? self.container.decode(CGFloat.self, forKey: key)
+        return value ?? defaultValue
+    }
+    
+    func optionalCGFloat(_ key: T) -> CGFloat? {
+        let value = try? self.container.decode(CGFloat.self, forKey: key)
         return value
     }
     
@@ -58,6 +85,10 @@ class ModelDecoder<T: CodingKey> {
     func bool(_ key: T, default defaultValue: Bool) -> Bool {
         let value = try? self.container.decode(Bool.self, forKey: key)
         return value ?? defaultValue
+    }
+    
+    func optDate(_ key: T, default defaultValue: Date?=nil) -> Date? {
+        return (try? self.container.decode(Date.self, forKey: key)) ?? defaultValue
     }
     
 }

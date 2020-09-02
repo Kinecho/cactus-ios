@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CactusElementsViewController" customModule="Cactus" customModuleProvider="target">
+            <connections>
+                <outlet property="emotionsImage" destination="tF9-tg-EIL" id="9RY-5k-4BY"/>
+                <outlet property="energyImage" destination="cf6-aT-9ln" id="s8I-FX-Z7A"/>
+                <outlet property="experienceImage" destination="tOD-lc-Qdv" id="a1x-hV-ibf"/>
+                <outlet property="meaningImage" destination="sSx-cx-NoD" id="eRZ-Du-KkV"/>
+                <outlet property="relationshipsImage" destination="XfD-yL-x2F" id="k5R-Ae-NTq"/>
+                <outlet property="textView" destination="yeE-Y3-545" id="y5T-9B-evj"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsi-Rk-Ff8">
+                    <rect key="frame" x="0.0" y="94" width="414" height="768"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="UbE-yk-SrT">
+                            <rect key="frame" x="20" y="20" width="374" height="591.5"/>
+                            <subviews>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="My Text" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yeE-Y3-545">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="49.5"/>
+                                    <color key="textColor" name="TextDefault"/>
+                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="28"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OCY-G8-KiZ" userLabel="Elements View Container">
+                                    <rect key="frame" x="0.0" y="89.5" width="374" height="502"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="MYh-JU-2XA">
+                                            <rect key="frame" x="137" y="0.0" width="100" height="119"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energy" translatesAutoresizingMaskIntoConstraints="NO" id="cf6-aT-9ln" userLabel="Energy Image">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                    <color key="tintColor" name="Pink"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="cf6-aT-9ln" secondAttribute="height" multiplier="1:1" id="P1h-ZU-Xpz"/>
+                                                        <constraint firstAttribute="width" constant="100" id="o5R-Hl-FcT"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ENERGY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCL-Y7-fJl" userLabel="Energy">
+                                                    <rect key="frame" x="0.0" y="100" width="100" height="19"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
+                                                    <color key="textColor" name="TextDefault"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="center" distribution="equalSpacing" alignment="center" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="Prx-mz-Vra" userLabel="Middle Stack View">
+                                            <rect key="frame" x="41" y="139" width="292.5" height="184"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4Dc-Kl-nYO">
+                                                    <rect key="frame" x="0.0" y="32.5" width="100" height="119"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="experience" translatesAutoresizingMaskIntoConstraints="NO" id="tOD-lc-Qdv" userLabel="Experience Cactus">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                            <color key="tintColor" name="Royal"/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXPERIENCE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ql-dn-EJl" userLabel="Experience">
+                                                            <rect key="frame" x="1" y="100" width="97.5" height="19"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
+                                                            <color key="textColor" name="TextDefault"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="tOD-lc-Qdv" firstAttribute="width" secondItem="tOD-lc-Qdv" secondAttribute="height" multiplier="1:1" id="psD-QQ-Wha"/>
+                                                    </constraints>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sZM-zl-XV2">
+                                                    <rect key="frame" x="170" y="32.5" width="122.5" height="119"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="relationships" translatesAutoresizingMaskIntoConstraints="NO" id="XfD-yL-x2F" userLabel="Relationships Cactus">
+                                                            <rect key="frame" x="11" y="0.0" width="100" height="100"/>
+                                                            <color key="tintColor" name="DolphinLight"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="XfD-yL-x2F" secondAttribute="height" multiplier="1:1" id="ld5-tS-RNB"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RELATIONSHIPS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vze-gd-GgK" userLabel="Relationships">
+                                                            <rect key="frame" x="0.0" y="100" width="122.5" height="19"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
+                                                            <color key="textColor" name="TextDefault"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="center" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="iZ7-1j-xUy" userLabel="Bottom Stack View">
+                                            <rect key="frame" x="72" y="343" width="230" height="119"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="II7-SE-0F6">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="119"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emotions" translatesAutoresizingMaskIntoConstraints="NO" id="tF9-tg-EIL" userLabel="Emotions Cactus">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                            <color key="tintColor" name="Green"/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMOTIONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NUw-Ld-aED">
+                                                            <rect key="frame" x="0.0" y="100" width="100" height="19"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
+                                                            <color key="textColor" name="TextDefault"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="tF9-tg-EIL" firstAttribute="width" secondItem="tF9-tg-EIL" secondAttribute="height" multiplier="1:1" id="PFv-b1-DFz"/>
+                                                    </constraints>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eW6-bX-zba">
+                                                    <rect key="frame" x="130" y="0.5" width="100" height="118"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meaning" translatesAutoresizingMaskIntoConstraints="NO" id="sSx-cx-NoD" userLabel="Meaning Cactus">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="99"/>
+                                                            <color key="tintColor" name="Coral"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="sSx-cx-NoD" secondAttribute="height" multiplier="1:1" constant="1" id="sQP-GC-XfD"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MEANING" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4R-wJ-ObL">
+                                                            <rect key="frame" x="0.0" y="99" width="100" height="19"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
+                                                            <color key="textColor" name="TextDefault"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="tOD-lc-Qdv" firstAttribute="width" secondItem="cf6-aT-9ln" secondAttribute="width" id="BZP-Yl-cda"/>
+                                        <constraint firstItem="iZ7-1j-xUy" firstAttribute="top" secondItem="Prx-mz-Vra" secondAttribute="bottom" constant="20" id="EI1-yo-LSA"/>
+                                        <constraint firstItem="tF9-tg-EIL" firstAttribute="width" secondItem="cf6-aT-9ln" secondAttribute="width" id="FTU-uO-Iot"/>
+                                        <constraint firstItem="XfD-yL-x2F" firstAttribute="width" secondItem="cf6-aT-9ln" secondAttribute="width" id="HlT-0Y-V0H"/>
+                                        <constraint firstItem="iZ7-1j-xUy" firstAttribute="centerX" secondItem="OCY-G8-KiZ" secondAttribute="centerX" id="OzN-ho-EbM"/>
+                                        <constraint firstItem="MYh-JU-2XA" firstAttribute="top" secondItem="OCY-G8-KiZ" secondAttribute="top" id="WYN-zA-9EQ"/>
+                                        <constraint firstItem="Prx-mz-Vra" firstAttribute="top" secondItem="MYh-JU-2XA" secondAttribute="bottom" constant="20" id="WeH-ad-sZU"/>
+                                        <constraint firstAttribute="bottom" secondItem="iZ7-1j-xUy" secondAttribute="bottom" constant="40" id="kMN-xQ-HqR"/>
+                                        <constraint firstItem="Prx-mz-Vra" firstAttribute="centerX" secondItem="OCY-G8-KiZ" secondAttribute="centerX" id="opS-GV-8St"/>
+                                        <constraint firstItem="sSx-cx-NoD" firstAttribute="width" secondItem="cf6-aT-9ln" secondAttribute="width" id="yWh-sy-oMr"/>
+                                        <constraint firstItem="MYh-JU-2XA" firstAttribute="centerX" secondItem="OCY-G8-KiZ" secondAttribute="centerX" id="zOZ-rw-djf"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="OCY-G8-KiZ" firstAttribute="leading" secondItem="UbE-yk-SrT" secondAttribute="leading" id="msm-Zq-fcF"/>
+                                <constraint firstAttribute="trailing" secondItem="OCY-G8-KiZ" secondAttribute="trailing" id="tC5-JF-Lwt"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="UbE-yk-SrT" firstAttribute="leading" secondItem="nOX-L3-6Zb" secondAttribute="leading" constant="20" id="0R1-BV-QnZ"/>
+                        <constraint firstItem="nOX-L3-6Zb" firstAttribute="trailing" secondItem="UbE-yk-SrT" secondAttribute="trailing" constant="20" id="GLo-nk-yeD"/>
+                        <constraint firstItem="UbE-yk-SrT" firstAttribute="centerY" secondItem="cqe-7T-PEG" secondAttribute="centerY" id="GNw-Aq-vMF"/>
+                        <constraint firstItem="UbE-yk-SrT" firstAttribute="top" secondItem="cqe-7T-PEG" secondAttribute="top" constant="20" id="WNR-xM-DYb"/>
+                        <constraint firstItem="OCY-G8-KiZ" firstAttribute="leading" secondItem="cqe-7T-PEG" secondAttribute="leading" constant="20" id="oZM-JW-Zh7"/>
+                        <constraint firstItem="cqe-7T-PEG" firstAttribute="bottom" secondItem="UbE-yk-SrT" secondAttribute="bottom" constant="20" id="soA-nV-PaV"/>
+                        <constraint firstItem="OCY-G8-KiZ" firstAttribute="trailing" secondItem="cqe-7T-PEG" secondAttribute="trailing" constant="20" id="w78-aF-nxw"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="cqe-7T-PEG"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="nOX-L3-6Zb"/>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" name="PromptBackground"/>
+            <constraints>
+                <constraint firstItem="bsi-Rk-Ff8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="6od-1J-FT6"/>
+                <constraint firstItem="bsi-Rk-Ff8" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="gcX-fz-qPh"/>
+                <constraint firstItem="bsi-Rk-Ff8" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="lt6-Ox-Yry"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="bsi-Rk-Ff8" secondAttribute="bottom" id="vq7-lk-ZGu"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="115.84821428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="emotions" width="56" height="56"/>
+        <image name="energy" width="56" height="56"/>
+        <image name="experience" width="56" height="56"/>
+        <image name="meaning" width="56" height="56"/>
+        <image name="relationships" width="56" height="56"/>
+        <namedColor name="Coral">
+            <color red="1" green="0.47058823529411764" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="DolphinLight">
+            <color red="0.58039215686274515" green="0.56470588235294117" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Green">
+            <color red="0.20000000298023224" green="0.80000001192092896" blue="0.67100000381469727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Pink">
+            <color red="1" green="0.59999999999999998" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PromptBackground">
+            <color red="0.94901960784313721" green="0.92156862745098034" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Royal">
+            <color red="0.396078431372549" green="0.56470588235294117" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="TextDefault">
+            <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

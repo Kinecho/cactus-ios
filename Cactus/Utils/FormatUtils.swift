@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 func toEmptyString(_ input: String?) -> String {
     return input ?? ""
@@ -54,9 +55,25 @@ func formatPriceCents(_ price: Int?, truncateWholeDollar: Bool = true, currencyS
     return currencyFormatter.string(from: NSNumber(value: Double(price)/100))
 }
 
+struct CactusDateFormat {
+    static let journalCurrentYear = "MMMM d"
+    static let journalPastYear = "MMMM d, yyyy"
+}
+
 struct FormatUtils {
     static func hasChanges(_ input: String?, _ original: String?) -> Bool {
         return toEmptyString(input).trimmingCharacters(in: .whitespacesAndNewlines) != toEmptyString(original).trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
+    static func localizedDate(_ date: Date?, dateStyle: DateFormatter.Style = .full, timeStyle: DateFormatter.Style = .none) -> String? {
+        var dateString: String?
+        if let date = date {
+            let df = DateFormatter()
+            df.dateStyle = dateStyle
+            df.timeStyle = timeStyle
+            dateString = df.string(from: date)
+        }
+        return dateString
     }
     
     static func formatDate(_ date: Date?, currentYearFormat: String="MMMM d", previousYearFormat: String="MMMM d, yyyy") -> String? {
@@ -100,6 +117,10 @@ struct FormatUtils {
     static func responseText(_ responses: [ReflectionResponse]?) -> String? {
         return  responses?.map {$0.content.text ?? ""}.joined(separator: "\n\n")
     }
+    
+    static func hasNote(_ responses: [ReflectionResponse]?) -> Bool {
+        return !isBlank(FormatUtils.responseText(responses))
+    }
 }
 
 func isValidEmail(_ emailStr: String?) -> Bool {
@@ -118,21 +139,61 @@ enum FontName: String {
     case boldItalic = "Lato-BoldItalic"
 }
 
-struct FontSize {
-    static let large: CGFloat = 28
-    static let normal: CGFloat = 18
+enum FontSize: CGFloat {
+    case jumbo = 44
+    case large = 28
+    case title = 21
+    case normal = 18
+    case subTitle = 16
+    case small = 14
+
+    // Aliases
+    static let statLarge: FontSize = .jumbo
+    static let journalDate: FontSize = .subTitle
+    static let journalQuestionTitle: FontSize = .title
 }
 
+enum Kerning: CGFloat {
+    case normal = 0
+    case title = 2
+}
+
+func getProviderDisplayName(_ providerId: String) -> String? {
+    switch providerId {
+    case "google.com":
+        return "Google"
+    case "twitter.com":
+        return "Twitter"
+    case "facebook.com":
+        return "Facebook"
+    case "password":
+        return "Email"
+    case "apple.com":
+        return "Apple"
+    default:
+        return nil
+    }
+}
+
+
 struct CactusFont {
-    static let normal = UIFont(name: FontName.normal.rawValue, size: FontSize.normal)!
-    static let large = UIFont(name: FontName.normal.rawValue, size: FontSize.large)!
-    static let normalBold = UIFont(name: FontName.bold.rawValue, size: FontSize.normal)!
+    static let normal = UIFont(name: FontName.normal, size: FontSize.normal)
+    static let large = UIFont(name: FontName.normal, size: FontSize.large)
+    static let normalBold = UIFont(name: FontName.bold, size: FontSize.normal)
     
     static func get(_ name: FontName, _ size: CGFloat) -> UIFont {
         return UIFont(name: name.rawValue, size: size)!
     }
     
+    static func get(_ name: FontName, _ size: FontSize) -> UIFont {
+        return UIFont(name: name, size: size)
+    }
+    
     static func normal(_ size: CGFloat) -> UIFont {
+        return get(FontName.normal, size)
+    }
+    
+    static func normal(_ size: FontSize) -> UIFont {
         return get(FontName.normal, size)
     }
     
@@ -140,7 +201,15 @@ struct CactusFont {
         return get(FontName.bold, size)
     }
     
+    static func bold(_ size: FontSize) -> UIFont {
+        return get(FontName.bold, size)
+    }
+    
     static func italic(_ size: CGFloat) -> UIFont {
+        return get(FontName.italic, size)
+    }
+    
+    static func italic(_ size: FontSize) -> UIFont {
         return get(FontName.italic, size)
     }
 }
@@ -155,4 +224,32 @@ func destructureDisplayName(displayName: String?) -> (firstName: String?, lastNa
         }
     }
     return (firstName: firstName, lastName: lastName)
+}
+
+extension UIFont {
+    var font: Font {
+        return Font(self)
+    }
+}
+
+/**
+ Doing some shenanigans to only get the lower 32 bits of the number, to match existing JavaScript function
+ */
+func getIntegerFromStringBetween(input: String, max: Int) -> Int {
+    var hash: Int64 = 0
+    
+    var bytes: [UInt8] = []
+    for char in input {
+        if let asciiValue = char.asciiValue {
+            bytes.append(asciiValue)
+            // This needs to be downcast & truncated to 32 bit Integer, because of the way Javascript does this on the web.
+            let shifted = Int64(Int32(truncatingIfNeeded: hash.magnitude << 5))
+            let charCode = Int64(asciiValue)
+            let updatedHash = charCode + (shifted - hash)
+            hash = abs(updatedHash)
+            Logger.shared.info("char value: \(asciiValue) | Hash value: \(hash)")
+        }
+    }
+    
+    return Int(hash) % max
 }

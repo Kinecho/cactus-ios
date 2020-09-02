@@ -60,7 +60,7 @@ extension NSAttributedString {
         
         let font: UIFont? = self.attribute(NSAttributedString.Key.font, at: 0, effectiveRange: nil) as? UIFont
                 
-        return self.withAttributes([NSAttributedString.Key.font: CactusFont.italic(font?.pointSize ?? FontSize.normal)], range: range)
+        return self.withAttributes([NSAttributedString.Key.font: CactusFont.italic(font?.pointSize ?? FontSize.normal.rawValue)], range: range)
     }
     
     func withBold(forSubstring input: String) -> NSAttributedString {
@@ -70,7 +70,7 @@ extension NSAttributedString {
         
         let font: UIFont? = self.attribute(NSAttributedString.Key.font, at: 0, effectiveRange: nil) as? UIFont
                 
-        return self.withAttributes([NSAttributedString.Key.font: CactusFont.bold(font?.pointSize ?? FontSize.normal)], range: range)
+        return self.withAttributes([NSAttributedString.Key.font: CactusFont.bold(font?.pointSize ?? FontSize.normal.rawValue)], range: range)
     }
     
     func withFont(_ font: UIFont) -> NSAttributedString {

@@ -30,6 +30,7 @@ class UserService {
         
         if Auth.auth().isSignIn(withEmailLink: activityUrl.absoluteString) {
             logger.info("Signing in user with magic link")
+            SessionStore.shared.isSigningIn = true
             let email = UserDefaults.standard.string(forKey: UserDefaultsKey.magicLinkEmail)
             if let email = email {
                 self.signinWithEmail(email, link: activityUrl.absoluteString)
@@ -45,7 +46,7 @@ class UserService {
         } else if path == "/signup" || path == "/login" {
             return true
         }
-        
+        SessionStore.shared.isSigningIn = false
         return false
     }
     
@@ -54,7 +55,7 @@ class UserService {
                                       message: message,
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
-        AppMainViewController.shared.present(alert, animated: true)
+        NavigationService.shared.present(alert, animated: true)
     }
     
     func signinWithEmail(_ email: String, link: String) {
@@ -146,7 +147,7 @@ class UserService {
         
         emailAlert.addAction(submitAction)
         
-        AppMainViewController.shared.present(emailAlert, animated: true)
+        NavigationService.shared.present(emailAlert, animated: true)
     }
     
     func deleteUserPermenantly(completion: @escaping (DeleteUserResult) -> Void) {

@@ -42,7 +42,8 @@ class LinkHandlerUtil {
         let entryId = url.getPathId(for: "prompts")
         
         if let entryId = entryId {
-            AppMainViewController.shared.loadPromptContent(promptContentEntryId: entryId, link: url.absoluteString)
+//            AppMainViewController.shared.loadPromptContent(promptContentEntryId: entryId, link: url.absoluteString)
+            NavigationService.shared.loadPromptContent(promptContentEntryId: entryId, link: url.absoluteString)
             return true
         }
         
@@ -51,7 +52,8 @@ class LinkHandlerUtil {
     
     static func handleSharedResponse(_ url: URL) -> Bool {
         if let responseId = url.getPathId(for: "reflection") {
-            AppMainViewController.shared.loadSharedReflection(reflectionId: responseId, link: url.absoluteString)
+//            AppMainViewController.shared.loadSharedReflection(reflectionId: responseId, link: url.absoluteString)
+            NavigationService.shared.loadSharedReflection(reflectionId: responseId, link: url.absoluteString)
             return true
         }
         return false
@@ -66,11 +68,11 @@ class LinkHandlerUtil {
         let screenPath = url.lastPathComponent
         if let screenId = ScreenID(rawValue: screenPath) {
             let vc = screenId.getViewController()
-            AppMainViewController.shared.addPendingAction {
+            SessionStore.shared.addAuthAction { _ in
                 if mode == "push" {
                     _ = AppMainViewController.shared.showScreen(vc)
                 } else {
-                    AppMainViewController.shared.present(vc, animated: true, completion: nil)
+                    NavigationService.shared.present(vc, animated: true, completion: nil)
                 }
             }
             return true

@@ -433,4 +433,10 @@ public class ApiService {
             task.resume()
         }
     }
+    
+    func getSubscriptionDetails(_ onData: @escaping (SubscriptionDetails?, Any?) -> Void) {
+        self.get(path: .checkoutSubscriptionDetails, responseType: SubscriptionDetails.self, authenticated: true) { response, error in
+            onData(response, error)
+        }
+    }
 }

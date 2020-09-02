@@ -8,7 +8,7 @@
 
 import Foundation
 import Cloudinary
-//import SwiftyGif
+import UIKit
 
 class ImageService {
     static var shared = ImageService()
@@ -17,6 +17,14 @@ class ImageService {
     init() {
         let config = CLDConfiguration(cloudName: "cactus-app", secure: true)
         self.cloudinary = CLDCloudinary(configuration: config)
+    }
+    
+    func getCloudinaryUrl(string: String) -> URL? {
+        guard let stringUrl = cloudinary.createUrl().setType(.fetch).setFormat("png").generate(string) else {
+            return nil
+        }
+        
+        return URL(string: stringUrl)
     }
     
     func setStorageUrl(_ imageView: UIImageView, url: String, gifDelegate: SwiftyGifDelegate?=nil) {
@@ -84,6 +92,16 @@ class ImageService {
             imageView.isHidden = false
         } else {
             imageView.isHidden = true
+        }
+    }
+        
+    func getUrlFromFile(_ photo: ImageFile?) -> URL? {
+        if let storageUrl = photo?.storageUrl, !storageUrl.isEmpty {
+            return self.getCloudinaryUrl(string: storageUrl)
+        } else if let url = photo?.url, !FormatUtils.isBlank(url) {
+            return URL(string: url)
+        } else {
+            return nil
         }
     }
 }

@@ -31,6 +31,10 @@ class FlamelinkFile: Codable {
         case fileIds
     }
     
+    public init() {
+        
+    }
+    
     public required init(from decoder: Decoder) throws {
         do {
             let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -99,6 +103,16 @@ class ImageFile: FlamelinkFile {
         case url
         case storageUrl
         case allowDarkModeInvert
+    }
+    
+    convenience init(storageUrl: String?=nil) {
+        self.init(url: nil, storageUrl: storageUrl)
+    }
+    
+    init(url: String?=nil, storageUrl: String?=nil) {
+        super.init()
+        self.url = url
+        self.storageUrl = storageUrl
     }
     
     public required init(from decoder: Decoder) throws {

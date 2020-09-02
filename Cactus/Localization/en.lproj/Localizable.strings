@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  Cactus
+
+  Created by Neil Poulin on 8/10/20.
+  Copyright © 2020 Cactus. All rights reserved.
+*/
+"Cactus" = "Cactus";
+"Streak" = "Streak";
+"Duration" = "Duration";
+"Reflections" = "Reflections";
+"LogOut" = "Log Out";
+"LogOutConfirm" = "Are you sure you want to log out of the app?";
+"Home" = "Home";
+"Welcome" = "Welcome";

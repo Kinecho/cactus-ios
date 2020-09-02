@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import NoveFeatherIcons
 
 class AppSettings: FlamelinkIdentifiable {
     static var schema = FlamelinkSchema.appSettings_ios
@@ -43,6 +44,8 @@ class AppSettings: FlamelinkIdentifiable {
         case coreValuesPath
     }
     
+    init() { }
+    
     public required init(from decoder: Decoder) throws {
         let model = try ModelDecoder<AppSettingsField>.create(decoder: decoder, codingKeys: AppSettingsField.self) 
         self._fl_meta_ = try? model.container.decode(FlamelinkMeta.self, forKey: ._fl_meta_)
@@ -63,14 +66,46 @@ class AppSettings: FlamelinkIdentifiable {
     
 }
 
-struct PricingFeature: Codable {
-    var icon: IconType?
+struct PricingFeature: Codable, Identifiable {
+    var id = UUID()
+    var icon: String?
     var titleMarkdown: String?
     var descriptionMarkdown: String?
     
-    static func create(icon: IconType?, title: String?, description: String?) -> PricingFeature {
+    enum PricingFeatureKey: CodingKey {
+        case icon
+        case titleMarkdown
+        case descriptionMarkdown
+    }
+    
+    init() {}
+    
+    public init(from decoder: Decoder) throws {
+        let model = try ModelDecoder<PricingFeatureKey>.create(decoder: decoder, codingKeys: PricingFeatureKey.self)
+        self.icon = model.optionalString(.icon, blankAsNil: true)
+        self.titleMarkdown =  model.optionalString(.titleMarkdown, blankAsNil: true)
+        self.descriptionMarkdown = model.optionalString(.descriptionMarkdown, blankAsNil: true)
+    }
+    
+    static func create(icon: String, title: String?, description: String?) -> PricingFeature {
         var f = PricingFeature()
         f.icon = icon
+        f.titleMarkdown = title
+        f.descriptionMarkdown = description
+        return f
+    }
+    
+    static func create(icon: IconType?, title: String?, description: String?) -> PricingFeature {
+        var f = PricingFeature()
+        f.icon = icon?.rawValue
+        f.titleMarkdown = title
+        f.descriptionMarkdown = description
+        return f
+    }
+    
+    static func create(icon: Feather.IconName?, title: String?, description: String?) -> PricingFeature {
+        var f = PricingFeature()
+        f.icon = icon?.rawValue
         f.titleMarkdown = title
         f.descriptionMarkdown = description
         return f
@@ -78,18 +113,44 @@ struct PricingFeature: Codable {
 }
 
 let DEFAULT_PRICING_FEATURES: [PricingFeature] = [
-    PricingFeature.create(icon: .calendar, title: "Make it daily", description: "Improve your focus and positivity at work and home with a fresh prompt, every day."),
+    PricingFeature.create(icon: IconType.calendar, title: "Make it daily", description: "Improve your focus and positivity at work and home with a fresh prompt, every day."),
     PricingFeature.create(icon: .pie, title: "Personalized insights", description: "Visualizations reveal the people, places, and things that contribute to your satisfaction."),
     PricingFeature.create(icon: .journal, title: "Look back", description: "As your journal fills up, celebrate and relive the positive forces in your life."),
-    PricingFeature.create(icon: .lock, title: "Private + secure", description: "Your journal entries are encrypted for your eyes only."),
+    PricingFeature.create(icon: IconType.lock, title: "Private + secure", description: "Your journal entries are encrypted for your eyes only."),
 ]
 
 class PricingScreenSettings: Codable {
-    var pageTitleMarkdown: String?
-    var pageDescriptionMarkdown: String?
-    var purchaseButtonText: String?
-    var features: [PricingFeature]?
-    var headerBackgroundHeight: CGFloat? = 260        
+    var pageTitleMarkdown: String = "Get more with Cactus Plus"
+    var pageDescriptionMarkdown: String = "Daily prompts, personalized insights, and more"
+    var purchaseButtonText: String = "Try Cactus Plus"
+    var features: [PricingFeature] = DEFAULT_PRICING_FEATURES
+    var headerBackgroundHeight: CGFloat? = 260
+    
+    enum PricingScreenKey: CodingKey {
+        case pageTitleMarkdown
+        case pageDescriptionMarkdown
+        case purchaseButtonText
+        case features
+        case headerBackgroundHeight
+    }
+    
+    init() {
+        //no op
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let model = try ModelDecoder<PricingScreenKey>.create(decoder: decoder, codingKeys: PricingScreenKey.self)
+        self.pageTitleMarkdown  = model.string(.pageTitleMarkdown, defaultValue: "Get more with Cactus Plus", blankAsNil: true)
+        self.pageDescriptionMarkdown = model.string(.pageDescriptionMarkdown, defaultValue: "Daily prompts, personalized insights, and more", blankAsNil: true)
+        self.purchaseButtonText = model.string(.purchaseButtonText, defaultValue: "Try Cactus Plus", blankAsNil: true)
+        self.headerBackgroundHeight = model.cgFloat(.headerBackgroundHeight, defaultValue: 260)
+        self.features = (try? model.container.decode([PricingFeature].self, forKey: .features)) ?? DEFAULT_PRICING_FEATURES
+    }
+    
+    static func defaultSettings() -> PricingScreenSettings {
+        let settings = PricingScreenSettings()
+        return settings
+    }
 }
 
 class DataExportSettings: Codable {
@@ -125,27 +186,67 @@ class InsightsSettings: Codable {
 class JournalHomeUpgradeBannerCopy: Codable {
     var title: String = ""
     var descriptionMarkdown: String = ""
-    var upgradeButtonText: String = ""    
+    var upgradeButtonText: String = ""
+    
+    static func defaults() -> JournalHomeUpgradeBannerCopy {
+        let copy = JournalHomeUpgradeBannerCopy()
+        copy.title = "Try Cactus Plus"
+        copy.descriptionMarkdown = "Get daily prompts, personalized insights, and more"
+        copy.upgradeButtonText = "Try it free"
+        return copy
+    }
 }
 
 class JournalHomeUpgradeCopyGroups: Codable {
     var basicTier: JournalHomeUpgradeBannerCopy
+    
+    init(basic: JournalHomeUpgradeBannerCopy) {
+        self.basicTier = basic
+    }
+    
+    static func defaults() -> JournalHomeUpgradeCopyGroups {
+        let groups = JournalHomeUpgradeCopyGroups(basic: JournalHomeUpgradeBannerCopy.defaults())
+        
+        return groups
+    }
 }
 
 class ManageSubscriptionCopy: Codable {
     var upgradeFromOptInTrian: String = ""
     var upgradeFromBasicMarkdown: String = ""
     var upgradeButtonText: String? = "Try Cactus Plus"
+    
+    static func defaults() -> ManageSubscriptionCopy {
+        return ManageSubscriptionCopy()
+    }
 }
 
 class CelebrateUpgradeCopy: Codable {
     var upgradeBasicDescriptionMarkdown: String? = "Get daily insights and more"
+    
+    static func defaults() -> CelebrateUpgradeCopy {
+        return CelebrateUpgradeCopy()
+    }
 }
 
 class UpgradeCopy: Codable {
     var journalHomeBanner: JournalHomeUpgradeCopyGroups
     var manageSubscription: ManageSubscriptionCopy
     var celebrate: CelebrateUpgradeCopy
+    
+    init(banner: JournalHomeUpgradeCopyGroups, subscription: ManageSubscriptionCopy, celebrate: CelebrateUpgradeCopy) {
+        self.journalHomeBanner = banner
+        self.manageSubscription = subscription
+        self.celebrate = celebrate
+    }
+    
+    static func defaults() -> UpgradeCopy {
+        let copy = UpgradeCopy(banner: JournalHomeUpgradeCopyGroups.defaults(),
+                               subscription: ManageSubscriptionCopy.defaults(),
+                               celebrate: CelebrateUpgradeCopy.defaults())
+    
+        return copy
+    }
 }
 
 class CheckoutSettings: Codable {

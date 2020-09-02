@@ -99,6 +99,13 @@ class Quote: Codable {
         case authorAvatar
     }
     
+    public init(text: String, name: String, title: String) {
+        self.text = text
+        self.text_md = text
+        self.authorName = name
+        self.authorTitle = title
+    }
+    
     public required init(from decoder: Decoder) throws {
         let model = try ModelDecoder<QuoteCodingKey>.create(decoder: decoder, codingKeys: QuoteCodingKey.self)
         

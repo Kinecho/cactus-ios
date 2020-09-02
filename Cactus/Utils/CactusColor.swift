@@ -8,72 +8,162 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
+enum NamedColor: String, Codable, CaseIterable {
+    case AccentBeige
+    case AlertYellow
+    case Aqua
+    case Background
+    case Beige
+    case BeigeDark
+    case BlackInvertable
+    case BlueLight
+    case BorderLight
+    case CardBackground
+    case Coral
+    case DisabledButtonBackground
+    case Danger
+    case Dolphin
+    case DolphinLight
+    case Facebook
+    case FancyLinkHighlight
+    case GrayLight
+    case Gray
+    case GrayDark
+    case GreenLightest
+    case GreenLight
+    case Green
+    case GreenDark
+    case GreenDarker
+    case GreenDarkest
+    case GreenRoyal
+    case Heading3Text
+    case Highlight
+    case HighContrast
+    case Indigo
+    case TextBoldHighlight
+    case Lightest
+    case Magenta
+    case MenuBackground
+    case NoteBackground
+    case PaymentBackground
+    case PinkBright
+    case PinkLightest
+    case PinkLight
+    case Pink
+    case PinkDark
+    case PinkDarkest
+    case PromptBackground
+    case ProgressBackground
+    case Royal
+    case SecondaryButtonBackground
+    case SecondaryBorder
+    case SkeletonBase
+    case StatIconBackground
+    case TextDark
+    case TextDefault
+    case TextLight
+    case TextMinimized
+    case TextPlaceholder
+    case TextWhite
+    case TodayWidgetBackground
+    case Twitter
+    case White
+    case WhiteInvertable
+    case Yellow
+    case YellowDark
+    case YellowDarkest
+    
+    /// set up aliases for named colors
+    static let LinkColor = NamedColor.GreenDark
+    static let SelectedBuyable = NamedColor.Highlight
+    
+    var uiColor: UIColor {
+        UIColor(named: self.rawValue)!
+    }
+    
+    var color: SwiftUI.Color {
+        SwiftUI.Color(self.rawValue)
+    }
+}
+
+struct ColorInfo {
+    var namedColor: NamedColor
+    var hex: String?
+    
+    var uiColor: UIColor {
+        self.namedColor.uiColor
+    }
+    
+    var color: SwiftUI.Color {
+        self.namedColor.color
+    }
+}
+
+/// Deprecated Struct for getting UI Colors
 struct CactusColor {
-    static let lightest: UIColor = UIColor(hex: "F1EBE7")
-    
-    static let lightText: UIColor = UIColor(hex: "757575")
-    static let darkText: UIColor = UIColor(hex: "444444")
-    static let placeholderText: UIColor = UIColor(hex: "757575")
-    
-    static let lightGray: UIColor = UIColor(hex: "E2E2E2")
-    static let gray: UIColor = UIColor(hex: "CCCCCC") 
-    static let darkGray: UIColor = UIColor(hex: "444444")
-    
-    static let lightestPink: UIColor = UIColor(hex: "FFF2ED")
-    static let lightPink: UIColor = UIColor(hex: "FFE4DA")
-    static let pink: UIColor = UIColor(named: "Pink")!
-    static let darkPink: UIColor = UIColor(hex: "FDBCA3")
-    static let darkestPink: UIColor = UIColor(hex: "7A3814")
-    
-    static let lightestGreen: UIColor = UIColor(hex: "D6E3E6")
-    static let lightGreen: UIColor = UIColor(hex: "B9EFE9")
-    static let green: UIColor = UIColor(hex: "33CCAB")
-    static let darkGreen: UIColor = UIColor(hex: "29A389")
-    static let darkerGreen = UIColor(hex: "#0b6e79")
-    static let darkestGreen: UIColor = UIColor(hex: "07454C")
-    
-    static let yellow: UIColor = UIColor(hex: "F9EB91")
-    static let darkYellow: UIColor = UIColor(hex: "F4DD48")
-    static let darkestYellow: UIColor = UIColor(hex: "F4DD48")
-    
-    static let lightBlue: UIColor = UIColor(hex: "e6f9f7")
-    
-    static let borderLight: UIColor = UIColor(hex: "f1ebe7")
-    
-    static let facebook: UIColor = UIColor(hex: "3b5998")
-    static let twitter: UIColor = UIColor(hex: "1da1f2")
-    static let cardBackground = UIColor(named: "CardBackground")!
-    static let indigo = UIColor(named: "Indigo")!
-    static let textBoldHighlight = UIColor(named: "TextBoldHighlight")!
-    static let paymentBackground = UIColor(named: "PaymentBackground")!
-    static let whiteInvertable = UIColor(named: "WhiteInvertable")!
-    static let blackInvertable = UIColor(named: "BlackInvertable")!
-    static let white: UIColor = UIColor(hex: "FFFFFF")
-    static let background: UIColor = UIColor(named: "Background")!
-    static let noteBackground: UIColor = UIColor(named: "NoteBackground")!
-    static let beige: UIColor = UIColor(hex: "F0ECEA")
-    static let darkBeige: UIColor = UIColor(hex: "E5DFDB")
-    static let magenta: UIColor = UIColor(named: "Magenta")!
-    static let dolphin = UIColor(named: "Dolphin")!
-    static let dolphinLight = UIColor(named: "DolphinLight")!
-    static let promptBackground: UIColor = UIColor(named: "PromptBackground")!
-    static let accentBeige: UIColor = UIColor(named: "AccentBeige")!
-    static let alertYellow: UIColor = UIColor(named: "AlertYellow")!
-    static let progressBackground: UIColor = UIColor(named: "ProgressBackground")!
-    static let textDefault: UIColor = UIColor(named: "TextDefault")!
-    static let textWhite: UIColor = UIColor(named: "TextWhite")!
-    static let textMinimized: UIColor = UIColor(named: "TextMinimized")!
-    static let secondaryButtonBackground: UIColor = UIColor(named: "SecondaryButtonBackground")!
-    static let secondaryBorder: UIColor = UIColor(named: "SecondaryBorder")!
-    static let skeletonBase = UIColor(named: "SkeletonBase")!
-    static let linkColor = CactusColor.darkGreen
-    static let brightPink = UIColor(named: "PinkBright")!
-    static let royal = UIColor(named: "Royal")!
-    static let aqua = UIColor(named: "Aqua")!
-    static let fancyLinkHighlight = UIColor(named: "FancyLinkHighlight")!
-    static let danger = UIColor(named: "Danger")!
-    static let coral = UIColor(named: "Coral")!
+    static let beige = NamedColor.Beige.uiColor
+    static let borderLight = NamedColor.BorderLight.uiColor
+    static let cardBackground = NamedColor.CardBackground.uiColor
+    static let darkText = NamedColor.TextDark.uiColor
+    static let darkGray = NamedColor.GrayDark.uiColor
+    static let darkPink = NamedColor.PinkDark.uiColor
+    static let darkestPink = NamedColor.PinkDarkest.uiColor
+    static let darkGreen = NamedColor.GreenDark.uiColor
+    static let darkerGreen = NamedColor.GreenDarker.uiColor
+    static let darkestGreen = NamedColor.GreenDarkest.uiColor
+    static let darkYellow = NamedColor.YellowDark.uiColor
+    static let darkestYellow = NamedColor.YellowDarkest.uiColor
+    static let facebook = NamedColor.Facebook.uiColor
+    static let gray = NamedColor.Gray.uiColor
+    static let green = NamedColor.Green.uiColor
+    static let greenRoyal = NamedColor.GreenRoyal.uiColor
+    static let highContrast = NamedColor.HighContrast.uiColor
+    static let indigo = NamedColor.Indigo.uiColor
+    static let lightBlue = NamedColor.BlueLight.uiColor
+    static let lightestGreen = NamedColor.GreenLightest.uiColor
+    static let lightGreen = NamedColor.GreenLight.uiColor
+    static let lightest = NamedColor.Lightest.uiColor
+    static let lightText = NamedColor.TextLight.uiColor
+    static let lightGray = NamedColor.GrayLight.uiColor
+    static let lightestPink = NamedColor.PinkLightest.uiColor
+    static let lightPink = NamedColor.PinkLight.uiColor
+    static let paymentBackground = NamedColor.PaymentBackground.uiColor
+    static let pink = NamedColor.Pink.uiColor
+    static let placeholderText = NamedColor.TextPlaceholder.uiColor
+    static let twitter = NamedColor.Twitter.uiColor
+    static let yellow = NamedColor.Yellow.uiColor
+    static let textBoldHighlight = NamedColor.TextBoldHighlight.uiColor
+    static let whiteInvertable = NamedColor.WhiteInvertable.uiColor
+    static let blackInvertable = NamedColor.BlackInvertable.uiColor
+    static let white = NamedColor.White.uiColor
+    static let background = NamedColor.Background.uiColor
+    static let noteBackground = NamedColor.NoteBackground.uiColor
+    static let darkBeige = NamedColor.BeigeDark.uiColor
+    static let magenta = NamedColor.Magenta.uiColor
+    static let menuBackground = NamedColor.MenuBackground.uiColor
+    static let dolphin = NamedColor.Dolphin.uiColor
+    static let dolphinLight = NamedColor.DolphinLight.uiColor
+    static let promptBackground = NamedColor.PromptBackground.uiColor
+    static let accentBeige = NamedColor.AccentBeige.uiColor
+    static let alertYellow = NamedColor.AlertYellow.uiColor
+    static let progressBackground = NamedColor.ProgressBackground.uiColor
+    static let textDefault = NamedColor.TextDefault.uiColor
+    static let textWhite = NamedColor.TextWhite.uiColor
+    static let heading3Text = NamedColor.Heading3Text.uiColor
+    static let textMinimized = NamedColor.TextMinimized.uiColor
+    static let secondaryButtonBackground = NamedColor.SecondaryButtonBackground.uiColor
+    static let secondaryBorder = NamedColor.SecondaryBorder.uiColor
+    static let skeletonBase = NamedColor.SkeletonBase.uiColor
+    static let brightPink = NamedColor.PinkBright.uiColor
+    static let royal = NamedColor.Royal.uiColor
+    static let aqua = NamedColor.Aqua.uiColor
+    static let fancyLinkHighlight = NamedColor.FancyLinkHighlight.uiColor
+    static let highlight = NamedColor.Highlight.uiColor
+    static let danger = NamedColor.Danger.uiColor
+    static let coral = NamedColor.Coral.uiColor
+    static let linkColor = NamedColor.LinkColor.uiColor
 }
 
 extension UIColor {

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 extension UIImageView {
     func setImageFile(_ image: ImageFile?) {
@@ -48,5 +49,9 @@ extension UIImage {
 
         guard let outputImage = filter.outputImage else { return nil }
         return UIImage(ciImage: outputImage)
+    }
+    
+    var image: Image {
+        return Image(uiImage: self)
     }
 }

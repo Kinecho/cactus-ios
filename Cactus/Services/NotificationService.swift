@@ -93,7 +93,7 @@ class NotificationService: NSObject {
         guard let url = URL(string: UIApplication.openSettingsURLString) else {
             return
         }
-        NavigationService.sharedInstance.openUrl(url: url)
+        NavigationService.shared.openUrl(url: url)
 
     }
     
@@ -159,7 +159,8 @@ extension NotificationService: UNUserNotificationCenterDelegate {
         // Print full message.
         self.logger.debug("Message Info: \(userInfo)", functionName: #function, line: #line)
         if let promptContentEntryId = userInfo["promptEntryId"] as? String {
-            AppMainViewController.shared.loadPromptContent(promptContentEntryId: promptContentEntryId, link: nil)
+//            AppMainViewController.shared.loadPromptContent(promptContentEntryId: promptContentEntryId, link: nil)
+            NavigationService.shared.loadPromptContent(promptContentEntryId: promptContentEntryId, link: nil)
         }
         completionHandler(UIBackgroundFetchResult.newData)
     }
@@ -183,7 +184,8 @@ extension NotificationService: UNUserNotificationCenterDelegate {
         NotificationService.sharedInstance.handlePushMessage(userInfo)
         // Change this to your preferred presentation option
         if let promptContentEntryId = userInfo["promptEntryId"] as? String {
-            AppMainViewController.shared.loadPromptContent(promptContentEntryId: promptContentEntryId, link: nil)
+//            AppMainViewController.shared.loadPromptContent(promptContentEntryId: promptContentEntryId, link: nil)
+            NavigationService.shared.loadPromptContent(promptContentEntryId: promptContentEntryId, link: nil)
         }
         
         completionHandler([])
@@ -202,7 +204,8 @@ extension NotificationService: UNUserNotificationCenterDelegate {
         self.logger.debug("Message Info: \(userInfo)", functionName: #function, line: #line)
         
         if let promptContentEntryId = userInfo["promptEntryId"] as? String {
-            AppMainViewController.shared.loadPromptContent(promptContentEntryId: promptContentEntryId, link: nil)
+//            AppMainViewController.shared.loadPromptContent(promptContentEntryId: promptContentEntryId, link: nil)
+            NavigationService.shared.loadPromptContent(promptContentEntryId: promptContentEntryId, link: nil)
         }
         
         completionHandler()

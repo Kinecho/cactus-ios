@@ -33,6 +33,7 @@ protocol JournalEntryDataDelegate: class {
 class JournalEntryData {
     static var logger = Logger(fileName: "JournalEntryData")
     var promptId: String?
+    var promptContentEntryId: String?
     var memberId: String
     var sentPrompt: SentPrompt?
     var reflectionPromptData = PromptData()
@@ -46,7 +47,7 @@ class JournalEntryData {
     var loadingComplete: Bool {
         return self.wontLoad || self.reflectionPromptData.hasLoaded && self.responseData.hasLoaded && self.contentData.hasLoaded
     }
-        
+    
     func notifyIfLoadingComplete() {
         self.delegate?.onData(self.getJournalEntry())
     }
@@ -62,6 +63,13 @@ class JournalEntryData {
     init(promptId: String?, memberId: String, journalDate: Date?) {
         JournalEntryData.logger.debug("Setting up Journal Entry without a SentPrompt for promptId \(promptId ?? "unknown")", functionName: #function, line: #line)
         self.promptId = promptId
+        self.memberId = memberId
+        self.journalDate = journalDate
+    }
+    
+    init(entryId: String?, memberId: String, journalDate: Date?) {
+        JournalEntryData.logger.debug("Setting up Journal Entry without a SentPrompt for promptContentEntryId \(entryId ?? "unknown")", functionName: #function, line: #line)
+        self.promptContentEntryId = entryId
         self.memberId = memberId
         self.journalDate = journalDate
     }
@@ -101,8 +109,35 @@ class JournalEntryData {
         return entry
     }
     
+    ///used to obseve by content id
+    private func setupPromptContent(entryId: String) {
+        guard self.contentData.unsubscriber == nil else {
+            return
+        }
+        self.contentData.unsubscriber = PromptContentService.sharedInstance.observeForEntryId(entryId: entryId) { (promptContent, error) in
+            if let error = error {
+                JournalEntryData.logger.error("Failed to load promptContent. entryId \(entryId)", error, functionName: #function, line: #line)
+            }
+            if let promptContent = promptContent {
+                self.contentData.promptContent = promptContent
+            }
+            self.contentData.hasLoaded = true
+            self.promptId = promptContent?.promptId
+            if self.promptId != nil {
+                self.setupPromptObserver()
+            }
+            self.notifyIfLoadingComplete()
+        }
+    }
+    
     func setupPromptObserver() {
         self.reflectionPromptData.unsubscriber?.remove()
+        
+        if self.promptId == nil, let entryId = self.promptContentEntryId {
+            self.setupPromptContent(entryId: entryId)
+            return
+        }
+        
         guard let promptId = self.promptId, !isBlank(promptId) else {
             JournalEntryData.logger.info("No prompt ID found on JournalEntryData, can't load data")
             self.wontLoad = true
@@ -144,7 +179,9 @@ class JournalEntryData {
     }
 }
 
-struct JournalEntry: Equatable {
+struct JournalEntry: Equatable, Identifiable {
+    var id: String = UUID().uuidString
+    
     static func == (lhs: JournalEntry, rhs: JournalEntry) -> Bool {
         return lhs.prompt?.id == rhs.prompt?.id
             && lhs.sentPrompt?.id == rhs.sentPrompt?.id
@@ -168,16 +205,55 @@ struct JournalEntry: Equatable {
     
     init(promptId: String?) {
         self.promptId = promptId
+        
     }
     
-//    var isTodaysPrompt: Bool {
-//        guard let date = self.journalDate, self.sentPrompt == nil else {
-//            return false
-//        }
-//
-//        let journalString = getFlamelinkDateStringAtMidnight(for: date)
-//        let currentString = getFlamelinkDateStringAtMidnight(for: Date())
-//        return journalString == currentString
-//    }
+    var responseText: String? {
+        let text = self.responses?.compactMap {$0.content.text}.joined(separator: "\n\n")
+        return isBlank(text) ? nil : text?.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
+    var questionText: String? {
+        return self.promptContent?.getDisplayableQuestion() ?? self.prompt?.question
+    }
+    
+    var introText: String? {
+        return self.promptContent?.getIntroTextMarkdown()
+    }
+    
+    var imageUrl: URL? {
+        let photo = self.promptContent?.getMainImageFile()
+        return ImageService.shared.getUrlFromFile(photo)
+    }
+    
+    var dateString: String? {
+        if self.isTodaysPrompt {
+            return "Today"
+        }
+        
+        guard let date = self.sentPrompt?.firstSentAt ?? self.responses?.first?.createdAt else {
+            return nil
+        }
+        
+        return FormatUtils.formatDate(date)
+    }
+    
+    var hasNote: Bool {
+        return FormatUtils.hasNote(self.responses)
+    }
+    
+    var hasReflected: Bool {
+        return self.responses?.isEmpty == false
+    }
+    
+    //    var isTodaysPrompt: Bool {
+    //        guard let date = self.journalDate, self.sentPrompt == nil else {
+    //            return false
+    //        }
+    //
+    //        let journalString = getFlamelinkDateStringAtMidnight(for: date)
+    //        let currentString = getFlamelinkDateStringAtMidnight(for: Date())
+    //        return journalString == currentString
+    //    }
     
 }

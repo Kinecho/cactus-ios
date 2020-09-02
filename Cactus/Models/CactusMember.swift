@@ -66,6 +66,18 @@ enum StreakDuration: String, Codable {
         return plural ? self.pluralLabel : self.singularLabel
     }
     
+    var unitFormatter: UnitFormatter {
+        switch self {
+        case .DAYS:
+            return UnitFormatter.day
+        case .WEEKS:
+            return UnitFormatter.week
+        case .MONTHS:
+            return UnitFormatter.month
+        }
+    }
+    
+    
     var singularLabel: String {
         switch self {
         case .DAYS:
@@ -173,7 +185,19 @@ class CactusMember: FirestoreIdentifiable, Hashable {
     
     //computed properties
     var tier: SubscriptionTier {
-        return self.subscription?.tier ?? SubscriptionTier.BASIC
+        get {
+            return self.subscription?.tier ?? SubscriptionTier.BASIC
+        }
+        set {
+            let subscription = self.subscription ?? MemberSubscription.getDefault()
+            subscription.tier = newValue
+            self.subscription = subscription
+        }
+    }
+    
+    var fullName: String? {
+        let name = "\(self.firstName ?? "") \(self.lastName ?? "")".trimmingCharacters(in: .whitespacesAndNewlines)
+        return isBlank(name) ? nil : name
     }
     
     func hash(into hasher: inout Hasher) {

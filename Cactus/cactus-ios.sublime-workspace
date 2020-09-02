@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"tes",
+				"test-completed"
+			],
+			[
+				"fastlan",
+				"fastlane_cmd"
+			],
+			[
 				"app",
 				"appstore"
 			],
@@ -41,10 +49,6 @@
 			],
 			[
 				"test",
-				"test-name"
-			],
-			[
-				"tes",
 				"test-name"
 			],
 			[
@@ -119,48 +123,43 @@
 			"file": "/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/fastlane/Fastfile",
 			"settings":
 			{
-				"buffer_size": 9469,
+				"buffer_size": 9761,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/fastlane/report.xml",
+			"file": "/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Cactus Stage copy-Info.plist",
 			"settings":
 			{
-				"buffer_size": 1151,
+				"buffer_size": 3872,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/.circleci/config.yml",
+			"file": "/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Cactus Today/Info.plist",
 			"settings":
 			{
-				"buffer_size": 11947,
+				"buffer_size": 1203,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/.swiftlint.yml",
+			"file": "/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Cactus UnitTests/Info.plist",
 			"settings":
 			{
-				"buffer_size": 444,
+				"buffer_size": 705,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": " {\n    \"status\": 0,\n    \"environment\": \"Sandbox\",\n    \"receipt\": {\n      \"receipt_type\": \"ProductionSandbox\",\n      \"adam_id\": 0,\n      \"app_item_id\": 0,\n      \"bundle_id\": \"com.cactus.StageCactus\",\n      \"application_version\": \"126\",\n      \"download_id\": 0,\n      \"version_external_identifier\": 0,\n      \"receipt_creation_date\": \"2020-03-07 23:51:46 Etc/GMT\",\n      \"receipt_creation_date_ms\": \"1583625106000\",\n      \"receipt_creation_date_pst\": \"2020-03-07 15:51:46 America/Los_Angeles\",\n      \"request_date\": \"2020-03-07 23:53:11 Etc/GMT\",\n      \"request_date_ms\": \"1583625191373\",\n      \"request_date_pst\": \"2020-03-07 15:53:11 America/Los_Angeles\",\n      \"original_purchase_date\": \"2013-08-01 07:00:00 Etc/GMT\",\n      \"original_purchase_date_ms\": \"1375340400000\",\n      \"original_purchase_date_pst\": \"2013-08-01 00:00:00 America/Los_Angeles\",\n      \"original_application_version\": \"1.0\",\n      \"in_app\": [\n        {\n          \"quantity\": \"1\",\n          \"product_id\": \"plus_monthly_1\",\n          \"transaction_id\": \"1000000636184680\",\n          \"original_transaction_id\": \"1000000636184680\",\n          \"purchase_date\": \"2020-03-07 20:43:40 Etc/GMT\",\n          \"purchase_date_ms\": \"1583613820000\",\n          \"purchase_date_pst\": \"2020-03-07 12:43:40 America/Los_Angeles\",\n          \"original_purchase_date\": \"2020-03-07 20:43:41 Etc/GMT\",\n          \"original_purchase_date_ms\": \"1583613821000\",\n          \"original_purchase_date_pst\": \"2020-03-07 12:43:41 America/os_Angeles\",\n          \"expires_date\": \"2020-03-07 20:48:40 Etc/GMT\",\n          \"expires_date_ms\": \"1583614120000\",\n          \"expires_date_pst\": \"2020-03-07 12:48:40 America/Los_Angeles\",\n          \"web_order_line_item_id\": \"1000000050775599\",\n          \"is_trial_period\": \"false\",\n          \"is_in_intro_offer_period\": \"false\"\n        },\n        {\n          \"quantity\": \"1\",\n          \"product_id\": \"plus_monthly_1\",\n          \"transaction_id\": \"1000000636185779\",\n          \"original_transaction_id\": \"1000000636184680\",\n          \"purchase_date\": \"2020-03-07 20:48:40 Etc/GMT\",\n          \"purchase_date_ms\": \"1583614120000\",\n          \"purchase_date_pst\": \"2020-03-07 12:48:40 America/Los_Angeles\",\n          \"original_purchase_date\": \"2020-03-07 20:43:41 Etc/GMT\",\n          \"original_purchase_date_ms\": \"1583613821000\",\n          \"original_purchase_date_pst\": \"2020-03-07 12:43:41 America/os_Angeles\",\n          \"expires_date\": \"2020-03-07 20:53:40 Etc/GMT\",\n          \"expires_date_ms\": \"1583614420000\",\n          \"expires_date_pst\": \"2020-03-07 12:53:40 America/Los_Angeles\",\n          \"web_order_line_item_id\": \"1000000050775600\",\n          \"is_trial_period\": \"false\",\n          \"is_in_intro_offer_period\": \"false\"\n        },\n        {\n          \"quantity\": \"1\",\n          \"product_id\": \"plus_monthly_1\",\n          \"transaction_id\": \"1000000636186149\",\n          \"original_transaction_id\": \"1000000636184680\",\n          \"purchase_date\": \"2020-03-07 20:53:40 Etc/GMT\",\n          \"purchase_date_ms\": \"1583614420000\",\n          \"purchase_date_pst\": \"2020-03-07 12:53:40 America/Los_Angeles\",\n          \"original_purchase_date\": \"2020-03-07 20:43:41 Etc/GMT\",\n          \"original_purchase_date_ms\": \"1583613821000\",\n          \"original_purchase_date_pst\": \"2020-03-07 12:43:41 America/os_Angeles\",\n          \"expires_date\": \"2020-03-07 20:58:40 Etc/GMT\",\n          \"expires_date_ms\": \"1583614720000\",\n          \"expires_date_pst\": \"2020-03-07 12:58:40 America/Los_Angeles\",\n          \"web_order_line_item_id\": \"1000000050775615\",\n          \"is_trial_period\": \"false\",\n          \"is_in_intro_offer_period\": \"false\"\n        },\n        {\n          \"quantity\": \"1\",\n          \"product_id\": \"plus_monthly_1\",\n          \"transaction_id\": \"1000000636196979\",\n          \"original_transaction_id\": \"1000000636184680\",\n          \"purchase_date\": \"2020-03-07 22:38:41 Etc/GMT\",\n          \"purchase_date_ms\": \"1583620721000\",\n          \"purchase_date_pst\": \"2020-03-07 14:38:41 America/Los_Angeles\",\n          \"original_purchase_date\": \"2020-03-07 20:43:41 Etc/GMT\",\n          \"original_purchase_date_ms\": \"1583613821000\",\n          \"original_purchase_date_pst\": \"2020-03-07 12:43:41 America/os_Angeles\",\n          \"expires_date\": \"2020-03-07 22:43:41 Etc/GMT\",\n          \"expires_date_ms\": \"1583621021000\",\n          \"expires_date_pst\": \"2020-03-07 14:43:41 America/Los_Angeles\",\n          \"web_order_line_item_id\": \"1000000050775629\",\n          \"is_trial_period\": \"false\",\n          \"is_in_intro_offer_period\": \"false\"\n        },\n        {\n          \"quantity\": \"1\",\n          \"product_id\": \"plus_monthly_1\",\n          \"transaction_id\": \"1000000636197094\",\n          \"original_transaction_id\": \"1000000636184680\",\n          \"purchase_date\": \"2020-03-07 22:43:41 Etc/GMT\",\n          \"purchase_date_ms\": \"1583621021000\",\n          \"purchase_date_pst\": \"2020-03-07 14:43:41 America/Los_Angeles\",\n          \"original_purchase_date\": \"2020-03-07 20:43:41 Etc/GMT\",\n          \"original_purchase_date_ms\": \"1583613821000\",\n          \"original_purchase_date_pst\": \"2020-03-07 12:43:41 America/os_Angeles\",\n          \"expires_date\": \"2020-03-07 22:48:41 Etc/GMT\",\n          \"expires_date_ms\": \"1583621321000\",\n          \"expires_date_pst\": \"2020-03-07 14:48:41 America/Los_Angeles\",\n          \"web_order_line_item_id\": \"1000000050776166\",\n          \"is_trial_period\": \"false\",\n          \"is_in_intro_offer_period\": \"false\"\n        },\n        {\n          \"quantity\": \"1\",\n          \"product_id\": \"plus_monthly_1\",\n          \"transaction_id\": \"1000000636197262\",\n          \"original_transaction_id\": \"1000000636184680\",\n          \"purchase_date\": \"2020-03-07 22:48:41 Etc/GMT\",\n          \"purchase_date_ms\": \"1583621321000\",\n          \"purchase_date_pst\": \"2020-03-07 14:48:41 America/Los_Angeles\",\n          \"original_purchase_date\": \"2020-03-07 20:43:41 Etc/GMT\",\n          \"original_purchase_date_ms\": \"1583613821000\",\n          \"original_purchase_date_pst\": \"2020-03-07 12:43:41 America/os_Angeles\",\n          \"expires_date\": \"2020-03-07 22:53:41 Etc/GMT\",\n          \"expires_date_ms\": \"1583621621000\",\n          \"expires_date_pst\": \"2020-03-07 14:53:41 America/Los_Angeles\",\n          \"web_order_line_item_id\": \"1000000050776185\",\n          \"is_trial_period\": \"false\",\n          \"is_in_intro_offer_period\": \"false\"\n        },\n        {\n          \"quantity\": \"1\",\n          \"product_id\": \"plus_monthly_1\",\n          \"transaction_id\": \"1000000636202625\",\n          \"original_transaction_id\": \"1000000636184680\",\n          \"purchase_date\": \"2020-03-07 23:38:41 Etc/GMT\",\n          \"purchase_date_ms\": \"1583624321000\",\n          \"purchase_date_pst\": \"2020-03-07 15:38:41 America/Los_Angeles\",\n          \"original_purchase_date\": \"2020-03-07 20:43:41 Etc/GMT\",\n          \"original_purchase_date_ms\": \"1583613821000\",\n          \"original_purchase_date_pst\": \"2020-03-07 12:43:41 America/os_Angeles\",\n          \"expires_date\": \"2020-03-07 23:43:41 Etc/GMT\",\n          \"expires_date_ms\": \"1583624621000\",\n          \"expires_date_pst\": \"2020-03-07 15:43:41 America/Los_Angeles\",\n          \"web_order_line_item_id\": \"1000000050776212\",\n          \"is_trial_period\": \"false\",\n          \"is_in_intro_offer_period\": \"false\"\n        }\n      ]\n    },\n    \"latest_receipt_info\": [\n      {\n        \"quantity\": \"1\",\n        \"product_id\": \"plus_monthly_1\",\n        \"transaction_id\": \"1000000636202625\",\n        \"original_transaction_id\": \"1000000636184680\",\n        \"purchase_date\": \"2020-03-07 23:38:41 Etc/GMT\",\n        \"purchase_date_ms\": \"1583624321000\",\n        \"purchase_date_pst\": \"2020-03-07 15:38:41 America/Los_Angeles\",\n        \"original_purchase_date\": \"2020-03-07 20:43:41 Etc/GMT\",\n        \"original_purchase_date_ms\": \"1583613821000\",\n        \"original_purchase_date_pst\": \"2020-03-07 12:43:41 America/os_Angeles\",\n        \"expires_date\": \"2020-03-07 23:43:41 Etc/GMT\",\n        \"expires_date_ms\": \"1583624621000\",\n        \"expires_date_pst\": \"2020-03-07 15:43:41 America/Los_Angeles\",\n        \"web_order_line_item_id\": \"1000000050776212\",\n        \"is_trial_period\": \"false\",\n        \"is_in_intro_offer_period\": \"false\",\n        \"subscription_group_identifier\": \"20596157\"\n      }\n    ],\n    \"latest_receipt\": \"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\",\n    \"pending_renewal_info\": [\n      {\n        \"auto_renew_product_id\": \"plus_monthly_1\",\n        \"original_transaction_id\": \"1000000636184680\",\n        \"is_in_billing_retry_period\": \"1\",\n        \"product_id\": \"plus_monthly_1\",\n        \"auto_renew_status\": \"1\"\n      }\n    ]\n  }\n",
+			"file": "/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Cactus.xcodeproj/project.pbxproj",
 			"settings":
 			{
-				"buffer_size": 15249,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/neilpoulin/.config/gcloud/application_default_credentials.json",
-			"settings":
-			{
-				"buffer_size": 295,
+				"buffer_size": 455239,
 				"line_ending": "Unix"
 			}
 		},
@@ -168,25 +167,26 @@
 			"file": "/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Podfile",
 			"settings":
 			{
-				"buffer_size": 1942,
+				"buffer_size": 2165,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/build/Cactus.build/Debug-iphonesimulator/Cactus Prod.build/assetcatalog_dependencies",
+			"file": "/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/.swiftlint.yml",
 			"settings":
 			{
-				"buffer_size": 1410,
-				"encoding": "Hexadecimal",
+				"buffer_size": 539,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/neilpoulin/Downloads/USEMEflamelink_cactus-app-stage_schemas_export_2020-03-06 12_32_14.json",
+			"file": "/Users/neilpoulin/.bash_profile",
 			"settings":
 			{
-				"buffer_size": 98526,
+				"buffer_size": 2749,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -255,16 +255,26 @@
 		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/.circleci",
 		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Cactus",
 		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Cactus.xcodeproj",
-		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/fastlane",
-		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Pods",
-		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Pods/abseil",
-		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Pods/CodableFirebase",
-		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Pods/CodableFirebase/CodableFirebase",
-		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Pods/Target Support Files",
-		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Pods/Target Support Files/Pods-Cactus Prod"
+		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Cactus.xcodeproj/xcshareddata",
+		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Cactus.xcodeproj/xcshareddata/xcschemes",
+		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Cactus.xcodeproj/xcuserdata"
 	],
 	"file_history":
 	[
+		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Cactus.xcodeproj/xcshareddata/xcschemes/Cactus Stage.xcscheme",
+		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/fastlane/report.xml",
+		"/Users/neilpoulin/.config/gcloud/application_default_credentials.json",
+		"/Users/neilpoulin/Library/Logs/gym/Cactus-Cactus Prod.log",
+		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Podfile",
+		"/Users/neilpoulin/repos/kinecho/NoveFeatherIcons/README.md",
+		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Gemfile",
+		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/.circleci/config.yml",
+		"/Users/neilpoulin/Downloads/USEMEflamelink_cactus-app-stage_schemas_export_2020-03-06 12_32_14.json",
+		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/build/Cactus.build/Debug-iphonesimulator/Cactus Prod.build/assetcatalog_dependencies",
+		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/com.cactus.CactusApp-1.4.0-179.dSYM.zip",
+		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/.swiftlint.yml",
+		"/Users/neilpoulin/Downloads/feedback 3.json",
+		"/Users/neilpoulin/Downloads/2020-07-20T18_00_14.057Z_2020-07-20T18_00_14.057Z (1).overall_export_metadata",
 		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/fastlane/reflections by hour of day",
 		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/project.subl",
 		"/Users/neilpoulin/repos/kinecho/cactus/scripts/output/bad-users-2020-02-29T05:39:40.532Z.json",
@@ -282,17 +292,13 @@
 		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/fastlane/README.md",
 		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/fastlane/Appfile",
 		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/fastlane/devices.txt",
-		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/.circleci/config.yml",
 		"/Users/neilpoulin/Library/Logs/DiagnosticReports/IBDesignablesAgent-iOS_2019-09-20-124307_Neils-MacBook-Pro.crash",
 		"/Users/neilpoulin/Library/Logs/DiagnosticReports/IBDesignablesAgent-iOS_2019-09-20-125326_Neils-MacBook-Pro.crash",
 		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Podfile.lock",
-		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Podfile",
 		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/reports/scan/results.xml",
 		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/fastlane/Matchfile",
 		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Pods/Manifest.lock",
-		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/.swiftlint.yml",
 		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/.sentryclirc",
-		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Gemfile",
 		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Gemfile.lock",
 		"/Users/neilpoulin/Library/Logs/DiagnosticReports/IBDesignablesAgent-iOS_2019-09-19-075005-1_Neils-MacBook-Pro.crash",
 		"/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/reports/swiftlint/results.xml",
@@ -326,7 +332,6 @@
 		"/Users/neilpoulin/.config/configstore/@google-cloud/functions-emulator/config.json",
 		"/Users/neilpoulin/repos/memories/.git/hooks/post-commit",
 		"/Users/neilpoulin/.config/configstore/update-notifier-npm.json",
-		"/Users/neilpoulin/.config/gcloud/application_default_credentials.json",
 		"/Users/neilpoulin/.bashrc",
 		"/Users/neilpoulin/.bash_git-completion"
 	],
@@ -346,6 +351,20 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"skeleton",
+			"Skeleton",
+			"skeleton",
+			"fastlane",
+			"profile",
+			"clean",
+			"xcversion",
+			"xc",
+			"scversion",
+			"build_ios",
+			"buidl_ios",
+			"build",
+			"legacy",
+			"upload",
 			"CodableFirebase",
 			"codable",
 			" \n",
@@ -376,7 +395,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -385,15 +404,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9469,
+						"buffer_size": 9761,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7718,
-								7718
+								8168,
+								8168
 							]
 						],
 						"settings":
@@ -401,32 +420,62 @@
 							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2935.0,
+						"translation.y": 3485.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/fastlane/report.xml",
+					"file": "/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Cactus Stage copy-Info.plist",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1151,
+						"buffer_size": 3872,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1537,
+								1537
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/XML/XML.sublime-syntax"
+							"syntax": "Packages/XML/XML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Cactus Today/Info.plist",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1203,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								702,
+								702
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -436,101 +485,41 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/.circleci/config.yml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 11947,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								10790,
-								10790
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/YAML/YAML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
 					"buffer": 3,
-					"file": "/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/.swiftlint.yml",
+					"file": "/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Cactus UnitTests/Info.plist",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 444,
+						"buffer_size": 705,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								260,
-								260
+								613,
+								613
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/YAML/YAML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/XML/XML.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 4,
+					"file": "/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Cactus.xcodeproj/project.pbxproj",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 15249,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								15096,
-								15112
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 1.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/Users/neilpoulin/.config/gcloud/application_default_credentials.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 295,
+						"buffer_size": 455239,
 						"regions":
 						{
 						},
@@ -543,30 +532,31 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 5336.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 5,
 					"file": "/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/Podfile",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1942,
+						"buffer_size": 2165,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1193,
-								1193
+								0,
+								0
 							]
 						],
 						"settings":
@@ -579,65 +569,66 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/build/Cactus.build/Debug-iphonesimulator/Cactus Prod.build/assetcatalog_dependencies",
+					"buffer": 6,
+					"file": "/Users/neilpoulin/repos/kinecho/cactus-ios/Cactus/.swiftlint.yml",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1410,
+						"buffer_size": 539,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								539,
+								539
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "/Users/neilpoulin/Downloads/USEMEflamelink_cactus-app-stage_schemas_export_2020-03-06 12_32_14.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 98526,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"tab_size": 4,
+							"syntax": "Packages/YAML/YAML.sublime-syntax",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/Users/neilpoulin/.bash_profile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2749,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								672,
+								672
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Bash.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
 					"type": "text"
 				}
 			]
@@ -728,7 +719,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 597.0,
+	"side_bar_width": 398.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

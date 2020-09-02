@@ -27,6 +27,8 @@ protocol JournalFeedDataSourceDelegate: class {
     func batchUpdate(addedIndexes: [Int], removedIndexes: [Int])
     func dataLoaded()
     func handleEmptyState(hasResults: Bool)
+    func setTodayEntry(_ journalEntry: JournalEntry?)
+    func setOnboardingEntry(_ journalEntry: JournalEntry?)
 }
 
 class JournalFeedDataSource {
@@ -50,14 +52,19 @@ class JournalFeedDataSource {
     var orderedPromptIds: [String] = []
     
     weak var delegate: JournalFeedDataSourceDelegate?
+    var todayDelegate: TodayEntryDelegate?
+    var onboardingDelegate: OnboardingEntryDelegate?
+    
     var hasLoaded = false
     func resetData() {
         self.unsubscribeAll()
         self.orderedPromptIds.removeAll()
         self.pages.removeAll()
-        self.todayData = nil
+        self.todayData = nil        
         journalEntryDataByPromptId.removeAll()
         self.hasStarted = false
+        self.hasLoaded = false
+        
         self.delegate?.dataLoaded()
     }
     
@@ -98,7 +105,7 @@ class JournalFeedDataSource {
     
     var pageListeners: [ListenerRegistration] = []
     var pages: [PageLoader<SentPrompt>] = []
-    var pageSize: Int = 10
+    var pageSize: Int = 15
     var mightHaveMore: Bool {self.pages.last?.result?.mightHaveMore ?? false}
     
     var todayDateString: String?
@@ -124,6 +131,8 @@ class JournalFeedDataSource {
     init(member: CactusMember?=nil, appSettings: AppSettings?=nil) {
         self.currentMember = member
         self.appSettings = appSettings
+        self.todayDelegate = TodayEntryDelegate(self)
+        self.onboardingDelegate = OnboardingEntryDelegate(self)
     }
     
     var startDate: Date?
@@ -142,7 +151,7 @@ class JournalFeedDataSource {
         self.hasStarted = true
         self.initializePages()
         self.initializeToday()
-        
+        self.fetchOnboardingPrompt()
         NotificationCenter.default.addObserver(self, selector: #selector(self.dayChanged), name: .NSCalendarDayChanged, object: nil)
         
     }
@@ -205,11 +214,13 @@ class JournalFeedDataSource {
             }
             if let error = error {
                 self.logger.error("Failed to fetch todays prompt content", error)
+                self.delegate?.setTodayEntry(nil)
                 return
             }
             
             guard let promptId = promptContent?.promptId else {
                 self.logger.warn("There was no error loading todays prompt content, but no promptId was found.")
+                self.delegate?.setTodayEntry(nil)
                 return
             }
             //TODO: do we want to remove the todayData object if no new prompt is found?
@@ -226,7 +237,7 @@ class JournalFeedDataSource {
             todayEntry.isTodaysPrompt = true
             self.todayData = todayEntry
             self.journalEntryDataByPromptId[promptId] = todayEntry
-            todayEntry.delegate = self
+            todayEntry.delegate = self.todayDelegate
             self.configureDataFeed()
             todayEntry.start()
             self.todayLoaded = true
@@ -250,7 +261,7 @@ class JournalFeedDataSource {
             
             if !(pageResult.results?.isEmpty ?? true) && self.hasLoaded {
                 // need to update the UI for the first appearance so we can show onboarding
-                self.delegate?.handleEmptyState(hasResults: true)
+//                self.delegate?.handleEmptyState(hasResults: true)
             }
             
             self.configurePages()
@@ -269,21 +280,22 @@ class JournalFeedDataSource {
                     functionName: "initializePages", line: #line)
                 
                 if !self.hasLoaded {
-                    self.delegate?.handleEmptyState(hasResults: !(pageResult.results?.isEmpty ?? true))
+                    self.delegate?.handleEmptyState(hasResults: (pageResult.results?.isEmpty == false))
                 }
                 
                 self.configurePages()
                 self.hasLoaded = true
+                self.delegate?.dataLoaded()
         })
     }
     
     func loadNextPage() {
         self.logger.info("attempting to load next page", functionName: #function)
         
-        guard !self.isLoading else {
-            logger.info("Already loading more, can't fetch next page", functionName: #function)
-            return
-        }
+//        guard !self.pagesLoading else {
+//            logger.info("Already loading more, can't fetch next page", functionName: #function)
+//            return
+//        }
         guard let member = self.currentMember else {
             logger.warn("No current member found, can't load next page", functionName: #function)
             return
@@ -346,6 +358,19 @@ class JournalFeedDataSource {
             }
             self.configureDataFeed()
         }
+    }
+    
+    func fetchOnboardingPrompt() {
+        
+        guard let entryId = self.appSettings?.firstPromptContentEntryId, let memberId = self.currentMember?.id else {
+            return
+        }
+        if self.journalEntryDataByPromptId[entryId] != nil {
+            return
+        }
+        let data = JournalEntryData(entryId: entryId, memberId: memberId, journalDate: nil)
+        data.delegate = self.onboardingDelegate
+        data.start()
     }
     
     func get(at index: Int) -> JournalEntry? {
@@ -467,6 +492,48 @@ extension JournalFeedDataSource: JournalEntryDataDelegate {
             }
             
             self.delegate?.updateEntry(journalEntry, at: index)
+        }
+    }
+}
+
+extension JournalFeedDataSource {
+    class TodayEntryDelegate: JournalEntryDataDelegate {
+        var parent: JournalFeedDataSource
+        
+        init(_ parent: JournalFeedDataSource) {
+            self.parent = parent
+        }
+        
+        func onData(_ journalEntry: JournalEntry) {
+            self.parent.delegate?.setTodayEntry(journalEntry)
+            if journalEntry.loadingComplete {
+                guard let index = self.parent.indexOf(journalEntry) else {
+                    self.parent.logger.warn("No index foud for journalEntry.promptId \(journalEntry.promptId ?? "unknown")")
+                    return
+                }
+                
+                self.parent.delegate?.updateEntry(journalEntry, at: index)
+            }
+        }
+    }
+    
+    class OnboardingEntryDelegate: JournalEntryDataDelegate {
+        var parent: JournalFeedDataSource
+        
+        init(_ parent: JournalFeedDataSource) {
+            self.parent = parent
+        }
+        
+        func onData(_ journalEntry: JournalEntry) {
+            self.parent.delegate?.setOnboardingEntry(journalEntry)
+            if journalEntry.loadingComplete {
+                guard let index = self.parent.indexOf(journalEntry) else {
+                    self.parent.logger.warn("No index foud for journalEntry.promptId \(journalEntry.promptId ?? "unknown")")
+                    return
+                }
+                
+                self.parent.delegate?.updateEntry(journalEntry, at: index)
+            }
         }
     }
 }

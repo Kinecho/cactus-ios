@@ -58,4 +58,13 @@ class ReflectionPrompt: FirestoreIdentifiable, Hashable {
     var isCustomPrompt: Bool {
         return self.memberId != nil && self.promptType.isCustomPrompt
     }
+    
+    static func createFreeform(member: CactusMember) -> ReflectionPrompt {
+        let p = ReflectionPrompt()
+        p.memberId = member.id
+        p.promptType = .FREE_FORM
+        p.sourceApp = .IOS
+        p.sendDate = Date()        
+        return p
+    }
 }

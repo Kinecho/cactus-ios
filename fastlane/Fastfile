@@ -17,8 +17,12 @@ default_platform(:ios)
 
 platform :ios do
 
-  	before_all do
+  	before_all do |lane, options|
     	setup_circle_ci
+  	end
+
+  	lane :clean do 
+  		clear_derivied_data
   	end
 
   	# Bump build number
@@ -75,6 +79,12 @@ platform :ios do
 		)
   	end
 
+  	lane :push_version do 
+		commit_version_bump(xcodeproj: "Cactus.xcodeproj", message: "[ci skip] Build Version Bump to #{lane_context[SharedValues::BUILD_NUMBER]}")
+	    push_to_git_remote(
+	    	tags: true
+    	)
+  	end 
 
   	lane :version_bump do 
 	    tag
@@ -85,16 +95,29 @@ platform :ios do
     	)
   	end
 
-
 	desc "Push a new beta build to TestFlight"
   	lane :beta do  	
+  		xcversion(version: "11.6")
 		match(
 			type: "appstore", 
 			readonly: is_ci, 
 			app_identifier: ["com.cactus.CactusApp", "com.cactus.CactusApp.Cactus-Today"]
 		)
 		sync_code_signing(type: "appstore")    
-	    build_app(workspace: "Cactus.xcworkspace", scheme: "Cactus Prod", xcargs: "-UseModernBuildSystem=NO")
+	    build_app(workspace: "Cactus.xcworkspace", scheme: "Cactus Prod", xcargs: "-UseModernBuildSystem=YES")
+	    changelog_from_git_commits	    
+	    upload_to_testflight(skip_waiting_for_build_processing: true)	    
+  	end
+
+	desc "Push a new Stage build to TestFlight"
+  	lane :beta_stage do  	
+		match(
+			type: "appstore", 
+			readonly: is_ci,
+			app_identifier: ["com.cactus.StageCactus"]
+		)
+		sync_code_signing(type: "appstore")    
+	    build_app(workspace: "Cactus.xcworkspace", scheme: "Cactus Stage")
 	    changelog_from_git_commits	    
 	    upload_to_testflight(skip_waiting_for_build_processing: true)	    
   	end
@@ -109,16 +132,7 @@ platform :ios do
   			tag: "builds/#{lane_context[SharedValues::BUILD_NUMBER]}"  			
 		)
   	end  	
-
-  	desc "Push a new beta build to TestFlight"
-  	lane :beta_stage do  	
-		match(type: "appstore", readonly: is_ci)
-		sync_code_signing(type: "appstore")    
-	    build_app(workspace: "Cactus.xcworkspace", scheme: "Cactus Stage", xcargs: "-UseModernBuildSystem=NO")
-	    changelog_from_git_commits	    
-	    upload_to_testflight(skip_waiting_for_build_processing: true)	    
-  	end
-
+ 
 	lane :manual_upload do
 		ENV["DELIVER_ITMSTRANSPORTER_ADDITIONAL_UPLOAD_PARAMETERS"] = "-t DAV #"
 		upload_to_testflight(
@@ -166,7 +180,7 @@ platform :ios do
 	  		)
   	end
 
-lane :lintfix do 
+	lane :lintfix do 
 	  	swiftlint(
 	  		mode: :autocorrect,
 	  		config_file: ".swiftlint.yml"
@@ -223,6 +237,8 @@ lane :lintfix do
 	lane :upload_symbols do 
 		get_version_number(xcodeproj: "Cactus.xcodeproj", target: "Cactus Prod")
 		get_build_number
+
+
 		download_dsyms(version: lane_context[SharedValues::VERSION_NUMBER], build_number: lane_context[SharedValues::BUILD_NUMBER])
 		version = "#{lane_context[SharedValues::VERSION_NUMBER]}.#{lane_context[SharedValues::BUILD_NUMBER]}"
 		release = "com.cactus.CactusApp-#{version}"
@@ -235,24 +251,30 @@ lane :lintfix do
 		upload_symbols_to_crashlytics
 	end
 
-	lane :upload_symbols_v do 
+	lane :upload_symbols_v do |options|
 		get_version_number(xcodeproj: "Cactus.xcodeproj", target: "Cactus Prod")
 		get_build_number
-		download_dsyms(version: "1.3.6", build_number: "174")
-		# version = "#{lane_context[SharedValues::VERSION_NUMBER]}.#{lane_context[SharedValues::BUILD_NUMBER]}"
-		# release = "com.cactus.CactusApp-#{version}"
-		sh("echo", "Getting symbols for 1.3.4.170")
-		sentry_upload_dsym(
-			auth_token: $SENTRY_AUTH_TOKEN,
-			org_slug: 'kinecho',
-			project_slug: 'cactus-ios',
-		)
+		current_v = "#{lane_context[SharedValues::VERSION_NUMBER]} (#{lane_context[SharedValues::BUILD_NUMBER]})"
+		UI.message("Current version is #{current_v}")
+		if UI.interactive?
+			version = UI.input "What's the App Version?"
+			build = UI.input "What's the Build Number?"
+
+			UI.success "Getting symbols for version #{version} (#{build})"			
+			download_dsyms(version: version, build_number: build)		
+			
+			sentry_upload_dsym(
+				auth_token: $SENTRY_AUTH_TOKEN,
+				org_slug: 'kinecho',
+				project_slug: 'cactus-ios',
+			)
+		end	
 	end
 
 	lane :upload_symbols_all do 
 		get_version_number(xcodeproj: "Cactus.xcodeproj", target: "Cactus Prod")
 		get_build_number
-		download_dsyms(min_version: "1.3.2")
+		download_dsyms(min_version: "1.4.0")
 		# version = "#{lane_context[SharedValues::VERSION_NUMBER]}.#{lane_context[SharedValues::BUILD_NUMBER]}"
 		# release = "com.cactus.CactusApp-#{version}"
 		# sh("echo", "Getting symbols for 1.2.2.133")

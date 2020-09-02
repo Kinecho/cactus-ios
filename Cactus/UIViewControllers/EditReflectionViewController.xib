@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17147" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17120"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditReflectionViewController" customModule="Cactus" customModuleProvider="target">
+            <connections>
+                <outlet property="buttonWidthConstraint" destination="Pr7-I6-BLR" id="sd0-Cl-v94"/>
+                <outlet property="cancelButton" destination="2xV-dh-mpp" id="qAq-B6-v1c"/>
+                <outlet property="doneButton" destination="jbD-rY-rwM" id="Uen-qQ-bQP"/>
+                <outlet property="editTextBottomConstraint" destination="zgW-7h-wJS" id="kLg-Ns-z3U"/>
+                <outlet property="questionTextView" destination="GG4-cB-g9a" id="dmK-IF-WOs"/>
+                <outlet property="responseTextView" destination="1w7-mK-MMI" id="Fdq-dY-P8v"/>
+                <outlet property="sharedStackView" destination="ERl-Tw-7jt" id="VDU-7Q-sUC"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="573"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xV-dh-mpp" userLabel="CancelButton">
+                    <rect key="frame" x="354" y="54" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="6d2-z5-34j"/>
+                        <constraint firstAttribute="width" constant="50" id="DjU-Dk-kan"/>
+                    </constraints>
+                    <color key="tintColor" name="Green"/>
+                    <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                    <state key="normal" image="close"/>
+                    <connections>
+                        <action selector="cancelButtonTapped:" destination="-1" eventType="primaryActionTriggered" id="wIH-vb-tBH"/>
+                    </connections>
+                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="B2i-o6-0JJ" userLabel="Question Stack View">
+                    <rect key="frame" x="20" y="64" width="324" height="45"/>
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GG4-cB-g9a">
+                            <rect key="frame" x="0.0" y="0.0" width="324" height="45"/>
+                            <color key="textColor" name="TextDefault"/>
+                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                    </subviews>
+                </stackView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1w7-mK-MMI" userLabel="Response Text View">
+                    <rect key="frame" x="15" y="129" width="384" height="364"/>
+                    <color key="textColor" systemColor="labelColor"/>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sKE-om-Mcf">
+                    <rect key="frame" x="20" y="503" width="374" height="50"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ERl-Tw-7jt" userLabel="Shared Stack View">
+                            <rect key="frame" x="0.0" y="15" width="182" height="20"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="users" translatesAutoresizingMaskIntoConstraints="NO" id="dKc-FJ-FHW">
+                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                    <color key="tintColor" name="GreenDark"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="20" id="Jk5-Xm-K8g"/>
+                                        <constraint firstAttribute="height" constant="20" id="kDM-Mm-iZ6"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This note is shared" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJO-Vx-TRB">
+                                    <rect key="frame" x="30" y="0.0" width="152" height="20"/>
+                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                    <color key="textColor" name="TextMinimized"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jbD-rY-rwM" userLabel="Done Button" customClass="BorderedButton" customModule="Cactus" customModuleProvider="target">
+                            <rect key="frame" x="324" y="0.0" width="50" height="50"/>
+                            <color key="backgroundColor" name="Green"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="Pr7-I6-BLR"/>
+                                <constraint firstAttribute="height" constant="50" id="jRu-al-1Eg"/>
+                            </constraints>
+                            <color key="tintColor" name="TextWhite"/>
+                            <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                            <state key="normal" image="check">
+                                <color key="titleColor" name="BlueLight"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
+                            </state>
+                            <state key="disabled" title="Saving..."/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="imageWidth">
+                                    <real key="value" value="30"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="imageHeight">
+                                    <real key="value" value="30"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
+                                    <real key="value" value="25"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="doneButtonTapped:" destination="-1" eventType="primaryActionTriggered" id="Qch-tD-Ped"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="jbD-rY-rwM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ERl-Tw-7jt" secondAttribute="trailing" constant="10" id="TW3-3R-GIm"/>
+                        <constraint firstItem="ERl-Tw-7jt" firstAttribute="leading" secondItem="sKE-om-Mcf" secondAttribute="leading" id="UUQ-Bs-1Hx"/>
+                        <constraint firstAttribute="trailing" secondItem="jbD-rY-rwM" secondAttribute="trailing" id="fIS-eC-cWw"/>
+                        <constraint firstItem="ERl-Tw-7jt" firstAttribute="centerY" secondItem="sKE-om-Mcf" secondAttribute="centerY" id="gep-63-u6O"/>
+                        <constraint firstItem="jbD-rY-rwM" firstAttribute="top" secondItem="sKE-om-Mcf" secondAttribute="top" id="hPs-HB-XxD"/>
+                        <constraint firstAttribute="bottom" secondItem="jbD-rY-rwM" secondAttribute="bottom" id="kwJ-xE-xmf"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="aqD-HS-cmV"/>
+            <color key="backgroundColor" name="CardBackground"/>
+            <constraints>
+                <constraint firstItem="2xV-dh-mpp" firstAttribute="top" secondItem="aqD-HS-cmV" secondAttribute="top" constant="10" id="7aT-2Q-UW7"/>
+                <constraint firstItem="B2i-o6-0JJ" firstAttribute="top" secondItem="aqD-HS-cmV" secondAttribute="top" constant="20" id="DjL-1z-rUU"/>
+                <constraint firstAttribute="trailing" secondItem="sKE-om-Mcf" secondAttribute="trailing" constant="20" id="HTp-sd-fcI"/>
+                <constraint firstItem="sKE-om-Mcf" firstAttribute="top" secondItem="1w7-mK-MMI" secondAttribute="bottom" constant="10" id="JAg-UR-cgM"/>
+                <constraint firstItem="1w7-mK-MMI" firstAttribute="top" secondItem="B2i-o6-0JJ" secondAttribute="bottom" constant="20" id="MBT-gB-gjH"/>
+                <constraint firstItem="1w7-mK-MMI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="Mhm-D3-826"/>
+                <constraint firstAttribute="trailing" secondItem="1w7-mK-MMI" secondAttribute="trailing" constant="15" id="QiM-XW-1pV"/>
+                <constraint firstItem="sKE-om-Mcf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Ybv-Pf-rhN"/>
+                <constraint firstAttribute="trailing" secondItem="2xV-dh-mpp" secondAttribute="trailing" constant="10" id="dYx-bl-9CI"/>
+                <constraint firstItem="B2i-o6-0JJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="fC1-D8-xkW"/>
+                <constraint firstItem="2xV-dh-mpp" firstAttribute="leading" secondItem="B2i-o6-0JJ" secondAttribute="trailing" constant="10" id="kxq-Xj-ATt"/>
+                <constraint firstAttribute="bottom" secondItem="sKE-om-Mcf" secondAttribute="bottom" constant="20" id="zgW-7h-wJS"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="137.68115942028987" y="13.727678571428571"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="jbD-rY-rwM">
+            <size key="intrinsicContentSize" width="24" height="24"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="check" width="24" height="24"/>
+        <image name="close" width="48" height="48"/>
+        <image name="users" width="24" height="24"/>
+        <namedColor name="BlueLight">
+            <color red="0.90196078431372551" green="0.97647058823529409" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="CardBackground">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Green">
+            <color red="0.20000000298023224" green="0.80000001192092896" blue="0.67100000381469727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GreenDark">
+            <color red="0.16078431372549021" green="0.63529411764705879" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextDefault">
+            <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextMinimized">
+            <color red="0.027450980392156862" green="0.27058823529411763" blue="0.29803921568627451" alpha="0.69999998807907104" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextWhite">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

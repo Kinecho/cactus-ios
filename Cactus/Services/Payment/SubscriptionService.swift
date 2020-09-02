@@ -8,6 +8,9 @@
 
 import Foundation
 import StoreKit
+import Purchases
+
+typealias RevenueCat = Purchases
 
 //Methods to help with the checkout process
 class SubscriptionService: NSObject {
@@ -36,12 +39,11 @@ class SubscriptionService: NSObject {
     
     func fetchAppleProducts(appleProductIds: [String], onCompleted: @escaping ([SKProduct]) -> Void) {
         let appleRequest = ProductRequest()
-        self.appleRequests.append(appleRequest)
-        appleRequest.onCompleted = {
+        self.appleRequests.append(appleRequest)        
+        appleRequest.fetchAppleProducts(appleProductIds: appleProductIds, completed: {
             let appleProducts = appleRequest.availableAppleProducts
             onCompleted(appleProducts)
-        }
-        appleRequest.fetchAppleProducts(appleProductIds: appleProductIds)
+        })
     }
     
     func getSubscriptionProductGroupEntryMap(_ onData: @escaping (SubscriptionProductGroupEntryMap?) -> Void) {
@@ -63,12 +65,12 @@ class SubscriptionService: NSObject {
                 if let appleIds = subscriptionProducts?.compactMap({ isBlank($0.appleProductId) ? nil : $0.appleProductId }) {
                     let appleRequest = ProductRequest()
                     self.appleRequests.append(appleRequest)
-                    appleRequest.onCompleted = {
+                    
+                    appleRequest.fetchAppleProducts(appleProductIds: appleIds, completed: {
                         let appleProducts = appleRequest.availableAppleProducts
                         let map = createSubscriptionProductGroupEntryMap(products: subscriptionProducts, groups: productGroups, appleProducts: appleProducts)
                         onData(map)
-                    }
-                    appleRequest.fetchAppleProducts(appleProductIds: appleIds)
+                    })
                 } else {
                     let map = createSubscriptionProductGroupEntryMap(products: subscriptionProducts, groups: productGroups)
                     onData(map)
@@ -81,17 +83,11 @@ class SubscriptionService: NSObject {
         return
     }
     
-    func getSubscriptionDetails(_ onData: @escaping (SubscriptionDetails?, Any?) -> Void) {
-        ApiService.sharedInstance.get(path: .checkoutSubscriptionDetails, responseType: SubscriptionDetails.self, authenticated: true) { response, error in
-            onData(response, error)
-        }
-    }
-    
     func submitPurchase(product: SKProduct) {
         guard self.isAuthorizedForPayments == true else {
             let alert = UIAlertController(title: "Not Authorized", message: "This device is not authorized to make payments.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
-            NavigationService.sharedInstance.present(alert)
+            NavigationService.shared.present(alert)
             
             return
         }
@@ -113,7 +109,7 @@ class SubscriptionService: NSObject {
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
-        NavigationService.sharedInstance.present(alert, animated: true)
+        NavigationService.shared.present(alert, animated: true)
     }
     
     func completePurchase(restored: Bool=false, transaction: SKPaymentTransaction, onComplete: @escaping ((CompletePurchaseResult?, Any?) -> Void)) {
@@ -160,8 +156,9 @@ class ProductRequest: NSObject, SKProductsRequestDelegate {
     var appleProductRequest: SKProductsRequest?
     var onCompleted: (() -> Void)?
     
-    fileprivate func fetchAppleProducts(appleProductIds identifiers: [String]) {
+    func fetchAppleProducts(appleProductIds identifiers: [String], completed: (() -> Void)?) {
         // Create a set for the product identifiers.
+        self.onCompleted = self.onCompleted ?? completed
         let productIdentifiers = Set(identifiers)
         
         // Initialize the product request with the above identifiers.
@@ -170,7 +167,6 @@ class ProductRequest: NSObject, SKProductsRequestDelegate {
         
         // Send the request to the App Store.
         self.appleProductRequest?.start()
-        
     }
     
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {

@@ -10,21 +10,22 @@ import Foundation
 import UIKit
 
 class TextViewPlaceholderDelegate: NSObject, UITextViewDelegate {
-    var placeholderText: String?
-    var placeholderColor: UIColor = CactusColor.placeholderText
-    var textView: UITextView?
+    var placeholderText: String = ""
+    var placeholderColor: UIColor = NamedColor.TextPlaceholder.uiColor
+    var textView: UITextView
     
     convenience init(_ text: String, _ textView: UITextView) {
         self.init(text, CactusColor.placeholderText, textView)
     }
     
     init(_ placeholder: String, _ color: UIColor=CactusColor.placeholderText, _ textView: UITextView) {
-        super.init()
         self.placeholderText = placeholder
         self.placeholderColor = color
         self.textView = textView
+        super.init()
         textView.delegate = self
         self.initTextView(textView)
+        
     }
     
     private func initTextView(_ textView: UITextView) {
@@ -49,9 +50,17 @@ class TextViewPlaceholderDelegate: NSObject, UITextViewDelegate {
     }
     
     var text: String? {
-        if self.textView?.textColor == self.placeholderColor {
+        if self.textView.textColor == self.placeholderColor {
             return nil
         }
-        return self.textView?.text
+        return self.textView.text
+    }
+    
+    func updateColor() {
+        if self.textView.text.isEmpty {
+            self.textView.textColor = self.placeholderColor
+        } else {
+            self.textView.textColor = CactusColor.textDefault
+        }
     }
 }
