@@ -21,8 +21,7 @@ struct AppMain: View {
                         .transition(AnyTransition.opacity.animation(Animation.easeInOut(duration: 0.3).delay(1)))
                         .zIndex(2)
                         .edgesIgnoringSafeArea(.all)
-                }
-                else if self.session.authLoaded {
+                } else if self.session.authLoaded {
                     Group {
                         if self.session.member == nil {
                             Welcome().background(named: .Background)
@@ -30,7 +29,7 @@ struct AppMain: View {
                             Loading("Loading Journal...")
                         } else if self.session.showOnboarding == true {
                             if self.session.onboardingEntry != nil {
-                                PromptContentView(entry: self.session.onboardingEntry!, onPromptDismiss: { entry in
+                                PromptContentView(entry: self.session.onboardingEntry!, onPromptDismiss: { _ in
                                     self.session.showOnboarding = false
                                 })
                                 .foregroundColor(named: .TextDefault)

@@ -66,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       
         CactusMemberService.sharedInstance.instanceIDDelegate = self
         
-        BranchScene.shared().initSession(launchOptions: launchOptions) { (params, error, scene) in
+        BranchScene.shared().initSession(launchOptions: launchOptions) { (params, _, _) in
             // this has the UIScene in the callback (not sure what this means)
             // See https://help.branch.io/developers-hub/docs/ios-basic-integration#section-apps-using-scenes
             self.logger.info("Branch Scene Init completed")

@@ -52,7 +52,7 @@ struct ComposeNoteButton: View {
             .foregroundColor(NamedColor.TextWhite.color)
             .clipShape(Circle())
             .shadow(color: Color.black.opacity(0.25), radius: 20, x: 0, y: 10)
-            .onTapGesture{
+            .onTapGesture {
                 self.vibrate()
                 self.activeSheet = .compose
             }

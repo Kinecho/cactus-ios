@@ -62,7 +62,7 @@ struct HomeEmptyState: View {
                             .frame(width: 300, height: 200)
                         
                         if self.entry != nil {
-                            CactusButton("Get Started", .buttonPrimary).onTapGesture() {
+                            CactusButton("Get Started", .buttonPrimary).onTapGesture {
                                 self.currentSheet = .onboardingPrompt(self.entry!)
                             }
                         }

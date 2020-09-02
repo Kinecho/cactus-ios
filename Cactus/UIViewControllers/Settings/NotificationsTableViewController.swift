@@ -58,7 +58,7 @@ class NotificationsTableViewController: UITableViewController, MFMailComposeView
         
     }
     
-    func updateNotificationTimeLabel() -> Void {
+    func updateNotificationTimeLabel() {
         guard self.isViewLoaded else {
             return
         }

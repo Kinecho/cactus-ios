@@ -35,5 +35,3 @@ struct CoreValueBlob {
         CoreValueBlob(.cvBlob8),
     ]
 }
-
-

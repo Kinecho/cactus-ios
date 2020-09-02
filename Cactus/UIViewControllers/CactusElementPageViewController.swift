@@ -24,7 +24,7 @@ class CactusElementPageViewController: UIPageViewController {
         
         
         self.view.backgroundColor = backgroundColor
-        self.view.subviews.forEach{$0.backgroundColor = backgroundColor}
+        self.view.subviews.forEach {$0.backgroundColor = backgroundColor}
     }
 
     func setupPages() {

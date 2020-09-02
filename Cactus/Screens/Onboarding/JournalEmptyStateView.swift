@@ -65,7 +65,7 @@ struct JournalEmptyStateView: View {
                         if self.entry != nil {
                             CactusButton("Get Started", .buttonPrimary)
                                 .padding(.top, Spacing.normal)
-                                .onTapGesture() {
+                                .onTapGesture {
                                     self.currentSheet = .onboardingPrompt(self.entry!)
                                 }
                         }

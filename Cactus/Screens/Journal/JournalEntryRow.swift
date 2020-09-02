@@ -17,7 +17,7 @@ struct JournalEntryRow: View {
     /// Mark: Props
     var entry: JournalEntry
     var index: Int = 0
-    var showDetails: ((JournalEntry) -> Void)?=nil
+    var showDetails: ((JournalEntry) -> Void)?
     var inlineImage: Bool = false
     var backgroundColor: Color = NamedColor.CardBackground.color
     var textColor: Color = NamedColor.TextDefault.color

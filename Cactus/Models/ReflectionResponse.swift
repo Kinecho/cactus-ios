@@ -211,7 +211,7 @@ class ReflectionResponse: FirestoreIdentifiable, Hashable {
     }
 }
 
-struct InsightWordsResult:Codable {
+struct InsightWordsResult: Codable {
     var insightWords: [InsightWord] = []
 }
 

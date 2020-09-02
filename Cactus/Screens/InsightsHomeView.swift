@@ -87,7 +87,7 @@ struct InsightsHome: View {
                         VStack(alignment: .leading, spacing: Spacing.normal) {
                             TodayWidgetView(onTapped: { entry in
                                 self.currentSheet = .promptDetails(entry)
-                            }).fixedSize(horizontal: false, vertical:  true)
+                            }).fixedSize(horizontal: false, vertical: true)
                         
                             if self.session.member?.wordCloud?.isEmpty == false {
                                 WordBubbleWidget()

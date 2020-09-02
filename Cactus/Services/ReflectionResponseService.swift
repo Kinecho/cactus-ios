@@ -140,7 +140,7 @@ class ReflectionResponseService {
                     }
                     return
                 }
-                SentPromptService.sharedInstance.firestoreService.save(sentPrompt) { (savedSentPrompt, _) in
+                SentPromptService.sharedInstance.firestoreService.save(sentPrompt) { (_, _) in
                     self.save(response) { (_, _) in
                         onCompleted()
                     }

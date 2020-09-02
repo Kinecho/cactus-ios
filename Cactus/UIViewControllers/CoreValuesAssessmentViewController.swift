@@ -11,8 +11,8 @@ import WebKit
 import FirebaseFirestore
 
 protocol CoreValuesAssessmentViewControllerDelegate: class {
-    func showUpgrade() -> Void
-    func closeAssessment() -> Void
+    func showUpgrade()
+    func closeAssessment()
 }
 
 class CoreValuesAssessmentViewController: UIViewController {

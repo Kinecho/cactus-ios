@@ -86,11 +86,11 @@ struct SettingsHome: View {
             SettingsItem(id: 1, "Profile", profileSubTitle, destination: ProfileSettingsView()),
             SettingsItem(id: 2, "Notifications", destination: NotificationSettingsView()),
             SettingsItem(id: 3, "Subscription", tier.displayName, destination: SubscriptionSettingsView()),
-            SettingsItem(id: 4,"Linked Accounts", destination: LinkedAccountsView(providers: providers).navigationBarTitle("Linked Accounts")),
-            SettingsItem(id: 5,"Help", destination: HelpView(), setNavigationTitle: true),
-            SettingsItem(id: 6,"Feedback", destination: FeedbackView(), setNavigationTitle: true),
-            SettingsItem(id: 7,"Terms of Service", destination: TermsOfServiceView(), setNavigationTitle: false),
-            SettingsItem(id: 8,"Privacy Policy", destination: PrivacyPolicyView(), setNavigationTitle: false),
+            SettingsItem(id: 4, "Linked Accounts", destination: LinkedAccountsView(providers: providers).navigationBarTitle("Linked Accounts")),
+            SettingsItem(id: 5, "Help", destination: HelpView(), setNavigationTitle: true),
+            SettingsItem(id: 6, "Feedback", destination: FeedbackView(), setNavigationTitle: true),
+            SettingsItem(id: 7, "Terms of Service", destination: TermsOfServiceView(), setNavigationTitle: false),
+            SettingsItem(id: 8, "Privacy Policy", destination: PrivacyPolicyView(), setNavigationTitle: false),
         ]
     }
     

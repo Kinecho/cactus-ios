@@ -52,7 +52,10 @@ class JournalFeedDataSource {
     var orderedPromptIds: [String] = []
     
     weak var delegate: JournalFeedDataSourceDelegate?
+    
+    // swiftlint:disable:next weak_delegate
     var todayDelegate: TodayEntryDelegate?
+    // swiftlint:disable:next weak_delegate
     var onboardingDelegate: OnboardingEntryDelegate?
     
     var hasLoaded = false

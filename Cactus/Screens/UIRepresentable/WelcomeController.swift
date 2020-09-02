@@ -41,7 +41,7 @@ struct IntroView: View {
                 .frame(width: 100, height: 60)
             VStack(alignment: .center, spacing: Spacing.large) {
                 Text("Your private journal for greater mental fitness")
-                CactusButton("Continue", .buttonPrimary).onTapGesture{
+                CactusButton("Continue", .buttonPrimary).onTapGesture {
                     self.showIntro = false
                 }
             }

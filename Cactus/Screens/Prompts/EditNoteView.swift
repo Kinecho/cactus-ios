@@ -37,7 +37,7 @@ struct EditReflectionControllerRepresentable: UIViewControllerRepresentable {
     }
     
     
-    class Coordinator:EditReflectionViewControllerDelegate {
+    class Coordinator: EditReflectionViewControllerDelegate {
         let parent: EditReflectionControllerRepresentable
         
         init(_ parent: EditReflectionControllerRepresentable) {

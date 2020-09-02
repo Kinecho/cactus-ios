@@ -67,7 +67,7 @@ struct TodayWidgetView: View {
         )
         .onTapGesture {
             self.onTapped?(self.todayEntry!)
-        }.onAppear(){
+        }.onAppear {
             withAnimation {
                 self.isAnimating = true
             }
@@ -75,9 +75,9 @@ struct TodayWidgetView: View {
     }
     
     var animatedBackground: some View {
-        return ZStack{
+        return ZStack {
             NamedColor.TodayWidgetBackground.color
-                .overlay(GeometryReader{ geo in
+                .overlay(GeometryReader { geo in
                     ZStack {
                         Image(CactusImage.todayBlob1.rawValue)
                                     .resizable()
@@ -170,7 +170,7 @@ struct TodayWidgetView_Previews: PreviewProvider {
                     List {
                         TodayWidgetView()
                             .environmentObject(item.session)
-                    }.onAppear(){
+                    }.onAppear {
                         UITableView.appearance().separatorStyle = .none
                     }
                 }
