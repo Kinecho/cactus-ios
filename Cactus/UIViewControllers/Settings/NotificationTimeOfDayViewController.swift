@@ -99,18 +99,24 @@ class NotificationTimeOfDayViewController: UIViewController {
         self.timePicker = datePicker
         self.view.addSubview(datePicker)
 
-        toolBar = UIToolbar(frame: CGRect(x: 0, y: UIScreen.main.bounds.size.height, width: UIScreen.main.bounds.size.width, height: 50))
+        let yMax = self.view.bounds.maxY
+        let width = self.view.bounds.width
+        
+        let height: CGFloat = 300
+        let yStart = yMax - height
+        
+        toolBar = UIToolbar(frame: CGRect(x: 0, y: yMax, width: width, height: 50))
         toolBar.barStyle = .default
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(self.onCancelClick(_:)))
         let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.onDoneButtonClick))
         let spacer =  UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         toolBar.items = [cancelButton, spacer, doneButton]
         toolBar.sizeToFit()
-        datePicker.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height, width: UIScreen.main.bounds.size.width, height: 300)
+        datePicker.frame = CGRect(x: 0.0, y: yMax, width: width, height: height)
         self.view.addSubview(toolBar)
         UIView.animate(withDuration: 0.2) {
-            self.timePicker.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
-            self.toolBar.frame = CGRect(x: 0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50)
+            self.timePicker.frame = CGRect(x: 0.0, y: yStart, width: width, height: height)
+            self.toolBar.frame = CGRect(x: 0, y: yStart, width: width, height: 50)
         }
     }
     
@@ -120,8 +126,10 @@ class NotificationTimeOfDayViewController: UIViewController {
     
     func dismissDatePicker() {
         UIView.animate(withDuration: 0.1, animations: {
-            self.timePicker.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height, width: UIScreen.main.bounds.size.width, height: 300)
-            self.toolBar.frame = CGRect(x: 0, y: UIScreen.main.bounds.size.height, width: UIScreen.main.bounds.size.width, height: 50)
+            let yMax = self.view.bounds.maxY
+            let width = self.view.bounds.width
+            self.timePicker.frame = CGRect(x: 0.0, y: yMax, width: width, height: 300)
+            self.toolBar.frame = CGRect(x: 0, y: yMax, width: width, height: 50)
         }, completion: { (_) in
             self.toolBar.removeFromSuperview()
             self.timePicker.removeFromSuperview()

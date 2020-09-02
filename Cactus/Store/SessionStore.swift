@@ -30,6 +30,9 @@ final class SessionStore: ObservableObject {
     @Published var onboardingEntryLoaded: Bool = false
     @Published var showOnboarding: Bool = false
     @Published var currentSettengsItemId: Int?
+    @Published var isSigningIn: Bool = false
+    
+    
     var useMockImages = false
     var pendingAuthActions: [PendingAction] = []
     var settingsObserver: ListenerRegistration?
@@ -81,7 +84,7 @@ final class SessionStore: ObservableObject {
                 self.user = user
                 self.authLoaded = true
                 self.runPendingAuthActions()
-            
+                self.isSigningIn = false
 //            }
                                     
         }

@@ -161,9 +161,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="V8b-El-CMB" kind="popoverPresentation" identifier="SetNotificationTime" popoverAnchorView="CFJ-5J-4On" id="dBv-Dq-5Es">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
+                                            <segue destination="V8b-El-CMB" kind="presentation" identifier="SetNotificationTime" modalPresentationStyle="formSheet" id="dBv-Dq-5Es"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="64" id="4Fr-C0-s3Z" userLabel="Email Settings Cell">

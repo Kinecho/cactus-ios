@@ -8,6 +8,8 @@
 
 import SwiftUI
 import UIKit
+import SwiftUIX
+
 struct WelcomeController: UIViewControllerRepresentable {
     
     @EnvironmentObject var session: SessionStore
@@ -29,13 +31,82 @@ struct WelcomeController: UIViewControllerRepresentable {
     
 }
 
+struct IntroView: View {
+    @Binding var showIntro: Bool
+    var body: some View {
+        VStack(alignment: .center, spacing: Spacing.normal) {
+            Image(CactusImage.logoWhite.rawValue)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 100, height: 60)
+            VStack(alignment: .center, spacing: Spacing.large) {
+                Text("Your private journal for greater mental fitness")
+                CactusButton("Continue", .buttonPrimary).onTapGesture{
+                    self.showIntro = false
+                }
+            }
+        }
+        .padding()
+        .foregroundColor(named: .White)
+//        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+//        .edgesIgnoringSafeArea(.all)
+//        .background(CactusImage.background_darkBlobs.swiftImage
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fill)
+//                        .edgesIgnoringSafeArea(.all)
+//        )
+    }
+}
+
 struct Welcome: View {
     @EnvironmentObject var session: SessionStore
     
+    @State var currentPage: Int = 0
+    @State var showIntro: Bool = true
+    
+    var isShowingIntro: Bool {
+        self.showIntro && !self.session.isSigningIn
+    }
+    
     var body: some View {
-            WelcomeController()
-                .edgesIgnoringSafeArea(.vertical)
-                .background(named: .Green)
+        ZStack {
+            if self.isShowingIntro {
+                IntroView(showIntro: self.$showIntro.animation())
+                    .transition(AnyTransition.opacity.combined(with: AnyTransition.offset(x: -100, y: 0)))
+                    .zIndex(2)
+            }
+            VStack {
+                LoginView()
+            }
+            .zIndex(1)
+            .opacity(self.isShowingIntro ? 0 : 1)
+            .animation(Animation.easeIn.delay(0.3))
+            
+        }
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+        .edgesIgnoringSafeArea(.all)
+        .background(Image(CactusImage.background_darkBlobs.rawValue)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .edgesIgnoringSafeArea(.all)
+        )
+        
+        
+        
+        
+//        PaginationView(axis: .horizontal) {
+//
+////            WelcomeController().eraseToAnyView()
+//            IntroView(currentPageIndex: self.$currentPage).eraseToAnyView()
+//            LoginView().eraseToAnyView()
+//
+//
+////                .edgesIgnoringSafeArea(.vertical)
+////                .background(named: .Green)
+//        }.currentPageIndex(self.$currentPage)
+//        .initialPageIndex(0)
+//        .edgesIgnoringSafeArea(.all)
+//
     }
 }
 

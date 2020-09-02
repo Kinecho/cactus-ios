@@ -26,27 +26,48 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var backgroundImageView: UIImageView!
     
     var authViewController: UIViewController?
+    var hideBackground = false
+//    var authHandler: AuthStateDidChangeListenerHandle?
+//    var member: CactusMember? {
+//        didSet {
+//            guard self.isViewLoaded else {
+//                return
+//            }
+//            self.configureUI()
+//        }
+//    }
     
-    var authHandler: AuthStateDidChangeListenerHandle?
+    var user: User? {
+        didSet {
+            guard self.isViewLoaded else {
+                return
+            }
+            self.configureUI()
+        }
+    }
     var logger = Logger("LoginViewController")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureAuth()
         self.configureUI()
-        self.authHandler = AuthService.sharedInstance.getAuthStateChangeHandler { (_, user) in
-            self.configureUI(user)
-        }
+//        self.authHandler = AuthService.sharedInstance.getAuthStateChangeHandler { (_, user) in
+//            self.configureUI(user)
+//        }
         self.emailInputView.attributedPlaceholder = NSAttributedString(string: "Enter your email address").withColor(CactusColor.darkText)
         self.view.setupKeyboardDismissRecognizer()
         self.emailInputView.delegate = self
-        self.backgroundImageView.transform = CGAffineTransform(scaleX: -1, y: 1)
-     
+        if self.hideBackground {
+            //        self.backgroundImageView.transform = CGAffineTransform(scaleX: -1, y: 1)
+            self.backgroundImageView.isHidden = true
+            self.view.backgroundColor = .clear
+        }
+
     }
     
-    deinit {
-        AuthService.sharedInstance.removeAuthStateChangeListener(self.authHandler)
-    }
+//    deinit {
+//        AuthService.sharedInstance.removeAuthStateChangeListener(self.authHandler)
+//    }
     
     @IBAction func magicLinkNext(_ sender: Any) {
         let email = self.emailInputView.text
@@ -97,19 +118,19 @@ class LoginViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
-    func configureUI(_ user: User?=AuthService.sharedInstance.getCurrentUser()) {
-        if let user = user {
+    func configureUI() {
+        if let user = self.user {
             if !user.isAnonymous {
-                showLoggedInUI(user)
+                showLoggedInUI()
             } else {
-                showAnonymousUserUI(user)
+                showAnonymousUserUI()
             }
         } else {
             showLoggedOutUI()
         }
     }
     
-    func showAnonymousUserUI(_ user: User) {
+    func showAnonymousUserUI() {
         self.titleLabel.text = loggedOutTitle
         self.titleLabel.isHidden = false
         self.configureAuthView()
@@ -126,7 +147,7 @@ class LoginViewController: UIViewController {
         self.loadingStackView.isHidden = true
     }
     
-    func showLoggedInUI(_ user: User) {
+    func showLoggedInUI() {
         self.removeAuthViewController()
         self.titleLabel.isHidden = true
         
@@ -145,22 +166,23 @@ class LoginViewController: UIViewController {
     }
     
     func configureAuthView() {
-        if self.authViewController == nil {
-            self.authViewController = CustomAuthPickerViewController(authUI: self.authUI)
-        } else {
-            self.logger.debug("auth already added")
-            return
-        }
+//        if self.authViewController == nil {
+//            self.logger.debug("Creating new auth view controller")
+//            self.authViewController = CustomAuthPickerViewController(authUI: self.authUI)
+//        } else {
+//            self.logger.debug("auth already added")
+//            return
+//        }
         
         guard let authViewController = self.authViewController,
             let authView = authViewController.view else {
                 return
         }
         authView.backgroundColor = .clear
-        self.addChild(authViewController)
         self.addSubviewInParent(authView, in: self.containerView, at: 0)
-        authViewController.didMove(toParent: self)
     }
+    
+    
     
     func addSubviewInParent(_ subView: UIView, in parent: UIView, at: Int=0) {
         subView.translatesAutoresizingMaskIntoConstraints = false
@@ -180,10 +202,11 @@ class LoginViewController: UIViewController {
         guard let authViewController = self.authViewController else {return}
         
         let authView = authViewController.view
-        authViewController.willMove(toParent: nil)
+//        authViewController.willMove(toParent: nil)
+        authView?.willMove(toSuperview: nil)
         authView?.removeFromSuperview()
-        authViewController.removeFromParent()
-        self.authViewController = nil
+//        authViewController.removeFromParent()
+//        self.authViewController = nil
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -238,6 +261,13 @@ extension LoginViewController: FUIAuthDelegate, UINavigationControllerDelegate {
         }
         
         authUI.providers = providers
+        
+        
+        let authViewController = CustomAuthPickerViewController(authUI: self.authUI)
+        self.authViewController = authViewController
+        authViewController.willMove(toParent: self)
+        self.addChild(authViewController)
+        authViewController.didMove(toParent: self)
     }
     
     func handleAnonymousUpgrade(error: NSError) {

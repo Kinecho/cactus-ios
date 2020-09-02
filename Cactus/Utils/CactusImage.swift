@@ -197,6 +197,8 @@ enum CactusImage: String {
     case cvBlob8
     case errorBlob
     case emptyState
+    case background_darkBlobs
+    case logoWhite = "logo-ondark"
     
     func getImage() -> UIImage? {
         return UIImage(named: self.rawValue)

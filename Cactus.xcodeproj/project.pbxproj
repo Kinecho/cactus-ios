@@ -184,6 +184,9 @@
 		3020DD9923640BE300EC40AE /* CactusElementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3020DD9623640BE300EC40AE /* CactusElementsViewController.swift */; };
 		3020DD9A23640BE300EC40AE /* CactusElementsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3020DD9723640BE300EC40AE /* CactusElementsViewController.xib */; };
 		3020DD9B23640BE300EC40AE /* CactusElementsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3020DD9723640BE300EC40AE /* CactusElementsViewController.xib */; };
+		302130A924FEEF4F00ADC828 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130A824FEEF4F00ADC828 /* LoginView.swift */; };
+		302130AA24FEEF4F00ADC828 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130A824FEEF4F00ADC828 /* LoginView.swift */; };
+		302130AB24FEEF4F00ADC828 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130A824FEEF4F00ADC828 /* LoginView.swift */; };
 		3021B67123622FE7002634A8 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67023622FE7002634A8 /* ApiService.swift */; };
 		3021B67223622FE7002634A8 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67023622FE7002634A8 /* ApiService.swift */; };
 		3021B67523623010002634A8 /* ApiTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67423623010002634A8 /* ApiTypes.swift */; };
@@ -1405,6 +1408,7 @@
 		3020DD932363F37D00EC40AE /* UIImageViewAligned.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewAligned.swift; sourceTree = "<group>"; };
 		3020DD9623640BE300EC40AE /* CactusElementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusElementsViewController.swift; sourceTree = "<group>"; };
 		3020DD9723640BE300EC40AE /* CactusElementsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CactusElementsViewController.xib; sourceTree = "<group>"; };
+		302130A824FEEF4F00ADC828 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		3021B67023622FE7002634A8 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		3021B67423623010002634A8 /* ApiTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTypes.swift; sourceTree = "<group>"; };
 		3021B67723623AE3002634A8 /* CactusTextInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusTextInputField.swift; sourceTree = "<group>"; };
@@ -1877,6 +1881,7 @@
 			children = (
 				3014D5A324DE0BD9007AF70B /* NotificationOnboardingRepresentableView.swift */,
 				305366CF24C676D300927498 /* WelcomeController.swift */,
+				302130A824FEEF4F00ADC828 /* LoginView.swift */,
 			);
 			path = UIRepresentable;
 			sourceTree = "<group>";
@@ -3713,6 +3718,7 @@
 				30727438236A312800309B3C /* CactusConstants.swift in Sources */,
 				300F2375237A6F7500F35CDE /* ShadowView.swift in Sources */,
 				303282132412B8E600FC197A /* PricingFeatureView.swift in Sources */,
+				302130AB24FEEF4F00ADC828 /* LoginView.swift in Sources */,
 				305366CC24C6714300927498 /* SessionStore.swift in Sources */,
 				3099D1FF240974F200BD9CC4 /* SubscriptionProductGroupService.swift in Sources */,
 				30D63EAE24E20A9D00FBD884 /* RefreshableScrollView.swift in Sources */,
@@ -3961,6 +3967,7 @@
 				30A3BC3E24C113780016955C /* TertiaryButton.swift in Sources */,
 				30A3BC3F24C113780016955C /* PricingFeatureView.swift in Sources */,
 				30A3BC4024C113780016955C /* SubscriptionProductGroupService.swift in Sources */,
+				302130A924FEEF4F00ADC828 /* LoginView.swift in Sources */,
 				305366CA24C6714300927498 /* SessionStore.swift in Sources */,
 				30A3BC4124C113780016955C /* CactusAnalytics.swift in Sources */,
 				30D63EAC24E20A9D00FBD884 /* RefreshableScrollView.swift in Sources */,
@@ -4209,6 +4216,7 @@
 				300F2374237A6F7500F35CDE /* ShadowView.swift in Sources */,
 				3014A38D2378CA0300121729 /* TertiaryButton.swift in Sources */,
 				303282122412B8E600FC197A /* PricingFeatureView.swift in Sources */,
+				302130AA24FEEF4F00ADC828 /* LoginView.swift in Sources */,
 				305366CB24C6714300927498 /* SessionStore.swift in Sources */,
 				3099D1FE240974F200BD9CC4 /* SubscriptionProductGroupService.swift in Sources */,
 				30D63EAD24E20A9D00FBD884 /* RefreshableScrollView.swift in Sources */,
