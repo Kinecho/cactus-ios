@@ -46,6 +46,11 @@ fastlane ios patch
 fastlane ios minor
 ```
 
+### ios push_version
+```
+fastlane ios push_version
+```
+
 ### ios version_bump
 ```
 fastlane ios version_bump
