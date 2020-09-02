@@ -1,0 +1,61 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Cloudinary",
+        "repositoryURL": "https://github.com/cloudinary/cloudinary_ios.git",
+        "state": {
+          "branch": null,
+          "revision": "089e2f191adcc0a9b38808396adbeaa0fab2a61d",
+          "version": "2.9.0"
+        }
+      },
+      {
+        "package": "CodableFirebase",
+        "repositoryURL": "https://github.com/alickbass/CodableFirebase.git",
+        "state": {
+          "branch": null,
+          "revision": "a4cda89948db93ec21249a35ecdacab8c489a116",
+          "version": "0.2.2"
+        }
+      },
+      {
+        "package": "Purchases",
+        "repositoryURL": "https://github.com/RevenueCat/purchases-ios.git",
+        "state": {
+          "branch": null,
+          "revision": "bc0e76d02984bafc7cabc1d2204145cbad575173",
+          "version": "3.5.2"
+        }
+      },
+      {
+        "package": "Sentry",
+        "repositoryURL": "https://github.com/getsentry/sentry-cocoa.git",
+        "state": {
+          "branch": null,
+          "revision": "64eab3843f1d110848fbe09f1b7178f782256c84",
+          "version": "5.2.1"
+        }
+      },
+      {
+        "package": "SwiftUIX",
+        "repositoryURL": "https://github.com/SwiftUIX/SwiftUIX.git",
+        "state": {
+          "branch": null,
+          "revision": "6f78890ef2e2fc0f649d6c3c258494fed9df5eba",
+          "version": null
+        }
+      },
+      {
+        "package": "URLImage",
+        "repositoryURL": "https://github.com/dmytro-anokhin/url-image.git",
+        "state": {
+          "branch": null,
+          "revision": "22eca5ee4f317e0283da75426849ee23f0516022",
+          "version": "0.9.19"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
