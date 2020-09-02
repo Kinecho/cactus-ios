@@ -20,13 +20,13 @@ struct CardShimmer: View {
                     .frame(height: geometry.size.height)
                     .cornerRadius(self.cornerRadius)
                 
-                Color.white
+                Color.white.opacity(0.1)
                     .frame(height: geometry.size.height)
                     .cornerRadius(self.cornerRadius)
                 .mask(
                     Rectangle()
                     .fill(
-                        LinearGradient(gradient: Gradient(colors: [.clear, Color.white.opacity(0.48), .clear]), startPoint: .top, endPoint: .bottom)
+                        LinearGradient(gradient: Gradient(colors: [.clear, Color.white.opacity(0.1), .clear]), startPoint: .top, endPoint: .bottom)
                     )
                         .scaleEffect(x: 2, y: 2, anchor: .center)
                         .rotationEffect(.init(degrees: 70))

@@ -187,6 +187,9 @@
 		302130A924FEEF4F00ADC828 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130A824FEEF4F00ADC828 /* LoginView.swift */; };
 		302130AA24FEEF4F00ADC828 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130A824FEEF4F00ADC828 /* LoginView.swift */; };
 		302130AB24FEEF4F00ADC828 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130A824FEEF4F00ADC828 /* LoginView.swift */; };
+		302130AD25003DA500ADC828 /* AdaptiveStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130AC25003DA500ADC828 /* AdaptiveStack.swift */; };
+		302130AE25003DA500ADC828 /* AdaptiveStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130AC25003DA500ADC828 /* AdaptiveStack.swift */; };
+		302130AF25003DA500ADC828 /* AdaptiveStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130AC25003DA500ADC828 /* AdaptiveStack.swift */; };
 		3021B67123622FE7002634A8 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67023622FE7002634A8 /* ApiService.swift */; };
 		3021B67223622FE7002634A8 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67023622FE7002634A8 /* ApiService.swift */; };
 		3021B67523623010002634A8 /* ApiTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67423623010002634A8 /* ApiTypes.swift */; };
@@ -1409,6 +1412,7 @@
 		3020DD9623640BE300EC40AE /* CactusElementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusElementsViewController.swift; sourceTree = "<group>"; };
 		3020DD9723640BE300EC40AE /* CactusElementsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CactusElementsViewController.xib; sourceTree = "<group>"; };
 		302130A824FEEF4F00ADC828 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		302130AC25003DA500ADC828 /* AdaptiveStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveStack.swift; sourceTree = "<group>"; };
 		3021B67023622FE7002634A8 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		3021B67423623010002634A8 /* ApiTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTypes.swift; sourceTree = "<group>"; };
 		3021B67723623AE3002634A8 /* CactusTextInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusTextInputField.swift; sourceTree = "<group>"; };
@@ -2083,6 +2087,7 @@
 				300D37FA24DA58F400351994 /* WebViewWrapper.swift */,
 				30D63EAB24E20A9D00FBD884 /* RefreshableScrollView.swift */,
 				309CF39024F0A28400DE08EC /* MoreActionsButton.swift */,
+				302130AC25003DA500ADC828 /* AdaptiveStack.swift */,
 			);
 			path = "Supplemental Views";
 			sourceTree = "<group>";
@@ -3859,6 +3864,7 @@
 				3026B29B234D3E2800CD2D34 /* PromptContentViewController.swift in Sources */,
 				30E2D377234311C6003D2B27 /* PillLabelView.swift in Sources */,
 				30D598A624F8142C0012A83F /* Vibration.swift in Sources */,
+				302130AF25003DA500ADC828 /* AdaptiveStack.swift in Sources */,
 				3084E95C2348087100788279 /* HelpViewController.swift in Sources */,
 				305366F124C6A84200927498 /* PromptContentView.swift in Sources */,
 				300D37C124D8C9FB00351994 /* PlusFeaturesPagination.swift in Sources */,
@@ -4108,6 +4114,7 @@
 				30A3BCA324C113780016955C /* LoginViewController.swift in Sources */,
 				30A3BCA424C113780016955C /* PillLabelView.swift in Sources */,
 				30D598A424F8142C0012A83F /* Vibration.swift in Sources */,
+				302130AD25003DA500ADC828 /* AdaptiveStack.swift in Sources */,
 				30A3BCA524C113780016955C /* HelpViewController.swift in Sources */,
 				305366EF24C6A84200927498 /* PromptContentView.swift in Sources */,
 				300D37BF24D8C9FB00351994 /* PlusFeaturesPagination.swift in Sources */,
@@ -4357,6 +4364,7 @@
 				30E9B0AF22EADD04005B25FD /* LoginViewController.swift in Sources */,
 				30E2D376234311C6003D2B27 /* PillLabelView.swift in Sources */,
 				30D598A524F8142C0012A83F /* Vibration.swift in Sources */,
+				302130AE25003DA500ADC828 /* AdaptiveStack.swift in Sources */,
 				3084E95B2348087100788279 /* HelpViewController.swift in Sources */,
 				305366F024C6A84200927498 /* PromptContentView.swift in Sources */,
 				300D37C024D8C9FB00351994 /* PlusFeaturesPagination.swift in Sources */,
