@@ -10,6 +10,18 @@ import Foundation
 import WebKit
 class CactusElementWebView: WKWebView {
     let logger = Logger("CactusElementWebView")
+    private var loaded: Bool = false
+    
+    var running: Bool = false {
+        didSet {
+            if self.running {
+                self.startAnimation()
+            } else {
+                self.pauseAnimation()
+            }
+        }
+    }
+    
     var element: CactusElement? {
         didSet {
             self.updateView()
@@ -38,6 +50,11 @@ class CactusElementWebView: WKWebView {
         }
         
         self.loadFileURL(url, allowingReadAccessTo: url)
+        self.loaded = true
+        
+        if self.running {
+            self.startAnimation()
+        }
     }
     
     func startAnimation() {
@@ -46,6 +63,9 @@ class CactusElementWebView: WKWebView {
     el.classList.add("running");
 """
         self.evaluateJavaScript(js, completionHandler: nil)
+        if self.running == false {
+            self.running = true
+        }
     }
     
     func pauseAnimation() {
@@ -54,6 +74,9 @@ class CactusElementWebView: WKWebView {
         el.classList.remove("running")
     """
         self.evaluateJavaScript(js, completionHandler: nil)
+        if self.running == true {
+            self.running = false
+        }
     }
     
     func restartAnimation() {

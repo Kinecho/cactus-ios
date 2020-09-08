@@ -190,6 +190,33 @@
 		302130AD25003DA500ADC828 /* AdaptiveStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130AC25003DA500ADC828 /* AdaptiveStack.swift */; };
 		302130AE25003DA500ADC828 /* AdaptiveStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130AC25003DA500ADC828 /* AdaptiveStack.swift */; };
 		302130AF25003DA500ADC828 /* AdaptiveStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130AC25003DA500ADC828 /* AdaptiveStack.swift */; };
+		302130B22500546F00ADC828 /* ContentCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130B12500546F00ADC828 /* ContentCardViewModel.swift */; };
+		302130B32500546F00ADC828 /* ContentCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130B12500546F00ADC828 /* ContentCardViewModel.swift */; };
+		302130B42500546F00ADC828 /* ContentCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130B12500546F00ADC828 /* ContentCardViewModel.swift */; };
+		302130B625005FE900ADC828 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130B525005FE900ADC828 /* CardView.swift */; };
+		302130B725005FE900ADC828 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130B525005FE900ADC828 /* CardView.swift */; };
+		302130B825005FE900ADC828 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130B525005FE900ADC828 /* CardView.swift */; };
+		302130BB2500604600ADC828 /* TextCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130BA2500604600ADC828 /* TextCardView.swift */; };
+		302130BC2500604600ADC828 /* TextCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130BA2500604600ADC828 /* TextCardView.swift */; };
+		302130BD2500604600ADC828 /* TextCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130BA2500604600ADC828 /* TextCardView.swift */; };
+		302130BF250066D100ADC828 /* ReflectCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130BE250066D100ADC828 /* ReflectCardView.swift */; };
+		302130C0250066D100ADC828 /* ReflectCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130BE250066D100ADC828 /* ReflectCardView.swift */; };
+		302130C1250066D100ADC828 /* ReflectCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130BE250066D100ADC828 /* ReflectCardView.swift */; };
+		302130C425006DAB00ADC828 /* MockDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130C325006DAB00ADC828 /* MockDevice.swift */; };
+		302130C525006DAB00ADC828 /* MockDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130C325006DAB00ADC828 /* MockDevice.swift */; };
+		302130C625006DAB00ADC828 /* MockDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130C325006DAB00ADC828 /* MockDevice.swift */; };
+		302130C825006E6E00ADC828 /* PreviewHelperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130C725006E6E00ADC828 /* PreviewHelperView.swift */; };
+		302130C925006E6E00ADC828 /* PreviewHelperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130C725006E6E00ADC828 /* PreviewHelperView.swift */; };
+		302130CA25006E6E00ADC828 /* PreviewHelperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130C725006E6E00ADC828 /* PreviewHelperView.swift */; };
+		302130CC250149C400ADC828 /* ElementAnimationRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130CB250149C400ADC828 /* ElementAnimationRepresentable.swift */; };
+		302130CD250149C400ADC828 /* ElementAnimationRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130CB250149C400ADC828 /* ElementAnimationRepresentable.swift */; };
+		302130CE250149C400ADC828 /* ElementAnimationRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130CB250149C400ADC828 /* ElementAnimationRepresentable.swift */; };
+		302130D02501674E00ADC828 /* PromptCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130CF2501674E00ADC828 /* PromptCardsView.swift */; };
+		302130D12501674E00ADC828 /* PromptCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130CF2501674E00ADC828 /* PromptCardsView.swift */; };
+		302130D22501674E00ADC828 /* PromptCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130CF2501674E00ADC828 /* PromptCardsView.swift */; };
+		302130D42502AD9600ADC828 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130D32502AD9600ADC828 /* PageViewController.swift */; };
+		302130D52502AD9600ADC828 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130D32502AD9600ADC828 /* PageViewController.swift */; };
+		302130D62502AD9600ADC828 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302130D32502AD9600ADC828 /* PageViewController.swift */; };
 		3021B67123622FE7002634A8 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67023622FE7002634A8 /* ApiService.swift */; };
 		3021B67223622FE7002634A8 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67023622FE7002634A8 /* ApiService.swift */; };
 		3021B67523623010002634A8 /* ApiTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021B67423623010002634A8 /* ApiTypes.swift */; };
@@ -1413,6 +1440,15 @@
 		3020DD9723640BE300EC40AE /* CactusElementsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CactusElementsViewController.xib; sourceTree = "<group>"; };
 		302130A824FEEF4F00ADC828 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		302130AC25003DA500ADC828 /* AdaptiveStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveStack.swift; sourceTree = "<group>"; };
+		302130B12500546F00ADC828 /* ContentCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCardViewModel.swift; sourceTree = "<group>"; };
+		302130B525005FE900ADC828 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		302130BA2500604600ADC828 /* TextCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCardView.swift; sourceTree = "<group>"; };
+		302130BE250066D100ADC828 /* ReflectCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectCardView.swift; sourceTree = "<group>"; };
+		302130C325006DAB00ADC828 /* MockDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDevice.swift; sourceTree = "<group>"; };
+		302130C725006E6E00ADC828 /* PreviewHelperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHelperView.swift; sourceTree = "<group>"; };
+		302130CB250149C400ADC828 /* ElementAnimationRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementAnimationRepresentable.swift; sourceTree = "<group>"; };
+		302130CF2501674E00ADC828 /* PromptCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptCardsView.swift; sourceTree = "<group>"; };
+		302130D32502AD9600ADC828 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		3021B67023622FE7002634A8 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		3021B67423623010002634A8 /* ApiTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTypes.swift; sourceTree = "<group>"; };
 		3021B67723623AE3002634A8 /* CactusTextInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusTextInputField.swift; sourceTree = "<group>"; };
@@ -1886,6 +1922,7 @@
 				3014D5A324DE0BD9007AF70B /* NotificationOnboardingRepresentableView.swift */,
 				305366CF24C676D300927498 /* WelcomeController.swift */,
 				302130A824FEEF4F00ADC828 /* LoginView.swift */,
+				302130CB250149C400ADC828 /* ElementAnimationRepresentable.swift */,
 			);
 			path = UIRepresentable;
 			sourceTree = "<group>";
@@ -1913,9 +1950,12 @@
 		3014D5B524DE3D9B007AF70B /* Prompts */ = {
 			isa = PBXGroup;
 			children = (
+				302130B92500603800ADC828 /* Cards */,
 				305366EE24C6A84200927498 /* PromptContentView.swift */,
 				309CF37F24ED9EFC00DE08EC /* EditNoteView.swift */,
 				309DD91724F4762B000BEF39 /* ComposeNoteButton.swift */,
+				302130B525005FE900ADC828 /* CardView.swift */,
+				302130CF2501674E00ADC828 /* PromptCardsView.swift */,
 			);
 			path = Prompts;
 			sourceTree = "<group>";
@@ -1948,6 +1988,32 @@
 				30CF53932371183F00578B22 /* CactusElementAnimationViewController.swift */,
 			);
 			path = "Cactus Animations";
+			sourceTree = "<group>";
+		};
+		302130B02500541D00ADC828 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				302130B12500546F00ADC828 /* ContentCardViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		302130B92500603800ADC828 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				302130BA2500604600ADC828 /* TextCardView.swift */,
+				302130BE250066D100ADC828 /* ReflectCardView.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		302130C225006D9400ADC828 /* Preview Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				302130C325006DAB00ADC828 /* MockDevice.swift */,
+				302130C725006E6E00ADC828 /* PreviewHelperView.swift */,
+			);
+			path = "Preview Helpers";
 			sourceTree = "<group>";
 		};
 		3021B67323623000002634A8 /* Api */ = {
@@ -2048,6 +2114,7 @@
 		305366BC24C66C7D00927498 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				302130C225006D9400ADC828 /* Preview Helpers */,
 				309DD90E24F41B72000BEF39 /* Charts */,
 				30DBBE2B24F22F6F0067F12A /* Errors */,
 				309CF38524F04E9000DE08EC /* Assessments */,
@@ -2088,6 +2155,7 @@
 				30D63EAB24E20A9D00FBD884 /* RefreshableScrollView.swift */,
 				309CF39024F0A28400DE08EC /* MoreActionsButton.swift */,
 				302130AC25003DA500ADC828 /* AdaptiveStack.swift */,
+				302130D32502AD9600ADC828 /* PageViewController.swift */,
 			);
 			path = "Supplemental Views";
 			sourceTree = "<group>";
@@ -2336,6 +2404,7 @@
 				30673B85233FDEB600EDE7BD /* Fonts */,
 				304BCE5524858B5E0055A28E /* html */,
 				30E9B09722EA6A66005B25FD /* Models */,
+				302130B02500541D00ADC828 /* ViewModels */,
 				305366BC24C66C7D00927498 /* Screens */,
 				30E9B09422EA688D005B25FD /* Services */,
 				305366B524C66BD700927498 /* Store */,
@@ -3664,6 +3733,7 @@
 				305130D4234FE9F10088B51F /* InviteSettingsViewController.swift in Sources */,
 				30D7385E23CFFC62006F4DA6 /* InviteContentViewController.swift in Sources */,
 				30D7386E23D00C0C006F4DA6 /* CircleImageView.swift in Sources */,
+				302130D62502AD9600ADC828 /* PageViewController.swift in Sources */,
 				307B623924ABE5A100A4560E /* ArrayExtensions.swift in Sources */,
 				304EA2F42343B730001FB8AD /* CountProcess.swift in Sources */,
 				307ED78C24084085008D26C6 /* MemberSubscription.swift in Sources */,
@@ -3695,6 +3765,7 @@
 				300D37C624DA086900351994 /* SubscriptionCopy.swift in Sources */,
 				3099D20324098EF400BD9CC4 /* SubscriptionProductGroup.swift in Sources */,
 				305B186F23319E09003E1561 /* FileUtils.swift in Sources */,
+				302130D22501674E00ADC828 /* PromptCardsView.swift in Sources */,
 				30DCA5F124417AA400D520D4 /* PromptContentDataSource.swift in Sources */,
 				300D37D824DA333600351994 /* ProfileSettingsView.swift in Sources */,
 				301C1A91236F7E9700F06A3D /* MeaningAnimationViewController.swift in Sources */,
@@ -3726,6 +3797,7 @@
 				302130AB24FEEF4F00ADC828 /* LoginView.swift in Sources */,
 				305366CC24C6714300927498 /* SessionStore.swift in Sources */,
 				3099D1FF240974F200BD9CC4 /* SubscriptionProductGroupService.swift in Sources */,
+				302130C625006DAB00ADC828 /* MockDevice.swift in Sources */,
 				30D63EAE24E20A9D00FBD884 /* RefreshableScrollView.swift in Sources */,
 				303E8143242C4F2700782B54 /* CactusAnalytics.swift in Sources */,
 				3014A38C2378CA0300121729 /* TertiaryButton.swift in Sources */,
@@ -3751,6 +3823,7 @@
 				3018B1242376182D0005333A /* JournalEntryData.swift in Sources */,
 				300FCD0123EE3CD200089CFB /* SubscriptionProductService.swift in Sources */,
 				30D598AC24F83B6C0012A83F /* JournalEmptyStateView.swift in Sources */,
+				302130C1250066D100ADC828 /* ReflectCardView.swift in Sources */,
 				3077382924CE89B400D0C5BE /* PricingView.swift in Sources */,
 				305366D224C676D300927498 /* WelcomeController.swift in Sources */,
 				30DBBE2F24F230C60067F12A /* NoContentErrorView.swift in Sources */,
@@ -3798,6 +3871,7 @@
 				30265C6123453CB100934041 /* UIImage+SwiftyGif.swift in Sources */,
 				300F2372237A629800F35CDE /* CircleView.swift in Sources */,
 				3077381A24CBD39B00D0C5BE /* CactusButton.swift in Sources */,
+				302130CA25006E6E00ADC828 /* PreviewHelperView.swift in Sources */,
 				3020DD9923640BE300EC40AE /* CactusElementsViewController.swift in Sources */,
 				30BE5676234E982C00AA6D4D /* LinkedAccountsTableViewController.swift in Sources */,
 				30392FF72410075400F2A8FC /* ModelDecoder.swift in Sources */,
@@ -3834,6 +3908,7 @@
 				3021B67623623010002634A8 /* ApiTypes.swift in Sources */,
 				30D6E32C24CB561E00A4EA75 /* EdgeBorder.swift in Sources */,
 				300D37ED24DA53EA00351994 /* FeedbackView.swift in Sources */,
+				302130CE250149C400ADC828 /* ElementAnimationRepresentable.swift in Sources */,
 				30DCA5ED244120A700D520D4 /* PromptContentCollectionViewController.swift in Sources */,
 				30D7F70A236BAAB100379EE0 /* EditReflectionViewController.swift in Sources */,
 				309DD91624F43440000BEF39 /* WordBubbleWidget.swift in Sources */,
@@ -3873,6 +3948,7 @@
 				303282222416D3DF00FC197A /* AuthenticatedTaskManager.swift in Sources */,
 				30265C6423453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */,
 				300D37CF24DA190900351994 /* IconImage.swift in Sources */,
+				302130B825005FE900ADC828 /* CardView.swift in Sources */,
 				302C4F4D2347E25A00798560 /* DateUtil.swift in Sources */,
 				3014D5C024DE5D40007AF70B /* StoreKit+Cactus.swift in Sources */,
 				303C9DC9237FCF06006B9786 /* LoadableSharedReflectionViewController.swift in Sources */,
@@ -3885,12 +3961,14 @@
 				30265C5E23453C8D00934041 /* SwiftyGifManager.swift in Sources */,
 				3072744A236A4AC200309B3C /* CactusElementPageViewController.swift in Sources */,
 				30BF2E342328D91B00A49EB6 /* PromptContent.swift in Sources */,
+				302130BD2500604600ADC828 /* TextCardView.swift in Sources */,
 				305B1869233178A8003E1561 /* ImageService.swift in Sources */,
 				305B1886233273C4003E1561 /* GrowingTextView.swift in Sources */,
 				30934F9322EBE7DF007C4E6C /* JournalFeedCollectionViewController.swift in Sources */,
 				300AC17D23397A77005C6555 /* JournalHomeViewController.swift in Sources */,
 				300FCCFB23EE2EF900089CFB /* ManageSubscriptionViewController.swift in Sources */,
 				300FCD0723EE811200089CFB /* SubscriptionProductCell.swift in Sources */,
+				302130B42500546F00ADC828 /* ContentCardViewModel.swift in Sources */,
 				30E9B0BB22EAF153005B25FD /* SentPrompt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3914,6 +3992,7 @@
 				30A3BC1524C113780016955C /* InviteContentViewController.swift in Sources */,
 				30A3BC1624C113780016955C /* CircleImageView.swift in Sources */,
 				30A3BC1724C113780016955C /* ArrayExtensions.swift in Sources */,
+				302130D42502AD9600ADC828 /* PageViewController.swift in Sources */,
 				30A3BC1824C113780016955C /* CountProcess.swift in Sources */,
 				30A3BC1924C113780016955C /* MemberSubscription.swift in Sources */,
 				30A3BC1A24C113780016955C /* PromptContentService.swift in Sources */,
@@ -3945,6 +4024,7 @@
 				300D37C424DA086900351994 /* SubscriptionCopy.swift in Sources */,
 				30A3BC2924C113780016955C /* MeaningAnimationViewController.swift in Sources */,
 				30A3BC2A24C113780016955C /* PromptContentDataSource.swift in Sources */,
+				302130D02501674E00ADC828 /* PromptCardsView.swift in Sources */,
 				30A3BC2B24C113780016955C /* NavigationMenuViewController.swift in Sources */,
 				300D37D624DA333600351994 /* ProfileSettingsView.swift in Sources */,
 				30A3BC2C24C113780016955C /* ProfileSettingsViewController.swift in Sources */,
@@ -3976,6 +4056,7 @@
 				302130A924FEEF4F00ADC828 /* LoginView.swift in Sources */,
 				305366CA24C6714300927498 /* SessionStore.swift in Sources */,
 				30A3BC4124C113780016955C /* CactusAnalytics.swift in Sources */,
+				302130C425006DAB00ADC828 /* MockDevice.swift in Sources */,
 				30D63EAC24E20A9D00FBD884 /* RefreshableScrollView.swift in Sources */,
 				30A3BC4224C113780016955C /* RoundedView.swift in Sources */,
 				30A3BC4324C113780016955C /* RelationshipsAnimationViewController.swift in Sources */,
@@ -4001,6 +4082,7 @@
 				30A3BC5424C113780016955C /* JournalEntryData.swift in Sources */,
 				30A3BC5524C113780016955C /* SubscriptionProductService.swift in Sources */,
 				30D598AA24F83B6C0012A83F /* JournalEmptyStateView.swift in Sources */,
+				302130BF250066D100ADC828 /* ReflectCardView.swift in Sources */,
 				3077382724CE89B400D0C5BE /* PricingView.swift in Sources */,
 				305366D024C676D300927498 /* WelcomeController.swift in Sources */,
 				30DBBE2D24F22FA30067F12A /* NoContentErrorView.swift in Sources */,
@@ -4048,6 +4130,7 @@
 				30A3BC7124C113780016955C /* UIImage+SwiftyGif.swift in Sources */,
 				30A3BC7224C113780016955C /* CircleView.swift in Sources */,
 				3077381824CBD39B00D0C5BE /* CactusButton.swift in Sources */,
+				302130C825006E6E00ADC828 /* PreviewHelperView.swift in Sources */,
 				30A3BC7324C113780016955C /* CactusElementsViewController.swift in Sources */,
 				30A3BC7424C113780016955C /* LinkedAccountsTableViewController.swift in Sources */,
 				30A3BC7524C113780016955C /* ModelDecoder.swift in Sources */,
@@ -4084,6 +4167,7 @@
 				30A3BC8F24C113780016955C /* ApiTypes.swift in Sources */,
 				30D6E32A24CB561E00A4EA75 /* EdgeBorder.swift in Sources */,
 				300D37EB24DA53EA00351994 /* FeedbackView.swift in Sources */,
+				302130CC250149C400ADC828 /* ElementAnimationRepresentable.swift in Sources */,
 				30A3BC9024C113780016955C /* PromptContentCollectionViewController.swift in Sources */,
 				30A3BC9124C113780016955C /* EditReflectionViewController.swift in Sources */,
 				309DD91424F43440000BEF39 /* WordBubbleWidget.swift in Sources */,
@@ -4123,6 +4207,7 @@
 				30A3BCA624C113780016955C /* AuthenticatedTaskManager.swift in Sources */,
 				30A3BCA724C113780016955C /* UIImageView+SwiftyGif.swift in Sources */,
 				300D37CD24DA190900351994 /* IconImage.swift in Sources */,
+				302130B625005FE900ADC828 /* CardView.swift in Sources */,
 				30A3BCA824C113780016955C /* DateUtil.swift in Sources */,
 				3014D5BE24DE5D40007AF70B /* StoreKit+Cactus.swift in Sources */,
 				30A3BCA924C113780016955C /* LoadableSharedReflectionViewController.swift in Sources */,
@@ -4135,12 +4220,14 @@
 				30A3BCAE24C113780016955C /* SwiftyGifManager.swift in Sources */,
 				30A3BCAF24C113780016955C /* CactusElementPageViewController.swift in Sources */,
 				30A3BCB024C113780016955C /* FlamelinkService.swift in Sources */,
+				302130BB2500604600ADC828 /* TextCardView.swift in Sources */,
 				30A3BCB124C113780016955C /* ImageService.swift in Sources */,
 				30A3BCB224C113780016955C /* GrowingTextView.swift in Sources */,
 				30A3BCB324C113780016955C /* NotificationService.swift in Sources */,
 				30A3BCB424C113780016955C /* JournalHomeViewController.swift in Sources */,
 				30A3BCB524C113780016955C /* ManageSubscriptionViewController.swift in Sources */,
 				30A3BCB624C113780016955C /* SubscriptionProductCell.swift in Sources */,
+				302130B22500546F00ADC828 /* ContentCardViewModel.swift in Sources */,
 				30A3BCB724C113780016955C /* SentPrompt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4164,6 +4251,7 @@
 				305130D3234FE9F10088B51F /* InviteSettingsViewController.swift in Sources */,
 				30D7385D23CFFC62006F4DA6 /* InviteContentViewController.swift in Sources */,
 				30D7386D23D00C0C006F4DA6 /* CircleImageView.swift in Sources */,
+				302130D52502AD9600ADC828 /* PageViewController.swift in Sources */,
 				307B623824ABE5A100A4560E /* ArrayExtensions.swift in Sources */,
 				304EA2F32343B730001FB8AD /* CountProcess.swift in Sources */,
 				307ED78B24084085008D26C6 /* MemberSubscription.swift in Sources */,
@@ -4195,6 +4283,7 @@
 				300D37C524DA086900351994 /* SubscriptionCopy.swift in Sources */,
 				305B186E23319E09003E1561 /* FileUtils.swift in Sources */,
 				301C1A90236F7E9700F06A3D /* MeaningAnimationViewController.swift in Sources */,
+				302130D12501674E00ADC828 /* PromptCardsView.swift in Sources */,
 				30DCA5F024417AA400D520D4 /* PromptContentDataSource.swift in Sources */,
 				300D37D724DA333600351994 /* ProfileSettingsView.swift in Sources */,
 				30E2D37A23432B21003D2B27 /* NavigationMenuViewController.swift in Sources */,
@@ -4226,6 +4315,7 @@
 				302130AA24FEEF4F00ADC828 /* LoginView.swift in Sources */,
 				305366CB24C6714300927498 /* SessionStore.swift in Sources */,
 				3099D1FE240974F200BD9CC4 /* SubscriptionProductGroupService.swift in Sources */,
+				302130C525006DAB00ADC828 /* MockDevice.swift in Sources */,
 				30D63EAD24E20A9D00FBD884 /* RefreshableScrollView.swift in Sources */,
 				303E8142242C4F2700782B54 /* CactusAnalytics.swift in Sources */,
 				303EB0882343A0B800AC8741 /* RoundedView.swift in Sources */,
@@ -4251,6 +4341,7 @@
 				3018B1232376182D0005333A /* JournalEntryData.swift in Sources */,
 				300FCD0023EE3CD200089CFB /* SubscriptionProductService.swift in Sources */,
 				30D598AB24F83B6C0012A83F /* JournalEmptyStateView.swift in Sources */,
+				302130C0250066D100ADC828 /* ReflectCardView.swift in Sources */,
 				3077382824CE89B400D0C5BE /* PricingView.swift in Sources */,
 				305366D124C676D300927498 /* WelcomeController.swift in Sources */,
 				30DBBE2E24F230C60067F12A /* NoContentErrorView.swift in Sources */,
@@ -4298,6 +4389,7 @@
 				30265C6023453CB100934041 /* UIImage+SwiftyGif.swift in Sources */,
 				300F2371237A629800F35CDE /* CircleView.swift in Sources */,
 				3077381924CBD39B00D0C5BE /* CactusButton.swift in Sources */,
+				302130C925006E6E00ADC828 /* PreviewHelperView.swift in Sources */,
 				3020DD9823640BE300EC40AE /* CactusElementsViewController.swift in Sources */,
 				30BE5675234E982C00AA6D4D /* LinkedAccountsTableViewController.swift in Sources */,
 				30392FF62410075400F2A8FC /* ModelDecoder.swift in Sources */,
@@ -4334,6 +4426,7 @@
 				3021B67523623010002634A8 /* ApiTypes.swift in Sources */,
 				30D6E32B24CB561E00A4EA75 /* EdgeBorder.swift in Sources */,
 				300D37EC24DA53EA00351994 /* FeedbackView.swift in Sources */,
+				302130CD250149C400ADC828 /* ElementAnimationRepresentable.swift in Sources */,
 				30DCA5EC244120A700D520D4 /* PromptContentCollectionViewController.swift in Sources */,
 				30D7F709236BAAB100379EE0 /* EditReflectionViewController.swift in Sources */,
 				309DD91524F43440000BEF39 /* WordBubbleWidget.swift in Sources */,
@@ -4373,6 +4466,7 @@
 				303282212416D3DF00FC197A /* AuthenticatedTaskManager.swift in Sources */,
 				30265C6323453CD100934041 /* UIImageView+SwiftyGif.swift in Sources */,
 				300D37CE24DA190900351994 /* IconImage.swift in Sources */,
+				302130B725005FE900ADC828 /* CardView.swift in Sources */,
 				302C4F4C2347E25A00798560 /* DateUtil.swift in Sources */,
 				3014D5BF24DE5D40007AF70B /* StoreKit+Cactus.swift in Sources */,
 				303C9DC8237FCF06006B9786 /* LoadableSharedReflectionViewController.swift in Sources */,
@@ -4385,12 +4479,14 @@
 				30265C5D23453C8D00934041 /* SwiftyGifManager.swift in Sources */,
 				30727449236A4AC200309B3C /* CactusElementPageViewController.swift in Sources */,
 				30BF2E14232824AB00A49EB6 /* FlamelinkService.swift in Sources */,
+				302130BC2500604600ADC828 /* TextCardView.swift in Sources */,
 				305B1868233178A8003E1561 /* ImageService.swift in Sources */,
 				305B1885233273C4003E1561 /* GrowingTextView.swift in Sources */,
 				3023FE3022ECD0A300F753A7 /* NotificationService.swift in Sources */,
 				300AC17C23397A77005C6555 /* JournalHomeViewController.swift in Sources */,
 				300FCCFA23EE2EF900089CFB /* ManageSubscriptionViewController.swift in Sources */,
 				300FCD0623EE811200089CFB /* SubscriptionProductCell.swift in Sources */,
+				302130B32500546F00ADC828 /* ContentCardViewModel.swift in Sources */,
 				30E9B0BA22EAF153005B25FD /* SentPrompt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4927,8 +5023,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX.git";
 			requirement = {
-				kind = revision;
-				revision = 6f78890ef2e2fc0f649d6c3c258494fed9df5eba;
+				branch = "asauthorization-xcode12b6-patch";
+				kind = branch;
 			};
 		};
 		308F030324E1CC2700984DF3 /* XCRemoteSwiftPackageReference "cloudinary_ios" */ = {

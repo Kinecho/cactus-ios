@@ -13,34 +13,39 @@ struct AdaptiveStack<Content: View>: View {
     let horizontalAlignment: HorizontalAlignment
     let verticalAlignment: VerticalAlignment
     let spacing: CGFloat?
+    let horizontalSpacing: CGFloat?
+    let verticalSpacing: CGFloat?
     let content: () -> Content
 
-    init(horizontalAlignment: HorizontalAlignment = .center, verticalAlignment: VerticalAlignment = .center, spacing: CGFloat? = nil, @ViewBuilder content: @escaping () -> Content) {
+    init(horizontalAlignment: HorizontalAlignment = .center,
+         verticalAlignment: VerticalAlignment = .center,
+         spacing: CGFloat? = nil,
+         horizontalSpacing: CGFloat? = nil,
+         verticalSpacing: CGFloat? = nil,
+         @ViewBuilder content: @escaping () -> Content) {
         self.horizontalAlignment = horizontalAlignment
         self.verticalAlignment = verticalAlignment
+        self.horizontalSpacing = horizontalSpacing ?? spacing
+        self.verticalSpacing = verticalSpacing ?? spacing
         self.spacing = spacing
         self.content = content
     }
 
     var body: some View {
         if self.sizeClass == .compact {
-            VStack(alignment: horizontalAlignment, spacing: spacing, content: content)
+            VStack(alignment: horizontalAlignment, spacing: verticalSpacing, content: content)
         } else {
-            HStack(alignment: verticalAlignment, spacing: spacing, content: content)
+            HStack(alignment: verticalAlignment, spacing: horizontalSpacing, content: content)
         }
     }
 }
 
 struct AdaptiveStack_Previews: PreviewProvider {
-    struct Device: Identifiable {
-        var id: Int
-        var device: String
-        var horizontalSize: UserInterfaceSizeClass = .compact
-    }
     
-    static let devices: [Device] = [
-        Device(id: 0, device: "iPad Pro (12.9-inch)", horizontalSize: .regular),
-        Device(id: 1, device: "iPhone 11", horizontalSize: .compact),
+    
+    static let devices: [MockDevice] = [
+        MockDevice.iPhone11(),
+        MockDevice.iPadPro12inch()
     ]
     
     static var previews: some View {

@@ -37,7 +37,7 @@ struct TodayEntryNotFoundView: View {
 
 struct TodayWidgetView: View {
     @EnvironmentObject var session: SessionStore
-    var onTapped: ((JournalEntry) -> Void)?
+    var onTapped: ((JournalEntry, Bool?) -> Void)?
     
     @State var isAnimating: Bool = false
     
@@ -58,15 +58,15 @@ struct TodayWidgetView: View {
     func getLoadedWidgetBody(_ entry: JournalEntry) -> some View {
         return JournalEntryRow(
             entry: entry,
-            showDetails: {entry in
-                self.onTapped?(entry)
+            showDetails: { (entry, newStyle) in
+                self.onTapped?(entry, newStyle)
             },
             inlineImage: true,
             backgroundColor: .clear,
             textColor: self.textColor
         )
         .onTapGesture {
-            self.onTapped?(self.todayEntry!)
+            self.onTapped?(self.todayEntry!, false)
         }.onAppear {
             withAnimation {
                 self.isAnimating = true

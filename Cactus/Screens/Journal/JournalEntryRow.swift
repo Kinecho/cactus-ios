@@ -17,7 +17,7 @@ struct JournalEntryRow: View {
     /// Mark: Props
     var entry: JournalEntry
     var index: Int = 0
-    var showDetails: ((JournalEntry) -> Void)?
+    var showDetails: ((JournalEntry, Bool?) -> Void)?
     var inlineImage: Bool = false
     var backgroundColor: Color = NamedColor.CardBackground.color
     var textColor: Color = NamedColor.TextDefault.color
@@ -49,8 +49,12 @@ struct JournalEntryRow: View {
         ]
         
         if entry.promptContent != nil {
-            buttons.append(.default(Text("Reflect"), action: {
-                self.showDetails?(self.entry)
+            buttons.append(.default(Text("Reflect - Old Style"), action: {
+                self.showDetails?(self.entry, false)
+            }))
+            
+            buttons.append(.default(Text("Reflect - New Style"), action: {
+                self.showDetails?(self.entry, true)
             }))
         }
         
@@ -191,7 +195,7 @@ struct JournalEntryRow_Previews: PreviewProvider {
                         .previewLayout(.fixed(width: 400, height: 450))
                                         
                     List {
-                        JournalEntryRow(entry: data.entry, showDetails: {_ in })
+                        JournalEntryRow(entry: data.entry, showDetails: {_, _ in })
                             .listRowInsets(EdgeInsets())
                             .padding(Spacing.large)
                     }.environmentObject(SessionStore.mockLoggedIn())

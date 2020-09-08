@@ -76,7 +76,7 @@ struct MockData {
         if let blob = blob {
             contentBuilder.addContent(answer, .text, backgroundBlob: blob)
         } else {
-            contentBuilder.addContent(answer, .text)
+            contentBuilder.addContent(answer, .reflect)
         }
         
         let builder = JournalEntry.Builder(promptId)
@@ -84,7 +84,7 @@ struct MockData {
             .setPrompt(ReflectionPrompt.Builder(promptId)
                 .setQuestion(question)
                 .build())
-            .setPromptContent(contentBuilder.build())
+            .setPromptContent(contentBuilder.setElement(.meaning).build())
             .setSentPrompt(SentPrompt.Builder(promptId: promptId, memberId: memberId)
                 .setCompleted(answer != nil)
                 .setFirstSentAt("2020-07-12")
@@ -122,7 +122,9 @@ struct MockData {
     }
     
     static func getAnsweredEntry(isToday: Bool=false, blob: Int?=nil) -> JournalEntry {
-        let builder = MockData.EntryBuilder(question: "How do you overcome **failure** in the face of adversity?", answer: "I am going to reflect on the things that make me happy. Using Cactus will help me overcome a lot of bad things!", blob: blob)
+        let builder = MockData.EntryBuilder(question: "How do you overcome **failure** in the face of adversity?",
+                                            answer: "I am going to reflect on the things that make me happy. Using Cactus will help me overcome a lot of bad things!",
+                                            blob: blob)
             .setAllLoaded(true)
             .prependContent(MockData.content("Today you'll focus on how you conquer difficult challenges and failure.", .text, backgroundImage: "https://firebasestorage.googleapis.com/v0/b/cactus-app-prod.appspot.com/o/flamelink%2Fmedia%2F200707.png?alt=media&token=3ff817ca-f58f-457a-aff0-bbefebb095ad"))
             .setTodaysPrompt(isToday)
@@ -429,6 +431,12 @@ extension PromptContent {
         func addContent(_ text: String?, _ contentType: ContentType = .reflect, photoBlob: Int) -> Builder {
             let photoUrl = MockData.getBlobImage(photoBlob)
             return self.add(MockData.content(text, contentType, backgroundImage: nil, photo: photoUrl))
+        }
+        
+        @discardableResult
+        func setElement(_ element: CactusElement) -> Builder {
+            self.promptContent.cactusElement = element
+            return self
         }
         
         @discardableResult

@@ -23,6 +23,7 @@ struct JournalFeed: View {
     enum CurrentSheet: Identifiable {
         case notificationOnboarding
         case promptDetail(JournalEntry)
+        case promptCards(JournalEntry)
         
         var id: Int {
             switch self {
@@ -30,6 +31,8 @@ struct JournalFeed: View {
                 return 0
             case .promptDetail:
                 return 1
+            case .promptCards:
+                return 2
             }
         }
         
@@ -57,11 +60,16 @@ struct JournalFeed: View {
     @State var notificationAuthorizationStatus: UNAuthorizationStatus?
     @State var currentSheet: CurrentSheet?
     
-    func handleEntrySelected(_ entry: JournalEntry) {
+    func handleEntrySelected(_ entry: JournalEntry, _ newStyle: Bool? = nil) {
         if entry.promptContent != nil {
             Vibration.selection.vibrate()
             self.selectedEntry = entry
-            self.currentSheet = .promptDetail(entry)
+            
+            if newStyle == true {
+                self.currentSheet = .promptCards(entry)
+            } else {
+                self.currentSheet = .promptDetail(entry)
+            }
         } else {
             self.selectedEntry = nil
             self.currentSheet = nil
@@ -122,6 +130,8 @@ struct JournalFeed: View {
                 .environmentObject(self.session)
                 .environmentObject(self.checkout)
                 .eraseToAnyView()
+        case .promptCards(let entry):
+            return PromptCardsView(entry).eraseToAnyView()
         }
     }
     
