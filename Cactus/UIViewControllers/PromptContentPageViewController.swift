@@ -62,6 +62,7 @@ class PromptContentPageViewController: UIPageViewController {
         self.view.backgroundColor = CactusColor.promptBackground
         
         if self.createReflectionResponseIfNeeded(), let response = self.reflectionResponse {
+            self.logger.info("Creating a reflection response since none was provided")
             self.save(response, nextPageOnSuccess: false, addReflectionLog: false) { saved, error in
                 if let error = error {
                     self.logger.error("Failed to save placeholder reflection response", error)
@@ -95,8 +96,13 @@ class PromptContentPageViewController: UIPageViewController {
             let question = self.promptContent.getQuestion()
             let element = self.promptContent.cactusElement
             self.reflectionResponse = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: question, element: element, medium: .PROMPT_IOS)
+            self.logger.info("A reflection respons ewas needed - Created a response.")
             return true
+        } else if self.promptContent.promptId == nil {
+            self.logger.info("Unable to create a reflection response - NO prompt ID was present")
+            return false
         }
+        self.logger.info("No need to create a reflection response")
         return false
     }
     

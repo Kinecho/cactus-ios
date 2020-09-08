@@ -34,7 +34,7 @@ enum SubscriptionActionSheet {
 struct SubscriptionSettingsView: View {
     @EnvironmentObject var session: SessionStore
     @EnvironmentObject var checkout: CheckoutStore
-    @ObservedObject var data: SubscriberData =  SubscriberData(autoFetch: true)
+    @ObservedObject var data: SubscriberData =  SubscriberData(autoFetch: false)
     @State var showPricing: Bool = false
     @State var showActionSheet: Bool = false
     @State var currentActionSheet: SubscriptionActionSheet?
@@ -114,6 +114,9 @@ struct SubscriptionSettingsView: View {
             }
             
         } //end geometry reader
+        .onAppear {
+            self.data.fetch()
+        }
             .sheet(isPresented: self.$showPricing) {
                 PricingView().environmentObject(self.session)
                     .environmentObject(self.checkout)

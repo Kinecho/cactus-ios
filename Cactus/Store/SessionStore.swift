@@ -158,6 +158,11 @@ extension SessionStore: JournalFeedDataSourceDelegate {
         guard let index = at ?? self.journalFeedDataSource?.indexOf(journalEntry) ?? self.journalEntries.firstIndex(of: journalEntry) else {
             return
         }
+        
+        if let todayEntry = self.todayEntry, todayEntry.promptId == journalEntry.promptId {
+            self.todayEntry = todayEntry
+        }
+        
         self.journalEntries[index] = journalEntry
     }
     

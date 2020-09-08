@@ -15,7 +15,7 @@ class ReflectContentViewController: PromptContentViewController {
     @IBOutlet weak var reflectionTextView: UITextView!
     @IBOutlet weak var sharedNoteStackView: UIStackView!
     @IBOutlet weak var elementAnimationWebView: CactusElementWebView!
-    var reflectLogger = Logger(fileName: "ReflectionContentViewController")
+    var reflectLogger = Logger(fileName: "ReflectContentViewController")
     var player: AVPlayer!
 //    var reflectionResponse: ReflectionResponse? {
 //        didSet {
@@ -29,16 +29,20 @@ class ReflectContentViewController: PromptContentViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let promptId = self.promptContent.promptId, self.reflectionResponse == nil {
-            let question = self.promptContent.getQuestion()
-            let element = self.promptContent.cactusElement
-            self.reflectionResponse = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: question, element: element, medium: .PROMPT_IOS)
-        }
+        self.createReflectionIfNeeded()
         self.initializeView()
         self.configureView()
         self.createAnimation()
     }
    
+    func createReflectionIfNeeded() {
+        if let promptId = self.promptContent.promptId, self.reflectionResponse == nil {
+            let question = self.promptContent.getQuestion()
+            let element = self.promptContent.cactusElement
+            self.reflectionResponse = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: question, element: element, medium: .PROMPT_IOS)
+        }
+    }
+    
     func getQuestionMarkdownString() -> String? {
         return self.content.getDisplayText(member: self.member, preferredIndex: self.promptContent.preferredCoreValueIndex, response: self.reflectionResponse)
     }
@@ -99,6 +103,7 @@ class ReflectContentViewController: PromptContentViewController {
     func saveResponse(nextPageOnSuccess: Bool=true, silent: Bool = false, _ completion: ((ReflectionResponse?, Any?) -> Void)?=nil) {
         //Note: The text must be set on the ReflectionResponse object, we will not grab it from the text input here.
         self.reflectLogger.debug("saving response...")
+        
         guard let response = self.reflectionResponse else {
             self.reflectLogger.warn("No reflection Response found on the ReflectContentCardViewControler. Unable to save the response")
             completion?(nil, "No reflection response was found")

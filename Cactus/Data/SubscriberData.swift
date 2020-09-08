@@ -26,13 +26,14 @@ class SubscriberData: ObservableObject {
     
     let logger = Logger("SubscriberData")
     
-    init(autoFetch: Bool=true) {
+    init(autoFetch: Bool=true) {        
         if autoFetch {
             self.fetch()
         }
     }
     
     func fetch() {
+        self.logger.info("Fetching new data")
         DispatchQueue.main.async {
             self.detailsLoaded = false
             self.purchaserInfoLoaded = false

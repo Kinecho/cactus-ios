@@ -30,8 +30,23 @@ struct PromptContentController: UIViewControllerRepresentable {
         uiViewController.member = session.member
         uiViewController.appSettings = session.settings
         uiViewController.promptContent = self.entry.promptContent
-        uiViewController.reflectionResponse = self.entry.responses?.first
+        uiViewController.reflectionResponse = uiViewController.reflectionResponse ?? self.getOrCreateReflectionResponseIfNeeded()
 //        uiViewController.view.backgroundColor = CactusColor.background
+    }
+    
+    func getOrCreateReflectionResponseIfNeeded() -> ReflectionResponse? {
+        //set up the reflection response if it didn't exist yet
+        if let existing = self.entry.responses?.first {
+            return existing
+        }
+                
+        if let promptId = self.entry.promptContent?.promptId, self.entry.responses?.first == nil {
+            let question = self.entry.promptContent?.getQuestion()
+            let element = self.entry.promptContent?.cactusElement
+            let reflectionResponse = ReflectionResponseService.sharedInstance.createReflectionResponse(promptId, promptQuestion: question, element: element, medium: .PROMPT_IOS)
+            return reflectionResponse
+        }
+        return nil
     }
     
     class Coordinator: PromptContentPageViewControllerDelegate {
