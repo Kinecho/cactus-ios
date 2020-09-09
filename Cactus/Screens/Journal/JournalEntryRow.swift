@@ -10,26 +10,14 @@ import SwiftUI
 import URLImage
 
 struct JournalEntryRow: View {
-    enum CurrentSheet: Identifiable {
-        case editNote(JournalEntry)
-        
-        var id: Int {
-            switch self {
-            case .editNote:
-                return 0
-            }
-        }
-    }
-    
     @EnvironmentObject var session: SessionStore
     @State var showMoreActions = false
-    @State var showEditNote = false
-    @State var currentSheet: CurrentSheet?
-    
     /// Mark: Props
     var entry: JournalEntry
     var index: Int = 0
     var showDetails: ((JournalEntry) -> Void)?
+    var showEditNote: ((JournalEntry) -> Void)?
+    
     var inlineImage: Bool = false
     var backgroundColor: Color = NamedColor.CardBackground.color
     var textColor: Color = NamedColor.TextDefault.color
@@ -55,19 +43,6 @@ struct JournalEntryRow: View {
         return entry.responsesLoaded && !isBlank(entry.responseText)
     }
     
-    func getSheetView(_ item: CurrentSheet) -> some View {
-        switch item {
-        case .editNote(let entry):
-            return EditNoteView(entry: entry, onDone: {
-                self.logger.info("Closed reflection")
-                self.showEditNote = false
-            }, onCancel: {
-                self.logger.info("Cancel")
-                self.showEditNote = false
-            }).environmentObject(self.session)
-        }
-    }
-    
     var moreMenu: ActionSheet {
         var buttons: [Alert.Button] = [
             .cancel(Text("Cancel")),
@@ -83,7 +58,8 @@ struct JournalEntryRow: View {
             let buttonLabel = self.entry.hasNote ? "Edit Note" : "Add Note"
             buttons.append(
                 .default(Text(buttonLabel), action: {
-                    self.currentSheet = .editNote(self.entry)
+                    
+                    self.showEditNote?(self.entry)
                 }))
         }
         
@@ -103,8 +79,8 @@ struct JournalEntryRow: View {
                     Spacer().animation(nil)
                     MoreActionsButton(active: self.$showMoreActions, color: self.textColor)                    
                 }
-                Group {
-                    if self.hasResponse {
+                Group {                    
+                    if self.hasResponse || self.entry.responseText?.isEmpty == false {
                         JournalEntryWithNote(entry: self.entry, textColor: self.textColor)
                     } else {
                         JournalEntryNoNote(entry: self.entry, textColor: self.textColor)
@@ -164,9 +140,6 @@ struct JournalEntryRow: View {
                         }
                     }
                 }) })
-        .sheet(item: self.$currentSheet) { item in
-            self.getSheetView(item)
-        }
         .actionSheet(isPresented: self.$showMoreActions) {
             self.moreMenu
         }

@@ -23,6 +23,7 @@ struct JournalFeed: View {
     enum CurrentSheet: Identifiable {
         case notificationOnboarding
         case promptDetail(JournalEntry)
+        case editNote(JournalEntry)
         
         var id: Int {
             switch self {
@@ -30,6 +31,8 @@ struct JournalFeed: View {
                 return 0
             case .promptDetail:
                 return 1
+            case .editNote:
+                return 2
             }
         }
         
@@ -68,8 +71,8 @@ struct JournalFeed: View {
         }
     }
     
-    func onPromptDismiss(_ promptContent: PromptContent) {
-        Logger.shared.info("Parent on dismiss for emtry \(promptContent.entryId ?? "no id")")
+    func onPromptDismiss(_ promptContent: PromptContent?) {
+        Logger.shared.info("Parent on dismiss for emtry \(promptContent?.entryId ?? "no id")")
         self.currentSheet = nil
         self.selectedEntry = nil
         self.presentPermissionsOnboardingIfNeeded()
@@ -122,6 +125,13 @@ struct JournalFeed: View {
                 .environmentObject(self.session)
                 .environmentObject(self.checkout)
                 .eraseToAnyView()
+        case .editNote(let entry):
+            return EditNoteView(entry: entry, onDone: {
+                self.onPromptDismiss(nil)
+            }, onCancel: {
+                self.onPromptDismiss(nil)
+            }).environmentObject(self.session)
+            .eraseToAnyView()
         }
     }
     
@@ -145,7 +155,10 @@ struct JournalFeed: View {
                     JournalEntryRow(
                         entry: entry,
                         index: self.entries.firstIndex(of: entry) ?? 0,
-                        showDetails: self.handleEntrySelected
+                        showDetails: self.handleEntrySelected,
+                        showEditNote: {entry in
+                            self.currentSheet = .editNote(entry)
+                        }
                     )
                     .fixedSize(horizontal: false, vertical: true)
                     .onAppear { self.onEntryAppeared(entry) }

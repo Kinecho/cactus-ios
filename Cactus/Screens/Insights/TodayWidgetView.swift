@@ -38,9 +38,10 @@ struct TodayEntryNotFoundView: View {
 struct TodayWidgetView: View {
     @EnvironmentObject var session: SessionStore
     var onTapped: ((JournalEntry) -> Void)?
+    var onEditNote: ((JournalEntry) -> Void)?
     
     @State var isAnimating: Bool = false
-    
+    let logger = Logger("TodayWidgetView")
     let textColor: Color = NamedColor.White.color
     
     var todayEntry: JournalEntry? {
@@ -56,10 +57,14 @@ struct TodayWidgetView: View {
     }
     
     func getLoadedWidgetBody(_ entry: JournalEntry) -> some View {
+        self.logger.debug("Entry Response Text is \(entry.responseText ?? "--")")
         return JournalEntryRow(
             entry: entry,
             showDetails: {entry in
                 self.onTapped?(entry)
+            },
+            showEditNote: {entry in
+                self.onEditNote?(entry)
             },
             inlineImage: true,
             backgroundColor: .clear,
@@ -107,8 +112,8 @@ struct TodayWidgetView: View {
     
     var body: some View {
         Group {
-            if self.todayEntry != nil {
-                self.getLoadedWidgetBody(self.todayEntry!)
+            if self.session.todayEntry != nil {
+                self.getLoadedWidgetBody(self.session.todayEntry!)
             } else if self.todayEntryLoaded {
                 TodayEntryNotFoundView(textColor: self.textColor)
             } else {

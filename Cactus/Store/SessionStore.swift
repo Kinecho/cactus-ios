@@ -159,9 +159,9 @@ extension SessionStore: JournalFeedDataSourceDelegate {
             return
         }
         
-        if let todayEntry = self.todayEntry, todayEntry.promptId == journalEntry.promptId {
-            self.todayEntry = todayEntry
-        }
+//        if let todayEntry = self.todayEntry, todayEntry.promptId == journalEntry.promptId {
+//            self.todayEntry = todayEntry
+//        }
         
         self.journalEntries[index] = journalEntry
     }

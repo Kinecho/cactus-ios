@@ -14,6 +14,7 @@ import NoveFeatherIcons
 struct InsightsHome: View {
     enum CurrentSheet: Identifiable {
         case promptDetails(JournalEntry)
+        case editNote(JournalEntry)
         case coreValuesAssessment
         
         var id: Int {
@@ -22,7 +23,10 @@ struct InsightsHome: View {
                 return 1
             case .coreValuesAssessment:
                 return 2
+            case .editNote:
+                return 3
             }
+            
         }
     }
     
@@ -68,10 +72,14 @@ struct InsightsHome: View {
                 self.currentSheet = nil
             })
             .eraseToAnyView()
-//        default:
-//            return NoContentErrorView()
-//                .eraseToAnyView()
-//        }
+        
+        case .editNote(let entry):
+            return EditNoteView(entry: entry, onDone: {
+                self.currentSheet = nil
+            }, onCancel: {
+                self.currentSheet = nil
+            }).environmentObject(self.session)
+            .eraseToAnyView()
         }
     }
     
@@ -84,9 +92,11 @@ struct InsightsHome: View {
                         /// End Stats HScroll View
                         
                         /// Start padded content group
-                        VStack(alignment: .leading, spacing: Spacing.normal) {
+                        VStack(alignment: .leading, spacing: Spacing.normal) {                            
                             TodayWidgetView(onTapped: { entry in
                                 self.currentSheet = .promptDetails(entry)
+                            }, onEditNote: { entry in
+                                self.currentSheet = .editNote(entry)
                             }).fixedSize(horizontal: false, vertical: true)
                         
                             if self.session.member?.wordCloud?.isEmpty == false {

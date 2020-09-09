@@ -11,8 +11,9 @@ import SwiftUI
 struct JournalEntryWithNote: View {
     var entry: JournalEntry
     var textColor: Color = NamedColor.TextDefault.color
+    let time = Date().timeIntervalSince1970 //adding this is a hack to get the response text to update correctly. Ugh. 
     var responseText: String? {
-        return entry.responseText
+        return self.entry.responseText
     }
     
     var body: some View {
@@ -25,8 +26,8 @@ struct JournalEntryWithNote: View {
                 .fixedSize(horizontal: false, vertical: true)
             }
             
-            if !isBlank(self.responseText) {
-                Text(self.responseText!)
+            if self.entry.responseText?.isEmpty == false {
+                Text(self.entry.responseText ?? "")
                     .multilineTextAlignment(.leading)
                     .font(Font(CactusFont.normal))
                     .foregroundColor(self.textColor)
@@ -60,16 +61,17 @@ struct JournalEntryWithNote_Previews: PreviewProvider {
         (entry: MockData.getAnsweredEntryShort(blob: 4), name: "Short Response"),
         (entry: MockData.EntryBuilder(question: nil, answer: nil, blob: 5).build(), name: "No Question"),
     ]
-    
-    
+     
     static var previews: some View {
-        ForEach(self.rowData, id: \.entry.id) { data in
-            List {
-                JournalEntryWithNote(entry: data.entry).environmentObject(SessionStore.mockLoggedIn())
+        Group {            
+            ForEach(self.rowData, id: \.entry.id) { data in
+                List {
+                    JournalEntryWithNote(entry: data.entry).environmentObject(SessionStore.mockLoggedIn())
+                }
+                .previewDisplayName(data.name)
+                .previewLayout(.fixed(width: 400, height: 450))
+                
             }
-            .previewDisplayName(data.name)
-            .previewLayout(.fixed(width: 400, height: 450))
-            
         }
     }
 }
